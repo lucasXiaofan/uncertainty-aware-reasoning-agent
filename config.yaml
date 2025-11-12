@@ -1,0 +1,31 @@
+# Agent Configuration
+agent:
+  type: "dspy_react"
+  model: "gpt-4o-mini"
+  temperature: 0.7
+  max_tokens: 2000
+  max_iterations: 5
+
+# Benchmark Configuration
+benchmarks:
+  agentclinic:
+    enabled: false
+    path: "./benchmarks/AgentClinic"
+  mediq:
+    enabled: false
+    path: "./benchmarks/mediQ"
+  healthbench:
+    enabled: false
+    path: "./benchmarks/simple-evals"
+  maque:
+    enabled: false
+    path: null  # No public repo yet
+
+# Evaluation Configuration
+evaluation:
+  output_dir: "./results"
+  save_intermediate: true
+  metrics:
+    - accuracy
+    - confidence
+    - num_interactions

@@ -1,0 +1,20 @@
+# Core dependencies
+dspy-ai>=2.5.0
+openai>=1.0.0
+python-dotenv>=1.0.0
+
+# Benchmark dependencies (install separately as needed)
+# AgentClinic: pip install git+https://github.com/SamuelSchmidgall/AgentClinic.git
+# MediQ: pip install git+https://github.com/stellalisy/mediQ.git
+# HealthBench: pip install git+https://github.com/openai/simple-evals.git
+
+# Utilities
+pydantic>=2.0.0
+pyyaml>=6.0
+tqdm>=4.65.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Development
+pytest>=7.4.0
+black>=23.0.0
