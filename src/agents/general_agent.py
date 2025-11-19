@@ -20,131 +20,6 @@ client = OpenAI(
 # Define tools using OpenAI function calling format
 
 
-class ReActAgent:
-    """ReAct agent using proper OpenAI tool calling API."""
-
-    def __init__(self, model_name, max_iterations=15, verbose=True, system_message=None, message_log_file=None):
-        self.max_iterations = max_iterations
-        self.model_name = model_name
-        self.verbose = verbose
-        self.tools = [bash_tool, think_tool, brave_search_tool]
-
-        # Set default log file if none provided
-        if message_log_file is None:
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            log_dir = Path("logs")
-            log_dir.mkdir(parents=True, exist_ok=True)
-            self.message_log_file = str(log_dir / f"react_agent_messages_{timestamp}.jsonl")
-        else:
-            self.message_log_file = message_log_file
-
-        self.system_message = system_message or """You are a helpful assistant with access to bash commands on macOS and web search.
-
-Use the bash_command tool to execute shell commands.
-Use the brave_search tool to search the web for information.
-Use the think tool when you need to reason about your approach.
-
-When the task is complete, provide a final text response (don't call any tools)."""
-
-        # Print log file location
-        if self.verbose:
-            print(f"📝 Saving agent messages to: {self.message_log_file}")
-
-    def _save_messages(self, messages, iteration=None, status="in_progress"):
-        """Save messages to log file."""
-        if not self.message_log_file:
-            return
-
-        log_entry = {
-            "timestamp": datetime.now().isoformat(),
-            "iteration": iteration,
-            "status": status,
-            "model": self.model_name,
-            "messages": messages
-        }
-
-        # Append to file
-        with open(self.message_log_file, 'a') as f:
-            f.write(json.dumps(log_entry, default=str) + '\n')
-
-    def run(self, task: str) -> str:
-        """
-        Run the ReAct agent on a task using tool calling.
-        
-        Args:
-            task: The task description
-            
-        Returns:
-            The final answer or result
-        """
-        messages = [
-            {"role": "system", "content": self.system_message},
-            {"role": "user", "content": task}
-        ]
-        
-        for iteration in range(self.max_iterations):
-            if self.verbose:
-                print(f"\n{'='*60}")
-                print(f"ITERATION {iteration + 1}")
-                print(f"{'='*60}")
-            
-            # Get LLM response with tools
-            response = client.chat.completions.create(
-                model=self.model_name,
-                messages=messages,
-                tools=self.tools,
-                temperature=0
-            )
-            
-            msg = response.choices[0].message
-            messages.append(msg)
-            
-            # Check if assistant made tool calls
-            if msg.tool_calls:
-                if self.verbose:
-                    print(f"Type: TOOL_CALL")
-                    print(f"Assistant wants to use {len(msg.tool_calls)} tool(s):")
-                
-                # Execute each tool
-                for tool_call in msg.tool_calls:
-                    name = tool_call.function.name
-                    args = json.loads(tool_call.function.arguments)
-                    
-                    if self.verbose:
-                        print(f"\n  Tool: {name}")
-                        print(f"  Args: {json.dumps(args, indent=8)}")
-                    
-                    result = execute_tool(name, args)
-                    
-                    if self.verbose:
-                        print(f"  Result: {result}")
-                    
-                    # Add tool result to messages
-                    messages.append({
-                        "role": "tool",
-                        "tool_call_id": tool_call.id,
-                        "content": str(result)
-                    })
-            else:
-                # Final text response - agent is done
-                if self.verbose:
-                    print(f"Type: TEXT_RESPONSE")
-                    print(f"Content: {msg.content}")
-                self._save_messages(messages, iteration=iteration+1, status="completed")
-                return msg.content
-
-            # Save messages after each iteration
-            self._save_messages(messages, iteration=iteration+1, status="in_progress")
-
-        if self.verbose:
-            print(f"\n{'='*60}")
-            print("MAX ITERATIONS REACHED")
-            print(f"{'='*60}")
-
-        self._save_messages(messages, iteration=self.max_iterations, status="max_iterations_reached")
-        return f"[ERROR]: Max iterations ({self.max_iterations}) reached without completing task"
-
-
 class UncertaintyAgent:
     """Agent that evaluates uncertainty and decides if there's enough information to make a diagnosis."""
 
@@ -277,12 +152,17 @@ Be systematic and evidence-based. Use tools iteratively before making final deci
                 # Execute each tool
                 for tool_call in msg.tool_calls:
                     name = tool_call.function.name
-                    args = json.loads(tool_call.function.arguments)
+                    try:
+                        args = json.loads(tool_call.function.arguments)
+                        if self.verbose:
+                            print(f"\n  🔧 Tool: {name}")
+                        tool_result = execute_tool(name, args)
+                    except json.JSONDecodeError as e:
+                        error_msg = f"Error: Failed to parse tool arguments. Invalid JSON format: {e}. Raw arguments: {tool_call.function.arguments}"
+                        if self.verbose:
+                            print(f"\n  ❌ Tool Error: {error_msg}")
+                        tool_result = error_msg
 
-                    if self.verbose:
-                        print(f"\n  🔧 Tool: {name}")
-
-                    tool_result = execute_tool(name, args)
                     if name in ['ask_question','make_choice']:
                         if self.verbose:
                             print(f"\n{'='*60}")

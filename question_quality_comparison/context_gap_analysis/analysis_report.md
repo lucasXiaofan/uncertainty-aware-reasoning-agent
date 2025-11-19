@@ -83,3 +83,61 @@ An analysis was performed to check if either method gets "stuck" asking the same
 
 **Conclusion:**
 The **UncertaintyAwareExpert** is the superior method. It correctly balances **knowing when to answer immediately** (saving user effort) and **knowing when to ask for specific, high-value evidence** (improving accuracy). ScaleExpert struggles to effectively utilize the interactive capability to improve its diagnosis.
+
+---
+
+# Analysis Report: Context Gap & Question Quality Comparison (Added 2025-11-18)
+
+## Overview
+This report compares the performance of three agents on a set of 14 "hard" medical cases. The agents analyzed are:
+1.  **MediQ ScaleEx** (`mediq_scaleex_14hard.jsonl`)
+2.  **Single Agent** (`single_agent_14_hard.jsonl`)
+3.  **Agent No Online Search** (`agent_no_online_search.jsonl`)
+
+The analysis focuses on the amount of context gathered, the validity of questions asked, and the overall effectiveness in reaching the correct diagnosis.
+
+## 1. Context Gathered Analysis
+
+This metric measures the total amount of text available to the agent for decision-making, combining the initial case description and the information elicited from the patient via questions.
+
+| Agent | Initial Info Length (chars) | Patient Answer Length (chars) | **Total Context Length (chars)** |
+| :--- | :---: | :---: | :---: |
+| **MediQ ScaleEx** | 1410 | 993 | 2403 |
+| **Single Agent** | 1410 | **1843** | **3253** |
+| **Agent No Online Search** | 1410 | 1736 | 3146 |
+
+*   **Observation**: All agents started with the same initial information. However, the **Single Agent** gathered the most additional context from the patient (1843 chars), followed closely by the **Agent No Online Search**. **MediQ ScaleEx** gathered significantly less information from the patient.
+
+## 2. Question Quality Analysis
+
+This section evaluates the agents' ability to ask "valid" questions—questions that the patient could actually answer (i.e., not resulting in "The patient cannot answer this question...").
+
+| Agent | Total Questions Asked | Valid Questions | Valid Question Ratio |
+| :--- | :---: | :---: | :---: |
+| **MediQ ScaleEx** | 28 | 11 | **39.3%** |
+| **Single Agent** | 35 | 11 | 31.4% |
+| **Agent No Online Search** | 34 | 11 | 32.4% |
+
+*   **Observation**: Interestingly, **all three agents successfully asked exactly 11 valid questions** across the 14 cases.
+*   **MediQ ScaleEx** had the highest "efficiency" (39.3%) in terms of valid question ratio, meaning it wasted fewer turns on unanswerable questions, but as seen in section 1, these questions elicited shorter answers.
+*   **Single Agent** and **Agent No Online Search** asked more questions in total to get the same number of valid responses, indicating they might be more persistent or exploratory, but also more prone to asking about missing information.
+
+## 3. Effectiveness & Conclusion
+
+This section correlates the information gathered with the final outcome (correct diagnosis).
+
+| Agent | Total Correct (out of 14) | Accuracy |
+| :--- | :---: | :---: |
+| **MediQ ScaleEx** | 1 | 7.1% |
+| **Single Agent** | **8** | **57.1%** |
+| **Agent No Online Search** | 6 | 42.9% |
+
+### Conclusion: Which Agent is Best?
+
+*   **Most Effective Questions**: **Single Agent**.
+    *   Even though all agents obtained 11 valid answers, the **Single Agent's** questions elicited the most detailed responses (1843 chars vs 993 for ScaleEx). This suggests the *quality* and *depth* of the questions were superior, prompting the patient to reveal more relevant details.
+*   **Most Information Gathered**: **Single Agent** (3253 total characters).
+*   **Best Choice Maker**: **Single Agent**.
+    *   With the highest accuracy of **57.1%** (8/14 correct), the Single Agent demonstrated that it could best utilize the gathered information to reach the correct conclusion.
+
+**Summary**: The **Single Agent** is the clear winner. It balances information gathering with decision-making effectiveness. While it asked more invalid questions than ScaleEx, the valid questions it *did* ask were far more productive, yielding nearly double the amount of patient information compared to ScaleEx, which directly translated into a significantly higher success rate.

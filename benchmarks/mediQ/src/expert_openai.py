@@ -18,6 +18,13 @@ except ImportError as e:
     UNCERTAINTY_AGENT_AVAILABLE = False
     print(f"Warning: Could not import UncertaintyAgent: {e}")
 
+try:
+    from multi_agent import Agent as MultiAgent
+    MULTI_AGENT_AVAILABLE = True
+except ImportError as e:
+    MULTI_AGENT_AVAILABLE = False
+    print(f"Warning: Could not import MultiAgent: {e}")
+
 class Expert:
     """
     Expert system skeleton
@@ -297,7 +304,10 @@ class UncertaintyAwareExpert(Expert):
                 self.client = OpenAI(api_key=api_key)
 
         # Initialize UncertaintyAgent with tools
+        # print(f"what is the model name: {args.expert_model}")
         self.uncertainty_agent = UncertaintyAgent(
+            # TODO: change this to args.expert_model, now is hard coded to deepseek for experiment purpose
+            # model_name="deepseek-chat",
             model_name=args.expert_model,
             client=self.client,
             verbose=False,  # Set to True for debugging
@@ -376,10 +386,15 @@ Be systematic and evidence-based in your reasoning."""
 
         if result["type"] == "choice":
             # Agent made a diagnosis
+            try:
+                confidence = float(result["confidence"]) / 100.0
+            except (ValueError, TypeError):
+                confidence = None
+
             return {
                 "type": "choice",
                 "letter_choice": result["letter_choice"],
-                "confidence": float(result["confidence"]) / 100.0,  # Convert to 0-1 scale
+                "confidence": confidence,  # Convert to 0-1 scale
                 "usage": result.get("usage", {"input_tokens": 0, "output_tokens": 0}),
                 "reasoning": "Uncertainty-aware agent confident in diagnosis"
             }
@@ -390,11 +405,16 @@ Be systematic and evidence-based in your reasoning."""
             # Default to 'A' if no diagnosis provided
             intermediate_choice = result.get("letter_choice", "A")
 
+            try:
+                confidence = float(result.get("confidence", 50)) / 100.0
+            except (ValueError, TypeError):
+                confidence = None
+
             return {
                 "type": "question",
                 "question": result["question"],
                 "letter_choice": intermediate_choice,
-                "confidence": float(result.get("confidence", 50)) / 100.0,  # Convert to 0-1 scale
+                "confidence": confidence,  # Convert to 0-1 scale
                 "usage": result.get("usage", {"input_tokens": 0, "output_tokens": 0}),
                 "reasoning": "Need more information to confidently diagnose"
             }
@@ -408,5 +428,185 @@ Be systematic and evidence-based in your reasoning."""
                 "usage": {"input_tokens": 0, "output_tokens": 0},
                 "error": "Unexpected agent output format"
             }
+
+
+class MultiAgentExpert(Expert):
+    """
+    Multi-agent expert that uses three specialized agents:
+    1. Uncertainty Evaluator: Analyzes what info we know/need
+    2. Discriminator: Generates strategic questions
+    3. Decision Maker: Makes final diagnosis
+
+    Uses the multi-agent system from src/agents/multi_agent.py
+    """
+
+    def __init__(self, args, inquiry, options):
+        super().__init__(args, inquiry, options)
+
+        if not MULTI_AGENT_AVAILABLE:
+            raise ImportError(
+                "MultiAgent not available. Make sure src/agents/multi_agent.py "
+                "and src/agents/agent.yaml are accessible."
+            )
+
+        # Load environment
+        load_dotenv()
+
+        # Initialize the three agents
+        self.uncertainty_agent = MultiAgent("uncertainty_evaluator")
+        self.discriminator_agent = MultiAgent("discriminator")
+        self.decision_agent = MultiAgent("decision_maker")
+
+        # Track episode for logging
+        from datetime import datetime
+        self.episode_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        # Track cumulative token usage for this episode
+        self.total_usage = {"input_tokens": 0, "output_tokens": 0}
+
+    def respond(self, patient_state):
+        """
+        Use multi-agent system to decide whether to ask a question or make a diagnosis.
+
+        Args:
+            patient_state: Dict with 'initial_info' and 'interaction_history'
+
+        Returns:
+            Dict with 'type', 'question'/'letter_choice', 'confidence', 'usage'
+        """
+        import json
+
+        initial_info = patient_state['initial_info']
+        history = patient_state['interaction_history']
+
+        # Build conversation text
+        conversation = [initial_info]
+        if history:
+            for i, qa in enumerate(history):
+                conversation.append(f"Q{i+1}: {qa['question']}")
+                conversation.append(f"A{i+1}: {qa['answer']}")
+
+        # Format options
+        options_text = "\n".join([f"{k}: {v}" for k, v in self.options.items()])
+
+        # Create context for uncertainty evaluator
+        context = f"""{initial_info}
+
+Conversation History:
+{chr(10).join(conversation[1:]) if len(conversation) > 1 else 'No questions asked yet.'}
+
+Diagnostic Question: {self.inquiry}
+
+Options:
+{options_text}"""
+
+        # Step 1: Run uncertainty evaluator
+        unc_result = self.uncertainty_agent.run(context, episode_id=self.episode_id)
+
+        # Track token usage
+        if "total_tokens" in unc_result:
+            self.total_usage["input_tokens"] += unc_result["total_tokens"].get("input", 0)
+            self.total_usage["output_tokens"] += unc_result["total_tokens"].get("output", 0)
+
+        if unc_result["type"] != "terminal":
+            # Fallback if something went wrong
+            return {
+                "type": "choice",
+                "letter_choice": "F",
+                "confidence": 0.25,
+                "usage": self.total_usage,
+                "error": "Uncertainty agent did not return terminal result"
+            }
+
+        eval_data = unc_result["args"]
+
+        # Extract best-guess diagnosis from uncertainty agent (always available as fallback)
+        unc_letter_choice = eval_data.get('letter_choice', 'F')
+        unc_confidence = eval_data.get('confidence', 50)
+
+        # Step 2: Check if we have enough info
+        if eval_data['has_enough_info']:
+            # Go to decision maker
+            dec_result = self.decision_agent.run(context, episode_id=self.episode_id)
+
+            # Track token usage
+            if "total_tokens" in dec_result:
+                self.total_usage["input_tokens"] += dec_result["total_tokens"].get("input", 0)
+                self.total_usage["output_tokens"] += dec_result["total_tokens"].get("output", 0)
+
+            if dec_result["type"] == "terminal":
+                final = dec_result["args"]
+                try:
+                    confidence = float(final.get('confidence', 80)) / 100.0
+                except (ValueError, TypeError):
+                    confidence = 0.8
+
+                return {
+                    "type": "choice",
+                    "letter_choice": final['letter_choice'],
+                    "confidence": confidence,
+                    "usage": self.total_usage,
+                    "reasoning": final.get('reasoning', 'Multi-agent confident in diagnosis')
+                }
+            else:
+                # Fallback if decision agent failed - use uncertainty agent's choice
+                try:
+                    confidence = float(unc_confidence) / 100.0
+                except (ValueError, TypeError):
+                    confidence = 0.5
+
+                return {
+                    "type": "choice",
+                    "letter_choice": unc_letter_choice,
+                    "confidence": confidence,
+                    "usage": self.total_usage,
+                    "reasoning": "Using uncertainty agent's best guess (decision agent failed)"
+                }
+
+        # Step 3: Not enough info, ask a question via discriminator
+        disc_input = f"""Known Information: {json.dumps(eval_data['known_info'])}
+Missing Information: {json.dumps(eval_data['missing_info'])}
+
+Conversation History:
+{chr(10).join(conversation[1:]) if len(conversation) > 1 else 'No questions asked yet.'}
+
+Formulate your question based on this context."""
+
+        disc_result = self.discriminator_agent.run(disc_input, episode_id=self.episode_id)
+
+        # Track token usage
+        if "total_tokens" in disc_result:
+            self.total_usage["input_tokens"] += disc_result["total_tokens"].get("input", 0)
+            self.total_usage["output_tokens"] += disc_result["total_tokens"].get("output", 0)
+
+        if disc_result["type"] == "terminal":
+            question_data = disc_result["args"]
+            try:
+                confidence = float(question_data.get('confidence', 50)) / 100.0
+            except (ValueError, TypeError):
+                confidence = 0.5
+
+            return {
+                "type": "question",
+                "question": question_data["question"],
+                "letter_choice": unc_letter_choice,  # Use uncertainty agent's best guess
+                "confidence": confidence,
+                "usage": self.total_usage,
+                "reasoning": question_data.get('reasoning', 'Need more information')
+            }
+
+        # Fallback - use uncertainty agent's best guess
+        try:
+            confidence = float(unc_confidence) / 100.0
+        except (ValueError, TypeError):
+            confidence = 0.25
+
+        return {
+            "type": "choice",
+            "letter_choice": unc_letter_choice,
+            "confidence": confidence,
+            "usage": self.total_usage,
+            "error": "Could not generate question or decision (using uncertainty agent fallback)"
+        }
 
 

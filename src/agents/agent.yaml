@@ -1,0 +1,157 @@
+model:
+  openrouter: "deepseek/deepseek-chat-v3"
+  deepseek: "deepseek-chat"
+tools:
+  # bash_command:
+  #   type: "function"
+  #   function:
+  #     name: "bash_command"
+  #     description: "Execute bash commands."
+  #     parameters:
+  #       type: "object"
+  #       properties:
+  #         command: {type: "string", description: "Command to execute"}
+  #       required: ["command"]
+
+  think:
+    type: "function"
+    function:
+      name: "think"
+      description: "Internal reasoning."
+      parameters:
+        type: "object"
+        properties:
+          thought: {type: "string", description: "Your thought content"}
+        required: ["thought"]
+
+  brave_search:
+    type: "function"
+    function:
+      name: "brave_search"
+      description: "Search the web."
+      parameters:
+        type: "object"
+        properties:
+          query: {type: "string"}
+          count: {type: "integer", default: 10}
+        required: ["query"]
+
+  ask_question:
+    type: "function"
+    function:
+      name: "ask_question"
+      description: "Ask patient a targeted question. TERMINAL action."
+      parameters:
+        type: "object"
+        properties:
+          question: {type: "string"}
+          confidence: {type: "number"}
+          reasoning: {type: "string"}
+        required: ["question", "confidence", "reasoning"]
+
+  make_choice:
+    type: "function"
+    function:
+      name: "make_choice"
+      description: "Make final diagnosis. TERMINAL action."
+      parameters:
+        type: "object"
+        properties:
+          letter_choice: {type: "string", enum: ["A", "B", "C", "D"]}
+          confidence: {type: "number"}
+          reasoning: {type: "string"}
+        required: ["letter_choice", "confidence", "reasoning"]
+
+  submit_evaluation:
+    type: "function"
+    function:
+      name: "submit_evaluation"
+      description: "Submit uncertainty evaluation result. TERMINAL action."
+      parameters:
+        type: "object"
+        properties:
+          known_info:
+            type: "array"
+            items: {type: "string"}
+            description: "List of confirmed facts"
+          missing_info:
+            type: "array"
+            items: {type: "string"}
+            description: "List of critical unknowns"
+          has_enough_info:
+            type: "boolean"
+            description: "Whether we have enough information"
+          letter_choice:
+            type: "string"
+            enum: ["A", "B", "C", "D", "E", "F"]
+            description: "Best-guess diagnosis based on current information"
+          confidence:
+            type: "number"
+            description: "Confidence in the letter_choice (0-100)"
+          reasoning:
+            type: "string"
+            description: "Brief explanation"
+        required: ["known_info", "missing_info", "has_enough_info", "letter_choice", "confidence", "reasoning"]
+
+agents:
+  # --- AGENT 1: The Brain (Uncertainty Evaluator) ---
+  uncertainty_evaluator:
+    model: "deepseek-chat"
+    temperature: 0.1
+    tools: ["brave_search", "think", "submit_evaluation"]
+    memory_file: "memories/clinical_guidelines.md"
+    inputs: ["Full_Conversation_History"]
+    system_prompt: |
+      You are a Clinical Uncertainty Evaluator.
+      Input: Full conversation history between Doctor and Patient.
+
+      Task:
+      1. Extract ALL confirmed 'Known Information' (Symptoms, Timeline, Negatives).
+      2. Search online (if needed) to determine the specific distinguishing features for the potential diagnoses.
+      3. Identify 'Missing Information' critical for differential diagnosis.
+      4. Make a Binary Decision: Do we have enough evidence to be >80% sure?
+      5. Provide your BEST-GUESS diagnosis (letter choice A/B/C/D/E/F) based on current information, even if uncertain.
+      6. Use the submit_evaluation tool to output your evaluation.
+
+      Important:
+      - You MUST call submit_evaluation with your analysis when complete
+      - You MUST provide a letter_choice (your best guess) even if you need more information
+      - Your letter_choice should be your most likely diagnosis given current evidence
+
+  # --- AGENT 2: The Tactician (Discriminator/Questioner) ---
+  discriminator:
+    model: "deepseek-chat"
+    temperature: 0.4
+    tools: ["think",'ask_question']
+    inputs: ["Missing_Info_List", "Known_Info_List", "Conversation_History"]
+    system_prompt: |
+      You are a Diagnostic Strategist.
+      Input:
+      - 'Known Information': Facts already confirmed about the patient
+      - 'Missing Information': Critical unknowns needed for diagnosis
+      - 'Conversation History': Previous questions and answers with the patient
+
+      Task:
+      Formulate ONE effective question to ask the patient.
+
+      Rules:
+      1. DO NOT ask about information already in the Known Info list
+      2. DO NOT repeat or rephrase questions from the Conversation History
+      3. Prioritize the most discriminating information from the Missing Info list
+      4. You CAN combine 2-3 related data points into one question (e.g., "Do you have a fever AND did it start today?")
+      5. Be polite but direct
+      6. Use the 'ask_question' tool to submit your question with confidence and reasoning
+
+      Think carefully before asking to avoid redundant questions.
+
+  # --- AGENT 3: The Closer (Decision Maker) ---
+  decision_maker:
+    model: "deepseek-chat"
+    temperature: 0.1
+    tools: ["make_choice",'think']
+    inputs: ["Full_Conversation_History", "Reasoning_from_Evaluator"]
+    system_prompt: |
+      You are a Final Diagnostic Judge.
+      Task: specific diagnosis or mechanism identification.
+      use think if needed.
+      important, must call make_choice tool to finalize the case.
