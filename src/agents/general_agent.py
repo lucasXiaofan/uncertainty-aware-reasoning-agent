@@ -16,6 +16,7 @@ client = OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 
+
 # Define tools using OpenAI function calling format
 
 

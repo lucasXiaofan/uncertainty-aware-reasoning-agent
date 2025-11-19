@@ -21,7 +21,7 @@ def write_subset(src_path: Path, dest_path: Path, limit: int) -> int:
 
 def main():
     parser = argparse.ArgumentParser(description="Run MediQ benchmark using OpenAI-compatible APIs.")
-    parser.add_argument("--num_patients", type=int, default=10, help="How many patients to evaluate.")
+    parser.add_argument("--num_patients", type=int, default=14, help="How many patients to evaluate.")
     parser.add_argument(
         "--model_name",
         type=str,
@@ -52,7 +52,7 @@ def main():
     parser.add_argument(
         "--expert_class",
         type=str,
-        default="ScaleExpert", #"ScaleExpert", UncertaintyAwareExpert
+        default="UncertaintyAwareExpert", #"ScaleExpert", UncertaintyAwareExpert
         help="Expert class to use (RareMethod1LucasVer, ScaleExpert, etc.).",
     )
     parser.add_argument(
@@ -141,7 +141,8 @@ def main():
         "--data_dir",
         str(benchmark_data_dir),
         "--dev_filename",
-        subset_path.name,
+        "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/question_quality_comparison/context_gap_analysis/success_in_full_fail_in_initial_mediq_top14.jsonl",
+        # subset_path.name,
         "--output_filename",
         str(output_file),
         "--log_filename",

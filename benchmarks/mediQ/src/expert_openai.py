@@ -301,7 +301,10 @@ class UncertaintyAwareExpert(Expert):
             model_name=args.expert_model,
             client=self.client,
             verbose=False,  # Set to True for debugging
-            tool=[think_tool, make_choice_tool, ask_question_tool, brave_search_tool],
+            # tool=[think_tool, make_choice_tool, ask_question_tool, brave_search_tool],
+            # TRY without search
+            tool=[think_tool, make_choice_tool, ask_question_tool],
+
             max_iterations=10
         )
 
@@ -376,7 +379,7 @@ Be systematic and evidence-based in your reasoning."""
             return {
                 "type": "choice",
                 "letter_choice": result["letter_choice"],
-                "confidence": result["confidence"] / 100.0,  # Convert to 0-1 scale
+                "confidence": float(result["confidence"]) / 100.0,  # Convert to 0-1 scale
                 "usage": result.get("usage", {"input_tokens": 0, "output_tokens": 0}),
                 "reasoning": "Uncertainty-aware agent confident in diagnosis"
             }
@@ -391,7 +394,7 @@ Be systematic and evidence-based in your reasoning."""
                 "type": "question",
                 "question": result["question"],
                 "letter_choice": intermediate_choice,
-                "confidence": result.get("confidence", 50) / 100.0,  # Convert to 0-1 scale
+                "confidence": float(result.get("confidence", 50)) / 100.0,  # Convert to 0-1 scale
                 "usage": result.get("usage", {"input_tokens": 0, "output_tokens": 0}),
                 "reasoning": "Need more information to confidently diagnose"
             }
