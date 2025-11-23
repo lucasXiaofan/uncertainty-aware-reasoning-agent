@@ -25,6 +25,13 @@ except ImportError as e:
     MULTI_AGENT_AVAILABLE = False
     print(f"Warning: Could not import MultiAgent: {e}")
 
+try:
+    from multi_agent_native import NativeToolAgent
+    NATIVE_AGENT_AVAILABLE = True
+except ImportError as e:
+    NATIVE_AGENT_AVAILABLE = False
+    print(f"Warning: Could not import NativeToolAgent: {e}")
+
 class Expert:
     """
     Expert system skeleton
@@ -251,88 +258,39 @@ class ScaleExpert(Expert):
 
 class UncertaintyAwareExpert(Expert):
     """
-    Uncertainty-aware expert that uses iterative tool-calling to:
-    1. Evaluate uncertainty and analyze evidence
-    2. Search for medical information when needed
-    3. Generate hypothesis-driven questions
-    4. Make diagnosis when confident (>80%)
-
-    This expert uses the UncertaintyAgent from general_agent.py which employs
-    an agentic loop with tools: thinking, search_online, ask_question, make_choice
+    Uncertainty-aware expert that uses the Universal Agent (Markdown-based tool calling).
     """
 
     def __init__(self, args, inquiry, options):
         super().__init__(args, inquiry, options)
 
-        if not UNCERTAINTY_AGENT_AVAILABLE:
+        if not MULTI_AGENT_AVAILABLE:
             raise ImportError(
-                "UncertaintyAgent not available. Make sure src/agents/general_agent.py "
-                "and src/agents/tools.py are accessible."
+                "MultiAgent not available. Make sure src/agents/multi_agent.py "
+                "and src/agents/agent.yaml are accessible."
             )
 
-        # Load environment and initialize OpenAI client for OpenRouter
+        # Load environment
         load_dotenv()
 
-        # Determine API configuration
-        api_base_url = getattr(args, 'api_base_url', None)
-        api_key_name = f"{args.api_account.upper()}_API_KEY"
-        api_key = os.getenv(api_key_name)
+        # Initialize the Universal Agent
+        self.uncertainty_agent = MultiAgent("universal_agent")
+        
+        # Override model if specified in args
+        if hasattr(args, 'expert_model') and args.expert_model:
+             self.uncertainty_agent.update_model(args.expert_model)
 
-        if not api_key:
-            raise ValueError(
-                f"API key not found: {api_key_name}. "
-                f"Please set it in your .env file."
-            )
+        # Track episode for logging
+        from datetime import datetime
+        self.episode_id = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        # Initialize client
-        if api_base_url:
-            self.client = OpenAI(api_key=api_key, base_url=api_base_url)
-        else:
-            # Default URLs for known providers
-            if args.api_account == "openrouter":
-                self.client = OpenAI(
-                    api_key=api_key,
-                    base_url="https://openrouter.ai/api/v1"
-                )
-            elif args.api_account == "deepseek":
-                self.client = OpenAI(
-                    api_key=api_key,
-                    base_url="https://api.deepseek.com"
-                )
-            else:
-                # OpenAI or other
-                self.client = OpenAI(api_key=api_key)
-
-        # Initialize UncertaintyAgent with tools
-        # print(f"what is the model name: {args.expert_model}")
-        self.uncertainty_agent = UncertaintyAgent(
-            # TODO: change this to args.expert_model, now is hard coded to deepseek for experiment purpose
-            # model_name="deepseek-chat",
-            model_name=args.expert_model,
-            client=self.client,
-            verbose=False,  # Set to True for debugging
-            # tool=[think_tool, make_choice_tool, ask_question_tool, brave_search_tool],
-            # TRY without search
-            tool=[think_tool, make_choice_tool, ask_question_tool],
-
-            max_iterations=10
-        )
-
-        # Track token usage
+        # Track cumulative token usage
         self.total_usage = {"input_tokens": 0, "output_tokens": 0}
 
     def respond(self, patient_state):
         """
-        Use uncertainty-aware agent to decide whether to ask a question or make a diagnosis.
-
-        Args:
-            patient_state: Dict with 'initial_info' and 'interaction_history'
-
-        Returns:
-            Dict with 'type', 'question'/'letter_choice', 'confidence', 'usage'
+        Use universal agent to decide whether to ask a question or make a diagnosis.
         """
-        # Format patient state into task prompt for the agent
-        # print(f"what is patient state: {patient_state}")
         initial_info = patient_state['initial_info']
         history = patient_state['interaction_history']
 
@@ -349,8 +307,8 @@ class UncertaintyAwareExpert(Expert):
         options_text = "\n".join([f"{k}: {v}" for k, v in self.options.items()])
 
         # Create comprehensive task description
-        task = f"""You are diagnosing a medical case. Analyze the information and decide whether to ask the patient a question or make a final diagnosis.
-
+        task = f"""You are diagnosing a medical case.
+        
 PATIENT INITIAL INFORMATION:
 {initial_info}
 
@@ -360,74 +318,53 @@ CONVERSATION HISTORY:
 DIAGNOSTIC QUESTION:
 {self.inquiry}
 
-POSSIBLE DIAGNOSES (choose one):
+POSSIBLE DIAGNOSES:
 {options_text}
 
-YOUR TASK:
-1. Use 'thinking' tool to analyze the evidence for each diagnosis option
-2. Use 'search_online' tool if you need medical knowledge about diagnostic criteria
-3. Evaluate your confidence in making a diagnosis (0-100%)
+YOUR GOAL:
+Diagnose the patient correctly. You can ask questions to gather more information or make a final diagnosis.
+"""
 
-If CONFIDENT (≥80%):
-- Use 'make_choice' tool with your diagnosis letter (A/B/C/D) and confidence score
+        # Run the agent
+        result = self.uncertainty_agent.run(task, episode_id=self.episode_id)
 
-If UNCERTAIN (<80%):
-- Use 'thinking' to identify what critical information would best differentiate between options
-- Use 'search_online' if needed to understand diagnostic features
-- Use 'ask_question' tool to ask ONE targeted question that follows differential diagnosis principles
+        # Track token usage
+        if "total_tokens" in result:
+            self.total_usage["input_tokens"] += result["total_tokens"].get("input", 0)
+            self.total_usage["output_tokens"] += result["total_tokens"].get("output", 0)
 
-Be systematic and evidence-based in your reasoning."""
-
-        # Run the uncertainty agent
-        result = self.uncertainty_agent.run(task)
-
-        # The agent returns either a "choice" or "question" result
-        # Format it for MediQ benchmark
-
-        if result["type"] == "choice":
-            # Agent made a diagnosis
-            try:
-                confidence = float(result["confidence"]) / 100.0
-            except (ValueError, TypeError):
-                confidence = None
-
-            return {
-                "type": "choice",
-                "letter_choice": result["letter_choice"],
-                "confidence": confidence,  # Convert to 0-1 scale
-                "usage": result.get("usage", {"input_tokens": 0, "output_tokens": 0}),
-                "reasoning": "Uncertainty-aware agent confident in diagnosis"
-            }
-
-        elif result["type"] == "question":
-            # Agent wants to ask a question
-            # Need to provide intermediate diagnosis for MediQ tracking
-            # Default to 'A' if no diagnosis provided
-            intermediate_choice = result.get("letter_choice", "A")
-
-            try:
-                confidence = float(result.get("confidence", 50)) / 100.0
-            except (ValueError, TypeError):
-                confidence = None
-
-            return {
-                "type": "question",
-                "question": result["question"],
-                "letter_choice": intermediate_choice,
-                "confidence": confidence,  # Convert to 0-1 scale
-                "usage": result.get("usage", {"input_tokens": 0, "output_tokens": 0}),
-                "reasoning": "Need more information to confidently diagnose"
-            }
-
-        else:
-            # Fallback in case of unexpected result
-            return {
-                "type": "choice",
-                "letter_choice": "A",
-                "confidence": 0.25,
-                "usage": {"input_tokens": 0, "output_tokens": 0},
-                "error": "Unexpected agent output format"
-            }
+        # Handle Terminal Result
+        if result["type"] == "terminal":
+            tool_name = result["tool"]
+            args = result["args"]
+            
+            if tool_name == "ask_question":
+                return {
+                    "type": "question",
+                    "question": args.get("question"),
+                    "letter_choice": args.get("letter_choice", "F"), # Use extracted choice or default
+                    "confidence": float(args.get("confidence", 0.5)),
+                    "usage": self.total_usage,
+                    "reasoning": args.get("reasoning", "")
+                }
+            
+            elif tool_name in ["make_choice", "submit_evaluation"]:
+                return {
+                    "type": "choice",
+                    "letter_choice": args.get("letter_choice","F"),
+                    "confidence": float(args.get("confidence", 0.9)),
+                    "usage": self.total_usage,
+                    "reasoning": args.get("reasoning", "")
+                }
+        
+        # Fallback
+        return {
+            "type": "choice",
+            "letter_choice": "F",
+            "confidence": 0.1,
+            "usage": self.total_usage,
+            "error": "Agent failed to produce a terminal tool call."
+        }
 
 
 class MultiAgentExpert(Expert):
@@ -607,6 +544,118 @@ Formulate your question based on this context."""
             "confidence": confidence,
             "usage": self.total_usage,
             "error": "Could not generate question or decision (using uncertainty agent fallback)"
+        }
+
+
+class UncertaintyAwareExpert_native(Expert):
+    """
+    Uncertainty-aware expert using NativeToolAgent with OpenAI's native tool calling.
+    More reliable than Markdown-based parsing.
+    """
+
+    def __init__(self, args, inquiry, options):
+        super().__init__(args, inquiry, options)
+
+        if not NATIVE_AGENT_AVAILABLE:
+            raise ImportError(
+                "NativeToolAgent not available. Make sure src/agents/multi_agent_native.py "
+                "and src/agents/agent.yaml are accessible."
+            )
+
+        # Load environment
+        load_dotenv()
+
+        # Initialize the Universal Agent with native tool calling
+        self.uncertainty_agent = NativeToolAgent("universal_agent")
+
+        # Override model if specified in args
+        if hasattr(args, 'expert_model') and args.expert_model:
+            self.uncertainty_agent.update_model(args.expert_model)
+
+        # Track episode for logging
+        from datetime import datetime
+        self.episode_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        # Track cumulative token usage
+        self.total_usage = {"input_tokens": 0, "output_tokens": 0}
+
+    def respond(self, patient_state):
+        """
+        Use native tool agent to decide whether to ask a question or make a diagnosis.
+        """
+        initial_info = patient_state['initial_info']
+        history = patient_state['interaction_history']
+
+        # Build Q&A history text
+        if history:
+            qa_text = "\n".join([
+                f"Q{i+1}: {qa['question']}\nA{i+1}: {qa['answer']}"
+                for i, qa in enumerate(history)
+            ])
+        else:
+            qa_text = "No questions have been asked yet."
+
+        # Format options
+        options_text = "\n".join([f"{k}: {v}" for k, v in self.options.items()])
+
+        # Create comprehensive task description
+        task = f"""You are diagnosing a medical case.
+
+PATIENT INITIAL INFORMATION:
+{initial_info}
+
+CONVERSATION HISTORY:
+{qa_text}
+
+DIAGNOSTIC QUESTION:
+{self.inquiry}
+
+POSSIBLE DIAGNOSES:
+{options_text}
+
+YOUR GOAL:
+Diagnose the patient correctly. You can ask questions to gather more information or make a final diagnosis.
+"""
+
+        # Run the agent
+        result = self.uncertainty_agent.run(task, episode_id=self.episode_id)
+
+        # Track token usage
+        if "total_tokens" in result:
+            self.total_usage["input_tokens"] += result["total_tokens"].get("input", 0)
+            self.total_usage["output_tokens"] += result["total_tokens"].get("output", 0)
+
+        # Handle Terminal Result
+        if result["type"] == "terminal":
+            tool_name = result["tool"]
+            args = result["args"]
+
+            if tool_name == "ask_question":
+                return {
+                    "type": "question",
+                    "question": args.get("question"),
+                    "letter_choice": args.get("letter_choice", "F"),
+                    "confidence": float(args.get("confidence", 0.5)),
+                    "usage": self.total_usage,
+                    "reasoning": args.get("reasoning", "")
+                }
+
+            elif tool_name in ["make_choice", "submit_evaluation"]:
+                return {
+                    "type": "choice",
+                    "letter_choice": args.get("letter_choice", "F"),
+                    "confidence": float(args.get("confidence", 0.9)),
+                    "usage": self.total_usage,
+                    "reasoning": args.get("reasoning", "")
+                }
+
+        # Fallback
+        return {
+            "type": "choice",
+            "letter_choice": "F",
+            "confidence": 0.1,
+            "usage": self.total_usage,
+            "error": "Agent failed to produce a terminal tool call."
         }
 
 

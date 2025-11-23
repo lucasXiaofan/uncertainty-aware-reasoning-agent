@@ -1,6 +1,7 @@
 import yaml
 import json
 import os
+import re
 from datetime import datetime
 from pathlib import Path
 from openai import OpenAI
@@ -14,15 +15,12 @@ CONFIG_PATH = os.path.join(os.path.dirname(__file__), "agent.yaml")
 with open(CONFIG_PATH, "r") as f:
     CONFIG = yaml.safe_load(f)
 
-# Define terminal tools that stop the agent loop
-TERMINAL_TOOLS = {"ask_question", "make_choice", "submit_evaluation"}
-
 # Logging directory
 LOG_DIR = Path(__file__).parent.parent.parent / "logs"
 
 
 class Agent:
-    """Simple agent that runs until a terminal tool is called."""
+    """Agent that runs until a terminal tool is called, supporting both native and MD-based tool calling."""
 
     def __init__(self, name):
         agent_cfg = CONFIG["agents"].get(name)
@@ -31,21 +29,92 @@ class Agent:
 
         self.name = name
         self.model = agent_cfg["model"]
-        self.system_prompt = agent_cfg["system_prompt"]
+        self.raw_system_prompt = agent_cfg["system_prompt"]
         self.temperature = agent_cfg.get("temperature", 0.3)
-
+        
         # Resolve tool names to tool schemas
-        self.tool_schemas = [CONFIG["tools"][t] for t in agent_cfg.get("tools", [])]
+        self.tool_names = agent_cfg.get("tools", [])
+        self.tool_schemas = [CONFIG["tools"][t] for t in self.tool_names]
+        
+        print(f'checking tool schemas: {self.tool_schemas}')
 
-        # self.client = OpenAI(
-        #     base_url="https://openrouter.ai/api/v1",
-        #     api_key=os.getenv("OPENROUTER_API_KEY")
-        # )
-        self.client = OpenAI(api_key=os.environ.get('DEEPSEEK_API_KEY'), base_url="https://api.deepseek.com")
+        # Load terminal tools from config, default to empty set if not provided
+        self.terminal_tools = set(agent_cfg.get("terminal_tools", []))
+
+        # Initialize Client based on Model
+        if "deepseek" in self.model.lower() and "chat" in self.model.lower():
+             # Assumes "deepseek-chat" or similar maps to DeepSeek API
+            self.client = OpenAI(
+                api_key=os.environ.get('DEEPSEEK_API_KEY'), 
+                base_url="https://api.deepseek.com"
+            )
+        else:
+            # Default to OpenRouter for other models
+            self.client = OpenAI(
+                base_url="https://openrouter.ai/api/v1",
+                api_key=os.getenv("OPENROUTER_API_KEY")
+            )
+
+    def update_model(self, model_name):
+        """Update the model and re-initialize the client."""
+        self.model = model_name
+        if "deepseek" in self.model.lower() and "chat" in self.model.lower():
+             # Assumes "deepseek-chat" or similar maps to DeepSeek API
+            self.client = OpenAI(
+                api_key=os.environ.get('DEEPSEEK_API_KEY'), 
+                base_url="https://api.deepseek.com"
+            )
+        else:
+            # Default to OpenRouter for other models
+            self.client = OpenAI(
+                base_url="https://openrouter.ai/api/v1",
+                api_key=os.getenv("OPENROUTER_API_KEY")
+            )
+
+    def _get_system_prompt(self):
+        """Inject tool schemas and terminal tools into system prompt if placeholders exist."""
+        prompt = self.raw_system_prompt
+        
+        if "{{TOOL_SCHEMAS}}" in prompt:
+            schemas_str = json.dumps(self.tool_schemas, indent=2)
+            prompt = prompt.replace("{{TOOL_SCHEMAS}}", schemas_str)
+            
+        if "{{TERMINAL_TOOLS}}" in prompt:
+            terminal_tools_str = json.dumps(list(self.terminal_tools), indent=2)
+            prompt = prompt.replace("{{TERMINAL_TOOLS}}", terminal_tools_str)
+            
+        return prompt
+
+    def _parse_json_from_md(self, content):
+        """Extract JSON block from Markdown or raw text."""
+        # 1. Try finding ```json ... ``` block
+        pattern = r"```json\s*(\{.*?\})\s*```"
+        match = re.search(pattern, content, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group(1))
+            except json.JSONDecodeError:
+                pass
+        
+        # 2. Try finding raw JSON object { ... }
+        # Find the first '{' and the last '}'
+        start = content.find('{')
+        end = content.rfind('}')
+        
+        if start != -1 and end != -1 and end > start:
+            json_str = content[start:end+1]
+            try:
+                return json.loads(json_str)
+            except json.JSONDecodeError:
+                pass
+                
+        return None
+
     def run(self, user_input, episode_id=None, max_turns=10):
         """Run agent and log trajectory."""
+        system_prompt = self._get_system_prompt()
         messages = [
-            {"role": "system", "content": self.system_prompt},
+            {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_input}
         ]
 
@@ -57,71 +126,115 @@ class Agent:
             "total_tokens": {"input": 0, "output": 0}
         }
 
-        for turn in range(max_turns):
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=messages,
-                tools=self.tool_schemas if self.tool_schemas else None,
-                temperature=self.temperature
-            )
-
-            # Track token usage from OpenRouter response
+        def process_response(response):
             if hasattr(response, 'usage') and response.usage:
                 trajectory["total_tokens"]["input"] += response.usage.prompt_tokens
                 trajectory["total_tokens"]["output"] += response.usage.completion_tokens
-
+            
             msg = response.choices[0].message
-
-            if not msg.tool_calls:
-                result = {
-                    "type": "text",
-                    "content": msg.content,
-                    "total_tokens": trajectory["total_tokens"]
-                }
-                trajectory["result"] = result
-                self._log(episode_id, trajectory)
-                return result
-
+            content = msg.content or ""
             messages.append(msg)
-            turn_data = []
+            
+            parsed = self._parse_json_from_md(content)
+            return parsed
 
-            for tool_call in msg.tool_calls:
-                fn_name = tool_call.function.name
-                args = json.loads(tool_call.function.arguments)
-                print(f"🤖 [{self.name}] {fn_name}({json.dumps(args, indent=2)})")
+        # Main Loop
+        for turn in range(max_turns):
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=messages,
+                    temperature=self.temperature
+                )
+            except Exception as e:
+                print(f"❌ [{self.name}] API Error: {e}")
+                messages.append({"role": "user", "content": f"API Error: {str(e)}. Please try again."})
+                continue
 
-                result = execute_tool(fn_name, args)
-                turn_data.append({"tool": fn_name, "args": args, "result": result})
+            try:
+                parsed = process_response(response)
+            except Exception as e:
+                print(f"❌ [{self.name}] Processing Error: {e}")
+                try:
+                    raw_content = response.choices[0].message.content
+                    print(f"Raw Content: {raw_content}")
+                except:
+                    pass
+                messages.append({"role": "user", "content": f"Error processing response: {str(e)}. Please ensure valid JSON output."})
+                continue
+            
+            if parsed and "tool" in parsed:
+                fn_name = parsed["tool"]
+                args = parsed.get("arguments", {})
+                print(f"🤖 [{self.name}] Tool: {fn_name}")
+                
+                try:
+                    result = execute_tool(fn_name, args)
+                except Exception as e:
+                    print(f"❌ [{self.name}] Tool Execution Error: {e}")
+                    messages.append({"role": "user", "content": f"Tool execution error: {str(e)}. Please try again."})
+                    continue
 
-                if fn_name in TERMINAL_TOOLS:
-                    trajectory["turns"].append(turn_data)
-                    result = {
-                        "type": "terminal",
-                        "tool": fn_name,
-                        "args": args,
-                        "result": result,
-                        "total_tokens": trajectory["total_tokens"]
-                    }
-                    trajectory["result"] = result
-                    self._log(episode_id, trajectory)
-                    return result
+                turn_info = {"tool": fn_name, "args": args, "result": result}
+                trajectory["turns"].append(turn_info)
+                
+                if fn_name in self.terminal_tools:
+                    # Check if result indicates an error (and we want to retry)
+                    if isinstance(result, dict) and "error" in result:
+                        print(f"⚠️ [{self.name}] Terminal tool error: {result['error']}. Retrying.")
+                        messages.append({"role": "user", "content": f"Error in tool '{fn_name}': {result['error']}. Please correct your arguments and try again."})
+                        print(f"problematic raw_content: {response.choices[0].message.content}")
+                        trajectory["error_response"] = f"Tool execution error, Raw content: {response.choices[0].message.content}"
+                        continue
+                    return self._finalize_trajectory(trajectory, result, episode_id, args)
+                
+                messages.append({"role": "user", "content": f"Tool '{fn_name}' Output: {result}"})
+            
+            # If no tool, it's just reasoning, continue to next turn.
 
-                messages.append({
-                    "role": "tool",
-                    "tool_call_id": tool_call.id,
-                    "content": str(result)
-                })
+        # Force Decision
+        print(f"⚠️ [{self.name}] Max turns reached. Forcing decision.")
+        terminal_tools_list = list(self.terminal_tools)
+        messages.append({"role": "user", "content": f"You have exceeded the maximum turns. You MUST make a final decision now using one of these terminal tools: {terminal_tools_list}."})
+        
+        response = self.client.chat.completions.create(
+            model=self.model,
+            messages=messages,
+            temperature=self.temperature
+        )
+        
+        parsed = process_response(response)
+        
+        if parsed and "tool" in parsed and parsed["tool"] in self.terminal_tools:
+             fn_name = parsed["tool"]
+             args = parsed.get("arguments", {})
+             result = execute_tool(fn_name, args)
+             turn_info = {"tool": fn_name, "args": args, "result": result}
+             trajectory["turns"].append(turn_info)
+             return self._finalize_trajectory(trajectory, result, episode_id, args)
 
-            trajectory["turns"].append(turn_data)
+        # Fallback Failure
+        return self._finalize_trajectory(trajectory, {"error": "Failed to terminate after forced decision"}, episode_id)
 
-        result = {
-            "type": "error",
-            "content": f"Max turns reached",
+    def _finalize_trajectory(self, trajectory, result, episode_id, args=None):
+        is_error = isinstance(result, dict) and "error" in result
+        turns_count = len(trajectory["turns"])
+        final_result = {
+            "type": "error" if is_error else "terminal",
+            "tool": trajectory["turns"][-1]["tool"] if trajectory["turns"] else None,
+            "turns": turns_count,
+            "args": args,
+            "result": result,
             "total_tokens": trajectory["total_tokens"]
         }
-        trajectory["result"] = result
-        self._log(episode_id, trajectory)
-        return result
+        trajectory["result"] = final_result
+        
+        # Create concise log entry
+        log_entry = trajectory.copy()
+        log_entry["turns"] = turns_count
+        
+        self._log(episode_id, log_entry)
+        return final_result
 
     def _log(self, episode_id, trajectory):
         """Save trajectory to date-based log file (all episodes from same day in one file)."""
@@ -143,86 +256,4 @@ class Agent:
             f.write(json.dumps(trajectory) + '\n')
 
 
-def run_clinical_reasoning(question_context, max_qa_turns=5):
-    """Run multi-agent clinical reasoning with logging."""
-    episode_id = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-    uncertainty = Agent("uncertainty_evaluator")
-    discriminator = Agent("discriminator")
-    decision = Agent("decision_maker")
-
-    conversation = [question_context]
-
-    print(f"\n{'='*60}")
-    print(f"Episode: {episode_id}")
-    print(f"{'='*60}\n")
-
-    for qa_round in range(max_qa_turns):
-        print(f"\n--- Round {qa_round + 1} ---")
-
-        # Step 1: Uncertainty
-        conv_text = "\n".join(conversation)
-        unc_result = uncertainty.run(conv_text, episode_id)
-
-        if unc_result["type"] != "terminal":
-            break
-
-        eval_data = unc_result["args"]
-        print(f"\n📊 Known: {eval_data['known_info']}")
-        print(f"📊 Missing: {eval_data['missing_info']}")
-        print(f"📊 Enough info: {eval_data['has_enough_info']}")
-
-        if eval_data['has_enough_info']:
-            break
-
-        # Step 2: Discriminator (with conversation history to prevent redundant questions)
-        disc_input = f"""Known Information: {json.dumps(eval_data['known_info'])}
-Missing Information: {json.dumps(eval_data['missing_info'])}
-
-Conversation History:
-{chr(10).join(conversation[1:])}
-
-Formulate your question based on this context."""
-        disc_result = discriminator.run(disc_input, episode_id)
-
-        if disc_result["type"] != "terminal":
-            break
-
-        question = disc_result["args"]["question"]
-        print(f"\n❓ {question}")
-
-        answer = input("Answer: ").strip()
-        if not answer:
-            break
-
-        conversation.append(f"Q: {question}")
-        conversation.append(f"A: {answer}")
-
-    # Step 3: Decision
-    print(f"\n{'='*60}")
-    print("Final Decision")
-    print(f"{'='*60}\n")
-
-    conv_text = "\n".join(conversation)
-    dec_result = decision.run(conv_text, episode_id)
-
-    if dec_result["type"] == "terminal":
-        final = dec_result["args"]
-        print(f"\n🏁 Choice: {final['letter_choice']}")
-        print(f"🏁 Confidence: {final['confidence']}")
-        print(f"🏁 Reasoning: {final['reasoning']}")
-
-    return {"episode_id": episode_id, "final_decision": dec_result}
-
-
-if __name__ == "__main__":
-    context = """Patient: 4-year-old boy with rash for 2 days.
-
-Options:
-A. Viral exanthem
-B. Scarlet fever
-C. Kawasaki disease
-D. Allergic reaction"""
-
-    result = run_clinical_reasoning(context, max_qa_turns=3)
-    print(f"\n\nEpisode ID: {result['episode_id']}")

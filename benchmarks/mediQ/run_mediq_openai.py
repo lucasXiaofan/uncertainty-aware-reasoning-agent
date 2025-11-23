@@ -1,3 +1,17 @@
+"""
+Run MediQ Benchmark with UncertaintyAwareExpert (Universal Agent)
+
+Test Commands:
+
+1. Test with DeepSeek (Direct API):
+uv run benchmarks/mediQ/run_mediq_openai.py --model_name "deepseek-chat" --expert_class "UncertaintyAwareExpert"
+
+2. Test with OpenRouter (e.g., GLM-4):
+uv run benchmarks/mediQ/run_mediq_openai.py --model_name "z-ai/glm-4.6" --expert_class "UncertaintyAwareExpert"
+
+The script defaults to using 'success_in_full_fail_in_initial_mediq_top14.jsonl' in the data directory.
+"""
+
 import argparse
 import sys
 import subprocess
@@ -25,14 +39,14 @@ def main():
     parser.add_argument(
         "--model_name",
         type=str,
-        default="deepseek/deepseek-chat-v3",
-        help="Model identifier (e.g., 'deepseek/deepseek-chat-v3' for OpenRouter, 'gpt-4' for OpenAI).",
+        default="deepseek-chat",
+        help="Model identifier (e.g., 'deepseek-chat' for DeepSeek, 'z-ai/glm-4.6' for OpenRouter).",
     )
     parser.add_argument(
         "--api_account",
         type=str,
-        default="openrouter",
-        help="API provider account name (openrouter, deepseek, openai, etc.).",
+        default=None,
+        help="API provider account name (openrouter, deepseek, openai, etc.). Defaults to auto-detect or openrouter.",
     )
     parser.add_argument(
         "--api_base_url",
@@ -43,10 +57,10 @@ def main():
     parser.add_argument(
         "--data_dir",
         type=Path,
-        default=Path("data"),
-        help="Directory containing the dev jsonl file (relative to mediQ dir).",
+        default=Path("question_quality_comparison/context_gap_analysis"),
+        help="Directory containing the dev jsonl file (relative to repo root or absolute).",
     )
-    parser.add_argument("--dev_filename", type=str, default="all_dev_good.jsonl", help="Original dev split filename.")
+    parser.add_argument("--dev_filename", type=str, default="success_in_full_fail_in_initial_mediq_top14.jsonl", help="Original dev split filename.")
     parser.add_argument("--output_dir", type=Path, default=Path("outputs"), help="Directory for benchmark outputs.")
     parser.add_argument("--log_dir", type=Path, default=Path("logs"), help="Directory for logs.")
     parser.add_argument(
@@ -87,24 +101,51 @@ def main():
     )
     args = parser.parse_args()
 
+    # Determine API account if not provided
+    api_account = args.api_account
+    if api_account is None:
+        if "deepseek" in args.model_name.lower() and "/" not in args.model_name:
+            api_account = "deepseek"
+        elif args.model_name.lower().startswith(("gpt", "o1")):
+            api_account = "openai"
+        else:
+            api_account = "openrouter"
+    
+    print(f"Auto-detected API account: {api_account}")
+
     # Determine paths
     script_dir = Path(__file__).resolve().parent
     mediq_src = script_dir / "src"
-    data_dir = args.data_dir if args.data_dir.is_absolute() else script_dir / args.data_dir
+    
+    # Handle data_dir relative to repo root if it looks like a repo path
+    repo_root = script_dir.parent.parent
+    if not args.data_dir.is_absolute():
+        possible_path = repo_root / args.data_dir
+        if possible_path.exists():
+            data_dir = possible_path
+        else:
+            data_dir = script_dir / args.data_dir
+    else:
+        data_dir = args.data_dir
+
     dev_filename = Path(args.dev_filename)
     data_path = dev_filename if dev_filename.is_absolute() else data_dir / dev_filename
 
     if not data_path.exists():
-        raise FileNotFoundError(f"Cannot find data file: {data_path}")
+        # Fallback to checking if it's just in the script dir
+        if (script_dir / dev_filename).exists():
+             data_path = script_dir / dev_filename
+        else:
+             raise FileNotFoundError(f"Cannot find data file: {data_path}")
 
     # Create subset of data
     subset_name = data_path.stem + f"_top{args.num_patients}" + data_path.suffix
     subset_path = data_path.parent / subset_name
     subset_count = write_subset(data_path, subset_path, args.num_patients)
     if subset_count < args.num_patients:
-        raise ValueError(f"Requested {args.num_patients} patients but dataset only had {subset_count}.")
+        print(f"Warning: Requested {args.num_patients} patients but dataset only had {subset_count}.")
 
-    print(f"Created subset with {subset_count} patients: {subset_path}")
+    print(f"Using data file: {subset_path}")
 
     # Create output directories with dedicated folder for this run
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -145,8 +186,7 @@ def main():
         "--data_dir",
         str(benchmark_data_dir),
         "--dev_filename",
-        "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/question_quality_comparison/context_gap_analysis/success_in_full_fail_in_initial_mediq_top14.jsonl",
-        # subset_path.name,
+        subset_path.name,
         "--output_filename",
         str(output_file),
         "--log_filename",
@@ -170,9 +210,9 @@ def main():
         "--abstain_threshold",
         "3",
         "--use_api",
-        args.api_account,  # Use the new helper_openai.py (openrouter, deepseek, openai)
+        api_account,  # Use the new helper_openai.py (openrouter, deepseek, openai)
         "--api_account",
-        args.api_account,
+        api_account,
     ]
 
     # Add optional base URL if provided
@@ -183,7 +223,7 @@ def main():
     print("MediQ Benchmark Configuration")
     print("="*80)
     print(f"Model: {args.model_name}")
-    print(f"API Account: {args.api_account}")
+    print(f"API Account: {api_account}")
     print(f"API Base URL: {args.api_base_url or 'Default for provider'}")
     print(f"Patients: {args.num_patients}")
     print(f"Expert Class: {args.expert_class}")

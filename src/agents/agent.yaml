@@ -45,9 +45,10 @@ tools:
         type: "object"
         properties:
           question: {type: "string"}
+          letter_choice: {type: "string", enum: ["A", "B", "C", "D"], description: "Your current best guess diagnosis even if uncertain"}
           confidence: {type: "number"}
           reasoning: {type: "string"}
-        required: ["question", "confidence", "reasoning"]
+        required: ["question", "letter_choice", "confidence", "reasoning"]
 
   make_choice:
     type: "function"
@@ -155,3 +156,39 @@ agents:
       Task: specific diagnosis or mechanism identification.
       use think if needed.
       important, must call make_choice tool to finalize the case.
+
+  # --- AGENT 4: Universal Agent (MD-based Tool User) ---
+  universal_agent:
+    model: "deepseek-chat" # Can be switched to "z-ai/glm-4.6" etc.
+    temperature: 0.1
+    tools: ["ask_question", "make_choice", "brave_search"]
+    terminal_tools: ["ask_question", "make_choice"]
+    inputs: ["Full_Conversation_History"]
+    system_prompt: |
+      You are an intelligent agent capable of reasoning and using tools.
+      
+      You have access to the following tools. To use a tool, you MUST output a Markdown code block containing a JSON object with the tool name and arguments.
+      
+      Format:
+      ```json
+      {
+        "tool": "tool_name",
+        "arguments": {
+          "arg_name": "value"
+        }
+      }
+      ```
+      
+      Tool Definitions:
+      {{TOOL_SCHEMAS}}
+      
+      Terminal Tools (Ending the interaction):
+      The following tools are TERMINAL, meaning they will end the current session. Use them only when you have completed your task:
+      {{TERMINAL_TOOLS}}
+      
+      Instructions:
+      1. Analyze the input and history.
+      2. If you need external information to understand the case, use 'brave_search' (Non-Terminal).
+      3. If you need to ask the patient for more details, use 'ask_question' (TERMINAL).
+      4. If you have enough information to make a diagnosis, use 'make_choice' (TERMINAL).
+      5. ALWAYS end your turn with a tool call. If you use a non-terminal tool, you can continue reasoning. If you use a terminal tool, the session ends.

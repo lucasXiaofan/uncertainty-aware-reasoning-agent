@@ -29,7 +29,7 @@ class ModelCache:
     def load_client(self):
         """Initialize OpenAI-compatible API client"""
         # Get API configuration from kwargs or environment
-        api_account = self.args.get("api_account", "openrouter")
+        api_account = self.args.get("api_account", self.use_api or "openrouter")
         base_url = self.args.get("api_base_url", None)
         api_key = self.args.get("api_key", None)
 

@@ -194,15 +194,19 @@ def execute_tool(name: str, args: dict) -> str:
     
     elif name == "ask_question":
         # Terminal tool - ask patient a question
+        if "question" not in args:
+            return {"error": "Missing 'question' argument in ask_question tool call"}
+            
         question = args["question"]
-        confidence = args["confidence"]
+        confidence = args.get("confidence", 0.5)
         reasoning = args.get("reasoning", "")
+        letter_choice = args.get("letter_choice", "A") # Default to A if missing
         
         # Return structured response indicating this terminates the loop
         result = {
             "type": "question",
             "question": question,
-            "letter_choice": None,
+            "letter_choice": letter_choice,
             "confidence": confidence,
             "usage": {"input_tokens": 0, "output_tokens": 0}
         }
@@ -210,8 +214,11 @@ def execute_tool(name: str, args: dict) -> str:
     
     elif name == "make_choice":
         # Terminal tool - make diagnosis choice
-        letter_choice = args["letter_choice"] if args["letter_choice"] else "bad make choice tool call"
-        confidence = args["confidence"]
+        if "letter_choice" not in args:
+            return {"error": "Missing 'letter_choice' argument in make_choice tool call"}
+            
+        letter_choice = args["letter_choice"]
+        confidence = args.get("confidence", 0.9)
         reasoning = args.get("reasoning", "")
         
         # Return structured response indicating this terminates the loop
