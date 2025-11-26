@@ -1,0 +1,141 @@
+{
+  "run_info": {
+    "timestamp": "20251122_185946",
+    "expert_class": "UncertaintyAwareExpert_native",
+    "model": "deepseek-chat",
+    "num_patients": 14,
+    "max_questions": 7
+  },
+  "performance": {
+    "accuracy": 0.7857142857142857,
+    "correct_count": 11,
+    "incorrect_count": 3,
+    "correct_patients": [
+      9,
+      10,
+      28,
+      30,
+      33,
+      34,
+      38,
+      41,
+      43,
+      44,
+      45
+    ],
+    "incorrect_patients": [
+      18,
+      46,
+      49
+    ]
+  },
+  "resources": {
+    "total_runtime_seconds": 1493.0940511226654,
+    "total_runtime_minutes": 24.884900852044424,
+    "total_input_tokens": 3224223,
+    "total_output_tokens": 113079,
+    "total_tokens": 3337302,
+    "avg_runtime_per_sample": 106.64957508019039,
+    "avg_tokens_per_sample": 238378.7142857143
+  },
+  "patient_details": [
+    {
+      "id": 9,
+      "correct": true,
+      "predicted": "A",
+      "actual": "A",
+      "num_questions": 2
+    },
+    {
+      "id": 10,
+      "correct": true,
+      "predicted": "A",
+      "actual": "A",
+      "num_questions": 0
+    },
+    {
+      "id": 18,
+      "correct": false,
+      "predicted": "A",
+      "actual": "B",
+      "num_questions": 4
+    },
+    {
+      "id": 28,
+      "correct": true,
+      "predicted": "D",
+      "actual": "D",
+      "num_questions": 6
+    },
+    {
+      "id": 30,
+      "correct": true,
+      "predicted": "D",
+      "actual": "D",
+      "num_questions": 1
+    },
+    {
+      "id": 33,
+      "correct": true,
+      "predicted": "C",
+      "actual": "C",
+      "num_questions": 3
+    },
+    {
+      "id": 34,
+      "correct": true,
+      "predicted": "B",
+      "actual": "B",
+      "num_questions": 3
+    },
+    {
+      "id": 38,
+      "correct": true,
+      "predicted": "B",
+      "actual": "B",
+      "num_questions": 3
+    },
+    {
+      "id": 41,
+      "correct": true,
+      "predicted": "D",
+      "actual": "D",
+      "num_questions": 2
+    },
+    {
+      "id": 43,
+      "correct": true,
+      "predicted": "A",
+      "actual": "A",
+      "num_questions": 2
+    },
+    {
+      "id": 44,
+      "correct": true,
+      "predicted": "C",
+      "actual": "C",
+      "num_questions": 1
+    },
+    {
+      "id": 45,
+      "correct": true,
+      "predicted": "B",
+      "actual": "B",
+      "num_questions": 1
+    },
+    {
+      "id": 46,
+      "correct": false,
+      "predicted": "C",
+      "actual": "A",
+      "num_questions": 2
+    },
+    {
+      "id": 49,
+      "correct": false,
+      "predicted": "C",
+      "actual": "A",
+      "num_questions": 2
+    }
+  ]
+}

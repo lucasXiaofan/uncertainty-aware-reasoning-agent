@@ -9,7 +9,8 @@ uv run benchmarks/mediQ/run_mediq_openai.py --model_name "deepseek-chat" --exper
 2. Test with OpenRouter (e.g., GLM-4):
 uv run benchmarks/mediQ/run_mediq_openai.py --model_name "z-ai/glm-4.6" --expert_class "UncertaintyAwareExpert"
 
-The script defaults to using 'success_in_full_fail_in_initial_mediq_top14.jsonl' in the data directory.
+The script defaults to using 'longest_context_top30.jsonl' in the data directory,
+which contains the 30 patients with the longest context from all_dev_good.jsonl.
 """
 
 import argparse
@@ -35,7 +36,7 @@ def write_subset(src_path: Path, dest_path: Path, limit: int) -> int:
 
 def main():
     parser = argparse.ArgumentParser(description="Run MediQ benchmark using OpenAI-compatible APIs.")
-    parser.add_argument("--num_patients", type=int, default=14, help="How many patients to evaluate.")
+    parser.add_argument("--num_patients", type=int, default=30, help="How many patients to evaluate.")
     parser.add_argument(
         "--model_name",
         type=str,
@@ -57,10 +58,10 @@ def main():
     parser.add_argument(
         "--data_dir",
         type=Path,
-        default=Path("question_quality_comparison/context_gap_analysis"),
+        default=Path("benchmarks/mediQ/data"),
         help="Directory containing the dev jsonl file (relative to repo root or absolute).",
     )
-    parser.add_argument("--dev_filename", type=str, default="success_in_full_fail_in_initial_mediq_top14.jsonl", help="Original dev split filename.")
+    parser.add_argument("--dev_filename", type=str, default="longest_context_top30.jsonl", help="Original dev split filename.")
     parser.add_argument("--output_dir", type=Path, default=Path("outputs"), help="Directory for benchmark outputs.")
     parser.add_argument("--log_dir", type=Path, default=Path("logs"), help="Directory for logs.")
     parser.add_argument(
@@ -92,6 +93,12 @@ def main():
         type=float,
         default=0.9,
         help="Top-p sampling value.",
+    )
+    parser.add_argument(
+        "--patient_class",
+        type=str,
+        default="InstructPatient",
+        help="Patient class to use (InstructPatient, FactSelectPatient, etc.).",
     )
     parser.add_argument(
         "--python_exec",
@@ -180,7 +187,7 @@ def main():
         "--patient_module",
         "patient_openai",
         "--patient_class",
-        "InstructPatient",
+        args.patient_class,
         "--patient_model",
         args.model_name,
         "--data_dir",

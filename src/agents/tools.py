@@ -229,5 +229,40 @@ def execute_tool(name: str, args: dict) -> str:
             "usage": {"input_tokens": 0, "output_tokens": 0}
         }
         return result
+
+    elif name == "assess_progress":
+        # Terminal tool for Memory Agent
+        return {
+            "type": "assessment",
+            "has_new_info": args.get("has_new_info", False),
+            "reasoning": args.get("reasoning", ""),
+            "strategy_suggestion": args.get("strategy_suggestion", "")
+        }
     
     return "Unknown tool"
+
+assess_progress_tool = {
+    "type": "function",
+    "function": {
+        "name": "assess_progress",
+        "description": "Report whether the last interaction provided new information.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "has_new_info": {
+                    "type": "boolean",
+                    "description": "True if the patient provided NEW diagnostic details. False if they said 'unknown', 'unsure', or repeated info."
+                },
+                "reasoning": {
+                    "type": "string",
+                    "description": "Explanation of the assessment."
+                },
+                "strategy_suggestion": {
+                    "type": "string",
+                    "description": "If has_new_info is False, suggest a new angle (e.g., 'Ask about family history instead')."
+                }
+            },
+            "required": ["has_new_info", "reasoning"]
+        }
+    }
+}

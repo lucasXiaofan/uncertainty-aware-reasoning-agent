@@ -566,11 +566,9 @@ class UncertaintyAwareExpert_native(Expert):
         load_dotenv()
 
         # Initialize the Universal Agent with native tool calling
-        self.uncertainty_agent = NativeToolAgent("universal_agent")
-
-        # Override model if specified in args
-        if hasattr(args, 'expert_model') and args.expert_model:
-            self.uncertainty_agent.update_model(args.expert_model)
+        # Pass model directly to init
+        model_name = args.expert_model if hasattr(args, 'expert_model') and args.expert_model else None
+        self.uncertainty_agent = NativeToolAgent("universal_agent", model_name=model_name)
 
         # Track episode for logging
         from datetime import datetime
@@ -599,6 +597,7 @@ class UncertaintyAwareExpert_native(Expert):
         options_text = "\n".join([f"{k}: {v}" for k, v in self.options.items()])
 
         # Create comprehensive task description
+        # Explicitly instruct to use FactSelectPatient behavior if needed
         task = f"""You are diagnosing a medical case.
 
 PATIENT INITIAL INFORMATION:
@@ -613,8 +612,6 @@ DIAGNOSTIC QUESTION:
 POSSIBLE DIAGNOSES:
 {options_text}
 
-YOUR GOAL:
-Diagnose the patient correctly. You can ask questions to gather more information or make a final diagnosis.
 """
 
         # Run the agent
@@ -659,3 +656,227 @@ Diagnose the patient correctly. You can ask questions to gather more information
         }
 
 
+
+class ThreeAgentExpert(Expert):
+    """
+    Three-agent expert system:
+    1. Memory Agent: Analyzes conversation progress and routes flow.
+    2. Differential Agent: Rules out options and refines the list.
+    3. Decision Agent: Makes a choice or asks a question based on the refined list.
+    """
+
+    def __init__(self, args, inquiry, options):
+        super().__init__(args, inquiry, options)
+
+        if not NATIVE_AGENT_AVAILABLE:
+            raise ImportError(
+                "NativeToolAgent not available. Make sure src/agents/multi_agent_native.py "
+                "and src/agents/agent.yaml are accessible."
+            )
+
+        # Import MemoryAgent
+        try:
+            from memory_agent import MemoryAgent
+        except ImportError:
+            # Fallback if not in path, though it should be if src/agents is in path
+            import sys
+            sys.path.append(os.path.join(os.path.dirname(__file__), "../../../src/agents"))
+            from memory_agent import MemoryAgent
+
+        # Load environment
+        load_dotenv()
+
+        # Initialize agents
+        model_name = args.expert_model if hasattr(args, 'expert_model') and args.expert_model else None
+        self.differential_agent = NativeToolAgent("differential_agent", model_name=model_name)
+        self.decision_agent = NativeToolAgent("decision_agent", model_name=model_name)
+
+        # Initialize Memory Agent
+        # args.output_filename is the path to results.jsonl, so we get the directory
+        output_dir = os.path.dirname(args.output_filename) if hasattr(args, 'output_filename') else "outputs"
+        self.memory_agent = MemoryAgent(output_dir, model_name=model_name)
+
+        # Track episode for logging
+        from datetime import datetime
+        self.episode_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        # Track cumulative token usage
+        self.total_usage = {"input_tokens": 0, "output_tokens": 0}
+
+    def respond(self, patient_state):
+        """
+        Execute the three-agent flow with Memory Agent support.
+        """
+        initial_info = patient_state['initial_info']
+        history = patient_state['interaction_history']
+
+        # Build Q&A history text
+        if history:
+            qa_text = "\n".join([
+                f"Q{i+1}: {qa['question']}\nA{i+1}: {qa['answer']}"
+                for i, qa in enumerate(history)
+            ])
+        else:
+            qa_text = "No questions have been asked yet."
+
+        # --- Step 0: Memory Agent Analysis ---
+        print(f"\n--- Running Memory Agent ---")
+        has_new_info, strategy_suggestion, memory_trajectory = self.memory_agent.analyze_turn(history)
+        
+        full_trajectory = []
+        if memory_trajectory:
+            full_trajectory.extend(memory_trajectory)
+
+        # Check Memory for previous differential
+        latest_diff = self.memory_agent.get_latest_differential(self.inquiry, self.options)
+        
+        differential_data = None
+        differential_analysis = "No analysis provided."
+        diff_result = {}
+
+        # --- Step 1: Differential Agent (Conditional) ---
+        run_differential = has_new_info or not latest_diff
+        
+        if run_differential:
+            # Determine options to present to Differential Agent
+            if latest_diff and "updated_options" in latest_diff:
+                current_options_text = latest_diff["updated_options"]
+                print(f"[{self.episode_id}] Using refined options from memory.")
+            else:
+                current_options_text = "\n".join([f"{k}: {v}" for k, v in self.options.items()])
+                print(f"[{self.episode_id}] Using initial options.")
+
+            diff_task = f"""You are diagnosing a medical case.
+
+PATIENT INITIAL INFORMATION:
+{initial_info}
+
+CONVERSATION HISTORY:
+{qa_text}
+
+DIAGNOSTIC QUESTION:
+{self.inquiry}
+
+CURRENT POSSIBLE DIAGNOSES (Refined from previous turns if applicable):
+{current_options_text}
+"""
+            print(f"\n--- Running Differential Agent ---")
+            diff_result = self.differential_agent.run(diff_task, episode_id=self.episode_id)
+
+            # Track usage
+            if "total_tokens" in diff_result:
+                self.total_usage["input_tokens"] += diff_result["total_tokens"].get("input", 0)
+                self.total_usage["output_tokens"] += diff_result["total_tokens"].get("output", 0)
+
+            # Extract differential analysis
+            if diff_result["type"] == "terminal" and diff_result["tool"] == "submit_differential":
+                args = diff_result["args"]
+                differential_data = args
+                differential_analysis = f"""Updated Options:
+{args.get('updated_options')}
+
+Rule Out Criteria:
+{args.get('rule_out_criteria')}
+
+Confirmation Criteria:
+{args.get('confirmation_criteria')}
+"""
+            else:
+                print(f"Warning: Differential agent did not submit differential. Result: {diff_result}")
+                differential_analysis = f"Agent failed to submit differential. Raw result: {diff_result}"
+                
+            if "trajectory" in diff_result:
+                full_trajectory.extend(diff_result["trajectory"])
+        
+        else:
+            print(f"[{self.episode_id}] No new info. Skipping Differential Agent and using cached analysis.")
+            # Use cached differential
+            if latest_diff:
+                differential_data = latest_diff
+                differential_analysis = f"""Updated Options:
+{latest_diff.get('updated_options')}
+
+Rule Out Criteria:
+{latest_diff.get('rule_out_criteria')}
+
+Confirmation Criteria:
+{latest_diff.get('confirmation_criteria')}
+"""
+
+        # --- Step 2: Decision Agent ---
+        strategy_context = ""
+        if not has_new_info and strategy_suggestion:
+            strategy_context = f"\nADVICE FROM MEMORY AGENT:\nThe patient did not provide new information in the last turn. Suggestion: {strategy_suggestion}\n"
+
+        dec_task = f"""You are diagnosing a medical case.
+DIAGNOSTIC QUESTION:
+{self.inquiry}
+
+PATIENT INITIAL INFORMATION:
+{initial_info}
+
+CONVERSATION HISTORY:
+{qa_text}
+
+DIFFERENTIAL AGENT ANALYSIS:
+{differential_analysis}
+{strategy_context}
+YOUR GOAL:
+Based on the analysis above, either ask a targeted question to differentiate further, or make a final diagnosis if you are confident.
+"""
+        print(f"\n--- Running Decision Agent ---")
+        dec_result = self.decision_agent.run(dec_task, episode_id=self.episode_id)
+
+        # Track usage
+        if "total_tokens" in dec_result:
+            self.total_usage["input_tokens"] += dec_result["total_tokens"].get("input", 0)
+            self.total_usage["output_tokens"] += dec_result["total_tokens"].get("output", 0)
+
+        if "trajectory" in dec_result:
+            full_trajectory.extend(dec_result["trajectory"])
+
+        # Save to Memory Agent
+        turn_data = {
+            "turn_index": len(history),
+            "has_new_info": has_new_info,
+            "differential_analysis": differential_data,
+            "decision_result": dec_result.get("result"),
+            "trajectory": full_trajectory
+        }
+        self.memory_agent.update_turn(self.inquiry, self.options, turn_data)
+
+        # Handle Terminal Result
+        if dec_result["type"] == "terminal":
+            tool_name = dec_result["tool"]
+            args = dec_result["args"]
+
+            if tool_name == "ask_question":
+                return {
+                    "type": "question",
+                    "question": args.get("question"),
+                    "letter_choice": args.get("letter_choice", "F"),
+                    "confidence": float(args.get("confidence", 0.5)),
+                    "usage": self.total_usage,
+                    "reasoning": args.get("reasoning", ""),
+                    "trajectory": full_trajectory
+                }
+
+            elif tool_name == "make_choice":
+                return {
+                    "type": "choice",
+                    "letter_choice": args.get("letter_choice", "F"),
+                    "confidence": float(args.get("confidence", 0.9)),
+                    "usage": self.total_usage,
+                    "reasoning": args.get("reasoning", ""),
+                    "trajectory": full_trajectory
+                }
+
+        # Fallback
+        return {
+            "type": "choice",
+            "letter_choice": "F",
+            "confidence": 0.1,
+            "usage": self.total_usage,
+            "error": "Agent failed to produce a terminal tool call.",
+            "trajectory": full_trajectory
+        }
