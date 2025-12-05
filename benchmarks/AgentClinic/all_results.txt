@@ -1,0 +1,258 @@
+----------------------------------------------------------------
+Running benchmark for dataset: MedQA
+----------------------------------------------------------------
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+Doctor [5%]: Can you tell me how long you have been experiencing double vision and weakness in your limbs?
+Patient [5%]: I've been experiencing the double vision and weakness for about a month now.
+Doctor [10%]: Have you noticed any changes in your ability to swallow or speak during this time?
+Patient [10%]: No, I haven't noticed any changes in my ability to swallow or speak.
+Doctor [15%]: Have you experienced any fatigue or muscle weakness that worsens with activity?
+Patient [15%]: Yes, I've definitely noticed that my fatigue and muscle weakness get worse with activity.
+Doctor [20%]: Have you had any recent infections or illnesses prior to the onset of these symptoms?
+Patient [20%]: No, I haven't had any recent infections or illnesses before these symptoms started.
+Doctor [25%]: Have you experienced any changes in your facial muscles, such as drooping or difficulty smiling?
+Patient [25%]: No, I haven't experienced any changes in my facial muscles, like drooping or difficulty smiling.
+Doctor [30%]: Have you noticed any changes in your reflexes or coordination while performing daily activities?
+Patient [30%]: I haven't really noticed any changes in my reflexes or coordination. My main issue has been the muscle weakness and the double vision.
+Doctor [35%]: Have you experienced any numbness or tingling sensations in your limbs?
+Patient [35%]: No, I haven't experienced any numbness or tingling sensations in my limbs.
+Doctor [40%]: Have you had any previous medical conditions or family history of neuromuscular disorders?
+Patient [40%]: No, I haven't had any previous medical conditions, and there's no family history of neuromuscular disorders that I'm aware of.
+Doctor [45%]: Have you noticed any specific times of day when your symptoms seem to worsen, or do they remain consistent throughout the day?
+Patient [45%]: I've noticed that my symptoms tend to worsen later in the day, especially after I've been active or busy. They seem to improve significantly after I've had some rest.
+Doctor [50%]: Have you experienced any difficulty with your vision, such as blurred vision or changes in color perception, aside from the double vision?
+Patient [50%]: No, aside from the double vision, I haven't experienced any blurred vision or changes in color perception.
+Doctor [55%]: Have you had any recent vaccinations or changes in medication that could be relevant to your symptoms?
+Patient [55%]: No, I haven't had any recent vaccinations or changes in medication that could be relevant to my symptoms.
+Doctor [60%]: Have you noticed any weakness in specific muscle groups, such as your arms or legs, more than others?
+Patient [60%]: Yes, I've noticed more weakness in my arms, especially when trying to brush my hair or lift things. My legs also feel weak when I try to climb stairs.
+Doctor [65%]: Have you experienced any episodes of muscle cramps or spasms in your arms or legs?
+Patient [65%]: No, I haven't experienced any muscle cramps or spasms in my arms or legs.
+Doctor [70%]: Have you had any recent blood tests done, particularly looking for autoimmune markers or electrolyte imbalances?
+Patient [70%]: No, I haven't had any recent blood tests done to look for autoimmune markers or electrolyte imbalances.
+Doctor [75%]: Let's proceed with some tests to gather more information. REQUEST TEST: Complete_Blood_Count.
+Traceback (most recent call last):
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 701, in <module>
+    main(args.openai_api_key, args.replicate_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.anthropic_api_key)
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 667, in main
+    pi_dialogue = meas_agent.inference_measurement(doctor_dialogue,)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 568, in inference_measurement
+    answer = query_model(self.backend, "\nHere is a history of the dialogue: " + self.agent_hist + "\n Here was the doctor measurement request: " + question, self.system_prompt())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 78, in query_model
+    response = openai.ChatCompletion.create(
+               ^^Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. UsError querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Timeout while downloading https://csvc.nejm.org/ContentServer/images?id=IC20240111&width=1500&height=4000.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Traceback (most recent call last):
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 701, in <module>
+    main(args.openai_api_key, args.replicate_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. UsError querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Error communicating with OpenAI: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error querying model: Error communicating with OpenAI: HTTPSConnectionPool(host='api.openai.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x109badf50>: Failed to resolve 'api.openai.com' ([Errno 8] nodename nor servname provided, or not known)"))
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Error querying model: Unsupported parameter: 'max_tokens' is not supported with this model. Use 'max_completion_tokens' instead.
+Traceback (most recent call last):
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 701, in <module>
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 656, in main
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 535, in inference_doctor
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 198, in query_model
+Exception: Max retries: timeout
+
+./run_all_datasets.sh: line 17: --num_scenarios: command not found
+
+./run_all_datasets.sh: line 19: syntax error near unexpected token `done'
+./run_all_datasets.sh: line 19: `done'
+ace. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key inDoctor [5%]: What symptoms are you currently experiencing?
+Patient [5%]: I've noticed my skin getting darker, especially on my face, over the last year. There are bluish-brown patches on my cheeks, nasal bridge, and around my mouth, and some have started appearing on my forehead too. The patches have a red background and I can see some small blood vessels in those areas.
+Doctor [10%]: Have you experienced any changes in your overall health, such as weight loss, fatigue, or changes in appetite?
+Patient [10%]: No, I haven't noticed any significant changes in my overall health like weight loss, fatigue, or changes in appetite. It's mainly just the changes in my skin that have been concerning me.
+Doctor [15%]: Have you had any recent sun exposure or changes in your skincare routine that might have contributed to these skin changes?
+Patient [15%]: I've always been careful about sun exposure, using sunscreen regularly. The only real change in my skincare routine was starting to use a skin-lightening cream containing hydroquinone daily about two years ago to address what I thought was melasma.
+Doctor [20%]: Have you experienced any itching, burning, or discomfort in the affected areas of your skin?
+Patient [20%]: No, I haven't experienced any itching, burning, or discomfort in the affected areas. It's more about how it looks than how it feels.
+Doctor [25%]: Have you noticed any changes in your menstrual cycle or any hormonal changes recently?
+Patient [25%]: No, I haven't noticed any changes in my menstrual cycle or any hormonal changes recently. Everything seems normal in that regard.
+Doctor [30%]: Have you had any previous skin conditions or treatments that might be relevant to your current symptoms?
+Patient [30%]: No, I haven't had any previous skin conditions or treatments before this. This is the first time I've experienced something like this with my skin.
+Doctor [35%]: Have you traveled to any new locations recently or been exposed to any new environmental factors that could have affected your skin?
+Patient [35%]: No, I haven't traveled to any new locations recently or been exposed to any new environmental factors that I can think of. Everything has been pretty consistent in my environment.
+Doctor [40%]: Have you noticed any changes in your nails or hair, such as discoloration or texture changes?
+Patient [40%]: No, I haven't noticed any changes in my nails or hair, like discoloration or texture changes. It's really just been my skin that's been affected.
+Doctor [45%]: Have you experienced any other symptoms, such as joint pain, fatigue, or any other systemic symptoms that might be related?
+Patient [45%]: No, I haven't experienced any joint pain, fatigue, or any other systemic symptoms. It's really just the skin issues that have been bothering me.
+Doctor [50%]: Have you had any recent blood tests or skin biopsies done to investigate these skin changes?
+Patient [50%]: No, I haven't had any recent blood tests or skin biopsies done to investigate these skin changes.
+Doctor [55%]: Have you noticed any family history of skin conditions or autoimmune diseases that might be relevant to your symptoms?
+Patient [55%]: No, there's no family history of skin conditions or autoimmune diseases that I'm aware of. It seems like this issue is just happening to me.
+Doctor [60%]: Have you experienced any changes in your skin's texture, such as roughness or scaling, in the affected areas?
+Patient [60%]: No, I haven't noticed any changes in texture like roughness or scaling in the affected areas. The main issue has been the discoloration and the appearance of
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Traceback (most recent call last):
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 701, in <module>
+    main(args.openai_api_key, args.replicate_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.anthropic_api_key)
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 656, in main
+    doctor_dialogue = doctor_agent.inference_doctor(pi_dialogue, image_requested=imgs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 535, in inference_doctor
+    answer = query_model(self.backend, "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: ", self.system_prompt(), image_requested=image_requested, scene=self.scenario)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 198, in query_model
+    raise Exception("Max retries: timeout")
+Exception: Max retries: timeout
+
+----------------------------------------------------------------
+Running benchmark for dataset: NEJM_Ext
+----------------------------------------------------------------
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Error querying model: No API key provided. You can set your API key in code using 'openai.api_key = <API-KEY>', or you can set the environment variable OPENAI_API_KEY=<API-KEY>). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = <PATH>'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+Traceback (most recent call last):
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 701, in <module>
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 656, in main
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 535, in inference_doctor
+  File "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/agentclinic.py", line 198, in query_model
+Exception: Max retries: timeout
+
+./run_all_datasets.sh: line 14: --with: command not found
+
+./run_all_datasets.sh: line 16: syntax error near unexpected token `done'
+./run_all_datasets.sh: line 16: `done'
+ your symptoms?
+Patient [80%]: I think the weight loss is more related to my symptoms because I haven't really changed my diet or lifestyle. I just don't feel like eating much anymore.
+Doctor [85%]: Have you noticed any changes in your mental health, such as increased anxiety or depression, since these symptoms began?
+Patient [85%]: I guess I've been feeling a bit more worried lately, mostly because I don't know what's wrong with me. But I wouldn't say I'm really depressed, just anxious about these symptoms.
+Doctor [90%]: Have you experienced any night-time cough or any respiratory symptoms, such as wheezing or chest tightness, during this time?
+Patient [90%]: No, I haven't had a cough at night or any wheezing or chest tightness. It's mostly just been the fevers and the swelling that's bothering me.
+Doctor [95%]: Given your symptoms and the normal test results so far, I would like to know if you have experienced any recent exposure to tuberculosis or if you have had any vaccinations that could be relevant?
+Patient [95%]: I haven't been around anyone with tuberculosis that I know of, and I'm not sure about my vaccinations. My parents took care of that, but I think I got all the shots I needed before we moved here.
+Doctor [100%]: Based on your symptoms of neck swelling, fevers, weight loss, and fatigue, along with the normal blood tests and lack of exposure to known infections, I suspect you may have lymphoma. However, I will need to confirm this with a lymph node biopsy. Would you be willing to proceed with that?
+Patient [100%]: Yes, if it helps figure out what's wrong with me, I'm willing to do the biopsy. I just want to feel better.
+
+./run_all_datasets.sh: line 17: api_key: command not found
+
+./run_all_datasets.sh: line 19: syntax error near unexpected token `done'
+./run_all_datasets.sh: line 19: `done'

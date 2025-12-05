@@ -208,7 +208,7 @@ __marimo__/
 
 # Project-specific
 # Benchmark repositories (cloned separately)
-benchmarks/AgentClinic/
+# benchmarks/AgentClinic/
 # benchmarks/mediQ/
 benchmarks/simple-evals/
 

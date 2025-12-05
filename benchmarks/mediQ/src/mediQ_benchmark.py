@@ -27,6 +27,64 @@ def load_data(filename):
     data = {item['id']: item for item in data}
     return data
 
+import concurrent.futures
+import threading
+
+write_lock = threading.Lock()
+
+def process_patient(pid, sample, expert_class, patient_class, processed_ids, correct_history, timeout_history, turn_lengths, num_processed_container, total_patients):
+    if pid in processed_ids:
+        with write_lock:
+            print(f"Skipping patient {pid} as it has already been processed.")
+            correct_history.append(processed_ids[pid]["correct"])
+            timeout_history.append(processed_ids[pid]["timeout"])
+            turn_lengths.append(processed_ids[pid]["turns"])
+        return
+
+    log_info(f"|||||||||||||||||||| PATIENT #{pid} ||||||||||||||||||||")
+    try:
+        letter_choice, questions, answers, temp_choice_list, temp_additional_info, sample_info = run_patient_interaction(expert_class, patient_class, sample)
+    except Exception as e:
+        log_info(f"Error processing patient {pid}: {e}", print_to_std=True)
+        return
+
+    log_info(f"|||||||||||||||||||| Interaction ended for patient #{pid} ||||||||||||||||||||\n\n\n")
+
+    output_dict = {
+        "id": pid,
+        "interactive_system": {
+            "correct": letter_choice == sample["answer_idx"],
+            "letter_choice": letter_choice,
+            "questions": questions,
+            "answers": answers,
+            "num_questions": len(questions),
+            "intermediate_choices": temp_choice_list,
+            "temp_additional_info": temp_additional_info
+        },
+        "info": sample_info,
+    }
+
+    with write_lock:
+        # create the directory if it does not exist
+        os.makedirs(os.path.dirname(args.output_filename), exist_ok=True)
+        with open(args.output_filename, 'a+') as f:
+            f.write(json.dumps(output_dict) + '\n')
+
+        correct_history.append(letter_choice == sample["answer_idx"])
+        timeout_history.append(len(temp_choice_list) > args.max_questions)
+        turn_lengths.append(len(temp_choice_list))
+        
+        num_processed_container[0] += 1
+        num_processed = num_processed_container[0]
+        
+        accuracy = sum(correct_history) / len(correct_history) if len(correct_history) > 0 else None
+        timeout_rate = sum(timeout_history) / len(timeout_history) if len(timeout_history) > 0 else None
+        avg_turns = sum(turn_lengths) / len(turn_lengths) if len(turn_lengths) > 0 else None
+
+        if results_logger:
+            results_logger.info(f'Processed {num_processed}/{total_patients} patients | Accuracy: {accuracy}')
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Processed {num_processed}/{total_patients} patients | Accuracy: {accuracy} | Timeout Rate: {timeout_rate} | Avg. Turns: {avg_turns}")
+
 def main():
     if os.path.exists(args.output_filename):
         with open(args.output_filename, "r") as f:
@@ -48,59 +106,22 @@ def main():
     patient_data_path = os.path.join(args.data_dir, args.dev_filename)
     patient_data = load_data(patient_data_path)
 
-    num_processed = 0
+    num_processed_container = [0]
     correct_history, timeout_history, turn_lengths = [], [], []
 
-    for pid, sample in patient_data.items():
-        if pid in processed_ids:
-            print(f"Skipping patient {pid} as it has already been processed.")
-            correct_history.append(processed_ids[pid]["correct"])
-            timeout_history.append(processed_ids[pid]["timeout"])
-            turn_lengths.append(processed_ids[pid]["turns"])
-            continue
+    print(f"Starting processing with {args.num_workers} workers...")
 
-        log_info(f"|||||||||||||||||||| PATIENT #{pid} ||||||||||||||||||||")
-        letter_choice, questions, answers, temp_choice_list, temp_additional_info, sample_info = run_patient_interaction(expert_class, patient_class, sample)
-        log_info(f"|||||||||||||||||||| Interaction ended for patient #{pid} ||||||||||||||||||||\n\n\n")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.num_workers) as executor:
+        futures = []
+        for pid, sample in patient_data.items():
+            futures.append(executor.submit(process_patient, pid, sample, expert_class, patient_class, processed_ids, correct_history, timeout_history, turn_lengths, num_processed_container, len(patient_data)))
+        
+        concurrent.futures.wait(futures)
 
-        output_dict = {
-            "id": pid,
-            "interactive_system": {
-                "correct": letter_choice == sample["answer_idx"],
-                "letter_choice": letter_choice,
-                "questions": questions,
-                "answers": answers,
-                "num_questions": len(questions),
-                "intermediate_choices": temp_choice_list,
-                "temp_additional_info": temp_additional_info
-            },
-            "info": sample_info,
-            # TODO: add additional evaluation metrics for analysis, some metrics can be found in src/evaluate.py
-            # "eval": {
-            #     "confidence_scores": [],
-            #     "repeat_question_score": [],
-            #     "repeat_answer_score": [],
-            #     "relevancy_score": [],
-            #     "delta_confidence_score": [],
-            #     "specificity_score": []
-            # }
-        }
+    accuracy = sum(correct_history) / len(correct_history) if len(correct_history) > 0 else None
+    timeout_rate = sum(timeout_history) / len(timeout_history) if len(timeout_history) > 0 else None
+    avg_turns = sum(turn_lengths) / len(turn_lengths) if len(turn_lengths) > 0 else None
 
-        # create the directory if it does not exist
-        os.makedirs(os.path.dirname(args.output_filename), exist_ok=True)
-        with open(args.output_filename, 'a+') as f:
-            f.write(json.dumps(output_dict) + '\n')
-
-        correct_history.append(letter_choice == sample["answer_idx"])
-        timeout_history.append(len(temp_choice_list) > args.max_questions)
-        turn_lengths.append(len(temp_choice_list))
-        num_processed += 1
-        accuracy = sum(correct_history) / len(correct_history) if len(correct_history) > 0 else None
-        timeout_rate = sum(timeout_history) / len(timeout_history) if len(timeout_history) > 0 else None
-        avg_turns = sum(turn_lengths) / len(turn_lengths) if len(turn_lengths) > 0 else None
-
-        results_logger.info(f'Processed {num_processed}/{len(patient_data)} patients | Accuracy: {accuracy}')
-        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Processed {num_processed}/{len(patient_data)} patients | Accuracy: {accuracy} | Timeout Rate: {timeout_rate} | Avg. Turns: {avg_turns}")
     print(f"Accuracy: {sum(correct_history)} / {len(correct_history)} = {accuracy}")
     print(f"Timeout Rate: {sum(timeout_history)} / {len(timeout_history)} = {timeout_rate}")
     print(f"Avg. Turns: {avg_turns}")

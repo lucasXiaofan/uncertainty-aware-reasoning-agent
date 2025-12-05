@@ -102,10 +102,10 @@ tools:
       parameters:
         type: "object"
         properties:
-          updated_options: {type: "string", description: "The updated list of possible diagnoses."}
-          rule_out_criteria: {type: "string", description: "What is needed to rule out the remaining options."}
-          confirmation_criteria: {type: "string", description: "What is needed to confirm the remaining options."}
-        required: ["updated_options", "rule_out_criteria", "confirmation_criteria"]
+          current_differential_options: {type: "string", description: "The updated list of possible diagnoses. Must be in 'A. Option Name, B. Option Name' format. If uncertain, list all options."}
+          rule_out_criteria: {type: "string", description: "What is needed to rule out the remaining options. Must include option label and name (e.g., 'For A. [Name]: ...')."}
+          confirmation_criteria: {type: "string", description: "What is needed to confirm the remaining options. Must include option label and name (e.g., 'For A. [Name]: ...')."}
+        required: ["current_differential_options", "rule_out_criteria", "confirmation_criteria"]
 
   assess_progress:
     type: "function"
@@ -190,29 +190,10 @@ agents:
       important, must call make_choice tool to finalize the case.
 
   # --- AGENT 4: Universal Agent (MD-based Tool User) ---
-  # universal_agent:
-  #   model: "deepseek-chat" # Can be switched to "z-ai/glm-4.6" etc.
-  #   temperature: 0.0
-  #   tools: ["ask_question", "make_choice", 'think']
-  #   terminal_tools: ["ask_question", "make_choice"]
-  #   inputs: ["Full_Conversation_History"]
-  #   system_prompt: |
-  #     You are an intelligent agent capable of reasoning and using tools.
-      
-  #     Instructions:
-  #     use think tool to reason step by step, before make_choice or ask_question.
-  #     1. Analyze the input and history.
-  #     2. If you need to ask the patient for more details, use 'ask_question' (TERMINAL).
-  #     3. If you have enough information to make a diagnosis, use 'make_choice' (TERMINAL).
-  #     4. ALWAYS end your turn with a tool call. If you use a non-terminal tool, you can continue reasoning. If you use a terminal tool, the session ends.
-
-  #     - Ask specific, direct questions about symptoms, history, or vitals.
-  #     - Do NOT ask open-ended "tell me everything" questions, as the system might fail to retrieve specific details.
-  #     - If patient cannot answer, try asking about a different specific symptom or sign.
   universal_agent:
     model: "deepseek-chat" # Can be switched to "z-ai/glm-4.6" etc.
-    temperature: 0.1
-    tools: ["ask_question", "make_choice", "brave_search",'think']
+    temperature: 0.0
+    tools: ["ask_question", "make_choice", 'think']
     terminal_tools: ["ask_question", "make_choice"]
     inputs: ["Full_Conversation_History"]
     system_prompt: |
@@ -221,42 +202,74 @@ agents:
       Instructions:
       use think tool to reason step by step, before make_choice or ask_question.
       1. Analyze the input and history.
-      2. If you need external information to understand the case, use 'brave_search'.
-      3. If you need to ask the patient for more details, use 'ask_question' (TERMINAL).
-      4. If you have enough information to make a diagnosis, use 'make_choice' (TERMINAL).
-      5. ALWAYS end your turn with a tool call. If you use a non-terminal tool, you can continue reasoning. If you use a terminal tool, the session ends.
+      2. If you need to ask the patient for more details, use 'ask_question' (TERMINAL).
+      3. If you have enough information to make a diagnosis, use 'make_choice' (TERMINAL).
+      4. ALWAYS end your turn with a tool call. If you use a non-terminal tool, you can continue reasoning. If you use a terminal tool, the session ends.
 
       - Ask specific, direct questions about symptoms, history, or vitals.
       - Do NOT ask open-ended "tell me everything" questions, as the system might fail to retrieve specific details.
       - If patient cannot answer, try asking about a different specific symptom or sign.
+  # universal_agent:
+  #   model: "deepseek-chat" # Can be switched to "z-ai/glm-4.6" etc.
+  #   temperature: 0.1
+  #   tools: ["ask_question", "make_choice", "brave_search",'think']
+  #   terminal_tools: ["ask_question", "make_choice"]
+  #   inputs: ["Full_Conversation_History"]
+  #   system_prompt: |
+  #     You are an intelligent agent capable of reasoning and using tools.
+      
+  #     Instructions:
+  #     use think tool to reason step by step, before make_choice or ask_question.
+  #     1. Analyze the input and history.
+  #     2. If you need external information to understand the case, use 'brave_search'.
+  #     3. If you need to ask the patient for more details, use 'ask_question' (TERMINAL).
+  #     4. If you have enough information to make a diagnosis, use 'make_choice' (TERMINAL).
+  #     5. ALWAYS end your turn with a tool call. If you use a non-terminal tool, you can continue reasoning. If you use a terminal tool, the session ends.
+
+  #     - Ask specific, direct questions about symptoms, history, or vitals.
+  #     - Do NOT ask open-ended "tell me everything" questions, as the system might fail to retrieve specific details.
+  #     - If patient cannot answer, try asking about a different specific symptom or sign.
 
   # --- New Agents for Two-Agent Flow ---
   differential_agent:
     model: "deepseek-chat"
-    temperature: 0.0
-    tools: ["submit_differential", "think"]
+    temperature: 0.6
+    tools: ["submit_differential","think"]
     terminal_tools: ["submit_differential"]
     system_prompt: |
       You are a Differential Diagnosis Expert.
 
       Task:
-      1. Analyze the evidence to Rule Out unlikely diagnoses from the list.
+      1. Analyze the evidence to Rule Out unlikely diagnoses from the list, when you have >90% confidence.
       2. Identify what specific information is needed to distinguish between the remaining options.
       3. Use 'submit_differential' to return the refined list and analysis.
+      
+      CRITICAL FORMATTING RULES:
+      - 'current_differential_options' MUST use the format: "A. [Diagnosis Name], B. [Diagnosis Name], ...".
+      - If you are uncertain or cannot rule out any options, you MUST list ALL original options in the "A. ..., B. ..." format. Do NOT say "All options are possible" without listing them.
+      - 'rule_out_criteria' and 'confirmation_criteria' MUST explicitly reference the option label and name. 
+        Example: "To rule out A. Pneumonia: check for fever..." NOT "To rule out the first option..."
 
   decision_agent:
     model: "deepseek-chat"
-    temperature: 0.0
+    temperature: 0.6
     tools: ["ask_question", "make_choice", "think"]
     terminal_tools: ["ask_question", "make_choice"]
     system_prompt: |
       You are a Diagnostic Decision Maker.
 
       Task:
+      If there are >=3 option remaining, try to ask question for information
+      when asking question:
+      Consider ask about any relevant information about the patient’s case, such as family history, tests and exams results, treatments already done, etc. Consider what are the common questions asked in the specific subject relating to the patient’s known symptoms, and what the best and most intuitive doctor would ask. 
+
+      after common question asked, try to ask questions to rule out option or confirm option.
+
       Decide the next best action:
-      - If you can make a diagnosis with high confidence (>80%), use 'make_choice'.
+      - If you can make a diagnosis with high confidence, use 'make_choice'.
       - If you need more info, use 'ask_question'.
-      
+    
+
       Rules:
       - Do NOT ask redundant questions.
       - Focus on the 'rule_out_criteria' and 'confirmation_criteria' provided.
@@ -270,10 +283,6 @@ agents:
     system_prompt: |
       You are a Clinical Conversation Analyst.
       Task: Determine if the patient's latest response provided NEW diagnostic information.
-      
-      Input:
-      - Conversation History
-      
       Rules:
       - If the patient answered the question with specific details (symptoms, timeline, values), has_new_info = True.
       - If the patient said "I don't know", "Unsure", "Unknown", or repeated previous info, has_new_info = False.

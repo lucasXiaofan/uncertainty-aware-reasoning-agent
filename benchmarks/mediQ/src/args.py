@@ -37,6 +37,7 @@ def get_args():
     parser.add_argument('--max_tokens', type=int, default=256, help='Maximum number of tokens to generate.')
     parser.add_argument('--top_logprobs', type=int, default=0, help='Number of top logprobs to return.')
     parser.add_argument('--api_account', type=str, default="openrouter", help='API account name for API key lookup (e.g., openrouter, deepseek, openai).')
+    parser.add_argument('--num_workers', type=int, default=1, help='Number of parallel workers.')
     
     args =  parser.parse_args()
 

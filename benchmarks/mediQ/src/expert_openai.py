@@ -739,8 +739,8 @@ class ThreeAgentExpert(Expert):
         
         if run_differential:
             # Determine options to present to Differential Agent
-            if latest_diff and "updated_options" in latest_diff:
-                current_options_text = latest_diff["updated_options"]
+            if latest_diff and "current_differential_options" in latest_diff:
+                current_options_text = latest_diff["current_differential_options"]
                 print(f"[{self.episode_id}] Using refined options from memory.")
             else:
                 current_options_text = "\n".join([f"{k}: {v}" for k, v in self.options.items()])
@@ -773,7 +773,7 @@ CURRENT POSSIBLE DIAGNOSES (Refined from previous turns if applicable):
                 args = diff_result["args"]
                 differential_data = args
                 differential_analysis = f"""Updated Options:
-{args.get('updated_options')}
+{args.get('current_differential_options')}
 
 Rule Out Criteria:
 {args.get('rule_out_criteria')}
@@ -794,7 +794,7 @@ Confirmation Criteria:
             if latest_diff:
                 differential_data = latest_diff
                 differential_analysis = f"""Updated Options:
-{latest_diff.get('updated_options')}
+{latest_diff.get('current_differential_options')}
 
 Rule Out Criteria:
 {latest_diff.get('rule_out_criteria')}

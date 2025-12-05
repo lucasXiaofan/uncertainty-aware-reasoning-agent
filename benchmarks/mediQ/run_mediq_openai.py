@@ -106,6 +106,12 @@ def main():
         default=sys.executable,
         help="Python executable to invoke mediQ_benchmark (defaults to current env).",
     )
+    parser.add_argument(
+        "--num_workers",
+        type=int,
+        default=1,
+        help="Number of parallel workers.",
+    )
     args = parser.parse_args()
 
     # Determine API account if not provided
@@ -220,6 +226,8 @@ def main():
         api_account,  # Use the new helper_openai.py (openrouter, deepseek, openai)
         "--api_account",
         api_account,
+        "--num_workers",
+        str(args.num_workers),
     ]
 
     # Add optional base URL if provided
@@ -237,6 +245,7 @@ def main():
     print(f"Max Questions: {args.max_questions}")
     print(f"Temperature: {args.temperature}")
     print(f"Max Tokens: {args.max_tokens}")
+    print(f"Num Workers: {args.num_workers}")
     print(f"Output Folder: {run_folder}")
     print("="*80 + "\n")
 
