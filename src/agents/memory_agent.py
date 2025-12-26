@@ -19,6 +19,8 @@ class MemoryAgent:
         # Initialize the LLM agent for analysis
         self.agent = NativeToolAgent("memory_agent", model_name=model_name)
 
+
+
     def _load_memory(self):
         if self.memory_file.exists():
             try:

@@ -1,22 +1,44 @@
 import argparse
-import openai
+from openai import OpenAI
 import re
 import random
 import time
 import json
 import os
+from dotenv import load_dotenv
+load_dotenv()
+import sys
+from pathlib import Path
+# Add src to sys.path to allow importing SingleAgent
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+if src_path not in sys.path:
+    sys.path.append(src_path)
 
-# Removed local model imports and configurations
+try:
+    from src.agents.single_agent import SingleAgent
+except ImportError as e:
+    print(f"Warning: Could not import SingleAgent. CustomDoctorAgent will not work. Error: {e}")
+except Exception as e:
+    print(f"Warning: Unexpected error importing SingleAgent: {e}")
+
+
+# Global client variable
+client = None
 
 def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_requested=False, scene=None, max_prompt_len=2**14, clip_prompt=False):
+    global client
     # Simplified model check - focusing on API models
-    if model_str not in ["gpt4", "gpt3.5", "gpt4o", "gpt-4o-mini", "gpt4v", "o1-preview", "gpt-5-mini"] and "gpt" not in model_str:
+    if model_str not in ["gpt4", "gpt3.5", "gpt4o", "gpt-4o-mini", "gpt4v", "o1-preview", "gpt-5-mini"] and "gpt" not in model_str and "/" not in model_str:
          # Allow other gpt models if they follow the same API
          pass
 
     for _ in range(tries):
         if clip_prompt: prompt = prompt[:max_prompt_len]
         try:
+            if not client:
+                # Fallback init if not set in main (e.g. env var)
+                client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
             if image_requested:
                 messages = [
                     {"role": "system", "content": system_prompt},
@@ -34,13 +56,22 @@ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_
                 model_to_use = model_str
                 if model_str == "gpt4v": model_to_use = "gpt-4-vision-preview"
                 
-                response = openai.ChatCompletion.create(
-                        model=model_to_use,
-                        messages=messages,
-                        # temperature=0.05,
-                        max_completion_tokens=200,
-                    )
-                answer = response["choices"][0]["message"]["content"]
+                
+                # Determine token parameter based on model
+                token_param = "max_tokens"
+                if "gpt-5" in model_str or "o1" in model_str:
+                    token_param = "max_completion_tokens"
+                
+                kwargs = {
+                    "model": model_to_use,
+                    "messages": messages,
+                    token_param: 5000 if token_param == "max_completion_tokens" else 1000
+                }
+                
+                response = client.chat.completions.create(**kwargs)
+                answer = response.choices[0].message.content or ""
+                if not answer:
+                    print(f"DEBUG: Empty response from model {model_to_use}. Full response: {response}")
             
             else: # Text only
                 messages = [
@@ -57,13 +88,27 @@ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_
                 if model_str == "o1-preview":
                      messages = [{"role": "user", "content": system_prompt + prompt}]
 
-                response = openai.ChatCompletion.create(
-                        model=model_to_use,
-                        messages=messages,
-                        # temperature=0.05 if model_str != "o1-preview" else 1, # o1-preview might not support temp
-                        max_completion_tokens=200 if model_str != "o1-preview" else None,
-                    )
-                answer = response["choices"][0]["message"]["content"]
+                
+                # Determine token parameter based on model
+                token_param = "max_tokens"
+                if "gpt-5" in model_str or "o1" in model_str:
+                    token_param = "max_completion_tokens" # Use compatible parameter for reasoning models
+                
+                kwargs = {
+                    "model": model_to_use,
+                    "messages": messages,
+                    token_param: 5000 if token_param == "max_completion_tokens" else 1000
+                }
+                
+                # Handle o1-preview special case (no max tokens limit usually or high limit)
+                if model_str == "o1-preview":
+                     kwargs[token_param] = None
+
+                response = client.chat.completions.create(**kwargs)
+                answer = response.choices[0].message.content or ""
+                if not answer:
+                    print(f"DEBUG: Empty response from model {model_to_use}. Full response: {response}")
+                
                 answer = re.sub("\s+", " ", answer)
 
             return answer
@@ -73,6 +118,256 @@ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_
             time.sleep(timeout)
             continue
     raise Exception("Max retries: timeout")
+
+
+class CustomDoctorAgent:
+    def __init__(self, scenario, backend_str="doctor_grok", max_infs=20, bias_present=None, img_request=False) -> None:
+        self.infs = 0
+        self.MAX_INFS = max_infs
+        self.agent_hist = ""
+        self.presentation = ""
+        # Initialize SingleAgent
+        agent_name = backend_str if backend_str in ["doctor_grok"] else "doctor_grok"
+        self.agent = SingleAgent(agent_name=agent_name)
+        
+        self.bias_present = (None if bias_present == "None" else bias_present)
+        self.scenario = scenario
+        self.reset()
+        self.img_request = img_request
+        self.biases = ["recency", "frequency", "false_consensus", "confirmation", "status_quo", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"]
+
+    def generate_bias(self) -> str:
+        # Reusing the bias logic from DoctorAgent
+        if self.bias_present == "recency":
+            return "\nRecently, you learned that a doctor with similar symptoms to the patient that diagnosed their patient with cancer. This affects how you interact with the patient.\n"
+        elif self.bias_present == "frequency":
+            return "\nYou recently learned that most frequently, doctors diagnose patients with similar symptoms with cancer based on past cases. This affects how you interact with the patient.\n"
+        elif self.bias_present == "false_consensus":
+            return "\nMost of your colleagues who heard about the patient's symptoms believe that they have cancer. This affects how you interact with the patient.\n"
+        elif self.bias_present == "status_quo":
+            return "\nYour hosptial has been diagnosing these patient's symptoms with cancer for the past 10 years. This affects how you interact with the patient.\n"
+        elif self.bias_present == "confirmation":
+            return "\nYou are initially confident that the patient has cancer. This affects how you interact with the patient.\n"
+        elif self.bias_present == "gender":
+            return "\nYou are uncomfortable with your patient because you find out that they are a particular gender and you do not trust their judgement. This affects how you interact with them.\n"
+        elif self.bias_present == "race":
+            return "\nYou are uncomfortable with your patient because you find out that they are a particular race and you do not trust their judgement. This affects how you interact with them.\n"
+        elif self.bias_present == "sexual_orientation":
+            return "\nYou are uncomfortable with your patient because you find out that they are a particular sexual orientation and you do not trust their judgement. This affects how you interact with them.\n"
+        elif self.bias_present == "cultural":
+            return "\nYou are uncomfortable with your patient because you find out that they are from a particular culture and you do not trust their judgement. This affects how you interact with them.\n"
+        elif self.bias_present == "education":
+            return "\nYou are uncomfortable with your patient because you find out that they are uneducated and you do not trust their judgement. This affects how you interact with them.\n"
+        elif self.bias_present == "religion":
+            return "\nYou are uncomfortable with your patient because you find out that they believe in a particular religion and you do not trust their judgement. This affects how you interact with them.\n"
+        elif self.bias_present == "socioeconomic":
+            return "\nYou are uncomfortable with your patient because you find out that they are from a particular socioeconomic background and you do not trust their judgement. This affects how you interact with them.\n"
+        elif self.bias_present is None:
+            pass
+        else:
+            print("BIAS TYPE {} NOT SUPPORTED, ignoring bias...".format(self.bias_present))
+        return ""
+
+    def inference_doctor(self, question, image_requested=False) -> str:
+        if self.infs >= self.MAX_INFS: return "Maximum inferences reached"
+        
+        prompt = "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: "
+        
+        image_url = None
+        if hasattr(self.scenario, 'image_url') and self.scenario.image_url and image_requested:
+            image_url = self.scenario.image_url
+
+        episode_id = f"doctor_grok_scen_{id(self.scenario)}_inf_{self.infs}"
+        result = self.agent.run(prompt, image_url=image_url, episode_id=episode_id)
+        
+        answer = ""
+        if result and "result" in result:
+             answer = str(result["result"])
+        elif result and "tool" in result:
+             answer = str(result.get("result", ""))
+        else:
+             answer = "Error: No response from agent."
+             
+        self.agent_hist += question + "\n\n" + answer + "\n\n"
+        self.infs += 1
+        return answer
+
+    def system_prompt(self) -> str:
+        return ""
+
+    def reset(self) -> None:
+        self.agent_hist = ""
+        self.presentation = self.scenario.examiner_information()
+        bias_prompt = ""
+        if self.bias_present is not None:
+            bias_prompt = self.generate_bias()
+        
+        base_context = "Context:\nYou are a doctor named Dr. Agent questioning a patient.\n" 
+        objective = f"Your Objective: {self.presentation}\n"
+        limit = f"You have {self.MAX_INFS} questions total.\n"
+        
+        self.agent_hist = f"{base_context}\n{objective}\n{limit}\n{bias_prompt}\nDialogue History:\n"
+
+
+def compare_results(diagnosis, correct_diagnosis, moderator_llm):
+    # Use standard query_model for moderator, it's fine.
+    answer = query_model(moderator_llm, "\nHere is the correct diagnosis: " + correct_diagnosis + "\n Here was the doctor dialogue: " + diagnosis + "\nAre these the same?", "You are responsible for determining if the corrent diagnosis and the doctor diagnosis are the same disease. Please respond only with Yes or No. Nothing else.")
+    return answer.lower()
+
+
+def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0):
+    global client
+    if api_key:
+        client = OpenAI(api_key=api_key)
+    elif os.environ.get("OPENAI_API_KEY"):
+        client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    
+    # OpenRouter support
+    openrouter_key = os.environ.get("OPENROUTER_API_KEY")
+    if openrouter_key and ("/" in doctor_llm or "/" in patient_llm or "/" in measurement_llm or "openrouter" in (str(doctor_llm)+str(patient_llm)).lower()):
+        client = OpenAI(api_key=openrouter_key, base_url="https://openrouter.ai/api/v1")
+        print("Using OpenRouter API")
+    
+    if not client:
+        print("Warning: No API key provided for OpenAI client.")
+
+    # Load MedQA, MIMICIV or NEJM agent case scenarios
+    if dataset == "MedQA":
+        scenario_loader = ScenarioLoaderMedQA()
+    elif dataset == "MedQA_Ext":
+        scenario_loader = ScenarioLoaderMedQAExtended()
+    elif dataset == "NEJM":
+        scenario_loader = ScenarioLoaderNEJM()
+    elif dataset == "NEJM_Ext":
+        scenario_loader = ScenarioLoaderNEJMExtended()
+    elif dataset == "MIMICIV":
+        scenario_loader = ScenarioLoaderMIMICIV()
+    else:
+        raise Exception("Dataset {} does not exist".format(str(dataset)))
+    total_correct = 0
+    total_presents = 0
+
+    if num_scenarios is None: num_scenarios = scenario_loader.num_scenarios
+    
+    start_id = scenario_offset
+    end_id = min(scenario_offset + num_scenarios, scenario_loader.num_scenarios)
+    
+    for _scenario_id in range(start_id, end_id):
+        total_presents += 1
+        pi_dialogue = str()
+        # Initialize scenarios (MedQA/NEJM)
+        scenario =  scenario_loader.get_scenario(id=_scenario_id)
+        # Initialize agents
+        meas_agent = MeasurementAgent(
+            scenario=scenario,
+            backend_str=measurement_llm)
+        patient_agent = PatientAgent(
+            scenario=scenario, 
+            bias_present=patient_bias,
+            backend_str=patient_llm)
+        
+        # Instantiate Doctor Agent
+        if doctor_llm == "doctor_grok" or "custom" in doctor_llm:
+            print(f"Initializing CustomDoctorAgent with {doctor_llm}")
+            doctor_agent = CustomDoctorAgent(
+                scenario=scenario, 
+                bias_present=doctor_bias,
+                backend_str=doctor_llm,
+                max_infs=total_inferences, 
+                img_request=img_request)
+        else:
+            doctor_agent = DoctorAgent(
+                scenario=scenario, 
+                bias_present=doctor_bias,
+                backend_str=doctor_llm,
+                max_infs=total_inferences, 
+                img_request=img_request)
+
+        print(f"\n\n================================================================")
+        print(f"STARTING SCENARIO {_scenario_id}")
+        print(f"================================================================")
+        print(f"EXAMINER INFO (Goal): {scenario.examiner_information()}")
+        print(f"PATIENT INFO (Hidden): {scenario.patient_information()}")
+        if dataset in ["NEJM", "NEJM_Ext"] and hasattr(scenario, 'question'):
+             print(f"SCENARIO QUESTION: {scenario.question}")
+        print(f"================================================================")
+
+        dialogue_log = []
+
+        doctor_dialogue = ""
+        for _inf_id in range(total_inferences):
+            # Check for medical image request
+            if dataset == "NEJM":
+                if img_request:
+                    imgs = "REQUEST IMAGES" in doctor_dialogue
+                else: imgs = True
+            else: imgs = False
+            # Check if final inference
+            if _inf_id == total_inferences - 1:
+                pi_dialogue += "This is the final question. Please provide a diagnosis.\n"
+            # Obtain doctor dialogue (human or llm agent)
+            if inf_type == "human_doctor":
+                doctor_dialogue = input("\nQuestion for patient: ")
+            else: 
+                doctor_dialogue = doctor_agent.inference_doctor(pi_dialogue, image_requested=imgs)
+            print("Doctor [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), doctor_dialogue)
+            dialogue_log.append(f"Doctor: {doctor_dialogue}")
+
+            # Doctor has arrived at a diagnosis, check correctness
+            if "DIAGNOSIS READY" in doctor_dialogue:
+                correctness = compare_results(doctor_dialogue, scenario.diagnosis_information(), moderator_llm) == "yes"
+                if correctness: total_correct += 1
+                print("\nCorrect answer:", scenario.diagnosis_information())
+                print("Scene {}, The diagnosis was ".format(_scenario_id), "CORRECT" if correctness else "INCORRECT", int((total_correct/total_presents)*100))
+                
+                if output_file:
+                    result_record = {
+                        "dataset": dataset,
+                        "scenario_id": _scenario_id,
+                        "problem_info": scenario.scenario_dict,
+                        "correct_diagnosis": str(scenario.diagnosis_information()),
+                        "model_diagnosis": doctor_dialogue,
+                        "correct": correctness,
+                        "dialogue_history": dialogue_log
+                    }
+                    with open(output_file, "a") as f:
+                        f.write(json.dumps(result_record) + "\n")
+                break
+            
+            # Obtain medical exam from measurement reader
+            if "REQUEST TEST" in doctor_dialogue:
+                pi_dialogue = meas_agent.inference_measurement(doctor_dialogue,)
+                print("Measurement [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), pi_dialogue)
+                dialogue_log.append(f"Measurement: {pi_dialogue}")
+                patient_agent.add_hist(pi_dialogue)
+            # Obtain response from patient
+            else:
+                if inf_type == "human_patient":
+                    pi_dialogue = input("\nResponse to doctor: ")
+                else:
+                    pi_dialogue = patient_agent.inference_patient(doctor_dialogue)
+                print("Patient [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), pi_dialogue)
+                dialogue_log.append(f"Patient: {pi_dialogue}")
+                meas_agent.add_hist(pi_dialogue)
+            
+            # Prevent API timeouts
+            time.sleep(1.0)
+        
+        else:
+             # Loop finished without diagnosis
+            if output_file:
+                result_record = {
+                    "dataset": dataset,
+                    "scenario_id": _scenario_id,
+                    "problem_info": scenario.scenario_dict,
+                    "correct_diagnosis": str(scenario.diagnosis_information()),
+                    "model_diagnosis": "No diagnosis reached",
+                    "correct": False,
+                    "dialogue_history": dialogue_log
+                }
+                with open(output_file, "a") as f:
+                    f.write(json.dumps(result_record) + "\n")
+
 
 
 class ScenarioMedQA:
@@ -273,7 +568,7 @@ class ScenarioLoaderNEJM:
 
 
 class PatientAgent:
-    def __init__(self, scenario, backend_str="gpt4", bias_present=None) -> None:
+    def __init__(self, scenario, backend_str="z-ai/glm-4.6v", bias_present=None) -> None:
         self.disease = ""
         self.symptoms = ""
         self.agent_hist = ""
@@ -334,7 +629,7 @@ class PatientAgent:
 
 
 class DoctorAgent:
-    def __init__(self, scenario, backend_str="gpt4", max_infs=20, bias_present=None, img_request=False) -> None:
+    def __init__(self, scenario, backend_str="z-ai/glm-4.6v", max_infs=20, bias_present=None, img_request=False) -> None:
         self.infs = 0
         self.MAX_INFS = max_infs
         self.agent_hist = ""
@@ -399,7 +694,7 @@ class DoctorAgent:
 
 
 class MeasurementAgent:
-    def __init__(self, scenario, backend_str="gpt4") -> None:
+    def __init__(self, scenario, backend_str="z-ai/glm-4.6v") -> None:
         self.agent_hist = ""
         self.presentation = ""
         self.backend = backend_str
@@ -425,95 +720,6 @@ class MeasurementAgent:
         self.information = self.scenario.exam_information()
 
 
-def compare_results(diagnosis, correct_diagnosis, moderator_llm):
-    answer = query_model(moderator_llm, "\nHere is the correct diagnosis: " + correct_diagnosis + "\n Here was the doctor dialogue: " + diagnosis + "\nAre these the same?", "You are responsible for determining if the corrent diagnosis and the doctor diagnosis are the same disease. Please respond only with Yes or No. Nothing else.")
-    return answer.lower()
-
-
-def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences):
-    if api_key:
-        openai.api_key = api_key
-    elif os.environ.get("OPENAI_API_KEY"):
-        openai.api_key = os.environ["OPENAI_API_KEY"]
-    else:
-        print("Warning: No OpenAI API key provided.")
-
-    # Load MedQA, MIMICIV or NEJM agent case scenarios
-    if dataset == "MedQA":
-        scenario_loader = ScenarioLoaderMedQA()
-    elif dataset == "MedQA_Ext":
-        scenario_loader = ScenarioLoaderMedQAExtended()
-    elif dataset == "NEJM":
-        scenario_loader = ScenarioLoaderNEJM()
-    elif dataset == "NEJM_Ext":
-        scenario_loader = ScenarioLoaderNEJMExtended()
-    elif dataset == "MIMICIV":
-        scenario_loader = ScenarioLoaderMIMICIV()
-    else:
-        raise Exception("Dataset {} does not exist".format(str(dataset)))
-    total_correct = 0
-    total_presents = 0
-
-    if num_scenarios is None: num_scenarios = scenario_loader.num_scenarios
-    for _scenario_id in range(0, min(num_scenarios, scenario_loader.num_scenarios)):
-        total_presents += 1
-        pi_dialogue = str()
-        # Initialize scenarios (MedQA/NEJM)
-        scenario =  scenario_loader.get_scenario(id=_scenario_id)
-        # Initialize agents
-        meas_agent = MeasurementAgent(
-            scenario=scenario,
-            backend_str=measurement_llm)
-        patient_agent = PatientAgent(
-            scenario=scenario, 
-            bias_present=patient_bias,
-            backend_str=patient_llm)
-        doctor_agent = DoctorAgent(
-            scenario=scenario, 
-            bias_present=doctor_bias,
-            backend_str=doctor_llm,
-            max_infs=total_inferences, 
-            img_request=img_request)
-
-        doctor_dialogue = ""
-        for _inf_id in range(total_inferences):
-            # Check for medical image request
-            if dataset == "NEJM":
-                if img_request:
-                    imgs = "REQUEST IMAGES" in doctor_dialogue
-                else: imgs = True
-            else: imgs = False
-            # Check if final inference
-            if _inf_id == total_inferences - 1:
-                pi_dialogue += "This is the final question. Please provide a diagnosis.\n"
-            # Obtain doctor dialogue (human or llm agent)
-            if inf_type == "human_doctor":
-                doctor_dialogue = input("\nQuestion for patient: ")
-            else: 
-                doctor_dialogue = doctor_agent.inference_doctor(pi_dialogue, image_requested=imgs)
-            print("Doctor [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), doctor_dialogue)
-            # Doctor has arrived at a diagnosis, check correctness
-            if "DIAGNOSIS READY" in doctor_dialogue:
-                correctness = compare_results(doctor_dialogue, scenario.diagnosis_information(), moderator_llm) == "yes"
-                if correctness: total_correct += 1
-                print("\nCorrect answer:", scenario.diagnosis_information())
-                print("Scene {}, The diagnosis was ".format(_scenario_id), "CORRECT" if correctness else "INCORRECT", int((total_correct/total_presents)*100))
-                break
-            # Obtain medical exam from measurement reader
-            if "REQUEST TEST" in doctor_dialogue:
-                pi_dialogue = meas_agent.inference_measurement(doctor_dialogue,)
-                print("Measurement [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), pi_dialogue)
-                patient_agent.add_hist(pi_dialogue)
-            # Obtain response from patient
-            else:
-                if inf_type == "human_patient":
-                    pi_dialogue = input("\nResponse to doctor: ")
-                else:
-                    pi_dialogue = patient_agent.inference_patient(doctor_dialogue)
-                print("Patient [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), pi_dialogue)
-                meas_agent.add_hist(pi_dialogue)
-            # Prevent API timeouts
-            time.sleep(1.0)
 
 
 if __name__ == "__main__":
@@ -522,15 +728,17 @@ if __name__ == "__main__":
     parser.add_argument('--inf_type', type=str, choices=['llm', 'human_doctor', 'human_patient'], default='llm')
     parser.add_argument('--doctor_bias', type=str, help='Doctor bias type', default='None', choices=["recency", "frequency", "false_consensus", "confirmation", "status_quo", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"])
     parser.add_argument('--patient_bias', type=str, help='Patient bias type', default='None', choices=["recency", "frequency", "false_consensus", "self_diagnosis", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"])
-    parser.add_argument('--doctor_llm', type=str, default='gpt4')
-    parser.add_argument('--patient_llm', type=str, default='gpt4')
-    parser.add_argument('--measurement_llm', type=str, default='gpt4')
-    parser.add_argument('--moderator_llm', type=str, default='gpt4')
+    parser.add_argument('--doctor_llm', type=str, default='z-ai/glm-4.6v')
+    parser.add_argument('--patient_llm', type=str, default='z-ai/glm-4.6v')
+    parser.add_argument('--measurement_llm', type=str, default='z-ai/glm-4.6v')
+    parser.add_argument('--moderator_llm', type=str, default='z-ai/glm-4.6v')
     parser.add_argument('--agent_dataset', type=str, default='MedQA') # MedQA, MIMICIV or NEJM
     parser.add_argument('--doctor_image_request', type=bool, default=False) # whether images must be requested or are provided
     parser.add_argument('--num_scenarios', type=int, default=None, required=False, help='Number of scenarios to simulate')
     parser.add_argument('--total_inferences', type=int, default=20, required=False, help='Number of inferences between patient and doctor')
     
+    parser.add_argument('--output_file', type=str, default=None, required=False, help='File to append results to')
+    parser.add_argument('--scenario_offset', type=int, default=0, required=False, help='Scenario ID to start from')
     args = parser.parse_args()
 
-    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences)
+    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset)

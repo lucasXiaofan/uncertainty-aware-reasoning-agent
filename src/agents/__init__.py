@@ -1,6 +1,7 @@
 """Agent implementations."""
 
-from .base_agent import BaseAgent
-from .general_agent import DSPyReActAgent
+from .single_agent import SingleAgent
+# from .base_agent import BaseAgent # Missing file
+# from .general_agent import DSPyReActAgent
 
-__all__ = ['BaseAgent', 'DSPyReActAgent']
+__all__ = ['SingleAgent']

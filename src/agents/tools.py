@@ -115,6 +115,24 @@ make_choice_tool = {
 }
 
 
+respond_tool = {
+    "type": "function",
+    "function": {
+        "name": "respond",
+        "description": "Send a response to the patient or state a diagnosis. This is the final action for your turn.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "description": "The text content of your response to the patient. If you have a diagnosis, include 'DIAGNOSIS READY: [diagnosis]'."
+                }
+            },
+            "required": ["content"]
+        }
+    }
+}
+
 def execute_tool(name: str, args: dict) -> str:
     if name == "bash_command":
         try:
@@ -139,7 +157,7 @@ def execute_tool(name: str, args: dict) -> str:
     elif name == "think":
         # Return acknowledgment, allowing agent to continue reasoning
         return f"Thinking Result: {args['thought']}.\nThought recorded. Continue thinking or provide final answer."
-    
+
     elif name == "brave_search":
         try:
             api_key = os.getenv("BRAVE_API_KEY")
@@ -238,6 +256,9 @@ def execute_tool(name: str, args: dict) -> str:
             "reasoning": args.get("reasoning", ""),
             "strategy_suggestion": args.get("strategy_suggestion", "")
         }
+    
+    elif name == "respond":
+        return args["content"]
     
     return "Unknown tool"
 
