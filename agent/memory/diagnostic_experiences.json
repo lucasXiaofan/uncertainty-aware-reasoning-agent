@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "case_id": "MedQA_Ext_2",
+    "observation": "Presence of multiple classic red flags for factitious disorder that were not integrated into differential diagnosis: patient is a young nurse with a strong, persistent request for invasive diagnostic laparoscopy, high health anxiety (“I might have cancer”), history of working in healthcare, and physical evidence of repeated venous access (numerous crusts along veins on left arm). Despite these, the agent pursued extensive invasive organic workup without considering self-inflicted causes.",
+    "suggestion": "Actively screen for factitious/self-induced illness when multiple red flags present. Specific actions: ask about access to medical supplies and history of hospitalizations or unusual symptoms that only occur when observed; perform targeted skin examination and photo-document lesions; ask nonjudgmental questions about self-harm or symptom fabrication. Why: These steps help identify self-inflicted sources (e.g., exogenous blood loss, injection of substances) and avoid unnecessary invasive investigations and procedures.",
+    "timestamp": "2026-01-22T22:05:09.632963"
+  },
+  {
+    "id": 2,
+    "case_id": "MedQA_Ext_2",
+    "observation": "Laboratory pattern (severe normocytic anemia with extremely elevated reticulocyte count ~13%) inconsistent with chronic occult blood loss given normal iron studies, negative stool occult blood, normal EGD/CT/transvaginal ultrasound and absence of external bleeding. The agent treated the lab pattern as supportive of ongoing blood loss and pursued gynecologic/GI invasive evaluation without reconciling the discordant hemolysis workup (normal LDH, bilirubin, haptoglobin, DAT) and normal peripheral smear and bone marrow.",
+    "suggestion": "When severe anemia shows marked reticulocytosis but hemolysis markers and peripheral smear are normal, consider nonphysiologic causes of elevated reticulocyte counts (e.g., specimen manipulation, transfusion, exogenous RBC infusion, or laboratory error) and factitious blood loss. Actions: verify blood sample chain-of-custody, repeat CBC with observed phlebotomy, review transfusion records, check for irregularities in lab timing, and request cross-lab repeat testing. Why: Repeating tests under observation and confirming sample integrity can distinguish true physiologic reticulocytosis from spurious results caused by sample mixing or self-inflicted transfusion, steering management away from unnecessary invasive procedures.",
+    "timestamp": "2026-01-22T22:05:13.144722"
+  },
+  {
+    "id": 3,
+    "case_id": "MedQA_Ext_2",
+    "observation": "Missed opportunity to use direct observation and controlled testing: the agent ordered extensive imaging and invasive tests but did not institute supervised sample collection, ward observation, or controlled clinical observation despite suspicion cues (healthcare worker with repeated venipuncture marks, request for laparoscopy). No attempt was made to observe symptom occurrence or to obtain witnessed hemoglobin/reticulocyte samples or urine tests to look for blood or substances.",
+    "suggestion": "Implement controlled diagnostic strategies when factitious disorder is suspected: arrange observed phlebotomy for repeat CBC/reticulocyte counts, supervised admission with monitoring of symptoms, and urine/toxicology screens for hemostatic agents or oxidants. Consider photographing and documenting skin lesions, and use tamper-evident tubes or witnessed specimen drops. Why: Observed testing can reveal discrepancies between reported symptoms and objective data, demonstrate self-induced changes, and prevent sample tampering, supporting appropriate psychiatric referral and avoiding unnecessary procedures.",
+    "timestamp": "2026-01-22T22:05:16.320552"
+  },
+  {
+    "id": 4,
+    "case_id": "MedQA_Ext_2",
+    "observation": "Failure to escalate to psychiatric evaluation and multidisciplinary care early despite psychological red flags: persistent high health anxiety, expressed cancer concern, depressed mood, and behavior consistent with factitious disorder (demanding invasive diagnostic laparoscopy). Agent focused on organic workup exclusively and delayed consideration of mental health involvement.",
+    "suggestion": "Early involvement of psychiatry and a multidisciplinary team when psychological or behavioral red flags are present. Specific actions: request psychiatric consultation for assessment of factitious or somatic symptom disorder, coordinate with nursing and social work for safe observation, and discuss findings with the patient empathetically to avoid confrontation. Why: Psychiatric involvement helps assess motivation for symptom fabrication, manage patient-provider boundary issues, and design a plan to ensure patient safety while avoiding unnecessary invasive interventions.",
+    "timestamp": "2026-01-22T22:05:18.984786"
+  },
+  {
+    "id": 5,
+    "case_id": "MedQA_Ext_4",
+    "observation": "Patient reports classic early pregnancy symptoms (breast tenderness, nausea, weight gain, urinary frequency), two strong home pregnancy positives (first-morning Clearblue tests one week apart), but all objective testing (serial quantitative serum β-hCG, urine pregnancy test, transvaginal ultrasound) are repeatedly negative/normal.",
+    "suggestion": "When pregnancy symptoms and reliable home test positives persist but quantitative serum β-hCG and TVUS are negative, explicitly consider non-biologic pregnancy syndromes (pseudocyesis) and physiologic/psychologic mimics. Ask targeted psychosocial questions (desire for pregnancy, recent pregnancy loss or infertility stress, mood changes, history of psychiatric illness), perform focused endocrine workup (serum prolactin, TSH already normal—if not, obtain), and document timing of home-test positives with photos if available. Explain differential diagnoses to the patient and involve behavioral health or psychiatry for evaluation if psychological factors or strong pregnancy desire are present. Rationale: Symptoms can be driven by psychogenic mechanisms or by non-hCG endocrine changes; early recognition avoids unnecessary repeated invasive testing and supports appropriate mental health support.",
+    "timestamp": "2026-01-22T22:05:48.900461"
+  },
+  {
+    "id": 6,
+    "case_id": "MedQA_Ext_4",
+    "observation": "Doctor prematurely labeled the scenario as a chemical pregnancy/very early spontaneous abortion despite multiple, concordant negative quantitative serum β-hCG measurements and negative urine and TVUS, without documenting evidence of a prior measurable hCG or bleeding event to support recent pregnancy loss.",
+    "suggestion": "Require objective confirmatory criteria before diagnosing 'chemical pregnancy' — specifically, documented elevated or falling quantitative serum β-hCG consistent with early pregnancy, or reported bleeding with tissue/positive hCG prior. If home tests were positive but no serum hCG was ever elevated, treat as discordant results and broaden differential. Orders: review and request prior lab reports/images, repeat quantitative β-hCG only if there is clinical suspicion of recent decline, and avoid presumptive labeling. Rationale: Chemical pregnancy implies prior biochemical evidence; without it, alternative diagnoses (false-positive home tests, pseudocyesis) are more likely and management differs.",
+    "timestamp": "2026-01-22T22:05:51.568360"
+  },
+  {
+    "id": 7,
+    "case_id": "MedQA_Ext_4",
+    "observation": "Insufficient exploration of potential causes for discrepant positive home pregnancy tests (strong positives on two different occasions) and later negative formal tests — no documentation of verification of home test timing, whether early tests were read per instructions, or possibility of exogenous hCG exposure or test error.",
+    "suggestion": "Investigate circumstances of initial positive home tests: ask patient to show photos of the test lines, confirm brand/expiry (already done), timing relative to menses and sexual activity, and whether dilute vs concentrated urine was used. Ask about exposure to exogenous hCG (fertility treatments, supplements), recent trophoblastic disease history, or medications causing false positives. Consider sending a urine sample for laboratory immunoassay if discordant. Rationale: Differentiating false-positive home tests from true early pregnancy affects subsequent work-up and counseling.",
+    "timestamp": "2026-01-22T22:05:54.015827"
+  },
+  {
+    "id": 8,
+    "case_id": "MedQA_Ext_4",
+    "observation": "Limited attention to the psychosocial impact and the patient's emotional state after receiving 'positive' results and then subsequent negatives; no offer of counseling or discussion of fertility history/stressors despite active attempts to conceive for 6 months and strong emotional reaction implied.",
+    "suggestion": "Assess emotional status: ask about feelings about the positive test, any recent mood symptoms, relationship/support, prior infertility concerns, and desire for pregnancy. Offer empathetic counseling, provide early referral to fertility counseling or behavioral health as indicated, and discuss next steps in fertility evaluation (timing of intercourse, ovulation tracking, preconception counseling if conception not achieved after 12 months <35 years or 6 months >35). Rationale: Pseudocyesis has strong psychosocial drivers; addressing emotional needs is critical and can uncover contributors to symptoms and guide appropriate referrals.",
+    "timestamp": "2026-01-22T22:05:56.393462"
+  },
+  {
+    "id": 9,
+    "case_id": "MedQA_Ext_5",
+    "observation": "Nail pitting was observed on examination and the patient reports scalp dandruff managed with medicated shampoos. These dermatologic findings were not integrated into diagnostic reasoning.",
+    "suggestion": "Perform a directed dermatologic history and focused skin/nail examination (scalp, behind ears, elbows, knees, intergluteal cleft; inspect nails for pitting, onycholysis, subungual hyperkeratosis). Ask about intermittent scaly plaques, timing relative to joint symptoms, prior dermatology diagnoses or treatments, and family history of psoriasis. Rationale: Nail pitting and scalp lesions are common in psoriasis and increase pre-test probability of psoriatic arthritis; identifying skin disease shifts differential from OA to an inflammatory spondyloarthropathy and guides further testing and referral.",
+    "timestamp": "2026-01-22T22:06:22.547139"
+  },
+  {
+    "id": 10,
+    "case_id": "MedQA_Ext_5",
+    "observation": "Pain pattern described: pain and swelling improved with rest and worse with activity, but onset was subacute with prior transient swelling of the contralateral knee and systemic inflammatory markers (ESR/CRP) elevated. The doctor labeled this as mechanical OA despite signs of inflammatory arthritis (warmth, elevated ESR/CRP, asymmetric oligoarthritis).",
+    "suggestion": "Differentiate inflammatory vs mechanical arthropathy by explicitly eliciting morning stiffness duration (>30 minutes suggests inflammatory), pattern of joint involvement (asymmetric oligoarthritis suggests psoriatic/inflammatory causes), presence of systemic symptoms, and signs of active inflammation (warmth, erythema, elevated ESR/CRP). If inflammatory features present, prioritize inflammatory arthritis workup (seronegative panels, imaging for synovitis/erosions, enthesitis assessment) rather than treating as OA. Rationale: OA typically causes pain worse with use and minimal systemic inflammation; presence of warmth, raised inflammatory markers, and migratory/swelling of multiple joints point toward inflammatory etiology.",
+    "timestamp": "2026-01-22T22:06:25.388887"
+  },
+  {
+    "id": 11,
+    "case_id": "MedQA_Ext_5",
+    "observation": "Reliance on knee X-ray changes (joint space narrowing, subchondral sclerosis) led to anchoring on osteoarthritis despite absence of classic OA clinical features and presence of inflammatory signs. Radiographic OA changes can coexist with inflammatory arthritis, especially in older patients.",
+    "suggestion": "Avoid anchoring on radiographic OA findings alone. When inflammatory signs are present, obtain targeted imaging for inflammatory disease: musculoskeletal ultrasound of the knee to detect synovitis/effusion/enthesitis, and plain radiographs of hands/feet to look for periostitis/juxta-articular new bone formation/erosions typical of psoriatic arthritis. Consider MRI if diagnostic uncertainty remains. Rationale: OA radiographic changes are common with aging and may be incidental; ultrasound/MRI can identify active synovitis or enthesitis supporting inflammatory arthritis and guide timely referral.",
+    "timestamp": "2026-01-22T22:06:27.770275"
+  },
+  {
+    "id": 12,
+    "case_id": "MedQA_Ext_5",
+    "observation": "Negative rheumatoid factor and anti-CCP were interpreted as excluding inflammatory arthritis. The doctor did not pursue testing or referral for seronegative spondyloarthropathy (e.g., psoriatic arthritis).",
+    "suggestion": "When RF and anti-CCP are negative but clinical suspicion for inflammatory arthritis remains (asymmetric oligoarthritis, nail changes, dactylitis, enthesitis, elevated ESR/CRP), order HLA-B27 if axial symptoms or consider referral to rheumatology and further seronegative arthritis workup. Also consider dermatology correlation for subtle psoriasis. Rationale: Psoriatic arthritis is often seronegative; negative RF/anti-CCP should not rule out inflammatory spondyloarthropathies. Early rheumatology involvement improves outcomes.",
+    "timestamp": "2026-01-22T22:06:30.357623"
+  },
+  {
+    "id": 13,
+    "case_id": "MedQA_Ext_5",
+    "observation": "Limited musculoskeletal exam for features of spondyloarthropathy: no recorded assessment for enthesitis (Achilles, plantar fascia), dactylitis, or peripheral sites beyond the knee and spine; family history and subtle skin signs were not fully explored.",
+    "suggestion": "Conduct a comprehensive musculoskeletal exam focusing on signs of spondyloarthropathy: inspect digits for dactylitis, palpate entheses (Achilles, plantar fascia, lateral epicondyle), examine sacroiliac joint for pain, assess spine mobility (Schober test), and inspect feet/hands for periungual changes. Ask about morning stiffness, heel pain, eye symptoms (uveitis), and family history of psoriasis/IBD. Rationale: Psoriatic arthritis often presents with enthesitis and dactylitis and may have axial involvement; identifying these increases diagnostic specificity and directs appropriate imaging and referral.",
+    "timestamp": "2026-01-22T22:06:33.028618"
+  },
+  {
+    "id": 14,
+    "case_id": "MedQA_Ext_6",
+    "observation": "Recurrent, multisystem symptoms (recurrent brief diarrheal episodes, migratory/variable joint pains centered over joints, dyspareunia) with normal inflammatory markers (CRP, ESR), normal stool testing, normal HLA-B27, normal fecal calprotectin, normal imaging, and frequent ED visits over a year — pattern more consistent with somatization/functional disorder than inflammatory reactive arthritis.",
+    "suggestion": "Ask about timing and characteristics of symptoms in relation to stressors, menstrual cycle, and healthcare-seeking behavior; screen for anxiety, depression, somatic symptom disorder (PHQ-9, GAD-7, PHQ-15); obtain collateral info about prior ED visits and treatments; consider diagnosis of somatic symptom disorder when objective findings are repeatedly normal and symptoms persist despite negative targeted testing. Reasoning: Multiple negative objective tests across organ systems plus health-care–seeking pattern lower the probability of an evolving inflammatory disease and raise pretest probability for somatization; early recognition avoids unnecessary testing and allows timely symptom-focused management (psychotherapeutic approaches, CBT, SSRIs if indicated).",
+    "timestamp": "2026-01-22T22:07:10.475496"
+  },
+  {
+    "id": 15,
+    "case_id": "MedQA_Ext_6",
+    "observation": "The Doctor Agent relied heavily on temporal association between diarrhea and joint pain to diagnose reactive arthritis despite absence of key supporting features: lack of objective synovitis (no swelling, warmth), normal inflammatory markers, no enthesitis, no uveitis, short duration of diarrheal illness, symptom onset concurrent rather than a classic post-infectious lag, and stool/serologies repeatedly negative.",
+    "suggestion": "Require objective evidence before committing to reactive arthritis: look for asymmetric oligoarthritis with clear joint swelling/warmth, elevated inflammatory markers, or extra-articular features (conjunctivitis/uveitis, urethritis, enthesitis). If these are absent, avoid anchoring on reactive arthritis. Instead, broaden differential to functional disorders, medication/toxin exposure, or non-inflammatory causes. Reasoning: Reactive arthritis typically follows enteric infection by days-weeks and often shows objective inflammatory signs and sometimes HLA-B27 association; in their absence, the post-infectious explanation is less likely and treating as reactive arthritis may expose the patient to unnecessary antibiotics or immunomodulators.",
+    "timestamp": "2026-01-22T22:07:13.785880"
+  },
+  {
+    "id": 16,
+    "case_id": "MedQA_Ext_6",
+    "observation": "Insufficient exploration of psychosocial context, functional impact, and prior health-care utilization patterns: limited questions about stressors, mood symptoms, secondary gains, and prior diagnoses or ongoing care (primary care, mental health).",
+    "suggestion": "Perform a structured psychosocial assessment: ask about mood, sleep, functional impairment, employment/education impact, illness beliefs, recent life stressors, and previous mental health diagnoses or therapies. Obtain records of prior ED visits and treatments. Consider early referral to primary care/mental health and offering integrated care (CBT for somatic symptoms). Reasoning: Somatic symptom disorder is strongly associated with psychosocial stressors and functional impairment; identifying these directs appropriate non-invasive therapies and reduces repetitive testing and ED visits.",
+    "timestamp": "2026-01-22T22:07:16.435432"
+  },
+  {
+    "id": 17,
+    "case_id": "MedQA_Ext_6",
+    "observation": "Continued ordering of low-yield diagnostic tests (repeated stool cultures, HLA-B27, imaging, serologies) despite a preponderance of normal results and lack of signs of inflammatory disease, causing diagnostic momentum toward reactive arthritis rather than reconsideration.",
+    "suggestion": "When multiple high-yield tests are repeatedly normal, pivot from diagnostic testing to symptom management and watchful waiting. Use a diagnostic threshold: if core inflammatory markers, imaging, and targeted tests are negative and clinical exam lacks objective evidence, refrain from further diagnostic testing and document the rationale. Initiate empiric symptomatic treatments (analgesia, trial of NSAIDs if no contraindication), arrange close follow-up with primary care, and set safety-netting instructions. Reasoning: Avoids unnecessary costs, prevents overdiagnosis, and permits focus on treatments that improve quality of life while preserving option for reassessment if new objective signs emerge.",
+    "timestamp": "2026-01-22T22:07:19.281917"
+  },
+  {
+    "id": 18,
+    "case_id": "MedQA_Ext_6",
+    "observation": "Missed opportunity for clear, patient-centered communication and a management plan emphasizing functional improvement: the Doctor Agent provided a ready diagnosis without proposing a concrete follow-up, mental health referral, symptom-based treatment plan (NSAIDs trial, physical therapy), or explanation of uncertainty.",
+    "suggestion": "Clearly communicate uncertainty and the reasoning for not pursuing aggressive immunologic therapy. Offer a specific management plan: trial of NSAIDs for symptomatic relief if appropriate, referral to primary care for continuity, offer mental health evaluation (CBT), physiotherapy for joint function, and a plan for re-evaluation if objective signs (fever, persistent swelling, increasing pain, new focal deficits) develop. Explain why further immunosuppression or antibiotics are not indicated now. Reasoning: Provides patient reassurance, reduces repetitive ED visits, and engages the patient in follow-up care that addresses somatic symptoms rather than prematurely labeling an inflammatory diagnosis.",
+    "timestamp": "2026-01-22T22:07:22.319764"
+  }
+]

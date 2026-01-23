@@ -2,16 +2,16 @@ model:
   openrouter: "deepseek/deepseek-chat-v3"
   deepseek: "deepseek-chat"
 tools:
-  # bash_command:
-  #   type: "function"
-  #   function:
-  #     name: "bash_command"
-  #     description: "Execute bash commands."
-  #     parameters:
-  #       type: "object"
-  #       properties:
-  #         command: {type: "string", description: "Command to execute"}
-  #       required: ["command"]
+  bash_command:
+    type: "function"
+    function:
+      name: "bash_command"
+      description: "Execute bash commands."
+      parameters:
+        type: "object"
+        properties:
+          command: {type: "string", description: "Command to execute"}
+        required: ["command"]
 
   think:
     type: "function"

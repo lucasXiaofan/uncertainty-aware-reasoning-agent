@@ -1,0 +1,364 @@
+================================================================================
+PATIENT GROUPING BY DIAGNOSIS REPORT
+================================================================================
+
+SUMMARY STATISTICS
+--------------------------------------------------------------------------------
+Total unique diagnoses: 182
+Diagnoses with 2+ patients: 31
+Diagnoses with only 1 patient: 151
+Total unique patients: 214
+Duplicate patients removed: 107
+JSONL files created: 31
+
+RANKING OF DIAGNOSES WITH 2+ PATIENTS
+--------------------------------------------------------------------------------
+Rank   Count    Diagnosis
+--------------------------------------------------------------------------------
+1      3        Pneumonia
+2      2        Myasthenia gravis
+3      2        Phyllodes tumor
+4      2        Adhesive capsulitis
+5      2        Chronic lymphocytic leukemia
+6      2        Osteoarthritis
+7      2        Pancreatic adenocarcinoma
+8      2        Molluscum contagiosum
+9      2        Frontotemporal Dementia
+10     2        Syringomyelia
+11     2        Actinic Keratosis
+12     2        Seborrheic keratosis
+13     2        Chronic obstructive pulmonary disease
+14     2        Central retinal artery occlusion
+15     2        Lichen Sclerosus
+16     2        Bacillus cereus infection
+17     2        Somatization disorder
+18     2        Acalculous cholecystitis
+19     2        Vitiligo
+20     2        Psoriatic arthritis
+21     2        Femoropopliteal artery stenosis
+22     2        Takotsubo cardiomyopathy
+23     2        Chronic lymphocytic leukemia (CLL)
+24     2        Autosomal dominant polycystic kidney disease
+25     2        Brief Psychotic Disorder
+26     2        Chronic kidney failure
+27     2        Factitious disorder
+28     2        Ewing sarcoma
+29     2        Pseudocyesis
+30     2        Gastric peptic ulcer
+31     2        Neuroleptic Malignant Syndrome
+
+
+COMPLETE DIAGNOSIS LIST (ALL)
+--------------------------------------------------------------------------------
+Count    Diagnosis
+--------------------------------------------------------------------------------
+3        Pneumonia
+2        Myasthenia gravis
+2        Phyllodes tumor
+2        Adhesive capsulitis
+2        Chronic lymphocytic leukemia
+2        Osteoarthritis
+2        Pancreatic adenocarcinoma
+2        Molluscum contagiosum
+2        Frontotemporal Dementia
+2        Syringomyelia
+2        Actinic Keratosis
+2        Seborrheic keratosis
+2        Chronic obstructive pulmonary disease
+2        Central retinal artery occlusion
+2        Lichen Sclerosus
+2        Bacillus cereus infection
+2        Somatization disorder
+2        Acalculous cholecystitis
+2        Vitiligo
+2        Psoriatic arthritis
+2        Femoropopliteal artery stenosis
+2        Takotsubo cardiomyopathy
+2        Chronic lymphocytic leukemia (CLL)
+2        Autosomal dominant polycystic kidney disease
+2        Brief Psychotic Disorder
+2        Chronic kidney failure
+2        Factitious disorder
+2        Ewing sarcoma
+2        Pseudocyesis
+2        Gastric peptic ulcer
+2        Neuroleptic Malignant Syndrome
+1        Progressive multifocal encephalopathy (PML)
+1        Hirschsprung disease
+1        Diffuse large B-cell lymphoma
+1        Acute interstitial nephritis
+1        Pes anserine bursitis
+1        Situational syncope
+1        Congenital Rubella Infection
+1        Endometritis
+1        Hemorrhoids
+1        Complex partial seizure
+1        Posterior hip dislocation
+1        Hirschsprung’s disease
+1        Rupture of the flexor digitorum profundus tendon at its point of insertion
+1        Epidermoid cyst
+1        C. difficile colitis
+1        Pyoderma gangrenosum
+1        Uterine rupture
+1        Disc herniation
+1        Cytomegalovirus retinitis
+1        Reactive Arthritis
+1        Malignant melanoma
+1        Irritable Bowel Syndrome
+1        Meigs syndrome
+1        Primary sclerosing cholangitis
+1        Interstitial cystitis
+1        Lung cancer
+1        Disseminated Gonococcal Infection
+1        Respiratory Distress Syndrome
+1        Fulminant hepatic failure
+1        Coarctation of the aorta
+1        Erythema Infectiosum
+1        Glanzmann’s Thrombasthenia
+1        Osteoclastoma
+1        Multiple system atrophy
+1        Duodenal atresia
+1        Essential thrombocythemia
+1        Medullary Sponge Kidney
+1        Genitopelvic pain disorder
+1        Active chronic hepatitis B infection
+1        Acute Mesenteric Ischemia
+1        Asthma
+1        Roseola infantum
+1        Eczematous dermatitis
+1        Hemophilia
+1        Steven-Johnson syndrome
+1        Aromatase deficiency
+1        Atrial Septal Defect
+1        Benign Paroxysmal Positional Vertigo (BPPV)
+1        Schizotypal personality disorder
+1        Bowen's Disease
+1        Oppositional Defiant Disorder
+1        Lisdexamfetamine intoxication
+1        Pelvic inflammatory disease
+1        Glossopharyngeal Neuralgia
+1        Double aortic arch
+1        Schizoaffective disorder
+1        Bed bug bite
+1        Membranous nephropathy
+1        Impaired erythropoietin production
+1        Acute lymphoblastic leukemia
+1        De Quervain tenosynovitis
+1        Dumping Syndrome
+1        Seborrheic dermatitis
+1        Labyrinthitis
+1        Physiological neonatal jaundice
+1        Granulosa cell tumor
+1        Intraventricular Hemorrhage
+1        Benign paroxysmal positional vertigo
+1        Listeriosis
+1        Hemophilia A
+1        Huntington disease
+1        Breast milk jaundice
+1        Neuroleptic malignant syndrome
+1        Nightmare disorder
+1        Leprosy
+1        Normal behavior
+1        Parkinson disease
+1        Waldenstrom macroglobulinemia
+1        Apical lung tumor
+1        Tuberculosis
+1        Boerhaave syndrome
+1        Chronic Venous Insufficiency
+1        Akathisia
+1        Neonatal Respiratory Distress Syndrome (NRDS)
+1        Pemphigus vulgaris
+1        Progressive multifocal leukoencephalopathy
+1        Acute myelogenous leukemia
+1        Schizophreniform Disorder
+1        Testicular torsion
+1        Serum sickness-like reaction
+1        Legg-Calvé-Perthes disease (LCPD)
+1        Bronchiectasis
+1        Erythema Toxicum
+1        Silicosis
+1        Vasovagal syncope
+1        Chronic Granulomatous Disease
+1        Schizophrenia
+1        Tetralogy of Fallot
+1        Thrombotic Thrombocytopenic Purpura
+1        Pseudomonas keratitis
+1        MEN1
+1        Ichthyosis Vulgaris
+1        Fibroadenoma
+1        Silent Thyroiditis
+1        Chickenpox
+1        Biliary atresia
+1        Major depressive disorder
+1        Adenomatous polyp
+1        Polyostotic Fibrous Dysplasia
+1        Keratoacanthoma
+1        Hair Tourniquet Syndrome
+1        Paroxysmal Atrial Fibrillation
+1        Thoracic aortic rupture
+1        Posttraumatic stress disorder
+1        Bartter's syndrome
+1        Schizoid Personality Disorder
+1        Advanced sleep phase disorder
+1        Exertional heat stroke
+1        Valley fever
+1        Cardiac Contusion
+1        Varicella
+1        Squamous cell carcinoma
+1        Cardiac contusion
+1        Tracheobronchial rupture
+1        Hypertrophic Cardiomyopathy
+1        Lambert-Eaton syndrome
+1        Plummer-Vinson syndrome
+1        Dermatofibroma
+1        Histoplasmosis
+1        Aortic valve stenosis
+1        Polymyositis
+1        Minimal Change Disease
+1        Perforated gastric peptic ulcer
+1        Temporomandibular joint dysfunction
+1        Hemolytic uremic syndrome
+1        Toxic exposure
+1        Atrial Myxoma
+1        Acute Hepatitis B
+1        Spinal Stenosis
+1        Ruptured ovarian cyst
+1        Chronic obstructive pulmonary disease (COPD)
+1        Hair tourniquet syndrome
+1        Borderline personality disorder
+1        Lambert-Eaton Syndrome
+1        Cardiac Tamponade
+1        Papillary carcinoma of the thyroid
+1        Hypertrophic cardiomyopathy
+1        Bullous pemphigoid
+1        Tinea cruris
+1        Vaginal septum
+1        Crohn’s disease
+
+
+FILES CREATED
+--------------------------------------------------------------------------------
+myasthenia_gravis.jsonl
+  Diagnosis: Myasthenia gravis
+  Patients: 2
+
+phyllodes_tumor.jsonl
+  Diagnosis: Phyllodes tumor
+  Patients: 2
+
+adhesive_capsulitis.jsonl
+  Diagnosis: Adhesive capsulitis
+  Patients: 2
+
+chronic_lymphocytic_leukemia.jsonl
+  Diagnosis: Chronic lymphocytic leukemia
+  Patients: 2
+
+osteoarthritis.jsonl
+  Diagnosis: Osteoarthritis
+  Patients: 2
+
+pancreatic_adenocarcinoma.jsonl
+  Diagnosis: Pancreatic adenocarcinoma
+  Patients: 2
+
+molluscum_contagiosum.jsonl
+  Diagnosis: Molluscum contagiosum
+  Patients: 2
+
+frontotemporal_dementia.jsonl
+  Diagnosis: Frontotemporal Dementia
+  Patients: 2
+
+syringomyelia.jsonl
+  Diagnosis: Syringomyelia
+  Patients: 2
+
+pneumonia.jsonl
+  Diagnosis: Pneumonia
+  Patients: 3
+
+actinic_keratosis.jsonl
+  Diagnosis: Actinic Keratosis
+  Patients: 2
+
+seborrheic_keratosis.jsonl
+  Diagnosis: Seborrheic keratosis
+  Patients: 2
+
+chronic_obstructive_pulmonary_disease.jsonl
+  Diagnosis: Chronic obstructive pulmonary disease
+  Patients: 2
+
+central_retinal_artery_occlusion.jsonl
+  Diagnosis: Central retinal artery occlusion
+  Patients: 2
+
+lichen_sclerosus.jsonl
+  Diagnosis: Lichen Sclerosus
+  Patients: 2
+
+bacillus_cereus_infection.jsonl
+  Diagnosis: Bacillus cereus infection
+  Patients: 2
+
+somatization_disorder.jsonl
+  Diagnosis: Somatization disorder
+  Patients: 2
+
+acalculous_cholecystitis.jsonl
+  Diagnosis: Acalculous cholecystitis
+  Patients: 2
+
+vitiligo.jsonl
+  Diagnosis: Vitiligo
+  Patients: 2
+
+psoriatic_arthritis.jsonl
+  Diagnosis: Psoriatic arthritis
+  Patients: 2
+
+femoropopliteal_artery_stenosis.jsonl
+  Diagnosis: Femoropopliteal artery stenosis
+  Patients: 2
+
+takotsubo_cardiomyopathy.jsonl
+  Diagnosis: Takotsubo cardiomyopathy
+  Patients: 2
+
+chronic_lymphocytic_leukemia_cll.jsonl
+  Diagnosis: Chronic lymphocytic leukemia (CLL)
+  Patients: 2
+
+autosomal_dominant_polycystic_kidney_disease.jsonl
+  Diagnosis: Autosomal dominant polycystic kidney disease
+  Patients: 2
+
+brief_psychotic_disorder.jsonl
+  Diagnosis: Brief Psychotic Disorder
+  Patients: 2
+
+chronic_kidney_failure.jsonl
+  Diagnosis: Chronic kidney failure
+  Patients: 2
+
+factitious_disorder.jsonl
+  Diagnosis: Factitious disorder
+  Patients: 2
+
+ewing_sarcoma.jsonl
+  Diagnosis: Ewing sarcoma
+  Patients: 2
+
+pseudocyesis.jsonl
+  Diagnosis: Pseudocyesis
+  Patients: 2
+
+gastric_peptic_ulcer.jsonl
+  Diagnosis: Gastric peptic ulcer
+  Patients: 2
+
+neuroleptic_malignant_syndrome.jsonl
+  Diagnosis: Neuroleptic Malignant Syndrome
+  Patients: 2
+

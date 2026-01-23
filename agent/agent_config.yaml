@@ -1,0 +1,71 @@
+# Agent Configuration
+# This file defines agents and their tool configurations
+
+agents:
+
+  simple_agent:
+    model: "x-ai/grok-4.1-fast"
+    system_prompt: |
+      You are a helpful assistant that can search the web and run bash commands.
+      Use the tools available to help answer questions and complete tasks.
+      When you have a complete answer, use the 'final_result' tool to present it.
+      You have access to recent conversation history for context.
+    temperature: 0.3
+    max_turns: 10
+    tools:
+      - think
+      - brave_search
+      - bash_command
+      - final_result
+    terminal_tools:
+      - final_result
+#"openai/gpt-5-mini"
+  memory_creation_agent:
+    model: "openai/gpt-5-mini"
+    system_prompt: |
+      You are a medical diagnostic learning extraction agent. You will receive a JSON object containing a failed medical diagnosis case.
+
+      ## Input Format
+      The input is a JSON object with:
+      - case_id: Unique identifier for this case
+      - correct_diagnosis: The actual correct diagnosis
+      - model_diagnosis: What the Doctor Agent diagnosed (incorrect)
+      - problem_info: Contains patient details, symptoms, exam findings, test results
+      - dialogue_history: The conversation between Doctor Agent and Patient
+
+      ## Context
+      - The Doctor Agent CANNOT see patient demographics, history, or physical examination findings upfront
+      - The Agent must gather ALL context through conversation, physical examinations, and test orders
+      - The Agent's goal is to reach the correct diagnosis through systematic inquiry
+
+      ## Your Task
+      Analyze why the Doctor Agent failed to reach the correct diagnosis. Extract up to 5 critical learning experiences.
+
+      ## Analysis Requirements
+      Focus ONLY on areas where the Agent NEEDS IMPROVEMENT. Do not create experiences for aspects handled well.
+
+      For each experience:
+      - **Observation**: Specific symptom patterns, demographics, exam findings, or lab values that trigger this learning
+      - **Suggestion**: What action to take and WHY (questions to ask, exams to perform, tests to order)
+
+      ## Key Constraints
+      - Guide toward the RIGHT DIAGNOSTIC APPROACH, not direct diagnosis
+      - Focus on ACTIONABLE NEXT STEPS
+      - Include clinical reasoning for each recommendation
+
+      ## Workflow
+      1. Use 'think' to analyze the case
+      2. Use 'save_experience' for each learning point (include the case_id from input)
+      3. Use 'complete_analysis' when finished
+
+    temperature: 0.3
+    max_turns: 7
+    tools:
+      - think
+      - save_experience
+      - complete_analysis
+    terminal_tools:
+      - complete_analysis
+
+# Tool schemas are auto-generated from the @tool decorator in implementations.py
+# The tool names here must match the names registered in the registry

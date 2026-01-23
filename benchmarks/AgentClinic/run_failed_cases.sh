@@ -5,7 +5,7 @@ TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 RESULTS_DIR="results"
 mkdir -p "$RESULTS_DIR"
 
-OUTPUT_FILE="$RESULTS_DIR/consistent_test_4_nogpt4_30interactions_glm_46v.jsonl"
+OUTPUT_FILE="$RESULTS_DIR/gpt5_mini_test.jsonl"
 echo "Saving final results to $OUTPUT_FILE"
 
 echo "Starting re-run of 10 failed cases in parallel..."
@@ -13,8 +13,8 @@ echo "----------------------------------------------------------------"
 
 # Dependencies for uv run
 DEPS="--with openai>=1.0.0 --with regex --with python-dotenv"
-COMMON_ARGS="--doctor_llm z-ai/glm-4.6v --total_inferences 30"
-
+COMMON_ARGS="--doctor_llm openai/gpt-5-mini --total_inferences 20"
+#google/gemini-3-flash-preview
 # Function to run a specific case
 run_case() {
     local dataset=$1
@@ -27,16 +27,16 @@ run_case() {
 }
 
 # Run the 10 failed cases in parallel
-run_case "MedQA" 0 &
+# run_case "MedQA" 0 &
 run_case "MedQA" 2 &
 run_case "MedQA_Ext" 1 &
 run_case "MedQA_Ext" 2 &
 run_case "MIMICIV" 1 &
 run_case "MIMICIV" 3 &
 run_case "MIMICIV" 4 &
-run_case "NEJM" 1 &
-run_case "NEJM_Ext" 0 &
-run_case "NEJM_Ext" 1 &
+# run_case "NEJM" 1 &
+# run_case "NEJM_Ext" 0 &
+# run_case "NEJM_Ext" 1 &
 
 # Wait for all background processes to finish
 wait
@@ -52,4 +52,4 @@ rm "$RESULTS_DIR"/tmp_failed_*_"${TIMESTAMP}".jsonl
 echo "Benchmark complete. Results saved in $OUTPUT_FILE"
 
 echo "Generating report..."
-python3 generate_report.py "$OUTPUT_FILE"
+python3 generate_report_v2.py "$OUTPUT_FILE"

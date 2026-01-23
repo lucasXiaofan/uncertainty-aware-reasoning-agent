@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-01-22T22:00:59.486875",
+  "input_file": "benchmarks/AgentClinic/results/gpt5_mini_failed_similar_cases_20260116_115128.jsonl",
+  "total_cases": 8,
+  "failed_cases": 4,
+  "processed": 4,
+  "successful": 0,
+  "results": [
+    {
+      "case_id": "MedQA_Ext_2",
+      "status": "error",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "case_id": "MedQA_Ext_4",
+      "status": "error",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "case_id": "MedQA_Ext_5",
+      "status": "error",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "case_id": "MedQA_Ext_6",
+      "status": "error",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ]
+}

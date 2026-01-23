@@ -50,6 +50,9 @@ class SingleAgent:
             
         self.client = OpenAI(api_key=api_key, base_url=base_url)
 
+    # not sure the image url support local image or just online image 
+    # max turn should also in the agent config
+    # need be clear on the trigger or manager than run the agent
     def run(self, user_input, image_url=None, episode_id=None, max_turns=10):
         """Run agent using native OpenAI tool calling with optional image support."""
         messages = [

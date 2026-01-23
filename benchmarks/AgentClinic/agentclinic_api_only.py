@@ -25,7 +25,7 @@ except Exception as e:
 # Global client variable
 client = None
 
-def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_requested=False, scene=None, max_prompt_len=2**14, clip_prompt=False):
+def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_requested=False, scene=None, max_prompt_len=2**14, clip_prompt=False, return_usage=False):
     global client
     # Simplified model check - focusing on API models
     if model_str not in ["gpt4", "gpt3.5", "gpt4o", "gpt-4o-mini", "gpt4v", "o1-preview", "gpt-5-mini"] and "gpt" not in model_str and "/" not in model_str:
@@ -61,17 +61,22 @@ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_
                 token_param = "max_tokens"
                 if "gpt-5" in model_str or "o1" in model_str:
                     token_param = "max_completion_tokens"
-                
+
                 kwargs = {
                     "model": model_to_use,
                     "messages": messages,
-                    token_param: 5000 if token_param == "max_completion_tokens" else 1000
+                    token_param: 16000 if token_param == "max_completion_tokens" else 10000
                 }
-                
+
                 response = client.chat.completions.create(**kwargs)
                 answer = response.choices[0].message.content or ""
                 if not answer:
                     print(f"DEBUG: Empty response from model {model_to_use}. Full response: {response}")
+
+                # Return usage if requested
+                if return_usage:
+                    usage = response.usage if hasattr(response, 'usage') else None
+                    return answer, usage
             
             else: # Text only
                 messages = [
@@ -93,13 +98,13 @@ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_
                 token_param = "max_tokens"
                 if "gpt-5" in model_str or "o1" in model_str:
                     token_param = "max_completion_tokens" # Use compatible parameter for reasoning models
-                
+
                 kwargs = {
                     "model": model_to_use,
                     "messages": messages,
-                    token_param: 5000 if token_param == "max_completion_tokens" else 1000
+                    token_param: 16000 if token_param == "max_completion_tokens" else 4096
                 }
-                
+
                 # Handle o1-preview special case (no max tokens limit usually or high limit)
                 if model_str == "o1-preview":
                      kwargs[token_param] = None
@@ -108,8 +113,13 @@ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_
                 answer = response.choices[0].message.content or ""
                 if not answer:
                     print(f"DEBUG: Empty response from model {model_to_use}. Full response: {response}")
-                
+
                 answer = re.sub("\s+", " ", answer)
+
+                # Return usage if requested
+                if return_usage:
+                    usage = response.usage if hasattr(response, 'usage') else None
+                    return answer, usage
 
             return answer
         
@@ -129,12 +139,15 @@ class CustomDoctorAgent:
         # Initialize SingleAgent
         agent_name = backend_str if backend_str in ["doctor_grok"] else "doctor_grok"
         self.agent = SingleAgent(agent_name=agent_name)
-        
+
         self.bias_present = (None if bias_present == "None" else bias_present)
         self.scenario = scenario
         self.reset()
         self.img_request = img_request
         self.biases = ["recency", "frequency", "false_consensus", "confirmation", "status_quo", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"]
+        self.total_tokens = 0
+        self.prompt_tokens = 0
+        self.completion_tokens = 0
 
     def generate_bias(self) -> str:
         # Reusing the bias logic from DoctorAgent
@@ -179,7 +192,7 @@ class CustomDoctorAgent:
 
         episode_id = f"doctor_grok_scen_{id(self.scenario)}_inf_{self.infs}"
         result = self.agent.run(prompt, image_url=image_url, episode_id=episode_id)
-        
+
         answer = ""
         if result and "result" in result:
              answer = str(result["result"])
@@ -187,7 +200,14 @@ class CustomDoctorAgent:
              answer = str(result.get("result", ""))
         else:
              answer = "Error: No response from agent."
-             
+
+        # Try to extract token usage if available from SingleAgent
+        if result and "usage" in result and result["usage"]:
+            usage = result["usage"]
+            self.total_tokens += getattr(usage, 'total_tokens', usage.get('total_tokens', 0))
+            self.prompt_tokens += getattr(usage, 'prompt_tokens', usage.get('prompt_tokens', 0))
+            self.completion_tokens += getattr(usage, 'completion_tokens', usage.get('completion_tokens', 0))
+
         self.agent_hist += question + "\n\n" + answer + "\n\n"
         self.infs += 1
         return answer
@@ -321,6 +341,30 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                 print("Scene {}, The diagnosis was ".format(_scenario_id), "CORRECT" if correctness else "INCORRECT", int((total_correct/total_presents)*100))
                 
                 if output_file:
+                    # Collect token usage from all agents
+                    token_usage = {
+                        "doctor": {
+                            "total_tokens": doctor_agent.total_tokens,
+                            "prompt_tokens": doctor_agent.prompt_tokens,
+                            "completion_tokens": doctor_agent.completion_tokens
+                        },
+                        "patient": {
+                            "total_tokens": patient_agent.total_tokens,
+                            "prompt_tokens": patient_agent.prompt_tokens,
+                            "completion_tokens": patient_agent.completion_tokens
+                        },
+                        "measurement": {
+                            "total_tokens": meas_agent.total_tokens,
+                            "prompt_tokens": meas_agent.prompt_tokens,
+                            "completion_tokens": meas_agent.completion_tokens
+                        },
+                        "total": {
+                            "total_tokens": doctor_agent.total_tokens + patient_agent.total_tokens + meas_agent.total_tokens,
+                            "prompt_tokens": doctor_agent.prompt_tokens + patient_agent.prompt_tokens + meas_agent.prompt_tokens,
+                            "completion_tokens": doctor_agent.completion_tokens + patient_agent.completion_tokens + meas_agent.completion_tokens
+                        }
+                    }
+
                     result_record = {
                         "dataset": dataset,
                         "scenario_id": _scenario_id,
@@ -328,7 +372,8 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                         "correct_diagnosis": str(scenario.diagnosis_information()),
                         "model_diagnosis": doctor_dialogue,
                         "correct": correctness,
-                        "dialogue_history": dialogue_log
+                        "dialogue_history": dialogue_log,
+                        "token_usage": token_usage
                     }
                     with open(output_file, "a") as f:
                         f.write(json.dumps(result_record) + "\n")
@@ -356,6 +401,30 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
         else:
              # Loop finished without diagnosis
             if output_file:
+                # Collect token usage from all agents
+                token_usage = {
+                    "doctor": {
+                        "total_tokens": doctor_agent.total_tokens,
+                        "prompt_tokens": doctor_agent.prompt_tokens,
+                        "completion_tokens": doctor_agent.completion_tokens
+                    },
+                    "patient": {
+                        "total_tokens": patient_agent.total_tokens,
+                        "prompt_tokens": patient_agent.prompt_tokens,
+                        "completion_tokens": patient_agent.completion_tokens
+                    },
+                    "measurement": {
+                        "total_tokens": meas_agent.total_tokens,
+                        "prompt_tokens": meas_agent.prompt_tokens,
+                        "completion_tokens": meas_agent.completion_tokens
+                    },
+                    "total": {
+                        "total_tokens": doctor_agent.total_tokens + patient_agent.total_tokens + meas_agent.total_tokens,
+                        "prompt_tokens": doctor_agent.prompt_tokens + patient_agent.prompt_tokens + meas_agent.prompt_tokens,
+                        "completion_tokens": doctor_agent.completion_tokens + patient_agent.completion_tokens + meas_agent.completion_tokens
+                    }
+                }
+
                 result_record = {
                     "dataset": dataset,
                     "scenario_id": _scenario_id,
@@ -363,7 +432,8 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                     "correct_diagnosis": str(scenario.diagnosis_information()),
                     "model_diagnosis": "No diagnosis reached",
                     "correct": False,
-                    "dialogue_history": dialogue_log
+                    "dialogue_history": dialogue_log,
+                    "token_usage": token_usage
                 }
                 with open(output_file, "a") as f:
                     f.write(json.dumps(result_record) + "\n")
@@ -577,6 +647,9 @@ class PatientAgent:
         self.scenario = scenario
         self.reset()
         self.biases = ["recency", "frequency", "false_consensus", "self_diagnosis", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"]
+        self.total_tokens = 0
+        self.prompt_tokens = 0
+        self.completion_tokens = 0
 
     def generate_bias(self) -> str:
         if self.bias_present == "recency":
@@ -608,7 +681,17 @@ class PatientAgent:
         return ""
 
     def inference_patient(self, question) -> str:
-        answer = query_model(self.backend, "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the doctor response: " + question + "Now please continue your dialogue\nPatient: ", self.system_prompt())
+        result = query_model(self.backend, "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the doctor response: " + question + "Now please continue your dialogue\nPatient: ", self.system_prompt(), return_usage=True)
+
+        if isinstance(result, tuple):
+            answer, usage = result
+            if usage:
+                self.total_tokens += getattr(usage, 'total_tokens', 0)
+                self.prompt_tokens += getattr(usage, 'prompt_tokens', 0)
+                self.completion_tokens += getattr(usage, 'completion_tokens', 0)
+        else:
+            answer = result
+
         self.agent_hist += question + "\n\n" + answer + "\n\n"
         return answer
 
@@ -640,6 +723,9 @@ class DoctorAgent:
         self.reset()
         self.img_request = img_request
         self.biases = ["recency", "frequency", "false_consensus", "confirmation", "status_quo", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"]
+        self.total_tokens = 0
+        self.prompt_tokens = 0
+        self.completion_tokens = 0
 
     def generate_bias(self) -> str:
         if self.bias_present == "recency":
@@ -674,8 +760,44 @@ class DoctorAgent:
 
     def inference_doctor(self, question, image_requested=False) -> str:
         answer = str()
+        experience = ""
+        experience= """### SYSTEM & TOOL INSTRUCTIONS (CRITICAL) 
+1. **Unified Test Interface:** Due to system design, Physical Examinations (PE) and Vital Signs are accessed via the test command. You cannot 'see' the patient automatically. - To check Vitals or the physcial information about the patient or do a Physical Exam, you MUST use: "REQUEST TEST: [Name]" - To order Labs/Imaging, you also use: "REQUEST TEST: [Name]" 
+   
+2. **Dialogue:** When talking to the patient, focus your questions on: Demographics, History of Present Illness (Symptoms), Past Medical History, and Social History. 
+   
+### CLINICAL WORKFLOW PROTOCOL Please follow this logical order to simulate a real doctor's reasoning: 1. **Establish Baseline:** You are highly recommended to ALWAYS request "REQUEST TEST: Vital_Signs" and "REQUEST TEST: Abdominal_Examination" early in the process to narrow down the scope. 
+2. **Investigate:** Ask the patient questions to understand the history and symptom range. 
+   
+### RULES - **Diagnosis:** When you have gathered sufficient evidence to be confident, output "DIAGNOSIS READY: [diagnosis here]". - **Mutually Exclusive:** if you need ask further questions or request tests you are not ready for Diagnosis
+"""
+# CRITICAL: Test Result Interpretation
+# When you receive "NORMAL READINGS" for a requested test, this means:
+# - The specific detailed results are not available in this simulation
+# - This does NOT mean the test ruled out disease
+# - This does NOT contradict previous positive findings
+
+# If you have already identified a probable diagnosis from initial tests (e.g., 
+# flow cytometry showing lymphoproliferative disorder), you should:
+# 1. Maintain that diagnosis as your working hypothesis
+# 2. NOT interpret subsequent "NORMAL READINGS" as excluding the diagnosis
+# 3. Base your final diagnosis on the MOST SPECIFIC positive findings you received
+# """
+
+
         if self.infs >= self.MAX_INFS: return "Maximum inferences reached"
-        answer = query_model(self.backend, "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: ", self.system_prompt(), image_requested=image_requested, scene=self.scenario)
+
+        result = query_model(self.backend, experience + "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: ", self.system_prompt() + experience, image_requested=image_requested, scene=self.scenario, return_usage=True)
+
+        if isinstance(result, tuple):
+            answer, usage = result
+            if usage:
+                self.total_tokens += getattr(usage, 'total_tokens', 0)
+                self.prompt_tokens += getattr(usage, 'prompt_tokens', 0)
+                self.completion_tokens += getattr(usage, 'completion_tokens', 0)
+        else:
+            answer = result
+
         self.agent_hist += question + "\n\n" + answer + "\n\n"
         self.infs += 1
         return answer
@@ -700,10 +822,23 @@ class MeasurementAgent:
         self.backend = backend_str
         self.scenario = scenario
         self.reset()
+        self.total_tokens = 0
+        self.prompt_tokens = 0
+        self.completion_tokens = 0
 
     def inference_measurement(self, question) -> str:
         answer = str()
-        answer = query_model(self.backend, "\nHere is a history of the dialogue: " + self.agent_hist + "\n Here was the doctor measurement request: " + question, self.system_prompt())
+        result = query_model(self.backend, "\nHere is a history of the dialogue: " + self.agent_hist + "\n Here was the doctor measurement request: " + question, self.system_prompt(), return_usage=True)
+
+        if isinstance(result, tuple):
+            answer, usage = result
+            if usage:
+                self.total_tokens += getattr(usage, 'total_tokens', 0)
+                self.prompt_tokens += getattr(usage, 'prompt_tokens', 0)
+                self.completion_tokens += getattr(usage, 'completion_tokens', 0)
+        else:
+            answer = result
+
         self.agent_hist += question + "\n\n" + answer + "\n\n"
         return answer
 
@@ -723,15 +858,16 @@ class MeasurementAgent:
 
 
 if __name__ == "__main__":
+    model_name = "x-ai/grok-4.1-fast"
     parser = argparse.ArgumentParser(description='Medical Diagnosis Simulation CLI')
     parser.add_argument('--openai_api_key', type=str, required=False, help='OpenAI API Key')
     parser.add_argument('--inf_type', type=str, choices=['llm', 'human_doctor', 'human_patient'], default='llm')
     parser.add_argument('--doctor_bias', type=str, help='Doctor bias type', default='None', choices=["recency", "frequency", "false_consensus", "confirmation", "status_quo", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"])
     parser.add_argument('--patient_bias', type=str, help='Patient bias type', default='None', choices=["recency", "frequency", "false_consensus", "self_diagnosis", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"])
-    parser.add_argument('--doctor_llm', type=str, default='z-ai/glm-4.6v')
-    parser.add_argument('--patient_llm', type=str, default='z-ai/glm-4.6v')
-    parser.add_argument('--measurement_llm', type=str, default='z-ai/glm-4.6v')
-    parser.add_argument('--moderator_llm', type=str, default='z-ai/glm-4.6v')
+    parser.add_argument('--doctor_llm', type=str, default=model_name)
+    parser.add_argument('--patient_llm', type=str, default=model_name)
+    parser.add_argument('--measurement_llm', type=str, default=model_name)
+    parser.add_argument('--moderator_llm', type=str, default=model_name)
     parser.add_argument('--agent_dataset', type=str, default='MedQA') # MedQA, MIMICIV or NEJM
     parser.add_argument('--doctor_image_request', type=bool, default=False) # whether images must be requested or are provided
     parser.add_argument('--num_scenarios', type=int, default=None, required=False, help='Number of scenarios to simulate')
