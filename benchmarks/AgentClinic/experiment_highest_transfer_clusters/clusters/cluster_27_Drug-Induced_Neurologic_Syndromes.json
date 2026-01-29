@@ -1,0 +1,381 @@
+{
+  "cluster_id": 27,
+  "cluster_name": "Drug-Induced Neurologic Syndromes",
+  "transfer_rate": "~85%",
+  "diseases": [
+    "Neuroleptic Malignant Syndrome",
+    "Neuroleptic malignant syndrome",
+    "Akathisia",
+    "Serum sickness-like reaction",
+    "Steven-Johnson syndrome"
+  ],
+  "transfer_requirements": {
+    "age": "any",
+    "gender": "any",
+    "context": "REQUIRED: recent medication exposure"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "temporal relationship to drug",
+      "characteristic syndrome features"
+    ],
+    "pivotal_tests": [
+      "medication history",
+      "CK (NMS)",
+      "clinical diagnosis"
+    ],
+    "reasoning_pattern": "New symptoms + recent drug \u2192 temporal correlation \u2192 syndrome recognition",
+    "transfer_rate": "~85%"
+  },
+  "total_cases": 6,
+  "train_cases_count": 3,
+  "test_cases_count": 3,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the pediatric patient presenting with a low-grade fever, itchy rash, and generalized joint pain following antibiotic treatment.",
+        "Patient_Actor": {
+          "Demographics": "8-year-old girl",
+          "History": "The patient was brought to the emergency department because of a 2-day history of low-grade fever, itchy rash, and generalized joint pain. The rash initially started in the antecubital and popliteal fossae before spreading to the trunk and distal extremities. One week ago, she was diagnosed with acute sinusitis and started on amoxicillin. She has no history of adverse drug reactions, and her immunizations are up to date.",
+          "Symptoms": {
+            "Primary_Symptom": "Low-grade fever and itchy rash",
+            "Secondary_Symptoms": [
+              "Generalized joint pain",
+              "Rash in the antecubital and popliteal fossae",
+              "Rash spread to trunk and distal extremities"
+            ]
+          },
+          "Past_Medical_History": "Diagnosed with acute sinusitis one week ago, no known history of adverse drug reactions, immunizations up to date.",
+          "Social_History": "No significant social history provided.",
+          "Review_of_Systems": "No additional symptoms mentioned."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37.5\u00b0C (99.5\u00b0F)",
+            "Blood_Pressure": "110/70 mm Hg",
+            "Heart_Rate": "90/min",
+            "Respiratory_Rate": "Normal"
+          },
+          "Skin_Examination": {
+            "Findings": [
+              "Multiple erythematous, annular plaques of variable sizes over the entire body",
+              "One lesion in the right popliteal fossa has an area of central clearing",
+              "Periorbital edema noted"
+            ]
+          },
+          "Joint_Examination": {
+            "Findings": "Generalized joint pain, no swelling or redness observed"
+          }
+        },
+        "Test_Results": {
+          "Urinalysis": {
+            "Appearance": "Normal",
+            "WBC": "Within normal limits",
+            "RBC": "Within normal limits",
+            "Protein": "Negative",
+            "Glucose": "Negative"
+          }
+        },
+        "Correct_Diagnosis": "Serum sickness-like reaction"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with a 2-day history of fever and altered mentation.",
+        "Patient_Actor": {
+          "Demographics": "22-year-old male",
+          "History": "The patient presents with a 2-day history of fever and altered mentation, reporting fever without chills and rigors. He denies sore throat, abdominal pain, headache, loose stool, burning micturition, or seizures. Has a history of tics and is currently taking haloperidol.",
+          "Symptoms": {
+            "Primary_Symptom": "Fever and altered mentation",
+            "Secondary_Symptoms": [
+              "Profuse sweating",
+              "Generalized rigidity",
+              "Confusion and disorientation",
+              "Ability to move all limbs",
+              "Normal deep tendon reflexes with bilateral downgoing plantar responses"
+            ]
+          },
+          "Past_Medical_History": "History of tics, currently on a low dose of haloperidol.",
+          "Social_History": "Patient details on social and occupational history not provided.",
+          "Review_of_Systems": "Denies headache, abdominal pain, loose stools, burning micturition, or seizures."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "39.6\u00b0C (103.2\u00b0F)",
+            "Blood_Pressure": "126/66 mm Hg",
+            "Heart_Rate": "116/min",
+            "Respiratory_Rate": "Data not provided"
+          },
+          "Neurological_Examination": {
+            "Mental_Status": "Confused and disoriented",
+            "Cranial_Nerves": "Data not provided",
+            "Motor_Exam": "Generalized rigidity, able to move all limbs",
+            "Sensory_Exam": "Data not provided",
+            "Reflexes": "Normal deep tendon reflexes with bilateral downgoing plantar responses"
+          }
+        },
+        "Test_Results": {
+          "Laboratory_Tests": {
+            "Complete_Blood_Count": {
+              "White_Blood_Cell_Count": "14,700/mm3 (elevated)"
+            },
+            "Creatine_Kinase": "5600 U/L (elevated)",
+            "Urine_Toxicology": "Negative"
+          },
+          "Imaging_Studies": {
+            "Brain_MRI": {
+              "Findings": "Unremarkable"
+            }
+          },
+          "Lumbar_Puncture": {
+            "CSF_Opening_Pressure": "22 cm H2O",
+            "CSF_White_Blood_Cells": "4 cells/mm3",
+            "CSF_Red_Blood_Cells": "0 cells/mm3",
+            "CSF_Glucose": "64 mg/dL",
+            "CSF_Protein": "48 mg/dL",
+            "Serum_Glucose": "96 mg/dL"
+          }
+        },
+        "Correct_Diagnosis": "Neuroleptic malignant syndrome"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and manage a patient with psychiatric condition and new onset movement disorder.",
+        "Patient_Actor": {
+          "Demographics": "23-year-old college student",
+          "History": "The patient is here for a follow-up appointment. He was recently diagnosed with schizophrenia and started on risperidone approximately 2 months ago. Reports a significant improvement in psychiatric symptoms since the start of treatment.",
+          "Symptoms": {
+            "Primary_Symptom": "Inability to remain still, persistent feeling of restlessness",
+            "Secondary_Symptoms": [
+              "Frequent fidgeting",
+              "Repetitive crossing and uncrossing of legs",
+              "Pacing"
+            ]
+          },
+          "Past_Medical_History": "Recently diagnosed with schizophrenia. No other significant past medical history.",
+          "Social_History": "College student, lives with parents. Denies tobacco, alcohol, or drug use.",
+          "Review_of_Systems": {
+            "Psychiatric": "Improvement in delusions, hallucinations, and paranoid behaviors since starting risperidone.",
+            "Neurological": "No history of seizures, headaches, or previous movement disorders."
+          }
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98\u00b0F)",
+            "Blood_Pressure": "120/80 mmHg",
+            "Heart_Rate": "82 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Neurological_Examination": {
+            "Mental_Status": "Alert and oriented to person, place, time, and situation. Improved psychotic symptoms.",
+            "Cranial_Nerves": "Intact.",
+            "Motor": "Normal tone and strength in all extremities. No involuntary movements noted.",
+            "Sensory": "Intact.",
+            "Coordination": "Normal.",
+            "Gait": "Normal, but patient exhibits inability to sit still with frequent pacing"
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "WBC": "5,000 /\u03bcL",
+            "Hemoglobin": "14 g/dL",
+            "Platelets": "250,000 /\u03bcL"
+          },
+          "Liver_Function_Tests": {
+            "AST": "25 U/L",
+            "ALT": "20 U/L",
+            "Bilirubin": "1.0 mg/dL",
+            "Alkaline_Phosphatase": "75 U/L"
+          },
+          "Electrolytes": {
+            "Sodium": "140 mEq/L",
+            "Potassium": "4.0 mEq/L",
+            "Chloride": "100 mEq/L",
+            "Bicarbonate": "24 mEq/L"
+          },
+          "Thyroid_Function_Tests": {
+            "TSH": "2.5 mIU/L",
+            "Free_T4": "1.1 ng/dL"
+          }
+        },
+        "Correct_Diagnosis": "Akathisia"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and manage the patient presenting with altered mental status, autonomic dysregulation, and muscle rigidity.",
+        "Patient_Actor": {
+          "Demographics": "22-year-old male",
+          "History": "The patient was brought to the emergency department by police after he was found undressing himself outside in extremely hot weather. The patient is uncooperative, refusing to answer questions due to paranoia about being spied on. He has a history of polysubstance abuse and a recent visit to the ED for intoxication.",
+          "Symptoms": {
+            "Primary_Symptom": "Altered mental status",
+            "Secondary_Symptoms": [
+              "Paranoia",
+              "Attempted assault",
+              "Somnolence",
+              "Non-responsive",
+              "Autonomic dysregulation",
+              "Muscle rigidity"
+            ]
+          },
+          "Past_Medical_History": "Recent admission for polysubstance intoxication.",
+          "Social_History": "Recently started college. Known history of substance use.",
+          "Review_of_Systems": "Unable to obtain due to patient's non-compliance and altered mental status."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "104\u00b0F (40\u00b0C)",
+            "Blood_Pressure": "147/98 mmHg",
+            "Heart_Rate": "120/min",
+            "Respiratory_Rate": "17/min",
+            "Oxygen_Saturation": "98% on room air"
+          },
+          "Neurological_Examination": {
+            "Mental_Status": "Somnolent and non-responsive",
+            "Muscle_Examination": "Rigidity without compliance to manipulation",
+            "Autonomic_Signs": "Dry mucous membranes indicating possible dehydration"
+          }
+        },
+        "Test_Results": {
+          "CBC": {
+            "White_Blood_Cell_Count": "Normal range but specifics not provided",
+            "Hemoglobin": "Normal range but specifics not provided",
+            "Platelets": "Normal range but specifics not provided"
+          },
+          "Electrolytes": {
+            "Sodium": "Normal but specifics not provided",
+            "Potassium": "Normal but specifics not provided",
+            "Chloride": "Normal but specifics not provided",
+            "Bicarbonate": "Normal but specifics not provided"
+          },
+          "Creatine_Kinase": {
+            "Level": "Significantly elevated (specific level not provided)"
+          },
+          "Liver_Enzymes": {
+            "AST": "Elevated (specifics not provided)",
+            "ALT": "Elevated (specifics not provided)"
+          },
+          "Renal_Function_Tests": {
+            "Creatinine": "Within normal limits but specifics not provided",
+            "BUN": "Within normal limits but specifics not provided"
+          },
+          "Blood_Gas_Analysis": {
+            "Findings": "Mild metabolic acidosis (specific values not provided)"
+          }
+        },
+        "Correct_Diagnosis": "Neuroleptic Malignant Syndrome"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with a concerning rash and recent health changes.",
+        "Patient_Actor": {
+          "Demographics": "47-year-old male",
+          "History": "The patient presents with a rash that started last night, finding it very concerning. He does not recall being exposed to any new environmental stimuli such as detergents or plants like poison ivy. He mentions he recently started seeing a primary care provider for arthritis management and a new onset cough.",
+          "Symptoms": {
+            "Primary_Symptom": "Rash on the upper half of the back",
+            "Secondary_Symptoms": [
+              "Concern over sudden onset",
+              "Recent cough",
+              "Unaware of exposure to new environmental stimuli",
+              "Mucositis"
+            ]
+          },
+          "Past_Medical_History": "Has been diagnosed with arthritis. No other significant past medical history has been mentioned.",
+          "Social_History": "The patient didn't provide any specific social history details during the initial consultation.",
+          "Review_of_Systems": "Reports a new onset cough along with skin and mucosal changes but denies fever, shortness of breath, joint pains, gastrointestinal symptoms, or recent illnesses."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37.5\u00b0C (99.5\u00b0F)",
+            "Blood_Pressure": "127/68 mmHg",
+            "Heart_Rate": "125 bpm",
+            "Respiratory_Rate": "18 breaths/min",
+            "Oxygen_Saturation": "98% on room air"
+          },
+          "Skin_Examination": {
+            "General": "Coalescing erythematous macules, bullae, desquamation noted.",
+            "Distribution": "Localized to the upper half of the back.",
+            "Mucous_Membranes": "Ulcers and erythema present in oropharynx."
+          },
+          "Cardiopulmonary_Exam": {
+            "Cardiac": "Normal rate and rhythm, no murmurs or gallops.",
+            "Pulmonary": "Clear to auscultation bilaterally, no wheezes, rales, or rhonchi."
+          },
+          "Abdominal_Exam": "Soft, non-tender, no hepatosplenomegaly, normoactive bowel sounds throughout."
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "WBC": "Normal",
+            "Hemoglobin": "Normal",
+            "Platelets": "Normal"
+          },
+          "Chemistry_Panel": {
+            "Liver_Function_Tests": "Normal",
+            "Renal_Function_Tests": "Normal",
+            "Electrolytes": "Normal"
+          },
+          "Skin_Biopsy": {
+            "Findings": "Epidermal necrosis and detachment, consistent with severe drug reaction."
+          }
+        },
+        "Correct_Diagnosis": "Steven-Johnson syndrome"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and manage a young adult patient presenting with altered mental status, suspected of having a serious drug reaction.",
+        "Patient_Actor": {
+          "Demographics": "22-year-old male",
+          "History": "The patient was brought to the emergency department by the police after he was found undressing himself outdoors in extremely hot weather. He is uncooperative, refuses to answer questions, and exhibits paranoid behavior. He has a recent history of presenting to the emergency department for polysubstance intoxication.",
+          "Symptoms": {
+            "Primary_Symptom": "Somnolence and non-responsiveness",
+            "Secondary_Symptoms": [
+              "High fever (104\u00b0F or 40\u00b0C)",
+              "Hypertension",
+              "Tachycardia",
+              "Muscle rigidity",
+              "Dry mucous membranes"
+            ]
+          },
+          "Past_Medical_History": "History of substance use. No other significant medical history reported.",
+          "Social_History": "Recently started college. History of polysubstance abuse.",
+          "Review_of_Systems": "Unable to complete due to patient's non-responsiveness and lack of cooperation."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "40\u00b0C (104\u00b0F)",
+            "Blood_Pressure": "147/98 mmHg",
+            "Heart_Rate": "120 bpm",
+            "Respiratory_Rate": "17 breaths/min",
+            "Oxygen_Saturation": "98% on room air"
+          },
+          "Neurological_Examination": {
+            "Consciousness": "Somnolent and non-responsive",
+            "Coordination_and_Motor_Function": "Unable to assess due to non-compliance",
+            "Muscle_Rigidity": "Rigidity noted upon attempt to manipulate extremities"
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "WBC": "Elevated",
+            "Hemoglobin": "Normal",
+            "Platelets": "Normal"
+          },
+          "Chemistry_Panel": {
+            "Creatine_Kinase": "Significantly elevated",
+            "Liver_Enzymes": "Elevated",
+            "Electrolytes": "Abnormalities may be present"
+          },
+          "Urine_Drug_Screen": {
+            "Findings": "Pending or could show presence of recent substance use"
+          }
+        },
+        "Correct_Diagnosis": "Neuroleptic Malignant Syndrome"
+      }
+    }
+  ]
+}

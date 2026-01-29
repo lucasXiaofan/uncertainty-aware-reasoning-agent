@@ -5,11 +5,11 @@ from .implementations import (
     brave_search,
     final_result,
     final_answer,
-    save_conversation,
-    load_recent_conversations,
     save_experience,
     complete_analysis,
+    select_experiences,
 )
+from .agent_utils import save_conversation, load_recent_conversations
 
 __all__ = [
     "tool",
@@ -26,4 +26,5 @@ __all__ = [
     "load_recent_conversations",
     "save_experience",
     "complete_analysis",
+    "select_experiences",
 ]

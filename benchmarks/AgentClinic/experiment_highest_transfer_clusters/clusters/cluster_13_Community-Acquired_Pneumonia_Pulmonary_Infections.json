@@ -1,0 +1,367 @@
+{
+  "cluster_id": 13,
+  "cluster_name": "Community-Acquired Pneumonia/Pulmonary Infections",
+  "transfer_rate": "~80%",
+  "diseases": [
+    "Pneumonia",
+    "Tuberculosis",
+    "Histoplasmosis",
+    "Valley fever"
+  ],
+  "transfer_requirements": {
+    "age": "any",
+    "gender": "any",
+    "context": "TB/endemic fungi: consider travel/exposure history"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "cough",
+      "fever",
+      "dyspnea",
+      "sputum"
+    ],
+    "pivotal_tests": [
+      "CXR",
+      "sputum culture",
+      "blood cultures"
+    ],
+    "reasoning_pattern": "Respiratory infection \u2192 CXR + severity assessment \u2192 pathogen identification",
+    "transfer_rate": "~80%"
+  },
+  "total_cases": 6,
+  "train_cases_count": 3,
+  "test_cases_count": 3,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate the patient presenting with postoperative fever, chest pain that increases on inspiration, and a productive cough, and determine the correct diagnosis.",
+        "Patient_Actor": {
+          "Demographics": "57-year-old obese female",
+          "History": "The patient reports experiencing fever, chills, and a headache starting three days after undergoing an open cholecystectomy. She has a history of an abdominal hysterectomy 16 years ago. She has been smoking one pack of cigarettes daily for 17 years.",
+          "Symptoms": {
+            "Primary_Symptom": "Right-sided chest pain that increases on inspiration",
+            "Secondary_Symptoms": [
+              "Productive cough for the last 12 hours",
+              "Fever",
+              "Chills",
+              "Headache"
+            ]
+          },
+          "Past_Medical_History": {
+            "Surgeries": [
+              "Open cholecystectomy three days prior",
+              "Abdominal hysterectomy 16 years ago"
+            ],
+            "Chronic_Conditions": [
+              "None reported"
+            ],
+            "Medications": [
+              "None reported"
+            ]
+          },
+          "Social_History": {
+            "Smoking_Status": "Current smoker, one pack daily for 17 years",
+            "Alcohol_Use": "Not specified",
+            "Occupation": "Not specified",
+            "Activities": "Not specified"
+          },
+          "Review_of_Systems": {
+            "Respiratory": "Productive cough",
+            "Cardiovascular": "No reported abnormalities",
+            "Gastrointestinal": "Surgical site below right ribcage, otherwise unremarkable",
+            "Musculoskeletal": "No reported abnormalities",
+            "Neurological": "No reported abnormalities"
+          }
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "39\u00b0C (102.2\u00b0F)",
+            "Blood_Pressure": "128/82 mm Hg",
+            "Heart_Rate": "98 bpm",
+            "Respiratory_Rate": "18 breaths/min"
+          },
+          "Respiratory_Examination": {
+            "Inspection": "Appears uncomfortable",
+            "Auscultation": "Inspiratory crackles at the right lung base",
+            "Percussion": "Not specified",
+            "Palpation": "Not specified"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Healing surgical incision below the right ribcage",
+            "Auscultation": "Not specified",
+            "Percussion": "Not specified",
+            "Palpation": "Soft and nontender"
+          }
+        },
+        "Test_Results": {
+          "Chest_X-ray": {
+            "Findings": "Infiltrates at the right lung base"
+          },
+          "Complete_Blood_Count": {
+            "WBC": "Elevated",
+            "Hemoglobin": "Within normal limits",
+            "Platelets": "Within normal limits"
+          },
+          "Blood_Culture": {
+            "Findings": "Pending"
+          }
+        },
+        "Correct_Diagnosis": "Pneumonia"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and manage a patient presenting with chronic cough, weight loss, and generalized weakness.",
+        "Patient_Actor": {
+          "Demographics": "68-year-old male",
+          "History": "The patient reports having a fever, cough, weakness, night sweats, and poor appetite persisting for 6 months. He has lost 7.5 kg (16.5 lb) over this period. No history of breathlessness, nasal discharge, nasal obstruction, palpitations, chest pain, or digestive symptoms. Released from prison 9 months ago after a 2-year sentence.",
+          "Symptoms": {
+            "Primary_Symptom": "Chronic cough and fever",
+            "Secondary_Symptoms": [
+              "Weight loss",
+              "Night sweats",
+              "Generalized weakness",
+              "Poor appetite"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical history reported.",
+          "Social_History": "History of incarceration. No other relevant social history provided.",
+          "Review_of_Systems": "Denies breathlessness, nasal discharge, nasal obstruction, palpitations, chest pain, or digestive symptoms."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "38.1\u00b0C (100.6\u00b0F)",
+            "Blood_Pressure": "122/80 mmHg",
+            "Heart_Rate": "84 bpm",
+            "Respiratory_Rate": "16 breaths/min"
+          },
+          "General_Examination": {
+            "Hepatomegaly": "Present",
+            "Generalized_Lymphadenopathy": "Present"
+          },
+          "Chest_Examination": {
+            "Auscultation": "Diffuse crackles throughout the lung fields bilaterally"
+          },
+          "Ophthalmoscopy": {
+            "Findings": "Three discrete, yellow-colored, 0.5 mm to 1.0 mm lesions with indistinct borders in the posterior pole"
+          }
+        },
+        "Test_Results": {
+          "Chest_X-ray": {
+            "Findings": "Image shows diffuse infiltrates"
+          },
+          "Tuberculin_Skin_Test": {
+            "Result": "Negative"
+          }
+        },
+        "Correct_Diagnosis": "Tuberculosis"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with chronic cough, aching joints, and malaise.",
+        "Patient_Actor": {
+          "Demographics": "50-year-old male",
+          "History": "The patient reports a chronic cough, aching joints particularly in the hips and lower back, and generalized malaise for the past 2 months. He considered himself in general good health prior to the onset of the cough. He has a known history of hypertension for which he takes clopamide daily along with a multivitamin.",
+          "Symptoms": {
+            "Primary_Symptom": "Chronic cough",
+            "Secondary_Symptoms": [
+              "Aching joints in hips and lower back",
+              "Malaise"
+            ]
+          },
+          "Past_Medical_History": "Hypertension treated with clopamide",
+          "Social_History": "Non-smoker, occasional alcohol consumer. Describes a hiking trip near Phoenix, Arizona, 4 months ago.",
+          "Review_of_Systems": "Reports no significant weight loss, no night sweats, and no recent international travel."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "38.6\u00b0C (101.4\u00b0F)",
+            "Blood_Pressure": "120/82 mmHg",
+            "Heart_Rate": "102 bpm",
+            "Respiratory_Rate": "20 breaths/min"
+          },
+          "Respiratory_Examination": {
+            "Inspection": "No obvious distress or cyanosis.",
+            "Auscultation": "Mild reduction in breath sounds on the right lower side.",
+            "Percussion": "Dullness over the right middle lobe.",
+            "Palpation": "Mild increased fremitus over the right lower chest."
+          },
+          "Musculoskeletal_Examination": {
+            "Inspection": "No visible joint deformities.",
+            "Palpation": "Tenderness in the lower back and hips."
+          }
+        },
+        "Test_Results": {
+          "Imaging": {
+            "Chest_X-ray": "Right-sided consolidation in the lower right lung.",
+            "Chest_CT": {
+              "Findings": "Irregular opacity in the right middle lobe measuring 3.8 cm x 3.0 cm, small right-sided pleural effusion, and mild hilar adenopathy."
+            }
+          },
+          "Biopsy": {
+            "Lung_Biopsy": {
+              "Findings": "Necrotic granulomatous inflammation with multinucleated giant cells and spherules with endospores."
+            }
+          },
+          "Laboratory_Tests": {
+            "Hemoglobin": "12.9 mg/dL",
+            "Leukocyte_count": "9,300/mm3",
+            "Platelet_count": "167,000/mm3",
+            "Erythrocyte_sedimentation_rate": "43 mm/hr",
+            "Periodic_acid-Schiff_and_silver_methenamine": "Positive",
+            "Acid-fast_stain": "Negative"
+          }
+        },
+        "Correct_Diagnosis": "Valley fever"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with a persistent non-productive cough and dyspnea following a recent cold.",
+        "Patient_Actor": {
+          "Demographics": "79-year-old female",
+          "History": "Patient presents complaining of a persistent non-productive cough and breathlessness that started after a cold about a month ago. Describes previous health as generally good.",
+          "Symptoms": {
+            "Primary_Symptom": "Persistent non-productive cough",
+            "Secondary_Symptoms": [
+              "Dyspnea",
+              "History of a recent cold"
+            ]
+          },
+          "Past_Medical_History": "Hypertension, Hyperlipidemia on Hydrochlorothiazide, Lisinopril, and Atorvastatin.",
+          "Social_History": "Non-smoker, drinks alcohol occasionally. Recently returned from a month-long trip to St. Louis, Missouri.",
+          "Review_of_Systems": "No other symptoms apart from those mentioned."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37.0\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "130/82 mmHg",
+            "Heart_Rate": "82 bpm",
+            "Respiratory_Rate": "20 breaths/min"
+          },
+          "Chest_Examination": {
+            "Inspection": "No visible deformities.",
+            "Auscultation": "Normal breath sounds without wheezes or rhonchi.",
+            "Percussion": "Mild dullness on the right side.",
+            "Palpation": "Mild crepitus detected on the right side."
+          }
+        },
+        "Test_Results": {
+          "Chest_X-ray": {
+            "Findings": "Cavitary lesion in the right lung"
+          },
+          "Chest_CT": {
+            "Findings": "Confirmation of the cavitary lesion seen on X-ray"
+          },
+          "Lung_Biopsy": {
+            "Histopathology": "Necrotic granulomatous inflammation with oval yeast bodies within macrophages"
+          }
+        },
+        "Correct_Diagnosis": "Histoplasmosis"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and manage a patient presenting with left chest pain, a productive cough with purulent sputum, and shortness of breath.",
+        "Patient_Actor": {
+          "Demographics": "30-year-old male",
+          "History": "The patient reports experiencing left-sided chest pain and a productive cough with purulent sputum for the past week. He mentions shortness of breath. States he was diagnosed with influenza recently but did not adhere to the treatment plan provided.",
+          "Symptoms": {
+            "Primary_Symptom": "Left chest pain",
+            "Secondary_Symptoms": [
+              "Productive cough with purulent sputum",
+              "Shortness of breath"
+            ]
+          },
+          "Past_Medical_History": "Diagnosed with influenza recently, with non-compliance to treatment. No other significant past medical or surgical history.",
+          "Social_History": "Non-smoker, occasional alcohol intake. Occupation and hobbies not specified.",
+          "Review_of_Systems": "Reports fever and malaise. Denies recent travel, animal exposures, or sick contacts."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "38.7\u00b0C (101.7\u00b0F)",
+            "Blood_Pressure": "120/60 mm Hg",
+            "Heart_Rate": "70 bpm",
+            "Respiratory_Rate": "22 breaths/min",
+            "SO2": "80%"
+          },
+          "Chest_Examination": {
+            "Inspection": "No cyanosis or use of accessory respiratory muscles.",
+            "Auscultation": "Decreased breath sounds at the left base, crackles.",
+            "Percussion": "Dullness to percussion over the left lower lung fields.",
+            "Palpation": "No significant findings."
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "Hemoglobin": "14 mg/dL",
+            "Hematocrit": "45%",
+            "Leukocyte_count": "12,000/mm3",
+            "Neutrophils": "82%",
+            "Lymphocytes": "15%",
+            "Monocytes": "3%",
+            "Platelet_count": "270,000/mm3"
+          },
+          "Chest_X-ray": {
+            "Findings": "Alveolar infiltrates in the left base with air bronchograms"
+          }
+        },
+        "Correct_Diagnosis": "Pneumonia"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with fever, chills, headache, right-sided chest pain, and a productive cough following an abdominal surgery.",
+        "Patient_Actor": {
+          "Demographics": "57-year-old obese female",
+          "History": "The patient reports experiencing fever, chills, and a headache three days after undergoing an open cholecystectomy. She mentions right-sided chest pain that increases on inspiration and has had a productive cough for the last 12 hours. She also had an episode of hypotension post-operation that was resolved with IV fluids. Additionally, she had an abdominal hysterectomy 16 years ago.",
+          "Symptoms": {
+            "Primary_Symptom": "Fever and productive cough",
+            "Secondary_Symptoms": [
+              "Chills",
+              "Headache",
+              "Right-sided chest pain that increases on inspiration"
+            ]
+          },
+          "Past_Medical_History": "Underwent abdominal hysterectomy 16 years ago for multiple fibroids of the uterus. She has a 17-year history of smoking one pack of cigarettes daily.",
+          "Social_History": "History of smoking one pack of cigarettes daily for 17 years.",
+          "Review_of_Systems": "Reports discomfort. No other abnormalities noted apart from the symptoms related to her recent surgery and current complaints."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "39\u00b0C (102.2\u00b0F)",
+            "Blood_Pressure": "128/82 mmHg",
+            "Heart_Rate": "98 bpm",
+            "Respiratory_Rate": "18 breaths/min"
+          },
+          "Chest_Examination": {
+            "Inspection": "Normal chest wall movement",
+            "Palpation": "No tenderness or deformities",
+            "Percussion": "Normal resonance",
+            "Auscultation": "Inspiratory crackles at the right lung base"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Healing surgical incision below the right ribcage",
+            "Auscultation": "Normal bowel sounds",
+            "Percussion": "Normal",
+            "Palpation": "Soft and nontender"
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "WBC": "15,000 /\u03bcL (elevated)",
+            "Hemoglobin": "14 g/dL",
+            "Platelets": "300,000 /\u03bcL"
+          },
+          "Chest_X-Ray": {
+            "Findings": "Infiltrates in the right lower lobe consistent with pneumonia"
+          }
+        },
+        "Correct_Diagnosis": "Pneumonia"
+      }
+    }
+  ]
+}

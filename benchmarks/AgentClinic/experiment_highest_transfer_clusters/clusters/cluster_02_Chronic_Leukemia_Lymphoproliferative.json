@@ -1,0 +1,319 @@
+{
+  "cluster_id": 2,
+  "cluster_name": "Chronic Leukemia/Lymphoproliferative",
+  "transfer_rate": "~80%",
+  "diseases": [
+    "Chronic lymphocytic leukemia",
+    "Chronic lymphocytic leukemia (CLL)",
+    "Waldenstrom macroglobulinemia",
+    "Diffuse large B-cell lymphoma"
+  ],
+  "transfer_requirements": {
+    "age": "typically adult/elderly (>50 for most)",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "lymphadenopathy",
+      "fatigue",
+      "B symptoms"
+    ],
+    "pivotal_tests": [
+      "CBC",
+      "flow cytometry",
+      "lymph node biopsy",
+      "serum protein electrophoresis"
+    ],
+    "reasoning_pattern": "Lymphocytosis/lymphadenopathy \u2192 characterize via flow/biopsy \u2192 subtype",
+    "transfer_rate": "~80%"
+  },
+  "total_cases": 6,
+  "train_cases_count": 3,
+  "test_cases_count": 3,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with headache and worsening vision over a 3-week period.",
+        "Patient_Actor": {
+          "Demographics": "69-year-old woman",
+          "History": "The patient reports a 3-week history of headache and progressively worsening vision. She has not noticed any other symptoms, including no recent weight changes, no fevers, no night sweats, and no pain elsewhere in the body.",
+          "Symptoms": {
+            "Primary_Symptom": "Headache",
+            "Secondary_Symptoms": [
+              "Worsening vision over the past 3 weeks",
+              "No weight changes",
+              "No fevers",
+              "No night sweats",
+              "No other pain"
+            ]
+          },
+          "Past_Medical_History": "The patient has hypertension, which is controlled with medication. She also has a history of high cholesterol.",
+          "Social_History": "Retired school teacher. Non-smoker and drinks alcohol socially. No recreational drug use.",
+          "Review_of_Systems": "Denies nausea, vomiting, diarrhea. No recent travel or sick contacts. No changes in hearing. Denies neck stiffness or photophobia."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "135/85 mmHg",
+            "Heart_Rate": "78 bpm",
+            "Respiratory_Rate": "16 breaths/min"
+          },
+          "Ophthalmologic_Examination": {
+            "Visual_Acuity": {
+              "Right_Eye": "20/120",
+              "Left_Eye": "20/80"
+            },
+            "Fundoscopy": "Details are not provided in this scenario but imagine findings suggestive of retinal vein occlusion or hemorrhages."
+          }
+        },
+        "Test_Results": {
+          "Laboratory_Studies": {
+            "Hemoglobin": "14.2 g/dL",
+            "Total_Serum_Calcium": "9.9 mg/dL"
+          },
+          "Peripheral_Blood_Smear": {
+            "Findings": "Not specified in this scenario, but imagine findings are indicative of increased circulating immunoglobulins."
+          },
+          "Serum_Electrophoresis": {
+            "Findings": "Increased concentration of a pentameric immunoglobulin, consistent with a monoclonal gammopathy."
+          }
+        },
+        "Correct_Diagnosis": "Waldenstrom macroglobulinemia"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate the patient presenting with fatigue, malaise, and unintentional weight loss, and assess the need for further diagnostic workup.",
+        "Patient_Actor": {
+          "Demographics": "71-year-old male",
+          "History": "The patient complains of fatigue and malaise over the last few months. He also reports an unintentional weight loss of 18.1 kg over the past 6 months. He does not recall any changes in diet or exercise routines that could explain the weight loss.",
+          "Symptoms": {
+            "Primary_Symptom": "Fatigue and malaise",
+            "Secondary_Symptoms": [
+              "Significant unintentional weight loss",
+              "No change in diet or exercise"
+            ]
+          },
+          "Past_Medical_History": "Has a history of diabetes mellitus type II, hypertension, non-seminomatous testicular cancer treated in the past, and hypercholesterolemia.",
+          "Social_History": "Currently smokes 1 pack of cigarettes per day and drinks a glass of wine daily. Denies any illicit drug use.",
+          "Review_of_Systems": "No fever, night sweats, or significant changes in bowel habits."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.7\u00b0C (98.0\u00b0F)",
+            "Blood_Pressure": "126/74 mmHg",
+            "Heart_Rate": "87 bpm",
+            "Respiratory_Rate": "17 breaths/min"
+          },
+          "Examination": {
+            "General": "Patient appears chronically ill.",
+            "Lymph_Nodes": "Bilateral cervical and inguinal lymphadenopathy palpable.",
+            "Abdominal_Examination": "Evidence of splenomegaly upon palpation."
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "WBC": "Elevated with lymphocytosis",
+            "Hemoglobin": "Normal to slightly decreased",
+            "Platelets": "Normal to decreased"
+          },
+          "Flow_Cytometry": {
+            "Findings": "Presence of monoclonal B lymphocytes with a phenotype consistent with CLL/SLL."
+          }
+        },
+        "Correct_Diagnosis": "Chronic lymphocytic leukemia"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with fatigue, unintentional weight loss, and abnormal physical examination findings.",
+        "Patient_Actor": {
+          "Demographics": "72-year-old male",
+          "History": "The patient reports a 6-month history of fatigue and an unintentional weight loss of 5 kg (11 lb) despite maintaining a good appetite. He denies any recent changes in his diet or physical activity. He takes no medications and does not smoke or use illicit drugs.",
+          "Symptoms": {
+            "Primary_Symptom": "Fatigue",
+            "Secondary_Symptoms": [
+              "5 kg unintentional weight loss over 6 months",
+              "Good appetite"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical history. Patient denies any chronic illnesses or prior hospitalizations.",
+          "Social_History": "Retired engineer; denies tobacco use or illicit drug use. Drinks alcohol socially.",
+          "Review_of_Systems": "Denies fever, night sweats, changes in bowel or bladder habits, recent infections, or bleeding disorders."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "130/85 mmHg",
+            "Heart_Rate": "80 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "General_Examination": {
+            "Appearance": "Looks his stated age, no acute distress.",
+            "HEENT": "No pallor, icterus, or lymphadenopathy in the head and neck region.",
+            "Lymph_Nodes": "Diffuse, nontender lymphadenopathy."
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Normal contour, no visible masses.",
+            "Auscultation": "Normal bowel sounds.",
+            "Percussion": "Diffuse dullness over the left upper quadrant and right upper quadrant.",
+            "Palpation": "Nontender hepatosplenomegaly"
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "WBC": "16,000 /\u03bcL (elevated)",
+            "Hemoglobin": "11 g/dL (low)",
+            "Platelets": "Normal"
+          },
+          "Direct_Antiglobulin_Test": "Positive",
+          "Peripheral_Blood_Smear": {
+            "Findings": "Increased lymphocytes with smudge cells"
+          }
+        },
+        "Correct_Diagnosis": "Chronic lymphocytic leukemia"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the elderly patient presenting for an annual blood pressure visit with incidental lab findings.",
+        "Patient_Actor": {
+          "Demographics": "75-year-old male",
+          "History": "The patient presents for his annual blood pressure visit with no complaints other than occasional knee pain. He has a past medical history of hypertension and knee osteoarthritis, for which he takes occasional acetaminophen.",
+          "Symptoms": {
+            "Primary_Symptom": "No new complaints",
+            "Secondary_Symptoms": [
+              "Occasional knee pain"
+            ]
+          },
+          "Past_Medical_History": "Hypertension, knee osteoarthritis",
+          "Social_History": "Diet rich in vegetables, daily exercise, no history of smoking. A brother died at 84 due to hematologic malignancy.",
+          "Review_of_Systems": "Denies headache, dizziness, chest pain, palpitations, dyspnea, fever, weight loss, or night sweats."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u2103 (98.2\u2109)",
+            "Blood_Pressure": "125/85 mm Hg",
+            "Heart_Rate": "Normal",
+            "Respiratory_Rate": "Normal"
+          },
+          "Musculoskeletal_Examination": {
+            "Inspection": "No visible joint deformities.",
+            "Range_of_Motion": "Reduced range of motion in both knees.",
+            "Palpation": "Crepitus noted in both knees, no swelling or warmth.",
+            "Special_Tests": "No additional tests performed."
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "Hemoglobin": "15 g/dL",
+            "Leukocyte_Count": "58,000/mm3 (elevated)",
+            "Platelet_Count": "250,000/mm3"
+          },
+          "Flow_Cytometry": {
+            "Absolute_Lymphocyte_Count": "50,000/mm3, suggestive of a lymphoproliferative disorder"
+          }
+        },
+        "Correct_Diagnosis": "Chronic lymphocytic leukemia (CLL)"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with fatigue, abdominal pain, night sweats, weight loss, and enlarged supraclavicular lymph node.",
+        "Patient_Actor": {
+          "Demographics": "55-year-old male",
+          "History": "The patient reports experiencing fatigue, worsening abdominal pain for the past 4 weeks, excessive night sweats, and a noticeable weight loss of approximately 5.4 kg (12 lb). Additionally, the patient noticed neck swelling developing over the last 4 days.",
+          "Symptoms": {
+            "Primary_Symptom": "Fatigue, abdominal pain",
+            "Secondary_Symptoms": [
+              "Excessive night sweats",
+              "Weight loss of 5.4 kg (12 lb)",
+              "Neck swelling for 4 days"
+            ]
+          },
+          "Past_Medical_History": "The patient does not report any significant past medical history. No previous major illnesses or surgeries.",
+          "Social_History": "The patient has a history of smoking, 1 pack per day for the past 30 years. Drinks alcohol socially. Works in a construction company.",
+          "Review_of_Systems": "Patient also reports feeling an unusual fullness in the belly area and has difficulty wearing his usual clothing due to this. Denies fever, cough, or recent travel."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98\u00b0F)",
+            "Blood_Pressure": "135/80 mmHg",
+            "Heart_Rate": "82 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Neck_Examination": {
+            "Inspection_and_Palpation": "Nontender, enlarged, and fixed supraclavicular lymph node observed."
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Slight abdominal distension.",
+            "Auscultation": "Normal bowel sounds.",
+            "Percussion": "Dullness noted over the left lower quadrant.",
+            "Palpation": "Splenomegaly detected, without rebound tenderness."
+          }
+        },
+        "Test_Results": {
+          "Blood_Work": {
+            "Complete_Blood_Count": {
+              "WBC": "Elevated",
+              "Hemoglobin": "Slightly Decreased",
+              "Platelets": "Normal"
+            },
+            "Lactate_Dehydrogenase": "Elevated"
+          },
+          "Imaging": {
+            "CT_Scan_Thorax_and_Abdomen": {
+              "Findings": "Massively enlarged axillary, mediastinal, and cervical lymph nodes."
+            }
+          },
+          "Biopsy": {
+            "Cervical_Lymph_Node": {
+              "Findings": "Lymphocytes with a high proliferative index that stain positive for CD20."
+            }
+          }
+        },
+        "Correct_Diagnosis": "Diffuse large B-cell lymphoma"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate a 75-year-old man presenting for an annual check-up, focusing on blood pressure management and interpreting laboratory test results.",
+        "Patient_Actor": {
+          "Demographics": "75-year-old male",
+          "History": "The patient reports coming in for his annual blood pressure check-up. He has a history of hypertension and knee osteoarthritis. For his osteoarthritis, he occasionally takes acetaminophen. The patient mentions occasional knee pain but has no other complaints. He follows a diet rich in vegetables and exercises daily. Additionally, he has a family history of hematologic malignancy in a brother who died at the age of 84.",
+          "Symptoms": {
+            "Primary_Symptom": "Occasional knee pain",
+            "Secondary_Symptoms": []
+          },
+          "Past_Medical_History": "Hypertension, Knee osteoarthritis",
+          "Social_History": "Non-smoker, exercises daily, and follows a vegetable-rich diet.",
+          "Review_of_Systems": "No additional complaints or symptoms noted."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u2103 (98.2\u2109)",
+            "Blood_Pressure": "125/85 mm Hg",
+            "Heart_Rate": "Normal",
+            "Respiratory_Rate": "Normal"
+          },
+          "Musculoskeletal_Examination": {
+            "Knees": "Reduced range of motion and crepitus noted in both knees indicating osteoarthritis."
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "Hemoglobin": "15 g/dL",
+            "Leukocyte_Count": "58,000/mm3 (markedly elevated)",
+            "Platelet_Count": "250,000/mm3"
+          },
+          "Flow_Cytometry": {
+            "Absolute_Lymphocyte_Count": "50,000/mm3, indicating a lymphocytosis"
+          }
+        },
+        "Correct_Diagnosis": "Chronic lymphocytic leukemia (CLL)"
+      }
+    }
+  ]
+}

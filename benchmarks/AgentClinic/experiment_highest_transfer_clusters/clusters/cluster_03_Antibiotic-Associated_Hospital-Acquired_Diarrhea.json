@@ -1,0 +1,85 @@
+{
+  "cluster_id": 3,
+  "cluster_name": "Antibiotic-Associated/Hospital-Acquired Diarrhea",
+  "transfer_rate": "~90% (context-dependent)",
+  "diseases": [
+    "C. difficile colitis"
+  ],
+  "transfer_requirements": {
+    "age": "any (higher risk if elderly)",
+    "gender": "any",
+    "context": "REQUIRED: recent antibiotic use OR hospitalization"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "watery diarrhea",
+      "recent antibiotics",
+      "abdominal pain"
+    ],
+    "pivotal_tests": [
+      "stool C. diff toxin",
+      "stool PCR",
+      "WBC count"
+    ],
+    "reasoning_pattern": "Recent antibiotics + diarrhea \u2192 C. diff until proven otherwise",
+    "transfer_rate": "~90% (context-dependent)"
+  },
+  "total_cases": 1,
+  "train_cases_count": 0,
+  "test_cases_count": 1,
+  "train_data": [],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate the patient for the cause of acute diarrhea and manage appropriately.",
+        "Patient_Actor": {
+          "Demographics": "58-year-old female",
+          "History": "The patient has been treated for community-acquired pneumonia with levofloxacin on the medical floor. She reports developing watery diarrhea with at least 9 episodes within the last two days, accompanied by lower abdominal discomfort and cramping.",
+          "Symptoms": {
+            "Primary_Symptom": "Watery diarrhea",
+            "Secondary_Symptoms": [
+              "Lower abdominal discomfort",
+              "Abdominal cramping"
+            ]
+          },
+          "Past_Medical_History": "Currently being treated for community-acquired pneumonia. No other significant past medical history.",
+          "Social_History": "Non-smoker, does not consume alcohol. No recent travel or dietary changes reported.",
+          "Review_of_Systems": "No fever, no recent antibiotics usage apart from levofloxacin for pneumonia, no vomiting, no blood in stool."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "122/98 mmHg",
+            "Heart_Rate": "67 bpm",
+            "Respiratory_Rate": "15 breaths/min"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "No distension or visible masses.",
+            "Auscultation": "Normal bowel sounds.",
+            "Percussion": "Tympanic throughout, no shifting dullness.",
+            "Palpation": "Diffuse mild tenderness in the lower abdomen, no guarding or rebound tenderness."
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "Hemoglobin": "13 g/dL",
+            "Total_Count_WBC": "13,400/mm3",
+            "Differential_Count": {
+              "Neutrophils": "80%",
+              "Lymphocytes": "15%",
+              "Monocytes": "5%"
+            }
+          },
+          "ESR": "33 mm/hr",
+          "Stool_Test": {
+            "Appearance": "Watery",
+            "WBC_in_Stool": "Not specified",
+            "Culture": "Pending",
+            "Clostridium_difficile_Toxin": "Not specified"
+          }
+        },
+        "Correct_Diagnosis": "C. difficile colitis"
+      }
+    }
+  ]
+}

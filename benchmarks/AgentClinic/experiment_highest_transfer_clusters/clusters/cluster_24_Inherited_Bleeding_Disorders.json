@@ -1,0 +1,138 @@
+{
+  "cluster_id": 24,
+  "cluster_name": "Inherited Bleeding Disorders",
+  "transfer_rate": "~95%",
+  "diseases": [
+    "Hemophilia",
+    "Hemophilia A"
+  ],
+  "transfer_requirements": {
+    "age": "any (often presents in childhood)",
+    "gender": "REQUIRED: male (X-linked)",
+    "context": "family history often present"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "bleeding",
+      "hemarthrosis",
+      "prolonged bleeding after trauma"
+    ],
+    "pivotal_tests": [
+      "PT/PTT",
+      "factor VIII/IX levels"
+    ],
+    "reasoning_pattern": "Bleeding + prolonged PTT \u2192 factor assays \u2192 identify deficiency",
+    "transfer_rate": "~95%"
+  },
+  "total_cases": 2,
+  "train_cases_count": 1,
+  "test_cases_count": 1,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with swelling in the right knee and a familial history of similar problems.",
+        "Patient_Actor": {
+          "Demographics": "18-month-old boy",
+          "History": "The patient is brought in by his parents due to swelling in his right knee noticed after playing in the park. The parents report that there was no obvious injury or incident at the park that could have led to the swelling. Upon further questioning, the mother recalls that an uncle on her side of the family had similar problems, suggesting a possible genetic component.",
+          "Symptoms": {
+            "Primary_Symptom": "Swelling of the right knee",
+            "Secondary_Symptoms": [
+              "No recent trauma or injury",
+              "Familial history of similar symptoms"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical history.",
+          "Social_History": "The parents report no known allergies, normal birth and developmental history for the child.",
+          "Review_of_Systems": "Denies fever, rash, or recent illnesses."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37.1\u00b0C (98.8\u00b0F)",
+            "Blood_Pressure": "90/52 mm Hg",
+            "Heart_Rate": "146/min",
+            "Respiratory_Rate": "26/min"
+          },
+          "General_Examination": {
+            "Inspection": "Noticeable swelling in the right knee. No other swellings or deformities noted elsewhere.",
+            "Palpation": "Swelling is warm to touch, without overlying skin redness or signs of local infection."
+          }
+        },
+        "Test_Results": {
+          "Ultrasound_Knee": {
+            "Findings": "Compatible with hemarthrosis of the right knee, no evidence of fracture or dislocation."
+          },
+          "Complete_Blood_Count": {
+            "Hemoglobin": "12.2 g/dL",
+            "Hematocrit": "36%",
+            "Leukocyte_count": "7,300/mm3",
+            "Platelet_count": "200,000/mm\u00b3"
+          },
+          "Coagulation_Test_Results": {
+            "ACT": "52.0 s (prolonged)",
+            "PT": "14.0 s",
+            "Reticulocyte_count": "1.2%",
+            "Thrombin_time": "< 2 seconds deviation from control"
+          }
+        },
+        "Correct_Diagnosis": "Hemophilia A"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate the patient presenting with persistent bleeding post wisdom tooth extraction and history of easy bruising for possible bleeding disorders.",
+        "Patient_Actor": {
+          "Demographics": "17-year-old male",
+          "History": "The patient was brought in by his mother for persistent bleeding following elective removal of wisdom teeth. The bleeding from the surrounding gums was minimally responsive to multiple gauze packs. The patient also has a history of easy bruising. Family history includes the patient's uncle who had similar issues with bleeding and a history of easy bruising and joint swelling.",
+          "Symptoms": {
+            "Primary_Symptom": "Persistent bleeding from gums following tooth extraction",
+            "Secondary_Symptoms": [
+              "History of easy bruising",
+              "Family history of similar bleeding problems and joint swelling"
+            ]
+          },
+          "Past_Medical_History": "Previously healthy, takes no medications.",
+          "Social_History": "The patient is a high school student with no history of smoking, alcohol, or drug use.",
+          "Review_of_Systems": "Denies fever, joint pains (except noted in family history), or significant past illnesses."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "108/74 mm Hg",
+            "Heart_Rate": "90/min",
+            "Respiratory_Rate": "Normal"
+          },
+          "Oral_Examination": {
+            "Gums": "Persistent oozing noted from the site of wisdom tooth extraction.",
+            "Mucosa": "No other visible lesions or bruises."
+          },
+          "Skin_Examination": {
+            "Bruises": "Several old bruises of different ages noted on the extremities.",
+            "Joint_Swelling": "No active joint swelling observed."
+          }
+        },
+        "Test_Results": {
+          "Hematologic": {
+            "Hematocrit": "35%",
+            "Leukocyte_Count": "8,500/mm3",
+            "Platelet_Count": "160,000/mm3",
+            "Prothrombin_Time": "15 sec",
+            "Partial_Thromboplastin_Time": "60 sec",
+            "Bleeding_Time": "6 min",
+            "Fibrin_Split_Products": "Negative",
+            "Peripheral_Blood_Smear": "Normal-sized platelets"
+          },
+          "Serum_Chemistries": {
+            "Urea_Nitrogen": "20 mg/dL",
+            "Creatinine": "1.0 mg/dL",
+            "Bilirubin_Total": "1.0 mg/dL",
+            "Direct_Bilirubin": "0.5 mg/dL",
+            "Lactate_Dehydrogenase": "90 U/L"
+          }
+        },
+        "Correct_Diagnosis": "Hemophilia"
+      }
+    }
+  ]
+}

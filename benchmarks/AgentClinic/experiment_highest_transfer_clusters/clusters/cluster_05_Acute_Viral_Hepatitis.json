@@ -1,0 +1,151 @@
+{
+  "cluster_id": 5,
+  "cluster_name": "Acute Viral Hepatitis",
+  "transfer_rate": "~95%",
+  "diseases": [
+    "Acute Hepatitis B",
+    "Active chronic hepatitis B infection"
+  ],
+  "transfer_requirements": {
+    "age": "any",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "jaundice",
+      "RUQ pain",
+      "fatigue",
+      "dark urine"
+    ],
+    "pivotal_tests": [
+      "hepatitis panel",
+      "LFTs",
+      "HBsAg",
+      "Anti-HBc",
+      "HBeAg"
+    ],
+    "reasoning_pattern": "Elevated transaminases + jaundice \u2192 viral serologies \u2192 characterize acute vs chronic",
+    "transfer_rate": "~95%"
+  },
+  "total_cases": 2,
+  "train_cases_count": 1,
+  "test_cases_count": 1,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with extreme fatigue, yellow skin, and elevated alanine aminotransferase level.",
+        "Patient_Actor": {
+          "Demographics": "25-year-old male",
+          "History": "The patient presents to the office complaining of extreme fatigue for the past 2 days and has noticed his skin turning yellow. He denies any fever, headache, or other specific symptoms. Admits to past illicit intravenous drug use. Moved to the US from Africa at the age of 18 and does not have any immunization records.",
+          "Symptoms": {
+            "Primary_Symptom": "Extreme fatigue",
+            "Secondary_Symptoms": [
+              "Yellowing of the skin",
+              "No fever",
+              "No headache"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical or surgical history. Unverified vaccination status.",
+          "Social_History": "Past illicit intravenous drug use. No current medication or known drug allergies.",
+          "Review_of_Systems": "Denies any respiratory, cardiovascular, gastrointestinal, genitourinary problems aside from mild diffuse abdominal tenderness."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37.9\u00b0C (100.2\u00b0F)",
+            "Blood_Pressure": "100/74 mmHg",
+            "Heart_Rate": "72 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Mild jaundice noted.",
+            "Auscultation": "Normal bowel sounds.",
+            "Percussion": "Tympanic, no hepatosplenomegaly noted.",
+            "Palpation": "Mild diffuse abdominal tenderness, no rebound tenderness."
+          }
+        },
+        "Test_Results": {
+          "Liver_Function_Tests": {
+            "ALT": "2,000 IU/L (significantly elevated)"
+          },
+          "Hepatitis_Viral_Panel": {
+            "Anti-HAV IgM": "Negative",
+            "HBsAg": "Positive",
+            "Anti-HBs": "Negative",
+            "IgM anti-HBc": "Positive",
+            "Anti-HCV": "Negative",
+            "Anti-HDV": "Negative"
+          }
+        },
+        "Correct_Diagnosis": "Acute Hepatitis B"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with generalized fatigue, mild fever, abdominal pain, and nausea.",
+        "Patient_Actor": {
+          "Demographics": "47-year-old female",
+          "History": "The patient describes a 3-week history of generalized fatigue, mild fever, abdominal pain, and nausea. She recalls attending the state fair over a month ago where she tried various regional foods. Recently, she has observed the darkening of her urine, which she believes is due to inadequate water intake. She has a history of type 2 diabetes mellitus.",
+          "Symptoms": {
+            "Primary_Symptom": "Generalized fatigue and mild fever",
+            "Secondary_Symptoms": [
+              "Abdominal pain",
+              "Nausea",
+              "Dark urine"
+            ]
+          },
+          "Past_Medical_History": "Type 2 diabetes mellitus.",
+          "Social_History": "Consumes 1\u20132 beers daily. Works as a nursing assistant in a rehabilitation facility.",
+          "Medications": [
+            "Glyburide",
+            "Sitagliptin",
+            "Multivitamin"
+          ],
+          "Review_of_Systems": "The patient appears tired. Notes a slight increase in fatigue over the past few weeks but no increase in thirst or urination. No recent travels abroad."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "38.1\u00b0C (100.6\u00b0F)",
+            "Blood_Pressure": "110/74 mm Hg",
+            "Heart_Rate": "99/min",
+            "Respiratory_Rate": "Normal"
+          },
+          "General_Examination": {
+            "Appearance": "Appears tired",
+            "Jaundice": "Mild scleral icterus observed"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "No visible abnormalities",
+            "Auscultation": "Normal bowel sounds",
+            "Percussion": "No abnormalities detected",
+            "Palpation": "Liver palpated 2\u20133 cm below the right costal margin, tender on palpation"
+          }
+        },
+        "Test_Results": {
+          "Blood_Tests": {
+            "Hemoglobin": "10.6 g/dL",
+            "Leukocyte_Count": "11,600/mm3",
+            "Platelet_Count": "221,000/mm3",
+            "Urea_Nitrogen": "26 mg/dL",
+            "Glucose": "122 mg/dL",
+            "Creatinine": "1.3 mg/dL",
+            "Bilirubin_Total": "3.6 mg/dL",
+            "Bilirubin_Direct": "2.4 mg/dL",
+            "Alkaline_Phosphatase": "72 U/L",
+            "AST": "488 U/L",
+            "ALT": "798 U/L"
+          },
+          "Infectious_Disease_Testing": {
+            "Hepatitis_A_IgG_Antibody": "Positive",
+            "Hepatitis_B_Surface_Antigen": "Positive",
+            "Hepatitis_B_Core_IgG_Antibody": "Positive",
+            "Hepatitis_B_Envelope_Antigen": "Positive",
+            "Hepatitis_C_Antibody": "Negative"
+          }
+        },
+        "Correct_Diagnosis": "Active chronic hepatitis B infection"
+      }
+    }
+  ]
+}

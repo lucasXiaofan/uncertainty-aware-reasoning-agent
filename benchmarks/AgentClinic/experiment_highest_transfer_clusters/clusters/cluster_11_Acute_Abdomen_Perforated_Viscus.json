@@ -1,0 +1,284 @@
+{
+  "cluster_id": 11,
+  "cluster_name": "Acute Abdomen/Perforated Viscus",
+  "transfer_rate": "~80%",
+  "diseases": [
+    "Perforated gastric peptic ulcer",
+    "Gastric peptic ulcer",
+    "Acute Mesenteric Ischemia",
+    "Boerhaave syndrome"
+  ],
+  "transfer_requirements": {
+    "age": "adult (typically >40)",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "severe abdominal pain",
+      "peritoneal signs",
+      "acute onset"
+    ],
+    "pivotal_tests": [
+      "upright CXR (free air)",
+      "CT abdomen",
+      "lactate"
+    ],
+    "reasoning_pattern": "Acute abdomen \u2192 assess for surgical emergency \u2192 imaging for confirmation",
+    "transfer_rate": "~80%"
+  },
+  "total_cases": 5,
+  "train_cases_count": 2,
+  "test_cases_count": 3,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and manage a patient presenting with epigastric discomfort and cramping pain.",
+        "Patient_Actor": {
+          "Demographics": "38-year-old woman",
+          "History": "The patient reports experiencing epigastric discomfort and cramping pain for the past 2 hours, noting that similar episodes have occurred in the past, mostly postprandially. She mentions a recent unintentional weight loss due to meal avoidance as a pain mitigation strategy. She smokes and consumes alcohol occasionally.",
+          "Symptoms": {
+            "Primary_Symptom": "Epigastric discomfort and cramping pain",
+            "Secondary_Symptoms": [
+              "Weight loss",
+              "Pain mostly postprandially",
+              "Smoking",
+              "Occasional alcohol consumption"
+            ]
+          },
+          "Past_Medical_History": "Insignificant, except for chronic knee pain managed with over-the-counter painkillers.",
+          "Social_History": "Smoking habit and occasional alcohol consumption.",
+          "Review_of_Systems": "Denies nausea, vomiting, change in bowel habits, and any urinary symptoms."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "120/89 mmHg",
+            "Heart_Rate": "77 bpm",
+            "Respiratory_Rate": "16 breaths/min"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Unremarkable",
+            "Auscultation": "Normal bowel sounds",
+            "Percussion": "Normal, no signs of fluid or gas accumulation",
+            "Palpation": "No tenderness or rebound, unremarkable examination"
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "WBC": "Within normal limits",
+            "Hemoglobin": "Within normal limits",
+            "Platelets": "Within normal limits"
+          },
+          "Liver_Function_Tests": {
+            "ALT": "Within normal limits",
+            "AST": "Within normal limits",
+            "Bilirubin": "Within normal limits",
+            "Alkaline_Phosphatase": "Within normal limits"
+          },
+          "Endoscopy": {
+            "Findings": "A gastric ulcer located on the lesser curvature of the stomach"
+          }
+        },
+        "Correct_Diagnosis": "Gastric peptic ulcer"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate the patient with persistent vomiting and chest pain, perform necessary examinations, and establish a diagnosis.",
+        "Patient_Actor": {
+          "Demographics": "51-year-old male",
+          "History": "The patient presents to the emergency department with persistent, forceful vomiting after consuming a significant amount of alcohol. His medical history includes recent treatment for Lyme disease with doxycycline. Recently, after a prolonged episode of retching, the patient starts to choke and cough forcefully, experiencing chest pain. The patient appears unable to communicate effectively at this point.",
+          "Symptoms": {
+            "Primary_Symptom": "Persistent, forceful vomiting",
+            "Secondary_Symptoms": [
+              "Choking and coughing forcefully",
+              "Chest pain",
+              "Inability to communicate"
+            ]
+          },
+          "Past_Medical_History": "Significant for Lyme disease, currently being treated with doxycycline.",
+          "Social_History": "Reported alcohol use; found next to an empty bottle of vodka.",
+          "Review_of_Systems": "Patient appears toxic and in acute distress, unable to provide a comprehensive review of systems."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "90/68 mmHg",
+            "Heart_Rate": "107 bpm",
+            "Respiratory_Rate": "15 breaths/min"
+          },
+          "Chest_Examination": {
+            "Inspection": "Fullness at the base of the neck",
+            "Auscultation": "Crunching, rasping sound heard over the chest",
+            "Palpation": "Possible crepitus on palpation of the chest and neck",
+            "Percussion": "Not specified"
+          }
+        },
+        "Test_Results": {
+          "Imaging": {
+            "Chest_X-ray": {
+              "Findings": "Free mediastinal air visible, suggesting perforation"
+            }
+          },
+          "Blood_Tests": {
+            "Complete_Blood_Count": "Not specified",
+            "Arterial_Blood_Gases": "Not specified",
+            "Serum_Electrolytes": "Not specified"
+          }
+        },
+        "Correct_Diagnosis": "Boerhaave syndrome"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and manage a patient presenting with acute, severe abdominal pain, with a background of peptic ulcer disease.",
+        "Patient_Actor": {
+          "Demographics": "55-year-old male",
+          "History": "The patient is brought in by his wife due to experiencing severe abdominal pain for the past hour. The patient is in too much discomfort to provide detailed information. His wife reports that he has a history of peptic ulcer disease, which has been treated with antacids without significant improvement. She mentions that he has vomited several times in the last few hours, with the vomit being brown/red in color.",
+          "Symptoms": {
+            "Primary_Symptom": "Severe abdominal pain",
+            "Secondary_Symptoms": [
+              "Repeated vomiting",
+              "Brown/red-colored vomitus"
+            ]
+          },
+          "Past_Medical_History": "Known history of peptic ulcer disease, treated with antacids.",
+          "Social_History": "Not provided.",
+          "Review_of_Systems": "Unable to provide due to the patient's condition."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "100/68 mm Hg",
+            "Heart_Rate": "97 bpm",
+            "Respiratory_Rate": "16 breaths/min"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Tense abdomen",
+            "Auscultation": "Not specified",
+            "Percussion": "Not specified",
+            "Palpation": "Board-like rigidity, positive rebound tenderness indicating peritonitis"
+          }
+        },
+        "Test_Results": {
+          "Lab_Results": {
+            "Not specified": "Not provided"
+          },
+          "Imaging": {
+            "Erect_Abdominal_X-ray": {
+              "Findings": "Expected to show free air under the diaphragm, indicative of gastrointestinal perforation."
+            }
+          }
+        },
+        "Correct_Diagnosis": "Perforated gastric peptic ulcer"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and manage a patient presenting with epigastric discomfort and cramping pain.",
+        "Patient_Actor": {
+          "Demographics": "38-year-old woman",
+          "History": "The patient presents to the urgent care clinic complaining of epigastric discomfort and cramping pain for the past 2 hours. She reports experiencing similar pain episodes in the past, mostly post-meals, which often subside several hours after eating. This has led her to avoid eating, resulting in weight loss over the past couple of months. She has a habit of smoking and drinks alcohol occasionally. Her past medical history is insignificant except for chronic knee pain, for which she takes over-the-counter painkillers.",
+          "Symptoms": {
+            "Primary_Symptom": "Epigastric discomfort and cramping pain",
+            "Secondary_Symptoms": [
+              "Pain subsides hours after eating",
+              "Weight loss",
+              "Avoidance of eating",
+              "Smoking",
+              "Occasional alcohol consumption"
+            ]
+          },
+          "Past_Medical_History": "Chronic knee pain treated with over-the-counter painkillers. No other significant medical history.",
+          "Social_History": "Smoker, occasional alcohol drinker.",
+          "Review_of_Systems": "Patient denies any changes in bowel or urinary habits, no nausea or vomiting reported."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "120/89 mmHg",
+            "Heart_Rate": "77 bpm",
+            "Respiratory_Rate": "16 breaths/min"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Unremarkable",
+            "Auscultation": "Normal bowel sounds",
+            "Percussion": "Tympanic throughout, no signs of fluid",
+            "Palpation": "No tenderness or guarding, examination unremarkable"
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "WBC": "Normal",
+            "Hemoglobin": "Normal",
+            "Platelets": "Normal"
+          },
+          "Liver_Function_Tests": {
+            "AST": "Normal",
+            "ALT": "Normal",
+            "ALP": "Normal",
+            "Bilirubin": "Normal"
+          },
+          "Upper_Endoscopy": {
+            "Findings": "Presence of a gastric ulcer on the lesser curvature of the stomach"
+          }
+        },
+        "Correct_Diagnosis": "Gastric peptic ulcer"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with sudden onset of abdominal pain, focusing on the relevance of the patient's medical history and current symptoms.",
+        "Patient_Actor": {
+          "Demographics": "74-year-old male",
+          "History": "The patient presents with sudden onset of abdominal pain around the umbilicus 16 hours ago, with recent history of hospitalization for an acute myocardial infarction a week ago. Reports several episodes of bloody loose bowel movements. Denies vomiting.",
+          "Symptoms": {
+            "Primary_Symptom": "Severe abdominal pain",
+            "Secondary_Symptoms": [
+              "Bloody loose bowel movements",
+              "No vomiting",
+              "Sudden onset"
+            ]
+          },
+          "Past_Medical_History": "Known diabetes mellitus for 35 years and hypertension for 20 years. History of acute myocardial infarction.",
+          "Social_History": "Smokes 15\u201320 cigarettes per day for the past 40 years.",
+          "Review_of_Systems": "Denies fever, vomiting. Reports bloody loose bowel movements."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.9\u00b0C (98.4\u00b0F)",
+            "Blood_Pressure": "95/65 mm Hg",
+            "Heart_Rate": "95 bpm",
+            "Respiratory_Rate": "Not provided"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Normal external appearance",
+            "Auscultation": "Bruit heard over the epigastric area",
+            "Percussion": "Normal",
+            "Palpation": "Mild periumbilical tenderness"
+          }
+        },
+        "Test_Results": {
+          "CBC_with_Differentiation": {
+            "WBC": "Not provided",
+            "Hemoglobin": "Not provided",
+            "Platelets": "Not provided"
+          },
+          "Metabolic_Panel": {
+            "Creatinine": "Not provided",
+            "BUN": "Not provided",
+            "Glucose": "Not provided"
+          },
+          "Imaging": {
+            "CT_Angiography_Abdomen": {
+              "Findings": "Evidence suggestive of reduced blood flow to the mesenteric arteries."
+            }
+          }
+        },
+        "Correct_Diagnosis": "Acute Mesenteric Ischemia"
+      }
+    }
+  ]
+}

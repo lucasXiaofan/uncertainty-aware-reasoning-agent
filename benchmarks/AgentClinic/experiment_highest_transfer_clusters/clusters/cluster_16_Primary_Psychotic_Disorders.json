@@ -1,0 +1,299 @@
+{
+  "cluster_id": 16,
+  "cluster_name": "Primary Psychotic Disorders",
+  "transfer_rate": "~80%",
+  "diseases": [
+    "Schizophrenia",
+    "Schizophreniform Disorder",
+    "Schizoaffective disorder",
+    "Brief Psychotic Disorder"
+  ],
+  "transfer_requirements": {
+    "age": "young adult (typically 18-35 at onset)",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "hallucinations",
+      "delusions",
+      "disorganized behavior",
+      "duration"
+    ],
+    "pivotal_tests": [
+      "clinical interview",
+      "rule out medical causes (MRI, toxicology, metabolic panel)"
+    ],
+    "reasoning_pattern": "Psychotic symptoms \u2192 exclude organic causes \u2192 classify by duration + mood",
+    "transfer_rate": "~80%"
+  },
+  "total_cases": 5,
+  "train_cases_count": 2,
+  "test_cases_count": 3,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess, manage, and diagnose the patient presenting with symptoms of a psychiatric disorder, following recent bereavement.",
+        "Patient_Actor": {
+          "Demographics": "20-year-old female",
+          "History": "The patient presents with her mother due to experiencing bizarre behavior for the past week following her father\u2019s death from lung cancer. She has been hearing voices that are not present and experiencing intrusive thoughts.",
+          "Symptoms": {
+            "Primary_Symptom": "Auditory hallucinations",
+            "Secondary_Symptoms": [
+              "Intrusive thoughts",
+              "Concentration difficulties",
+              "Voices discussing the patient in the third person and encouraging self-harm"
+            ]
+          },
+          "Past_Medical_History": "No history of medical or psychiatric illness.",
+          "Social_History": "Patient denies the use of medications or substances. No notable social history provided.",
+          "Review_of_Systems": "Denies fever, vomiting, headache, or any sensory disturbances other than auditory hallucinations."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.9\u00b0C (98.4\u00b0F)",
+            "Blood_Pressure": "110/65 mm Hg",
+            "Heart_Rate": "90 bpm",
+            "Respiratory_Rate": "17 breaths/min"
+          },
+          "Mental_Status_Examination": {
+            "Appearance": "Gaunt and anxious",
+            "Behavior": "Cooperative, yet appears distressed",
+            "Speech": "Coherent but reports distressing auditory hallucinations",
+            "Mood_And_Affect": "Mood is euthymic with congruent affect, subjectively reports feeling anxious",
+            "Thought_Process": "Linear",
+            "Thought_Content": "Reports hearing voices discussing her negatively and encouraging self-harm",
+            "Perception": "Experiencing auditory hallucinations",
+            "Cognition": "Alert and oriented to time, place, and person. Concentration impaired.",
+            "Insight_And_Judgment": "Insight is somewhat limited; judgment is fair."
+          }
+        },
+        "Test_Results": {
+          "Comprehensive_Metabolic_Panel": "Normal",
+          "Complete_Blood_Count": "Normal",
+          "Thyroid_Stimulating_Hormone": "Normal",
+          "Urine_Toxicology": "Negative"
+        },
+        "Correct_Diagnosis": "Brief Psychotic Disorder"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and manage a young man brought in by his wife for bizarre and agitated behavior, suspecting a possible psychiatric disorder.",
+        "Patient_Actor": {
+          "Demographics": "26-year-old male",
+          "History": "The patient has been demonstrating bizarre and agitated behavior for the past 6 weeks. He believes that he is being spied on by the NSA which is also controlling his mind. His wife adds that he has been increasingly withdrawn and intermittently depressed over the last 3 months. He was terminated from his job 4 weeks ago after he ceased attending work. Since his unemployment, he has been focused on creating a device to prevent people from controlling his mind.",
+          "Symptoms": {
+            "Primary_Symptom": "Bizarre and agitated behavior",
+            "Secondary_Symptoms": [
+              "Delusions of persecution",
+              "Social withdrawal",
+              "Depressed mood at times",
+              "Disorganized speech",
+              "Psychomotor agitation"
+            ]
+          },
+          "Past_Medical_History": "No significant medical or psychiatric history reported.",
+          "Social_History": "Previously employed. No history of substance abuse reported. Married.",
+          "Review_of_Systems": "No significant findings. Denies any drug use, recent travel, or physical health issues."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98\u00b0F)",
+            "Blood_Pressure": "122/78 mmHg",
+            "Heart_Rate": "82 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "General_Examination": {
+            "Appearance": "Agitated, poorly groomed",
+            "Behavior": "Suspicious, avoids eye contact",
+            "Speech": "Rapid, disorganized"
+          },
+          "Neurologic_Examination": {
+            "Cranial_Nerves": "Normal",
+            "Motor": "Normal strength and tone",
+            "Sensory": "Intact",
+            "Reflexes": "Normal",
+            "Coordination": "No ataxia observed"
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "WBC": "7,500 /\u03bcL",
+            "Hemoglobin": "14 g/dL",
+            "Platelets": "230,000 /\u03bcL"
+          },
+          "Chemistry_Panel": {
+            "Sodium": "138 mmol/L",
+            "Potassium": "4.2 mmol/L",
+            "Creatinine": "1.0 mg/dL",
+            "Glucose": "95 mg/dL"
+          },
+          "Urinalysis": {
+            "Appearance": "Clear",
+            "WBC": "0-5 /HPF",
+            "RBC": "0-2 /HPF",
+            "Nitrites": "Negative",
+            "Leukocyte_Esterase": "Negative"
+          },
+          "Toxicology_Screen": {
+            "Alcohol": "Negative",
+            "Amphetamines": "Negative",
+            "Cannabinoids": "Negative",
+            "Cocaine": "Negative",
+            "Opiates": "Negative"
+          }
+        },
+        "Correct_Diagnosis": "Schizophreniform Disorder"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with changes in personality and unusual behavior.",
+        "Patient_Actor": {
+          "Demographics": "23-year-old male",
+          "History": "The patient has been brought in by his mother due to a significant change in his personality over the past 7 months. He has become increasingly isolated, ceasing contact with family and friends. The patient expresses a concern that aliens are watching him and stealing his thoughts.",
+          "Symptoms": {
+            "Primary_Symptom": "Withdrawal from social interactions",
+            "Secondary_Symptoms": [
+              "Belief that aliens are watching him and stealing his thoughts",
+              "Inability to leave the house",
+              "Change in personality",
+              "Anxious and flat affect"
+            ]
+          },
+          "Past_Medical_History": "Patient used to smoke marijuana occasionally but quit 1 year ago. No significant medical history.",
+          "Social_History": "Does not drink alcohol. Previously socially active but has become reclusive over the past several months.",
+          "Review_of_Systems": {
+            "Psychiatric": "Patient's thought processes are hard to follow. Exhibits a flat affect and reports anxiety."
+          }
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "110/70 mmHg",
+            "Heart_Rate": "72 bpm",
+            "Respiratory_Rate": "16 breaths/min"
+          },
+          "Neurological_Examination": {
+            "Mental_Status": "The patient is alert and oriented to person, place, and time. Exhibits disorganized thinking and paranoia.",
+            "Cranial_Nerves": "Cranial nerves II-XII are grossly intact.",
+            "Motor": "Normal muscle tone and strength in all extremities.",
+            "Sensory": "Intact to light touch, vibration, and proprioception.",
+            "Reflexes": "Deep tendon reflexes are 2+ bilaterally."
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": "Within normal limits.",
+          "Urinalysis": "Within normal limits.",
+          "Toxicology_Screen": {
+            "Cannabinoids": "Negative",
+            "Alcohol": "Negative",
+            "Other_Substances": "Negative"
+          }
+        },
+        "Correct_Diagnosis": "Schizophrenia"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Conduct a psychiatric evaluation of a 20-year-old woman presenting with auditory hallucinations, suicidal ideation, and recent onset of bizarre behavior following a significant bereavement.",
+        "Patient_Actor": {
+          "Demographics": "20-year-old female",
+          "History": "The patient's father passed away from lung cancer 1 week ago, which has been a stressful event for the entire family. Since then, she has been experiencing voices that are not present, talking about her negatively and urging her to harm herself. The patient is finding it difficult to focus at work and in her studies.",
+          "Symptoms": {
+            "Primary_Symptom": "Hearing voices discussing her negatively and encouraging self-harm",
+            "Secondary_Symptoms": [
+              "Intrusive thoughts",
+              "Difficulty concentrating at work and school",
+              "Feeling anxious",
+              "Recent significant bereavement"
+            ]
+          },
+          "Past_Medical_History": "No known history of medical or psychiatric illnesses. Denies recent medication use.",
+          "Social_History": "Currently a student, lives with family. No reported substance use.",
+          "Review_of_Systems": "Denies any history of similar episodes, medical illnesses, or substance abuse."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.9\u00b0C (98.4\u00b0F)",
+            "Blood_Pressure": "110/65 mm Hg",
+            "Heart_Rate": "90/min",
+            "Respiratory_Rate": "17/min"
+          },
+          "General_Exam": {
+            "Appearance": "Appears gaunt and anxious",
+            "Cardiovascular": "Heart has a regular rate and rhythm",
+            "Respiratory": "Lungs are clear to auscultation bilaterally",
+            "Neurological": "Alert and oriented, but distressed by auditory hallucinations"
+          }
+        },
+        "Test_Results": {
+          "Comprehensive_Metabolic_Panel": "Normal",
+          "Complete_Blood_Count": "Normal",
+          "Thyroid_Stimulating_Hormone": "Normal",
+          "Urine_Toxicology_Screen": "Negative"
+        },
+        "Correct_Diagnosis": "Brief Psychotic Disorder"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with sadness, auditory hallucinations, and difficulties in concentrating and functioning at work.",
+        "Patient_Actor": {
+          "Demographics": "23-year-old female",
+          "History": "The patient has been brought in by her boyfriend due to a 4-month history of feeling persistently sad. She reports that she has had significant trouble sleeping and eating during this period, and her ability to concentrate at work has deteriorated. She describes a feeling of emptiness and experiences auditory hallucinations, specifically voices telling her she is worthless. These hallucinations began 7 months ago, initially with the voices mocking her. The patient denies using alcohol or illicit substances.",
+          "Symptoms": {
+            "Primary_Symptom": "Persistent sadness",
+            "Secondary_Symptoms": [
+              "Decreased sleep",
+              "Decreased appetite",
+              "Difficulty concentrating",
+              "Auditory hallucinations",
+              "Feelings of worthlessness",
+              "Perceptual disturbances (attention directed towards non-apparent stimuli)"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical history.",
+          "Social_History": "Denies alcohol or illicit drug use. No other relevant social history provided.",
+          "Review_of_Systems": "She denies any other systemic symptoms."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98\u00b0F)",
+            "Blood_Pressure": "115/75 mmHg",
+            "Heart_Rate": "72 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Mental_Status_Examination": {
+            "Appearance": "Dressed appropriately but displays minimal self-care.",
+            "Behavior": "No overt agitation, but appears withdrawn.",
+            "Speech": "Slow, monotonous, with occasional stopping mid-sentence without completion.",
+            "Mood": "Described as 'empty inside'.",
+            "Affect": "Constricted.",
+            "Thought_Process": "Linear but impaired due to auditory hallucinations.",
+            "Thought_Content": "Auditory hallucinations with derogatory content, feelings of worthlessness.",
+            "Perception": "Occasionally directs attention towards ceiling as if listening to someone.",
+            "Cognition": "No formal testing, but patient appears oriented.",
+            "Insight/Judgment": "Not fully assessed but likely impaired due to symptoms."
+          }
+        },
+        "Test_Results": {
+          "Basic_Laboratory_Tests": {
+            "Complete_Blood_Count": "Within normal limits",
+            "Thyroid_Function_Tests": "Within normal limits",
+            "Blood_Alcohol_Level": "Not detected",
+            "Urine_Toxicology_Screen": "Negative"
+          },
+          "Imaging": {
+            "Brain_MRI": {
+              "Findings": "No acute abnormalities."
+            }
+          }
+        },
+        "Correct_Diagnosis": "Schizoaffective disorder"
+      }
+    }
+  ]
+}

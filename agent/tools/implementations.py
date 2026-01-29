@@ -170,67 +170,7 @@ Generated: {timestamp}
     return report
 
 
-def save_conversation(user_query: str, final_response: str, image_path: str = None) -> None:
-    """Save a conversation to the memory log.
 
-    Args:
-        user_query: The user's original query
-        final_response: The agent's final response
-        image_path: Optional path to image used in conversation
-    """
-    log_file = MEMORY_DIR / "conversation_log.json"
-
-    # Load existing conversations
-    conversations = []
-    if log_file.exists():
-        try:
-            with open(log_file, "r", encoding="utf-8") as f:
-                content = f.read().strip()
-                if content:
-                    conversations = json.loads(content)
-        except (json.JSONDecodeError, Exception):
-            conversations = []
-
-    # Add new conversation
-    conversation = {
-        "id": len(conversations) + 1,
-        "timestamp": datetime.now().isoformat(),
-        "user_query": user_query,
-        "image_path": image_path,
-        "final_response": final_response
-    }
-    conversations.append(conversation)
-
-    # Save back to file
-    with open(log_file, "w", encoding="utf-8") as f:
-        json.dump(conversations, f, indent=2, ensure_ascii=False)
-
-
-def load_recent_conversations(limit: int = 5) -> list[dict]:
-    """Load the most recent conversations from memory.
-
-    Args:
-        limit: Maximum number of recent conversations to load
-
-    Returns:
-        List of recent conversation dictionaries
-    """
-    log_file = MEMORY_DIR / "conversation_log.json"
-
-    if not log_file.exists():
-        return []
-
-    try:
-        with open(log_file, "r", encoding="utf-8") as f:
-            content = f.read().strip()
-            if not content:
-                return []
-            conversations = json.loads(content)
-    except (json.JSONDecodeError, Exception):
-        return []
-
-    # Return most recent conversations
-    return conversations[-limit:] if conversations else []
 
 
 # Experience memory file path
@@ -298,4 +238,51 @@ def complete_analysis(case_id: str, summary: str) -> str:
         "case_id": case_id,
         "summary": summary,
         "experience_file": str(EXPERIENCE_FILE)
+    })
+
+
+@tool(name="select_experiences", description="Select relevant diagnostic experiences to provide to the doctor. Pick IDs that DIRECTLY match current situation, or 'none' if no match.")
+def select_experiences(experience_ids: str, reasoning: str) -> str:
+    """Select experiences to provide to doctor.
+
+    Args:
+        experience_ids: Comma-separated IDs (e.g., '3, 7') or 'none'
+        reasoning: Brief explanation of selection
+
+    Returns:
+        JSON with selected experiences
+    """
+    from .bm25_search import BM25Search
+
+    if experience_ids.lower().strip() == "none" or not experience_ids.strip():
+        return json.dumps({
+            "status": "no_relevant_experiences",
+            "selected": [],
+            "reasoning": reasoning,
+            "context_for_doctor": ""
+        })
+
+    bm25 = BM25Search(str(EXPERIENCE_FILE))
+    selected = []
+    context_parts = []
+
+    for part in experience_ids.replace(",", " ").split():
+        try:
+            exp_id = int(part.strip())
+            exp = bm25.get_by_id(exp_id)
+            if exp and len(selected) < 2:
+                selected.append({"id": exp_id, "suggestion": exp.get("suggestion", "")})
+                context_parts.append(
+                    f"[Experience #{exp_id}]\n"
+                    f"Pattern: {exp.get('observation', '')}\n"
+                    f"Suggestion: {exp.get('suggestion', '')}"
+                )
+        except ValueError:
+            continue
+
+    return json.dumps({
+        "status": "experiences_selected",
+        "selected": selected,
+        "reasoning": reasoning,
+        "context_for_doctor": "\n\n".join(context_parts)
     })

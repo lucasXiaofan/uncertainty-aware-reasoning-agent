@@ -1,0 +1,216 @@
+{
+  "cluster_id": 18,
+  "cluster_name": "Glomerular Kidney Disease",
+  "transfer_rate": "~85%",
+  "diseases": [
+    "Minimal Change Disease",
+    "Membranous nephropathy",
+    "Hemolytic uremic syndrome"
+  ],
+  "transfer_requirements": {
+    "age": "MCD: pediatric; MN: adult; HUS: any",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "proteinuria",
+      "edema",
+      "hypoalbuminemia"
+    ],
+    "pivotal_tests": [
+      "urinalysis",
+      "24hr urine protein",
+      "serum albumin",
+      "kidney biopsy"
+    ],
+    "reasoning_pattern": "Nephrotic syndrome \u2192 quantify proteinuria \u2192 biopsy for definitive diagnosis",
+    "transfer_rate": "~85%"
+  },
+  "total_cases": 3,
+  "train_cases_count": 1,
+  "test_cases_count": 2,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with recent onset of edema and significant proteinuria.",
+        "Patient_Actor": {
+          "Demographics": "25-year-old female",
+          "History": "The patient reports developing swelling around her eyes and ankles over several days. She mentions a recent diagnosis of Hodgkin's lymphoma but has not started treatment yet. No history of kidney disease or similar symptoms in the past.",
+          "Symptoms": {
+            "Primary_Symptom": "Edema, particularly around the eyes and ankles",
+            "Secondary_Symptoms": [
+              "Fatigue",
+              "No recent infections",
+              "No changes in urine color or frequency"
+            ]
+          },
+          "Past_Medical_History": "Recently diagnosed with Hodgkin's lymphoma. No other significant medical history.",
+          "Social_History": "Non-smoker, does not consume alcohol. Currently a graduate student.",
+          "Review_of_Systems": "Denies recent respiratory infections, no history of drug use, no significant weight changes."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "130/85 mmHg",
+            "Heart_Rate": "82 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "General_Examination": {
+            "Inspection": "Mild periorbital and ankle edema. No rashes or lymphadenopathy.",
+            "Cardiovascular_System": "Normal S1/S2, no murmurs.",
+            "Respiratory_System": "Clear breath sounds bilaterally, no crackles.",
+            "Abdominal_Examination": {
+              "Inspection": "No distension.",
+              "Auscultation": "Normal bowel sounds.",
+              "Percussion": "Tympanic throughout.",
+              "Palpation": "Soft, non-tender, no organomegaly."
+            },
+            "Neurological_Examination": "No focal deficits."
+          }
+        },
+        "Test_Results": {
+          "Laboratory_Results": {
+            "Serum_Na": "140 mmol/L",
+            "Serum_K": "3.5 mmol/L",
+            "Serum_Albumin": "1.9 g/dL",
+            "Total_Serum_Bilirubin": "1.0 mg/dL",
+            "Serum_Creatinine": "1.2 mg/dL"
+          },
+          "Urinalysis": {
+            "Proteinuria": "4+",
+            "Fatty_Casts": "Present"
+          }
+        },
+        "Correct_Diagnosis": "Minimal Change Disease"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with fatigue, lower leg swelling, and weight loss.",
+        "Patient_Actor": {
+          "Demographics": "66-year-old white male",
+          "History": "The patient reports a 10-day history of fatigue and bilateral lower leg swelling. He mentions a weight loss of 3.6 kg (8 lbs) over the past 6 months without trying. He has a history of chronic bronchitis and uses an albuterol inhaler as needed.",
+          "Symptoms": {
+            "Primary_Symptom": "Fatigue",
+            "Secondary_Symptoms": [
+              "Lower leg swelling",
+              "Unintentional weight loss"
+            ]
+          },
+          "Past_Medical_History": "Chronic bronchitis.",
+          "Social_History": "History of smoking one pack of cigarettes daily for 44 years and drinks one alcoholic beverage daily.",
+          "Review_of_Systems": "The patient denies any recent cough, change in urinary habits, chest pain, dyspnea, or fevers."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "120/75 mm Hg",
+            "Heart_Rate": "88/min",
+            "Respiratory_Rate": "Normal"
+          },
+          "General": {
+            "Appearance": "The patient appears thin."
+          },
+          "Cardiopulmonary_Examination": {
+            "Heart": "No abnormalities detected.",
+            "Lungs": "Clear to auscultation bilaterally."
+          },
+          "Extremities": {
+            "Edema": "2+ pretibial edema bilaterally"
+          }
+        },
+        "Test_Results": {
+          "Laboratory_Studies": {
+            "Hemoglobin": "11.2 g/dL",
+            "Leukocyte_count": "8500/mm3",
+            "Platelet_count": "130,000/mm3",
+            "Serum_Urea_nitrogen": "23 mg/dL",
+            "Glucose": "77 mg/dL",
+            "Creatinine": "1.6 mg/dL",
+            "Albumin": "1.8 mg/dL",
+            "Total_cholesterol": "475 mg/dL"
+          },
+          "Urine_Tests": {
+            "Blood": "Negative",
+            "Glucose": "Negative",
+            "Protein": "4+",
+            "WBC": "0\u20131/hpf",
+            "Fatty_casts": "Numerous"
+          },
+          "Imaging": {
+            "Chest_X-ray": {
+              "Findings": "Right upper lobe density."
+            },
+            "CT_Scan_Chest": {
+              "Findings": "2.5 x 3.5 x 2-cm right upper lobe mass."
+            }
+          }
+        },
+        "Correct_Diagnosis": "Membranous nephropathy"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and manage a pediatric patient presenting with signs of pallor, increasing lethargy, and a recent history of gastrointestinal symptoms.",
+        "Patient_Actor": {
+          "Demographics": "2-year-old male",
+          "History": "The patient's parents report that he has been experiencing increasing lethargy and pallor over the past 2 days. One week prior, the patient had abdominal pain, vomiting, and bloody diarrhea, which have since resolved. The family recently returned from a 6-week road trip in Mexico. The patient has been receiving oral rehydration solutions at home. His immunizations are up to date.",
+          "Symptoms": {
+            "Primary_Symptom": "Pallor and lethargy",
+            "Secondary_Symptoms": [
+              "History of abdominal pain",
+              "Vomiting and bloody diarrhea (recently resolved)",
+              "Fever"
+            ]
+          },
+          "Past_Medical_History": "Up-to-date immunizations, no other significant medical history.",
+          "Social_History": "Recent travel to Mexico.",
+          "Review_of_Systems": "Positive for recent gastrointestinal symptoms and fever. Negative for respiratory symptoms, urinary symptoms, and rash."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "38.4\u00b0C (101.1\u00b0F)",
+            "Blood_Pressure": "95/50 mm Hg",
+            "Heart_Rate": "130/min",
+            "Respiratory_Rate": "35/min"
+          },
+          "General_Examination": {
+            "Appearance": "Pale",
+            "Scleral_Icterus": "Present"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Soft and nontender abdomen.",
+            "Auscultation": "Hyperactive bowel sounds.",
+            "Percussion": "Normal",
+            "Palpation": "No rebound or guarding"
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "Hemoglobin": "8.5 g/dL",
+            "Mean_Corpuscular_Volume": "94 \u03bcm3",
+            "Leukocyte_Count": "18,000/mm3",
+            "Platelet_Count": "45,000/mm3"
+          },
+          "Coagulation_Profile": {
+            "Prothrombin_Time": "12 sec",
+            "Partial_Thromboplastin_Time": "34 sec"
+          },
+          "Biochemistry": {
+            "Urea_Nitrogen": "28 mg/dL",
+            "Creatinine": "1.6 mg/dL",
+            "Bilirubin_Total": "2.5 mg/dL",
+            "Bilirubin_Direct": "0.1 mg/dL",
+            "Lactate_Dehydrogenase": "1658 U/L"
+          },
+          "Peripheral_Blood_Smear": {
+            "Findings": "Schistocytes present"
+          }
+        },
+        "Correct_Diagnosis": "Hemolytic uremic syndrome"
+      }
+    }
+  ]
+}

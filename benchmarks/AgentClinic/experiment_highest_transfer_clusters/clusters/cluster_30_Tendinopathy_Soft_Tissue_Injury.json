@@ -1,0 +1,159 @@
+{
+  "cluster_id": 30,
+  "cluster_name": "Tendinopathy/Soft Tissue Injury",
+  "transfer_rate": "~80%",
+  "diseases": [
+    "De Quervain tenosynovitis",
+    "Pes anserine bursitis",
+    "Rupture of the flexor digitorum profundus tendon at its point of insertion"
+  ],
+  "transfer_requirements": {
+    "age": "adult",
+    "gender": "any",
+    "context": "often overuse or trauma history"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "localized pain",
+      "specific movement provokes pain",
+      "swelling"
+    ],
+    "pivotal_tests": [
+      "physical exam (Finkelstein test, point tenderness)",
+      "ultrasound or MRI if unclear"
+    ],
+    "reasoning_pattern": "Localized MSK pain \u2192 provocative testing \u2192 confirm diagnosis",
+    "transfer_rate": "~80%"
+  },
+  "total_cases": 3,
+  "train_cases_count": 1,
+  "test_cases_count": 2,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with progressive swelling and pain in the right ring finger.",
+        "Patient_Actor": {
+          "Demographics": "22-year-old male",
+          "History": "The patient reports that the pain and swelling in his right ring finger began 2 days ago while playing football. He recalls his finger got caught in the jersey of another player, who then pulled away forcefully.",
+          "Symptoms": {
+            "Primary_Symptom": "Progressive swelling and pain in the right ring finger",
+            "Secondary_Symptoms": [
+              "Inability to flex the right ring finger at the distal interphalangeal joint when making a fist",
+              "Pain at the distal interphalangeal joint",
+              "Extended right ring finger in resting position"
+            ]
+          },
+          "Past_Medical_History": "No significant medical history.",
+          "Social_History": "Student and active in sports, particularly football. Non-smoker and drinks alcohol socially.",
+          "Review_of_Systems": "Denies fever, numbness, or tingling in the affected finger."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "125/80 mmHg",
+            "Heart_Rate": "72 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Hand_Examination": {
+            "Inspection": "Right ring finger is extended, with visible swelling at the distal interphalangeal joint.",
+            "Palpation": "Tenderness localized at the distal interphalangeal joint of the right ring finger.",
+            "Range_of_Motion": "Patient unable to flex the right ring finger at the distal interphalangeal joint while attempting to make a fist. No joint laxity.",
+            "Neurovascular_Assessment": "Normal capillary refill, no sensory deficits."
+          }
+        },
+        "Test_Results": {
+          "X-ray_of_the_Right_Hand": {
+            "Findings": "No bone fractures or dislocations visible. Soft tissue swelling noted around the distal interphalangeal joint of the right ring finger."
+          },
+          "MRI_of_the_Right_Hand": {
+            "Preliminary_Findings": "Expected to show details regarding the integrity of tendons."
+          }
+        },
+        "Correct_Diagnosis": "Rupture of the flexor digitorum profundus tendon at its point of insertion"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with knee pain following recent increased physical activity.",
+        "Patient_Actor": {
+          "Demographics": "23-year-old female",
+          "History": "The patient presents with knee pain that started yesterday and has been steadily worsening. She cites recent participation in volleyball involving repetitive pivoting and twisting movements as a possible cause. She was advised at her last physical exam that weight loss could be beneficial for her health.",
+          "Symptoms": {
+            "Primary_Symptom": "Knee pain, specifically over the medial aspect of the tibia just inferior to the patella",
+            "Secondary_Symptoms": [
+              "Recent weight loss attempt",
+              "Increased physical activity"
+            ]
+          },
+          "Past_Medical_History": "Polycystic ovarian syndrome (PCOS), currently managed with oral contraceptive pills.",
+          "Social_History": "Has recently joined a volleyball team.",
+          "Review_of_Systems": "Denies any fever, recent injuries, swelling or discoloration of the knee, or previous similar complaints."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "98.5\u00b0F (36.9\u00b0C)",
+            "Blood_Pressure": "137/88 mmHg",
+            "Heart_Rate": "90/min",
+            "Respiratory_Rate": "12/min",
+            "Oxygen_Saturation": "98% on room air"
+          },
+          "Appearance": "Obese, with facial hirsutism noted",
+          "Lower_Extremity_Examination": {
+            "Inspection": "No visible abnormalities, erythema, or swelling.",
+            "Palpation": "Tenderness over the medial aspect of the tibia just inferior to the patella.",
+            "Range_of_Motion": "Full range of motion without significant pain or limitation.",
+            "Special_Tests": "Negative for ligamentous instability tests."
+          }
+        },
+        "Test_Results": {
+          "X-Ray_Knee": {
+            "Findings": "No fracture, dislocation, or appreciable joint effusion."
+          },
+          "MRI_Knee": {
+            "Optional": "Can be considered if clinical suspicion persists despite negative initial workup, not mandatory for diagnosis in this simulated case."
+          }
+        },
+        "Correct_Diagnosis": "Pes anserine bursitis"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the patient presenting with wrist pain and difficulty in hand movement.",
+        "Patient_Actor": {
+          "Demographics": "34-year-old female",
+          "History": "The patient reports experiencing pain in her right thumb and wrist, which radiates to her elbow for the past three months. The pain worsens when she holds her infant son and is alleviated somewhat with an ice pack. She mentions a history of falling on her right outstretched hand about six months ago. She also notes that her mother has a history of chronic joint pain treated with methotrexate. The patient has been taking ibuprofen as needed for her symptoms.",
+          "Symptoms": {
+            "Primary_Symptom": "Pain in the right thumb and wrist, radiating to the elbow",
+            "Secondary_Symptoms": [
+              "Pain worsens with holding objects",
+              "Pain improves with ice pack application"
+            ]
+          },
+          "Past_Medical_History": "Previous fall on right outstretched hand six months ago. No significant other medical history.",
+          "Social_History": "Patient is a mother of an infant, leading a relatively active lifestyle. Does not smoke or consume alcohol regularly.",
+          "Review_of_Systems": "Denies any fever, weight loss, or other joint problems."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.7\u00b0C (98\u00b0F)",
+            "Blood_Pressure": "117/76 mmHg",
+            "Heart_Rate": "82 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Right_Hand_Examination": {
+            "Inspection": "Swelling over the radial styloid with no redness",
+            "Palpation": "Tenderness over the radial styloid. No crepitus.",
+            "Special_Tests": {
+              "Finkelstein's_Test": "Positive, eliciting pain on the radial side of the wrist when grasping the thumb and exerting longitudinal traction towards the ulnar side."
+            },
+            "Range_of_Motion": "Normal range of motion of finger joints. No swelling, redness, or tenderness in other joints."
+          }
+        },
+        "Test_Results": {},
+        "Correct_Diagnosis": "De Quervain tenosynovitis"
+      }
+    }
+  ]
+}

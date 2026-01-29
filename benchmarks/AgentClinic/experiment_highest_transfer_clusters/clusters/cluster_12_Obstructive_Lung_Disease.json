@@ -1,0 +1,257 @@
+{
+  "cluster_id": 12,
+  "cluster_name": "Obstructive Lung Disease",
+  "transfer_rate": "~85%",
+  "diseases": [
+    "Asthma",
+    "Chronic obstructive pulmonary disease",
+    "Chronic obstructive pulmonary disease (COPD)",
+    "Bronchiectasis"
+  ],
+  "transfer_requirements": {
+    "age": "asthma: any; COPD: typically >40 with smoking history",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "dyspnea",
+      "wheezing",
+      "cough"
+    ],
+    "pivotal_tests": [
+      "spirometry (FEV1/FVC)",
+      "CXR",
+      "response to bronchodilators"
+    ],
+    "reasoning_pattern": "Obstructive symptoms \u2192 spirometry to confirm \u2192 assess reversibility",
+    "transfer_rate": "~85%"
+  },
+  "total_cases": 5,
+  "train_cases_count": 2,
+  "test_cases_count": 3,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with a 1-year history of worsening shortness of breath and weight loss.",
+        "Patient_Actor": {
+          "Demographics": "56-year-old male",
+          "History": "The patient is a former construction worker and worked in a steel mill during high school. He is an active smoker with a 36-pack-year history. He presents a 1-year history of progressive shortness of breath and weight loss.",
+          "Symptoms": {
+            "Primary_Symptom": "Worsening shortness of breath",
+            "Secondary_Symptoms": [
+              "Weight loss"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical history noted.",
+          "Social_History": "Active smoker. Former construction worker and steel mill worker. No other hazardous exposures mentioned.",
+          "Review_of_Systems": "Denies recent fevers, cough, or chest pain. No history of asthma or allergic diseases mentioned."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Blood_Pressure": "130/78 mmHg",
+            "Heart_Rate": "90/min",
+            "Respiratory_Rate": "17/min",
+            "BMI": "31 kg/m2",
+            "Oxygen_Saturation": "95% on room air"
+          },
+          "Pulmonary_Examination": {
+            "Inspection": "No visible chest deformities.",
+            "Palpation": "No tenderness or chest wall abnormalities.",
+            "Percussion": "Resonant lung fields.",
+            "Auscultation": "Mildly prolonged expiratory phase with no wheezing or crackles."
+          }
+        },
+        "Test_Results": {
+          "Pulmonary_Function_Test": {
+            "FEV1_FVC_Ratio": "60%",
+            "FEV1": "50% of predicted value",
+            "Total_Lung_Capacity": "110% of predicted value",
+            "Residual_Volume": "115% of predicted value",
+            "DLCO": "60% of predicted value"
+          }
+        },
+        "Correct_Diagnosis": "Chronic obstructive pulmonary disease"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with chronic cough and recurrent bouts of bronchitis.",
+        "Patient_Actor": {
+          "Demographics": "51-year-old woman",
+          "History": "The patient has been experiencing an aggressive cough producing copious amounts of thick, foamy, yellow-green sputum for about 11 years, with exacerbations similar to the current presentation today. Reports that the cough is worse in the morning and has had multiple evaluations in the past due to recurrent bouts of bronchitis requiring antibiotics treatment. The patient is a non-smoker.",
+          "Symptoms": {
+            "Primary_Symptom": "Aggressive cough with thick, yellow-green sputum",
+            "Secondary_Symptoms": [
+              "Cough worse in the morning",
+              "History of recurrent bronchitis"
+            ]
+          },
+          "Past_Medical_History": "No other significant past medical history aside from the recurrent bronchitis.",
+          "Social_History": "Non-smoker, no history of alcohol or drug abuse.",
+          "Review_of_Systems": "Denies any fever, weight loss, night sweats, or shortness of breath."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.7\u00b0C (98.0\u00b0F)",
+            "Blood_Pressure": "125/78 mmHg",
+            "Heart_Rate": "80 bpm",
+            "Respiratory_Rate": "16 breaths/min"
+          },
+          "Respiratory_Examination": {
+            "Inspection": "No cyanosis or use of accessory muscles for breathing.",
+            "Auscultation": "Crackles and wheezing over the right middle lobe.",
+            "Percussion": "Normal thoracic percussion note.",
+            "Palpation": "No thoracic tenderness."
+          }
+        },
+        "Test_Results": {
+          "Chest_X-ray": {
+            "Findings": "Irregular opacities in the right middle lobe and diffuse airway thickening."
+          },
+          "Pulmonary_Function_Tests": {
+            "FVC": "Reduced",
+            "FEV1": "Reduced",
+            "FEV1/FVC_Ratio": "Normal"
+          },
+          "Sputum_Culture": {
+            "Findings": "Heavy growth of non-specific bacteria, no TB or fungal growth."
+          }
+        },
+        "Correct_Diagnosis": "Bronchiectasis"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with progressively worsening shortness of breath over the past 2 months.",
+        "Patient_Actor": {
+          "Demographics": "60-year-old male",
+          "History": "The patient reports progressively worsening shortness of breath for the past 2 months, which does not occur at rest. He occasionally experiences a dry cough but denies having fever, chills, or night sweats.",
+          "Symptoms": {
+            "Primary_Symptom": "Progressively worsening shortness of breath",
+            "Secondary_Symptoms": [
+              "Dry cough",
+              "No fever",
+              "No chills",
+              "No night sweats"
+            ]
+          },
+          "Past_Medical_History": "The patient is previously healthy with no significant past medical history.",
+          "Social_History": "Smoked a pack of cigarettes daily for the past 40 years. Drinks a beer daily with occasional increase on weekends. No illicit drug use.",
+          "Review_of_Systems": "Denies any other systemic complaints."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "136/88 mmHg",
+            "Heart_Rate": "94 bpm",
+            "Respiratory_Rate": "21 breaths/min"
+          },
+          "Lung_Examination": {
+            "Inspection": "Normal chest wall movement, no use of accessory muscles at rest.",
+            "Auscultation": "Prolonged expiratory phase and end-expiratory wheezing.",
+            "Percussion": "Resonant note throughout.",
+            "Palpation": "Symmetrical chest wall movement."
+          }
+        },
+        "Test_Results": {
+          "Spirometry": {
+            "FEV1:FVC_Ratio": "62%",
+            "FEV1": "60% of predicted",
+            "Total_Lung_Capacity": "125% of predicted"
+          },
+          "DLCO_Test": {
+            "Diffusion_Capacity": "Decreased"
+          }
+        },
+        "Correct_Diagnosis": "Chronic obstructive pulmonary disease"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the elderly patient presenting with shortness of breath and a productive cough.",
+        "Patient_Actor": {
+          "Demographics": "79-year-old male",
+          "History": "The patient reports experiencing shortness of breath with moderate exertion and a slightly productive cough for the past few months. He mentions a long history of heavy smoking, approximately 25 years.",
+          "Symptoms": {
+            "Primary_Symptom": "Shortness of breath with moderate exertion",
+            "Secondary_Symptoms": [
+              "Slightly productive cough"
+            ]
+          },
+          "Past_Medical_History": "The patient has been a heavy smoker for 25 years.",
+          "Social_History": "Retired, lives alone, has a 25-year history of heavy smoking.",
+          "Review_of_Systems": "Denies chest pain, fever, night sweats, or weight loss."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Heart_Rate": "89/min",
+            "Respiratory_Rate": "27/min",
+            "Blood_Pressure": "120/90 mm Hg"
+          },
+          "Respiratory_Examination": {
+            "Inspection": "No cyanosis or finger clubbing noted.",
+            "Auscultation": "Decreased breath sounds with occasional wheezes, crackles at the lung base.",
+            "Percussion": "Increased resonance to percussion noted.",
+            "Palpation": "Normal tactile fremitus"
+          }
+        },
+        "Test_Results": {
+          "Chest_Radiography": {
+            "Findings": "Pulmonary hyperinflation with a flattened diaphragm, indicating hyperinflation"
+          },
+          "Spirometry": {
+            "FEV1": "48% (significantly reduced)",
+            "FVC": "85%",
+            "FEV1_FVC_ratio": "56% (indicating obstruction)"
+          }
+        },
+        "Correct_Diagnosis": "Chronic obstructive pulmonary disease (COPD)"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with episodic cough and shortness of breath.",
+        "Patient_Actor": {
+          "Demographics": "59-year-old female",
+          "History": "The patient reports a 1-month history of episodic cough and shortness of breath. The cough is nonproductive and worsens when climbing stairs and at night. She experienced fever, sore throat, and nasal congestion 8 weeks ago.",
+          "Symptoms": {
+            "Primary_Symptom": "Episodic cough and shortness of breath",
+            "Secondary_Symptoms": [
+              "Cough worsens with exertion and at night",
+              "History of recent upper respiratory tract infection symptoms such as fever, sore throat, and nasal congestion"
+            ]
+          },
+          "Past_Medical_History": "10-year history of hypertension, currently managed with enalapril. History of smoking half a pack of cigarettes daily for 16 years.",
+          "Social_History": "Smoker, half a pack of cigarettes daily for 16 years.",
+          "Review_of_Systems": "Denies chest pain or palpitations."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Pulse": "78/min",
+            "Respirations": "18/min",
+            "Blood_Pressure": "145/95 mm Hg",
+            "Oxygen_Saturation": "96% on room air"
+          },
+          "Respiratory_Examination": {
+            "Inspection": "No visible abnormalities",
+            "Palpation": "No tactile fremitus",
+            "Percussion": "Resonant",
+            "Auscultation": "Diffuse end-expiratory wheezes"
+          }
+        },
+        "Test_Results": {
+          "Chest_X-ray": {
+            "Findings": "No abnormalities"
+          },
+          "Spirometry": {
+            "FEV1_FVC_Ratio": "65%",
+            "FEV1": "60%"
+          }
+        },
+        "Correct_Diagnosis": "Asthma"
+      }
+    }
+  ]
+}

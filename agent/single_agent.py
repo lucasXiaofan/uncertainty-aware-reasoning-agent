@@ -4,12 +4,14 @@ import json
 import base64
 import mimetypes
 from pathlib import Path
+from datetime import datetime
 
 import yaml
 from openai import OpenAI
 from dotenv import load_dotenv
 
-from tools import execute_tool, get_tool_schema, save_conversation, load_recent_conversations
+from tools import execute_tool, get_tool_schema
+from tools.agent_utils import save_conversation, load_recent_conversations
 
 # Load environment variables
 load_dotenv()
@@ -19,11 +21,24 @@ CONFIG_PATH = Path(__file__).parent / "agent_config.yaml"
 with open(CONFIG_PATH, "r") as f:
     CONFIG = yaml.safe_load(f)
 
+# Default directories
+DEFAULT_MEMORY_DIR = Path(__file__).parent / "memory"
+DEFAULT_TRAJECTORIES_DIR = Path(__file__).parent / "trajectories_log"
+
 
 class SingleAgent:
     """Simple agent supporting text and image input using OpenAI native tool calling."""
 
-    def __init__(self, agent_name: str, model_name: str = None):
+    def __init__(self, agent_name: str, model_name: str = None,
+                 trajectory_log_dir: str = None, conversation_log_path: str = None):
+        """Initialize the agent.
+
+        Args:
+            agent_name: Name of the agent from config
+            model_name: Optional model override
+            trajectory_log_dir: Directory to save trajectory logs (default: trajectories_log/)
+            conversation_log_path: Path to conversation log file (default: memory/conversation_log.json)
+        """
         agent_cfg = CONFIG["agents"].get(agent_name)
         if not agent_cfg:
             raise ValueError(f"Agent '{agent_name}' not found in config")
@@ -33,6 +48,14 @@ class SingleAgent:
         self.system_prompt = agent_cfg["system_prompt"]
         self.temperature = agent_cfg.get("temperature", 0.3)
         self.max_turns = agent_cfg.get("max_turns", 10)
+
+        # Configure logging paths
+        self.trajectory_log_dir = Path(trajectory_log_dir) if trajectory_log_dir else DEFAULT_TRAJECTORIES_DIR
+        self.conversation_log_path = conversation_log_path or str(DEFAULT_MEMORY_DIR / "conversation_log.json")
+
+        # Ensure directories exist
+        self.trajectory_log_dir.mkdir(parents=True, exist_ok=True)
+        Path(self.conversation_log_path).parent.mkdir(parents=True, exist_ok=True)
 
         # Get tool schemas from registry based on config
         tool_names = agent_cfg.get("tools", [])
@@ -150,9 +173,10 @@ class SingleAgent:
             save_conversation(
                 user_query=trajectory["input"],
                 final_response=final_response,
-                image_path=trajectory.get("image_url")
+                image_path=trajectory.get("image_url"),
+                log_file_path=self.conversation_log_path
             )
-            print(f"[{self.name}] Conversation saved to memory")
+            print(f"[{self.name}] Conversation saved to {self.conversation_log_path}")
 
         final_result = {
             "type": "error" if is_error else "terminal",
@@ -164,7 +188,33 @@ class SingleAgent:
             "trajectory": trajectory["turns"]
         }
         trajectory["result"] = final_result
+
+        # Save trajectory to file
+        trajectory_file = self._save_trajectory(trajectory, episode_id)
+        final_result["trajectory_file"] = str(trajectory_file) if trajectory_file else None
+
         return final_result
+
+    def _save_trajectory(self, trajectory: dict, episode_id: str = None) -> Path:
+        """Save trajectory to a timestamped file.
+
+        Args:
+            trajectory: The trajectory dictionary to save
+            episode_id: Optional episode ID to include in filename
+
+        Returns:
+            Path to the saved trajectory file
+        """
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        episode_suffix = f"_{episode_id}" if episode_id else ""
+        filename = f"{self.name}_trajectory_{timestamp}{episode_suffix}.json"
+        trajectory_file = self.trajectory_log_dir / filename
+
+        with open(trajectory_file, "w", encoding="utf-8") as f:
+            json.dump(trajectory, f, indent=2, ensure_ascii=False, default=str)
+
+        print(f"[{self.name}] Trajectory saved to {trajectory_file}")
+        return trajectory_file
 
     def run(self, user_input: str, image_url: str = None, episode_id: str = None,
             max_turns: int = None) -> dict:
@@ -312,6 +362,16 @@ def main():
         default=None,
         help="Path to an image file or URL to include in the conversation"
     )
+    parser.add_argument(
+        "--trajectory-dir", "-t",
+        default=None,
+        help="Directory to save trajectory logs (default: trajectories_log/)"
+    )
+    parser.add_argument(
+        "--conversation-log", "-c",
+        default=None,
+        help="Path to conversation log file (default: memory/conversation_log.json)"
+    )
     args = parser.parse_args()
 
     # Validate image path if provided
@@ -320,12 +380,19 @@ def main():
     elif args.image:
         print(f"[main] Including image URL: {args.image}")
 
-    agent = SingleAgent(args.agent, model_name=args.model)
+    agent = SingleAgent(
+        args.agent,
+        model_name=args.model,
+        trajectory_log_dir=args.trajectory_dir,
+        conversation_log_path=args.conversation_log
+    )
     result = agent.run(args.query, image_url=args.image)
 
     print("\n" + "=" * 60)
     print("Final Result:\n")
     print(result["result"] if isinstance(result["result"], str) else json.dumps(result["result"], indent=2, default=str))
+    if result.get("trajectory_file"):
+        print(f"\nTrajectory saved to: {result['trajectory_file']}")
 
 
 if __name__ == "__main__":

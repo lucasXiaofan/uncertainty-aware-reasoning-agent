@@ -1,0 +1,953 @@
+{
+    "clusters": [
+        {
+            "cluster_id": 1,
+            "name": "Acute Leukemia Workup",
+            "diseases": [
+                "Acute lymphoblastic leukemia",
+                "Acute myelogenous leukemia"
+            ],
+            "transfer_requirements": {
+                "age": "any (but pediatric vs adult changes treatment, not diagnosis workup)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "fatigue",
+                    "bleeding",
+                    "infections",
+                    "fever"
+                ],
+                "pivotal_tests": [
+                    "CBC with differential",
+                    "peripheral smear",
+                    "bone marrow biopsy",
+                    "flow cytometry"
+                ],
+                "reasoning_pattern": "Pancytopenia with blasts → confirm via bone marrow → classify lineage",
+                "transfer_rate": "~95%"
+            }
+        },
+        {
+            "cluster_id": 2,
+            "name": "Chronic Leukemia/Lymphoproliferative",
+            "diseases": [
+                "Chronic lymphocytic leukemia",
+                "Chronic lymphocytic leukemia (CLL)",
+                "Waldenstrom macroglobulinemia",
+                "Diffuse large B-cell lymphoma"
+            ],
+            "transfer_requirements": {
+                "age": "typically adult/elderly (>50 for most)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "lymphadenopathy",
+                    "fatigue",
+                    "B symptoms"
+                ],
+                "pivotal_tests": [
+                    "CBC",
+                    "flow cytometry",
+                    "lymph node biopsy",
+                    "serum protein electrophoresis"
+                ],
+                "reasoning_pattern": "Lymphocytosis/lymphadenopathy → characterize via flow/biopsy → subtype",
+                "transfer_rate": "~80%"
+            }
+        },
+        {
+            "cluster_id": 3,
+            "name": "Antibiotic-Associated/Hospital-Acquired Diarrhea",
+            "diseases": [
+                "C. difficile colitis"
+            ],
+            "transfer_requirements": {
+                "age": "any (higher risk if elderly)",
+                "gender": "any",
+                "context": "REQUIRED: recent antibiotic use OR hospitalization"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "watery diarrhea",
+                    "recent antibiotics",
+                    "abdominal pain"
+                ],
+                "pivotal_tests": [
+                    "stool C. diff toxin",
+                    "stool PCR",
+                    "WBC count"
+                ],
+                "reasoning_pattern": "Recent antibiotics + diarrhea → C. diff until proven otherwise",
+                "transfer_rate": "~90% (context-dependent)"
+            }
+        },
+        {
+            "cluster_id": 4,
+            "name": "Inflammatory Bowel Disease",
+            "diseases": [
+                "Crohn's disease",
+                "Irritable Bowel Syndrome"
+            ],
+            "transfer_requirements": {
+                "age": "young adult to middle-aged (IBD typically <40 at onset)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "chronic diarrhea",
+                    "abdominal pain",
+                    "weight loss"
+                ],
+                "pivotal_tests": [
+                    "colonoscopy with biopsy",
+                    "fecal calprotectin",
+                    "inflammatory markers"
+                ],
+                "reasoning_pattern": "Chronic GI symptoms → exclude infection → characterize via imaging/endoscopy",
+                "transfer_rate": "~75%"
+            }
+        },
+        {
+            "cluster_id": 5,
+            "name": "Acute Viral Hepatitis",
+            "diseases": [
+                "Acute Hepatitis B",
+                "Active chronic hepatitis B infection"
+            ],
+            "transfer_requirements": {
+                "age": "any",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "jaundice",
+                    "RUQ pain",
+                    "fatigue",
+                    "dark urine"
+                ],
+                "pivotal_tests": [
+                    "hepatitis panel",
+                    "LFTs",
+                    "HBsAg",
+                    "Anti-HBc",
+                    "HBeAg"
+                ],
+                "reasoning_pattern": "Elevated transaminases + jaundice → viral serologies → characterize acute vs chronic",
+                "transfer_rate": "~95%"
+            }
+        },
+        {
+            "cluster_id": 6,
+            "name": "Neonatal Jaundice",
+            "diseases": [
+                "Physiological neonatal jaundice",
+                "Breast milk jaundice",
+                "Biliary atresia"
+            ],
+            "transfer_requirements": {
+                "age": "REQUIRED: neonatal (0-28 days)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "jaundice",
+                    "age at onset"
+                ],
+                "pivotal_tests": [
+                    "total/direct bilirubin",
+                    "timing of onset",
+                    "stool color"
+                ],
+                "reasoning_pattern": "Neonatal jaundice → assess timing + direct vs indirect → determine if pathologic",
+                "transfer_rate": "~85%"
+            }
+        },
+        {
+            "cluster_id": 7,
+            "name": "Neonatal Rash Syndromes",
+            "diseases": [
+                "Erythema Toxicum",
+                "Erythema Infectiosum",
+                "Roseola infantum"
+            ],
+            "transfer_requirements": {
+                "age": "REQUIRED: neonate to infant (<2 years)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "rash",
+                    "fever pattern",
+                    "age"
+                ],
+                "pivotal_tests": [
+                    "clinical diagnosis",
+                    "viral serologies if unclear"
+                ],
+                "reasoning_pattern": "Infant rash + fever → pattern recognition → exclude serious causes",
+                "transfer_rate": "~70%"
+            }
+        },
+        {
+            "cluster_id": 8,
+            "name": "Neonatal Respiratory Distress",
+            "diseases": [
+                "Neonatal Respiratory Distress Syndrome (NRDS)",
+                "Respiratory Distress Syndrome"
+            ],
+            "transfer_requirements": {
+                "age": "REQUIRED: premature neonate",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "tachypnea",
+                    "grunting",
+                    "retractions",
+                    "prematurity"
+                ],
+                "pivotal_tests": [
+                    "CXR",
+                    "pulse ox",
+                    "ABG"
+                ],
+                "reasoning_pattern": "Premature + respiratory distress → CXR pattern → surfactant deficiency vs other",
+                "transfer_rate": "~90%"
+            }
+        },
+        {
+            "cluster_id": 9,
+            "name": "Stress-Induced Cardiomyopathy/Acute Cardiac Events with Normal Coronaries",
+            "diseases": [
+                "Takotsubo cardiomyopathy",
+                "Cardiac Tamponade",
+                "Cardiac Contusion"
+            ],
+            "transfer_requirements": {
+                "age": "adult (Takotsubo typically post-menopausal women)",
+                "gender": "Takotsubo: predominantly female; others: any",
+                "context": "emotional/physical stress (Takotsubo), trauma (others)"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "chest pain",
+                    "dyspnea",
+                    "recent stressor/trauma"
+                ],
+                "pivotal_tests": [
+                    "troponin",
+                    "ECG",
+                    "echocardiography",
+                    "coronary angiography"
+                ],
+                "reasoning_pattern": "Cardiac symptoms + context → r/o ACS → characterize structural/functional abnormality",
+                "transfer_rate": "~75%"
+            }
+        },
+        {
+            "cluster_id": 10,
+            "name": "Structural Valvular Heart Disease",
+            "diseases": [
+                "Aortic valve stenosis",
+                "Atrial Septal Defect",
+                "Atrial Myxoma",
+                "Coarctation of the aorta",
+                "Hypertrophic Cardiomyopathy",
+                "Tetralogy of Fallot",
+                "Double aortic arch"
+            ],
+            "transfer_requirements": {
+                "age": "varies (congenital: pediatric; acquired: adult/elderly)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "murmur",
+                    "dyspnea",
+                    "syncope",
+                    "cyanosis (if congenital)"
+                ],
+                "pivotal_tests": [
+                    "echocardiography",
+                    "ECG",
+                    "CXR"
+                ],
+                "reasoning_pattern": "Murmur/cardiac symptoms → echo to characterize → assess severity",
+                "transfer_rate": "~85%"
+            }
+        },
+        {
+            "cluster_id": 11,
+            "name": "Acute Abdomen/Perforated Viscus",
+            "diseases": [
+                "Perforated gastric peptic ulcer",
+                "Gastric peptic ulcer",
+                "Acute Mesenteric Ischemia",
+                "Boerhaave syndrome"
+            ],
+            "transfer_requirements": {
+                "age": "adult (typically >40)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "severe abdominal pain",
+                    "peritoneal signs",
+                    "acute onset"
+                ],
+                "pivotal_tests": [
+                    "upright CXR (free air)",
+                    "CT abdomen",
+                    "lactate"
+                ],
+                "reasoning_pattern": "Acute abdomen → assess for surgical emergency → imaging for confirmation",
+                "transfer_rate": "~80%"
+            }
+        },
+        {
+            "cluster_id": 12,
+            "name": "Obstructive Lung Disease",
+            "diseases": [
+                "Asthma",
+                "Chronic obstructive pulmonary disease",
+                "Chronic obstructive pulmonary disease (COPD)",
+                "Bronchiectasis"
+            ],
+            "transfer_requirements": {
+                "age": "asthma: any; COPD: typically >40 with smoking history",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "dyspnea",
+                    "wheezing",
+                    "cough"
+                ],
+                "pivotal_tests": [
+                    "spirometry (FEV1/FVC)",
+                    "CXR",
+                    "response to bronchodilators"
+                ],
+                "reasoning_pattern": "Obstructive symptoms → spirometry to confirm → assess reversibility",
+                "transfer_rate": "~85%"
+            }
+        },
+        {
+            "cluster_id": 13,
+            "name": "Community-Acquired Pneumonia/Pulmonary Infections",
+            "diseases": [
+                "Pneumonia",
+                "Tuberculosis",
+                "Histoplasmosis",
+                "Valley fever"
+            ],
+            "transfer_requirements": {
+                "age": "any",
+                "gender": "any",
+                "context": "TB/endemic fungi: consider travel/exposure history"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "cough",
+                    "fever",
+                    "dyspnea",
+                    "sputum"
+                ],
+                "pivotal_tests": [
+                    "CXR",
+                    "sputum culture",
+                    "blood cultures"
+                ],
+                "reasoning_pattern": "Respiratory infection → CXR + severity assessment → pathogen identification",
+                "transfer_rate": "~80%"
+            }
+        },
+        {
+            "cluster_id": 14,
+            "name": "Movement Disorders/Parkinsonism",
+            "diseases": [
+                "Parkinson disease",
+                "Multiple system atrophy"
+            ],
+            "transfer_requirements": {
+                "age": "REQUIRED: elderly (typically >60)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "tremor",
+                    "rigidity",
+                    "bradykinesia",
+                    "gait disturbance"
+                ],
+                "pivotal_tests": [
+                    "clinical diagnosis",
+                    "response to levodopa",
+                    "MRI brain"
+                ],
+                "reasoning_pattern": "Parkinsonian features → clinical diagnosis → assess for atypical features",
+                "transfer_rate": "~75%"
+            }
+        },
+        {
+            "cluster_id": 15,
+            "name": "Neuromuscular Junction Disorders",
+            "diseases": [
+                "Myasthenia gravis",
+                "Lambert-Eaton Syndrome",
+                "Lambert-Eaton syndrome"
+            ],
+            "transfer_requirements": {
+                "age": "adult",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "fatigable weakness",
+                    "ptosis",
+                    "diplopia"
+                ],
+                "pivotal_tests": [
+                    "acetylcholine receptor antibodies",
+                    "EMG",
+                    "repetitive nerve stimulation"
+                ],
+                "reasoning_pattern": "Fatigable weakness → antibody testing + EMG → localize to NMJ",
+                "transfer_rate": "~85%"
+            }
+        },
+        {
+            "cluster_id": 16,
+            "name": "Primary Psychotic Disorders",
+            "diseases": [
+                "Schizophrenia",
+                "Schizophreniform Disorder",
+                "Schizoaffective disorder",
+                "Brief Psychotic Disorder"
+            ],
+            "transfer_requirements": {
+                "age": "young adult (typically 18-35 at onset)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "hallucinations",
+                    "delusions",
+                    "disorganized behavior",
+                    "duration"
+                ],
+                "pivotal_tests": [
+                    "clinical interview",
+                    "rule out medical causes (MRI, toxicology, metabolic panel)"
+                ],
+                "reasoning_pattern": "Psychotic symptoms → exclude organic causes → classify by duration + mood",
+                "transfer_rate": "~80%"
+            }
+        },
+        {
+            "cluster_id": 17,
+            "name": "Personality Disorders - Cluster A (Odd/Eccentric)",
+            "diseases": [
+                "Schizoid Personality Disorder",
+                "Schizotypal personality disorder"
+            ],
+            "transfer_requirements": {
+                "age": "adult (pervasive pattern)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "social detachment",
+                    "eccentric behavior",
+                    "odd beliefs"
+                ],
+                "pivotal_tests": [
+                    "clinical interview",
+                    "longitudinal pattern assessment"
+                ],
+                "reasoning_pattern": "Pervasive pattern → assess functioning → r/o psychotic disorder",
+                "transfer_rate": "~75%"
+            }
+        },
+        {
+            "cluster_id": 18,
+            "name": "Glomerular Kidney Disease",
+            "diseases": [
+                "Minimal Change Disease",
+                "Membranous nephropathy",
+                "Hemolytic uremic syndrome"
+            ],
+            "transfer_requirements": {
+                "age": "MCD: pediatric; MN: adult; HUS: any",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "proteinuria",
+                    "edema",
+                    "hypoalbuminemia"
+                ],
+                "pivotal_tests": [
+                    "urinalysis",
+                    "24hr urine protein",
+                    "serum albumin",
+                    "kidney biopsy"
+                ],
+                "reasoning_pattern": "Nephrotic syndrome → quantify proteinuria → biopsy for definitive diagnosis",
+                "transfer_rate": "~85%"
+            }
+        },
+        {
+            "cluster_id": 19,
+            "name": "Chronic Kidney Disease/Inherited",
+            "diseases": [
+                "Autosomal dominant polycystic kidney disease",
+                "Chronic kidney failure",
+                "Medullary Sponge Kidney"
+            ],
+            "transfer_requirements": {
+                "age": "ADPKD: adult presentation; others: varies",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "gradual renal dysfunction",
+                    "family history (if genetic)",
+                    "hypertension"
+                ],
+                "pivotal_tests": [
+                    "creatinine",
+                    "GFR",
+                    "renal ultrasound",
+                    "genetic testing if indicated"
+                ],
+                "reasoning_pattern": "Elevated creatinine → assess chronicity → imaging + etiology",
+                "transfer_rate": "~70%"
+            }
+        },
+        {
+            "cluster_id": 20,
+            "name": "Benign Skin Lesions",
+            "diseases": [
+                "Seborrheic keratosis",
+                "Actinic Keratosis",
+                "Dermatofibroma",
+                "Epidermoid cyst",
+                "Keratoacanthoma"
+            ],
+            "transfer_requirements": {
+                "age": "typically middle-aged to elderly",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "skin lesion",
+                    "characteristics (color, texture, borders)"
+                ],
+                "pivotal_tests": [
+                    "clinical examination",
+                    "dermoscopy",
+                    "biopsy if atypical"
+                ],
+                "reasoning_pattern": "Skin lesion → clinical assessment → biopsy if concern for malignancy",
+                "transfer_rate": "~80%"
+            }
+        },
+        {
+            "cluster_id": 21,
+            "name": "Malignant Skin Cancers",
+            "diseases": [
+                "Malignant melanoma",
+                "Squamous cell carcinoma",
+                "Bowen's Disease"
+            ],
+            "transfer_requirements": {
+                "age": "typically >50 (melanoma can be younger)",
+                "gender": "any",
+                "context": "sun exposure history important"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "changing skin lesion",
+                    "ABCDE criteria (melanoma)",
+                    "ulceration"
+                ],
+                "pivotal_tests": [
+                    "biopsy",
+                    "dermoscopy",
+                    "staging imaging if malignant"
+                ],
+                "reasoning_pattern": "Suspicious lesion → biopsy for diagnosis → staging",
+                "transfer_rate": "~85%"
+            }
+        },
+        {
+            "cluster_id": 22,
+            "name": "Autoimmune Blistering Diseases",
+            "diseases": [
+                "Bullous pemphigoid",
+                "Pemphigus vulgaris"
+            ],
+            "transfer_requirements": {
+                "age": "BP: elderly; PV: middle-aged",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "blistering",
+                    "mucosal involvement (PV > BP)"
+                ],
+                "pivotal_tests": [
+                    "skin biopsy",
+                    "direct immunofluorescence",
+                    "antibody testing"
+                ],
+                "reasoning_pattern": "Blistering → biopsy + immunofluorescence → classify autoimmune type",
+                "transfer_rate": "~90%"
+            }
+        },
+        {
+            "cluster_id": 23,
+            "name": "Platelet Disorders/Thrombocytopenia",
+            "diseases": [
+                "Essential thrombocythemia",
+                "Glanzmann's Thrombasthenia",
+                "Thrombotic Thrombocytopenic Purpura"
+            ],
+            "transfer_requirements": {
+                "age": "any",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "bleeding",
+                    "bruising",
+                    "platelet abnormalities"
+                ],
+                "pivotal_tests": [
+                    "CBC",
+                    "platelet function tests",
+                    "peripheral smear",
+                    "ADAMTS13 (TTP)"
+                ],
+                "reasoning_pattern": "Platelet abnormality → quantify + assess function → determine mechanism",
+                "transfer_rate": "~75%"
+            }
+        },
+        {
+            "cluster_id": 24,
+            "name": "Inherited Bleeding Disorders",
+            "diseases": [
+                "Hemophilia",
+                "Hemophilia A"
+            ],
+            "transfer_requirements": {
+                "age": "any (often presents in childhood)",
+                "gender": "REQUIRED: male (X-linked)",
+                "context": "family history often present"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "bleeding",
+                    "hemarthrosis",
+                    "prolonged bleeding after trauma"
+                ],
+                "pivotal_tests": [
+                    "PT/PTT",
+                    "factor VIII/IX levels"
+                ],
+                "reasoning_pattern": "Bleeding + prolonged PTT → factor assays → identify deficiency",
+                "transfer_rate": "~95%"
+            }
+        },
+        {
+            "cluster_id": 25,
+            "name": "Vertigo/Vestibular Disorders",
+            "diseases": [
+                "Benign Paroxysmal Positional Vertigo (BPPV)",
+                "Benign paroxysmal positional vertigo",
+                "Labyrinthitis"
+            ],
+            "transfer_requirements": {
+                "age": "any (BPPV more common in elderly)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "vertigo",
+                    "nausea",
+                    "positional triggers"
+                ],
+                "pivotal_tests": [
+                    "Dix-Hallpike maneuver",
+                    "head impulse test",
+                    "audiometry"
+                ],
+                "reasoning_pattern": "Vertigo → peripheral vs central → positional testing → treatment",
+                "transfer_rate": "~85%"
+            }
+        },
+        {
+            "cluster_id": 26,
+            "name": "Syncope Workup",
+            "diseases": [
+                "Vasovagal syncope",
+                "Situational syncope"
+            ],
+            "transfer_requirements": {
+                "age": "any",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "loss of consciousness",
+                    "triggers",
+                    "prodrome"
+                ],
+                "pivotal_tests": [
+                    "ECG",
+                    "orthostatic vitals",
+                    "r/o cardiac/neurologic causes"
+                ],
+                "reasoning_pattern": "Syncope → assess triggers + ECG → r/o dangerous causes → benign diagnosis",
+                "transfer_rate": "~90%"
+            }
+        },
+        {
+            "cluster_id": 27,
+            "name": "Drug-Induced Neurologic Syndromes",
+            "diseases": [
+                "Neuroleptic Malignant Syndrome",
+                "Neuroleptic malignant syndrome",
+                "Akathisia",
+                "Serum sickness-like reaction",
+                "Steven-Johnson syndrome"
+            ],
+            "transfer_requirements": {
+                "age": "any",
+                "gender": "any",
+                "context": "REQUIRED: recent medication exposure"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "temporal relationship to drug",
+                    "characteristic syndrome features"
+                ],
+                "pivotal_tests": [
+                    "medication history",
+                    "CK (NMS)",
+                    "clinical diagnosis"
+                ],
+                "reasoning_pattern": "New symptoms + recent drug → temporal correlation → syndrome recognition",
+                "transfer_rate": "~85%"
+            }
+        },
+        {
+            "cluster_id": 28,
+            "name": "Somatoform/Factitious Disorders",
+            "diseases": [
+                "Somatization disorder",
+                "Factitious disorder",
+                "Pseudocyesis"
+            ],
+            "transfer_requirements": {
+                "age": "adult",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "unexplained physical symptoms",
+                    "extensive negative workup"
+                ],
+                "pivotal_tests": [
+                    "exclude organic causes",
+                    "psychiatric evaluation"
+                ],
+                "reasoning_pattern": "Symptoms + negative workup → assess motivation → psychiatric diagnosis",
+                "transfer_rate": "~70%"
+            }
+        },
+        {
+            "cluster_id": 29,
+            "name": "Pediatric Orthopedic/Bone Disorders",
+            "diseases": [
+                "Legg-Calvé-Perthes disease (LCPD)",
+                "Ewing sarcoma",
+                "Osteoclastoma"
+            ],
+            "transfer_requirements": {
+                "age": "REQUIRED: pediatric to young adult",
+                "gender": "any (LCPD: more common in males)"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "bone pain",
+                    "limp",
+                    "limited ROM"
+                ],
+                "pivotal_tests": [
+                    "X-ray",
+                    "MRI",
+                    "biopsy (if concern for malignancy)"
+                ],
+                "reasoning_pattern": "Pediatric bone symptoms → imaging → r/o malignancy vs avascular necrosis",
+                "transfer_rate": "~75%"
+            }
+        },
+        {
+            "cluster_id": 30,
+            "name": "Tendinopathy/Soft Tissue Injury",
+            "diseases": [
+                "De Quervain tenosynovitis",
+                "Pes anserine bursitis",
+                "Rupture of the flexor digitorum profundus tendon at its point of insertion"
+            ],
+            "transfer_requirements": {
+                "age": "adult",
+                "gender": "any",
+                "context": "often overuse or trauma history"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "localized pain",
+                    "specific movement provokes pain",
+                    "swelling"
+                ],
+                "pivotal_tests": [
+                    "physical exam (Finkelstein test, point tenderness)",
+                    "ultrasound or MRI if unclear"
+                ],
+                "reasoning_pattern": "Localized MSK pain → provocative testing → confirm diagnosis",
+                "transfer_rate": "~80%"
+            }
+        },
+        {
+            "cluster_id": 31,
+            "name": "Neonatal Congenital GI Anomalies",
+            "diseases": [
+                "Duodenal atresia",
+                "Hirschsprung disease",
+                "Hirschsprung's disease"
+            ],
+            "transfer_requirements": {
+                "age": "REQUIRED: neonatal",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "failure to pass meconium",
+                    "bilious vomiting",
+                    "abdominal distension"
+                ],
+                "pivotal_tests": [
+                    "abdominal X-ray",
+                    "contrast enema",
+                    "rectal biopsy (Hirschsprung)"
+                ],
+                "reasoning_pattern": "Neonatal bowel obstruction → imaging → surgical consultation",
+                "transfer_rate": "~85%"
+            }
+        },
+        {
+            "cluster_id": 32,
+            "name": "Acute Obstetric Emergencies",
+            "diseases": [
+                "Uterine rupture",
+                "Ruptured ovarian cyst"
+            ],
+            "transfer_requirements": {
+                "age": "reproductive age",
+                "gender": "REQUIRED: female",
+                "context": "pregnancy/labor (uterine rupture); can be any reproductive age woman (ovarian cyst)"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "acute pelvic/abdominal pain",
+                    "hemodynamic instability"
+                ],
+                "pivotal_tests": [
+                    "ultrasound",
+                    "beta-hCG",
+                    "hemoglobin"
+                ],
+                "reasoning_pattern": "Acute female pelvic pain → assess pregnancy status → imaging → surgical evaluation",
+                "transfer_rate": "~75%"
+            }
+        },
+        {
+            "cluster_id": 33,
+            "name": "Pediatric Viral Exanthems",
+            "diseases": [
+                "Chickenpox",
+                "Varicella"
+            ],
+            "transfer_requirements": {
+                "age": "pediatric (but can occur in adults)",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "characteristic rash",
+                    "fever",
+                    "exposure history"
+                ],
+                "pivotal_tests": [
+                    "clinical diagnosis",
+                    "PCR if unclear"
+                ],
+                "reasoning_pattern": "Vesicular rash → pattern recognition → confirm via history/appearance",
+                "transfer_rate": "~95%"
+            }
+        },
+        {
+            "cluster_id": 34,
+            "name": "Dementia Syndromes",
+            "diseases": [
+                "Frontotemporal Dementia",
+                "Huntington disease"
+            ],
+            "transfer_requirements": {
+                "age": "adult to elderly",
+                "gender": "any"
+            },
+            "shared_diagnostic_path": {
+                "key_symptoms": [
+                    "cognitive decline",
+                    "behavioral changes",
+                    "motor symptoms (HD)"
+                ],
+                "pivotal_tests": [
+                    "cognitive testing",
+                    "MRI brain",
+                    "genetic testing (HD)"
+                ],
+                "reasoning_pattern": "Progressive cognitive/behavioral change → neuropsychiatric testing → imaging → genetic/biomarker",
+                "transfer_rate": "~70%"
+            }
+        }
+    ],
+    "meta_insights": {
+        "highest_transfer_clusters": [
+            "Acute Leukemia Workup (95%)",
+            "Inherited Bleeding Disorders (95%)",
+            "Pediatric Viral Exanthems (95%)",
+            "Autoimmune Blistering Diseases (90%)",
+            "Syncope Workup (90%)",
+            "Neonatal Respiratory Distress (90%)"
+        ],
+        "context_critical_clusters": [
+            "Antibiotic-Associated Diarrhea (requires recent antibiotic use)",
+            "Drug-Induced Neurologic Syndromes (requires medication exposure)",
+            "Neonatal clusters (requires specific age)",
+            "Obstetric emergencies (requires female + pregnancy context)"
+        ],
+        "age_restricted_clusters": [
+            "All neonatal clusters (0-28 days)",
+            "Pediatric clusters (<18 years)",
+            "Elderly-onset (Movement disorders, certain dementias)"
+        ],
+        "notes": "Transfer rate estimates based on: (1) similarity of diagnostic algorithm, (2) overlap in pivotal tests/questions, (3) shared differential diagnosis reasoning. Higher rates indicate more direct experience transfer between cases in the cluster."
+    }
+}

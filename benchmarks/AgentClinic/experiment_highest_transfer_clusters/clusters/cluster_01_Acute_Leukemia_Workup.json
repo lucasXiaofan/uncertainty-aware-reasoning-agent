@@ -1,0 +1,128 @@
+{
+  "cluster_id": 1,
+  "cluster_name": "Acute Leukemia Workup",
+  "transfer_rate": "~95%",
+  "diseases": [
+    "Acute lymphoblastic leukemia",
+    "Acute myelogenous leukemia"
+  ],
+  "transfer_requirements": {
+    "age": "any (but pediatric vs adult changes treatment, not diagnosis workup)",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "fatigue",
+      "bleeding",
+      "infections",
+      "fever"
+    ],
+    "pivotal_tests": [
+      "CBC with differential",
+      "peripheral smear",
+      "bone marrow biopsy",
+      "flow cytometry"
+    ],
+    "reasoning_pattern": "Pancytopenia with blasts \u2192 confirm via bone marrow \u2192 classify lineage",
+    "transfer_rate": "~95%"
+  },
+  "total_cases": 2,
+  "train_cases_count": 1,
+  "test_cases_count": 1,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with generalized fatigue, pallor, and abnormal blood findings.",
+        "Patient_Actor": {
+          "Demographics": "67-year-old male",
+          "History": "The patient complains of a 2-month history of generalized fatigue. He mentions no specific triggers but notes that the fatigue has been progressively worsening. He denies any recent infections, significant weight loss, or night sweats.",
+          "Symptoms": {
+            "Primary_Symptom": "Generalized fatigue",
+            "Secondary_Symptoms": [
+              "Appearance of pale skin",
+              "Presence of multiple pinpoint, red, nonblanching spots on extremities"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical history. No known blood disorders or cancer history in the family.",
+          "Social_History": "Retired teacher, lives with his wife. Non-smoker and drinks alcohol socially.",
+          "Review_of_Systems": "Denies fever, significant weight loss, night sweats, or recent infections. Mentions occasional mild shortness of breath during exertion."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "135/85 mmHg",
+            "Heart_Rate": "82 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "General_Examination": {
+            "Inspection": "The patient appears pale.",
+            "Skin_Examination": "Multiple pinpoint, red, nonblanching spots (petechiae) noted on the extremities."
+          },
+          "Abdominal_Examination": {
+            "Inspection": "No visible abnormalities.",
+            "Palpation": "Significant splenomegaly."
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "Hemoglobin": "8.3 g/dL (low)",
+            "WBC": "81,000 /mm3 (elevated)",
+            "Platelets": "35,600 /mm3 (low)"
+          },
+          "Peripheral_Blood_Smear": {
+            "Findings": "Presence of immature cells with large, prominent nucleoli and pink, elongated, needle-shaped cytoplasmic inclusions."
+          }
+        },
+        "Correct_Diagnosis": "Acute myelogenous leukemia"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and manage a pediatric patient presenting with a 3-week history of generalized fatigue, easy bruising, fever, and severe leg pain.",
+        "Patient_Actor": {
+          "Demographics": "4-year-old girl",
+          "History": "The patient has been experiencing generalized fatigue and easy bruising for 3 weeks. Over the past week, she has developed a fever and severe leg pain that wakes her up at night.",
+          "Symptoms": {
+            "Primary_Symptom": "Generalized fatigue and easy bruising",
+            "Secondary_Symptoms": [
+              "Fever",
+              "Severe leg pain that disturbs sleep"
+            ]
+          },
+          "Past_Medical_History": "Unremarkable past medical history.",
+          "Social_History": "Attends preschool. Lives with parents and one younger sibling.",
+          "Review_of_Systems": "Positive for fever, bruising, and bone pain. Denies cough, vomiting, diarrhea, rash, or urinary symptoms."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "38.3\u00b0C (100.9\u00b0F)",
+            "Heart_Rate": "120/min",
+            "Respiratory_Rate": "30/min"
+          },
+          "General_Examination": {
+            "Appearance": "Pale and appears fatigued",
+            "Lymphadenopathy": "Cervical and axillary lymphadenopathy detected"
+          },
+          "Abdominal_Examination": {
+            "Liver": "Palpable 3 cm below the right costal margin",
+            "Spleen": "Palpable 2 cm below the left costal margin",
+            "Palpation": "Abdomen is soft and nontender"
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "Hemoglobin": "10.1 g/dL",
+            "Leukocyte_Count": "63,000/mm3 (elevated)",
+            "Platelet_Count": "27,000/mm3 (decreased)"
+          },
+          "Bone_Marrow_Aspirate": {
+            "Findings": "Predominantly immature cells that are positive for CD10, CD19, and TdT."
+          }
+        },
+        "Correct_Diagnosis": "Acute lymphoblastic leukemia"
+      }
+    }
+  ]
+}

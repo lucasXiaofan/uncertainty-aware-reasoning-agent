@@ -1,0 +1,186 @@
+{
+  "cluster_id": 25,
+  "cluster_name": "Vertigo/Vestibular Disorders",
+  "transfer_rate": "~85%",
+  "diseases": [
+    "Benign Paroxysmal Positional Vertigo (BPPV)",
+    "Benign paroxysmal positional vertigo",
+    "Labyrinthitis"
+  ],
+  "transfer_requirements": {
+    "age": "any (BPPV more common in elderly)",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "vertigo",
+      "nausea",
+      "positional triggers"
+    ],
+    "pivotal_tests": [
+      "Dix-Hallpike maneuver",
+      "head impulse test",
+      "audiometry"
+    ],
+    "reasoning_pattern": "Vertigo \u2192 peripheral vs central \u2192 positional testing \u2192 treatment",
+    "transfer_rate": "~85%"
+  },
+  "total_cases": 3,
+  "train_cases_count": 1,
+  "test_cases_count": 2,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate the patient presenting with dizziness, nausea, and imbalance.",
+        "Patient_Actor": {
+          "Demographics": "27-year-old male",
+          "History": "The patient reports a sustained sensation of the room spinning since this morning, which is low grade and constant. He occasionally feels nauseous and has taken diphenhydramine to help him sleep, which also alleviates his symptoms slightly. He mentions recent increased intake of garlic due to trying to recover from a cold a few days ago. Past medical history is unremarkable.",
+          "Symptoms": {
+            "Primary_Symptom": "Sustained sensation of the room spinning",
+            "Secondary_Symptoms": [
+              "Occasional nausea",
+              "Use of diphenhydramine for symptoms and to aid sleep",
+              "Recent cold"
+            ]
+          },
+          "Past_Medical_History": "Generally healthy with no significant past medical history.",
+          "Social_History": "Does not specify any social habits including smoking, alcohol use, or recreational drug use.",
+          "Review_of_Systems": "Denies fever, vomiting, significant headache, ear pain, recent foreign travel, known exposure to toxins or use of new medications."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "98.7\u00b0F (37.1\u00b0C)",
+            "Blood_Pressure": "122/81 mmHg",
+            "Heart_Rate": "82 bpm",
+            "Respiratory_Rate": "15 breaths/min",
+            "Oxygen_Saturation": "99% on room air"
+          },
+          "Neurological_Exam": {
+            "Cranial_Nerve_Exam": "Nystagmus noted, bilateral decreased hearing.",
+            "Balance_and_Gait": "Unstable tandem gait but unremarkable baseline gait. Patient reports sensation of imbalance."
+          },
+          "Head_and_Neck_Exam": {
+            "Inner_Ear_Assessment": "No examination details provided, but consider checking for signs of infection or inflammation.",
+            "Positional_Testing": "Laying the patient flat rapidly with head turned to each side does not provoke symptoms."
+          }
+        },
+        "Test_Results": {
+          "Basic_Audiometry": {
+            "Findings": "Bilateral decreased hearing sensitivity, details not specified."
+          },
+          "Laboratory_Tests": {
+            "Complete_Blood_Count": "Within normal limits",
+            "Electrolytes": "Within normal limits",
+            "Other": "No other abnormalities detected."
+          },
+          "Imaging": {
+            "Head_CT_or_MRI": {
+              "Findings": "No acute abnormalities noted, specifically no signs of stroke or significant lesions."
+            }
+          }
+        },
+        "Correct_Diagnosis": "Labyrinthitis"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and manage a patient presenting with episodes of dizziness and vertigo.",
+        "Patient_Actor": {
+          "Demographics": "70-year-old woman",
+          "History": "The patient presents with sudden episodes of dizziness that are position dependent. She describes experiencing a false sensation of motion and occasional spinning, indicative of vertigo. She denies any recent illnesses, injuries, or significant changes in health status, apart from age-related hearing loss (presbycusis).",
+          "Symptoms": {
+            "Primary_Symptom": "Episodes of dizziness and spinning sensation",
+            "Secondary_Symptoms": [
+              "Position dependent vertigo",
+              "No recent illness",
+              "No hearing loss besides presbycusis"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical or surgical history. No history of Meniere's disease, vestibular neuritis, or labyrinthitis.",
+          "Social_History": "Retired school teacher. Lives alone. Non-smoker, occasional wine. Enjoys light gardening.",
+          "Review_of_Systems": "Denies headache, tinnitus, hearing loss, nausea, vomiting, or recent respiratory infections."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "130/85 mmHg",
+            "Heart_Rate": "77 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Neurological_Examination": {
+            "Cranial_Nerves": "Normal",
+            "Coordination": "No ataxia or dysmetria",
+            "Gait": "Steady, no signs of imbalance when not experiencing vertigo"
+          },
+          "Positional_Testing": {
+            "Dix-Hallpike_Manoeuvre": "Positive for right-sided horizontal nystagmus when moving from sitting to supine position, suggestive of BPPV"
+          }
+        },
+        "Test_Results": {
+          "Audiometry": {
+            "Findings": "Bilateral high-frequency sensorineural hearing loss, consistent with presbycusis. No sudden drops in hearing indicative of Meniere\u2019s disease or labyrinthitis."
+          },
+          "Vestibular_Function_Tests": {
+            "Videonystagmography": "Normal vestibular response with the exception of response elicited during Dix-Hallpike maneuver, consistent with BPPV."
+          },
+          "Imaging": {
+            "MRI_Brain": {
+              "Findings": "No evidence of central lesions or infarcts that would suggest central causes of vertigo."
+            }
+          }
+        },
+        "Correct_Diagnosis": "Benign Paroxysmal Positional Vertigo (BPPV)"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with sudden-onset symptoms of vertigo.",
+        "Patient_Actor": {
+          "Demographics": "59-year-old male",
+          "History": "The patient presents to the emergency department with a sudden-onset sensation that the room is spinning, leading to several episodes of nausea and vomiting. The symptoms started as he was going to bed and lasted for approximately 3 minutes. He mentions that he has never experienced anything like this before and currently feels at his baseline.",
+          "Symptoms": {
+            "Primary_Symptom": "Sudden-onset sensation of the room spinning",
+            "Secondary_Symptoms": [
+              "Nausea",
+              "Vomiting",
+              "Dizziness"
+            ]
+          },
+          "Past_Medical_History": "The patient is otherwise healthy with only a history of eczema. No prior episodes of similar nature.",
+          "Social_History": "No significant social history provided.",
+          "Review_of_Systems": "Denies headaches, hearing loss, tinnitus, loss of consciousness or neurological deficits."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "97.7\u00b0F (36.5\u00b0C)",
+            "Blood_Pressure": "134/85 mmHg",
+            "Heart_Rate": "85 bpm",
+            "Respiratory_Rate": "13 breaths/min",
+            "Oxygen_Saturation": "98% on room air"
+          },
+          "General_Examination": {
+            "Appearance": "Healthy man with a normal gait",
+            "Neurological": {
+              "Nystagmus": "Physiologic nystagmus observed, with severe symptoms and notable nystagmus when head is turned to the left and laid back",
+              "Cranial_Nerve_Exam": "Unremarkable"
+            }
+          }
+        },
+        "Test_Results": {
+          "Head_Imaging": {
+            "Findings": "Normal, with no evidence of stroke or masses."
+          },
+          "Audiometry": {
+            "Findings": "Within normal limits for age."
+          },
+          "Dix-Hallpike_Manoeuvre": {
+            "Findings": "Positive, inducing nystagmus and reproducing patient\u2019s symptoms of vertigo when head is turned to the left and laid back."
+          }
+        },
+        "Correct_Diagnosis": "Benign paroxysmal positional vertigo"
+      }
+    }
+  ]
+}

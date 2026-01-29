@@ -1,0 +1,151 @@
+{
+  "cluster_id": 21,
+  "cluster_name": "Malignant Skin Cancers",
+  "transfer_rate": "~85%",
+  "diseases": [
+    "Malignant melanoma",
+    "Squamous cell carcinoma",
+    "Bowen's Disease"
+  ],
+  "transfer_requirements": {
+    "age": "typically >50 (melanoma can be younger)",
+    "gender": "any",
+    "context": "sun exposure history important"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "changing skin lesion",
+      "ABCDE criteria (melanoma)",
+      "ulceration"
+    ],
+    "pivotal_tests": [
+      "biopsy",
+      "dermoscopy",
+      "staging imaging if malignant"
+    ],
+    "reasoning_pattern": "Suspicious lesion \u2192 biopsy for diagnosis \u2192 staging",
+    "transfer_rate": "~85%"
+  },
+  "total_cases": 3,
+  "train_cases_count": 1,
+  "test_cases_count": 2,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate and diagnose the dermatological condition presented by the patient, focusing on lesions with potential oncologic implications.",
+        "Patient_Actor": {
+          "Demographics": "62-year-old male",
+          "History": "The patient has recently immigrated to the US from Africa and seeks evaluation for a non-healing, red, crusty lesion on the shaft of his penis and a similar lesion on his left middle finger. Previous treatments in his home country for syphilis and eczema have been unsuccessful. The patient is a smoker, with a history of two packs per day for the last 30 years.",
+          "Symptoms": {
+            "Primary_Symptom": "Non-healing, crusty, red lesions on the penile shaft and left middle finger",
+            "Secondary_Symptoms": [
+              "Lesions are painless",
+              "History of unsuccessful treatment for syphilis and eczema"
+            ]
+          },
+          "Past_Medical_History": "No known malignancies or hereditary diseases in the family. Previous treatments for syphilis and eczema.",
+          "Social_History": "Lives with his 4th wife, smokes 2 packs of cigarettes per day for the last 30 years, has recently immigrated from Africa.",
+          "Review_of_Systems": "Denies any systemic symptoms such as fever, weight loss, night sweats, or malaise. No other similar lesions elsewhere on the body."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "130/85 mmHg",
+            "Heart_Rate": "82 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Dermatological_Examination": {
+            "Inspection": "An erythematous plaque with areas of crusting, oozing, and irregular borders observed on the dorsal surface of the penile shaft and on the left middle finger.",
+            "Palpation": "Lesions are firm to touch, non-tender, with no warmth.",
+            "Regional_Lymph_Nodes": "No palpable cervical, axillary, or inguinal lymphadenopathy."
+          }
+        },
+        "Test_Results": {
+          "Biopsy": {
+            "Findings": "Cells with nuclear hyperchromasia, multinucleation, and increased mitotic figures within the follicle-bearing epithelium."
+          },
+          "STD_Panel": {
+            "Syphilis": "Negative",
+            "HIV": "Negative",
+            "HBV": "Negative",
+            "HCV": "Negative"
+          }
+        },
+        "Correct_Diagnosis": "Bowen's Disease"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with a chest skin lesion.",
+        "Patient_Actor": {
+          "Demographics": "63-year-old male",
+          "History": "The patient reports noticing a skin lesion on his chest 2 months ago, which he believes has increased in size. He denies any associated pain or itching with the lesion. He has a medical history significant for type 2 diabetes mellitus, hypercholesterolemia, and glaucoma.",
+          "Symptoms": {
+            "Primary_Symptom": "Skin lesion on the chest",
+            "Secondary_Symptoms": [
+              "Lesion has increased in size",
+              "Not painful",
+              "Not itchy"
+            ]
+          },
+          "Past_Medical_History": "Type 2 diabetes mellitus, hypercholesterolemia, glaucoma",
+          "Social_History": "Smokes 1 pack of cigarettes daily for the last 40 years, drinks two to three beers on weekends",
+          "Review_of_Systems": "Denies recent weight loss, fever, fatigue, or changes in appetite."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98\u00b0F)",
+            "Blood_Pressure": "130/85 mmHg",
+            "Heart_Rate": "75 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Skin_Examination": {
+            "Inspection": "A single, partly elevated lesion located on the chest. The lesion exhibits asymmetry, border irregularity, and varied color with diameter larger than 6mm.",
+            "Palpation": "The lesion is firm on palpation with a partly elevated nature, and it does not change form on pinching."
+          }
+        },
+        "Test_Results": {
+          "Skin_Biopsy": {
+            "Histopathology_Findings": "Atypical melanocytes that infiltrate the epidermis and dermis, confirming the diagnosis of malignant melanoma."
+          }
+        },
+        "Correct_Diagnosis": "Malignant melanoma"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with a lesion on his lower lip, taking into consideration his medical history and habits.",
+        "Patient_Actor": {
+          "Demographics": "58-year-old white man",
+          "History": "The patient reports a 3-month history of a painless lesion on his lower lip. He is a smoker with a one pack per day habit for the last 20 years and has worked as a fruit picker for the past 25 years.",
+          "Symptoms": {
+            "Primary_Symptom": "Painless lesion on the lower lip",
+            "Secondary_Symptoms": []
+          },
+          "Past_Medical_History": "Hypertension, Type 2 Diabetes Mellitus. Current medications include captopril and metformin.",
+          "Social_History": "Smokes one pack of cigarettes daily for 20 years. Works outside as a fruit picker.",
+          "Review_of_Systems": "No other complaints or symptoms reported."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "130/85 mmHg",
+            "Heart_Rate": "72 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Oral_Examination": {
+            "Inspection": "Single ulcer near the vermillion border of the lower lip, without any obvious signs of healing. The ulcer is non-tender on palpation."
+          }
+        },
+        "Test_Results": {
+          "Biopsy_of_Lesion": {
+            "Findings": "Dysplasia and keratin pearls, consistent with squamous cell carcinoma"
+          }
+        },
+        "Correct_Diagnosis": "Squamous cell carcinoma"
+      }
+    }
+  ]
+}

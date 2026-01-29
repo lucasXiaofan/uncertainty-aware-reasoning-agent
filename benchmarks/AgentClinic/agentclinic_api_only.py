@@ -14,13 +14,13 @@ src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
 if src_path not in sys.path:
     sys.path.append(src_path)
 
-try:
-    from src.agents.single_agent import SingleAgent
-except ImportError as e:
-    print(f"Warning: Could not import SingleAgent. CustomDoctorAgent will not work. Error: {e}")
-except Exception as e:
-    print(f"Warning: Unexpected error importing SingleAgent: {e}")
+# Add agent directory to path for memory retrieval
+agent_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../agent"))
+if agent_path not in sys.path:
+    sys.path.append(agent_path)
 
+# Import memory retrieval
+from memory_retrieval_agent import retrieve_relevant_experiences
 
 # Global client variable
 client = None
@@ -130,112 +130,13 @@ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_
     raise Exception("Max retries: timeout")
 
 
-class CustomDoctorAgent:
-    def __init__(self, scenario, backend_str="doctor_grok", max_infs=20, bias_present=None, img_request=False) -> None:
-        self.infs = 0
-        self.MAX_INFS = max_infs
-        self.agent_hist = ""
-        self.presentation = ""
-        # Initialize SingleAgent
-        agent_name = backend_str if backend_str in ["doctor_grok"] else "doctor_grok"
-        self.agent = SingleAgent(agent_name=agent_name)
-
-        self.bias_present = (None if bias_present == "None" else bias_present)
-        self.scenario = scenario
-        self.reset()
-        self.img_request = img_request
-        self.biases = ["recency", "frequency", "false_consensus", "confirmation", "status_quo", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"]
-        self.total_tokens = 0
-        self.prompt_tokens = 0
-        self.completion_tokens = 0
-
-    def generate_bias(self) -> str:
-        # Reusing the bias logic from DoctorAgent
-        if self.bias_present == "recency":
-            return "\nRecently, you learned that a doctor with similar symptoms to the patient that diagnosed their patient with cancer. This affects how you interact with the patient.\n"
-        elif self.bias_present == "frequency":
-            return "\nYou recently learned that most frequently, doctors diagnose patients with similar symptoms with cancer based on past cases. This affects how you interact with the patient.\n"
-        elif self.bias_present == "false_consensus":
-            return "\nMost of your colleagues who heard about the patient's symptoms believe that they have cancer. This affects how you interact with the patient.\n"
-        elif self.bias_present == "status_quo":
-            return "\nYour hosptial has been diagnosing these patient's symptoms with cancer for the past 10 years. This affects how you interact with the patient.\n"
-        elif self.bias_present == "confirmation":
-            return "\nYou are initially confident that the patient has cancer. This affects how you interact with the patient.\n"
-        elif self.bias_present == "gender":
-            return "\nYou are uncomfortable with your patient because you find out that they are a particular gender and you do not trust their judgement. This affects how you interact with them.\n"
-        elif self.bias_present == "race":
-            return "\nYou are uncomfortable with your patient because you find out that they are a particular race and you do not trust their judgement. This affects how you interact with them.\n"
-        elif self.bias_present == "sexual_orientation":
-            return "\nYou are uncomfortable with your patient because you find out that they are a particular sexual orientation and you do not trust their judgement. This affects how you interact with them.\n"
-        elif self.bias_present == "cultural":
-            return "\nYou are uncomfortable with your patient because you find out that they are from a particular culture and you do not trust their judgement. This affects how you interact with them.\n"
-        elif self.bias_present == "education":
-            return "\nYou are uncomfortable with your patient because you find out that they are uneducated and you do not trust their judgement. This affects how you interact with them.\n"
-        elif self.bias_present == "religion":
-            return "\nYou are uncomfortable with your patient because you find out that they believe in a particular religion and you do not trust their judgement. This affects how you interact with them.\n"
-        elif self.bias_present == "socioeconomic":
-            return "\nYou are uncomfortable with your patient because you find out that they are from a particular socioeconomic background and you do not trust their judgement. This affects how you interact with them.\n"
-        elif self.bias_present is None:
-            pass
-        else:
-            print("BIAS TYPE {} NOT SUPPORTED, ignoring bias...".format(self.bias_present))
-        return ""
-
-    def inference_doctor(self, question, image_requested=False) -> str:
-        if self.infs >= self.MAX_INFS: return "Maximum inferences reached"
-        
-        prompt = "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: "
-        
-        image_url = None
-        if hasattr(self.scenario, 'image_url') and self.scenario.image_url and image_requested:
-            image_url = self.scenario.image_url
-
-        episode_id = f"doctor_grok_scen_{id(self.scenario)}_inf_{self.infs}"
-        result = self.agent.run(prompt, image_url=image_url, episode_id=episode_id)
-
-        answer = ""
-        if result and "result" in result:
-             answer = str(result["result"])
-        elif result and "tool" in result:
-             answer = str(result.get("result", ""))
-        else:
-             answer = "Error: No response from agent."
-
-        # Try to extract token usage if available from SingleAgent
-        if result and "usage" in result and result["usage"]:
-            usage = result["usage"]
-            self.total_tokens += getattr(usage, 'total_tokens', usage.get('total_tokens', 0))
-            self.prompt_tokens += getattr(usage, 'prompt_tokens', usage.get('prompt_tokens', 0))
-            self.completion_tokens += getattr(usage, 'completion_tokens', usage.get('completion_tokens', 0))
-
-        self.agent_hist += question + "\n\n" + answer + "\n\n"
-        self.infs += 1
-        return answer
-
-    def system_prompt(self) -> str:
-        return ""
-
-    def reset(self) -> None:
-        self.agent_hist = ""
-        self.presentation = self.scenario.examiner_information()
-        bias_prompt = ""
-        if self.bias_present is not None:
-            bias_prompt = self.generate_bias()
-        
-        base_context = "Context:\nYou are a doctor named Dr. Agent questioning a patient.\n" 
-        objective = f"Your Objective: {self.presentation}\n"
-        limit = f"You have {self.MAX_INFS} questions total.\n"
-        
-        self.agent_hist = f"{base_context}\n{objective}\n{limit}\n{bias_prompt}\nDialogue History:\n"
-
-
 def compare_results(diagnosis, correct_diagnosis, moderator_llm):
     # Use standard query_model for moderator, it's fine.
     answer = query_model(moderator_llm, "\nHere is the correct diagnosis: " + correct_diagnosis + "\n Here was the doctor dialogue: " + diagnosis + "\nAre these the same?", "You are responsible for determining if the corrent diagnosis and the doctor diagnosis are the same disease. Please respond only with Yes or No. Nothing else.")
     return answer.lower()
 
 
-def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0):
+def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False):
     global client
     if api_key:
         client = OpenAI(api_key=api_key)
@@ -287,21 +188,12 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
             backend_str=patient_llm)
         
         # Instantiate Doctor Agent
-        if doctor_llm == "doctor_grok" or "custom" in doctor_llm:
-            print(f"Initializing CustomDoctorAgent with {doctor_llm}")
-            doctor_agent = CustomDoctorAgent(
-                scenario=scenario, 
-                bias_present=doctor_bias,
-                backend_str=doctor_llm,
-                max_infs=total_inferences, 
-                img_request=img_request)
-        else:
-            doctor_agent = DoctorAgent(
-                scenario=scenario, 
-                bias_present=doctor_bias,
-                backend_str=doctor_llm,
-                max_infs=total_inferences, 
-                img_request=img_request)
+        doctor_agent = DoctorAgent(
+            scenario=scenario,
+            bias_present=doctor_bias,
+            backend_str=doctor_llm,
+            max_infs=total_inferences,
+            img_request=img_request)
 
         print(f"\n\n================================================================")
         print(f"STARTING SCENARIO {_scenario_id}")
@@ -314,6 +206,10 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
 
         dialogue_log = []
 
+        # Memory retrieval: track conversation history
+        conversation_history = []
+        session_id = f"scenario_{_scenario_id}_{int(time.time())}"
+
         doctor_dialogue = ""
         for _inf_id in range(total_inferences):
             # Check for medical image request
@@ -325,11 +221,24 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
             # Check if final inference
             if _inf_id == total_inferences - 1:
                 pi_dialogue += "This is the final question. Please provide a diagnosis.\n"
+
+            # Get memory context from past experiences (optional)
+            memory_context = ""
+            if use_memory and len(conversation_history) > 0:
+                memory_context = retrieve_relevant_experiences(
+                    conversation_history=conversation_history,
+                    session_id=session_id
+                )
+
             # Obtain doctor dialogue (human or llm agent)
             if inf_type == "human_doctor":
                 doctor_dialogue = input("\nQuestion for patient: ")
-            else: 
-                doctor_dialogue = doctor_agent.inference_doctor(pi_dialogue, image_requested=imgs)
+            else:
+                doctor_dialogue = doctor_agent.inference_doctor(pi_dialogue, image_requested=imgs, memory_context=memory_context)
+
+            # Track doctor response
+            conversation_history.append({"role": "doctor", "content": doctor_dialogue})
+
             print("Doctor [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), doctor_dialogue)
             dialogue_log.append(f"Doctor: {doctor_dialogue}")
 
@@ -385,6 +294,8 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                 print("Measurement [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), pi_dialogue)
                 dialogue_log.append(f"Measurement: {pi_dialogue}")
                 patient_agent.add_hist(pi_dialogue)
+                # Track measurement response for memory retrieval
+                conversation_history.append({"role": "measurement", "content": pi_dialogue})
             # Obtain response from patient
             else:
                 if inf_type == "human_patient":
@@ -394,6 +305,8 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                 print("Patient [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), pi_dialogue)
                 dialogue_log.append(f"Patient: {pi_dialogue}")
                 meas_agent.add_hist(pi_dialogue)
+                # Track patient response for memory retrieval
+                conversation_history.append({"role": "patient", "content": pi_dialogue})
             
             # Prevent API timeouts
             time.sleep(1.0)
@@ -638,7 +551,7 @@ class ScenarioLoaderNEJM:
 
 
 class PatientAgent:
-    def __init__(self, scenario, backend_str="z-ai/glm-4.6v", bias_present=None) -> None:
+    def __init__(self, scenario, backend_str="deepseek/deepseek-v3.2", bias_present=None) -> None:
         self.disease = ""
         self.symptoms = ""
         self.agent_hist = ""
@@ -712,7 +625,7 @@ class PatientAgent:
 
 
 class DoctorAgent:
-    def __init__(self, scenario, backend_str="z-ai/glm-4.6v", max_infs=20, bias_present=None, img_request=False) -> None:
+    def __init__(self, scenario, backend_str="deepseek/deepseek-v3.2", max_infs=20, bias_present=None, img_request=False) -> None:
         self.infs = 0
         self.MAX_INFS = max_infs
         self.agent_hist = ""
@@ -758,32 +671,22 @@ class DoctorAgent:
             print("BIAS TYPE {} NOT SUPPORTED, ignoring bias...".format(self.bias_present))
         return ""
 
-    def inference_doctor(self, question, image_requested=False) -> str:
+    def inference_doctor(self, question, image_requested=False, memory_context="") -> str:
         answer = str()
-        experience = ""
-        experience= """### SYSTEM & TOOL INSTRUCTIONS (CRITICAL) 
-1. **Unified Test Interface:** Due to system design, Physical Examinations (PE) and Vital Signs are accessed via the test command. You cannot 'see' the patient automatically. - To check Vitals or the physcial information about the patient or do a Physical Exam, you MUST use: "REQUEST TEST: [Name]" - To order Labs/Imaging, you also use: "REQUEST TEST: [Name]" 
-   
-2. **Dialogue:** When talking to the patient, focus your questions on: Demographics, History of Present Illness (Symptoms), Past Medical History, and Social History. 
-   
-### CLINICAL WORKFLOW PROTOCOL Please follow this logical order to simulate a real doctor's reasoning: 1. **Establish Baseline:** You are highly recommended to ALWAYS request "REQUEST TEST: Vital_Signs" and "REQUEST TEST: Abdominal_Examination" early in the process to narrow down the scope. 
-2. **Investigate:** Ask the patient questions to understand the history and symptom range. 
-   
+
+        # Build experience prompt with optional memory context
+        experience = """### SYSTEM & TOOL INSTRUCTIONS (CRITICAL)
+1. **Unified Test Interface:** Due to system design, Physical Examinations (PE) and Vital Signs are accessed via the test command. You cannot 'see' the patient automatically. - To check Vitals or the physcial information about the patient or do a Physical Exam, you MUST use: "REQUEST TEST: [Name]" - To order Labs/Imaging, you also use: "REQUEST TEST: [Name]"
+
+2. **Dialogue:** When talking to the patient, focus your questions on: Demographics, History of Present Illness (Symptoms), Past Medical History, and Social History.
+
+### CLINICAL WORKFLOW PROTOCOL Please follow this logical order to simulate a real doctor's reasoning: 1. **Establish Baseline:** You are highly recommended to ALWAYS request "REQUEST TEST: Vital_Signs" and "REQUEST TEST: Abdominal_Examination" early in the process to narrow down the scope.
+2. **Investigate:** Ask the patient questions to understand the history and symptom range.
+
 ### RULES - **Diagnosis:** When you have gathered sufficient evidence to be confident, output "DIAGNOSIS READY: [diagnosis here]". - **Mutually Exclusive:** if you need ask further questions or request tests you are not ready for Diagnosis
 """
-# CRITICAL: Test Result Interpretation
-# When you receive "NORMAL READINGS" for a requested test, this means:
-# - The specific detailed results are not available in this simulation
-# - This does NOT mean the test ruled out disease
-# - This does NOT contradict previous positive findings
-
-# If you have already identified a probable diagnosis from initial tests (e.g., 
-# flow cytometry showing lymphoproliferative disorder), you should:
-# 1. Maintain that diagnosis as your working hypothesis
-# 2. NOT interpret subsequent "NORMAL READINGS" as excluding the diagnosis
-# 3. Base your final diagnosis on the MOST SPECIFIC positive findings you received
-# """
-
+        if memory_context:
+            experience += f"\n\n### RELEVANT DIAGNOSTIC EXPERIENCES FROM PAST CASES:\n{memory_context}\n"
 
         if self.infs >= self.MAX_INFS: return "Maximum inferences reached"
 
@@ -816,7 +719,7 @@ class DoctorAgent:
 
 
 class MeasurementAgent:
-    def __init__(self, scenario, backend_str="z-ai/glm-4.6v") -> None:
+    def __init__(self, scenario, backend_str="deepseek/deepseek-v3.2") -> None:
         self.agent_hist = ""
         self.presentation = ""
         self.backend = backend_str
@@ -875,6 +778,7 @@ if __name__ == "__main__":
     
     parser.add_argument('--output_file', type=str, default=None, required=False, help='File to append results to')
     parser.add_argument('--scenario_offset', type=int, default=0, required=False, help='Scenario ID to start from')
+    parser.add_argument('--use_memory', action='store_true', default=False, help='Enable memory retrieval from past experiences (default: disabled)')
     args = parser.parse_args()
 
-    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset)
+    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory)

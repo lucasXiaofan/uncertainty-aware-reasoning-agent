@@ -1,0 +1,453 @@
+{
+  "cluster_id": 10,
+  "cluster_name": "Structural Valvular Heart Disease",
+  "transfer_rate": "~85%",
+  "diseases": [
+    "Aortic valve stenosis",
+    "Atrial Septal Defect",
+    "Atrial Myxoma",
+    "Coarctation of the aorta",
+    "Hypertrophic Cardiomyopathy",
+    "Tetralogy of Fallot",
+    "Double aortic arch"
+  ],
+  "transfer_requirements": {
+    "age": "varies (congenital: pediatric; acquired: adult/elderly)",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "murmur",
+      "dyspnea",
+      "syncope",
+      "cyanosis (if congenital)"
+    ],
+    "pivotal_tests": [
+      "echocardiography",
+      "ECG",
+      "CXR"
+    ],
+    "reasoning_pattern": "Murmur/cardiac symptoms \u2192 echo to characterize \u2192 assess severity",
+    "transfer_rate": "~85%"
+  },
+  "total_cases": 8,
+  "train_cases_count": 4,
+  "test_cases_count": 4,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the pediatric patient presenting with symptoms potentially indicative of a congenital heart anomaly.",
+        "Patient_Actor": {
+          "Demographics": "2-year-old girl",
+          "History": "The child has been increasingly irritable over the past few weeks. She has episodes where she becomes pale and occasionally cyanotic. The parents mention a previous diagnosis of heart murmur that was not investigated further.",
+          "Symptoms": {
+            "Primary_Symptom": "Irritability",
+            "Secondary_Symptoms": [
+              "Paleness",
+              "Cyanotic episodes",
+              "History of heart murmur"
+            ]
+          },
+          "Past_Medical_History": "No other significant medical history. Birth history and developmental milestones are unreported.",
+          "Social_History": "Lives with both parents and one sibling. No reported tobacco smoke exposure. Immunizations up to date for age.",
+          "Review_of_Systems": "Denies fever, vomiting, diarrhea, cough, or difficulty breathing. No reported feeding difficulties currently."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "95/58 mmHg",
+            "Heart_Rate": "110 bpm",
+            "Respiratory_Rate": "22 breaths/min"
+          },
+          "Cardiovascular_Examination": {
+            "Inspection": "The child assumes a squatting position when distressed.",
+            "Palpation": "Normal pulse in upper and lower extremities, no significant difference in pulse amplitude.",
+            "Auscultation": "Harsh, systolic ejection murmur best heard at the upper left sternal border. No diastolic murmur noted."
+          },
+          "Other_Examinations": {
+            "Pulmonary_Examination": {
+              "Inspection_and_Palpation": "No use of accessory muscles. Symmetric chest expansion.",
+              "Auscultation": "Clear lung fields bilaterally, no wheezes, crackles, or rhonchi."
+            },
+            "Extremities": {
+              "Inspection": "No cyanosis, clubbing, or edema."
+            }
+          }
+        },
+        "Test_Results": {
+          "Chest_X-ray": {
+            "Findings": "Boot-shaped heart, suggesting right ventricular hypertrophy. Clear lung fields."
+          },
+          "Echocardiogram": {
+            "Findings": "Ventricular septal defect, pulmonary stenosis, overriding aorta, and right ventricular hypertrophy consistent with Tetralogy of Fallot."
+          }
+        },
+        "Correct_Diagnosis": "Tetralogy of Fallot"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with sudden loss of consciousness during a physical activity.",
+        "Patient_Actor": {
+          "Demographics": "23-year-old male",
+          "History": "The patient collapsed suddenly while pitching in a baseball game. He regained consciousness after receiving cardiopulmonary resuscitation. There is no notable history of trauma associated with the event. He denies any history of seizures, diabetes, or cardiovascular diseases. No family history of sudden cardiac death or genetic diseases.",
+          "Symptoms": {
+            "Primary_Symptom": "Sudden loss of consciousness",
+            "Secondary_Symptoms": [
+              "Recovery after CPR",
+              "No history of injury",
+              "No previous similar episodes"
+            ]
+          },
+          "Past_Medical_History": "Negative for any neurological or cardiovascular problems.",
+          "Social_History": "Non-smoker, occasional alcohol drinker. No drug use. Active lifestyle as a baseball player.",
+          "Review_of_Systems": "Denies chest pain, palpitations, shortness of breath, or seizure-like activity prior to the event."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "130/85 mmHg",
+            "Heart_Rate": "68 bpm",
+            "Respiratory_Rate": "14 breaths/min"
+          },
+          "Cardiovascular_Examination": {
+            "Inspection": "No visible chest deformities.",
+            "Palpation": "Prominent double apical impulse",
+            "Auscultation": "S4 present, no murmurs, rubs, or gallops heard.",
+            "JVP": "Prominent A wave on jugular venous pulse."
+          },
+          "Neurological_Examination": {
+            "Mental_Status": "Alert and oriented to time, place, and person.",
+            "Cranial_Nerves": "Normal",
+            "Motor_Function": "No deficits noted.",
+            "Sensory_Function": "Intact",
+            "Reflexes": "Normal"
+          }
+        },
+        "Test_Results": {
+          "ECG": {
+            "Findings": "Normal sinus rhythm with possible left ventricular hypertrophy"
+          },
+          "Echocardiogram": {
+            "Findings": "Left ventricular hypertrophy with asymmetrical septal thickening. No valvular abnormalities."
+          },
+          "Blood_Tests": {
+            "Complete_Blood_Count": "Normal",
+            "Electrolytes": "Within normal limits",
+            "Cardiac_Enzymes": "Normal"
+          }
+        },
+        "Correct_Diagnosis": "Hypertrophic Cardiomyopathy"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with shortness of breath and a history of an unexplained loss of consciousness.",
+        "Patient_Actor": {
+          "Demographics": "41-year-old female",
+          "History": "The patient reports experiencing shortness of breath that worsens when lying on her left side. Approximately 10 days ago, she had an episode of unexplained loss of consciousness. She denies any significant past medical or family history.",
+          "Symptoms": {
+            "Primary_Symptom": "Shortness of breath worsening on left lateral decubitus position",
+            "Secondary_Symptoms": [
+              "Episode of unexplained loss of consciousness"
+            ]
+          },
+          "Past_Medical_History": "Negative for any notable conditions.",
+          "Social_History": "Non-smoker, drinks alcohol socially, and works as an accountant.",
+          "Review_of_Systems": "Denies chest pain, palpitations, fever, cough, edema, or recent travel."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98\u00b0F)",
+            "Blood_Pressure": "130/80 mmHg",
+            "Heart_Rate": "90 bpm",
+            "Respiratory_Rate": "18 breaths/min"
+          },
+          "Cardiac_Examination": {
+            "Inspection": "Jugular venous distention",
+            "Auscultation": "Diastolic murmur best heard over the left sternal border, accentuated in the left lateral decubitus position",
+            "Palpation": "No palpable thrill"
+          },
+          "Respiratory_Examination": {
+            "Inspection": "Mild effort in breathing",
+            "Auscultation": "Fine crackles at the base of the lungs, not clearing with cough",
+            "Percussion": "Normal resonance",
+            "Palpation": "No tactile fremitus"
+          }
+        },
+        "Test_Results": {
+          "Chest_X-ray": {
+            "Findings": "Evidence of pulmonary congestion"
+          },
+          "Echocardiogram": {
+            "Findings": "Mass in the left atrium attached to the atrial septum"
+          }
+        },
+        "Correct_Diagnosis": "Atrial Myxoma"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with sudden loss of consciousness and no prior history of neurological or cardiovascular problems.",
+        "Patient_Actor": {
+          "Demographics": "23-year-old male",
+          "History": "The patient experienced sudden loss of consciousness while pitching in a baseball game. No history of trauma associated with the event. The patient regained consciousness after receiving cardiopulmonary resuscitation.",
+          "Symptoms": {
+            "Primary_Symptom": "Sudden loss of consciousness",
+            "Secondary_Symptoms": [
+              "No history of neurological problems",
+              "No history of cardiovascular problems"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical history.",
+          "Social_History": "Active, with regular participation in sports. No use of tobacco, alcohol, or recreational drugs reported.",
+          "Review_of_Systems": "Negative for headaches, seizures, chest pain, palpitations, shortness of breath, or dizziness prior to the event."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Blood_Pressure": "125/80 mmHg",
+            "Heart_Rate": "72 bpm",
+            "Respiratory_Rate": "16 breaths/min",
+            "Temperature": "36.7\u00b0C (98\u00b0F)"
+          },
+          "Cardiovascular_Examination": {
+            "Jugular_Venous_Pulse": "Prominent A waves observed",
+            "Apical_Impulse": "Double apical impulse palpable",
+            "Auscultation": {
+              "Murmurs": "No audible murmurs",
+              "S4": "Present"
+            }
+          }
+        },
+        "Test_Results": {
+          "Electrocardiogram": {
+            "Findings": "Signs of left ventricular hypertrophy"
+          },
+          "Echocardiogram": {
+            "Findings": "Left ventricular hypertrophy with septal thickening; reduced ventricular cavity size"
+          },
+          "Cardiac_MRI": {
+            "Findings": "Confirmatory findings of marked left ventricular hypertrophy, especially of the interventricular septum"
+          },
+          "Genetic_Testing": {
+            "Findings": "Positive for mutations associated with hypertrophic cardiomyopathy"
+          }
+        },
+        "Correct_Diagnosis": "Hypertrophic cardiomyopathy"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the infant presenting with recurrent episodes of stridor and wheezing, especially during specific activities.",
+        "Patient_Actor": {
+          "Demographics": "10-month-old boy",
+          "History": "The patient has been experiencing recurrent episodes of stridor and wheezing. The mother notes that the wheezing exacerbates when the child is crying, feeding, and when his neck is flexed. Additionally, there are instances where the child vomits after feeding.",
+          "Symptoms": {
+            "Primary_Symptom": "Recurrent episodes of stridor and wheezing",
+            "Secondary_Symptoms": [
+              "Exacerbation during crying",
+              "Exacerbation during feeding",
+              "Exacerbation with neck flexion",
+              "Relief with neck extension",
+              "Occasional vomiting post-feeding"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical or surgical history. Born full term with no complications during birth.",
+          "Social_History": "First child in the family. Lives with both parents. No exposure to smoking or pets in the household.",
+          "Review_of_Systems": "Denies fever, diarrhea, rash, or other respiratory symptoms such as cough."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Blood_Pressure": "Not applicable for age",
+            "Heart_Rate": "110 bpm",
+            "Respiratory_Rate": "30 breaths/min"
+          },
+          "Respiratory_Examination": {
+            "Inspection": "Mild intercostal retractions noted",
+            "Auscultation": "Wheezing audible during episodes, no crackles",
+            "Palpation": "No crepitus or significant findings on palpation",
+            "Percussion": "Clear lung fields on percussion"
+          },
+          "Cardiovascular_Examination": {
+            "Inspection": "Normal",
+            "Auscultation": "Regular rhythm, no murmurs",
+            "Palpation": "No abnormalities noted",
+            "Percussion": "Normal heart borders"
+          },
+          "Neck_Examination": {
+            "Inspection": "No visible masses or swelling",
+            "Palpation": "No palpable masses or tenderness"
+          }
+        },
+        "Test_Results": {
+          "Chest_X-ray": {
+            "Findings": "Evidence of tracheal compression and a vascular ring suggestive of a double aortic arch"
+          },
+          "Barium_Swallow": {
+            "Findings": "Compression of the esophagus and trachea consistent with a vascular ring"
+          },
+          "Echocardiogram": {
+            "Findings": "Confirmatory findings of a double aortic arch"
+          }
+        },
+        "Correct_Diagnosis": "Double aortic arch"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with progressive shortness of breath and fatigue.",
+        "Patient_Actor": {
+          "Demographics": "75-year-old male",
+          "History": "The patient presents with a one-month history of progressive shortness of breath and fatigue. He reports an inability to climb more than one flight of stairs without experiencing shortness of breath and dizziness. He has a long history of smoking and is currently on medication for hypertension and hyperlipidemia.",
+          "Symptoms": {
+            "Primary_Symptom": "Progressive shortness of breath",
+            "Secondary_Symptoms": [
+              "Fatigue",
+              "Dizziness upon exertion"
+            ]
+          },
+          "Past_Medical_History": "Hypertension, Hyperlipidemia",
+          "Social_History": "Smokes one pack of cigarettes daily for the past 50 years. Does not drink alcohol.",
+          "Review_of_Systems": {
+            "Cardiovascular": "Weak peripheral pulses",
+            "Respiratory": "No complaints of cough or wheezing",
+            "GI": "No complaints of abdominal pain or change in bowel habits"
+          }
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "100/80 mm Hg",
+            "Heart_Rate": "70/min",
+            "Respiratory_Rate": "18/min"
+          },
+          "Cardiac_Examination": {
+            "Heart Sounds": "Normal rate, Possible systolic murmur heard upon auscultation which could suggest valvular heart disease"
+          },
+          "Peripheral_Examination": {
+            "Pulses": "Weak peripheral pulses",
+            "Edema": "No significant pedal edema"
+          }
+        },
+        "Test_Results": {
+          "ECG": {
+            "Findings": "Normal sinus rhythm with no significant ST changes"
+          },
+          "Chest_X-ray": {
+            "Findings": "No pulmonary congestion or cardiomegaly"
+          },
+          "Echocardiogram": {
+            "Findings": "Decreased aortic valve area, increased gradient across the aortic valve, consistent with aortic valve stenosis"
+          }
+        },
+        "Correct_Diagnosis": "Aortic valve stenosis"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Evaluate the pediatric patient for the cause of systemic hypertension and perform a directed cardiovascular examination.",
+        "Patient_Actor": {
+          "Demographics": "5-year-old boy",
+          "History": "The patient is presented by his mother for a well-child visit. The boy was born at 39 weeks gestation via spontaneous vaginal delivery, is currently up to date on all vaccines, and is meeting all developmental milestones. His mother reports that he has been generally doing well with no concerns. No family history of cardiovascular disease. The boy does not take any medications.",
+          "Symptoms": {
+            "Primary_Symptom": "High blood pressure on the right upper extremity",
+            "Secondary_Symptoms": []
+          },
+          "Past_Medical_History": "No significant past medical history. Born full term with an uneventful neonatal period.",
+          "Social_History": "Patient attends kindergarten. Lives with parents and one younger sibling. No exposure to tobacco smoke.",
+          "Review_of_Systems": "All systems review is essentially negative as reported by the mother."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Blood_Pressure_Right_Upper_Extremity": "150/80 mm Hg",
+            "Heart_Rate": "Normal for age",
+            "Respiratory_Rate": "Normal for age"
+          },
+          "Cardiovascular_Examination": {
+            "Pulses": "2+ radial pulses and trace femoral pulses",
+            "Heart_Auscultation": "Normal S1 and S2, 2/6 long systolic murmur with systolic ejection click over the left sternal border and back",
+            "Point_of_Maximal_Impact": "Normal location"
+          }
+        },
+        "Test_Results": {
+          "Echocardiogram": {
+            "Findings": "Narrowing of the aorta distal to the left subclavian artery with a gradient, consistent with coarctation. Left ventricular function is normal."
+          },
+          "Blood_Pressure_Differential": {
+            "Upper_Extremities": "150/80 mm Hg (Right), Compared to lower values in lower extremities"
+          },
+          "Chest_X-ray": {
+            "Findings": "Normal heart size, rib notching not observed (may not be present in young children)"
+          }
+        },
+        "Correct_Diagnosis": "Coarctation of the aorta"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the child presenting with rapid breathing, abnormal physical findings including liver enlargement, and pitting edema.",
+        "Patient_Actor": {
+          "Demographics": "3-year-old child",
+          "History": "The parents report that the child appears unwell and has been breathing rapidly. They also noticed some swelling in the child's legs but no fever, cough, or previous similar episodes. The child's appetite has diminished over the past few days. No recent illnesses or hospitalizations. The child is fully immunized.",
+          "Symptoms": {
+            "Primary_Symptom": "Significant rapid breathing",
+            "Secondary_Symptoms": [
+              "Appears unwell",
+              "Diminished appetite",
+              "No fever",
+              "Swelling in the legs"
+            ]
+          },
+          "Past_Medical_History": "No significant past medical history. Birth history unremarkable.",
+          "Social_History": "Lives with both parents and one older sibling. No known exposure to sick contacts or recent travel.",
+          "Review_of_Systems": "On review, there's no history of cough, fever, vomiting, or diarrhea."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37.0\u00b0C (98.6\u00b0F)",
+            "Blood_Pressure": "95/60 mmHg",
+            "Heart_Rate": "130 bpm (elevated for age)",
+            "Respiratory_Rate": "40 breaths/min (elevated for age)"
+          },
+          "Cardiovascular_Examination": {
+            "Auscultation": "Mild rales noted, fixed split S2 on inspiration. No murmurs."
+          },
+          "Respiratory_Examination": {
+            "Auscultation": "Increased respiratory effort, no wheezes or stridor."
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Mild distension.",
+            "Palpation": "Liver palpable 1.5 times the normal size for age, no splenomegaly.",
+            "Percussion": "Shifting dullness absent."
+          },
+          "Extremities": {
+            "Inspection_and_Palpation": "Mild pitting edema in both legs."
+          }
+        },
+        "Test_Results": {
+          "Chest_X-Ray": {
+            "Findings": "Enlarged cardiac silhouette, no pulmonary edema."
+          },
+          "Echocardiogram": {
+            "Findings": "Presence of an atrial septal defect with left to right shunt."
+          },
+          "Complete_Blood_Count": {
+            "WBC": "11,000 /\u03bcL",
+            "Hemoglobin": "12 g/dL",
+            "Platelets": "300,000 /\u03bcL"
+          },
+          "Liver_Function_Tests": {
+            "ALT": "45 U/L",
+            "AST": "47 U/L",
+            "Albumin": "4.0 g/dL",
+            "Total_Bilirubin": "0.8 mg/dL"
+          }
+        },
+        "Correct_Diagnosis": "Atrial Septal Defect"
+      }
+    }
+  ]
+}

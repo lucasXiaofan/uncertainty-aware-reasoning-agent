@@ -70,22 +70,21 @@ export RESULTS_DIR TIMESTAMP DEPS COMMON_ARGS
 
 # Run all cases
 # We have NUM_CASES lines, so offsets are 0 to NUM_CASES-1
-seq 0 $(($NUM_CASES - 1)) | xargs -P 8 -I {} bash -c 'run_case "$@"' _ {}
+# Run only the second case (offset 1)
+echo "1" | xargs -P 1 -I {} bash -c 'run_case "$@"' _ {}
 
 echo "----------------------------------------------------------------"
 echo "All cases completed. Merging results..."
 
-# Clear output file and merge results
+# Clear output file and merge results (only case 1)
 > "$OUTPUT_FILE"
-for i in $(seq 0 $(($NUM_CASES - 1))); do
-    tmp_file="$RESULTS_DIR/tmp_failed_case_${i}_${TIMESTAMP}.jsonl"
-    if [ -f "$tmp_file" ]; then
-        cat "$tmp_file" >> "$OUTPUT_FILE"
-    fi
-done
+tmp_file="$RESULTS_DIR/tmp_failed_case_1_${TIMESTAMP}.jsonl"
+if [ -f "$tmp_file" ]; then
+    cat "$tmp_file" >> "$OUTPUT_FILE"
+fi
 
-# Clean up temporary files
-rm -f "$RESULTS_DIR"/tmp_failed_case_*_"${TIMESTAMP}".jsonl
+# Clean up temporary files (only case 1)
+rm -f "$RESULTS_DIR/tmp_failed_case_1_${TIMESTAMP}.jsonl"
 
 # Restore original dataset
 if [ -f "agentclinic_medqa_extended.jsonl.backup_${TIMESTAMP}" ]; then

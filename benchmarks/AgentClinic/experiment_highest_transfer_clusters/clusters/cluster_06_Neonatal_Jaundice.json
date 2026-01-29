@@ -1,0 +1,166 @@
+{
+  "cluster_id": 6,
+  "cluster_name": "Neonatal Jaundice",
+  "transfer_rate": "~85%",
+  "diseases": [
+    "Physiological neonatal jaundice",
+    "Breast milk jaundice",
+    "Biliary atresia"
+  ],
+  "transfer_requirements": {
+    "age": "REQUIRED: neonatal (0-28 days)",
+    "gender": "any"
+  },
+  "shared_diagnostic_path": {
+    "key_symptoms": [
+      "jaundice",
+      "age at onset"
+    ],
+    "pivotal_tests": [
+      "total/direct bilirubin",
+      "timing of onset",
+      "stool color"
+    ],
+    "reasoning_pattern": "Neonatal jaundice \u2192 assess timing + direct vs indirect \u2192 determine if pathologic",
+    "transfer_rate": "~85%"
+  },
+  "total_cases": 3,
+  "train_cases_count": 1,
+  "test_cases_count": 2,
+  "train_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the newborn presenting with increasing yellow discoloration of the eyes and skin.",
+        "Patient_Actor": {
+          "Demographics": "2-week-old female newborn",
+          "History": "The patient has been experiencing increasing yellow discoloration of her eyes and skin for 2 days. She was born at 39 weeks' gestation, initially weighed 3066 g and now weighs 3200 g. The patient is exclusively breastfed.",
+          "Symptoms": {
+            "Primary_Symptom": "Increasing yellow discoloration of the eyes and skin",
+            "Secondary_Symptoms": [
+              "Exclusively breastfed",
+              "Brother died 3 months after liver surgery"
+            ]
+          },
+          "Past_Medical_History": "Born at 39 weeks' gestation. Exclusive breastfeeding. Family history notable for older brother's death possibly related to liver issues.",
+          "Social_History": "Not applicable for age.",
+          "Review_of_Systems": "Temperature of 37.1\u00b0C, pulse of 145/min, and respirations of 40/min. No other symptoms reported by the caregiver."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "37.1\u00b0C (98.8\u00b0F)",
+            "Heart_Rate": "145 bpm",
+            "Respiratory_Rate": "40 breaths/min"
+          },
+          "General_Examination": {
+            "Inspection": "Yellow discoloration of the eyes and skin extending to the palms and soles.",
+            "Palpation": "Liver palpated 1 cm below the right costal margin. No other abnormal findings."
+          }
+        },
+        "Test_Results": {
+          "Complete_Blood_Count": {
+            "Hematocrit": "51%"
+          },
+          "Liver_Function_Tests": {
+            "Bilirubin_Total": "16.1 mg/dL",
+            "Bilirubin_Direct": "0.7 mg/dL",
+            "Alkaline_Phosphatase": "22 U/L",
+            "AST": "12 U/L",
+            "ALT": "12 U/L"
+          }
+        },
+        "Correct_Diagnosis": "Breast milk jaundice"
+      }
+    }
+  ],
+  "test_data": [
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the newborn presenting with yellowish discoloration of the skin.",
+        "Patient_Actor": {
+          "Demographics": "5-day-old male newborn",
+          "History": "The newborn's mother reports that her child has developed yellowish discoloration of the skin that started from the face and then spread to the trunk since the past day. There have been no changes in his bowel habits or urination. The baby was born full-term at 38 weeks\u2019 gestation via an uncomplicated vaginal delivery and has been exclusively breastfed every 2\u20133 hours.",
+          "Symptoms": {
+            "Primary_Symptom": "Yellowish discoloration of the skin",
+            "Secondary_Symptoms": [
+              "Discoloration started from the face then spread to the trunk",
+              "Scleral icterus noted"
+            ]
+          },
+          "Past_Medical_History": "Born full term at 38 weeks via uncomplicated vaginal delivery. No past medical history.",
+          "Social_History": "Exclusive breastfeeding every 2\u20133 hours.",
+          "Review_of_Systems": "No reported changes in bowel habits or urination."
+        },
+        "Physical_Examination_Findings": {
+          "General_Examination": {
+            "Skin": "Jaundice noted on the face, chest, and abdomen.",
+            "Eyes": "Scleral icterus"
+          },
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Heart_Rate": "120 bpm",
+            "Respiratory_Rate": "40 breaths/min"
+          }
+        },
+        "Test_Results": {
+          "Blood_Work": {
+            "Hemoglobin": "17.6 g/dL",
+            "Reticulocytes": "0.3%",
+            "Bilirubin_Total": "7 mg/dL",
+            "Bilirubin_Direct": "0.6 mg/dL"
+          },
+          "Additional_Tests": {
+            "Maternal_Blood_Group": "A, Rh-negative",
+            "Fetal_Blood_Group": "0, Rh-positive",
+            "Free_T4": "7 \u03bcg/dL"
+          }
+        },
+        "Correct_Diagnosis": "Physiological neonatal jaundice"
+      }
+    },
+    {
+      "OSCE_Examination": {
+        "Objective_for_Doctor": "Assess and diagnose the patient presenting with jaundice and scleral icterus.",
+        "Patient_Actor": {
+          "Demographics": "4-week-old female newborn",
+          "History": "The patient has been experiencing increasing yellowing of her eyes and skin for 2 weeks. Recently, the mother has noticed the baby's stools becoming pale. Initially breastfed since birth, the baby was switched to formula feeds recently due to parental concerns about breastfeeding causing jaundice. The patient was delivered vaginally at 38 weeks' gestation without complications. Parents report the baby appears healthy otherwise.",
+          "Symptoms": {
+            "Primary_Symptom": "Yellowing of the eyes and skin",
+            "Secondary_Symptoms": [
+              "Pale stools",
+              "Feeding history of both breastfeeding and formula",
+              "Normal birth history"
+            ]
+          },
+          "Past_Medical_History": "Uncomplicated pregnancy and vaginal delivery. No significant postnatal issues.",
+          "Social_History": "NA - patient is a newborn.",
+          "Review_of_Systems": "No cardiopulmonary abnormalities noted. No neurological deficits identified. Feeding and growth within normal limits for age."
+        },
+        "Physical_Examination_Findings": {
+          "Vital_Signs": {
+            "Temperature": "36.8\u00b0C (98.2\u00b0F)",
+            "Heart_Rate": "130 bpm",
+            "Respiratory_Rate": "40 breaths/min"
+          },
+          "Abdominal_Examination": {
+            "Inspection": "Jaundice noted",
+            "Auscultation": "Normal bowel sounds.",
+            "Percussion": "Liver palpated 2 cm below the right costal margin.",
+            "Palpation": "No other abnormalities noted."
+          }
+        },
+        "Test_Results": {
+          "Serum_Studies": {
+            "Bilirubin_Total": "15 mg/dL",
+            "Bilirubin_Direct": "12.3 mg/dL",
+            "Alkaline_Phosphatase": "2007 U/L",
+            "AST": "53 U/L",
+            "ALT": "45 U/L",
+            "Gamma_Glutamyl_Transferase": "154 U/L",
+            "Blood_Group": "A positive"
+          }
+        },
+        "Correct_Diagnosis": "Biliary atresia"
+      }
+    }
+  ]
+}

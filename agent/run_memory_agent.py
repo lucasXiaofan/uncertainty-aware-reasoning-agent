@@ -61,7 +61,9 @@ def run_memory_agent_on_cases(
     jsonl_path: str,
     agent_name: str = "memory_creation_agent",
     model_name: str = None,
-    output_dir: str = None
+    output_dir: str = None,
+    trajectory_log_dir: str = None,
+    conversation_log_path: str = None
 ) -> dict:
     """Run the memory creation agent on all failed cases in a JSONL file.
 
@@ -70,6 +72,8 @@ def run_memory_agent_on_cases(
         agent_name: Name of the agent to use from config
         model_name: Optional model override
         output_dir: Optional output directory for results
+        trajectory_log_dir: Optional directory to save trajectory logs
+        conversation_log_path: Optional path to conversation log file
 
     Returns:
         Summary of the run
@@ -86,7 +90,12 @@ def run_memory_agent_on_cases(
         return {"total_cases": len(all_cases), "failed_cases": 0, "processed": 0}
 
     # Initialize agent
-    agent = SingleAgent(agent_name, model_name=model_name)
+    agent = SingleAgent(
+        agent_name,
+        model_name=model_name,
+        trajectory_log_dir=trajectory_log_dir,
+        conversation_log_path=conversation_log_path
+    )
 
     # Process each failed case
     results = []
@@ -194,6 +203,16 @@ def main():
         default=None,
         help="Output directory for results"
     )
+    parser.add_argument(
+        "--trajectory-dir", "-t",
+        default=None,
+        help="Directory to save trajectory logs (default: trajectories_log/)"
+    )
+    parser.add_argument(
+        "--conversation-log", "-c",
+        default=None,
+        help="Path to conversation log file (default: memory/conversation_log.json)"
+    )
 
     args = parser.parse_args()
 
@@ -201,7 +220,9 @@ def main():
         jsonl_path=args.jsonl_file,
         agent_name=args.agent,
         model_name=args.model,
-        output_dir=args.output
+        output_dir=args.output,
+        trajectory_log_dir=args.trajectory_dir,
+        conversation_log_path=args.conversation_log
     )
 
 
