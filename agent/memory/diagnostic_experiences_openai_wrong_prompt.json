@@ -1,0 +1,151 @@
+[
+  {
+    "id": 1,
+    "case_id": "MedQA_Ext_13",
+    "situation": "Biopsy report described atypical keratinocyte features (nuclear hyperchromasia, multinucleation, increased mitoses) within follicle-bearing epithelium but did not state stromal/dermal invasion.",
+    "uncertainty": [
+      "Doctor assumed invasive cutaneous squamous cell carcinoma without seeking explicit pathologist confirmation of invasion or depth."
+    ],
+    "action": "Ask the pathologist for an explicit statement about dermal invasion and depth (invasive versus in-situ). If initial punch biopsy is superficial or inconclusive for invasion, obtain a deeper/excisional biopsy or dermatopathology consultation.",
+    "rationale": "Distinguishing Bowen's disease (SCC in situ) from invasive SCC hinges on demonstrating invasion into the dermis. The supplied biopsy description is compatible with in-situ disease and does not constitute confirmation of invasion; management (local excision size, need for staging, urgency of oncologic referral) differs substantially.",
+    "timestamp": "2026-01-29T16:39:44.949333"
+  },
+  {
+    "id": 2,
+    "case_id": "MedQA_Ext_13",
+    "situation": "Patient has synchronous lesions on the penile shaft and finger that appeared sequentially over weeks, are painless, crusted erythematous plaques without lymphadenopathy, and multiple STD tests negative.",
+    "uncertainty": [
+      "Doctor favored a metastatic process and recommended urgent wide local excision and oncologic staging without considering multicentric Bowens/field cancerization or alternative non-metastatic explanations for multiple similar lesions."
+    ],
+    "action": "Consider differential of multicentric Bowen's disease (including penile erythroplasia of Queyrat) especially with negative systemic workup and absence of nodal disease; perform full skin exam, review for other in-situ lesions, and consider local treatments (topical 5-FU, imiquimod, cryotherapy, Mohs or limited excision) or staged excision rather than immediate metastatic workup unless invasion confirmed.",
+    "rationale": "Bowen's may present as erythematous crusted plaques in sun-protected sites (penis; also can occur on fingers) and can be multicentric. Lack of systemic signs, negative imaging and no nodal disease make synchronous metastasis less likely without histologic proof of invasion.",
+    "timestamp": "2026-01-29T16:39:49.986244"
+  },
+  {
+    "id": 3,
+    "case_id": "MedQA_Ext_13",
+    "situation": "Doctor ordered CT chest/abdomen/pelvis and recommended urgent wide local excision with oncology referral before confirming invasive disease.",
+    "uncertainty": [
+      "Premature escalation to oncologic staging and wide excision without clarifying whether lesion is in situ vs invasive",
+      "and without obtaining deeper/excisional biopsy or dermatopathology review."
+    ],
+    "action": "Prioritize confirming invasion status first (deeper/excisional biopsy or dermatopathology review including comment on invasion, perineural or lymphovascular invasion) before broad cross-sectional imaging or urgent oncologic surgery referral; tailor imaging to findings (e.g., only if invasion or suspicious nodes present).",
+    "rationale": "Staging and extensive surgery are indicated for invasive SCC with risk features. For Bowen's disease (in situ), management is typically local and less morbid; avoid unnecessary staging and referrals until invasion is established.",
+    "timestamp": "2026-01-29T16:39:53.459581"
+  },
+  {
+    "id": 4,
+    "case_id": "MedQA_Ext_16",
+    "situation": "Bilateral hearing decrease was reported on bedside neuro exam and patient said hearing loss was new and concurrent with vertigo onset, but the doctor concluded vestibular neuritis without emphasizing or confirming acute cochlear involvement.",
+    "uncertainty": [
+      "High—doctor did not clarify timing or characterize hearing loss (sudden vs progressive",
+      "conductive vs sensorineural) and accepted later tests as normal without reconciling bedside finding."
+    ],
+    "action": "Ask targeted questions about timing/onset of hearing loss (sudden with vertigo vs delayed), characterize (unilateral vs bilateral, ear fullness, tinnitus), perform formal bedside tuning fork tests (Weber/Rinne) and prioritize urgent formal audiometry or ENT consult when new hearing loss accompanies acute vertigo.",
+    "rationale": "Acute new hearing loss concurrent with vertigo strongly favors labyrinthitis (which affects cochlea and vestibular apparatus) over vestibular neuritis (which spares hearing). Failure to clarify and act on this discriminating symptom led to misdiagnosis.",
+    "timestamp": "2026-01-29T16:39:54.695941"
+  },
+  {
+    "id": 5,
+    "case_id": "MedQA_Ext_16",
+    "situation": "Inconsistent auditory testing: initial bedside exam noted bilateral decreased hearing but subsequent comprehensive audiometry and ENG/VNG were reported as normal; the doctor accepted normal audiometry and ENG/VNG without reconciling these conflicting results.",
+    "uncertainty": [
+      "Moderate—possible test timing/effects of sedating medications (diphenhydramine) or testing limitations not considered; no repeat or comparison of audiogram vs bedside findings documented."
+    ],
+    "action": "When bedside exam and formal testing conflict, repeat audiometry and consider timing (perform testing when medication effects have worn off), obtain bone conduction and speech audiometry data, and consult ENT/audiology to resolve discrepancies before finalizing diagnosis.",
+    "rationale": "Reconciling conflicting exam and test results is crucial because a false-negative audiogram or temporary medication-related suppression could mask cochlear involvement indicative of labyrinthitis.",
+    "timestamp": "2026-01-29T16:39:58.174691"
+  },
+  {
+    "id": 6,
+    "case_id": "MedQA_Ext_15",
+    "situation": "Toddler with isolated acute knee hemarthrosis on ultrasound, prolonged ACT (52 s), no reported trauma, maternal uncle with similar knee swelling; initial workup including standard aPTT, Factor VIII level, and F8 sequencing reported as normal.",
+    "uncertainty": [
+      "Doctor concluded traumatic hemarthrosis rather than hereditary hemophilia despite hemarthrosis on imaging",
+      "prolonged coagulation screening (ACT)",
+      "young age with male sex and maternal-line male relative with similar presentation. Uncertainty arises from relying on single normal aPTT/Factor VIII assay and genetic sequencing without considering assay timing",
+      "inhibitors",
+      "or nonstandard/large deletions and the possibility of transiently normal factor levels or lab errors."
+    ],
+    "action": "1) Recognize ACT prolongation and hemarthrosis as red flags for bleeding disorder; order a mixing study and repeat factor VIII assay (and collect sample before any transfusion or factor exposure). 2) Request specialized testing: Nijmegen/Bethesda assay for factor VIII inhibitors, extended genetic testing for large deletions/duplications (MLPA) or inversion testing (intron 22 inversion), and consider repeat/serial factor levels and testing at a reference coagulation lab. 3) Obtain formal detailed maternal family history and test mother for carrier status; consult pediatric hematology early and avoid NSAIDs/IM injections until bleeding disorder excluded.",
+    "rationale": "Hemophilia A often presents in male infants with spontaneous joint bleeds and positive maternal-line family history. Standard aPTT/Factor VIII assays can be normal if collected after recent factor replacement, in the presence of mild disease or lab variability, or if the causative mutation is not detected by routine sequencing (e.g., large inversions or deletions). Prolonged ACT and hemarthrosis should prompt further hemostasis workup (mixing study, inhibitor testing) and specialist involvement rather than attributing the bleed to trauma.",
+    "timestamp": "2026-01-29T16:39:59.246828"
+  },
+  {
+    "id": 7,
+    "case_id": "MedQA_Ext_16",
+    "situation": "Interpretation of vestibular tests and nystagmus underestimated central vs peripheral discriminators: the doctor emphasized normal MRI and head impulse test but did not fully integrate nystagmus suppression by fixation and the clinical context of recent viral URI with hearing symptoms.",
+    "uncertainty": [
+      "Low—while MRI can exclude stroke",
+      "clinical features (horizontal unidirectional nystagmus suppressed by fixation",
+      "effect of fixation",
+      "and hearing loss) should guide distinction between vestibular neuritis and labyrinthitis."
+    ],
+    "action": "Prioritize bedside vestibular signs (directional, fixation suppression, head impulse) and symptom constellation (concurrent cochlear symptoms) over sole reliance on MRI; if head-impulse is normal but hearing loss present, consider labyrinthitis and obtain ENT review and appropriate management (e.g., steroids, antivirals if indicated).",
+    "rationale": "Accurate integration of bedside vestibular signs with cochlear symptoms avoids misattributing peripheral labyrinthine disease to isolated vestibular neuritis; imaging is useful to exclude central causes but doesn't distinguish cochlear involvement.",
+    "timestamp": "2026-01-29T16:40:02.215577"
+  },
+  {
+    "id": 8,
+    "case_id": "MedQA_Ext_1",
+    "situation": "Serum protein electrophoresis showed an increased pentameric immunoglobulin consistent with a monoclonal gammopathy, but subsequent serum immunofixation, quantitative IgM, and serum viscosity were reported as normal.",
+    "uncertainty": [
+      "Moderate — lab discordance may reflect sensitivity differences",
+      "timing",
+      "or lab error; clinician relied on single follow-up negative tests without repeating or using more sensitive assays."
+    ],
+    "action": "When SPEP suggests an IgM monoclonal spike but immunofixation/quantitative IgM are normal, urgently repeat SPEP and immunofixation at a reference lab and obtain serum free light chains and quantitative IgM; consult hematopathology for interpretation. Consider that low-level IgM clones may be missed on some assays; serial testing and correlation with clinical features are essential.",
+    "rationale": "SPEP identified a pentameric immunoglobulin (suggestive of IgM). Immunofixation and quantitative IgM can be falsely negative if the monoclonal protein is low-level or lab sensitivity varies. Confirmatory testing, repeat sampling, and specialized assays increase diagnostic sensitivity and prevent false reassurance from a single negative follow-up test.",
+    "timestamp": "2026-01-29T16:40:02.325346"
+  },
+  {
+    "id": 9,
+    "case_id": "MedQA_Ext_15",
+    "situation": "Normal initial Factor VIII level and normal F8 gene sequencing reported, with ongoing isolated hemarthrosis in a toddler and maternal uncle with similar unexplained knee swelling.",
+    "uncertainty": [
+      "Doctor discounted hemophilia A based on single normal factor assay and sequencing",
+      "assuming genetic testing rules out disease. However",
+      "sequencing did not include inversion/deletion testing and single-time factor levels can be misleading in mild or acute-phase situations; maternal carrier status was not fully confirmed."
+    ],
+    "action": "1) Repeat Factor VIII assay at a reference lab and include assays for intron 22 inversion and MLPA for deletions/duplications if initial sequencing negative. 2) Test mother for carrier status (targeted testing including inversion analysis) and review extended family bleeding history to identify affected maternal males. 3) Engage pediatric hematology/genetics to interpret complex genetic testing and guide prophylaxis/acute management.",
+    "rationale": "Routine sequencing can miss common inversion mutations (intron 22) or large structural changes; maternal carrier testing may reveal X-linked inheritance. Repeat functional testing and specialized genetic assays are needed to confidently exclude Hemophilia A.",
+    "timestamp": "2026-01-29T16:40:03.454875"
+  },
+  {
+    "id": 10,
+    "case_id": "MedQA_Ext_1",
+    "situation": "Patient has bilateral progressive blurred vision over 3 weeks with fundoscopy suggesting retinal hemorrhages/retinal vein occlusions AND an SPEP indicating a pentameric monoclonal immunoglobulin, yet clinicians concluded paraproteinemic retinopathy without pursuing Waldenstrom-specific workup.",
+    "uncertainty": [
+      "Low-to-moderate — clinical picture (retinal hemorrhages/CRVO in older adult) plus monoclonal IgM is highly suggestive of Waldenstrom macroglobulinemia even if serum viscosity is normal."
+    ],
+    "action": "Recognize Waldenstrom macroglobulinemia as a leading diagnosis when retinal hemorrhages/CRVO occur with an IgM monoclonal protein. Even if serum viscosity is normal, pursue WM-directed evaluation: repeat/confirm IgM, serum immunofixation, bone marrow evaluation with flow cytometry and IHC, and MYD88 L265P mutation testing; coordinate hematology-ophthalmology care and consider plasmapheresis if hyperviscosity symptoms present.",
+    "rationale": "WM produces IgM monoclonal protein that can cause hyperviscosity-like retinal findings without overtly elevated measured viscosity. Early recognition and targeted evaluation avoid diagnostic delay and allow timely therapy to prevent vision loss.",
+    "timestamp": "2026-01-29T16:40:06.917567"
+  },
+  {
+    "id": 11,
+    "case_id": "MedQA_Ext_15",
+    "situation": "Child has acute knee hemarthrosis with no trauma, tender refusal to bear weight, and no other bleeding sites; initial coagulation panel showed prolonged ACT but normal PT/aPTT reported, and synovial fluid RBC count noted as normal—interpretation favored traumatic bleed.",
+    "uncertainty": [
+      "Doctor accepted synovial fluid and normal platelets as excluding bleeding disorder and prioritized trauma. There was insufficient attention to clinical pattern: spontaneous hemarthrosis in a young boy without trauma is highly suggestive of hemophilia even if some tests are normal or ambiguous."
+    ],
+    "action": "1) Prioritize clinical pattern: in male infants with spontaneous single joint hemarthrosis and maternal male relative with similar presentation, presume potential hemophilia and protect against further bleeding (avoid NSAIDs/IM, immobilize, consult hematology). 2) Use targeted hemostasis pathway testing (mixing studies, serial factor assays) rather than broad non-discriminatory tests (e.g., serum uric acid, extensive autoimmune panel) that delayed diagnosis. 3) Document and escalate to hematology early; consider empiric factor replacement if bleeding significant and hemophilia strongly suspected pending confirmatory tests.",
+    "rationale": "Hemarthrosis without trauma in toddlers is a classic presentation of hemophilia A; clinical judgment should prompt expedited, specific testing and specialist involvement even when initial routine tests are unrevealing.",
+    "timestamp": "2026-01-29T16:40:08.448239"
+  },
+  {
+    "id": 12,
+    "case_id": "MedQA_Ext_1",
+    "situation": "Hematology consult and bone marrow biopsy were reported as normal despite clinical and laboratory clues pointing to IgM monoclonal gammopathy and retinal findings.",
+    "uncertainty": [
+      "Moderate — normal marrow/hematology report could reflect sampling error",
+      "lack of specialized testing (flow cytometry",
+      "immunohistochemistry",
+      "molecular testing)",
+      "or low-level marrow infiltration missed on routine stains."
+    ],
+    "action": "If clinical suspicion for Waldenstrom remains after an initial normal bone marrow, request reevaluation with targeted studies: flow cytometry, CD20/CD138 IHC, molecular testing for MYD88 L265P, and review of marrow aspirate/biopsy by an experienced hematopathologist; consider repeat biopsy or sampling of additional sites if needed.",
+    "rationale": "WM can be missed on routine marrow examination if infiltration is patchy or low-level. Specialized immunophenotyping and molecular tests increase detection sensitivity and are required to confirm lymphoplasmacytic lymphoma/Waldenstrom diagnosis.",
+    "timestamp": "2026-01-29T16:40:14.667631"
+  }
+]

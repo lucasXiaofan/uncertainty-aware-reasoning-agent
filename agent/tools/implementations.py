@@ -177,49 +177,127 @@ Generated: {timestamp}
 EXPERIENCE_FILE = Path(__file__).parent.parent / "memory" / "diagnostic_experiences.json"
 EXPERIENCE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
+# Lock file for thread-safe concurrent access
+EXPERIENCE_LOCK_FILE = EXPERIENCE_FILE.with_suffix(".lock")
 
-@tool(name="save_experience", description="Save a learning experience extracted from a failed diagnosis case. Each call immediately saves to file.")
-def save_experience(case_id: str, observation: str, suggestion: str) -> str:
+import fcntl
+import time
+
+
+def _acquire_file_lock(lock_file: Path, timeout: float = 30.0) -> int:
+    """Acquire an exclusive file lock for thread-safe file access.
+
+    Args:
+        lock_file: Path to the lock file
+        timeout: Maximum time to wait for lock (seconds)
+
+    Returns:
+        File descriptor of the lock file
+
+    Raises:
+        TimeoutError: If lock cannot be acquired within timeout
+    """
+    lock_fd = os.open(str(lock_file), os.O_CREAT | os.O_RDWR)
+    start_time = time.time()
+
+    while True:
+        try:
+            fcntl.flock(lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            return lock_fd
+        except (IOError, OSError):
+            if time.time() - start_time > timeout:
+                os.close(lock_fd)
+                raise TimeoutError(f"Could not acquire lock on {lock_file} within {timeout}s")
+            time.sleep(0.1)
+
+
+def _release_file_lock(lock_fd: int):
+    """Release a file lock.
+
+    Args:
+        lock_fd: File descriptor of the lock file
+    """
+    try:
+        fcntl.flock(lock_fd, fcntl.LOCK_UN)
+    finally:
+        os.close(lock_fd)
+
+
+@tool(name="save_experience", description="Save a learning experience extracted from a failed diagnosis case. Each call immediately saves to file. Thread-safe for concurrent access.")
+def save_experience(case_id: str, situation: str, uncertainty: str, action: str, rationale: str) -> str:
     """Save a learning experience from a failed diagnosis case directly to JSON file.
 
     Args:
         case_id: Identifier for the case (e.g., 'MedQA_Ext_2')
-        observation: Describe the critical clinical finding - specific symptom patterns,
-                    patient demographics, physical exam result ranges, or lab values
-                    that should trigger this learning
-        suggestion: Specify exactly what action to take and WHY - questions to ask,
-                   physical examinations to perform, or tests to order (with rationale)
+        situation: 1-2 sentences describing the clinical context - age, sex, chief complaint,
+                   key findings known at this point, what tests/questions have been done.
+                   Example: "47-year-old female with 3 weeks of fatigue, fever, RUQ pain.
+                   Vitals show fever 38.1°C, liver tender and enlarged on exam."
+        uncertainty: 2-4 diseases being considered at this moment (comma-separated or JSON array).
+                     Example: "viral epatitis, drug induced hepatitis, acute cholecystitis"
+        action: The specific action to take. Must start with type:
+                "ASK PATIENT: [specific question]" or
+                "PHYSICAL EXAM: [specific exam]" or
+                "REQUEST TEST: [test name]" or
+                "REQUEST IMAGE: [imaging study]"
+        rationale: 1-2 sentences explaining WHY this action helps narrow the differential.
+                   Example: "Asking about pleuritic chest pain immediately narrows differential
+                   from cardiac causes to pulmonary/pleural causes."
 
     Returns:
         Confirmation message with file path
     """
-    # Load existing experiences
-    experiences = []
-    if EXPERIENCE_FILE.exists():
-        try:
-            with open(EXPERIENCE_FILE, "r", encoding="utf-8") as f:
-                content = f.read().strip()
-                if content:
-                    experiences = json.loads(content)
-        except (json.JSONDecodeError, Exception):
-            experiences = []
+    # Acquire exclusive lock for thread-safe access
+    lock_fd = _acquire_file_lock(EXPERIENCE_LOCK_FILE)
 
-    # Create new experience entry
-    experience = {
-        "id": len(experiences) + 1,
-        "case_id": case_id,
-        "observation": observation,
-        "suggestion": suggestion,
-        "timestamp": datetime.now().isoformat()
-    }
+    try:
+        # Load existing experiences
+        experiences = []
+        if EXPERIENCE_FILE.exists():
+            try:
+                with open(EXPERIENCE_FILE, "r", encoding="utf-8") as f:
+                    content = f.read().strip()
+                    if content:
+                        experiences = json.loads(content)
+            except (json.JSONDecodeError, Exception):
+                experiences = []
 
-    experiences.append(experience)
+        # Parse uncertainty into list if it's a string
+        if isinstance(uncertainty, str):
+            # Handle both comma-separated and JSON array formats
+            uncertainty = uncertainty.strip()
+            if uncertainty.startswith("["):
+                try:
+                    uncertainty_list = json.loads(uncertainty)
+                except json.JSONDecodeError:
+                    uncertainty_list = [u.strip() for u in uncertainty.split(",")]
+            else:
+                uncertainty_list = [u.strip() for u in uncertainty.split(",")]
+        else:
+            uncertainty_list = uncertainty
 
-    # Save immediately to file
-    with open(EXPERIENCE_FILE, "w", encoding="utf-8") as f:
-        json.dump(experiences, f, indent=2, ensure_ascii=False)
+        # Create new experience entry with new format
+        experience = {
+            "id": len(experiences) + 1,
+            "case_id": case_id,
+            "situation": situation,
+            "uncertainty": uncertainty_list,
+            "action": action,
+            "rationale": rationale,
+            "timestamp": datetime.now().isoformat()
+        }
 
-    return f"Experience #{experience['id']} saved to {EXPERIENCE_FILE}"
+        experiences.append(experience)
+
+        # Save immediately to file
+        with open(EXPERIENCE_FILE, "w", encoding="utf-8") as f:
+            json.dump(experiences, f, indent=2, ensure_ascii=False)
+
+        return f"Experience #{experience['id']} saved to {EXPERIENCE_FILE}"
+
+    finally:
+        # Always release the lock
+        _release_file_lock(lock_fd)
 
 
 @tool(name="complete_analysis", description="Signal that you have finished extracting learning experiences from the case.")
@@ -271,12 +349,18 @@ def select_experiences(experience_ids: str, reasoning: str) -> str:
             exp_id = int(part.strip())
             exp = bm25.get_by_id(exp_id)
             if exp and len(selected) < 2:
-                selected.append({"id": exp_id, "suggestion": exp.get("suggestion", "")})
-                context_parts.append(
-                    f"[Experience #{exp_id}]\n"
-                    f"Pattern: {exp.get('observation', '')}\n"
-                    f"Suggestion: {exp.get('suggestion', '')}"
-                )
+                # Support both old format (observation/suggestion) and new format (situation/action/rationale)
+                action = exp.get("action", exp.get("suggestion", ""))
+                situation = exp.get("situation", exp.get("observation", ""))
+                rationale = exp.get("rationale", "")
+
+                selected.append({"id": exp_id, "action": action})
+
+                # Build context for doctor with new format
+                context = f"[Experience #{exp_id}]\nSituation: {situation}\nAction: {action}"
+                if rationale:
+                    context += f"\nRationale: {rationale}"
+                context_parts.append(context)
         except ValueError:
             continue
 
