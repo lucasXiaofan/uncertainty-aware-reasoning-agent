@@ -13,8 +13,6 @@ from .diagnosis_session import (
     get_current_session,
     load_session,
     save_session,
-    _acquire_lock,
-    _release_lock,
     _get_session_path
 )
 
@@ -65,49 +63,32 @@ def document_step(
             elif item:  # Handle case without reasoning
                 uncertainties_dict[item] = "under consideration"
 
-    # Acquire lock and update session
-    lock_fd = _acquire_lock(session_id)
+    # Load or create session
+    session = load_session(session_id)
+    if "all_information" not in session:
+        session["all_information"] = []
 
-    try:
-        session_path = _get_session_path(session_id)
+    # Create new step with structured documentation
+    step_number = len(session.get("steps", [])) + 1
+    new_step = {
+        "step_number": step_number,
+        "new_information": new_information,
+        "uncertainties": uncertainties_dict,
+        "reference_relevance": reference_relevance,
+        "action": action,
+        "action_reason": reason
+    }
+    session.setdefault("steps", []).append(new_step)
 
-        # Load existing or create new
-        if session_path.exists():
-            with open(session_path, "r", encoding="utf-8") as f:
-                session = json.load(f)
-        else:
-            session = {
-                "session_id": session_id,
-                "steps": [],
-                "all_information": [],  # Clean list of all new_information
-                "current_uncertainties": {}
-            }
+    # Update clean information list (for final diagnosis)
+    if new_information:
+        session["all_information"].append(new_information)
 
-        # Create new step with structured documentation
-        step_number = len(session["steps"]) + 1
-        new_step = {
-            "step_number": step_number,
-            "new_information": new_information,
-            "uncertainties": uncertainties_dict,
-            "reference_relevance": reference_relevance,
-            "action": action,
-            "action_reason": reason
-        }
-        session["steps"].append(new_step)
+    # Update current uncertainties
+    session["current_uncertainties"] = uncertainties_dict
 
-        # Update clean information list (for final diagnosis)
-        if new_information:
-            session.setdefault("all_information", []).append(new_information)
-
-        # Update current uncertainties
-        session["current_uncertainties"] = uncertainties_dict
-
-        # Save session
-        with open(session_path, "w", encoding="utf-8") as f:
-            json.dump(session, f, indent=2, ensure_ascii=False)
-
-    finally:
-        _release_lock(lock_fd)
+    # Save session
+    save_session(session_id, session)
 
     # Return the formatted action for output
     return action
@@ -203,33 +184,26 @@ Diagnosis:"""
         return f"Error: Failed to synthesize diagnosis: {str(e)}"
 
     # Update session with final diagnosis step
-    lock_fd = _acquire_lock(session_id)
+    session = load_session(session_id)
+    steps = session.get("steps", [])
 
-    try:
-        # Reload session to ensure we have latest state
-        session = load_session(session_id)
-        steps = session.get("steps", [])
+    # Create final step
+    final_step = {
+        "step_number": len(steps) + 1,
+        "new_information": f"Final diagnosis: {final_diagnosis_text}",
+        "uncertainties": {},
+        "reference_relevance": "N/A - Final diagnosis",
+        "action": "DIAGNOSIS READY",
+        "action_reason": reason,
+        "final_diagnosis": final_diagnosis_text,
+        "synthesis_prompt": synthesis_prompt
+    }
+    session["steps"].append(final_step)
+    session["final_diagnosis"] = final_diagnosis_text
+    session["current_uncertainties"] = {}
 
-        # Create final step
-        final_step = {
-            "step_number": len(steps) + 1,
-            "new_information": f"Final diagnosis: {final_diagnosis_text}",
-            "uncertainties": {},
-            "reference_relevance": "N/A - Final diagnosis",
-            "action": "DIAGNOSIS READY",
-            "action_reason": reason,
-            "final_diagnosis": final_diagnosis_text,
-            "synthesis_prompt": synthesis_prompt
-        }
-        session["steps"].append(final_step)
-        session["final_diagnosis"] = final_diagnosis_text
-        session["current_uncertainties"] = {}
-
-        # Save updated session
-        save_session(session_id, session)
-
-    finally:
-        _release_lock(lock_fd)
+    # Save updated session
+    save_session(session_id, session)
 
     # Return AgentClinic-compatible format
     return f"DIAGNOSIS READY: {final_diagnosis_text}"

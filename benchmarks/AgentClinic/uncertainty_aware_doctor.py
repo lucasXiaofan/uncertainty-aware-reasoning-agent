@@ -9,6 +9,7 @@ Each doctor-patient-measurement conversation belongs to that session.
 import os
 import sys
 import time
+import uuid
 
 # Add paths for imports
 src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
@@ -59,7 +60,7 @@ class UncertaintyAwareDoctorAgent:
 
         # Session ID: unique per scenario
         # Format: scenario_{scenario_id}_{timestamp}
-        self.session_id = f"scenario_{id(scenario)}_{int(time.time())}"
+        self.session_id = f"scenario_{os.getpid()}_{uuid.uuid4().hex[:8]}_{int(time.time())}"
 
         # Initialize the SingleAgent with specified configuration
         self.agent = SingleAgent(agent_type)

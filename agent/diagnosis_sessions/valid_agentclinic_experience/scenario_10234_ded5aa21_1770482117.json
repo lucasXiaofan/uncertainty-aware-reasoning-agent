@@ -1,0 +1,129 @@
+{
+  "session_id": "scenario_10234_ded5aa21_1770482117",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Presentation: newborn with feeding intolerance and bilious (green) vomiting.",
+      "uncertainties": {
+        "Malrotation with midgut volvulus": "classically causes sudden bilious vomiting and can lead to ischemia/shock",
+        "urgent to exclude. Duodenal atresia/obstruction (including annular pancreas)": "causes bilious (or non-bilious) vomiting soon after feeds, may have double bubble on imaging. Jejunoileal atresia or small bowel obstruction: presents with bilious vomiting and abdominal distension",
+        "may have delayed meconium passage. Meconium ileus (CF)": "can present with neonatal obstruction and bilious vomiting, often with failure to pass meconium and inspissated meconium on imaging."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Obtain immediate assessment of cardiopulmonary stability (HR, BP, RR, Temp, SpO2) to determine urgency of resuscitation/transfer and to identify signs of shock or sepsis that would prioritize emergent surgical evaluation (e.g., volvulus). Vital signs are early critical data per clinical best practices."
+    },
+    {
+      "step_number": 2,
+      "new_information": "Newborn with feeding intolerance and bilious vomiting; vital signs within normal limits.",
+      "uncertainties": {
+        "Malrotation with midgut volvulus": "bilateral/green (bilious) vomiting in neonate strongly suggests proximal intestinal obstruction — surgical emergency",
+        "Jejunoileal atresia": "congenital obstruction can present with bilious vomiting and feeding intolerance in neonate",
+        "Meconium ileus (CF)": "presents with neonatal intestinal obstruction and bilious vomiting, especially if failure to pass meconium",
+        "Neonatal sepsis/ileus": "can cause feeding intolerance and vomiting but vitals currently normal making it less likely."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Abdominal X-ray (supine and upright) and place nasogastric tube for decompression and aspirate",
+      "action_reason": "Plain abdominal X-ray will identify obstruction pattern (air-fluid levels, proximal bowel gas, absence of distal gas, or pneumatosis/free air) and help triage need for urgent contrast study/surgery; nasogastric decompression is diagnostic (bilious aspirate) and therapeutic while awaiting imaging — this differentiates proximal surgical obstruction (e.g., malrotation/volvulus, atresia) from ileus/sepsis."
+    },
+    {
+      "step_number": 3,
+      "new_information": "Abdominal x-ray demonstrates a 'double bubble' sign consistent with proximal (duodenal) obstruction. Nasogastric tube placed for decompression with normal aspirate.",
+      "uncertainties": {
+        "Duodenal atresia": "Classic double-bubble radiograph and bilious vomiting",
+        "often associated with prenatal polyhydramnios and Down syndrome": "under consideration",
+        "Malrotation with volvulus": "Can present with bilious vomiting and proximal gas pattern—urgent upper GI contrast study needed to exclude volvulus",
+        "Annular pancreas": "Can cause extrinsic duodenal obstruction with similar radiographic appearance."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ASK PATIENT: What is the newborn's gestational age and birth weight? Did the newborn pass meconium? Were there any prenatal ultrasound findings (e.g., polyhydramnios or suspected GI obstruction)? Are there any dysmorphic features or a known chromosomal diagnosis (e.g., Down syndrome)?",
+      "action_reason": "Gestational age, birth weight, history of meconium passage, prenatal polyhydramnios, and dysmorphic features help distinguish duodenal atresia (commonly with polyhydramnios and trisomy 21) from malrotation/volvulus or annular pancreas and will guide urgency of contrast imaging and surgical consultation."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Term newborn (3050 g) who has not passed meconium and has dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) suggestive of Down syndrome.",
+      "uncertainties": {
+        "Duodenal atresia": "double bubble on x-ray, bilious vomiting, association with Down syndrome",
+        "Annular pancreas": "extrinsic compression of the duodenum causing similar radiograph and symptoms",
+        "Malrotation with midgut volvulus/Ladd bands": "can present with bilious vomiting and may mimic proximal obstruction—must be excluded due to risk of ischemia."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Upper GI contrast study (upper GI series)",
+      "action_reason": "An upper GI series will differentiate malrotation/volvulus (abnormal position of the ligament of Treitz or corkscrew appearance) from intrinsic proximal duodenal obstruction (atresia, annular pancreas, or web). Malrotation with volvulus is a surgical emergency and must be identified/excluded promptly to guide urgent management."
+    },
+    {
+      "step_number": 5,
+      "new_information": "Term newborn (37-42 wks) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease); abdominal X-ray shows 'double bubble' sign; upper GI contrast study reported as normal.",
+      "uncertainties": {
+        "Duodenal atresia": "double-bubble on AXR and association with Down syndrome make this most likely",
+        "Annular pancreas": "can produce duodenal obstruction with similar radiograph and may have a normal upper GI if partial obstruction",
+        "Malrotation with Ladd bands/volvulus": "can cause bilious vomiting but upper GI series usually diagnostic — normal study makes this less likely",
+        "Distal small bowel atresia (jejunal/ileal)": "less likely with classic double-bubble, but failure to pass meconium raises consideration."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Abdominal ultrasound",
+      "action_reason": "Abdominal ultrasound can help evaluate for annular pancreas, assess pancreatic anatomy, look for proximal duodenal dilatation vs obstruction, and screen for other intra-abdominal anomalies; this helps differentiate annular pancreas from intrinsic duodenal atresia or more distal obstruction and will guide need for surgical planning."
+    },
+    {
+      "step_number": 6,
+      "new_information": "Abdominal ultrasound returned normal.",
+      "uncertainties": {
+        "Duodenal atresia": "double-bubble on abdominal x-ray and dysmorphic features consistent with Down syndrome favor this",
+        "Annular pancreas": "can produce duodenal obstruction with similar imaging and partial obstruction may show variable contrast studies",
+        "Malrotation with Ladd bands (or midgut volvulus)": "can present with bilious vomiting and proximal obstruction but upper GI series was reported normal, making this less likely but not fully excluded."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Contrast enema (lower GI series)",
+      "action_reason": "A contrast enema will assess the caliber of the colon (microcolon suggests a proximal obstructive lesion such as duodenal/jejunal atresia) and can help exclude distal obstructive causes (e.g., meconium ileus or distal atresia). This will help differentiate proximal duodenal obstruction (duodenal atresia/annular pancreas) from more distal obstructions and guide surgical planning."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Term newborn (gestational age: term) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease). Abdominal x-ray shows 'double bubble' sign; upper GI series and contrast enema were reported as normal.",
+      "uncertainties": {
+        "Duodenal atresia": "double-bubble x-ray and Down syndrome association make this most likely",
+        "Annular pancreas causing extrinsic duodenal obstruction": "can mimic duodenal atresia and may have similar radiograph",
+        "Malrotation with midgut volvulus": "presents with bilious vomiting but upper GI series reportedly normal (lowers likelihood)",
+        "Distal small bowel obstruction (jejunoileal atresia or meconium ileus)": "less consistent with double-bubble and normal contrast enema but still possible if mixed pathology."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Basic labs (BMP/electrolytes, CBC, blood glucose) and blood type and crossmatch; request pediatric surgery consult and preoperative echocardiogram given suspected Down syndrome",
+      "action_reason": "Labs will identify and correct electrolyte and metabolic derangements prior to operative management; blood type/crossmatch prepares for possible transfusion. Pediatric surgery consultation is needed because imaging and exam strongly suggest proximal intestinal obstruction (likely duodenal atresia) that typically requires surgical repair; echocardiogram is indicated given high prevalence of congenital heart disease in infants with Down syndrome and influences perioperative planning."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Term newborn (3050 g) with dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) suspicious for Down syndrome; has not passed meconium. Abdominal x-ray shows 'double bubble' consistent with proximal small-bowel obstruction. Upper GI, abdominal ultrasound, contrast enema, and basic labs (BMP, CBC, glucose) are normal; preoperative echocardiogram normal.",
+      "uncertainties": {
+        "Duodenal atresia": "double-bubble x-ray and association with Down syndrome support this",
+        "Annular pancreas": "can produce similar radiographic findings and may be partial (upper GI could be normal if incomplete obstruction)",
+        "Duodenal web/stenosis": "partial obstruction could yield normal upper GI and intermittent symptoms",
+        "Malrotation with volvulus": "presents with bilious vomiting but normal upper GI makes this less likely."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Pediatric surgery consult",
+      "action_reason": "Surgical evaluation is needed to determine whether operative intervention (e.g., duodenoduodenostomy) is required and to differentiate causes of duodenal obstruction (atresia vs annular pancreas vs web) that may not be fully characterized by current imaging; pediatric surgery will also coordinate perioperative management and confirm diagnosis intraoperatively if needed."
+    },
+    {
+      "step_number": 9,
+      "new_information": "Final diagnosis: Duodenal atresia",
+      "uncertainties": {},
+      "reference_relevance": "N/A - Final diagnosis",
+      "action": "DIAGNOSIS READY",
+      "action_reason": "Summary of case and rationale for confident diagnosis: Term neonate (3050 g) with feeding intolerance, bilious vomiting, and failure to pass meconium. Plain abdominal radiograph shows classic “double bubble” sign. Upper GI series and contrast enema are non-diagnostic for malrotation or distal obstruction; abdominal ultrasound normal. Dysmorphic features strongly suggest trisomy 21 (Down syndrome), which has a well-known association with congenital duodenal obstruction. Basic labs and pre-op echocardiogram are normal and pediatric surgery has been consulted. Differential diagnoses were: 1) Duodenal atresia/obstruction: most likely—double-bubble, bilious vomiting, association with Down features; 2) Annular pancreas: possible—can produce identical imaging and symptoms; 3) Duodenal web with perforation or fenestration: less likely but possible. Why final diagnosis now: the combination of imaging (double bubble), clinical presentation (bilious vomiting, failure to pass meconium), and phenotypic features of Down syndrome makes congenital duodenal obstruction (most likely duodenal atresia) the leading diagnosis with high confidence. How remaining uncertainties would be resolved if more time: operative exploration (or intraoperative contrast/duodenoscopy) will definitively distinguish atresia from annular pancreas or web. What I recommend next (clinical plan): continue NG decompression and IV fluid/electrolyte support, obtain genetic testing (karyotype or rapid microarray) to confirm trisomy 21, proceed to surgical correction (typically duodenoduodenostomy) as recommended by pediatric surgery, and ensure NICU perioperative care and antibiotic prophylaxis. If available, discuss with surgery whether any additional preoperative imaging is needed, but operative management is both diagnostic and therapeutic. If more rounds available, I would document the karyotype result and any intraoperative findings to definitively confirm the etiology of the obstruction.",
+      "final_diagnosis": "Duodenal atresia",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Presentation: newborn with feeding intolerance and bilious (green) vomiting.\n- Newborn with feeding intolerance and bilious vomiting; vital signs within normal limits.\n- Abdominal x-ray demonstrates a 'double bubble' sign consistent with proximal (duodenal) obstruction. Nasogastric tube placed for decompression with normal aspirate.\n- Term newborn (3050 g) who has not passed meconium and has dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) suggestive of Down syndrome.\n- Term newborn (37-42 wks) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease); abdominal X-ray shows 'double bubble' sign; upper GI contrast study reported as normal.\n- Abdominal ultrasound returned normal.\n- Term newborn (gestational age: term) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease). Abdominal x-ray shows 'double bubble' sign; upper GI series and contrast enema were reported as normal.\n- Term newborn (3050 g) with dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) suspicious for Down syndrome; has not passed meconium. Abdominal x-ray shows 'double bubble' consistent with proximal small-bowel obstruction. Upper GI, abdominal ultrasound, contrast enema, and basic labs (BMP, CBC, glucose) are normal; preoperative echocardiogram normal.\n\n## Clinician's Assessment:\nSummary of case and rationale for confident diagnosis: Term neonate (3050 g) with feeding intolerance, bilious vomiting, and failure to pass meconium. Plain abdominal radiograph shows classic “double bubble” sign. Upper GI series and contrast enema are non-diagnostic for malrotation or distal obstruction; abdominal ultrasound normal. Dysmorphic features strongly suggest trisomy 21 (Down syndrome), which has a well-known association with congenital duodenal obstruction. Basic labs and pre-op echocardiogram are normal and pediatric surgery has been consulted. Differential diagnoses were: 1) Duodenal atresia/obstruction: most likely—double-bubble, bilious vomiting, association with Down features; 2) Annular pancreas: possible—can produce identical imaging and symptoms; 3) Duodenal web with perforation or fenestration: less likely but possible. Why final diagnosis now: the combination of imaging (double bubble), clinical presentation (bilious vomiting, failure to pass meconium), and phenotypic features of Down syndrome makes congenital duodenal obstruction (most likely duodenal atresia) the leading diagnosis with high confidence. How remaining uncertainties would be resolved if more time: operative exploration (or intraoperative contrast/duodenoscopy) will definitively distinguish atresia from annular pancreas or web. What I recommend next (clinical plan): continue NG decompression and IV fluid/electrolyte support, obtain genetic testing (karyotype or rapid microarray) to confirm trisomy 21, proceed to surgical correction (typically duodenoduodenostomy) as recommended by pediatric surgery, and ensure NICU perioperative care and antibiotic prophylaxis. If available, discuss with surgery whether any additional preoperative imaging is needed, but operative management is both diagnostic and therapeutic. If more rounds available, I would document the karyotype result and any intraoperative findings to definitively confirm the etiology of the obstruction.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n- \"Atrial fibrillation\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "",
+  "current_uncertainties": {},
+  "all_information": [
+    "Presentation: newborn with feeding intolerance and bilious (green) vomiting.",
+    "Newborn with feeding intolerance and bilious vomiting; vital signs within normal limits.",
+    "Abdominal x-ray demonstrates a 'double bubble' sign consistent with proximal (duodenal) obstruction. Nasogastric tube placed for decompression with normal aspirate.",
+    "Term newborn (3050 g) who has not passed meconium and has dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) suggestive of Down syndrome.",
+    "Term newborn (37-42 wks) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease); abdominal X-ray shows 'double bubble' sign; upper GI contrast study reported as normal.",
+    "Abdominal ultrasound returned normal.",
+    "Term newborn (gestational age: term) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease). Abdominal x-ray shows 'double bubble' sign; upper GI series and contrast enema were reported as normal.",
+    "Term newborn (3050 g) with dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) suspicious for Down syndrome; has not passed meconium. Abdominal x-ray shows 'double bubble' consistent with proximal small-bowel obstruction. Upper GI, abdominal ultrasound, contrast enema, and basic labs (BMP, CBC, glucose) are normal; preoperative echocardiogram normal."
+  ],
+  "final_diagnosis": "Duodenal atresia"
+}

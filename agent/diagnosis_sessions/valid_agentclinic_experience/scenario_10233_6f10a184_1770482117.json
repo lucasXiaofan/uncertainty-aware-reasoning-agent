@@ -1,0 +1,186 @@
+{
+  "session_id": "scenario_10233_6f10a184_1770482117",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presents with extreme fatigue, jaundice (yellow skin), and an elevated alanine aminotransferase (ALT) level.",
+      "uncertainties": {
+        "Acute viral hepatitis (A, B, C)": "common cause of marked ALT elevation with fatigue and jaundice",
+        "Drug-induced liver injury (e.g., acetaminophen, herbal supplements, antibiotics)": "can cause high ALT and jaundice depending on exposure",
+        "Alcoholic hepatitis": "can present with jaundice and fatigue—AST often > ALT but still possible",
+        "Obstructive cholestasis (biliary obstruction, choledocholithiasis, or cholestatic tumors)": "produces jaundice—ALT may be elevated but alkaline phosphatase and bilirubin patterns may help differentiate."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Vital signs (BP, HR, temperature, RR, SpO2) and immediate hemodynamic data are essential early information to assess severity (fever suggests infectious/viral etiology, hypotension or tachycardia suggests systemic illness or severe liver dysfunction) and will guide urgency and next diagnostic steps."
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs: Temperature 37.9°C (100.2°F) — low-grade fever; Blood pressure 100/74 mmHg; Heart rate 72 bpm; Respiratory rate 14/min.",
+      "uncertainties": {
+        "Acute viral hepatitis (fever, fatigue, jaundice, elevated ALT)": "under consideration",
+        "Drug-induced liver injury (e.g., acetaminophen or antibiotics causing marked ALT elevation and jaundice)": "under consideration",
+        "Alcoholic hepatitis (history of heavy alcohol use": "under consideration",
+        "typically AST>ALT but can present with jaundice and fatigue)": "under consideration",
+        "Obstructive/cholestatic process (e.g., choledocholithiasis or cholangitis — jaundice and fever possible, but ALT may be variably elevated).": "under consideration"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ASK PATIENT: What is your age and sex?",
+      "action_reason": "Patient demographics (age and sex) are essential early data that influence pretest probability of causes (e.g., pregnancy-related liver disease, autoimmune hepatitis in young women, alcoholic vs. metabolic etiologies) and guide which tests to prioritize."
+    },
+    {
+      "step_number": 3,
+      "new_information": "25-year-old male; Vital signs: T 37.9°C, BP 100/74 mmHg, HR 72 bpm, RR 14; Presenting complaints: extreme fatigue and jaundice (yellow skin); Noted elevated alanine aminotransferase (ALT) previously.",
+      "uncertainties": {
+        "Acute viral hepatitis (A/B/C)": "Typical presentation with fatigue, jaundice, and elevated ALT in a young adult",
+        "Acetaminophen or other toxin-induced acute liver injury": "Common cause of marked ALT elevation and hepatic dysfunction — requires medication/overdose history",
+        "Obstructive/cholestatic process (e.g., biliary obstruction)": "Can cause jaundice though usually with higher alkaline phosphatase and conjugated bilirubin — needs differentiation from hepatocellular injury."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Hepatic panel (AST, ALT, total and direct bilirubin, alkaline phosphatase, albumin) and PT/INR",
+      "action_reason": "These tests will determine whether the pattern is hepatocellular (high AST/ALT) versus cholestatic (high ALP, conjugated bilirubin), assess severity and synthetic liver function (albumin, PT/INR), and guide next steps (hepatitis serologies, acetaminophen level, imaging)."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Hepatic panel shows isolated marked ALT elevation: ALT 2,000 IU/L; AST, total/direct bilirubin, alkaline phosphatase, albumin, and PT/INR are all within normal limits.",
+      "uncertainties": {
+        "Acetaminophen toxicity": "extremely high ALT is characteristic and requires urgent treatment",
+        "Acute viral hepatitis (HAV, HBV, HCV, EBV, CMV)": "can cause marked ALT elevations though typically AST also elevated and bilirubin may rise",
+        "Autoimmune hepatitis": "can present with high ALT in young patients though more common in females",
+        "Muscle injury/rhabdomyolysis": "can raise ALT (and CK) and may explain isolated ALT elevation."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Serum acetaminophen level",
+      "action_reason": "A very high ALT (≈2,000) is a classic presentation of acetaminophen-induced hepatotoxicity, which requires prompt diagnosis because N-acetylcysteine is time-sensitive; obtaining a serum acetaminophen level immediately will differentiate this urgent, treatable cause from viral/autoimmune or muscle-related causes and guide emergent management."
+    },
+    {
+      "step_number": 5,
+      "new_information": "Serum acetaminophen level: normal.",
+      "uncertainties": {
+        "Acute viral hepatitis (A/B/C)": "can cause marked ALT elevation and fever/jaundice",
+        "Drug-induced liver injury (non-acetaminophen)": "many drugs/herbals cause isolated hepatocellular injury with very high ALT",
+        "Autoimmune hepatitis": "can present with very high ALT in young adults",
+        "Ischemic/vascular ('shock liver')": "typically causes massive transaminase rise but usually with hypotension—less likely given current vitals."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Viral hepatitis serologies (HAV IgM, HBsAg and IgM anti-HBc, HCV antibody and HCV RNA)",
+      "action_reason": "Viral hepatitis (especially A and B) is a leading cause of very high ALT with fever/jaundice; serologies/RNA will rapidly differentiate viral causes from drug-induced or autoimmune etiologies and guide urgent management."
+    },
+    {
+      "step_number": 6,
+      "new_information": "Hepatitis serologies are positive for HBsAg and IgM anti-HBc, consistent with acute hepatitis B infection.",
+      "uncertainties": {
+        "Acute hepatitis B": "likely given HBsAg+ and IgM anti-HBc and very high ALT",
+        "Autoimmune hepatitis": "less likely but can present with marked transaminase elevations and should be considered if serologies or history suggestive",
+        "Drug-induced liver injury (including herbal/OTC)": "possible cause of marked ALT elevation despite positive HBV markers",
+        "Ischemic hepatitis": "less likely because AST not predominantly elevated and hemodynamics are relatively stable"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Hepatitis B viral load (HBV DNA, quantitative) and HBeAg/anti-HBe",
+      "action_reason": "Quantitative HBV DNA and HBeAg status will clarify viral replication and infectivity, help distinguish acute high-replication HBV (which may merit antiviral therapy) from other causes, and guide prognosis and need for urgent treatment."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Hepatitis B viral load (HBV DNA, quantitative) reported as normal/undetectable; HBeAg and anti-HBe reported as normal/indeterminate.",
+      "uncertainties": {
+        "Acute hepatitis B infection": "positive HBsAg and IgM anti-HBc strongly suggest acute HBV, but undetectable HBV DNA and lack of HBeAg raise uncertainty about viral replication/timing",
+        "Drug-induced liver injury (DILI)": "markedly elevated ALT could be caused by recent hepatotoxin exposure despite normal acetaminophen level",
+        "Autoimmune hepatitis": "can present with very high ALT in young adults and would not be detected by viral serologies",
+        "Ischemic or shock liver": "typically causes very high transaminases but would be associated with hypotension or other clinical signs (vitals currently not suggestive)."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ASK PATIENT: When did your symptoms (fatigue and yellowing of the skin) begin? In the preceding 1–3 months, have you had any new medications, herbal supplements, high-dose acetaminophen, intravenous drug use, recent tattoos/piercings, unprotected sex, or known exposure to someone with hepatitis? Also ask about dark urine, pale stools, abdominal pain, fever, or recent significant hypotension/illness.",
+      "action_reason": "Timing and exposure history will help distinguish acute HBV (recent exposure/sexual/IV risk, onset weeks after exposure) from drug-induced liver injury (correlates with new meds/supplements) and from ischemic injury (associated with hypotension/critical illness); symptoms like dark urine/pale stools support cholestatic/obstructive processes vs hepatocellular injury."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Patient reports symptom onset 2 days ago; remote history of IV drug use (not recent); mild diffuse abdominal tenderness on exam; denies dark urine, pale stools, fever, or recent illness.",
+      "uncertainties": {
+        "Acute hepatitis B": "positive HBsAg and IgM anti-HBc with marked ALT elevation suggests acute HBV",
+        "Hepatitis D (HDV) coinfection/superinfection": "history of IVDU raises risk and HDV can cause more severe ALT elevations and modify management",
+        "Drug/toxin-induced liver injury (e.g., unreported acetaminophen or other toxin)": "ALT markedly elevated but serum acetaminophen level is normal and patient denies recent use",
+        "Autoimmune hepatitis": "can present with very high ALT but less likely in young male without autoimmune history."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Hepatitis D serology (anti-HDV IgM/IgG) and HDV RNA",
+      "action_reason": "HDV coinfection is more likely given IVDU history and can cause severe acute hepatitis; identifying HDV will change prognosis and management (may require urgent antiviral/interferon considerations) and will help differentiate from isolated acute HBV or other causes."
+    },
+    {
+      "step_number": 9,
+      "new_information": "Hepatitis D serology negative (anti-HDV IgM/IgG negative; HDV RNA negative).",
+      "uncertainties": {
+        "Acute hepatitis B infection": "supported by HBsAg positive and IgM anti-HBc positive but HBV DNA reported as normal — need to confirm active replication and assess severity",
+        "Drug- or toxin-induced hepatitis (including non-acetaminophen agents or illicit substances)": "can cause markedly elevated ALT and would require toxicology/ethanol screen and history to confirm",
+        "Acute CMV/EBV hepatitis": "can present with high ALT in young adults and may be missed without serologies",
+        "Autoimmune hepatitis": "possible though less likely in a young male, would be suggested by positive autoantibodies and cholestatic features."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat hepatic panel (AST, ALT, total and direct bilirubin), PT/INR; repeat quantitative HBV DNA and HBeAg/anti-HBe; EBV IgM and CMV IgM serologies; autoimmune hepatitis serologies (ANA, SMA); urine/serum toxicology screen and blood ethanol level.",
+      "action_reason": "Repeating hepatic panel and PT/INR will detect early progression toward hepatic synthetic failure and guide need for urgent antiviral therapy; repeating HBV DNA/HBeAg clarifies viral replication versus serologic window and helps decide on antiviral treatment; EBV/CMV and autoimmune serologies will help identify non-HBV causes of very high ALT; toxicology/ethanol screens will detect ischemic/toxic injury from substances not previously disclosed."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Repeat hepatic panel confirms markedly elevated ALT ~2,000 IU/L with normal AST, total and direct bilirubin, alkaline phosphatase, albumin, and normal PT/INR. Hepatitis B serology shows HBsAg positive and IgM anti-HBc positive, but repeat quantitative HBV DNA and HBeAg/anti-HBe are not elevated. EBV IgM, CMV IgM, ANA, SMA, urine/serum toxicology, and blood ethanol are all negative/normal.",
+      "uncertainties": {
+        "Acute hepatitis B": "HBsAg+ and IgM anti-HBc+ support acute HBV but low/undetectable HBV DNA is atypical",
+        "needs confirmation. HSV hepatitis": "fits pattern of very high ALT with relatively normal bilirubin/INR and rapid onset—rare but critical to identify. Hepatitis E: can cause acute severe transaminitis in young adults and may be missed if not tested."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: HSV PCR (serum)",
+      "action_reason": "HSV PCR will rapidly detect (or exclude) herpes simplex virus viremia; HSV hepatitis can present with very high ALT and relatively normal bilirubin/INR and requires prompt empiric acyclovir if suspected. A positive PCR would change management immediately; a negative result would make HSV less likely and focus evaluation on HBV confirmation and other causes (HEV, toxins)."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Serum HSV PCR returned negative.",
+      "uncertainties": {
+        "Acute hepatitis B infection": "HBsAg positive and IgM anti-HBc positive suggests acute HBV but HBV DNA is low/normal — is HBV the cause of the very high ALT?",
+        "Drug/toxin-induced liver injury (occult/undisclosed or delayed)": "high ALT could be DILI despite negative routine tox screen",
+        "Vascular/ischemic or vascular obstruction (e.g., Budd–Chiari)": "could cause marked transaminase elevation and abdominal tenderness though vitals and INR don't show shock",
+        "Wilson disease or other metabolic cause": "less likely but possible in a young patient with unexplained severe transaminase elevation"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Abdominal ultrasound with Doppler (evaluate biliary tree, hepatic vasculature/Budd–Chiari, and liver morphology)",
+      "action_reason": "Abdominal ultrasound with Doppler will rapidly assess for obstructive or vascular causes (biliary obstruction, hepatic vein thrombosis) that could explain very high ALT and abdominal tenderness and help distinguish hepatic necrosis from primary hepatocellular causes like acute HBV or occult toxin; it's noninvasive and will guide need for urgent further testing (CT/MR or invasive management)."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Abdominal ultrasound with Doppler normal — no biliary obstruction or hepatic vascular thrombosis (Budd–Chiari); liver morphology appears unremarkable.",
+      "uncertainties": {
+        "Acute hepatitis B": "positive HBsAg and IgM anti-HBc with very high ALT suggest acute HBV but low/normal HBV DNA creates uncertainty",
+        "Drug-induced liver injury (DILI)": "high ALT could be DILI despite negative tox/acetaminophen screens",
+        "Acute Wilson disease": "young age and marked transaminase elevation could reflect Wilson's disease though bilirubin and INR are normal",
+        "Acute ischemic/arterial event (ischemic hepatitis)": "less likely given stable hemodynamics but still a consideration."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat quantitative HBV DNA, HBsAg, and IgM anti-HBc serology; repeat hepatic panel (AST, ALT, total and direct bilirubin), PT/INR now and again in 24 hours",
+      "action_reason": "Confirm ongoing acute HBV infection vs possible lab error or window-phase dynamics by repeating viral markers and quantify viral load; serial LFTs and INR will identify trend and early hepatic synthetic dysfunction that would prompt urgent antiviral therapy or transfer for higher-level care."
+    },
+    {
+      "step_number": 13,
+      "new_information": "Final diagnosis: Acute hepatitis B",
+      "uncertainties": {},
+      "reference_relevance": "N/A - Final diagnosis",
+      "action": "DIAGNOSIS READY",
+      "action_reason": "Diagnosis summary: The patient most likely has acute hepatitis B infection causing marked hepatocellular injury. Supporting evidence: Positive HBsAg and IgM anti-HBc indicate acute HBV infection; acute onset of fatigue and jaundice 2 days prior; very high ALT (~2,000 IU/L) typical of acute viral hepatitis; normal bilirubin and preserved PT/INR and albumin indicate preserved hepatic synthetic function (no fulminant failure at present). Other causes have been reasonably excluded: acetaminophen/toxin screens negative, HAV/HCV/HDV/HEV (not yet tested) and HSV/EBV/CMV negative, autoimmune serologies negative, abdominal ultrasound normal, and no hypotension to suggest ischemic hepatitis. The low/undetectable HBV DNA does not exclude acute infection because IgM anti-HBc reflects recent infection and viral load can be low during immune clearance; repeat quantitative HBV DNA has been obtained and remains low. Diagnostic confidence: high for acute HBV as the primary diagnosis. Management plan and remaining uncertainties: Continue close monitoring with serial hepatic panels and PT/INR (at least daily) and monitor for encephalopathy. No current criteria for urgent antiviral therapy (no coagulopathy or encephalopathy), but initiate antiviral therapy (eg, tenofovir) promptly if INR rises ≥1.5, bilirubin rises markedly, encephalopathy develops, or clinical deterioration occurs. Counsel regarding transmission, report to public health, test and vaccinate close contacts, and screen for HIV. Additional clarifying tests I would obtain if more rounds available: HEV IgM/HEV RNA (to exclude co-infection if travel/food exposures present), repeat HBV DNA with a highly sensitive assay, and HIV Ag/Ab testing. If available, characterize HBsAg quantitative and HBeAg/anti-HBe to assess phase. Given current data I will deliver the final diagnosis and management recommendations.",
+      "final_diagnosis": "Acute hepatitis B",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Patient presents with extreme fatigue, jaundice (yellow skin), and an elevated alanine aminotransferase (ALT) level.\n- Vital signs: Temperature 37.9°C (100.2°F) — low-grade fever; Blood pressure 100/74 mmHg; Heart rate 72 bpm; Respiratory rate 14/min.\n- 25-year-old male; Vital signs: T 37.9°C, BP 100/74 mmHg, HR 72 bpm, RR 14; Presenting complaints: extreme fatigue and jaundice (yellow skin); Noted elevated alanine aminotransferase (ALT) previously.\n- Hepatic panel shows isolated marked ALT elevation: ALT 2,000 IU/L; AST, total/direct bilirubin, alkaline phosphatase, albumin, and PT/INR are all within normal limits.\n- Serum acetaminophen level: normal.\n- Hepatitis serologies are positive for HBsAg and IgM anti-HBc, consistent with acute hepatitis B infection.\n- Hepatitis B viral load (HBV DNA, quantitative) reported as normal/undetectable; HBeAg and anti-HBe reported as normal/indeterminate.\n- Patient reports symptom onset 2 days ago; remote history of IV drug use (not recent); mild diffuse abdominal tenderness on exam; denies dark urine, pale stools, fever, or recent illness.\n- Hepatitis D serology negative (anti-HDV IgM/IgG negative; HDV RNA negative).\n- Repeat hepatic panel confirms markedly elevated ALT ~2,000 IU/L with normal AST, total and direct bilirubin, alkaline phosphatase, albumin, and normal PT/INR. Hepatitis B serology shows HBsAg positive and IgM anti-HBc positive, but repeat quantitative HBV DNA and HBeAg/anti-HBe are not elevated. EBV IgM, CMV IgM, ANA, SMA, urine/serum toxicology, and blood ethanol are all negative/normal.\n- Serum HSV PCR returned negative.\n- Abdominal ultrasound with Doppler normal — no biliary obstruction or hepatic vascular thrombosis (Budd–Chiari); liver morphology appears unremarkable.\n\n## Clinician's Assessment:\nDiagnosis summary: The patient most likely has acute hepatitis B infection causing marked hepatocellular injury. Supporting evidence: Positive HBsAg and IgM anti-HBc indicate acute HBV infection; acute onset of fatigue and jaundice 2 days prior; very high ALT (~2,000 IU/L) typical of acute viral hepatitis; normal bilirubin and preserved PT/INR and albumin indicate preserved hepatic synthetic function (no fulminant failure at present). Other causes have been reasonably excluded: acetaminophen/toxin screens negative, HAV/HCV/HDV/HEV (not yet tested) and HSV/EBV/CMV negative, autoimmune serologies negative, abdominal ultrasound normal, and no hypotension to suggest ischemic hepatitis. The low/undetectable HBV DNA does not exclude acute infection because IgM anti-HBc reflects recent infection and viral load can be low during immune clearance; repeat quantitative HBV DNA has been obtained and remains low. Diagnostic confidence: high for acute HBV as the primary diagnosis. Management plan and remaining uncertainties: Continue close monitoring with serial hepatic panels and PT/INR (at least daily) and monitor for encephalopathy. No current criteria for urgent antiviral therapy (no coagulopathy or encephalopathy), but initiate antiviral therapy (eg, tenofovir) promptly if INR rises ≥1.5, bilirubin rises markedly, encephalopathy develops, or clinical deterioration occurs. Counsel regarding transmission, report to public health, test and vaccinate close contacts, and screen for HIV. Additional clarifying tests I would obtain if more rounds available: HEV IgM/HEV RNA (to exclude co-infection if travel/food exposures present), repeat HBV DNA with a highly sensitive assay, and HIV Ag/Ab testing. If available, characterize HBsAg quantitative and HBeAg/anti-HBe to assess phase. Given current data I will deliver the final diagnosis and management recommendations.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n- \"Atrial fibrillation\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "",
+  "current_uncertainties": {},
+  "all_information": [
+    "Patient presents with extreme fatigue, jaundice (yellow skin), and an elevated alanine aminotransferase (ALT) level.",
+    "Vital signs: Temperature 37.9°C (100.2°F) — low-grade fever; Blood pressure 100/74 mmHg; Heart rate 72 bpm; Respiratory rate 14/min.",
+    "25-year-old male; Vital signs: T 37.9°C, BP 100/74 mmHg, HR 72 bpm, RR 14; Presenting complaints: extreme fatigue and jaundice (yellow skin); Noted elevated alanine aminotransferase (ALT) previously.",
+    "Hepatic panel shows isolated marked ALT elevation: ALT 2,000 IU/L; AST, total/direct bilirubin, alkaline phosphatase, albumin, and PT/INR are all within normal limits.",
+    "Serum acetaminophen level: normal.",
+    "Hepatitis serologies are positive for HBsAg and IgM anti-HBc, consistent with acute hepatitis B infection.",
+    "Hepatitis B viral load (HBV DNA, quantitative) reported as normal/undetectable; HBeAg and anti-HBe reported as normal/indeterminate.",
+    "Patient reports symptom onset 2 days ago; remote history of IV drug use (not recent); mild diffuse abdominal tenderness on exam; denies dark urine, pale stools, fever, or recent illness.",
+    "Hepatitis D serology negative (anti-HDV IgM/IgG negative; HDV RNA negative).",
+    "Repeat hepatic panel confirms markedly elevated ALT ~2,000 IU/L with normal AST, total and direct bilirubin, alkaline phosphatase, albumin, and normal PT/INR. Hepatitis B serology shows HBsAg positive and IgM anti-HBc positive, but repeat quantitative HBV DNA and HBeAg/anti-HBe are not elevated. EBV IgM, CMV IgM, ANA, SMA, urine/serum toxicology, and blood ethanol are all negative/normal.",
+    "Serum HSV PCR returned negative.",
+    "Abdominal ultrasound with Doppler normal — no biliary obstruction or hepatic vascular thrombosis (Budd–Chiari); liver morphology appears unremarkable."
+  ],
+  "final_diagnosis": "Acute hepatitis B"
+}

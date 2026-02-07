@@ -1,12 +1,16 @@
 """Session management module for uncertainty-aware diagnosis tracking.
 
-Provides file-based storage with locking for parallel patient sessions.
+Provides file-based storage for patient sessions.
 Session context is managed automatically - wrapper sets current session,
 tools use it without explicit session_id parameter.
+
+Note: File locking was removed because each process uses a unique session_id
+and tool calls are sequential within a process, making locks unnecessary.
+On macOS, flock() causes self-deadlock when the same process acquires
+the lock via different file descriptors (nested lock pattern).
 """
 import os
 import json
-import fcntl
 import time
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -44,44 +48,24 @@ def _get_session_path(session_id: str) -> Path:
 
 
 def _get_lock_path(session_id: str) -> Path:
-    """Get the lock file path for a session."""
+    """Get the lock file path for a session (deprecated, kept for compat)."""
     return _get_session_path(session_id).with_suffix(".lock")
 
 
-def _acquire_lock(session_id: str, timeout: float = 30.0) -> int:
-    """Acquire an exclusive lock for thread-safe session access.
+def _acquire_lock(session_id: str, timeout: float = 30.0) -> None:
+    """No-op. Locking removed - sessions are per-process with sequential access.
 
-    Args:
-        session_id: The session identifier
-        timeout: Maximum time to wait for lock (seconds)
-
-    Returns:
-        File descriptor of the lock file
-
-    Raises:
-        TimeoutError: If lock cannot be acquired within timeout
+    Kept for backward compatibility with code that calls it directly.
     """
-    lock_path = _get_lock_path(session_id)
-    lock_fd = os.open(str(lock_path), os.O_CREAT | os.O_RDWR)
-    start_time = time.time()
-
-    while True:
-        try:
-            fcntl.flock(lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
-            return lock_fd
-        except (IOError, OSError):
-            if time.time() - start_time > timeout:
-                os.close(lock_fd)
-                raise TimeoutError(f"Could not acquire lock for session {session_id} within {timeout}s")
-            time.sleep(0.1)
+    return None
 
 
-def _release_lock(lock_fd: int):
-    """Release a file lock."""
-    try:
-        fcntl.flock(lock_fd, fcntl.LOCK_UN)
-    finally:
-        os.close(lock_fd)
+def _release_lock(lock_fd) -> None:
+    """No-op. Locking removed - sessions are per-process with sequential access.
+
+    Kept for backward compatibility with code that calls it directly.
+    """
+    pass
 
 
 def load_session(session_id: str) -> Dict:
@@ -96,12 +80,8 @@ def load_session(session_id: str) -> Dict:
     session_path = _get_session_path(session_id)
 
     if session_path.exists():
-        lock_fd = _acquire_lock(session_id)
-        try:
-            with open(session_path, "r", encoding="utf-8") as f:
-                return json.load(f)
-        finally:
-            _release_lock(lock_fd)
+        with open(session_path, "r", encoding="utf-8") as f:
+            return json.load(f)
 
     # Return new empty session structure
     return {
@@ -120,13 +100,8 @@ def save_session(session_id: str, data: Dict) -> None:
         data: Session data to save
     """
     session_path = _get_session_path(session_id)
-    lock_fd = _acquire_lock(session_id)
-
-    try:
-        with open(session_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-    finally:
-        _release_lock(lock_fd)
+    with open(session_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
 
 def append_step(session_id: str, new_information: str, uncertainties: List[str],
@@ -143,51 +118,45 @@ def append_step(session_id: str, new_information: str, uncertainties: List[str],
     Returns:
         Updated session data with accumulated_notes
     """
-    lock_fd = _acquire_lock(session_id)
+    session_path = _get_session_path(session_id)
 
-    try:
-        session_path = _get_session_path(session_id)
-
-        # Load existing or create new
-        if session_path.exists():
-            with open(session_path, "r", encoding="utf-8") as f:
-                session = json.load(f)
-        else:
-            session = {
-                "session_id": session_id,
-                "steps": [],
-                "accumulated_notes": "",
-                "current_uncertainties": []
-            }
-
-        # Create new step
-        step_number = len(session["steps"]) + 1
-        new_step = {
-            "step_number": step_number,
-            "new_information": new_information,
-            "current_uncertainties": uncertainties,
-            "next_step_action": next_step_action
+    # Load existing or create new
+    if session_path.exists():
+        with open(session_path, "r", encoding="utf-8") as f:
+            session = json.load(f)
+    else:
+        session = {
+            "session_id": session_id,
+            "steps": [],
+            "accumulated_notes": "",
+            "current_uncertainties": []
         }
-        session["steps"].append(new_step)
 
-        # Update accumulated notes (append-only)
-        step_note = f"[Step {step_number}]\nNew Info: {new_information}\nDifferential: {', '.join(uncertainties)}\nNext: {next_step_action}"
-        if session["accumulated_notes"]:
-            session["accumulated_notes"] += f"\n\n{step_note}"
-        else:
-            session["accumulated_notes"] = step_note
+    # Create new step
+    step_number = len(session["steps"]) + 1
+    new_step = {
+        "step_number": step_number,
+        "new_information": new_information,
+        "current_uncertainties": uncertainties,
+        "next_step_action": next_step_action
+    }
+    session["steps"].append(new_step)
 
-        # Update current uncertainties
-        session["current_uncertainties"] = uncertainties
+    # Update accumulated notes (append-only)
+    step_note = f"[Step {step_number}]\nNew Info: {new_information}\nDifferential: {', '.join(uncertainties)}\nNext: {next_step_action}"
+    if session["accumulated_notes"]:
+        session["accumulated_notes"] += f"\n\n{step_note}"
+    else:
+        session["accumulated_notes"] = step_note
 
-        # Save
-        with open(session_path, "w", encoding="utf-8") as f:
-            json.dump(session, f, indent=2, ensure_ascii=False)
+    # Update current uncertainties
+    session["current_uncertainties"] = uncertainties
 
-        return session
+    # Save
+    with open(session_path, "w", encoding="utf-8") as f:
+        json.dump(session, f, indent=2, ensure_ascii=False)
 
-    finally:
-        _release_lock(lock_fd)
+    return session
 
 
 def get_accumulated_notes(session_id: str) -> str:
@@ -231,19 +200,15 @@ def clear_session(session_id: str) -> bool:
 
     cleared = False
     if session_path.exists():
-        lock_fd = _acquire_lock(session_id)
-        try:
-            session_path.unlink()
-            cleared = True
-        finally:
-            _release_lock(lock_fd)
+        session_path.unlink()
+        cleared = True
 
-    # Clean up lock file
+    # Clean up legacy lock file if present
     if lock_path.exists():
         try:
             lock_path.unlink()
         except OSError:
-            pass  # Ignore if lock file is still in use
+            pass
 
     return cleared
 
