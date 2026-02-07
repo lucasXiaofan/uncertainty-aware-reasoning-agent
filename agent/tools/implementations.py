@@ -370,3 +370,164 @@ def select_experiences(experience_ids: str, reasoning: str) -> str:
         "reasoning": reasoning,
         "context_for_doctor": "\n\n".join(context_parts)
     })
+
+
+# =============================================================================
+# Uncertainty-Aware Diagnosis Tools
+# =============================================================================
+
+from .diagnosis_session import append_step, get_accumulated_notes, load_session, get_current_session
+
+
+@tool(name="diagnosis_step", description="Record diagnostic reasoning and specify your next action. Returns formatted response to output.")
+def diagnosis_step(new_information: str, current_uncertainties: str, next_step_action: str) -> str:
+    """Record a diagnostic step and get formatted next action for output.
+
+    This tool serves two purposes:
+    1. Records: new information, uncertainties, and planned action to session file
+    2. Returns: formatted action string to output to AgentClinic
+
+    Args:
+        new_information: str
+        current_uncertainties: list[str]
+        next_step_action: str
+    Returns:
+        str
+    """
+    # Get session from context (set by wrapper)
+    session_id = get_current_session()
+    if not session_id:
+        return "Error: No active diagnosis session. Session must be initialized by wrapper."
+
+    # Parse uncertainties from comma-separated string
+    if isinstance(current_uncertainties, str):
+        uncertainties_list = [u.strip() for u in current_uncertainties.split(";") if u.strip()]
+    else:
+        uncertainties_list = current_uncertainties
+
+    # Append step to session (records to file)
+    session = append_step(
+        session_id=session_id,
+        new_information=new_information,
+        uncertainties=uncertainties_list,
+        next_step_action=next_step_action
+    )
+
+    # Format the action for AgentClinic output
+    return next_step_action
+
+
+def _get_diagnosis_client():
+    """Get OpenAI client for final diagnosis synthesis.
+
+    Uses gpt-5-mini for focused diagnosis generation.
+    """
+    from openai import OpenAI
+
+    # Try OpenRouter first (for gpt-5-mini access)
+    openrouter_key = os.getenv("OPENROUTER_API_KEY")
+    if openrouter_key:
+        return OpenAI(
+            api_key=openrouter_key,
+            base_url="https://openrouter.ai/api/v1"
+        )
+
+    # Fallback to OpenAI directly
+    openai_key = os.getenv("OPENAI_API_KEY")
+    if openai_key:
+        return OpenAI(api_key=openai_key)
+
+    raise ValueError("No API key found for diagnosis synthesis (need OPENROUTER_API_KEY or OPENAI_API_KEY)")
+
+
+@tool(name="final_diagnosis", description="Submit your final diagnosis. Uses LLM to synthesize all accumulated information into clean diagnosis.")
+def final_diagnosis(reason_ready: str) -> str:
+    """Submit the final diagnosis for the case.
+
+    This tool:
+    1. Collects all accumulated information from diagnostic steps
+    2. Uses gpt-5-mini to synthesize a clean final diagnosis
+    3. Returns in AgentClinic-compatible format
+
+    Args:
+        reason_ready: Why you are confident enough to diagnose now (1-2 sentences)
+
+    Returns:
+        AgentClinic-compatible diagnosis string: "DIAGNOSIS READY: [diagnosis]"
+    """
+    # Get session from context (set by wrapper)
+    session_id = get_current_session()
+    if not session_id:
+        return "Error: No active diagnosis session. Session must be initialized by wrapper."
+
+    # Load session to get all accumulated information
+    session = load_session(session_id)
+    steps = session.get("steps", [])
+
+    if not steps:
+        return "Error: No diagnostic steps recorded. Cannot make diagnosis without information."
+
+    # Extract all new_information from steps
+    accumulated_info = []
+    for step in steps:
+        info = step.get("new_information", "")
+        if info:
+            accumulated_info.append(info)
+
+    # Build prompt for diagnosis synthesis
+    info_text = "\n".join([f"- {info}" for info in accumulated_info])
+
+    synthesis_prompt = f"""You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.
+
+## Information Gathered:
+{info_text}
+
+## Task:
+Provide a single, specific diagnosis (1-3 words). Examples:
+- "Acute appendicitis"
+- "Community-acquired pneumonia"
+- "Type 2 diabetes mellitus"
+
+Diagnosis:"""
+
+    # Call LLM for diagnosis synthesis
+    try:
+        client = _get_diagnosis_client()
+        response = client.chat.completions.create(
+            model="openai/gpt-5-mini",
+            messages=[
+                {"role": "system", "content": "You are a medical expert providing concise final diagnoses. Output only the diagnosis name, nothing else."},
+                {"role": "user", "content": synthesis_prompt}
+            ],
+            temperature=0.1,
+            max_tokens=1000
+        )
+        final_diagnosis_text = response.choices[0].message.content.strip()
+
+        # Clean up any extra text
+        if "\n" in final_diagnosis_text:
+            final_diagnosis_text = final_diagnosis_text.split("\n")[0]
+
+    except Exception as e:
+        return f"Error: Failed to synthesize diagnosis: {str(e)}"
+
+    # Record the final diagnosis step
+    final_step = {
+        "step_number": len(steps) + 1,
+        "new_information": f"Final diagnosis reached: {final_diagnosis_text}",
+        "current_uncertainties": [],
+        "next_step_action": "DIAGNOSIS READY",
+        "reason_ready": reason_ready,
+        "final_diagnosis": final_diagnosis_text,
+        "synthesis_prompt": synthesis_prompt
+    }
+    session["steps"].append(final_step)
+    session["final_diagnosis"] = final_diagnosis_text
+    session["current_uncertainties"] = []
+
+    # Save final session state
+    from .diagnosis_session import save_session
+    save_session(session_id, session)
+
+    # Return AgentClinic-compatible format
+    return f"DIAGNOSIS READY: {final_diagnosis_text}"

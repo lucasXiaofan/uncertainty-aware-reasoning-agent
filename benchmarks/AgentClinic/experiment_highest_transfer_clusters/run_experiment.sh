@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # Run agentclinic experiments on train or test data from high-transfer clusters
-# Usage: ./run_experiment.sh [SPLIT] [model_name] [--use_memory] [--name experiment_name]
+# Usage: ./run_experiment.sh [SPLIT] [model_name] [--use_memory] [--use_uncertainty_aware] [--name experiment_name]
 # Example: ./run_experiment.sh test openai/gpt-5-mini
 # Example: ./run_experiment.sh train openai/gpt-4o
 # Example: ./run_experiment.sh one_case_test openai/gpt-5-mini --name single_case_baseline
 # Example: ./run_experiment.sh test openai/gpt-5-mini --use_memory
+# Example: ./run_experiment.sh test openai/gpt-5-mini --use_uncertainty_aware
+# Example: ./run_experiment.sh test openai/gpt-5-mini --use_memory --use_uncertainty_aware
 # Example: ./run_experiment.sh test openai/gpt-5-mini --name baseline_v1
 # Example: ./run_experiment.sh test openai/gpt-5-mini --use_memory --name with_memory_experiment
 
@@ -15,35 +17,41 @@ set -e
 SPLIT="${1:-one_case_test}"  # Default to test
 MODEL="${2:-openai/gpt-5-mini}"  # Default model
 USE_MEMORY=""  # Default: memory disabled
+USE_UNCERTAINTY_AWARE=""  # Default: uncertainty-aware disabled
 EXPERIMENT_NAME=""  # Default: no custom name
 
-# # Parse optional flags
-# shift 2 || true  # Remove first two positional args
-# while [[ $# -gt 0 ]]; do
-#     case $1 in
-#         --use_memory)
-#             USE_MEMORY="--use_memory"
-#             shift
-#             ;;
-#         --name)
-#             EXPERIMENT_NAME="$2"
-#             shift 2
-#             ;;
-#         *)
-#             echo "Unknown option: $1"
-#             echo "Usage: $0 [SPLIT] [model_name] [--use_memory] [--name experiment_name]"
-#             exit 1
-#             ;;
-#     esac
-# done
+# Parse optional flags
+shift 2 || true  # Remove first two positional args
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --use_memory)
+            USE_MEMORY="--use_memory"
+            shift
+            ;;
+        --use_uncertainty_aware)
+            USE_UNCERTAINTY_AWARE="--use_uncertainty_aware"
+            shift
+            ;;
+        --name)
+            EXPERIMENT_NAME="$2"
+            shift 2
+            ;;
+        *)
+            echo "Unknown option: $1"
+            echo "Usage: $0 [SPLIT] [model_name] [--use_memory] [--use_uncertainty_aware] [--name experiment_name]"
+            exit 1
+            ;;
+    esac
+done
 
 # Validate split option
 VALID_SPLITS=("train" "test" "one_case_train" "one_case_test")
 if [[ ! " ${VALID_SPLITS[@]} " =~ " ${SPLIT} " ]]; then
-    echo "Usage: $0 [SPLIT] [model_name] [--use_memory] [--name experiment_name]"
+    echo "Usage: $0 [SPLIT] [model_name] [--use_memory] [--use_uncertainty_aware] [--name experiment_name]"
     echo "  SPLIT: 'train', 'test', 'one_case_train', or 'one_case_test' (default: test)"
     echo "  MODEL: model name (default: openai/gpt-5-mini)"
     echo "  --use_memory: enable memory retrieval (default: disabled)"
+    echo "  --use_uncertainty_aware: use uncertainty-aware doctor agent (default: disabled)"
     echo "  --name NAME: custom experiment name for output file (default: auto-generated)"
     echo ""
     echo "Available datasets:"
@@ -90,33 +98,42 @@ if [[ -n "$EXPERIMENT_NAME" ]]; then
     if [[ -n "$USE_MEMORY" ]]; then
         MEMORY_SUFFIX="_memory"
     fi
-    OUTPUT_FILE="$RESULTS_DIR/${SPLIT}_${EXPERIMENT_SAFE}${MEMORY_SUFFIX}_${TIMESTAMP}.jsonl"
+    UA_SUFFIX=""
+    if [[ -n "$USE_UNCERTAINTY_AWARE" ]]; then
+        UA_SUFFIX="_ua"
+    fi
+    OUTPUT_FILE="$RESULTS_DIR/${SPLIT}_${EXPERIMENT_SAFE}${MEMORY_SUFFIX}${UA_SUFFIX}_${TIMESTAMP}.jsonl"
 else
-    # Default naming: split_model_memory_timestamp
+    # Default naming: split_model_memory_ua_timestamp
     MEMORY_SUFFIX=""
     if [[ -n "$USE_MEMORY" ]]; then
         MEMORY_SUFFIX="_memory"
     fi
-    OUTPUT_FILE="$RESULTS_DIR/${SPLIT}_${MODEL_SAFE}${MEMORY_SUFFIX}_${TIMESTAMP}.jsonl"
+    UA_SUFFIX=""
+    if [[ -n "$USE_UNCERTAINTY_AWARE" ]]; then
+        UA_SUFFIX="_ua"
+    fi
+    OUTPUT_FILE="$RESULTS_DIR/${SPLIT}_${MODEL_SAFE}${MEMORY_SUFFIX}${UA_SUFFIX}_${TIMESTAMP}.jsonl"
 fi
 
 echo "========================================================"
 echo "High-Transfer Clusters Experiment"
 echo "========================================================"
-echo "Split:       $SPLIT"
-echo "Model:       $MODEL"
-echo "Memory:      $([ -n "$USE_MEMORY" ] && echo "ENABLED" || echo "disabled")"
+echo "Split:              $SPLIT"
+echo "Model:              $MODEL"
+echo "Memory:             $([ -n "$USE_MEMORY" ] && echo "ENABLED" || echo "disabled")"
+echo "Uncertainty-Aware:  $([ -n "$USE_UNCERTAINTY_AWARE" ] && echo "ENABLED" || echo "disabled")"
 if [[ -n "$EXPERIMENT_NAME" ]]; then
-    echo "Experiment:  $EXPERIMENT_NAME"
+    echo "Experiment:         $EXPERIMENT_NAME"
 fi
-echo "Data file:   $DATA_FILE"
-echo "Num cases:   $NUM_CASES"
-echo "Output:      $OUTPUT_FILE"
+echo "Data file:          $DATA_FILE"
+echo "Num cases:          $NUM_CASES"
+echo "Output:             $OUTPUT_FILE"
 echo "========================================================"
 
 # Dependencies for uv run
-DEPS="--with openai>=1.0.0 --with regex --with python-dotenv"
-COMMON_ARGS="--doctor_llm $MODEL --total_inferences 20 $USE_MEMORY"
+DEPS="--with openai>=1.0.0 --with regex --with python-dotenv --with pyyaml"
+COMMON_ARGS="--doctor_llm $MODEL --total_inferences 20 $USE_MEMORY $USE_UNCERTAINTY_AWARE"
 
 # Backup original dataset
 cd "$AGENTCLINIC_DIR"

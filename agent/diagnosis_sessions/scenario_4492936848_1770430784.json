@@ -1,0 +1,198 @@
+{
+  "session_id": "scenario_4492936848_1770430784",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Newborn presenting with feeding intolerance and bilious vomiting.",
+      "uncertainties": {
+        "Malrotation with midgut volvulus": "Bilious vomiting in a neonate is classic and is a surgical emergency",
+        "Intestinal atresia (duodenal/jejunal)": "Presents with early bilious vomiting and feeding intolerance",
+        "Meconium ileus (CF)": "Presents with distal obstruction causing bilious vomiting and failure to pass meconium",
+        "Necrotizing enterocolitis (NEC)": "Especially in preterm infants, may present with feeding intolerance and bilious vomiting with systemic signs."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Vital Signs; ASK PATIENT: Provide newborn demographics (age in hours/days, gestational age at birth, birth weight), feeding history (breast vs formula, time of first feed), onset and frequency of vomiting, color of vomitus confirmed bilious, presence/absence of abdominal distension, passage of meconium and timing, urine output, any perinatal complications or antenatal ultrasound findings (polyhydramnios), and maternal history.",
+      "action_reason": "Vital signs and neonatal demographics are critical early clues (hemodynamic stability, fever, prematurity). Feeding/stool history (passage of meconium, timing of vomiting onset) and abdominal exam data will help distinguish surgical causes like malrotation/volvulus or atresia from medical causes like NEC or meconium ileus and prioritize urgent imaging/intervention."
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs are within normal limits (temperature, blood pressure, heart rate, respiratory rate).",
+      "uncertainties": {
+        "Midgut malrotation with volvulus": "presents with sudden bilious vomiting and may have rapid deterioration—surgical emergency",
+        "Duodenal or proximal jejunal atresia (including annular pancreas)": "causes early bilious vomiting often shortly after first feeds, may be associated with antenatal polyhydramnios",
+        "Meconium ileus (cystic fibrosis) or distal small-bowel obstruction": "causes bilious vomiting and failure to pass meconium or delayed meconium passage."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ASK PATIENT: Provide newborn demographics (age in hours/days, gestational age at birth, birth weight), feeding history (breast vs formula, time of first feed), exact time of onset and frequency of vomiting, confirm color of vomitus is bilious (green), presence/absence and degree of abdominal distension, timing/passage of meconium, urine output, any antenatal findings such as polyhydramnios, perinatal complications, and family history of cystic fibrosis.",
+      "action_reason": "These data (timing of symptoms relative to birth/first feed, antenatal polyhydramnios, passage of meconium, and abdominal exam findings) are high-yield to distinguish proximal atresia/annular pancreas (early bilious vomiting, polyhydramnios) from malrotation/volvulus (sudden bilious vomiting, potential rapid deterioration) and meconium ileus (delayed/absent meconium; CF risk). Demographics (gestational age, birth weight) and urine output help assess stability and alternative diagnoses (e.g., sepsis, NEC)."
+    },
+    {
+      "step_number": 3,
+      "new_information": "6-hour-old term male, birth weight 3050 g; uncomplicated pregnancy though prenatal care was incomplete. Multiple episodes of green (bilious) vomiting starting shortly after birth and immediately after feeds. Afebrile with normal vital signs. No abdominal distension. Passed meconium normally and has good urine output. Family history: older brother had pyloric stenosis; no family history of cystic fibrosis.",
+      "uncertainties": {
+        "midgut volvulus (malrotation)": "bilious vomiting from birth is classic and can rapidly compromise bowel—must be ruled out urgently",
+        "duodenal obstruction (duodenal atresia or annular pancreas)": "causes immediate bilious vomiting and would show 'double bubble' on x-ray",
+        "jejunoileal atresia": "can present with early bilious vomiting but typically with abdominal distension and sometimes delayed/absent meconium (less likely here since meconium was passed)."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Place nasogastric tube for decompression and keep NPO; start IV fluids; obtain abdominal x-ray (supine and upright) urgently, followed by an urgent upper GI contrast study if x-ray is inconclusive; request emergent pediatric surgery consult.",
+      "action_reason": "Immediate stabilization (NG decompression, NPO, IV fluids) prevents aspiration and corrects/avoids dehydration while imaging differentiates proximal (duodenal) vs midgut obstruction (malrotation/volvulus) and distal atresia. Upper GI contrast study is the test of choice to confirm or exclude malrotation/volvulus which is the most time-sensitive diagnosis."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Abdominal x-ray demonstrates a 'double bubble' appearance consistent with proximal duodenal obstruction.",
+      "uncertainties": {
+        "Duodenal atresia": "classic double-bubble and immediate bilious vomiting since birth",
+        "Malrotation with midgut volvulus": "can present with bilious vomiting and may produce proximal gas pattern early—requires urgent differentiation because it is a surgical emergency",
+        "Annular pancreas": "congenital extrinsic compression of the duodenum that can produce identical radiographic appearance and neonatal bilious vomiting."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Upper GI contrast study (urgent)",
+      "action_reason": "An urgent upper GI contrast study will delineate the position of the duodenojejunal junction and lumen continuity: an abnormal position or corkscrew/obstruction beyond the duodenum indicates malrotation/volvulus (urgent surgery), whereas a cutoff at the second portion of the duodenum with no passage beyond supports intrinsic duodenal atresia or annular pancreas and guides planned surgical repair. This test therefore differentiates the top emergent vs non-emergent causes and directs immediate management."
+    },
+    {
+      "step_number": 5,
+      "new_information": "Upper GI contrast study reported as 'NORMAL READINGS' (detailed report text not yet provided).",
+      "uncertainties": {
+        "Duodenal atresia": "supported by prenatal/early double-bubble and bilious vomiting but needs confirmation on contrast study",
+        "Annular pancreas or intrinsic duodenal web (partial obstruction)": "can present similarly with early bilious vomiting but might allow some contrast passage",
+        "Malrotation with Ladd bands/volvulus": "can present with bilious vomiting and double-bubble—would be identified by abnormal DJ flexure on upper GI study (uncertain given 'normal' reading)",
+        "Jejunal atresia or more distal obstruction": "less likely given early presentation without marked distension, but not fully excluded."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ASK PATIENT: Provide the detailed radiology report of the upper GI contrast study—specifically state whether contrast passed beyond the duodenum into the jejunum, the position of the duodenojejunal (DJ) flexure, and any comment about malrotation or obstruction. Also confirm whether abdominal x-ray showed absence of distal bowel gas.",
+      "action_reason": "Clarifying the upper GI study findings (contrast passage and DJ flexure position) will differentiate malrotation/volvulus (requires immediate surgery) from intrinsic duodenal obstruction (duodenal atresia/annular pancreas/web) and guide urgent surgical planning."
+    },
+    {
+      "step_number": 6,
+      "new_information": "Upper GI contrast study: contrast did not pass beyond the duodenum into the jejunum; duodenojejunal (DJ) flexure is positioned to the right of midline, consistent with malrotation and obstruction. Abdominal x-ray: double bubble sign with absence of distal bowel gas.",
+      "uncertainties": {
+        "Midgut volvulus due to malrotation": "high concern because DJ flexure is right of midline and contrast fails to pass — this can rapidly compromise bowel",
+        "Congenital intrinsic duodenal obstruction (duodenal atresia/annular pancreas/duodenal web)": "explains double bubble and bilious vomiting from birth but less consistent with malpositioned DJ flexure",
+        "Extrinsic obstruction from Ladd bands (malrotation without volvulus)": "can cause proximal obstruction with similar imaging but may not have ischemia."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Emergent pediatric surgical exploration (exploratory laparotomy with likely detorsion and Ladd procedure)",
+      "action_reason": "Imaging shows malrotation with obstruction and failure of contrast to pass; emergent surgical exploration is needed both to confirm and treat midgut volvulus (time-sensitive to prevent ischemia) and to differentiate volvulus from intrinsic duodenal atresia or extrinsic Ladd-band compression. Preoperative resuscitation (NG decompression, IV fluids, broad-spectrum IV antibiotics) and STAT labs (CBC, electrolytes, blood type & crossmatch, coagulation studies) should be done immediately prior to transfer to the OR."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Newborn exam notable for dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid to lower sternal border; lungs clear.",
+      "uncertainties": {
+        "Midgut volvulus from malrotation": "UGI shows DJ flexure to the right and contrast not passing beyond duodenum — could represent volvulus causing acute obstruction and ischemia",
+        "Intrinsic duodenal obstruction (duodenal atresia or annular pancreas)": "double bubble and failure of contrast passage could reflect intrinsic duodenal atresia which is strongly associated with Down syndrome",
+        "Down syndrome with associated congenital cardiac lesion (eg, VSD)": "dysmorphic features and holosystolic murmur suggest a cardiac defect that affects perioperative management but does not fully explain the bilious obstruction."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Emergent pediatric surgical exploration (exploratory laparotomy with likely detorsion and Ladd procedure)",
+      "action_reason": "This newborn has radiographic evidence of malrotation with obstruction and now physical features consistent with Down syndrome; emergent surgical exploration is required to identify and treat midgut volvulus if present (to prevent intestinal ischemia/necrosis), and to define whether obstruction is due to malrotation/volvulus versus intrinsic duodenal atresia or annular pancreas. Operative findings will directly resolve the primary diagnostic uncertainty and allow definitive treatment. Concurrent stabilization (NG decompression, NPO, IV fluids, antibiotics) and prompt surgical management are time-sensitive."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Term male newborn (6 hours old, 3050 g) with repeated bilious vomiting since birth; abdominal x-ray shows 'double bubble' with absent distal gas; upper GI contrast study demonstrates contrast not passing beyond the duodenum and the duodenojejunal (DJ) flexure positioned to the right of midline — consistent with malrotation with obstruction. On exam the baby has dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid-lower sternal border.",
+      "uncertainties": {
+        "Malrotation with Ladd-band obstruction and/or midgut volvulus causing extrinsic duodenal obstruction": "supported by UGI with DJ flexure to the right and obstructive pattern",
+        "Intrinsic duodenal atresia/stenosis": "also possible given double-bubble and association with Down syndrome",
+        "Congenital cardiac lesion (e.g., VSD vs AV septal defect) impacting perioperative risk": "murmur present but lesion type/severity unknown"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Emergent pediatric surgical exploration (exploratory laparotomy with likely detorsion and Ladd procedure)",
+      "action_reason": "The upper GI study localizes the obstruction to malrotation (DJ flexure right of midline) and there is risk of midgut volvulus with bowel ischemia — urgent surgical exploration is both diagnostic and therapeutic and will differentiate extrinsic (Ladd bands/volvulus) from intrinsic duodenal atresia. Preoperative echocardiogram and genetic testing for trisomy 21 are indicated but should not delay operative management if volvulus is suspected."
+    },
+    {
+      "step_number": 9,
+      "new_information": "Newborn is a 6-hour-old term male with green bilious vomiting since birth, double-bubble sign with absence of distal gas on abdominal x-ray, upper GI contrast study showing contrast failing to pass beyond the duodenum and the duodenojejunal flexure positioned to the right of midline (consistent with malrotation/obstruction). Exam notable for dysmorphic features (epicanthal folds, upward slanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid-to-lower sternal border.",
+      "uncertainties": {
+        "1) Midgut volvulus from malrotation": "imaging (DJ flexure right of midline) and bilious vomiting/double bubble support this",
+        "urgent surgical detorsion needed to prevent ischemia. 2) Intrinsic duodenal obstruction (duodenal atresia/stenosis)": "classic double-bubble and failure of contrast to pass could represent intrinsic duodenal atresia rather than malrotation. 3) Annular pancreas: can cause high duodenal obstruction with similar imaging. These diagnoses overlap clinically and require operative inspection to distinguish."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Emergent pediatric surgical exploration (exploratory laparotomy with likely detorsion and Ladd procedure)",
+      "action_reason": "The upper GI study shows malrotation with obstruction and the clinical picture is bilious emesis with absent distal gas — this places the infant at immediate risk for midgut volvulus and bowel ischemia. Exploratory laparotomy will rapidly distinguish malrotation/volvulus from intrinsic duodenal lesions (atresia or annular pancreas) and enable definitive surgical management (detorsion, Ladd procedure, or duodenoduodenostomy) — this is the highest-yield, time-sensitive action to resolve current diagnostic uncertainties."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Physical exam: dysmorphic features (epicanthal folds, upslanting palpebral fissures, single transverse palmar crease, low-set ears) consistent with Down syndrome; grade 2/6 holosystolic murmur at left mid-to-lower sternal border (suspicious for VSD). Radiology: upper GI contrast study shows no passage of contrast beyond the duodenum and the duodenojejunal (DJ) flexure is located to the right of midline, consistent with malrotation with obstruction. Abdominal x-ray: double-bubble sign with absence of distal bowel gas. Newborn passed meconium and has good urine output; vitals currently stable.",
+      "uncertainties": {
+        "Malrotation with midgut volvulus": "UGI shows right-sided DJ flexure and proximal obstruction — risk of ischemia, fits bilious vomiting",
+        "Duodenal atresia/stenosis": "double-bubble and strong association with Down syndrome and early bilious vomiting",
+        "Annular pancreas": "associated with Down syndrome and can cause intrinsic duodenal obstruction but would not typically cause abnormal DJ position."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Emergent pediatric surgical exploration (exploratory laparotomy with likely detorsion and Ladd procedure)",
+      "action_reason": "Upper GI demonstrates malrotation with obstruction and there is an immediate risk of midgut volvulus and bowel ischemia. Surgical exploration is required urgently to detorse/perform Ladd procedure if volvulus is present, and will also allow direct assessment and repair if intrinsic duodenal atresia or annular pancreas is found."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Physical exam reveals dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid-to-lower sternal border, suggesting possible trisomy 21 with congenital heart disease. Imaging: abdominal x-ray shows 'double bubble' with no distal gas; upper GI contrast study shows contrast not passing beyond the duodenum and the duodenojejunal (DJ) flexure located to the right of midline, consistent with malrotation and proximal obstruction.",
+      "uncertainties": {
+        "Malrotation with midgut volvulus": "imaging shows malpositioned DJ flexure and obstruction — needs confirmation of volvulus and bowel viability",
+        "Duodenal atresia (intrinsic duodenal obstruction, possibly related to trisomy 21)": "double bubble and Down features could reflect intrinsic duodenal atresia",
+        "Annular pancreas": "can cause duodenal obstruction and may mimic double bubble",
+        "Less likely — other proximal intestinal obstructive lesions.": "under consideration"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Emergent pediatric surgical exploration (exploratory laparotomy with likely detorsion and Ladd procedure)",
+      "action_reason": "Imaging and clinical picture indicate obstruction with malrotation and high risk of midgut volvulus and bowel ischemia; emergent surgical exploration is both diagnostic and therapeutic and must not be delayed. Preoperative stabilization (NG decompression, NPO, IV fluids, CBC, electrolytes, blood type/crossmatch, blood gas/lactate, start broad-spectrum IV antibiotics) and an urgent echocardiogram should be performed concurrently but should not delay surgery."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Newborn has dysmorphic facial features (epicanthal folds, upslanting palpebral fissures), a single transverse palmar crease, and a grade 2/6 holosystolic murmur at the left mid-to-lower sternal border—findings suggestive of Down syndrome with possible VSD.",
+      "uncertainties": {
+        "Intestinal malrotation with midgut volvulus": "UGI shows DJ flexure to the right and contrast did not pass beyond the duodenum",
+        "bilious vomiting and double-bubble with absent distal gas make this the leading, time-sensitive diagnosis": "under consideration",
+        "Duodenal atresia or annular pancreas": "classic double-bubble and association with Down syndrome make intrinsic or extrinsic duodenal obstruction a competing diagnosis, though UGI malposition favors malrotation",
+        "Bowel ischemia from volvulus": "must be rapidly excluded/managed because volvulus can cause vascular compromise and necrosis."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Emergent pediatric surgical exploration (exploratory laparotomy with likely detorsion and Ladd procedure)",
+      "action_reason": "Urgent operative exploration is required to detorse and correct malrotation, directly assess for volvulus and bowel viability, and distinguish malrotation/volvulus from intrinsic duodenal atresia or annular pancreas; delay risks bowel ischemia and necrosis and will change immediate management."
+    },
+    {
+      "step_number": 13,
+      "new_information": "Newborn (6 hours old) with dysmorphic features suggestive of Down syndrome (epicanthal folds, upward slanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid-to-lower sternal border. Clinical course: persistent green bilious vomiting since birth, passed meconium, normal urine output, no abdominal distension. Imaging: abdominal x-ray shows 'double bubble' with absence of distal bowel gas; upper GI contrast study shows contrast does not pass beyond the duodenum and the duodenojejunal (DJ) flexure is positioned to the right of midline, consistent with malrotation and proximal obstruction.",
+      "uncertainties": {
+        "Malrotation with midgut volvulus": "DJ flexure right of midline and bilious vomiting suggest malrotation with possible volvulus causing acute obstruction and ischemia",
+        "Duodenal atresia/annular pancreas": "double bubble and features of Down syndrome raise possibility of intrinsic duodenal obstruction as alternative or coexisting lesion",
+        "Significant congenital cardiac lesion (e.g., VSD/AVSD)": "holosystolic murmur and Down syndrome increase likelihood of cardiac defect that will affect perioperative management and anesthesia",
+        "Bowel viability": "imaging suggests obstruction but the presence or absence of ischemia/necrosis is unknown and urgent to determine."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Emergent pediatric surgical exploration (exploratory laparotomy with likely detorsion and Ladd procedure)",
+      "action_reason": "Urgent operative exploration will (1) directly confirm malrotation and detorse any volvulus, (2) assess bowel viability and resect nonviable segments if present, (3) perform a Ladd procedure to relieve malrotation and prevent recurrence, and (4) identify or address any intrinsic duodenal obstruction (e.g., atresia or annular pancreas). This is time-sensitive to prevent bowel ischemia and is both diagnostic and therapeutic; concurrent perioperative cardiac evaluation/optimization can be arranged given suspected congenital heart disease."
+    },
+    {
+      "step_number": 14,
+      "new_information": "Newborn exam shows dysmorphic features consistent with Down syndrome (epicanthal folds, upward slanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur. Imaging: abdominal x-ray shows a 'double bubble' with absence of distal bowel gas; upper GI contrast study demonstrates contrast failing to pass beyond the duodenum with the duodenojejunal (DJ) flexure located to the right of midline — findings consistent with malrotation causing proximal obstruction.",
+      "uncertainties": {
+        "Midgut volvulus due to malrotation": "DJ flexure malpositioned to the right, bilious vomiting since birth, and absent distal gas make volvulus a leading concern",
+        "Congenital duodenal atresia/annular pancreas": "classic double-bubble and association with Down syndrome could reflect an intrinsic duodenal obstruction instead of malrotation",
+        "Obstructing duodenal web/stenosis": "can present similarly with proximal obstruction if intrinsic lesion present."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Emergent pediatric surgical exploration (exploratory laparotomy with likely detorsion and Ladd procedure); ensure NPO, place/confirm NG tube for continuous decompression, start IV fluid resuscitation, obtain preoperative labs (CBC, BMP/electrolytes, blood type & crossmatch), start broad-spectrum IV antibiotics, and notify pediatric anesthesia and pediatric surgery for urgent operative intervention.",
+      "action_reason": "These steps are required urgently to (1) confirm whether obstruction is from malrotation with volvulus versus intrinsic duodenal atresia/annular pancreas, (2) detorse and perform a Ladd procedure if malrotation/volvulus is present to restore perfusion and prevent bowel necrosis, and (3) stabilize the neonate for safe anesthesia and surgery (correct fluids/electrolytes, provide decompression, prepare blood products if needed)."
+    }
+  ],
+  "all_information": [
+    "Newborn presenting with feeding intolerance and bilious vomiting.",
+    "Vital signs are within normal limits (temperature, blood pressure, heart rate, respiratory rate).",
+    "6-hour-old term male, birth weight 3050 g; uncomplicated pregnancy though prenatal care was incomplete. Multiple episodes of green (bilious) vomiting starting shortly after birth and immediately after feeds. Afebrile with normal vital signs. No abdominal distension. Passed meconium normally and has good urine output. Family history: older brother had pyloric stenosis; no family history of cystic fibrosis.",
+    "Abdominal x-ray demonstrates a 'double bubble' appearance consistent with proximal duodenal obstruction.",
+    "Upper GI contrast study reported as 'NORMAL READINGS' (detailed report text not yet provided).",
+    "Upper GI contrast study: contrast did not pass beyond the duodenum into the jejunum; duodenojejunal (DJ) flexure is positioned to the right of midline, consistent with malrotation and obstruction. Abdominal x-ray: double bubble sign with absence of distal bowel gas.",
+    "Newborn exam notable for dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid to lower sternal border; lungs clear.",
+    "Term male newborn (6 hours old, 3050 g) with repeated bilious vomiting since birth; abdominal x-ray shows 'double bubble' with absent distal gas; upper GI contrast study demonstrates contrast not passing beyond the duodenum and the duodenojejunal (DJ) flexure positioned to the right of midline — consistent with malrotation with obstruction. On exam the baby has dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid-lower sternal border.",
+    "Newborn is a 6-hour-old term male with green bilious vomiting since birth, double-bubble sign with absence of distal gas on abdominal x-ray, upper GI contrast study showing contrast failing to pass beyond the duodenum and the duodenojejunal flexure positioned to the right of midline (consistent with malrotation/obstruction). Exam notable for dysmorphic features (epicanthal folds, upward slanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid-to-lower sternal border.",
+    "Physical exam: dysmorphic features (epicanthal folds, upslanting palpebral fissures, single transverse palmar crease, low-set ears) consistent with Down syndrome; grade 2/6 holosystolic murmur at left mid-to-lower sternal border (suspicious for VSD). Radiology: upper GI contrast study shows no passage of contrast beyond the duodenum and the duodenojejunal (DJ) flexure is located to the right of midline, consistent with malrotation with obstruction. Abdominal x-ray: double-bubble sign with absence of distal bowel gas. Newborn passed meconium and has good urine output; vitals currently stable.",
+    "Physical exam reveals dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid-to-lower sternal border, suggesting possible trisomy 21 with congenital heart disease. Imaging: abdominal x-ray shows 'double bubble' with no distal gas; upper GI contrast study shows contrast not passing beyond the duodenum and the duodenojejunal (DJ) flexure located to the right of midline, consistent with malrotation and proximal obstruction.",
+    "Newborn has dysmorphic facial features (epicanthal folds, upslanting palpebral fissures), a single transverse palmar crease, and a grade 2/6 holosystolic murmur at the left mid-to-lower sternal border—findings suggestive of Down syndrome with possible VSD.",
+    "Newborn (6 hours old) with dysmorphic features suggestive of Down syndrome (epicanthal folds, upward slanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur at the left mid-to-lower sternal border. Clinical course: persistent green bilious vomiting since birth, passed meconium, normal urine output, no abdominal distension. Imaging: abdominal x-ray shows 'double bubble' with absence of distal bowel gas; upper GI contrast study shows contrast does not pass beyond the duodenum and the duodenojejunal (DJ) flexure is positioned to the right of midline, consistent with malrotation and proximal obstruction.",
+    "Newborn exam shows dysmorphic features consistent with Down syndrome (epicanthal folds, upward slanting palpebral fissures, low-set ears, single transverse palmar crease) and a grade 2/6 holosystolic murmur. Imaging: abdominal x-ray shows a 'double bubble' with absence of distal bowel gas; upper GI contrast study demonstrates contrast failing to pass beyond the duodenum with the duodenojejunal (DJ) flexure located to the right of midline — findings consistent with malrotation causing proximal obstruction."
+  ],
+  "current_uncertainties": {
+    "Midgut volvulus due to malrotation": "DJ flexure malpositioned to the right, bilious vomiting since birth, and absent distal gas make volvulus a leading concern",
+    "Congenital duodenal atresia/annular pancreas": "classic double-bubble and association with Down syndrome could reflect an intrinsic duodenal obstruction instead of malrotation",
+    "Obstructing duodenal web/stenosis": "can present similarly with proximal obstruction if intrinsic lesion present."
+  }
+}

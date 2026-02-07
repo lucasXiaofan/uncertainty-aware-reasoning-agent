@@ -1,0 +1,137 @@
+{
+  "session_id": "scenario_4499739408_1769821966",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presents with dizziness, nausea, and imbalance.",
+      "current_uncertainties": [
+        "Vestibular neuritis: acute prolonged vertigo with nausea and imbalance without hearing loss",
+        "BPPV: brief, positional vertigo episodes triggered by head movement, less likely if continuous symptoms",
+        "Cerebellar stroke: acute dizziness with imbalance and nausea, especially in older patients or vascular risk factors—needs to be excluded",
+        "Ménière's disease: episodic vertigo with hearing loss/tinnitus and aural fullness—consider if auditory symptoms present."
+      ],
+      "next_step_action": "REQUEST TEST: Vital Signs"
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vitals: Temperature 98.7°F, BP 122/81 mmHg, HR 82 bpm, RR 15, SpO2 99% on room air.",
+      "current_uncertainties": [
+        "Vestibular neuritis: causes acute continuous vertigo with nausea and imbalance, often without hearing loss",
+        "BPPV: causes brief, position-triggered vertigo and imbalance, nausea possible",
+        "Posterior circulation stroke: can present with acute dizziness, nausea, gait instability and normal vitals, needs neuro assessment/imaging",
+        "Meniere disease: episodic vertigo with nausea and imbalance accompanied by hearing loss/tinnitus."
+      ],
+      "next_step_action": "ASK PATIENT: When did the dizziness start, is it continuous or triggered by head position changes, and do you have any hearing loss, ringing in the ears, weakness, numbness, slurred speech, or double vision?"
+    },
+    {
+      "step_number": 3,
+      "new_information": "Dizziness started this morning and is constant (continuous low-grade spinning), not triggered by head position changes; patient reports occasional nausea; denies hearing loss, tinnitus, weakness, numbness, slurred speech, or double vision.",
+      "current_uncertainties": [
+        "Vestibular neuritis: acute onset continuous spontaneous vertigo with nausea and no hearing loss is classic",
+        "Cerebellar (posterior circulation) stroke: can present with acute continuous vertigo and imbalance—absence of focal neuro deficits reduces but does not exclude risk",
+        "Benign paroxysmal positional vertigo (BPPV): typically brief, positional-triggered episodes—patient’s continuous, non-positional vertigo makes this less likely but still a consideration."
+      ],
+      "next_step_action": "REQUEST TEST: Focused neurological exam including HINTS exam (head impulse test, nystagmus assessment, test of skew) and gait/cerebellar coordination assessment"
+    },
+    {
+      "step_number": 4,
+      "new_information": "Neurological exam: nystagmus present; bilateral decreased hearing reported; unstable tandem gait but baseline gait unremarkable; HINTS components incomplete (head impulse and test of skew not documented).",
+      "current_uncertainties": [
+        "Vestibular neuritis: acute, continuous spinning vertigo with nystagmus and imbalance fits, typically without hearing loss so bilateral hearing decrease could be baseline",
+        "Labyrinthitis: would explain vertigo with hearing loss, but usually unilateral hearing loss and often with tinnitus—bilateral hearing decrease makes this less typical",
+        "Posterior circulation stroke (cerebellar/brainstem infarct): can present with continuous vertigo, nystagmus, and gait instability—must be excluded given incomplete HINTS and persistent symptoms",
+        "Bilateral vestibulopathy or other ototoxic/metabolic causes: could cause imbalance and bilateral hearing loss but usually cause chronic imbalance rather than acute continuous spinning."
+      ],
+      "next_step_action": "REQUEST TEST: Complete HINTS exam (perform and report head impulse test result, specify direction/type of nystagmus, and perform test of skew)"
+    },
+    {
+      "step_number": 5,
+      "new_information": "Complete HINTS exam remains incomplete: nystagmus present but direction/type not specified, head impulse test and test of skew not documented; peripheral pattern not confirmed.",
+      "current_uncertainties": [
+        "Vestibular neuritis: consistent with acute, continuous spinning and nausea but usually without hearing loss",
+        "Labyrinthitis: can cause vertigo with hearing loss, but typically unilateral and hearing loss here is noted as bilateral",
+        "Posterior circulation (cerebellar) stroke: can present with continuous vertigo and nystagmus—cannot be excluded because HINTS components are missing and central signs may be subtle",
+        "Less likely: BPPV (positional) given constant non-positional symptoms."
+      ],
+      "next_step_action": "REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result, specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result."
+    },
+    {
+      "step_number": 6,
+      "new_information": "Repeat Complete HINTS exam remains incomplete: nystagmus noted but direction/type not specified; head impulse test result not reported; test of skew not reported (peripheral pattern not confirmed).",
+      "current_uncertainties": [
+        "Vestibular neuritis/labyrinthitis: acute continuous spinning with nausea and nystagmus",
+        "labyrinthitis may explain hearing loss but usually unilateral",
+        "Posterior circulation stroke (cerebellar/brainstem infarct): can present with continuous vertigo and imbalance, HINTS may show central signs (normal head impulse, direction-changing nystagmus, skew)",
+        "Meniere's disease: typically episodic vertigo with hearing loss/tinnitus, less likely given continuous symptoms but hearing loss noted."
+      ],
+      "next_step_action": "REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result, specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Acute continuous vertigo began this morning with associated nausea and subjective imbalance. Nystagmus noted on exam. Cranial nerve testing recorded bilateral decreased hearing. Tandem gait unstable; baseline gait unremarkable. No focal deficits reported (no weakness, numbness, slurred speech, or diplopia). Vital signs normal. Repeat Complete HINTS exam remains incomplete—head impulse test result, nystagmus direction/type, and test of skew have not been documented.",
+      "current_uncertainties": [
+        "Vestibular neuritis: fits acute, continuous vertigo but typically lacks hearing loss which was noted on exam",
+        "Labyrinthitis: acute vertigo with hearing loss could explain bilateral decreased hearing and continuous symptoms",
+        "Posterior circulation stroke (cerebellar/PICA/AICA): can present with acute continuous vertigo and imbalance—central signs (HINTS) are not yet available to exclude",
+        "BPPV: usually positional and episodic, less likely given continuous symptoms."
+      ],
+      "next_step_action": "REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result (presence/absence of corrective saccade), specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Repeat Complete HINTS exam remains incomplete: nystagmus is noted but direction/type not specified; head impulse test (presence/absence of corrective saccade) and test of skew results are not reported.",
+      "current_uncertainties": [
+        "Vestibular neuritis: acute continuous vertigo and imbalance fit, but typically without hearing loss",
+        "Labyrinthitis: acute vertigo with hearing loss could explain bilateral decreased hearing noted earlier, though bilateral involvement is uncommon",
+        "Posterior circulation stroke (cerebellar/brainstem): can present with continuous vertigo, nystagmus, and gait instability without other focal deficits—HINTS components are needed to distinguish and imaging may be required."
+      ],
+      "next_step_action": "REQUEST TEST: MRI Brain with diffusion-weighted imaging (DWI)"
+    },
+    {
+      "step_number": 9,
+      "new_information": "MRI Brain with DWI: no acute abnormalities identified, specifically no evidence of acute ischemic stroke or significant lesion.",
+      "current_uncertainties": [
+        "Labyrinthitis: plausible—acute continuous spinning vertigo with concurrent decreased hearing and nausea suggests inner ear inflammation/infection affecting cochlea and vestibular apparatus",
+        "Vestibular neuritis: possible but less likely because examination noted bilateral decreased hearing (neuritis typically spares hearing)",
+        "Meniere disease: less likely given continuous onset (usually episodic) but considered if fluctuating hearing loss/tinnitus are present",
+        "Central vestibular disorder (brainstem/cerebellar stroke or demyelination): less likely given negative DWI and lack of focal neuro deficits, but cannot be fully excluded due to incomplete HINTS exam and occasional MRI false-negatives early on."
+      ],
+      "next_step_action": "ASK PATIENT: Do you have tinnitus or a sense of ear fullness? When did the hearing loss start and is it constant or fluctuating? Any recent ear pain or discharge, recent upper respiratory infection/viral illness, or recent use of ototoxic medications (eg, aminoglycosides, cisplatin)?"
+    },
+    {
+      "step_number": 10,
+      "new_information": "Patient denies tinnitus, ear fullness, and has not noticed any hearing loss. No recent ear pain or discharge. Reports a recent upper respiratory viral illness (cold) a few days ago; no ototoxic medication use.",
+      "current_uncertainties": [
+        "Vestibular neuritis: Acute continuous spinning vertigo with recent viral URI and absence of hearing loss fits typical peripheral vestibulopathy",
+        "Labyrinthitis: Would cause hearing loss/tinnitus which patient denies, making it less likely but still possible if hearing changes are subtle",
+        "Posterior circulation stroke (cerebellar/brainstem): Continuous vertigo and nystagmus could indicate central cause",
+        "MRI DWI negative but early stroke or small lesion not excluded without definitive HINTS exam results",
+        "Vestibular migraine: Can present with acute vertigo without hearing loss and normal MRI, less likely given acute onset after viral illness but remains in differential."
+      ],
+      "next_step_action": "REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result (presence/absence of corrective saccade), specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Repeat Complete HINTS exam remains incomplete: nystagmus is noted but direction/type not specified; head impulse test (presence/absence of corrective saccade) and test of skew results were not reported.",
+      "current_uncertainties": [
+        "Vestibular neuritis: likely given acute continuous spinning vertigo and recent viral URI with no reported hearing loss and negative MRI",
+        "Vestibular labyrinthitis: possible if there is hearing involvement (conflicting data: earlier cranial nerve exam noted bilateral decreased hearing but patient denies hearing loss), which would point to peripheral cause",
+        "Posterior circulation stroke (cerebellar/brainstem): cannot be excluded despite negative DWI MRI (early false negatives possible) and incomplete HINTS exam",
+        "BPPV: less likely because symptoms are continuous and not position-triggered but should be considered if positional component emerges."
+      ],
+      "next_step_action": "REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result (presence/absence of corrective saccade), specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Final diagnosis reached: Acute vestibular neuritis",
+      "current_uncertainties": [],
+      "next_step_action": "DIAGNOSIS READY",
+      "reason_ready": "Acute onset, persistent spinning vertigo with nausea and gait instability following a recent upper respiratory infection, absence of focal neurologic deficits or auditory symptoms, and a negative brain MRI (DWI) strongly favor a peripheral vestibulopathy. Although HINTS components were incompletely documented, the overall clinical pattern is most consistent with vestibular neuritis rather than a central stroke or labyrinthitis.",
+      "final_diagnosis": "Acute vestibular neuritis",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Patient presents with dizziness, nausea, and imbalance.\n- Vitals: Temperature 98.7°F, BP 122/81 mmHg, HR 82 bpm, RR 15, SpO2 99% on room air.\n- Dizziness started this morning and is constant (continuous low-grade spinning), not triggered by head position changes; patient reports occasional nausea; denies hearing loss, tinnitus, weakness, numbness, slurred speech, or double vision.\n- Neurological exam: nystagmus present; bilateral decreased hearing reported; unstable tandem gait but baseline gait unremarkable; HINTS components incomplete (head impulse and test of skew not documented).\n- Complete HINTS exam remains incomplete: nystagmus present but direction/type not specified, head impulse test and test of skew not documented; peripheral pattern not confirmed.\n- Repeat Complete HINTS exam remains incomplete: nystagmus noted but direction/type not specified; head impulse test result not reported; test of skew not reported (peripheral pattern not confirmed).\n- Acute continuous vertigo began this morning with associated nausea and subjective imbalance. Nystagmus noted on exam. Cranial nerve testing recorded bilateral decreased hearing. Tandem gait unstable; baseline gait unremarkable. No focal deficits reported (no weakness, numbness, slurred speech, or diplopia). Vital signs normal. Repeat Complete HINTS exam remains incomplete—head impulse test result, nystagmus direction/type, and test of skew have not been documented.\n- Repeat Complete HINTS exam remains incomplete: nystagmus is noted but direction/type not specified; head impulse test (presence/absence of corrective saccade) and test of skew results are not reported.\n- MRI Brain with DWI: no acute abnormalities identified, specifically no evidence of acute ischemic stroke or significant lesion.\n- Patient denies tinnitus, ear fullness, and has not noticed any hearing loss. No recent ear pain or discharge. Reports a recent upper respiratory viral illness (cold) a few days ago; no ototoxic medication use.\n- Repeat Complete HINTS exam remains incomplete: nystagmus is noted but direction/type not specified; head impulse test (presence/absence of corrective saccade) and test of skew results were not reported.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "[Step 1]\nNew Info: Patient presents with dizziness, nausea, and imbalance.\nDifferential: Vestibular neuritis: acute prolonged vertigo with nausea and imbalance without hearing loss, BPPV: brief, positional vertigo episodes triggered by head movement, less likely if continuous symptoms, Cerebellar stroke: acute dizziness with imbalance and nausea, especially in older patients or vascular risk factors—needs to be excluded, Ménière's disease: episodic vertigo with hearing loss/tinnitus and aural fullness—consider if auditory symptoms present.\nNext: REQUEST TEST: Vital Signs\n\n[Step 2]\nNew Info: Vitals: Temperature 98.7°F, BP 122/81 mmHg, HR 82 bpm, RR 15, SpO2 99% on room air.\nDifferential: Vestibular neuritis: causes acute continuous vertigo with nausea and imbalance, often without hearing loss, BPPV: causes brief, position-triggered vertigo and imbalance, nausea possible, Posterior circulation stroke: can present with acute dizziness, nausea, gait instability and normal vitals, needs neuro assessment/imaging, Meniere disease: episodic vertigo with nausea and imbalance accompanied by hearing loss/tinnitus.\nNext: ASK PATIENT: When did the dizziness start, is it continuous or triggered by head position changes, and do you have any hearing loss, ringing in the ears, weakness, numbness, slurred speech, or double vision?\n\n[Step 3]\nNew Info: Dizziness started this morning and is constant (continuous low-grade spinning), not triggered by head position changes; patient reports occasional nausea; denies hearing loss, tinnitus, weakness, numbness, slurred speech, or double vision.\nDifferential: Vestibular neuritis: acute onset continuous spontaneous vertigo with nausea and no hearing loss is classic, Cerebellar (posterior circulation) stroke: can present with acute continuous vertigo and imbalance—absence of focal neuro deficits reduces but does not exclude risk, Benign paroxysmal positional vertigo (BPPV): typically brief, positional-triggered episodes—patient’s continuous, non-positional vertigo makes this less likely but still a consideration.\nNext: REQUEST TEST: Focused neurological exam including HINTS exam (head impulse test, nystagmus assessment, test of skew) and gait/cerebellar coordination assessment\n\n[Step 4]\nNew Info: Neurological exam: nystagmus present; bilateral decreased hearing reported; unstable tandem gait but baseline gait unremarkable; HINTS components incomplete (head impulse and test of skew not documented).\nDifferential: Vestibular neuritis: acute, continuous spinning vertigo with nystagmus and imbalance fits, typically without hearing loss so bilateral hearing decrease could be baseline, Labyrinthitis: would explain vertigo with hearing loss, but usually unilateral hearing loss and often with tinnitus—bilateral hearing decrease makes this less typical, Posterior circulation stroke (cerebellar/brainstem infarct): can present with continuous vertigo, nystagmus, and gait instability—must be excluded given incomplete HINTS and persistent symptoms, Bilateral vestibulopathy or other ototoxic/metabolic causes: could cause imbalance and bilateral hearing loss but usually cause chronic imbalance rather than acute continuous spinning.\nNext: REQUEST TEST: Complete HINTS exam (perform and report head impulse test result, specify direction/type of nystagmus, and perform test of skew)\n\n[Step 5]\nNew Info: Complete HINTS exam remains incomplete: nystagmus present but direction/type not specified, head impulse test and test of skew not documented; peripheral pattern not confirmed.\nDifferential: Vestibular neuritis: consistent with acute, continuous spinning and nausea but usually without hearing loss, Labyrinthitis: can cause vertigo with hearing loss, but typically unilateral and hearing loss here is noted as bilateral, Posterior circulation (cerebellar) stroke: can present with continuous vertigo and nystagmus—cannot be excluded because HINTS components are missing and central signs may be subtle, Less likely: BPPV (positional) given constant non-positional symptoms.\nNext: REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result, specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result.\n\n[Step 6]\nNew Info: Repeat Complete HINTS exam remains incomplete: nystagmus noted but direction/type not specified; head impulse test result not reported; test of skew not reported (peripheral pattern not confirmed).\nDifferential: Vestibular neuritis/labyrinthitis: acute continuous spinning with nausea and nystagmus, labyrinthitis may explain hearing loss but usually unilateral, Posterior circulation stroke (cerebellar/brainstem infarct): can present with continuous vertigo and imbalance, HINTS may show central signs (normal head impulse, direction-changing nystagmus, skew), Meniere's disease: typically episodic vertigo with hearing loss/tinnitus, less likely given continuous symptoms but hearing loss noted.\nNext: REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result, specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result.\n\n[Step 7]\nNew Info: Acute continuous vertigo began this morning with associated nausea and subjective imbalance. Nystagmus noted on exam. Cranial nerve testing recorded bilateral decreased hearing. Tandem gait unstable; baseline gait unremarkable. No focal deficits reported (no weakness, numbness, slurred speech, or diplopia). Vital signs normal. Repeat Complete HINTS exam remains incomplete—head impulse test result, nystagmus direction/type, and test of skew have not been documented.\nDifferential: Vestibular neuritis: fits acute, continuous vertigo but typically lacks hearing loss which was noted on exam, Labyrinthitis: acute vertigo with hearing loss could explain bilateral decreased hearing and continuous symptoms, Posterior circulation stroke (cerebellar/PICA/AICA): can present with acute continuous vertigo and imbalance—central signs (HINTS) are not yet available to exclude, BPPV: usually positional and episodic, less likely given continuous symptoms.\nNext: REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result (presence/absence of corrective saccade), specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result.\n\n[Step 8]\nNew Info: Repeat Complete HINTS exam remains incomplete: nystagmus is noted but direction/type not specified; head impulse test (presence/absence of corrective saccade) and test of skew results are not reported.\nDifferential: Vestibular neuritis: acute continuous vertigo and imbalance fit, but typically without hearing loss, Labyrinthitis: acute vertigo with hearing loss could explain bilateral decreased hearing noted earlier, though bilateral involvement is uncommon, Posterior circulation stroke (cerebellar/brainstem): can present with continuous vertigo, nystagmus, and gait instability without other focal deficits—HINTS components are needed to distinguish and imaging may be required.\nNext: REQUEST TEST: MRI Brain with diffusion-weighted imaging (DWI)\n\n[Step 9]\nNew Info: MRI Brain with DWI: no acute abnormalities identified, specifically no evidence of acute ischemic stroke or significant lesion.\nDifferential: Labyrinthitis: plausible—acute continuous spinning vertigo with concurrent decreased hearing and nausea suggests inner ear inflammation/infection affecting cochlea and vestibular apparatus, Vestibular neuritis: possible but less likely because examination noted bilateral decreased hearing (neuritis typically spares hearing), Meniere disease: less likely given continuous onset (usually episodic) but considered if fluctuating hearing loss/tinnitus are present, Central vestibular disorder (brainstem/cerebellar stroke or demyelination): less likely given negative DWI and lack of focal neuro deficits, but cannot be fully excluded due to incomplete HINTS exam and occasional MRI false-negatives early on.\nNext: ASK PATIENT: Do you have tinnitus or a sense of ear fullness? When did the hearing loss start and is it constant or fluctuating? Any recent ear pain or discharge, recent upper respiratory infection/viral illness, or recent use of ototoxic medications (eg, aminoglycosides, cisplatin)?\n\n[Step 10]\nNew Info: Patient denies tinnitus, ear fullness, and has not noticed any hearing loss. No recent ear pain or discharge. Reports a recent upper respiratory viral illness (cold) a few days ago; no ototoxic medication use.\nDifferential: Vestibular neuritis: Acute continuous spinning vertigo with recent viral URI and absence of hearing loss fits typical peripheral vestibulopathy, Labyrinthitis: Would cause hearing loss/tinnitus which patient denies, making it less likely but still possible if hearing changes are subtle, Posterior circulation stroke (cerebellar/brainstem): Continuous vertigo and nystagmus could indicate central cause, MRI DWI negative but early stroke or small lesion not excluded without definitive HINTS exam results, Vestibular migraine: Can present with acute vertigo without hearing loss and normal MRI, less likely given acute onset after viral illness but remains in differential.\nNext: REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result (presence/absence of corrective saccade), specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result.\n\n[Step 11]\nNew Info: Repeat Complete HINTS exam remains incomplete: nystagmus is noted but direction/type not specified; head impulse test (presence/absence of corrective saccade) and test of skew results were not reported.\nDifferential: Vestibular neuritis: likely given acute continuous spinning vertigo and recent viral URI with no reported hearing loss and negative MRI, Vestibular labyrinthitis: possible if there is hearing involvement (conflicting data: earlier cranial nerve exam noted bilateral decreased hearing but patient denies hearing loss), which would point to peripheral cause, Posterior circulation stroke (cerebellar/brainstem): cannot be excluded despite negative DWI MRI (early false negatives possible) and incomplete HINTS exam, BPPV: less likely because symptoms are continuous and not position-triggered but should be considered if positional component emerges.\nNext: REQUEST TEST: Repeat Complete HINTS exam — perform and report head impulse test result (presence/absence of corrective saccade), specify nystagmus direction/type (unidirectional vs direction-changing; horizontal/torsional/vertical), and report test of skew result.",
+  "current_uncertainties": [],
+  "final_diagnosis": "Acute vestibular neuritis"
+}

@@ -97,17 +97,17 @@ class SingleAgent:
         # if not recent:
         return ""
 
-        context_parts = ["[RECENT CONVERSATION HISTORY]"]
-        for conv in recent:
-            context_parts.append(f"\nUser: {conv['user_query']}")
-            # Truncate long responses for context
-            response = conv['final_response']
-            if len(response) > 500:
-                response = response[:500] + "..."
-            context_parts.append(f"Assistant: {response}")
+        # context_parts = ["[RECENT CONVERSATION HISTORY]"]
+        # for conv in recent:
+        #     context_parts.append(f"\nUser: {conv['user_query']}")
+        #     # Truncate long responses for context
+        #     response = conv['final_response']
+        #     if len(response) > 500:
+        #         response = response[:500] + "..."
+        #     context_parts.append(f"Assistant: {response}")
 
-        context_parts.append("\n[END OF HISTORY]\n")
-        return "\n".join(context_parts)
+        # context_parts.append("\n[END OF HISTORY]\n")
+        # return "\n".join(context_parts)
 
     def _build_user_message(self, text: str, image_url: str = None) -> dict:
         """Build user message with optional image and conversation history."""

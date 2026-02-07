@@ -1,0 +1,275 @@
+{
+  "session_id": "scenario_4436395344_1770431594",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presenting with dizziness, nausea, and imbalance (acute symptoms reported).",
+      "uncertainties": {
+        "Peripheral vestibulopathy (vestibular neuritis/labyrinthitis)": "causes continuous vertigo, nausea, imbalance",
+        "BPPV": "causes brief positional vertigo episodes provoked by head movement, less likely if symptoms are continuous",
+        "Posterior circulation (cerebellar/brainstem) stroke": "can present with acute dizziness, severe imbalance, nausea/vomiting and may be indistinguishable from vestibular causes—needs vital signs/neuro exam and risk-factor assessment",
+        "Meniere disease": "episodic vertigo with hearing symptoms (tinnitus/fullness) — consider if auditory symptoms present."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Vital signs (BP, HR, temp, RR, SpO2) help identify hemodynamic causes (orthostatic hypotension, arrhythmia, fever suggesting infection) and stroke risk (hypertension), and guide urgency; they are essential early baseline data to differentiate cardiovascular vs vestibular vs central causes."
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs normal: T 98.7°F, BP 122/81 mmHg, HR 82 bpm, RR 15, SpO2 99% RA.",
+      "uncertainties": {
+        "Vestibular neuritis/labyrinthitis": "acute prolonged vertigo with nausea and imbalance, often post-viral",
+        "BPPV": "brief, position-triggered vertigo causing nausea/imbalance",
+        "Posterior circulation stroke": "acute dizziness with imbalance and possible focal neuro signs despite normal vitals"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ASK PATIENT: When did the dizziness start? Is it constant or comes in episodes? Does head movement or changing position (e.g., rolling in bed, looking up) trigger or worsen it? Any hearing loss or ringing in the ears? Any double vision, slurred speech, weakness, numbness, or difficulty walking? Any recent viral illness? Any chest pain, palpitations, or near-syncope?",
+      "action_reason": "These focused history questions differentiate peripheral causes (vestibular neuritis, BPPV — positional triggers, hearing symptoms, viral prodrome) from central causes (stroke — focal neurologic symptoms, continuous severe imbalance) and identify cardiac causes (palpitations/syncope)."
+    },
+    {
+      "step_number": 3,
+      "new_information": "Acute onset this morning of continuous low-grade spinning vertigo (constant, non-positional). No hearing loss, tinnitus, visual changes, focal weakness, numbness, gait difficulty, chest pain, palpitations, or near-syncope. Recent viral upper respiratory infection a few days ago.",
+      "uncertainties": {
+        "Vestibular neuritis": "acute continuous vertigo following viral illness without hearing loss makes this likely",
+        "Posterior circulation (cerebellar) stroke": "can present with acute vertigo without other deficits early, needs exclusion especially if vascular risk factors present",
+        "Labyrinthitis": "would expect hearing loss/tinnitus which are absent, less likely but still possible",
+        "BPPV": "typically episodic and positional, less likely given constant non-positional symptoms"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Neurologic exam including HINTS exam (head impulse, nystagmus characterization, test of skew) and bedside hearing assessment (Weber and Rinne)",
+      "action_reason": "HINTS exam reliably differentiates peripheral (e.g., vestibular neuritis) from central causes (e.g., stroke) in acute continuous vertigo; bedside hearing tests help distinguish vestibular neuritis (no hearing loss) from labyrinthitis (hearing loss)."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Neurological exam: nystagmus present; bilateral decreased hearing on bedside audiometry; patient has unstable tandem gait with otherwise unremarkable baseline gait. HINTS components (head impulse and test of skew) were not fully detailed and assumed normal in prior report.",
+      "uncertainties": {
+        "Labyrinthitis": "reasoning—post-viral acute continuous vertigo with associated hearing loss",
+        "Vestibular neuritis": "reasoning—post-viral acute continuous vertigo without hearing loss (hearing findings here unclear)",
+        "Posterior circulation stroke (cerebellar/brainstem ischemia)": "reasoning—acute continuous vertigo plus gait instability and possible central HINTS findings (normal head impulse, direction-changing nystagmus, skew) though stroke less likely with recent URI but must be excluded."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Focused Neurologic exam including detailed HINTS exam (document head impulse abnormal vs normal, characterize nystagmus: unidirectional vs direction-changing and plane [horizontal/vertical/torsional], perform test of skew with results), Formal Weber and Rinne bedside hearing tests, and cerebellar testing (finger-nose, heel-shin)",
+      "action_reason": "Detailed HINTS (head impulse, nystagmus characterization, skew) distinguishes peripheral (vestibular neuritis/labyrinthitis) from central causes (stroke). Formal Weber/Rinne clarifies whether hearing loss is unilateral or bilateral and supports labyrinthitis vs neuritis. Cerebellar testing helps identify focal central signs prompting urgent imaging."
+    },
+    {
+      "step_number": 5,
+      "new_information": "Focused neurologic exam: Head impulse test normal; test of skew normal; nystagmus present (characterization unspecified); cerebellar testing (finger-nose, heel-shin) normal; unstable tandem gait; formal bedside audiometry shows bilateral decreased hearing sensitivity (unspecified if acute).",
+      "uncertainties": {
+        "Posterior circulation ischemic stroke": "normal head impulse increases concern for central cause but nystagmus characterization missing",
+        "Vestibular neuritis": "viral prodrome and acute continuous vertigo support peripheral cause but head impulse often abnormal (contradiction)",
+        "Acute labyrinthitis": "hearing loss plus acute vertigo fits, but bilateral hearing loss is atypical or may be chronic/preexisting"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ASK PATIENT: What is your age and sex? Do you have vascular risk factors (hypertension, diabetes, hyperlipidemia, atrial fibrillation), current anticoagulant/antiplatelet use, or prior stroke/heart disease? Is the hearing loss new since this illness or preexisting (any recent change in ability to hear, ear fullness, tinnitus)? Any current medications (especially ototoxic drugs) or history of ear surgery?",
+      "action_reason": "Age and vascular risk factors strongly change the pretest probability of posterior circulation stroke and determine urgency of neuroimaging. Clarifying whether hearing loss is new (suggesting labyrinthitis) versus chronic helps distinguish peripheral ear disease from central causes and guides need for ENT/audiology input versus MRI."
+    },
+    {
+      "step_number": 6,
+      "new_information": "27-year-old male; no vascular risk factors; reports new bilateral hearing loss since onset of acute continuous spinning vertigo this morning; current medications include diphenhydramine (and nonprescription remedies).",
+      "uncertainties": {
+        "Labyrinthitis (viral labyrinthitis)": "recent URI, acute continuous vertigo with new hearing loss suggests peripheral labyrinthine inflammation",
+        "Vestibular neuritis": "acute continuous vertigo after URI but typically spares hearing (less likely given hearing loss)",
+        "AICA (posterior circulation) stroke": "can cause acute continuous vertigo with hearing loss and normal vascular risk does not exclude stroke—HINTS exam ambiguous/partially documented",
+        "Medication-induced (diphenhydramine) dizziness": "could contribute to dizziness but does not explain new hearing loss."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: MRI Brain with diffusion-weighted imaging (DWI) and MR angiography of the posterior circulation (vertebrobasilar system)",
+      "action_reason": "Acute new hearing loss in the setting of continuous vertigo is a red flag for possible ischemia of the inner ear/brainstem (AICA territory). HINTS findings are incompletely documented/ambiguous. MRI DWI can detect acute posterior fossa infarction and MRA assesses posterior circulation vessels, which will distinguish central (stroke) from peripheral causes (labyrinthitis) and guide urgent management."
+    },
+    {
+      "step_number": 7,
+      "new_information": "MRI brain with DWI negative for acute ischemia; MR angiography of posterior circulation normal (no vertebrobasilar occlusion).",
+      "uncertainties": {
+        "Vestibular neuritis": "post-viral acute sustained vertigo without hearing loss",
+        "MRI negative and young patient support peripheral cause but bedside hearing tests were equivocal": "under consideration",
+        "Labyrinthitis": "post-viral acute vertigo with new sensorineural hearing loss—patient reports new hearing difficulty but bedside Weber/Rinne unclear",
+        "Vestibular migraine": "can cause prolonged dizziness in young patients without focal findings, but no headache/photophobia reported."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Formal audiometry (pure-tone and speech audiometry) and otoscopic examination",
+      "action_reason": "Formal audiometry will determine if the hearing loss is sensorineural vs conductive and unilateral vs bilateral, which helps distinguish labyrinthitis (sensorineural, usually unilateral) from vestibular neuritis (no hearing loss) and identify middle-ear causes; otoscopic exam can detect external/middle ear pathology contributing to hearing changes."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Formal audiometry demonstrates bilateral decreased hearing sensitivity; otoscopic exam normal (no signs of infection or inflammation).",
+      "uncertainties": {
+        "Bilateral post-viral labyrinthitis": "recent viral URI, acute continuous vertigo with new hearing loss suggests peripheral (labyrinthine) involvement but bilateral involvement is uncommon",
+        "Bilateral sudden sensorineural hearing loss (SSNHL) possibly viral/immune-mediated": "acute bilateral decreased hearing with vertigo could represent SSNHL needing urgent therapy",
+        "Central cause (brainstem/cerebellar lesion/stroke)": "persistent vertigo with nystagmus and hearing loss could be central, but normal MRI DWI/MRA and normal HINTS/head impulse/skew make this less likely though not impossible."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat formal audiometry (complete pure-tone and speech audiometry with tympanometry) and ENT consultation for urgent assessment",
+      "action_reason": "Detailed audiometry with tympanometry will determine whether the hearing loss is sensorineural vs conductive, quantify severity, and confirm bilateral involvement; ENT assessment is urgent because if this is SSNHL (especially bilateral), prompt steroid therapy (systemic and/or intratympanic) within 72 hours may improve outcomes and ENT can guide immediate management."
+    },
+    {
+      "step_number": 9,
+      "new_information": "27-year-old male with acute continuous spinning vertigo since this morning following a recent viral URI. MRI brain DWI and MR angiography of posterior circulation normal. Focused neurologic/HINTS exam documented as normal. Repeat formal audiometry and ENT consultation both report new bilateral decreased hearing sensitivity; otoscopy normal. Cerebellar testing normal. Unstable tandem gait but baseline gait unremarkable.",
+      "uncertainties": {
+        "Viral labyrinthitis": "recent URI and new hearing loss with acute continuous vertigo supports this",
+        "Vestibular neuritis": "acute continuous vertigo after viral illness but typically without hearing loss—hearing loss here argues against isolated neuritis",
+        "Bilateral vestibular hypofunction (toxic/autoimmune)": "bilateral hearing loss and imbalance could reflect bilateral inner ear involvement, less common but possible—would expect gait imbalance/oscillopsia rather than true continuous spinning",
+        "Central posterior fossa process (stroke/demyelination)": "less likely given normal MRI and normal HINTS, but central causes can rarely present with similar symptoms and early MRI can be falsely negative."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Video Head Impulse Test (vHIT), ENG/VNG including caloric testing, and Vestibular Evoked Myogenic Potentials (VEMP); repeat HINTS exam with explicit documentation of nystagmus characterization (unidirectional vs direction-changing and plane: horizontal/vertical/torsional), head impulse (abnormal vs normal), and test of skew (positive vs negative).",
+      "action_reason": "vHIT/ENG/VNG and caloric testing will quantify vestibular function and distinguish unilateral vs bilateral peripheral vestibular deficits. VEMP can assess otolith/inferior vestibular nerve function and help localize labyrinthine involvement. A detailed repeat HINTS with explicit nystagmus characterization increases sensitivity for identifying central vs peripheral causes. These tests will differentiate viral labyrinthitis (peripheral with hearing loss) from vestibular neuritis (peripheral without hearing loss), bilateral vestibular hypofunction, or occult central pathology."
+    },
+    {
+      "step_number": 10,
+      "new_information": "vHIT, ENG/VNG (including caloric testing), and VEMP are normal; repeat HINTS shows normal head impulse and negative test of skew; MRI DWI and MR angiography negative for acute stroke; persistent new bilateral decreased hearing sensitivity on audiometry and unstable tandem gait with subjective imbalance.",
+      "uncertainties": {
+        "Bilateral viral/post-viral labyrinthitis": "recent URI, acute constant vertigo, new bilateral hearing loss, normal MRI/normal HINTS suggest peripheral labyrinth involvement",
+        "Bilateral sudden sensorineural hearing loss (SSNHL) with vestibular involvement, possibly autoimmune or idiopathic": "acute hearing loss with vertigo, requires urgent treatment (steroids) though etiology unclear",
+        "Central vestibular process (brainstem/cerebellar stroke, demyelination)": "presentation could overlap but normal DWI/MRA and largely normal HINTS/head impulse make central cause less likely but not fully excluded."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Contrast-enhanced MRI of internal auditory canals (IACs) and temporal bones (gadolinium-enhanced MRI focused on cochlea/vestibule)",
+      "action_reason": "A contrast-enhanced MRI of the IAC/temporal bones can show cochlear or vestibular enhancement consistent with labyrinthitis or identify retrocochlear lesions (e.g., schwannoma) or other structural/inflammatory causes; this will help distinguish peripheral inner-ear inflammation (supporting labyrinthitis/SSNHL) from occult central/retrocochlear pathology and guide urgent initiation of steroid therapy."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Contrast-enhanced MRI of internal auditory canals (IACs) and temporal bones with gadolinium shows no acute abnormalities; IACs and cochleovestibular structures appear normal.",
+      "uncertainties": {
+        "Bilateral acute labyrinthitis (post-viral)": "new bilateral hearing loss + acute constant vertigo after recent viral illness suggests viral labyrinthitis affecting cochlea and vestibular apparatus",
+        "Central vestibular pathology (brainstem/cerebellar stroke or demyelinating lesion)": "normal HINTS head impulse and skew could point to central cause despite negative brain MRI (DWI negative)",
+        "Bilateral vestibular neuritis": "usually spares hearing and is typically unilateral, so less likely given bilateral hearing loss",
+        "Autoimmune or inflammatory inner ear disease": "can cause bilateral sensorineural hearing loss with vestibular symptoms, less likely acutely but possible."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat complete formal audiometry with detailed pure-tone thresholds (air and bone conduction), speech discrimination scores, tympanometry, and otoacoustic emissions (OAE) — provide side-specific numeric results and comparison to prior audiograms",
+      "action_reason": "Detailed audiometric data (sensorineural vs conductive pattern, degree and symmetry of hearing loss, presence/absence of OAEs) will distinguish peripheral inner-ear pathology (labyrinthitis, autoimmune inner ear disease) from central causes and guide ENT treatment decisions (e.g., steroids) — this directly addresses the key uncertainty of whether the hearing loss is peripheral and supports a diagnosis of labyrinthitis."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Repeat complete formal audiometry again reported only 'bilateral decreased hearing sensitivity' without side-specific numeric thresholds or tympanometry/OAE data; no prior audiograms available for comparison. ENT consultation yielded no detailed findings documented.",
+      "uncertainties": {
+        "1) Bilateral viral labyrinthitis (sensorineural cochleo-vestibular involvement)": "acute vertigo after URI + new hearing loss suggests this",
+        "2) Bilateral conductive hearing loss from middle-ear effusion after URI with concurrent peripheral vestibular neuritis causing vertigo (hearing loss not cochlear)": "recent cold could cause effusion and explain bilateral loss",
+        "3) Central posterior circulation process (cerebellar/brainstem ischemia or demyelination)": "persistent spinning with normal head impulse could point to central cause despite normal MRI early or atypical presentation",
+        "4) Functional/malingering or testing artifact causing inconsistent audiometry": "repeated nondiagnostic audiograms raise concern for testing limitations."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat complete formal audiometry with side-specific numeric pure-tone thresholds (air and bone conduction), speech discrimination scores, tympanometry, and otoacoustic emissions (report numeric results and classify as sensorineural vs conductive); REQUEST TEST: Repeat focused HINTS exam with explicit documentation of nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional), head impulse (abnormal vs normal for each side), and test of skew (positive vs negative); REQUEST TEST: ENT otoscopic examination with documentation of middle ear status and tympanic membrane appearance.",
+      "action_reason": "Numeric audiometry with tympanometry/OAE will determine whether hearing loss is sensorineural (supports labyrinthitis) or conductive (supports middle-ear effusion), which is critical to distinguish peripheral labyrinthitis from concurrent conductive loss or testing artifact. Detailed HINTS (with nystagmus characterization and side-specific head-impulse results) and otoscopy will better differentiate a peripheral cochleo-vestibular process from central causes (e.g., posterior circulation stroke) and clarify next imaging or treatment steps."
+    },
+    {
+      "step_number": 13,
+      "new_information": "Patient is a 27-year-old male with acute continuous spinning vertigo starting this morning, associated new bilateral decreased hearing. Vital signs normal. Multiple diagnostic studies (MRI brain DWI, MR angiography posterior circulation, contrast IAC/temporal bone MRI, vHIT, ENG/VNG including calorics, VEMP, ENT exam) are reported as normal. Repeated formal audiometry attempts have not provided side-specific numeric thresholds or OAE/tympanometry data. Repeat focused HINTS exams report head impulse as normal and test of skew as negative, but nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional) remains undocumented.",
+      "uncertainties": {
+        "1) Viral labyrinthitis (bilateral/cochlear involvement)": "recent viral prodrome and new bilateral hearing loss support cochleovestibular involvement",
+        "2) Posterior circulation (brainstem/cerebellar) stroke": "normal MRI can be falsely negative early and a normal head impulse could point toward central cause",
+        "3) Bilateral sudden sensorineural hearing loss (viral, autoimmune, or other)": "bilateral decreased hearing on audiometry reported but lacks detailed classification to confirm cochlear vs conductive",
+        "4) Less likely ototoxic/metabolic or Meniere's disease but not excluded.": "under consideration"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat focused HINTS exam with explicit documentation of nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional), head impulse (abnormal vs normal for each side), and test of skew (positive vs negative); AND REQUEST TEST: Repeat complete formal audiometry with side-specific numeric pure-tone thresholds (air and bone conduction), speech discrimination scores, tympanometry, and otoacoustic emissions (report numeric results and classify as sensorineural vs conductive); AND ACTION: Admit for observation with serial neurologic exams and plan repeat MRI brain with DWI in 48 hours if HINTS suggests central features or symptoms persist/worsen.",
+      "action_reason": "Detailed HINTS findings (especially nystagmus direction and head impulse per side) are the most rapid bedside way to distinguish central vs peripheral causes in acute vestibular syndrome; precise audiometric data including OAEs and tympanometry will determine whether hearing loss is sensorineural (supporting labyrinthitis or bilateral cochlear involvement) versus conductive, which changes differential and management. Short-interval MRI observation addresses the possibility of early false-negative DWI for posterior circulation stroke."
+    },
+    {
+      "step_number": 14,
+      "new_information": "Repeat focused HINTS: head impulse normal bilaterally; test of skew negative; nystagmus present but characterization (unidirectional vs direction-changing; plane) not documented. Repeat complete audiometry again reports bilateral decreased hearing sensitivity but no side-specific numeric thresholds, speech discrimination scores, tympanometry, or OAE results provided. No admission or plan for repeat MRI documented.",
+      "uncertainties": {
+        "Bilateral viral labyrinthitis (or bilateral peripheral vestibulopathy)": "recent viral prodrome, constant spinning, new hearing loss suggests cochleovestibular involvement",
+        "Central posterior circulation process (brainstem/cerebellar stroke or demyelination)": "normal head impulse and presence of nystagmus can indicate central cause despite negative initial MRI",
+        "Bilateral sudden sensorineural hearing loss (SSNHL) due to viral or autoimmune etiology with vestibular symptoms": "bilateral new hearing loss and vertigo could reflect simultaneous cochlear involvement."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ACTION: Admit for observation with serial neurologic examinations and plan repeat MRI brain with diffusion-weighted imaging in 48 hours; request urgent ENT re-evaluation with repeat side-specific numeric audiometry (pure-tone air and bone thresholds), speech discrimination scores, tympanometry, and otoacoustic emissions, and repeat focused HINTS exam with explicit nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional), head impulse (abnormal vs normal each side), and test of skew (positive vs negative).",
+      "action_reason": "Admission with serial neurological exams and repeat DWI MRI will detect evolving central lesions if the initial MRI was an early false negative and will allow tracking of any new focal neurologic signs; urgent detailed ENT audiometry and tympanometry/OAE will quantify and classify the hearing loss as sensorineural vs conductive, distinguishing bilateral labyrinthitis/SSNHL from other causes and guiding urgent therapies (e.g., systemic or intratympanic steroids) if indicated."
+    },
+    {
+      "step_number": 15,
+      "new_information": "Patient reports persistent continuous spinning vertigo and new bilateral hearing impairment beginning this morning; recent viral upper respiratory infection a few days prior.",
+      "uncertainties": {
+        "Labyrinthitis (viral)": "acute continuous vertigo with new hearing loss after viral prodrome",
+        "Sudden sensorineural hearing loss (SSNHL), bilateral": "acute new hearing loss with vertigo—requires urgent audiometric confirmation and consideration of corticosteroids",
+        "Vestibular neuritis": "acute continuous vertigo after viral prodrome but typically spares hearing—less likely given hearing change",
+        "Central posterior fossa lesion (brainstem/cerebellar stroke or demyelination)": "possible cause of vertigo+hearing loss but MRI DWI presently negative and patient is young without vascular risk factors—cannot be fully excluded."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat complete formal audiometry with side-specific numeric pure-tone thresholds (air and bone conduction), speech discrimination scores, tympanometry, and otoacoustic emissions; REQUEST TEST: ENT urgent re-evaluation to interpret audiogram and examine ears (otoscopy) and to consider initiation of high-dose oral corticosteroids for possible sudden sensorineural hearing loss if audiometry confirms sensorineural pattern within treatment window; REQUEST TEST: Repeat focused HINTS exam with explicit documentation of nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional), head impulse (abnormal vs normal each side), and test of skew (positive vs negative); ACTION: Admit for observation with serial neurologic exams and plan repeat MRI brain with diffusion-weighted imaging in 48 hours if HINTS suggests central features or symptoms persist/worsen.",
+      "action_reason": "Urgent side-specific audiometry is needed to classify the hearing loss as sensorineural vs conductive and quantify severity — confirmation of SSNHL would prompt time-sensitive steroid treatment. ENT assessment will integrate audiometry and consider immediate therapy. Repeat explicit HINTS documentation helps reliably distinguish peripheral (labyrinthitis/neuritis) from central causes; admission and planned repeat MRI provide safety-net monitoring given persistent vertigo and initial incomplete bedside documentation."
+    },
+    {
+      "step_number": 16,
+      "new_information": "Patient continues to have constant spinning vertigo since this morning with subjective bilateral new-onset hearing loss. Multiple audiometry attempts report bilateral decreased hearing sensitivity but no side-specific numeric thresholds or classification (sensorineural vs conductive) are available. Repeat focused HINTS exam documents nystagmus present, head impulse normal bilaterally, and test of skew negative. MRI brain with DWI and posterior circulation MRA show no acute abnormalities.",
+      "uncertainties": {
+        "Sudden sensorineural hearing loss (SSNHL) with vestibular involvement": "reported new bilateral hearing loss + acute vertigo—needs audiogram to confirm sensorineural pattern and to consider steroid therapy",
+        "Labyrinthitis (viral)": "recent URI and acute continuous vertigo with hearing loss—typically unilateral but can be bilateral rarely",
+        "Central posterior fossa process (brainstem/cerebellar ischemia or demyelination)": "normal head impulse and presence of nystagmus with imbalance raise concern for central cause despite negative MRI—early stroke can be DWI-negative",
+        "Vestibular neuritis": "acute continuous vertigo without hearing loss—less likely given reported hearing loss but head-impulse findings could support peripheral cause."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ACTION: Admit for observation with serial neurologic examinations; REQUEST TEST: Repeat focused HINTS exam with explicit documentation of nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional), head impulse (abnormal vs normal each side), and test of skew (positive vs negative); REQUEST TEST: Repeat complete formal audiometry (STAT) with side-specific numeric pure-tone thresholds (air and bone conduction), speech discrimination scores, tympanometry, and otoacoustic emissions — report numeric results and classify as sensorineural vs conductive; REQUEST TEST: ENT urgent re-evaluation to interpret STAT audiogram, perform otoscopy, and consider initiation of high-dose oral corticosteroids for possible SSNHL if audiometry confirms sensorineural loss within treatment window; PLAN: Repeat MRI brain with diffusion-weighted imaging (and posterior circulation MRA) at 48 hours or sooner if new/worsening focal neurologic signs.",
+      "action_reason": "Detailed, side-specific audiometry is required to confirm SSNHL (and permit time-sensitive steroid therapy). Precise HINTS nystagmus characterization distinguishes peripheral vs central causes (direction-changing or vertical/torsional nystagmus suggests central pathology). Serial neurologic exams and repeat DWI are needed because early posterior circulation strokes can be DWI-negative initially. ENT input is needed urgently to interpret audiometry and decide on steroid therapy."
+    },
+    {
+      "step_number": 17,
+      "new_information": "Patient remains symptomatic with constant spinning vertigo since onset this morning and reports new bilateral hearing loss; prior MRI/MRA and vestibular lab testing were reported normal but repeated audiometry and HINTS exams lack side-specific numeric thresholds and explicit nystagmus characterization.",
+      "uncertainties": {
+        "Bilateral viral labyrinthitis": "new bilateral hearing loss + vertigo after recent viral prodrome suggests cochleovestibular involvement",
+        "Bilateral sudden sensorineural hearing loss (SSNHL)": "acute hearing loss could be sensorineural and within steroid treatment window—needs confirmation",
+        "Central process (brainstem/cerebellar stroke or demyelinating lesion)": "persistent vertigo and nystagmus could be central though MRI/DWI and exams so far are unrevealing—early/false-negative imaging or incomplete HINTS documentation possible",
+        "Conductive/middle-ear process": "less likely given assumed normal otoscopy/tympanometry but would alter management if present."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: STAT repeat complete formal audiometry with side-specific numeric pure-tone thresholds (air and bone conduction), speech discrimination scores, tympanometry, and otoacoustic emissions — report numeric results and classify as sensorineural vs conductive; REQUEST TEST: ENT urgent re-evaluation to interpret STAT audiogram, perform otoscopy, and consider immediate initiation of high-dose oral corticosteroids for possible bilateral SSNHL if audiometry confirms sensorineural loss (or empiric steroids if within 72-hour window and clinical suspicion is high); REQUEST TEST: Repeat focused HINTS exam with explicit documentation of nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional), head impulse (abnormal vs normal each side), and test of skew (positive vs negative) — obtain video documentation if possible; ACTION: Admit for observation with serial neurologic examinations and plan repeat MRI brain with DWI and posterior circulation MRA in 48 hours or sooner if any new/worsening focal neurologic signs.",
+      "action_reason": "STAT numeric audiometry (air/bone thresholds, speech scores, OAE, tympanometry) will confirm whether hearing loss is sensorineural (supports labyrinthitis or SSNHL and indicates steroids) versus conductive (directs ENT/managemt); urgent ENT review and consideration of corticosteroids is time-sensitive for SSNHL treatment (within ~72 hours); explicit, preferably video-documented HINTS with nystagmus characterization distinguishes central from peripheral causes and guides need for earlier repeat imaging/intervention; admission with serial exams allows detection of evolving focal neurologic signs and permits repeat MRI DWI in 48 hours to detect early ischemia if concerns persist."
+    },
+    {
+      "step_number": 18,
+      "new_information": "STAT repeat audiometry again did not provide side-specific numeric pure-tone thresholds or classification; report only 'bilateral decreased hearing sensitivity.'",
+      "uncertainties": {
+        "Bilateral viral labyrinthitis": "acute vertigo plus new hearing loss after recent cold",
+        "Bilateral sudden sensorineural hearing loss (SSNHL)": "acute hearing loss with vertigo, needs steroid within 72 hours",
+        "Vestibular neuritis": "causes constant vertigo but usually no hearing loss—less likely given hearing changes",
+        "Central posterior fossa process (stroke/lesion)": "less likely given normal MRI and negative HINTS, but remains a safety concern."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat complete formal audiometry (STAT) with side-specific numeric pure-tone thresholds (air and bone conduction), speech discrimination scores, tympanometry, and otoacoustic emissions — report numeric results and classify as sensorineural vs conductive; AND REQUEST TEST: ENT urgent re-evaluation to interpret STAT audiogram, perform otoscopy, and consider immediate initiation of high-dose oral corticosteroids for possible bilateral SSNHL if audiometry confirms sensorineural loss (or empiric steroids if within 72-hour window and clinical suspicion is high); AND REQUEST TEST: Repeat focused HINTS exam with explicit documentation of nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional), head impulse (abnormal vs normal each side), and test of skew (positive vs negative) — obtain video documentation if possible.",
+      "action_reason": "Side-specific numeric audiometry is required to determine if the hearing loss is sensorineural (warranting urgent corticosteroids for SSNHL) versus conductive (managed differently); ENT interpretation and otoscopy will assess for treatable middle ear causes and decide steroid therapy; repeat detailed/video-documented HINTS will help definitively differentiate peripheral (labyrinthitis/SSNHL) from central causes and guide need for repeat MRI or escalation."
+    },
+    {
+      "step_number": 19,
+      "new_information": "Patient has persistent constant spinning vertigo since this morning with repeated basic audiometry showing bilateral decreased hearing sensitivity, while detailed side-specific numeric audiograms remain unavailable despite multiple STAT requests. Repeat focused HINTS exams consistently show normal head impulse and negative test-of-skew; MRI brain DWI and posterior circulation MRA are currently normal.",
+      "uncertainties": {
+        "Bilateral sudden sensorineural hearing loss (SSNHL)/bilateral labyrinthitis": "acute hearing loss plus vertigo after recent viral illness suggests this",
+        "confirmation requires side-specific audiometry showing sensorineural pattern and speech discrimination changes": "under consideration",
+        "Central posterior circulation stroke (brainstem/cerebellar)": "continuous vertigo and nystagmus could be central despite normal initial MRI—early DWI can be falsely negative",
+        "Vestibular neuritis (peripheral vestibulopathy)": "usually unilateral without hearing loss, making this less likely but possible if bilateral involvement",
+        "Autoimmune or systemic inner-ear disease (e.g., autoimmune inner ear disease)": "can cause bilateral progressive SNHL with vestibular symptoms—consider if audiometry shows bilateral SNHL and systemic features."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: STAT repeat complete formal audiometry with side-specific numeric pure-tone thresholds (air and bone conduction), speech discrimination scores, tympanometry, and otoacoustic emissions — report numeric results and classify as sensorineural vs conductive; REQUEST TEST: ENT urgent re-evaluation to interpret STAT audiogram, perform otoscopy, and consider immediate initiation of high-dose oral corticosteroids (or intratympanic steroids) for possible bilateral SSNHL if audiometry confirms sensorineural loss (or empiric steroids if within 72-hour window and ENT agrees); REQUEST TEST: Repeat focused HINTS exam with explicit video documentation of nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional), head impulse (abnormal vs normal each side), and test of skew (positive vs negative); ACTION: Admit for observation with serial neurologic examinations and plan repeat MRI brain with DWI and posterior circulation MRA in 48 hours or sooner if new/worsening focal neurologic signs.",
+      "action_reason": "Accurate side-specific numeric audiometry is critical to confirm sensorineural hearing loss and determine candidacy for urgent steroid therapy (time-sensitive). ENT evaluation will interpret results and decide on systemic vs intratympanic steroids. Detailed HINTS video documentation helps distinguish central vs peripheral causes; repeat MRI in 48 hours addresses the possibility of an early false-negative DWI. Admission with serial exams ensures monitoring for any evolving central signs."
+    }
+  ],
+  "all_information": [
+    "Patient presenting with dizziness, nausea, and imbalance (acute symptoms reported).",
+    "Vital signs normal: T 98.7°F, BP 122/81 mmHg, HR 82 bpm, RR 15, SpO2 99% RA.",
+    "Acute onset this morning of continuous low-grade spinning vertigo (constant, non-positional). No hearing loss, tinnitus, visual changes, focal weakness, numbness, gait difficulty, chest pain, palpitations, or near-syncope. Recent viral upper respiratory infection a few days ago.",
+    "Neurological exam: nystagmus present; bilateral decreased hearing on bedside audiometry; patient has unstable tandem gait with otherwise unremarkable baseline gait. HINTS components (head impulse and test of skew) were not fully detailed and assumed normal in prior report.",
+    "Focused neurologic exam: Head impulse test normal; test of skew normal; nystagmus present (characterization unspecified); cerebellar testing (finger-nose, heel-shin) normal; unstable tandem gait; formal bedside audiometry shows bilateral decreased hearing sensitivity (unspecified if acute).",
+    "27-year-old male; no vascular risk factors; reports new bilateral hearing loss since onset of acute continuous spinning vertigo this morning; current medications include diphenhydramine (and nonprescription remedies).",
+    "MRI brain with DWI negative for acute ischemia; MR angiography of posterior circulation normal (no vertebrobasilar occlusion).",
+    "Formal audiometry demonstrates bilateral decreased hearing sensitivity; otoscopic exam normal (no signs of infection or inflammation).",
+    "27-year-old male with acute continuous spinning vertigo since this morning following a recent viral URI. MRI brain DWI and MR angiography of posterior circulation normal. Focused neurologic/HINTS exam documented as normal. Repeat formal audiometry and ENT consultation both report new bilateral decreased hearing sensitivity; otoscopy normal. Cerebellar testing normal. Unstable tandem gait but baseline gait unremarkable.",
+    "vHIT, ENG/VNG (including caloric testing), and VEMP are normal; repeat HINTS shows normal head impulse and negative test of skew; MRI DWI and MR angiography negative for acute stroke; persistent new bilateral decreased hearing sensitivity on audiometry and unstable tandem gait with subjective imbalance.",
+    "Contrast-enhanced MRI of internal auditory canals (IACs) and temporal bones with gadolinium shows no acute abnormalities; IACs and cochleovestibular structures appear normal.",
+    "Repeat complete formal audiometry again reported only 'bilateral decreased hearing sensitivity' without side-specific numeric thresholds or tympanometry/OAE data; no prior audiograms available for comparison. ENT consultation yielded no detailed findings documented.",
+    "Patient is a 27-year-old male with acute continuous spinning vertigo starting this morning, associated new bilateral decreased hearing. Vital signs normal. Multiple diagnostic studies (MRI brain DWI, MR angiography posterior circulation, contrast IAC/temporal bone MRI, vHIT, ENG/VNG including calorics, VEMP, ENT exam) are reported as normal. Repeated formal audiometry attempts have not provided side-specific numeric thresholds or OAE/tympanometry data. Repeat focused HINTS exams report head impulse as normal and test of skew as negative, but nystagmus characterization (unidirectional vs direction-changing; plane: horizontal/vertical/torsional) remains undocumented.",
+    "Repeat focused HINTS: head impulse normal bilaterally; test of skew negative; nystagmus present but characterization (unidirectional vs direction-changing; plane) not documented. Repeat complete audiometry again reports bilateral decreased hearing sensitivity but no side-specific numeric thresholds, speech discrimination scores, tympanometry, or OAE results provided. No admission or plan for repeat MRI documented.",
+    "Patient reports persistent continuous spinning vertigo and new bilateral hearing impairment beginning this morning; recent viral upper respiratory infection a few days prior.",
+    "Patient continues to have constant spinning vertigo since this morning with subjective bilateral new-onset hearing loss. Multiple audiometry attempts report bilateral decreased hearing sensitivity but no side-specific numeric thresholds or classification (sensorineural vs conductive) are available. Repeat focused HINTS exam documents nystagmus present, head impulse normal bilaterally, and test of skew negative. MRI brain with DWI and posterior circulation MRA show no acute abnormalities.",
+    "Patient remains symptomatic with constant spinning vertigo since onset this morning and reports new bilateral hearing loss; prior MRI/MRA and vestibular lab testing were reported normal but repeated audiometry and HINTS exams lack side-specific numeric thresholds and explicit nystagmus characterization.",
+    "STAT repeat audiometry again did not provide side-specific numeric pure-tone thresholds or classification; report only 'bilateral decreased hearing sensitivity.'",
+    "Patient has persistent constant spinning vertigo since this morning with repeated basic audiometry showing bilateral decreased hearing sensitivity, while detailed side-specific numeric audiograms remain unavailable despite multiple STAT requests. Repeat focused HINTS exams consistently show normal head impulse and negative test-of-skew; MRI brain DWI and posterior circulation MRA are currently normal."
+  ],
+  "current_uncertainties": {
+    "Bilateral sudden sensorineural hearing loss (SSNHL)/bilateral labyrinthitis": "acute hearing loss plus vertigo after recent viral illness suggests this",
+    "confirmation requires side-specific audiometry showing sensorineural pattern and speech discrimination changes": "under consideration",
+    "Central posterior circulation stroke (brainstem/cerebellar)": "continuous vertigo and nystagmus could be central despite normal initial MRI—early DWI can be falsely negative",
+    "Vestibular neuritis (peripheral vestibulopathy)": "usually unilateral without hearing loss, making this less likely but possible if bilateral involvement",
+    "Autoimmune or systemic inner-ear disease (e.g., autoimmune inner ear disease)": "can cause bilateral progressive SNHL with vestibular symptoms—consider if audiometry shows bilateral SNHL and systemic features."
+  }
+}

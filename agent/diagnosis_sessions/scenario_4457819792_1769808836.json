@@ -1,0 +1,230 @@
+{
+  "session_id": "scenario_4457819792_1769808836",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presents with dizziness, nausea, and imbalance.",
+      "current_uncertainties": [
+        "Vestibular neuritis/labyrinthitis: acute persistent vertigo with nausea and imbalance suggesting peripheral vestibular cause",
+        "BPPV: positional brief vertigo causing imbalance triggered by head movements",
+        "Cerebellar/brainstem stroke: central cause can present with acute dizziness",
+        "imbalance",
+        "and nausea—needs exclusion",
+        "Meniere's disease: episodic vertigo often with hearing loss/tinnitus—hearing status unknown"
+      ],
+      "next_step_action": "REQUEST TEST: Vital Signs"
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs normal: Temperature 98.7°F, BP 122/81 mmHg, HR 82 bpm, RR 15/min, SpO2 99% on room air.",
+      "current_uncertainties": [
+        "Vestibular neuritis/labyrinthitis: acute persistent vertigo with nausea/imbalance; BPPV: positional brief vertigo triggered by head movement; Cerebellar/brainstem stroke: central cause can present with acute dizziness/imbalance—needs exclusion despite normal vitals; Meniere's disease: episodic vertigo often with hearing loss/tinnitus—hearing status unknown"
+      ],
+      "next_step_action": "ASK PATIENT: When did the dizziness start, is it constant or episodic, and is it triggered or worsened by head movement?"
+    },
+    {
+      "step_number": 3,
+      "new_information": "Onset this morning with constant spinning sensation (continuous vertigo) since onset, not episodic or triggered by head movements; occasional nausea.",
+      "current_uncertainties": [
+        "Vestibular neuritis: acute persistent peripheral vertigo with nausea and imbalance consistent with constant spinning",
+        "Labyrinthitis: similar to vestibular neuritis but would include hearing loss/tinnitus (hearing status unknown)",
+        "Cerebellar/brainstem stroke: central cause can present with sudden continuous vertigo and must be excluded despite absence of focal signs so far",
+        "BPPV: less likely because symptoms are not brief or positional"
+      ],
+      "next_step_action": "ASK PATIENT: Have you noticed any hearing loss, ringing in the ears (tinnitus), or other neurological symptoms such as headache, double vision, weakness, numbness, slurred speech, or difficulty swallowing?"
+    },
+    {
+      "step_number": 4,
+      "new_information": "Patient reports no hearing loss, tinnitus, or ear pain, and denies headache, double vision, limb weakness, numbness, slurred speech, or difficulty swallowing.",
+      "current_uncertainties": [
+        "Vestibular neuritis: continuous vertigo and nausea without hearing symptoms fits peripheral vestibular neuritis",
+        "Labyrinthitis: similar presentation but would usually include hearing loss/tinnitus which are absent making it less likely",
+        "Cerebellar/brainstem stroke: central cause can present with acute continuous vertigo without other focal signs early—must be excluded",
+        "BPPV: typically brief positional vertigo so less likely given continuous symptoms"
+      ],
+      "next_step_action": "REQUEST TEST: HINTS exam (Head Impulse test, observation of Nystagmus, Test of Skew)"
+    },
+    {
+      "step_number": 5,
+      "new_information": "HINTS exam: Head Impulse test normal, Nystagmus observed (type not specified), Test of Skew normal.",
+      "current_uncertainties": [
+        "Cerebellar/brainstem stroke: normal head impulse raises concern for central cause despite lack of focal deficits",
+        "Vestibular neuritis: clinical picture of continuous vertigo and nausea fits but usually has abnormal head impulse making it less likely",
+        "Labyrinthitis: would include hearing loss/tinnitus which are absent so less likely"
+      ],
+      "next_step_action": "REQUEST TEST: MRI brain with diffusion-weighted imaging"
+    },
+    {
+      "step_number": 6,
+      "new_information": "MRI brain diffusion-weighted imaging shows no acute abnormalities; no evidence of acute ischemia or structural lesion.",
+      "current_uncertainties": [
+        "Vestibular migraine: can cause acute continuous vertigo with normal MRI and normal head impulse",
+        "Vestibular neuritis: fits clinical course but typically has abnormal head impulse making it less likely",
+        "Cerebellar/brainstem stroke: MRI negative reduces likelihood but early/small posterior circulation stroke remains possible",
+        "Labyrinthitis: less likely given absence of hearing symptoms and MRI findings"
+      ],
+      "next_step_action": "ASK PATIENT: Do you have a history of migraine headaches or recent viral/upper respiratory infection (fever, sore throat, congestion) in the past 2 weeks?"
+    },
+    {
+      "step_number": 7,
+      "new_information": "Patient reports a cold a few days ago and increased garlic intake; denies history of migraine.",
+      "current_uncertainties": [
+        "Vestibular neuritis: recent URI and continuous vertigo support a post-viral peripheral vestibulopathy",
+        "Vestibular migraine: can cause vertigo with normal MRI but patient lacks migraine history making it less likely",
+        "Cerebellar/brainstem stroke: HINTS and MRI negative lower probability but cannot be fully excluded early",
+        "Labyrinthitis: would include hearing loss/tinnitus which are absent so less likely"
+      ],
+      "next_step_action": "REQUEST TEST: Audiometry (hearing test)"
+    },
+    {
+      "step_number": 8,
+      "new_information": "Basic audiometry: bilateral decreased hearing sensitivity.",
+      "current_uncertainties": [
+        "Labyrinthitis: recent URI",
+        "vertigo and new hearing loss suggest inner ear inflammation but hearing loss typically unilateral; Vestibular neuritis: post-viral continuous vertigo fits but usually normal hearing so less likely after audiometry; Bilateral conductive hearing loss/middle ear effusion: recent URI could cause bilateral conductive loss explaining decreased hearing and possibly imbalance but less commonly causes severe vertigo; Vestibular migraine: can present with vertigo and normal imaging but patient denies migraine history making it less likely"
+      ],
+      "next_step_action": "REQUEST TEST: Full diagnostic audiometry (pure-tone air and bone conduction), speech discrimination, and tympanometry"
+    },
+    {
+      "step_number": 9,
+      "new_information": "Full diagnostic audiometry (pure-tone air and bone conduction), speech discrimination, and tympanometry are normal.",
+      "current_uncertainties": [
+        "Vestibular neuritis: post-viral continuous vertigo and normal audiometry fit",
+        "but expected abnormal head impulse was not seen; Vestibular migraine: can cause acute vertigo with normal MRI/audiometry though patient denies migraine history; Cerebellar/brainstem stroke (posterior circulation): normal head impulse and persistent vertigo raise central concern despite negative MRI (early/small stroke possible); Labyrinthitis: less likely given absence of hearing loss and normal audiometry"
+      ],
+      "next_step_action": "REQUEST TEST: Video head impulse test (vHIT) and ENG/VNG including caloric testing"
+    },
+    {
+      "step_number": 10,
+      "new_information": "Video head impulse test (vHIT) and ENG/VNG including caloric testing returned normal readings.",
+      "current_uncertainties": [
+        "Posterior circulation (cerebellar/brainstem) stroke: normal MRI reduces likelihood but normal head-impulse and persistent continuous vertigo keep central cause possible (early/small infarct or transient ischemia)",
+        "Vestibular neuritis (acute peripheral vestibulopathy): recent URI and continuous vertigo support this diagnosis but normal head impulse",
+        "vHIT",
+        "and caloric testing argue against a unilateral peripheral vestibular hypofunction",
+        "Vestibular migraine: can present with continuous vertigo and normal MRI/audiology/vestibular testing though patient denies prior migraine history"
+      ],
+      "next_step_action": "ASK PATIENT: Do you have vascular risk factors (history of hypertension, diabetes, atrial fibrillation, coronary artery disease, hyperlipidemia, smoking) or are you on anticoagulant/antiplatelet therapy? Also have you had any transient focal neurological symptoms (vision change, slurred speech, limb weakness/numbness) since the vertigo started?"
+    },
+    {
+      "step_number": 11,
+      "new_information": "Patient reports no vascular risk factors (no hypertension, diabetes, atrial fibrillation, coronary artery disease, hyperlipidemia, or smoking), is not on anticoagulant/antiplatelet therapy, and has had no transient focal neurological symptoms (no vision changes, slurred speech, weakness, or numbness) since vertigo onset.",
+      "current_uncertainties": [
+        "Vestibular neuritis: post-viral continuous vertigo and recent URI support this peripheral vestibulopathy but objective vestibular tests (head impulse",
+        "vHIT",
+        "calorics) have been normal",
+        "Vestibular migraine: can present with continuous vertigo with normal MRI/audiometry/vestibular testing though patient lacks prior migraine history",
+        "Posterior circulation (cerebellar/brainstem) stroke: normal MRI and lack of vascular risk factors lower likelihood but central cause remains a concern because of persistent vertigo with normal peripheral testing"
+      ],
+      "next_step_action": "REQUEST TEST: Comprehensive neurological exam including cranial nerve assessment, cerebellar testing (finger-to-nose, heel-to-shin), Romberg test, and gait assessment"
+    },
+    {
+      "step_number": 12,
+      "new_information": "Neuro exam: spontaneous nystagmus present; bedside bilateral decreased hearing reported; unstable tandem gait but baseline gait largely unremarkable; finger-to-nose and heel-to-shin normal; Romberg normal.",
+      "current_uncertainties": [
+        "Vestibular neuritis: recent URI and continuous vertigo support peripheral vestibulopathy but objective vestibular tests (head impulse",
+        "vHIT",
+        "calorics) were normal",
+        "Vestibular migraine: can present with continuous vertigo and normal MRI/audiology though patient denies migraine history",
+        "Posterior circulation (cerebellar/brainstem) stroke: persistent vertigo with nystagmus and gait instability raises central concern despite prior negative MRI",
+        "Labyrinthitis: would explain vertigo with hearing changes but prior diagnostic audiometry was normal making it less likely"
+      ],
+      "next_step_action": "REQUEST TEST: Repeat MRI brain with diffusion-weighted imaging and MR angiography of the posterior circulation (posterior fossa protocol)"
+    },
+    {
+      "step_number": 13,
+      "new_information": "Repeat MRI brain with diffusion-weighted imaging and MR angiography of the posterior circulation returned normal — no acute ischemia or vascular abnormality.",
+      "current_uncertainties": [
+        "Vestibular neuritis: recent URI and continuous vertigo support peripheral vestibulopathy",
+        "but normal head impulse and vestibular testing argue against unilateral peripheral hypofunction; Vestibular migraine: can present with acute vertigo with normal MRI and vestibular testing",
+        "patient denies prior migraine history but first presentation is possible; Posterior circulation (cerebellar/brainstem) stroke/ischemia: central cause remains possible despite normal MRI/MRA (small/early infarct or transient ischemia) but likelihood reduced by imaging and lack of focal deficits."
+      ],
+      "next_step_action": "ASK PATIENT: Do you currently have a headache, sensitivity to light or sound (photophobia/phonophobia), visual aura, or a family history of migraine?"
+    },
+    {
+      "step_number": 14,
+      "new_information": "Patient denies current headache, photophobia, phonophobia, visual aura, and has no family history of migraine.",
+      "current_uncertainties": [
+        "Vestibular neuritis: recent URI and continuous vertigo fit a peripheral post-viral cause but objective vestibular tests (HIT",
+        "vHIT",
+        "calorics) were normal",
+        "Vestibular migraine: can present with continuous vertigo and normal imaging/testing though patient lacks migraine history or typical migrainous features",
+        "Posterior circulation (cerebellar/brainstem) stroke: central cause less likely given two negative MRIs/MRA and lack of focal deficits but persistent vertigo with normal peripheral testing keeps residual concern"
+      ],
+      "next_step_action": "ASK PATIENT: Since the dizziness started this morning, have your symptoms improved, stayed the same, or worsened? Also, have you ever had similar episodes of vertigo in the past?"
+    },
+    {
+      "step_number": 15,
+      "new_information": "Symptoms have stayed the same since onset this morning — constant low-grade spinning with occasional nausea; diphenhydramine helped slightly; no prior similar episodes.",
+      "current_uncertainties": [
+        "Vestibular neuritis: recent URI and continuous vertigo fit a post-viral peripheral vestibulopathy but objective vestibular tests (HIT",
+        "vHIT",
+        "calorics) have been normal",
+        "Vestibular migraine: can present with continuous vertigo with normal MRI and vestibular testing despite no prior migraine history",
+        "Posterior circulation (cerebellar/brainstem) stroke: central cause remains possible given normal head-impulse and persistent vertigo",
+        "but two negative MRIs/MRA and lack of vascular risk factors reduce likelihood"
+      ],
+      "next_step_action": "ASK PATIENT: Have you taken any new medications or recreational drugs, consumed alcohol recently, experienced recent head trauma, or noticed ear fullness or changes in hearing since the symptoms began?"
+    },
+    {
+      "step_number": 16,
+      "new_information": "Patient reports no new prescription medications or recreational drugs, no recent alcohol, no head trauma, no ear fullness, and no perceived change in hearing since symptom onset; has taken diphenhydramine which provides slight symptomatic relief.",
+      "current_uncertainties": [
+        "Vestibular neuritis: recent URI and continuous vertigo support a post-viral peripheral vestibulopathy but expected unilateral hypofunction was not seen on bedside and instrumented vestibular testing",
+        "Vestibular migraine: can present with acute persistent vertigo with normal MRI and vestibular testing despite no prior migraine history",
+        "Posterior circulation (cerebellar/brainstem) stroke or transient ischemia: normal head-impulse with spontaneous nystagmus and persistent vertigo raises central concern though two negative MRIs/MRA and lack of vascular risk factors lower probability"
+      ],
+      "next_step_action": "REQUEST TEST: Repeat MRI brain with diffusion-weighted imaging in 24-48 hours"
+    },
+    {
+      "step_number": 17,
+      "new_information": "Repeat MRI brain with diffusion-weighted imaging performed 24-48 hours after onset is normal (no acute ischemia or vascular abnormality).",
+      "current_uncertainties": [
+        "Vestibular neuritis: recent URI and continuous vertigo support a peripheral post-viral vestibulopathy",
+        "but bedside and instrumented vestibular tests (HIT",
+        "vHIT",
+        "calorics) have been normal; Vestibular migraine: can present with persistent vertigo with normal MRI and vestibular testing despite no prior migraine history; Central posterior circulation ischemia/stroke: two negative MRIs/MRA lower likelihood but small/early infarct or transient ischemia remains possible given persistent vertigo and normal peripheral vestibular testing; Bilateral vestibulopathy/other peripheral causes: less typical due to acute continuous vertigo and normal vestibular testing but still a consideration"
+      ],
+      "next_step_action": "REQUEST TEST: Rotatory chair testing (complete vestibular function testing, including sinusoidal harmonic acceleration and VEMP if available)"
+    },
+    {
+      "step_number": 18,
+      "new_information": "Rotatory chair testing (complete vestibular function testing, including sinusoidal harmonic acceleration and VEMP if available) returned normal readings.",
+      "current_uncertainties": [
+        "Vestibular migraine: can cause persistent vertigo with normal MRI and vestibular tests",
+        "though patient denies migraine history; Vestibular neuritis (atypical): recent URI and continuous vertigo support peripheral post-viral vestibulopathy but normal HIT",
+        "vHIT",
+        "calorics",
+        "and rotatory chair argue against typical unilateral hypofunction; Posterior circulation ischemia/stroke/vertebrobasilar TIA: persistent vertigo with normal peripheral tests and normal HINTS keeps central cause possible despite two negative MRIs/MRA and low vascular risk; Otolith-specific vestibular dysfunction (utricle/saccule) or superior/inferior division lesion: could explain symptoms with normal semicircular canal tests and may be detected by VEMP testing"
+      ],
+      "next_step_action": "REQUEST TEST: Cervical and ocular VEMP (vestibular evoked myogenic potentials) testing"
+    },
+    {
+      "step_number": 19,
+      "new_information": "Cervical and ocular VEMP testing returned normal readings.",
+      "current_uncertainties": [
+        "Vestibular migraine: persistent vertigo with normal MRI and vestibular tests fits though patient lacks migraine history",
+        "Atypical vestibular neuritis/post-viral vestibulopathy: recent URI and continuous vertigo support this but extensive vestibular testing (HIT",
+        "vHIT",
+        "calorics",
+        "rotatory chair",
+        "VEMP) were normal arguing against typical unilateral hypofunction",
+        "Posterior circulation ischemia/stroke/TIA: central cause remains possible given normal peripheral vestibular testing and persistent vertigo but two repeat MRIs/MRA negative and low vascular risk make it less likely",
+        "Persistent postural-perceptual dizziness (PPPD)/visual vertigo: may follow an acute event and present with dizziness worsened by visual motion—fits normal objective tests and persistent symptoms though usually more subacute/chronic"
+      ],
+      "next_step_action": "ASK PATIENT: Do your dizziness symptoms worsen with visual motion or busy environments (e.g., crowds, scrolling on a screen), or when standing/walking, and have you experienced increased anxiety or stress since symptom onset?"
+    },
+    {
+      "step_number": 20,
+      "new_information": "Final diagnosis reached: ",
+      "current_uncertainties": [],
+      "next_step_action": "DIAGNOSIS READY",
+      "reason_ready": "After exhaustive evaluation—serial normal MRI/DWI and MR angiography of the posterior circulation, normal comprehensive vestibular testing (bedside HIT, vHIT, calorics, rotatory chair, cVEMP/oVEMP), normal audiometry, absence of focal neurologic deficits or vascular risk factors—the most likely diagnosis is vestibular migraine (probable) presenting with acute spontaneous persistent vertigo. Atypical post-viral vestibulopathy (vestibular neuritis) is less likely given lack of objective unilateral vestibular hypofunction, and posterior circulation stroke is unlikely given repeated negative imaging and low vascular risk.",
+      "final_diagnosis": "",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Patient presents with dizziness, nausea, and imbalance.\n- Vital signs normal: Temperature 98.7°F, BP 122/81 mmHg, HR 82 bpm, RR 15/min, SpO2 99% on room air.\n- Onset this morning with constant spinning sensation (continuous vertigo) since onset, not episodic or triggered by head movements; occasional nausea.\n- Patient reports no hearing loss, tinnitus, or ear pain, and denies headache, double vision, limb weakness, numbness, slurred speech, or difficulty swallowing.\n- HINTS exam: Head Impulse test normal, Nystagmus observed (type not specified), Test of Skew normal.\n- MRI brain diffusion-weighted imaging shows no acute abnormalities; no evidence of acute ischemia or structural lesion.\n- Patient reports a cold a few days ago and increased garlic intake; denies history of migraine.\n- Basic audiometry: bilateral decreased hearing sensitivity.\n- Full diagnostic audiometry (pure-tone air and bone conduction), speech discrimination, and tympanometry are normal.\n- Video head impulse test (vHIT) and ENG/VNG including caloric testing returned normal readings.\n- Patient reports no vascular risk factors (no hypertension, diabetes, atrial fibrillation, coronary artery disease, hyperlipidemia, or smoking), is not on anticoagulant/antiplatelet therapy, and has had no transient focal neurological symptoms (no vision changes, slurred speech, weakness, or numbness) since vertigo onset.\n- Neuro exam: spontaneous nystagmus present; bedside bilateral decreased hearing reported; unstable tandem gait but baseline gait largely unremarkable; finger-to-nose and heel-to-shin normal; Romberg normal.\n- Repeat MRI brain with diffusion-weighted imaging and MR angiography of the posterior circulation returned normal — no acute ischemia or vascular abnormality.\n- Patient denies current headache, photophobia, phonophobia, visual aura, and has no family history of migraine.\n- Symptoms have stayed the same since onset this morning — constant low-grade spinning with occasional nausea; diphenhydramine helped slightly; no prior similar episodes.\n- Patient reports no new prescription medications or recreational drugs, no recent alcohol, no head trauma, no ear fullness, and no perceived change in hearing since symptom onset; has taken diphenhydramine which provides slight symptomatic relief.\n- Repeat MRI brain with diffusion-weighted imaging performed 24-48 hours after onset is normal (no acute ischemia or vascular abnormality).\n- Rotatory chair testing (complete vestibular function testing, including sinusoidal harmonic acceleration and VEMP if available) returned normal readings.\n- Cervical and ocular VEMP testing returned normal readings.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "[Step 1]\nNew Info: Patient presents with dizziness, nausea, and imbalance.\nDifferential: Vestibular neuritis/labyrinthitis: acute persistent vertigo with nausea and imbalance suggesting peripheral vestibular cause, BPPV: positional brief vertigo causing imbalance triggered by head movements, Cerebellar/brainstem stroke: central cause can present with acute dizziness, imbalance, and nausea—needs exclusion, Meniere's disease: episodic vertigo often with hearing loss/tinnitus—hearing status unknown\nNext: REQUEST TEST: Vital Signs\n\n[Step 2]\nNew Info: Vital signs normal: Temperature 98.7°F, BP 122/81 mmHg, HR 82 bpm, RR 15/min, SpO2 99% on room air.\nDifferential: Vestibular neuritis/labyrinthitis: acute persistent vertigo with nausea/imbalance; BPPV: positional brief vertigo triggered by head movement; Cerebellar/brainstem stroke: central cause can present with acute dizziness/imbalance—needs exclusion despite normal vitals; Meniere's disease: episodic vertigo often with hearing loss/tinnitus—hearing status unknown\nNext: ASK PATIENT: When did the dizziness start, is it constant or episodic, and is it triggered or worsened by head movement?\n\n[Step 3]\nNew Info: Onset this morning with constant spinning sensation (continuous vertigo) since onset, not episodic or triggered by head movements; occasional nausea.\nDifferential: Vestibular neuritis: acute persistent peripheral vertigo with nausea and imbalance consistent with constant spinning, Labyrinthitis: similar to vestibular neuritis but would include hearing loss/tinnitus (hearing status unknown), Cerebellar/brainstem stroke: central cause can present with sudden continuous vertigo and must be excluded despite absence of focal signs so far, BPPV: less likely because symptoms are not brief or positional\nNext: ASK PATIENT: Have you noticed any hearing loss, ringing in the ears (tinnitus), or other neurological symptoms such as headache, double vision, weakness, numbness, slurred speech, or difficulty swallowing?\n\n[Step 4]\nNew Info: Patient reports no hearing loss, tinnitus, or ear pain, and denies headache, double vision, limb weakness, numbness, slurred speech, or difficulty swallowing.\nDifferential: Vestibular neuritis: continuous vertigo and nausea without hearing symptoms fits peripheral vestibular neuritis, Labyrinthitis: similar presentation but would usually include hearing loss/tinnitus which are absent making it less likely, Cerebellar/brainstem stroke: central cause can present with acute continuous vertigo without other focal signs early—must be excluded, BPPV: typically brief positional vertigo so less likely given continuous symptoms\nNext: REQUEST TEST: HINTS exam (Head Impulse test, observation of Nystagmus, Test of Skew)\n\n[Step 5]\nNew Info: HINTS exam: Head Impulse test normal, Nystagmus observed (type not specified), Test of Skew normal.\nDifferential: Cerebellar/brainstem stroke: normal head impulse raises concern for central cause despite lack of focal deficits, Vestibular neuritis: clinical picture of continuous vertigo and nausea fits but usually has abnormal head impulse making it less likely, Labyrinthitis: would include hearing loss/tinnitus which are absent so less likely\nNext: REQUEST TEST: MRI brain with diffusion-weighted imaging\n\n[Step 6]\nNew Info: MRI brain diffusion-weighted imaging shows no acute abnormalities; no evidence of acute ischemia or structural lesion.\nDifferential: Vestibular migraine: can cause acute continuous vertigo with normal MRI and normal head impulse, Vestibular neuritis: fits clinical course but typically has abnormal head impulse making it less likely, Cerebellar/brainstem stroke: MRI negative reduces likelihood but early/small posterior circulation stroke remains possible, Labyrinthitis: less likely given absence of hearing symptoms and MRI findings\nNext: ASK PATIENT: Do you have a history of migraine headaches or recent viral/upper respiratory infection (fever, sore throat, congestion) in the past 2 weeks?\n\n[Step 7]\nNew Info: Patient reports a cold a few days ago and increased garlic intake; denies history of migraine.\nDifferential: Vestibular neuritis: recent URI and continuous vertigo support a post-viral peripheral vestibulopathy, Vestibular migraine: can cause vertigo with normal MRI but patient lacks migraine history making it less likely, Cerebellar/brainstem stroke: HINTS and MRI negative lower probability but cannot be fully excluded early, Labyrinthitis: would include hearing loss/tinnitus which are absent so less likely\nNext: REQUEST TEST: Audiometry (hearing test)\n\n[Step 8]\nNew Info: Basic audiometry: bilateral decreased hearing sensitivity.\nDifferential: Labyrinthitis: recent URI, vertigo and new hearing loss suggest inner ear inflammation but hearing loss typically unilateral; Vestibular neuritis: post-viral continuous vertigo fits but usually normal hearing so less likely after audiometry; Bilateral conductive hearing loss/middle ear effusion: recent URI could cause bilateral conductive loss explaining decreased hearing and possibly imbalance but less commonly causes severe vertigo; Vestibular migraine: can present with vertigo and normal imaging but patient denies migraine history making it less likely\nNext: REQUEST TEST: Full diagnostic audiometry (pure-tone air and bone conduction), speech discrimination, and tympanometry\n\n[Step 9]\nNew Info: Full diagnostic audiometry (pure-tone air and bone conduction), speech discrimination, and tympanometry are normal.\nDifferential: Vestibular neuritis: post-viral continuous vertigo and normal audiometry fit, but expected abnormal head impulse was not seen; Vestibular migraine: can cause acute vertigo with normal MRI/audiometry though patient denies migraine history; Cerebellar/brainstem stroke (posterior circulation): normal head impulse and persistent vertigo raise central concern despite negative MRI (early/small stroke possible); Labyrinthitis: less likely given absence of hearing loss and normal audiometry\nNext: REQUEST TEST: Video head impulse test (vHIT) and ENG/VNG including caloric testing\n\n[Step 10]\nNew Info: Video head impulse test (vHIT) and ENG/VNG including caloric testing returned normal readings.\nDifferential: Posterior circulation (cerebellar/brainstem) stroke: normal MRI reduces likelihood but normal head-impulse and persistent continuous vertigo keep central cause possible (early/small infarct or transient ischemia), Vestibular neuritis (acute peripheral vestibulopathy): recent URI and continuous vertigo support this diagnosis but normal head impulse, vHIT, and caloric testing argue against a unilateral peripheral vestibular hypofunction, Vestibular migraine: can present with continuous vertigo and normal MRI/audiology/vestibular testing though patient denies prior migraine history\nNext: ASK PATIENT: Do you have vascular risk factors (history of hypertension, diabetes, atrial fibrillation, coronary artery disease, hyperlipidemia, smoking) or are you on anticoagulant/antiplatelet therapy? Also have you had any transient focal neurological symptoms (vision change, slurred speech, limb weakness/numbness) since the vertigo started?\n\n[Step 11]\nNew Info: Patient reports no vascular risk factors (no hypertension, diabetes, atrial fibrillation, coronary artery disease, hyperlipidemia, or smoking), is not on anticoagulant/antiplatelet therapy, and has had no transient focal neurological symptoms (no vision changes, slurred speech, weakness, or numbness) since vertigo onset.\nDifferential: Vestibular neuritis: post-viral continuous vertigo and recent URI support this peripheral vestibulopathy but objective vestibular tests (head impulse, vHIT, calorics) have been normal, Vestibular migraine: can present with continuous vertigo with normal MRI/audiometry/vestibular testing though patient lacks prior migraine history, Posterior circulation (cerebellar/brainstem) stroke: normal MRI and lack of vascular risk factors lower likelihood but central cause remains a concern because of persistent vertigo with normal peripheral testing\nNext: REQUEST TEST: Comprehensive neurological exam including cranial nerve assessment, cerebellar testing (finger-to-nose, heel-to-shin), Romberg test, and gait assessment\n\n[Step 12]\nNew Info: Neuro exam: spontaneous nystagmus present; bedside bilateral decreased hearing reported; unstable tandem gait but baseline gait largely unremarkable; finger-to-nose and heel-to-shin normal; Romberg normal.\nDifferential: Vestibular neuritis: recent URI and continuous vertigo support peripheral vestibulopathy but objective vestibular tests (head impulse, vHIT, calorics) were normal, Vestibular migraine: can present with continuous vertigo and normal MRI/audiology though patient denies migraine history, Posterior circulation (cerebellar/brainstem) stroke: persistent vertigo with nystagmus and gait instability raises central concern despite prior negative MRI, Labyrinthitis: would explain vertigo with hearing changes but prior diagnostic audiometry was normal making it less likely\nNext: REQUEST TEST: Repeat MRI brain with diffusion-weighted imaging and MR angiography of the posterior circulation (posterior fossa protocol)\n\n[Step 13]\nNew Info: Repeat MRI brain with diffusion-weighted imaging and MR angiography of the posterior circulation returned normal — no acute ischemia or vascular abnormality.\nDifferential: Vestibular neuritis: recent URI and continuous vertigo support peripheral vestibulopathy, but normal head impulse and vestibular testing argue against unilateral peripheral hypofunction; Vestibular migraine: can present with acute vertigo with normal MRI and vestibular testing, patient denies prior migraine history but first presentation is possible; Posterior circulation (cerebellar/brainstem) stroke/ischemia: central cause remains possible despite normal MRI/MRA (small/early infarct or transient ischemia) but likelihood reduced by imaging and lack of focal deficits.\nNext: ASK PATIENT: Do you currently have a headache, sensitivity to light or sound (photophobia/phonophobia), visual aura, or a family history of migraine?\n\n[Step 14]\nNew Info: Patient denies current headache, photophobia, phonophobia, visual aura, and has no family history of migraine.\nDifferential: Vestibular neuritis: recent URI and continuous vertigo fit a peripheral post-viral cause but objective vestibular tests (HIT, vHIT, calorics) were normal, Vestibular migraine: can present with continuous vertigo and normal imaging/testing though patient lacks migraine history or typical migrainous features, Posterior circulation (cerebellar/brainstem) stroke: central cause less likely given two negative MRIs/MRA and lack of focal deficits but persistent vertigo with normal peripheral testing keeps residual concern\nNext: ASK PATIENT: Since the dizziness started this morning, have your symptoms improved, stayed the same, or worsened? Also, have you ever had similar episodes of vertigo in the past?\n\n[Step 15]\nNew Info: Symptoms have stayed the same since onset this morning — constant low-grade spinning with occasional nausea; diphenhydramine helped slightly; no prior similar episodes.\nDifferential: Vestibular neuritis: recent URI and continuous vertigo fit a post-viral peripheral vestibulopathy but objective vestibular tests (HIT, vHIT, calorics) have been normal, Vestibular migraine: can present with continuous vertigo with normal MRI and vestibular testing despite no prior migraine history, Posterior circulation (cerebellar/brainstem) stroke: central cause remains possible given normal head-impulse and persistent vertigo, but two negative MRIs/MRA and lack of vascular risk factors reduce likelihood\nNext: ASK PATIENT: Have you taken any new medications or recreational drugs, consumed alcohol recently, experienced recent head trauma, or noticed ear fullness or changes in hearing since the symptoms began?\n\n[Step 16]\nNew Info: Patient reports no new prescription medications or recreational drugs, no recent alcohol, no head trauma, no ear fullness, and no perceived change in hearing since symptom onset; has taken diphenhydramine which provides slight symptomatic relief.\nDifferential: Vestibular neuritis: recent URI and continuous vertigo support a post-viral peripheral vestibulopathy but expected unilateral hypofunction was not seen on bedside and instrumented vestibular testing, Vestibular migraine: can present with acute persistent vertigo with normal MRI and vestibular testing despite no prior migraine history, Posterior circulation (cerebellar/brainstem) stroke or transient ischemia: normal head-impulse with spontaneous nystagmus and persistent vertigo raises central concern though two negative MRIs/MRA and lack of vascular risk factors lower probability\nNext: REQUEST TEST: Repeat MRI brain with diffusion-weighted imaging in 24-48 hours\n\n[Step 17]\nNew Info: Repeat MRI brain with diffusion-weighted imaging performed 24-48 hours after onset is normal (no acute ischemia or vascular abnormality).\nDifferential: Vestibular neuritis: recent URI and continuous vertigo support a peripheral post-viral vestibulopathy, but bedside and instrumented vestibular tests (HIT, vHIT, calorics) have been normal; Vestibular migraine: can present with persistent vertigo with normal MRI and vestibular testing despite no prior migraine history; Central posterior circulation ischemia/stroke: two negative MRIs/MRA lower likelihood but small/early infarct or transient ischemia remains possible given persistent vertigo and normal peripheral vestibular testing; Bilateral vestibulopathy/other peripheral causes: less typical due to acute continuous vertigo and normal vestibular testing but still a consideration\nNext: REQUEST TEST: Rotatory chair testing (complete vestibular function testing, including sinusoidal harmonic acceleration and VEMP if available)\n\n[Step 18]\nNew Info: Rotatory chair testing (complete vestibular function testing, including sinusoidal harmonic acceleration and VEMP if available) returned normal readings.\nDifferential: Vestibular migraine: can cause persistent vertigo with normal MRI and vestibular tests, though patient denies migraine history; Vestibular neuritis (atypical): recent URI and continuous vertigo support peripheral post-viral vestibulopathy but normal HIT, vHIT, calorics, and rotatory chair argue against typical unilateral hypofunction; Posterior circulation ischemia/stroke/vertebrobasilar TIA: persistent vertigo with normal peripheral tests and normal HINTS keeps central cause possible despite two negative MRIs/MRA and low vascular risk; Otolith-specific vestibular dysfunction (utricle/saccule) or superior/inferior division lesion: could explain symptoms with normal semicircular canal tests and may be detected by VEMP testing\nNext: REQUEST TEST: Cervical and ocular VEMP (vestibular evoked myogenic potentials) testing\n\n[Step 19]\nNew Info: Cervical and ocular VEMP testing returned normal readings.\nDifferential: Vestibular migraine: persistent vertigo with normal MRI and vestibular tests fits though patient lacks migraine history, Atypical vestibular neuritis/post-viral vestibulopathy: recent URI and continuous vertigo support this but extensive vestibular testing (HIT, vHIT, calorics, rotatory chair, VEMP) were normal arguing against typical unilateral hypofunction, Posterior circulation ischemia/stroke/TIA: central cause remains possible given normal peripheral vestibular testing and persistent vertigo but two repeat MRIs/MRA negative and low vascular risk make it less likely, Persistent postural-perceptual dizziness (PPPD)/visual vertigo: may follow an acute event and present with dizziness worsened by visual motion—fits normal objective tests and persistent symptoms though usually more subacute/chronic\nNext: ASK PATIENT: Do your dizziness symptoms worsen with visual motion or busy environments (e.g., crowds, scrolling on a screen), or when standing/walking, and have you experienced increased anxiety or stress since symptom onset?",
+  "current_uncertainties": [],
+  "final_diagnosis": ""
+}

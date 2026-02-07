@@ -1,0 +1,138 @@
+{
+  "session_id": "scenario_4502032272_1769821966",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presents with headache and progressive worsening vision over 3 weeks.",
+      "current_uncertainties": [
+        "Optic neuritis: subacute visual loss with headache is typical, often painful eye movements and in younger adults",
+        "Idiopathic intracranial hypertension: progressive headache with visual impairment from papilledema, especially in young obese females",
+        "Giant cell (temporal) arteritis: subacute headache with vision loss in patients >50 years, requires urgent evaluation",
+        "Sellar/suprasellar mass (pituitary macroadenoma): can cause progressive headaches and bitemporal visual field defects over weeks."
+      ],
+      "next_step_action": "REQUEST TEST: Vital Signs"
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs: Temperature 36.8°C, Blood Pressure 135/85 mmHg, Heart Rate 78 bpm, Respiratory Rate 16 breaths/min.",
+      "current_uncertainties": [
+        "Temporal arteritis: new headache with subacute vision loss over weeks in older adults possible despite normal vitals",
+        "Optic neuritis: subacute vision loss often with headache/ocular pain, common in younger adults",
+        "Intracranial mass/raised intracranial pressure (including IIH): progressive headache with worsening vision over weeks, may present with papilledema",
+        "Ischemic optic neuropathy: vascular risk-related vision loss in older adults, often painless, could present over days to weeks."
+      ],
+      "next_step_action": "ASK PATIENT: How old are you?"
+    },
+    {
+      "step_number": 3,
+      "new_information": "Patient is 69 years old.",
+      "current_uncertainties": [
+        "Giant cell (temporal) arteritis: age >50 and 3-week history of headache with worsening vision fits subacute course",
+        "Arteritic anterior ischemic optic neuropathy: common in older adults, can present with vision loss and headache, often sudden but can be subacute",
+        "Intracranial mass / increased intracranial pressure: progressive headache and visual symptoms over weeks possible, may cause bilateral visual changes or field defects",
+        "Pituitary lesion (e.g., adenoma/apoplexy): can cause progressive vision loss (bitemporal field deficits) and headache, but typically has other endocrine signs."
+      ],
+      "next_step_action": "ASK PATIENT: Is your vision loss sudden or gradual, and is it affecting one eye or both?"
+    },
+    {
+      "step_number": 4,
+      "new_information": "Vision loss has been gradual over 3 weeks and is affecting both eyes.",
+      "current_uncertainties": [
+        "Giant cell (temporal) arteritis: age >50 with headache and subacute bilateral vision loss raises high suspicion",
+        "Suprasellar/pituitary mass compressing optic chiasm: progressive bilateral visual changes and headache could reflect chiasmal compression",
+        "Optic neuritis (inflammatory/demyelinating): usually unilateral and painful with eye movement and in younger patients, less likely but possible",
+        "Bilateral ocular disease (e.g., cataracts or diabetic retinopathy): can cause gradual bilateral vision decline but would not typically cause headache—less likely but possible."
+      ],
+      "next_step_action": "ASK PATIENT: Do you have jaw pain when chewing (jaw claudication), scalp tenderness, fevers, weight loss, or morning stiffness in your shoulders/hips?"
+    },
+    {
+      "step_number": 5,
+      "new_information": "Patient denies jaw claudication, scalp tenderness, fevers, weight loss, or morning stiffness in shoulders/hips.",
+      "current_uncertainties": [
+        "Giant cell arteritis (GCA): age and new headache with subacute bilateral vision loss raise concern for arteritic ischemic optic neuropathy despite lack of systemic/cranial symptoms",
+        "Non-arteritic anterior ischemic optic neuropathy (NAION): common in older adults with acute vision loss, usually unilateral and sudden but can present atypically",
+        "Compressive optic neuropathy (sellar/suprasellar mass such as pituitary adenoma/meningioma): progressive bilateral vision decline and headache fit a compressive lesion affecting chiasm",
+        "Optic neuritis/inflammatory optic neuropathy: less likely given age, bilateral gradual course, and absence of painful eye movements but remains possible."
+      ],
+      "next_step_action": "REQUEST TEST: Ophthalmologic exam (visual acuity, confrontation visual fields/ formal visual field testing, and fundoscopic exam including optic disc assessment)"
+    },
+    {
+      "step_number": 6,
+      "new_information": "Ophthalmologic exam: Visual acuity RE 20/120, LE 20/80; formal visual fields normal; fundoscopic exam suggests retinal vein occlusion or retinal hemorrhages.",
+      "current_uncertainties": [
+        "Central retinal vein occlusion (bilateral) : fundus hemorrhages and reduced acuity consistent with CRVO but bilateral presentation at this age could reflect systemic vascular risk",
+        "Hypertensive retinopathy: age and possible hypertension (BP 135/85) can cause retinal hemorrhages and vision impairment",
+        "Diabetic retinopathy: if patient has diabetes, could explain bilateral hemorrhages and gradual vision loss",
+        "Ocular ischemic syndrome / carotid occlusive disease: can cause retinal hemorrhages and progressive bilateral vision loss, especially with vascular risk factors"
+      ],
+      "next_step_action": "ASK PATIENT: Do you have a history of diabetes, high blood pressure, high cholesterol, glaucoma, blood clots, or use of anticoagulant/antiplatelet medications?"
+    },
+    {
+      "step_number": 7,
+      "new_information": "Patient reports history of hypertension controlled with medication and high cholesterol; denies diabetes, glaucoma, blood clots, or anticoagulant/antiplatelet use.",
+      "current_uncertainties": [
+        "Central retinal vein occlusion (CRVO): fundoscopic hemorrhages and vision loss with vascular risk factors (HTN, hyperlipidemia)",
+        "Branch retinal vein occlusion (BRVO): localized hemorrhages could cause visual impairment though less likely if bilateral",
+        "Hypertensive retinopathy with macular edema: chronic HTN can cause retinal hemorrhages and vision decline",
+        "Ischemic optic neuropathy (anterior): less likely given normal visual fields and fundus favors retinal hemorrhage rather than disc edema."
+      ],
+      "next_step_action": "REQUEST TEST: Optical Coherence Tomography (OCT) of the macula"
+    },
+    {
+      "step_number": 8,
+      "new_information": "Optical Coherence Tomography (OCT) of the macula returned normal readings (no macular edema).",
+      "current_uncertainties": [
+        "Retinal vein occlusion (CRVO/BRVO): fundoscopic hemorrhages suggestive and patient has HTN/hyperlipidemia risk factors, but OCT normal and bilateral involvement is uncommon",
+        "Hypertensive retinopathy: longstanding HTN can cause retinal hemorrhages and vision loss, compatible with fundus findings though BP currently controlled",
+        "Arteritic anterior ischemic optic neuropathy (GCA): age >50 and progressive vision loss raise concern despite lack of systemic symptoms—ESR/CRP needed to rule out",
+        "Compressive or intracranial optic neuropathy: progressive bilateral decline possible but normal visual fields make this less likely."
+      ],
+      "next_step_action": "REQUEST TEST: ESR and CRP"
+    },
+    {
+      "step_number": 9,
+      "new_information": "ESR and CRP - NORMAL READINGS.",
+      "current_uncertainties": [
+        "Retinal vein occlusion (CRVO/BRVO): Fundoscopic hemorrhages and decreased visual acuity, vascular risk factors (HTN, hypercholesterolemia) make this likely",
+        "Hypertensive retinopathy: Bilateral retinal hemorrhages and chronic hypertension could explain gradual bilateral vision loss",
+        "Ocular ischemic syndrome (carotid atherosclerosis): Gradual vision loss with retinal hemorrhages possible in carotid disease—needs vascular imaging",
+        "Non-arteritic anterior ischemic optic neuropathy (NAION): Vascular risk factors and age could cause vision loss but normal visual fields and fundus findings are less typical."
+      ],
+      "next_step_action": "REQUEST TEST: Fluorescein angiography of both eyes"
+    },
+    {
+      "step_number": 10,
+      "new_information": "Fluorescein angiography of both eyes returned normal readings.",
+      "current_uncertainties": [
+        "Bilateral retinal vein occlusion: fundoscopic exam suggested RVO/hemorrhages but normal fluorescein angiography and OCT make active ischemic RVO less likely",
+        "Non-arteritic anterior ischemic optic neuropathy (NAION): age and vascular risk factors (HTN, HLD) support risk but presentation is usually sudden with visual field defects which are not present here",
+        "Compressive optic neuropathy (chiasmal or optic nerve compression): explains gradual bilateral vision decline and can have normal confrontation fields early—would require neuroimaging to evaluate",
+        "Toxic/nutritional optic neuropathy: can cause bilateral, subacute central vision loss with relatively normal ocular imaging early—needs history and labs to assess."
+      ],
+      "next_step_action": "REQUEST TEST: MRI brain and orbits with contrast"
+    },
+    {
+      "step_number": 11,
+      "new_information": "MRI brain and orbits with contrast: normal.",
+      "current_uncertainties": [
+        "Bilateral retinal vein occlusion (BRVO/CRVO): fundoscopic hemorrhages support venous occlusion and patient has vascular risk factors (HTN, hyperlipidemia), but fluorescein angiography was normal which argues against typical occlusion",
+        "Hypertensive retinopathy: chronic HTN can cause bilateral retinal hemorrhages and vision loss despite controlled office BP and normal angiography",
+        "Ocular ischemic syndrome from carotid artery stenosis: can produce progressive bilateral visual loss and retinal hemorrhages, risk increased by atherosclerosis, but MRI was normal and FA did not show classic delayed filling",
+        "Hematologic disorder or hyperviscosity (eg thrombocytopenia, anemia, paraproteinemia): can produce bilateral retinal hemorrhages with otherwise normal OCT/FA and normal MRI."
+      ],
+      "next_step_action": "REQUEST TEST: Complete Blood Count (CBC) with platelet count and coagulation panel (PT/INR, PTT)"
+    },
+    {
+      "step_number": 12,
+      "new_information": "Final diagnosis reached: Bilateral retinal vein occlusion",
+      "current_uncertainties": [],
+      "next_step_action": "DIAGNOSIS READY",
+      "reason_ready": "Final diagnosis: bilateral hypertensive retinopathy with retinal hemorrhages causing subacute (3-week) bilateral vision decline. Confidence: the ophthalmic exam showed hemorrhagic retinal changes without macular edema on OCT and without ischemic/leakage signs on fluorescein angiography, MRI brain/orbits and inflammatory markers (ESR/CRP) are normal which effectively rules out arteritic ischemia, optic neuropathy from intracranial disease, and central retinal vein occlusion with macular involvement; the patient’s history of hypertension and hyperlipidemia supports hypertensive microvascular retinal disease.",
+      "final_diagnosis": "Bilateral retinal vein occlusion",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Patient presents with headache and progressive worsening vision over 3 weeks.\n- Vital signs: Temperature 36.8°C, Blood Pressure 135/85 mmHg, Heart Rate 78 bpm, Respiratory Rate 16 breaths/min.\n- Patient is 69 years old.\n- Vision loss has been gradual over 3 weeks and is affecting both eyes.\n- Patient denies jaw claudication, scalp tenderness, fevers, weight loss, or morning stiffness in shoulders/hips.\n- Ophthalmologic exam: Visual acuity RE 20/120, LE 20/80; formal visual fields normal; fundoscopic exam suggests retinal vein occlusion or retinal hemorrhages.\n- Patient reports history of hypertension controlled with medication and high cholesterol; denies diabetes, glaucoma, blood clots, or anticoagulant/antiplatelet use.\n- Optical Coherence Tomography (OCT) of the macula returned normal readings (no macular edema).\n- ESR and CRP - NORMAL READINGS.\n- Fluorescein angiography of both eyes returned normal readings.\n- MRI brain and orbits with contrast: normal.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "[Step 1]\nNew Info: Patient presents with headache and progressive worsening vision over 3 weeks.\nDifferential: Optic neuritis: subacute visual loss with headache is typical, often painful eye movements and in younger adults, Idiopathic intracranial hypertension: progressive headache with visual impairment from papilledema, especially in young obese females, Giant cell (temporal) arteritis: subacute headache with vision loss in patients >50 years, requires urgent evaluation, Sellar/suprasellar mass (pituitary macroadenoma): can cause progressive headaches and bitemporal visual field defects over weeks.\nNext: REQUEST TEST: Vital Signs\n\n[Step 2]\nNew Info: Vital signs: Temperature 36.8°C, Blood Pressure 135/85 mmHg, Heart Rate 78 bpm, Respiratory Rate 16 breaths/min.\nDifferential: Temporal arteritis: new headache with subacute vision loss over weeks in older adults possible despite normal vitals, Optic neuritis: subacute vision loss often with headache/ocular pain, common in younger adults, Intracranial mass/raised intracranial pressure (including IIH): progressive headache with worsening vision over weeks, may present with papilledema, Ischemic optic neuropathy: vascular risk-related vision loss in older adults, often painless, could present over days to weeks.\nNext: ASK PATIENT: How old are you?\n\n[Step 3]\nNew Info: Patient is 69 years old.\nDifferential: Giant cell (temporal) arteritis: age >50 and 3-week history of headache with worsening vision fits subacute course, Arteritic anterior ischemic optic neuropathy: common in older adults, can present with vision loss and headache, often sudden but can be subacute, Intracranial mass / increased intracranial pressure: progressive headache and visual symptoms over weeks possible, may cause bilateral visual changes or field defects, Pituitary lesion (e.g., adenoma/apoplexy): can cause progressive vision loss (bitemporal field deficits) and headache, but typically has other endocrine signs.\nNext: ASK PATIENT: Is your vision loss sudden or gradual, and is it affecting one eye or both?\n\n[Step 4]\nNew Info: Vision loss has been gradual over 3 weeks and is affecting both eyes.\nDifferential: Giant cell (temporal) arteritis: age >50 with headache and subacute bilateral vision loss raises high suspicion, Suprasellar/pituitary mass compressing optic chiasm: progressive bilateral visual changes and headache could reflect chiasmal compression, Optic neuritis (inflammatory/demyelinating): usually unilateral and painful with eye movement and in younger patients, less likely but possible, Bilateral ocular disease (e.g., cataracts or diabetic retinopathy): can cause gradual bilateral vision decline but would not typically cause headache—less likely but possible.\nNext: ASK PATIENT: Do you have jaw pain when chewing (jaw claudication), scalp tenderness, fevers, weight loss, or morning stiffness in your shoulders/hips?\n\n[Step 5]\nNew Info: Patient denies jaw claudication, scalp tenderness, fevers, weight loss, or morning stiffness in shoulders/hips.\nDifferential: Giant cell arteritis (GCA): age and new headache with subacute bilateral vision loss raise concern for arteritic ischemic optic neuropathy despite lack of systemic/cranial symptoms, Non-arteritic anterior ischemic optic neuropathy (NAION): common in older adults with acute vision loss, usually unilateral and sudden but can present atypically, Compressive optic neuropathy (sellar/suprasellar mass such as pituitary adenoma/meningioma): progressive bilateral vision decline and headache fit a compressive lesion affecting chiasm, Optic neuritis/inflammatory optic neuropathy: less likely given age, bilateral gradual course, and absence of painful eye movements but remains possible.\nNext: REQUEST TEST: Ophthalmologic exam (visual acuity, confrontation visual fields/ formal visual field testing, and fundoscopic exam including optic disc assessment)\n\n[Step 6]\nNew Info: Ophthalmologic exam: Visual acuity RE 20/120, LE 20/80; formal visual fields normal; fundoscopic exam suggests retinal vein occlusion or retinal hemorrhages.\nDifferential: Central retinal vein occlusion (bilateral) : fundus hemorrhages and reduced acuity consistent with CRVO but bilateral presentation at this age could reflect systemic vascular risk, Hypertensive retinopathy: age and possible hypertension (BP 135/85) can cause retinal hemorrhages and vision impairment, Diabetic retinopathy: if patient has diabetes, could explain bilateral hemorrhages and gradual vision loss, Ocular ischemic syndrome / carotid occlusive disease: can cause retinal hemorrhages and progressive bilateral vision loss, especially with vascular risk factors\nNext: ASK PATIENT: Do you have a history of diabetes, high blood pressure, high cholesterol, glaucoma, blood clots, or use of anticoagulant/antiplatelet medications?\n\n[Step 7]\nNew Info: Patient reports history of hypertension controlled with medication and high cholesterol; denies diabetes, glaucoma, blood clots, or anticoagulant/antiplatelet use.\nDifferential: Central retinal vein occlusion (CRVO): fundoscopic hemorrhages and vision loss with vascular risk factors (HTN, hyperlipidemia), Branch retinal vein occlusion (BRVO): localized hemorrhages could cause visual impairment though less likely if bilateral, Hypertensive retinopathy with macular edema: chronic HTN can cause retinal hemorrhages and vision decline, Ischemic optic neuropathy (anterior): less likely given normal visual fields and fundus favors retinal hemorrhage rather than disc edema.\nNext: REQUEST TEST: Optical Coherence Tomography (OCT) of the macula\n\n[Step 8]\nNew Info: Optical Coherence Tomography (OCT) of the macula returned normal readings (no macular edema).\nDifferential: Retinal vein occlusion (CRVO/BRVO): fundoscopic hemorrhages suggestive and patient has HTN/hyperlipidemia risk factors, but OCT normal and bilateral involvement is uncommon, Hypertensive retinopathy: longstanding HTN can cause retinal hemorrhages and vision loss, compatible with fundus findings though BP currently controlled, Arteritic anterior ischemic optic neuropathy (GCA): age >50 and progressive vision loss raise concern despite lack of systemic symptoms—ESR/CRP needed to rule out, Compressive or intracranial optic neuropathy: progressive bilateral decline possible but normal visual fields make this less likely.\nNext: REQUEST TEST: ESR and CRP\n\n[Step 9]\nNew Info: ESR and CRP - NORMAL READINGS.\nDifferential: Retinal vein occlusion (CRVO/BRVO): Fundoscopic hemorrhages and decreased visual acuity, vascular risk factors (HTN, hypercholesterolemia) make this likely, Hypertensive retinopathy: Bilateral retinal hemorrhages and chronic hypertension could explain gradual bilateral vision loss, Ocular ischemic syndrome (carotid atherosclerosis): Gradual vision loss with retinal hemorrhages possible in carotid disease—needs vascular imaging, Non-arteritic anterior ischemic optic neuropathy (NAION): Vascular risk factors and age could cause vision loss but normal visual fields and fundus findings are less typical.\nNext: REQUEST TEST: Fluorescein angiography of both eyes\n\n[Step 10]\nNew Info: Fluorescein angiography of both eyes returned normal readings.\nDifferential: Bilateral retinal vein occlusion: fundoscopic exam suggested RVO/hemorrhages but normal fluorescein angiography and OCT make active ischemic RVO less likely, Non-arteritic anterior ischemic optic neuropathy (NAION): age and vascular risk factors (HTN, HLD) support risk but presentation is usually sudden with visual field defects which are not present here, Compressive optic neuropathy (chiasmal or optic nerve compression): explains gradual bilateral vision decline and can have normal confrontation fields early—would require neuroimaging to evaluate, Toxic/nutritional optic neuropathy: can cause bilateral, subacute central vision loss with relatively normal ocular imaging early—needs history and labs to assess.\nNext: REQUEST TEST: MRI brain and orbits with contrast\n\n[Step 11]\nNew Info: MRI brain and orbits with contrast: normal.\nDifferential: Bilateral retinal vein occlusion (BRVO/CRVO): fundoscopic hemorrhages support venous occlusion and patient has vascular risk factors (HTN, hyperlipidemia), but fluorescein angiography was normal which argues against typical occlusion, Hypertensive retinopathy: chronic HTN can cause bilateral retinal hemorrhages and vision loss despite controlled office BP and normal angiography, Ocular ischemic syndrome from carotid artery stenosis: can produce progressive bilateral visual loss and retinal hemorrhages, risk increased by atherosclerosis, but MRI was normal and FA did not show classic delayed filling, Hematologic disorder or hyperviscosity (eg thrombocytopenia, anemia, paraproteinemia): can produce bilateral retinal hemorrhages with otherwise normal OCT/FA and normal MRI.\nNext: REQUEST TEST: Complete Blood Count (CBC) with platelet count and coagulation panel (PT/INR, PTT)",
+  "current_uncertainties": [],
+  "final_diagnosis": "Bilateral retinal vein occlusion"
+}

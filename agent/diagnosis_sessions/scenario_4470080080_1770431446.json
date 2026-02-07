@@ -1,0 +1,244 @@
+{
+  "session_id": "scenario_4470080080_1770431446",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "3-week history of progressive headache with worsening vision.",
+      "uncertainties": {
+        "Optic neuritis": "typically subacute visual loss with eye pain, often unilateral, common in younger adults",
+        "Papilledema/Idiopathic intracranial hypertension (IIH) or other causes of raised intracranial pressure": "headache with visual disturbance (often bilateral) over weeks, risk factors include young obese women",
+        "Compressive optic neuropathy (eg, pituitary adenoma)": "progressive headache and visual field defects (bitemporal hemianopia) over weeks",
+        "Giant cell (temporal) arteritis": "new headache and subacute visual loss in older adults, often with systemic symptoms and elevated ESR/CRP."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ASK PATIENT: What is your age and sex? Is the visual loss unilateral or bilateral, and did it start suddenly or gradually? Do you have eye pain or pain with eye movement, double vision, jaw claudication, scalp tenderness, fever, or other constitutional symptoms? Any known medical history (eg, hypertension, autoimmune disease), current medications, and recent weight change?",
+      "action_reason": "Age/sex and laterality/onset of vision loss, presence of eye pain, and systemic symptoms strongly distinguish among optic neuritis, IIH/papilledema, compressive lesions, and temporal arteritis; medical history and weight help assess IIH and other risk factors."
+    },
+    {
+      "step_number": 2,
+      "new_information": "69-year-old woman with gradual bilateral vision loss over 3 weeks, no eye pain, no systemic symptoms (no jaw claudication, scalp tenderness, fever, weight loss), history of hypertension and hypercholesterolemia on treatment.",
+      "uncertainties": {
+        "Giant cell arteritis (GCA)": "age fits and can cause subacute vision loss but lacks typical systemic/cranial symptoms",
+        "Compressive optic neuropathy (eg, pituitary adenoma)": "gradual bilateral vision loss with potential visual field defects (bitemporal) and without pain",
+        "Non-arteritic anterior ischemic optic neuropathy (NAION)": "common in older patients with vascular risk factors (HTN) but typically unilateral and sudden",
+        "Bilateral macular/retinal disease (eg, wet AMD)": "can cause progressive bilateral central vision loss in elderly without pain."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Ophthalmic exam (visual acuity, pupillary reactions including assessment for relative afferent pupillary defect, confrontation visual fields, dilated fundoscopic exam)",
+      "action_reason": "A focused ophthalmic exam can rapidly distinguish optic nerve pathology (optic disc swelling/atrophy, RAPD), retinal disease (macular changes, hemorrhages), and pattern of visual field loss (eg, bitemporal hemianopia suggesting chiasmal compression), which will narrow the differential between GCA, compressive lesions, ischemic optic neuropathy, and retinal disease."
+    },
+    {
+      "step_number": 3,
+      "new_information": "69-year-old woman with hypertension and hyperlipidemia presenting with 3 weeks of gradually worsening bilateral vision. Ophthalmic exam: OD 20/120, OS 20/80, normal pupils with no RAPD, full confrontation fields. Dilated fundus exam shows bilateral retinal hemorrhages and possible cotton wool spots suggestive of retinal vein occlusions; no optic disc edema or neovascularization.",
+      "uncertainties": {
+        "Bilateral retinal vein occlusions (CRVO/BRVO)": "fundus hemorrhages and cotton wool spots fit, and HTN/hyperlipidemia are risk factors, but bilateral disease suggests systemic predisposition",
+        "Severe hypertensive retinopathy": "can produce bilateral hemorrhages and cotton wool spots—need BP and arteriolar changes to distinguish",
+        "Hyperviscosity or hematologic disorder (e.g., monoclonal gammopathy, leukemia)": "can cause bilateral retinal hemorrhages and vision loss—would explain bilateral involvement",
+        "Ischemic optic neuropathy/giant cell arteritis": "less likely given no disc edema or systemic symptoms, but age mandates consideration (check ESR/CRP)"
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Blood pressure will help differentiate hypertensive retinopathy versus retinal vein occlusion and assess severity (malignant hypertension could explain bilateral findings). Temperature and other vitals could raise concern for systemic/ inflammatory causes (eg, GCA) and influence urgency of further testing (ESR/CRP, labs). Vital signs are quick, noninvasive, and high-yield for narrowing the differential."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Vital signs normal: Temperature 36.8°C, Blood Pressure 135/85 mmHg, Heart Rate 78 bpm, Respiratory Rate 16 breaths/min.",
+      "uncertainties": {
+        "Bilateral central retinal vein occlusion (CRVO)": "bilateral retinal hemorrhages and cotton wool spots suggest CRVO causing subacute bilateral vision loss",
+        "Bilateral branch retinal vein occlusions (BRVO)": "fundus findings could reflect BRVO(s), though bilateral symmetric BRVO is less common",
+        "Systemic hyperviscosity or hematologic disorder (eg, multiple myeloma, hypercoagulable state)": "bilateral retinal vein occlusions raise concern for an underlying systemic cause",
+        "Ischemic optic neuropathy/giant cell arteritis": "less likely given absence of optic disc edema, RAPD, or systemic symptoms, but must be considered in an elderly patient."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Optical coherence tomography (OCT) macula and fluorescein angiography (FFA) of both eyes",
+      "action_reason": "OCT will identify macular edema accounting for decreased visual acuity and guide ocular therapy; FFA will delineate the extent and pattern of retinal ischemia and help differentiate central vs branch vein occlusions and determine ischemic vs non-ischemic status, which informs urgency of treatment and need for systemic evaluation for hypercoagulable or hyperviscosity causes."
+    },
+    {
+      "step_number": 5,
+      "new_information": "OCT macula and fluorescein angiography (FFA) of both eyes are reported as normal despite bilateral fundoscopic findings of retinal hemorrhages and cotton wool spots.",
+      "uncertainties": {
+        "Bilateral retinal vein occlusions (CRVO/BRVO)": "fundus hemorrhages and cotton wool spots with vision loss fit, but bilateral involvement is uncommon and OCT/FFA findings would often show macular edema/ischemia",
+        "Hypertensive retinopathy": "longstanding hypertension can cause hemorrhages and cotton wool spots but BP is reasonably controlled and arteriolar changes were not specifically described",
+        "Hyperviscosity syndrome/hematologic malignancy (eg, Waldenström macroglobulinemia, multiple myeloma)": "can cause bilateral retinal hemorrhages and visual decline with relatively normal OCT/FFA and would explain bilateral presentation",
+        "Diabetic retinopathy or other systemic vasculopathies": "possible if undiagnosed systemic disease but less likely given history."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: CBC with differential and peripheral smear",
+      "action_reason": "A CBC and peripheral smear can identify anemia, thrombocytopenia, leukocytosis, abnormal circulating cells, or rouleaux formation/paraproteinemia clues that would support a hyperviscosity or hematologic cause for bilateral retinal hemorrhages and help distinguish this from isolated retinal vein occlusion or hypertensive retinopathy."
+    },
+    {
+      "step_number": 6,
+      "new_information": "CBC shows normal blood counts, peripheral smear with marked rouleaux formation suggesting increased circulating immunoglobulins.",
+      "uncertainties": {
+        "Hyperviscosity syndrome from monoclonal gammopathy (eg, Waldenström macroglobulinemia or multiple myeloma)": "explains rouleaux and bilateral retinal vein occlusion-like hemorrhages",
+        "Bilateral central retinal vein occlusions due to systemic vascular disease (hypertension, hyperlipidemia)": "could cause retinal hemorrhages but bilateral simultaneous presentation is less likely",
+        "Cryoglobulinemia or other immune-complex mediated vasculitis": "can cause vascular occlusion and elevated immunoglobulins but typically has systemic symptoms",
+        "Hypercoagulable state (eg, antiphospholipid syndrome)": "can cause venous occlusions but does not explain rouleaux formation."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Serum protein electrophoresis (SPEP) with immunofixation, quantitative immunoglobulins (IgG, IgA, IgM), serum free light chains, and serum viscosity measurement",
+      "action_reason": "SPEP/immunofixation and free light chains will detect a monoclonal gammopathy (or polyclonal elevation) that would explain rouleaux; quantitative Igs clarify which immunoglobulin is elevated (Waldenström typically IgM, myeloma IgG/IgA). Serum viscosity testing will determine if hyperviscosity is present and could account for bilateral retinal venous stasis/hemorrhages, guiding urgent therapy (plasmapheresis) if positive."
+    },
+    {
+      "step_number": 7,
+      "new_information": "SPEP/immunofixation confirms a monoclonal IgM (likely kappa) with markedly elevated IgM level and elevated serum viscosity; peripheral smear shows rouleaux formation; clinical picture includes progressive bilateral visual decline with fundoscopic findings consistent with retinal venous congestion/hemorrhages.",
+      "uncertainties": {
+        "Waldenström macroglobulinemia causing hyperviscosity syndrome with retinal involvement": "explains IgM monoclonal spike, elevated viscosity, bilateral retinal changes and progressive visual loss",
+        "IgM MGUS coincident with bilateral central retinal vein occlusions from another cause": "monoclonal gammopathy present but not causative",
+        "Cryoglobulinemia or immune-complex mediated vasculitis causing retinal ischemia": "may be associated with IgM paraprotein",
+        "Hypercoagulable or thrombotic disorder causing bilateral CRVOs unrelated to IgM": "less likely given systemic paraprotein and viscosity."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Urgent Hematology/Oncology consultation with recommendation for immediate therapeutic plasmapheresis (plasma exchange) and diagnostic workup (bone marrow biopsy, flow cytometry, cryoglobulins)",
+      "action_reason": "Therapeutic plasmapheresis is indicated urgently for symptomatic hyperviscosity (progressive vision loss, elevated serum viscosity) and can rapidly improve visual symptoms; hematology input and bone marrow studies are needed to distinguish Waldenström macroglobulinemia from IgM MGUS and to plan definitive therapy; cryoglobulins and flow cytometry will help evaluate alternative causes (cryoglobulinemia, lymphoproliferative disorder)."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Serum studies confirm a monoclonal IgM paraprotein (M-spike) with markedly elevated IgM and increased serum viscosity; hematology recommended urgent plasmapheresis and further diagnostic workup.",
+      "uncertainties": {
+        "Waldenström macroglobulinemia (WM)": "IgM M-protein with hyperviscosity and retinal vein occlusions suggests WM",
+        "IgM monoclonal proliferation likely but needs marrow confirmation": "under consideration",
+        "Monoclonal gammopathy of undetermined significance (IgM MGUS)": "could present with IgM spike without full marrow disease—would have low marrow involvement and may not require systemic therapy",
+        "Multiple myeloma/plasma cell neoplasm (less likely)": "usually IgG/IgA and lytic bone lesions—IgM myeloma is rare but possible",
+        "Cryoglobulinemia/immune complex-mediated vasculopathy": "can be associated with monoclonal IgM and cause retinal vascular findings—cryoglobulins should be checked."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Bone marrow biopsy and aspiration with immunophenotyping/flow cytometry and cytogenetic studies",
+      "action_reason": "Bone marrow examination with immunophenotyping will distinguish Waldenström macroglobulinemia from IgM MGUS or other B‑cell/plasma cell neoplasms by quantifying marrow infiltration and characterizing the clonal cell type; results will guide urgent treatment decisions (confirm need for systemic therapy in addition to plasmapheresis)."
+    },
+    {
+      "step_number": 9,
+      "new_information": "Bone marrow biopsy and aspiration with immunophenotyping/flow cytometry and cytogenetic studies: normal readings (no overt marrow infiltration detected).",
+      "uncertainties": {
+        "Waldenström macroglobulinemia (lymphoplasmacytic lymphoma)": "IgM M‑spike and hyperviscosity strongly suggest this, but expected bone marrow involvement is not seen—could be patchy/early disease",
+        "IgM‑MGUS (monoclonal gammopathy of undetermined significance)": "explains monoclonal IgM with normal marrow but typically lower risk—can still rarely cause hyperviscosity",
+        "Hyperviscosity syndrome due to monoclonal IgM causing retinal vein occlusions and progressive vision loss": "supported by elevated serum viscosity and retinal hemorrhages",
+        "Bilateral central retinal vein occlusions from vascular risk factors (eg, hypertension, hyperlipidemia)": "less likely to explain bilateral subacute progression and rouleaux/IgM spike but remains in differential."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Therapeutic plasmapheresis (plasma exchange)",
+      "action_reason": "Patient has symptomatic hyperviscosity with progressive bilateral vision loss and markedly elevated serum viscosity due to monoclonal IgM. Immediate plasmapheresis both treats the emergent process (reduces IgM and viscosity to prevent irreversible visual loss and other complications) and is diagnostically informative (clinical improvement after exchange supports hyperviscosity as the driver). Bone marrow being \"normal\" does not obviate urgent therapy; marrow evaluation and further hematologic workup can continue in parallel."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Therapeutic plasmapheresis was performed; the post-procedure report states 'NORMAL READINGS' but provides no quantitative post-procedure serum viscosity or IgM level and no documented clinical/ophthalmic response.",
+      "uncertainties": {
+        "Hyperviscosity syndrome due to monoclonal IgM/Waldenström macroglobulinemia": "elevated IgM and serum viscosity with bilateral retinal hemorrhages suggestive",
+        "Bilateral central retinal vein occlusions from vascular risk factors or thrombophilia": "retinal findings fit CRVO but bilateral simultaneous presentation is uncommon and may imply systemic cause",
+        "Cryoglobulinemia or cold agglutinin–mediated vascular occlusion": "monoclonal IgM can produce cryoglobulins causing occlusive phenomena",
+        "Monoclonal gammopathy of undetermined significance (MGUS) with paraprotein-related retinal effects without overt marrow disease": "SPEP positive but bone marrow and flow cytometry normal."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Post-plasmapheresis serum viscosity and quantitative IgM level; cryoglobulin panel and cold agglutinin testing; repeat ophthalmic exam (visual acuity, pupillary reactions, dilated fundoscopic exam) and documentation of any change in visual symptoms.",
+      "action_reason": "Post-exchange viscosity and IgM will confirm whether plasmapheresis effectively reduced hyperviscosity (supporting hyperviscosity syndrome as cause). Cryoglobulins/cold agglutinins testing will evaluate alternative antibody-mediated vascular occlusion mechanisms. Repeat ophthalmic exam and symptom assessment will show clinical response and help correlate laboratory changes with ocular improvement, differentiating systemic vs primary ocular causes."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Post-plasmapheresis testing and repeat ophthalmic exam were reported as normal readings.",
+      "uncertainties": {
+        "Waldenström macroglobulinemia": "monoclonal IgM and hyperviscosity fit WM but bone marrow and flow cytometry were non-diagnostic",
+        "IgM MGUS": "could explain monoclonal IgM without marrow involvement and normal post-plasmapheresis labs",
+        "Irreversible ischemic retinal damage from prior retinal vein occlusions": "retinal hemorrhages and cotton wool spots may have caused permanent visual loss despite normalization of viscosity."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "ASK PATIENT: Since plasmapheresis and the interventions, has your vision improved, worsened, or stayed the same? Any new visual symptoms (flashes, floaters, pain) or systemic symptoms (bleeding, infections, fevers, weight loss)?",
+      "action_reason": "Patient-reported change in vision after plasmapheresis will help determine whether hyperviscosity was the primary reversible cause (expect improvement) versus permanent retinal ischemic damage or another ongoing process (no improvement). New systemic symptoms would suggest active hematologic disease requiring further workup."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Patient reports partial improvement in vision after plasmapheresis; no new visual or systemic symptoms (no flashes, floaters, pain, bleeding, infections, fevers, or weight loss).",
+      "uncertainties": {
+        "Waldenström macroglobulinemia / lymphoplasmacytic lymphoma": "IgM M-spike and hyperviscosity with visual improvement after plasmapheresis — bone marrow biopsy was reported normal, so disease burden/diagnosis uncertain",
+        "IgM monoclonal gammopathy of undetermined significance (MGUS) with hyperviscosity": "monoclonal IgM could be MGUS causing episodic hyperviscosity responsive to plasmapheresis but may not require systemic therapy",
+        "Other lymphoproliferative disorders (e.g., marginal zone lymphoma) producing IgM paraprotein": "can present with similar lab/clinical picture but may have marrow/lymph node involvement missed on initial biopsy."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat bone marrow biopsy with targeted immunohistochemistry/flow cytometry and molecular testing for MYD88 L265P mutation; peripheral blood flow cytometry (and consider PET-CT if biopsy remains non-diagnostic).",
+      "action_reason": "Identifying a clonal lymphoplasmacytic process (eg, WM with MYD88 mutation) versus IgM MGUS will determine need for definitive systemic therapy (rituximab-based chemo) to prevent recurrent hyperviscosity and further retinal ischemic injury; peripheral blood/PET-CT help detect occult disease if marrow sampling was initially non-diagnostic."
+    },
+    {
+      "step_number": 13,
+      "new_information": "Repeat bone marrow biopsy with targeted immunohistochemistry/flow cytometry and molecular testing for MYD88 L265P, plus peripheral blood flow cytometry, were reported as normal/negative.",
+      "uncertainties": {
+        "Waldenström macroglobulinemia (WM)": "monoclonal IgM with hyperviscosity and retinal vein occlusions fits clinically and explains response to plasmapheresis, but expected marrow involvement and MYD88 L265P mutation are not detected",
+        "IgM monoclonal gammopathy of undetermined significance (IgM-MGUS) with hyperviscosity": "monoclonal IgM without overt marrow/lymphoma could explain isolated hyperviscosity and retinal findings despite negative biopsies",
+        "Occult/limited lymphoproliferative disorder (small clonal B-cell population not sampled or low-burden disease)": "could cause IgM production with negative marrow biopsy and standard testing."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: PET-CT (whole-body) to look for occult lymphadenopathy or organ involvement",
+      "action_reason": "A whole-body PET-CT can identify occult nodal or splenic disease or metabolically active lesions that would support a diagnosis of an underlying lymphoproliferative disorder/WM (vs MGUS or low-burden/undetected clone). Finding focal uptake would guide targeted biopsy; a negative PET-CT would make WM less likely and support MGUS or a very low-burden clone, prompting more sensitive molecular testing next."
+    },
+    {
+      "step_number": 14,
+      "new_information": "PET-CT whole-body normal; patient had partial visual improvement after therapeutic plasmapheresis; repeated standard bone marrow biopsies, flow cytometry, and molecular tests (including prior MYD88 testing) reported normal/non-diagnostic; initial labs confirmed monoclonal IgM with elevated serum viscosity and rouleaux on smear.",
+      "uncertainties": {
+        "Waldenström macroglobulinemia/lymphoplasmacytic lymphoma": "monoclonal IgM with hyperviscosity and visual improvement after plasmapheresis suggest WM, but repeated bone marrow/PET-CT negative (could be patchy infiltration or false-negative tests)",
+        "IgM MGUS with hyperviscosity": "monoclonal IgM can rarely cause symptomatic hyperviscosity without overt marrow involvement",
+        "Other IgM-secreting B-cell lymphoma (eg, marginal zone lymphoma)": "can present with IgM paraprotein and hyperviscosity but may be occult on standard biopsies."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat bone marrow biopsy with a larger/core sample and targeted allele-specific PCR for MYD88 L265P plus broad next-generation sequencing (NGS) for B-cell clonality; also request peripheral blood cell-free DNA testing for IgM clone (and ensure cryoglobulin/cold agglutinin testing is performed on pre-plasmapheresis or fresh sample).",
+      "action_reason": "A larger/targeted bone marrow sample with sensitive molecular testing (allele-specific PCR and NGS) and cfDNA increases detection sensitivity for occult lymphoplasmacytic clones (WM) or other B-cell neoplasms, which will distinguish true WM from IgM MGUS and guide disease-directed therapy beyond plasmapheresis. Pre-plasmapheresis cryoglobulins/cold agglutinins clarify contribution of cryoglobulinemia or cold agglutinin disease to retinal findings."
+    },
+    {
+      "step_number": 15,
+      "new_information": "Patient reports partial improvement in vision after plasmapheresis. Extensive diagnostic workup for an IgM-producing clone (multiple bone marrow biopsies with IHC/flow/NGS including MYD88 L265P testing, peripheral blood cfDNA, PET‑CT, cryoglobulin and cold agglutinin testing) has been repeatedly non‑diagnostic/normal despite initial SPEP showing a monoclonal IgM spike, marked rouleaux, and elevated serum viscosity.",
+      "uncertainties": {
+        "Waldenström macroglobulinemia/lymphoplasmacytic lymphoma": "fits IgM spike, hyperviscosity and response to plasmapheresis but marrow/MYD88/PET repeatedly negative",
+        "IgM‑MGUS causing hyperviscosity": "monoclonal IgM without overt marrow disease could explain findings though symptomatic hyperviscosity with high IgM is less typical for MGUS",
+        "Occult IgM‑secreting B‑cell lymphoma (eg marginal zone or other small B‑cell lymphoma)": "could be patchy or PET‑negative and not sampled on biopsy."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Hematology/Oncology — recommend initiation of systemic anti‑clonal therapy (eg rituximab‑based regimen per hematology) to reduce IgM production, with continued monitoring of IgM and viscosity and repeat plasmapheresis only if symptomatic recurrence",
+      "action_reason": "Patient has symptomatic hyperviscosity (visual impairment) with objective IgM monoclonal protein and clear clinical response to plasmapheresis. Multiple diagnostic studies have been non‑diagnostic; treating the clone is indicated for symptomatic disease and will both reduce risk and help confirm etiology by demonstrating IgM/clinical response even if structural diagnostic studies remain negative."
+    },
+    {
+      "step_number": 16,
+      "new_information": "Patient reports continued partial improvement in vision and decreased headache following plasmapheresis; no new systemic or ocular symptoms.",
+      "uncertainties": {
+        "1) IgM-mediated hyperviscosity due to an underlying clonal disorder (eg, Waldenström macroglobulinemia or IgM MGUS)": "elevated IgM, rouleaux, high serum viscosity, bilateral retinal venous changes, clinical response to plasmapheresis support this. 2) Cryoglobulinemic or cold‑agglutinin–related vascular/retinal injury: can present with retinal ischemia and IgM clones, but cryoglobulin/cold agglutinin testing reported normal. 3) Bilateral retinal vein occlusions from vascular risk factors (eg, hypertension, atherosclerosis, hypercoagulable state): possible but less likely to present bilaterally and improve with plasmapheresis. 4) Occult lymphoproliferative disorder not detected on marrow/PET (focal/low‑burden disease): would explain IgM clone despite negative tests but requires empiric anti‑clonal therapy if symptomatic."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Hematology/Oncology — initiate rituximab‑based systemic anti‑clonal therapy (per hematology recommendation) to reduce IgM production, with close monitoring of quantitative IgM and serum viscosity and continued ophthalmology follow‑up.",
+      "action_reason": "The patient has symptomatic IgM monoclonal gammopathy with hyperviscosity manifestations (bilateral retinal involvement, headache) and clear clinical improvement after plasmapheresis. Definitive cytoreductive therapy (eg, rituximab‑based regimen) is the appropriate next step to lower IgM production and prevent recurrence; response (fall in IgM/viscosity with clinical improvement) will also support a diagnosis of a pathologic IgM‑producing lymphoplasmacytic clone even when marrow/imaging studies are non‑diagnostic. Continued monitoring of IgM/viscosity and ophthalmic status will detect recurrence or need for repeat plasmapheresis."
+    },
+    {
+      "step_number": 17,
+      "new_information": "Patient has a monoclonal IgM paraprotein with elevated serum viscosity and clinical hyperviscosity manifestations (bilateral retinal vein occlusions and headache) that improved after therapeutic plasmapheresis; multiple hematologic evaluations (bone marrow biopsies with immunophenotyping and molecular testing, peripheral flow cytometry, PET‑CT) have been repeatedly non‑diagnostic. Hematology has initiated rituximab‑based systemic therapy.",
+      "uncertainties": {
+        "Waldenström macroglobulinemia (lymphoplasmacytic lymphoma)": "fits IgM monoclonal spike and hyperviscosity but marrow/PET negative—could be low‑burden or sampling error",
+        "IgM MGUS with symptomatic hyperviscosity": "monoclonal IgM without overt lymphoma but high IgM could still cause symptoms",
+        "Other indolent B‑cell lymphoma (eg, splenic marginal zone lymphoma) with occult/low‑burden disease": "can produce IgM and evade detection on standard testing",
+        "Cryoglobulinemic or cold‑agglutinin mediated microvascular disease": "could contribute to retinal findings but requires fresh/pre‑plasmapheresis testing to confirm."
+      },
+      "reference_relevance": "No relevant information retrieved",
+      "action": "REQUEST TEST: Repeat quantitative IgM level and serum viscosity, cryoglobulin and cold agglutinin testing on fresh/pre‑plasmapheresis sample, and repeat ophthalmic exam (visual acuity, dilated fundoscopic exam)",
+      "action_reason": "Repeat IgM and viscosity will document biochemical response to plasmapheresis/rituximab and determine ongoing hyperviscosity risk; cryoglobulin and cold agglutinin testing on fresh (pre‑plasmapheresis) specimen can detect alternate/adjunct causes of retinal microvascular disease; repeat ophthalmic exam will track anatomic/functional recovery and guide need for further urgent plasmapheresis or ocular interventions."
+    }
+  ],
+  "all_information": [
+    "3-week history of progressive headache with worsening vision.",
+    "69-year-old woman with gradual bilateral vision loss over 3 weeks, no eye pain, no systemic symptoms (no jaw claudication, scalp tenderness, fever, weight loss), history of hypertension and hypercholesterolemia on treatment.",
+    "69-year-old woman with hypertension and hyperlipidemia presenting with 3 weeks of gradually worsening bilateral vision. Ophthalmic exam: OD 20/120, OS 20/80, normal pupils with no RAPD, full confrontation fields. Dilated fundus exam shows bilateral retinal hemorrhages and possible cotton wool spots suggestive of retinal vein occlusions; no optic disc edema or neovascularization.",
+    "Vital signs normal: Temperature 36.8°C, Blood Pressure 135/85 mmHg, Heart Rate 78 bpm, Respiratory Rate 16 breaths/min.",
+    "OCT macula and fluorescein angiography (FFA) of both eyes are reported as normal despite bilateral fundoscopic findings of retinal hemorrhages and cotton wool spots.",
+    "CBC shows normal blood counts, peripheral smear with marked rouleaux formation suggesting increased circulating immunoglobulins.",
+    "SPEP/immunofixation confirms a monoclonal IgM (likely kappa) with markedly elevated IgM level and elevated serum viscosity; peripheral smear shows rouleaux formation; clinical picture includes progressive bilateral visual decline with fundoscopic findings consistent with retinal venous congestion/hemorrhages.",
+    "Serum studies confirm a monoclonal IgM paraprotein (M-spike) with markedly elevated IgM and increased serum viscosity; hematology recommended urgent plasmapheresis and further diagnostic workup.",
+    "Bone marrow biopsy and aspiration with immunophenotyping/flow cytometry and cytogenetic studies: normal readings (no overt marrow infiltration detected).",
+    "Therapeutic plasmapheresis was performed; the post-procedure report states 'NORMAL READINGS' but provides no quantitative post-procedure serum viscosity or IgM level and no documented clinical/ophthalmic response.",
+    "Post-plasmapheresis testing and repeat ophthalmic exam were reported as normal readings.",
+    "Patient reports partial improvement in vision after plasmapheresis; no new visual or systemic symptoms (no flashes, floaters, pain, bleeding, infections, fevers, or weight loss).",
+    "Repeat bone marrow biopsy with targeted immunohistochemistry/flow cytometry and molecular testing for MYD88 L265P, plus peripheral blood flow cytometry, were reported as normal/negative.",
+    "PET-CT whole-body normal; patient had partial visual improvement after therapeutic plasmapheresis; repeated standard bone marrow biopsies, flow cytometry, and molecular tests (including prior MYD88 testing) reported normal/non-diagnostic; initial labs confirmed monoclonal IgM with elevated serum viscosity and rouleaux on smear.",
+    "Patient reports partial improvement in vision after plasmapheresis. Extensive diagnostic workup for an IgM-producing clone (multiple bone marrow biopsies with IHC/flow/NGS including MYD88 L265P testing, peripheral blood cfDNA, PET‑CT, cryoglobulin and cold agglutinin testing) has been repeatedly non‑diagnostic/normal despite initial SPEP showing a monoclonal IgM spike, marked rouleaux, and elevated serum viscosity.",
+    "Patient reports continued partial improvement in vision and decreased headache following plasmapheresis; no new systemic or ocular symptoms.",
+    "Patient has a monoclonal IgM paraprotein with elevated serum viscosity and clinical hyperviscosity manifestations (bilateral retinal vein occlusions and headache) that improved after therapeutic plasmapheresis; multiple hematologic evaluations (bone marrow biopsies with immunophenotyping and molecular testing, peripheral flow cytometry, PET‑CT) have been repeatedly non‑diagnostic. Hematology has initiated rituximab‑based systemic therapy."
+  ],
+  "current_uncertainties": {
+    "Waldenström macroglobulinemia (lymphoplasmacytic lymphoma)": "fits IgM monoclonal spike and hyperviscosity but marrow/PET negative—could be low‑burden or sampling error",
+    "IgM MGUS with symptomatic hyperviscosity": "monoclonal IgM without overt lymphoma but high IgM could still cause symptoms",
+    "Other indolent B‑cell lymphoma (eg, splenic marginal zone lymphoma) with occult/low‑burden disease": "can produce IgM and evade detection on standard testing",
+    "Cryoglobulinemic or cold‑agglutinin mediated microvascular disease": "could contribute to retinal findings but requires fresh/pre‑plasmapheresis testing to confirm."
+  }
+}

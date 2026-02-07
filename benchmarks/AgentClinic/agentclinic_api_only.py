@@ -22,6 +22,9 @@ if agent_path not in sys.path:
 # Import memory retrieval
 from memory_retrieval_agent import retrieve_relevant_experiences
 
+# Import uncertainty-aware doctor
+from uncertainty_aware_doctor import UncertaintyAwareDoctorAgent
+
 # Global client variable
 client = None
 
@@ -136,7 +139,7 @@ def compare_results(diagnosis, correct_diagnosis, moderator_llm):
     return answer.lower()
 
 
-def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False):
+def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False, use_uncertainty_aware=False, uncertainty_agent_type="uncertainty_aware_doctor"):
     global client
     if api_key:
         client = OpenAI(api_key=api_key)
@@ -188,12 +191,21 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
             backend_str=patient_llm)
         
         # Instantiate Doctor Agent
-        doctor_agent = DoctorAgent(
-            scenario=scenario,
-            bias_present=doctor_bias,
-            backend_str=doctor_llm,
-            max_infs=total_inferences,
-            img_request=img_request)
+        if use_uncertainty_aware:
+            doctor_agent = UncertaintyAwareDoctorAgent(
+                scenario=scenario,
+                bias_present=doctor_bias,
+                backend_str=doctor_llm,
+                max_infs=total_inferences,
+                img_request=img_request,
+                agent_type=uncertainty_agent_type)
+        else:
+            doctor_agent = DoctorAgent(
+                scenario=scenario,
+                bias_present=doctor_bias,
+                backend_str=doctor_llm,
+                max_infs=total_inferences,
+                img_request=img_request)
 
         print(f"\n\n================================================================")
         print(f"STARTING SCENARIO {_scenario_id}")
@@ -779,6 +791,8 @@ if __name__ == "__main__":
     parser.add_argument('--output_file', type=str, default=None, required=False, help='File to append results to')
     parser.add_argument('--scenario_offset', type=int, default=0, required=False, help='Scenario ID to start from')
     parser.add_argument('--use_memory', action='store_true', default=False, help='Enable memory retrieval from past experiences (default: disabled)')
+    parser.add_argument('--use_uncertainty_aware', action='store_true', default=False, help='Use uncertainty-aware doctor agent with explicit reasoning tracking (default: disabled)')
+    parser.add_argument('--uncertainty_agent_type', type=str, default='uncertainty_aware_doctor', help='Uncertainty-aware agent type (default: uncertainty_aware_doctor)')
     args = parser.parse_args()
 
-    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory)
+    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory, args.use_uncertainty_aware, args.uncertainty_agent_type)
