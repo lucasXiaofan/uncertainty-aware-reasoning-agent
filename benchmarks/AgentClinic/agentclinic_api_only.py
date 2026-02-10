@@ -294,7 +294,8 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                         "model_diagnosis": doctor_dialogue,
                         "correct": correctness,
                         "dialogue_history": dialogue_log,
-                        "token_usage": token_usage
+                        "token_usage": token_usage,
+                        "session_id": getattr(doctor_agent, 'session_id', None),
                     }
                     with open(output_file, "a") as f:
                         f.write(json.dumps(result_record) + "\n")
@@ -358,7 +359,8 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                     "model_diagnosis": "No diagnosis reached",
                     "correct": False,
                     "dialogue_history": dialogue_log,
-                    "token_usage": token_usage
+                    "token_usage": token_usage,
+                    "session_id": getattr(doctor_agent, 'session_id', None),
                 }
                 with open(output_file, "a") as f:
                     f.write(json.dumps(result_record) + "\n")

@@ -1,0 +1,271 @@
+{
+  "session_id": "scenario_28994_da0c1c07_1770517052",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient reports generalized fatigue, mild fever, abdominal pain, and nausea.",
+      "uncertainties": {
+        "1) Acute viral gastroenteritis": "common cause of nausea, abdominal pain, low-grade fever, and fatigue",
+        "2) Early appendicitis": "can begin with generalized abdominal pain, nausea, and low-grade fever — location may later localize to RLQ",
+        "3) Acute viral hepatitis": "presents with fatigue, nausea, abdominal discomfort and low-grade fever, with possible hepatic tenderness and abnormal LFTs",
+        "4) Biliary disease (e.g., cholecystitis/biliary colic)": "may present with RUQ/epigastric pain, nausea, and fever."
+      },
+      "reference_relevance": "No relevant guideline matches returned by search; therefore prior guideline examples were not directly helpful. Clinical reasoning must rely on differential features (pain localization, vital signs, jaundice, LFTs, CBC) to differentiate causes.",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Vital signs (temperature, heart rate, blood pressure, respiratory rate, oxygen saturation) are essential to assess fever severity, hemodynamic stability, and to triage further testing. They help distinguish serious infection or sepsis and guide urgency of abdominal exam and lab/imaging selection."
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vitals: T 38.1°C, BP 110/74 mm Hg, HR 99/min",
+      "uncertainties": {
+        "Viral gastroenteritis": "fever, nausea, diffuse abdominal pain",
+        "Acute appendicitis": "fever, abdominal pain (need localization)",
+        "UTI/pyelonephritis": "fever and abdominal/flank pain (need urinary symptoms)",
+        "Acute hepatitis/cholecystitis": "fatigue, RUQ pain, nausea (need RUQ signs, LFTs)"
+      },
+      "reference_relevance": "No relevant prior guideline matches found; limited guidance from past experiences—must proceed with targeted history and focused exam/labs",
+      "action": "ASK PATIENT: Can you describe the abdominal pain location (where it started and where it is now), its quality (sharp/dull/cramping), severity (0-10), and any factors that make it better or worse? Also any vomiting, diarrhea, urinary symptoms (dysuria, frequency), yellowing of eyes/skin, or recent travel/food exposures?",
+      "action_reason": "Pain localization and associated GI/urinary symptoms will help differentiate between gastroenteritis, appendicitis, UTI/pyelonephritis, and hepatobiliary causes."
+    },
+    {
+      "step_number": 3,
+      "new_information": "Patient reports 3 weeks of diffuse then RUQ-predominant dull cramping pain (5/10), worse after eating, improved by lying down, no vomiting/diarrhea, dark urine, no jaundice, food exposure at a state fair over a month ago.",
+      "uncertainties": {
+        "Acute hepatitis A": "exposure at fair and incubation period fits",
+        "symptoms include fatigue, fever, RUQ pain, dark urine. Cholecystitis/cholelithiasis": "postprandial RUQ pain and fever possible, usually more acute and may have Murphy's sign. Choledocholithiasis/ascending cholangitis: possible with RUQ pain, fever, dark urine but lack of jaundice and not severe suggests less likely. Viral hepatitis B/C: possible but less linked to food exposure. Other causes: alcoholic hepatitis (if alcohol use), drug-induced liver injury."
+      },
+      "reference_relevance": "Query returned no relevant guidelines; thus limited direct guideline support—need targeted tests to differentiate hepatic vs biliary causes.",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Repeat/confirm vitals and get baseline labs and imaging to differentiate hepatic inflammation (hepatitis) vs biliary obstruction/cholecystitis—start with labs (LFTs, bilirubin, CBC) and RUQ ultrasound, but must first confirm current vital signs."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Patient has RUQ-predominant dull cramping abdominal pain worse after eating, low-grade fever 38.1°C, dark urine, no jaundice, onset generalized 3 weeks ago now localized, no vomiting/diarrhea, no urinary symptoms, recent food exposures at state fair.",
+      "uncertainties": {
+        "Acute cholecystitis": "RUQ pain worse after fatty meals, fever, localized pain—possible",
+        "Choledocholithiasis/ascending cholangitis": "fever + dark urine could indicate biliary obstruction/infection—possible",
+        "Viral or food-borne hepatitis": "systemic symptoms, dark urine, recent food exposure—possible but RUQ focal pain and duration favor biliary cause."
+      },
+      "reference_relevance": "No relevant guideline matches returned; past experiences not found in query, so guidelines not helpful. Relying on clinical features to guide next test selection.",
+      "action": "REQUEST TEST: Right upper quadrant abdominal ultrasound",
+      "action_reason": "RUQ ultrasound will evaluate for gallstones, gallbladder wall thickening, pericholecystic fluid (cholecystitis) and biliary duct dilation suggesting choledocholithiasis, helping differentiate biliary causes from hepatitis."
+    },
+    {
+      "step_number": 5,
+      "new_information": "Right upper quadrant ultrasound normal",
+      "uncertainties": {
+        "Hepatitis A": "foodborne exposure, incubation fits",
+        "Choledocholithiasis/common bile duct stone": "RUQ pain postprandial and dark urine possible",
+        "Acute cholecystitis/biliary colic": "typically RUQ pain after eating but ultrasound usually abnormal (less likely with normal RUQ US)",
+        "Viral hepatitis B/C": "possible but less directly suggested by history"
+      },
+      "reference_relevance": "Search returned no retrieved guidelines; however, epidemiology and typical presentations make Hepatitis A plausible—normal RUQ ultrasound does not rule out hepatocellular causes or CBD stones; ultrasound can miss CBD stones; lab evaluation (LFTs, bilirubin, urinalysis) will help differentiate.",
+      "action": "REQUEST TEST: Serum liver function tests (AST, ALT, alkaline phosphatase, total bilirubin) and hepatitis A IgM, hepatitis B surface antigen, hepatitis C antibody; REQUEST TEST: Urinalysis; REQUEST TEST: Right upper quadrant ultrasound already done and normal",
+      "action_reason": "Liver enzymes and hepatitis serologies will distinguish hepatocellular (viral hepatitis) vs cholestatic/obstructive processes (alk phos, direct bilirubin) and confirm acute hepatitis A if IgM positive. Urinalysis will confirm bilirubinuria and dark urine etiology. Normal RUQ ultrasound lowers chance of gallbladder disease but does not exclude CBD stone; labs will guide need for further imaging (MRCP) if cholestasis."
+    },
+    {
+      "step_number": 6,
+      "new_information": "HBsAg positive; AST 488 U/L; ALT 798 U/L; Alk Phos 72 U/L; Tbili 3.6 mg/dL; RUQ ultrasound normal; 3 weeks RUQ pain and dark urine; no recent vomiting/diarrhea, no jaundice on exam reported.",
+      "uncertainties": {
+        "Acute hepatitis B": "HBsAg positive with high transaminases and bilirubin",
+        "Acute acetaminophen/toxin-induced liver injury": "unknown exposure history",
+        "Acute vs chronic HBV with flare": "unclear duration of HBsAg positivity",
+        "Other viral hepatitis less likely given negative HAV IgM and HCV Ab": "under consideration"
+      },
+      "reference_relevance": "Guidelines search returned no direct matches; however, the pattern (high AST/ALT in hundreds, positive HBsAg) strongly suggests acute HBV infection or flare. Additional tests (HBV DNA, IgM anti-HBc, acetaminophen level, coagulation studies, platelet count, INR) and assessment of liver synthetic function are needed to distinguish acute vs chronic and evaluate severity. Also ask about medication/toxin exposures and prior HBV status/vaccination.",
+      "action": "ASK PATIENT: Have you had any known prior hepatitis B infection or vaccination? Any recent use of acetaminophen or other medications/supplements/toxins, including herbal remedies or IV drug use, blood transfusions, tattoos, or high-risk sexual exposures? Also ask about alcohol use and symptoms of bleeding, confusion, severe abdominal pain, or worsening jaundice.",
+      "action_reason": "Distinguishing acute HBV vs chronic flare and excluding other causes (acetaminophen/toxin) and assessing risk factors will guide need for antiviral therapy and further urgent management; acetaminophen level and INR are critical to assess liver injury severity."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Patient reports no prior hepatitis B infection or vaccination; takes glyburide and sitagliptin for diabetes; drinks 1-2 beers/day; denies acetaminophen, herbals, IV drugs, transfusions, tattoos, high-risk sex; no confusion, bleeding, worsening pain or jaundice progression; dark urine persists.",
+      "uncertainties": {
+        "Acute hepatitis B infection": "HBsAg positive, high AST/ALT, bilirubin elevated—likely",
+        "Drug-induced liver injury (glyburide/sitagliptin)": "possible given timing but less typical",
+        "Autoimmune hepatitis": "possible but less likely without autoimmune history",
+        "Fulminant hepatic failure": "currently unlikely (no encephalopathy or coagulopathy known)"
+      },
+      "reference_relevance": "Previous guideline search returned no direct matches; available diagnostic experience somewhat aligned with acute HBV presentation but not definitive—HBsAg positive strongly suggests active infection; need HBV DNA and IgM anti-HBc to confirm acute vs chronic; check coagulation (INR), albumin, CBC, repeat LFTs; consider hepatitis B e antigen/antibody, anti-HBc IgM, HBV DNA viral load; exclude other causes (acetaminophen level already excluded by history); evaluate for severity and need for antiviral therapy",
+      "action": "REQUEST TEST: Hepatitis B core IgM antibody, Hepatitis B e antigen and anti-e antigen, HBV DNA quantitative (viral load), Prothrombin time/INR, Albumin, Complete blood count (CBC)",
+      "action_reason": "These tests will distinguish acute vs chronic HBV (anti-HBc IgM, HBeAg, HBV DNA), assess disease activity and infectivity (HBV DNA, HBeAg), and evaluate liver synthetic function and severity (INR, albumin, CBC) to guide need for antiviral therapy or hospitalization."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Hepatitis B surface antigen positive; HBeAg positive; Hepatitis B core IgM negative; HBV DNA quantitative reported as normal; Markedly elevated transaminases (AST 488, ALT 798) with alkaline phosphatase normal and total bilirubin 3.6 mg/dL; normal INR and albumin; mild fever and RUQ pain for 3 weeks; CBC with mild leukocytosis and Hb 10.6.",
+      "uncertainties": {
+        "1) Acute hepatitis B infection": "HBsAg+ and high transaminases and symptomatic course support this",
+        "but negative HBc IgM and normal HBV DNA argue against acute infection. 2) Chronic hepatitis B with acute flare": "HBeAg+ supports active replication, flares can occur with variable HBV DNA and absent IgM. 3) Other acute hepatitides (HEV, CMV, EBV) or drug-induced liver injury: similar lab pattern possible",
+        "food exposure raises HEV possibility.": "under consideration"
+      },
+      "reference_relevance": "Query returned no direct prior guideline hits; lack of matches reduces available external guidance but clinical reasoning still supports considering acute vs chronic HBV and alternative causes. The prior tests are partially informative but not definitive.",
+      "action": "REQUEST TEST: Hepatitis B core IgG antibody; REQUEST TEST: Repeat HBV DNA quantitative with sensitivity (lower limit detection) and Hepatitis D antibody (IgM and IgG); REQUEST TEST: Hepatitis E IgM; REQUEST TEST: CMV IgM and EBV serologies (VCA IgM and IgG, EBNA); REQUEST TEST: Autoimmune markers (ANA, anti-smooth muscle antibody), and Acetaminophen level (even though patient denies use)",
+      "action_reason": "Distinguishing acute vs chronic HBV: HBc IgG helps document chronicity; repeat HBV DNA with sensitive assay and HDV testing (especially if HBsAg+ with unusual pattern) will clarify replication. HEV, CMV, EBV can cause acute hepatitis and should be checked given negative HBc IgM. Autoimmune and occult acetaminophen toxicity should be considered given marked transaminase elevations."
+    },
+    {
+      "step_number": 9,
+      "new_information": "HBsAg positive, HBeAg positive, anti-HBc IgG positive, anti-HBc IgM negative; ALT 798, AST 488, Alk Phos 72, Tbili 3.6; HBV DNA undetectable on sensitive assay; INR and albumin normal; RUQ ultrasound normal; other viral serologies and autoimmune markers negative; acetaminophen level normal",
+      "uncertainties": {
+        "Chronic HBV with acute flare": "anti-HBc IgG+, HBsAg+, HBeAg+ suggest chronic infection with possible flare causing high ALT/AST",
+        "Acute HBV infection": "HBeAg+ could occur but anti-HBc IgM negative and HBV DNA undetectable argue against acute infection",
+        "False-positive HBsAg or lab error": "discordant serologies and undetectable viral load could reflect assay false-positivity",
+        "Alternative acute liver injury (DILI, ischemic, other viral) given high transaminases and negative other tests": "under consideration"
+      },
+      "reference_relevance": "Query returned no past guideline matches; existing findings require targeted tests to clarify HBV replication and exclude false-positive surface antigen. Important to reassess viral markers, repeat HBsAg, and quantify HBV DNA with high-sensitivity and possibly different lab, plus check HBV core IgM repeat and consider HBsAg neutralization or confirmatory testing. Also evaluate for other causes: repeat acetaminophen, consider toxicology, and check imaging and exam (signs of chronic liver disease).",
+      "action": "REQUEST TEST: Repeat HBsAg and HBV DNA quantitative at reference lab (high sensitivity); REQUEST TEST: HBsAg neutralization/confirmatory assay and repeat anti-HBc IgM; REQUEST TEST: Physical Exam - signs of chronic liver disease (inspect for jaundice, stigmata, hepatomegaly)",
+      "action_reason": "Discordant serologies (HBsAg+/anti-HBc IgG+/anti-HBc IgM-) with undetectable HBV DNA require confirmation to distinguish chronic inactive HBV with flare vs acute infection vs false-positive antigen; repeating assays at a reference lab and confirmatory HBsAg testing will clarify, while focused physical exam assesses chronic liver disease and severity."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Reference-lab HBsAg positive with confirmatory neutralization positive, HBeAg positive, anti-HBc IgG positive, anti-HBc IgM negative, HBV DNA undetectable on high-sensitivity assay; AST 488, ALT 798, Alk Phos 72, T Bili 3.6; physical: scleral icterus and tender hepatomegaly; CBC: Hgb 10.6, WBC 11.6k, Plt 221k; PT/INR and albumin normal.",
+      "uncertainties": {
+        "1) Chronic hepatitis B with an ongoing immune-mediated hepatic flare": "anti-HBc IgG +, HBsAg +, HBeAg + support chronic infection but undetectable HBV DNA is unusual—could be low-level or compartmentalized infection or lab variability",
+        "2) Acute hepatitis from non-HBV cause (drug/toxin, other viral) with false-positive HBsAg": "transaminase pattern and bilirubin could fit toxic/drug-induced hepatitis—patient denies acetaminophen/herbals, reports glyburide which can cause liver injury",
+        "3) Occult HBV reactivation suppressed viremia with antigenemia (HBsAg+/DNA-)": "possible in immunosuppressed but patient not immunosuppressed",
+        "4) Acute HBV in window period? but anti-HBc IgM negative and HBV DNA negative argue against acute infection.": "under consideration"
+      },
+      "reference_relevance": "No specific guideline found in search; prior experiences not directly helpful—must rely on diagnostic reasoning and targeted tests.",
+      "action": "REQUEST TEST: Serum hepatitis B surface antibody (anti-HBs), HBsAg quantification, HBV core antibody IgM again, repeat HBV DNA in 1 week, Hepatitis B genotype if available, and review current medications with toxicology screen; REQUEST TEST: Ultrasound elastography or FibroScan and consider MRCP if biliary obstruction suspected; REQUEST TEST: Liver biopsy if diagnosis remains unclear; REQUEST TEST: Check glyburide levels and consider alternative causes—Order ceruloplasmin, iron studies, alpha-1 antitrypsin, repeat autoimmune markers (IgG, SMA) and repeat acetaminophen level.",
+      "action_reason": "These tests will help distinguish chronic HBV with flare (presence of anti-HBs absence, high HBsAg quant, HBV DNA rise) vs false-positive HBsAg or drug/toxin/other viral hepatitis. Medication/toxin and metabolic/autoimmune workup can identify alternative causes. Elastography/biopsy can assess inflammation/fibrosis and may provide histologic etiology."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Reference-lab confirmed HBsAg positive; anti-HBc IgG positive, anti-HBc IgM negative; HBeAg positive; repeatedly undetectable HBV DNA on high-sensitivity assays; marked transaminase elevation (ALT 798, AST 488) and bilirubin 3.6 mg/dL; RUQ pain, hepatomegaly, mild scleral icterus; extensive negative workup for other viral, autoimmune, metabolic, toxic causes; normal imaging including MRCP and liver biopsy.",
+      "uncertainties": {
+        "1) Acute HBV infection": "HBsAg+/HBeAg+ with high LFTs suggest acute infection but anti-HBc IgM negative and undetectable HBV DNA challenge this.\n2) Chronic HBV with HBeAg positivity and hepatic flare from immune-mediated damage despite low viremia.\n3) Occult HBV variant or mutant producing HBsAg but not detected by standard HBV DNA assays.\n4) Non-HBV causes such as idiosyncratic DILI or seronegative autoimmune hepatitis remain possible."
+      },
+      "reference_relevance": "Guideline search returned no direct matches; previous diagnostic experiences were not helpful—case is atypical and prior algorithms (rely on HBV DNA detection or anti-HBc IgM) are unhelpful here.",
+      "action": "REQUEST TEST: HBV full genome sequencing for surface and precore/core promoter mutations; REQUEST TEST: repeat HBV DNA using multiple platforms including ultrasensitive PCR, droplet digital PCR, and check for integrated HBV DNA in liver biopsy (PCR on liver tissue); REQUEST TEST: repeat liver biopsy with targeted HBV immunohistochemistry (HBsAg, HBcAg) and HBV DNA PCR from tissue.",
+      "action_reason": "To resolve discordance between positive HBsAg/HBeAg and repeatedly undetectable serum HBV DNA and negative anti-HBc IgM — need to check for mutant/occult/integrated HBV in blood or liver tissue and perform sensitive molecular testing and tissue immunostaining to confirm active infection or occult viral presence which would guide antiviral therapy versus alternative diagnoses."
+    },
+    {
+      "step_number": 12,
+      "new_information": "HBsAg positive, HBeAg positive, persistently undetectable HBV DNA in serum and tissue by sensitive assays; marked hepatocellular injury (AST 488, ALT 798), total bilirubin 3.6; patient on glyburide; mild hepatomegaly and scleral icterus.",
+      "uncertainties": {
+        "1) False-positive HBsAg/HBeAg assays due to interference": "could explain serology positivity without virologic evidence. 2) Occult/low-level HBV or integrated HBV expression limited to HBsAg production: could explain HBsAg positivity with undetectable DNA. 3) Drug-induced liver injury (glyburide) or other hepatotoxin: explains hepatocellular injury pattern despite negative HBV DNA. 4) Acute non-HBV viral hepatitis or other causes (CMV/EBV negative): less likely."
+      },
+      "reference_relevance": "Prior guideline search returned no relevant matches; existing diagnostic steps and tests are extensive and mostly unhelpful in differentiating between assay interference and occult HBV production. Some tests remain practical: check for heterophile/HAMA/rheumatoid factor, perform HBsAg neutralization/alternate platform assays (already partly done), and trial repeat serologies using heterophile-blocking agents or different assay technologies; stop potential hepatotoxic medication (glyburide) and observe LFT trend; consider testing for antidrug antibodies or perform drug cessation/withdrawal challenge and check LFTs; consider consult with clinical virology lab and immunologist.",
+      "action": "ASK PATIENT: Have you had any recent immunizations, monoclonal antibody treatments, or exposure to animals (which could cause heterophile antibodies)? Also, are you taking any over-the-counter supplements, non-prescribed medications, or receiving treatments like IVIG, monoclonal antibodies, or contrast agents recently? Additionally, would you agree to temporarily stop glyburide pending evaluation for drug-induced liver injury?",
+      "action_reason": "These questions help identify sources of assay interference (recent immunoglobulin products, monoclonal antibodies, animal exposure) and assess the likelihood of glyburide-induced liver injury; stopping glyburide is a reasonable step to see if LFTs improve, which would support a drug-induced cause versus HBV serology issues."
+    },
+    {
+      "step_number": 13,
+      "new_information": "Patient stopped glyburide temporarily (agreed).",
+      "uncertainties": {
+        "False-positive HBsAg due to assay interference": "positive HBsAg with negative confirmatory neutralization?",
+        "Acute HBV infection unlikely given negative anti-HBc IgM and undetectable HBV DNA": "under consideration",
+        "Drug-induced liver injury (glyburide/sitagliptin) still possible though levels normal.": "under consideration"
+      },
+      "reference_relevance": "Guideline query returned no relevant prior guidelines; current testing highly unusual (persistent HBsAg positive with undetectable HBV DNA and negative anti-HBc IgM) — suggest checking for assay interference (heterophile antibodies, rheumatoid factor), and testing with alternate HBsAg assays and testing for analytic interference (e.g., polyethylene glycol precipitation) and additional viral antigens/antibodies. Also, stopping potential hepatotoxic drugs helps assess for DILI.",
+      "action": "REQUEST TEST: Repeat HBsAg using a different assay/platform and test for heterophile antibodies and rheumatoid factor; REQUEST TEST: Serum HBsAg neutralization confirmation already done — repeat with alternate method and perform polyethylene glycol (PEG) precipitation to detect high-molecular-weight complexes; ACTION: ASK PATIENT: Any personal or family history of autoimmune disease or rheumatoid arthritis?",
+      "action_reason": "These steps will help differentiate between true HBV infection/reactivation versus false-positive HBsAg from assay interference. Checking for heterophile antibodies or rheumatoid factor and repeating with alternate assays can reveal false positives; stopping glyburide helps evaluate possible drug-induced liver injury."
+    },
+    {
+      "step_number": 14,
+      "new_information": "Repeat HBsAg using alternate assay and PEG precipitation negative; heterophile antibodies and RF negative; patient stopped glyburide. Clinical picture: subacute (3 weeks) RUQ pain, dark urine, scleral icterus, hepatomegaly, markedly elevated transaminases (AST 488, ALT 798), total bilirubin 3.6, anemia Hgb 10.6, leukocytosis 11.6k. Extensive infectious, autoimmune, metabolic, toxic, and biliary workup unrevealing; HBV serology discordant with HBsAg intermittently positive but HBV DNA repeatedly undetectable including liver tissue. HBeAg previously positive.",
+      "uncertainties": {
+        "1) Drug-induced liver injury (glyburide)": "Reasoning: patient on glyburide, DILI can cause acute hepatocellular injury and mimic viral hepatitis",
+        "glyburide levels normal but metabolism could vary. 2) Occult or mutant HBV infection": "Reasoning: HBsAg intermittently positive and HBeAg positive once, but HBV DNA undetectable—could be mutant virus escaping PCR detection or integrated HBV DNA expressing HBsAg but no replicative virus. 3) Immune-mediated hepatitis or other viral cause not detected: Reasoning: extensive testing negative but occasional seronegative cases or exposure to unusual hepatotropic viruses possible."
+      },
+      "reference_relevance": "Guidelines not found in query step; prior experiences not available. Given negative guidelines search, further targeted testing and clinical actions are warranted to differentiate likely causes.",
+      "action": "REQUEST TEST: Acutely stop glyburide (already agreed) and observe; REQUEST TEST: Repeat full viral hepatitis panel including expanded hepatotropic viruses (adenovirus PCR, parvovirus B19, HSV1/2 PCR, VZV PCR), and perform serum alpha-fetoprotein; REQUEST TEST: Repeat HBsAg and HBeAg with quantification and sequence analysis for surface antigen expression from liver tissue (mRNA) and integrate testing for anti-HBs immune complexes (immune complex capture assays); REQUEST TEST: Repeat liver biopsy review with expert hepatopathology consult and immunostaining for HBV surface/core antigens again.",
+      "action_reason": "Stopping glyburide will help assess for drug-induced liver injury; expanded viral testing may identify an unusual viral cause; quantifying HBsAg/HBeAg and testing for HBsAg expression from liver tissue mRNA could clarify whether HBsAg is produced from integrated HBV DNA rather than replicating virus. Expert hepatopathology review may find features distinguishing DILI from viral or autoimmune injury."
+    },
+    {
+      "step_number": 15,
+      "new_information": "Repeat HBsAg positive and HBeAg positive with undetectable HBV DNA on ultrasensitive assays in serum and liver tissue; two liver biopsies with negative HBV immunostaining and PCR; markedly elevated transaminases and bilirubin; patient stopped glyburide with no improvement.",
+      "uncertainties": {
+        "Assay interference causing false-positive HBsAg/HBeAg": "positive HBsAg/HBeAg but negative HBV DNA and negative tissue testing suggest interference",
+        "Occult/integrated HBV expression with antigenemia but no viremia": "less likely due to negative tissue PCR/immunostaining",
+        "Acute non-HBV acute hepatitis (drug-induced, autoimmune seronegative, other viral) causing hepatocellular injury and releasing antigens or cross-reactive proteins": "possible explanation for enzyme elevations and false assay reactivity."
+      },
+      "reference_relevance": "Prior guideline search returned no directly relevant matches; past diagnostic experiences did not clarify this uncommon discordance. Therefore, additional targeted testing for assay interference and alternative causes is helpful.",
+      "action": "REQUEST TEST: Specific assay interference tests — measure serum biotin level, perform HBsAg/HBeAg testing after sample dilution and heat inactivation, test using at least two different HBsAg/HBeAg platforms with heterophile-blocking reagents, and check for monoclonal gammopathy (serum protein electrophoresis and immunofixation); REQUEST TEST: Serum and urine pregnancy test (if applicable) and additional drug screen for interfering substances; ACTION: ASK PATIENT: Any history of monoclonal gammopathy, recent IV contrast, or injectable therapies? Any use of high-dose biotin supplements?",
+      "action_reason": "These steps help differentiate true HBV infection from assay interference (biotin, heterophile antibodies, autoantibodies, monoclonal proteins) and identify nonviral causes of liver injury that could lead to false reactivity. They directly address the main uncertainty—false-positive HBsAg/HBeAg vs occult HBV expression."
+    },
+    {
+      "step_number": 16,
+      "new_information": "Repeat HBsAg and HBeAg persistently positive on multiple platforms with confirmatory assays; anti-HBc IgG positive, anti-HBc IgM negative; HBV DNA repeatedly undetectable in serum and liver tissue including ultrasensitive assays; liver biopsy with no HBV antigens; extensive testing for other viruses, autoimmune, metabolic etiologies and assay interference negative; clinical hepatocellular injury with elevated AST/ALT and bilirubin and hepatomegaly; glyburide stopped with no acute change.",
+      "uncertainties": {
+        "1) False-positive HBsAg/HBeAg assay or cross-reactive antigen": "persistent positivity despite negative DNA/tissue argues for assay artifact or cross-reactivity with non-HBV antigen. 2) Occult HBV with antigen production from integrated HBV sequences limited to low-level expression not detectable by tissue PCR: possible but tissue PCR and sequencing were negative. 3) Drug-induced liver injury (glyburide) or other hepatotoxin causing acute hepatitis: explains LFTs but not antigenemia. 4) Immune complex or interference undetected by prior tests."
+      },
+      "reference_relevance": "Guideline search returned no directly applicable prior cases; prior diagnostic experiences not helpful — extensive testing performed reduces applicability, but suggests need to consider non-HBV causes of HBsAg/HBeAg positivity and rare assay interferences or exogenous antigen sources.",
+      "action": "REQUEST TEST: Test serum for circulating HBV surface and e antigen by mass spectrometry and perform proteomic analysis of circulating antigens; REQUEST TEST: Check for heterologous viral antigens or bacterial antigens that might cross-react (perform broad proteomic screen); ACTION: ASK PATIENT: Any occupational or environmental exposures to animal products, blood-derived products, plasma-derived therapies, or participation in research trials using viral vectors or vaccines in past months?",
+      "action_reason": "Mass spectrometry/proteomic analysis may identify non-HBV proteins or variant HBV proteins not detected by PCR/sequence-based methods and help determine if HBsAg/HBeAg assays are detecting non-HBV antigens. Occupational/research exposures could explain exogenous antigen presence."
+    },
+    {
+      "step_number": 17,
+      "new_information": "Repeat HBsAg and HBeAg persistently positive on multiple assays; HBV DNA repeatedly undetectable by ultrasensitive assays in serum and liver tissue; liver biopsy histology normal with no HBV immunostaining; markedly elevated ALT/AST and bilirubin; anti-HBc IgG positive, anti-HBc IgM negative.",
+      "uncertainties": {
+        "1) Integrated HBV or expression of surface/envelope antigens from integrated subgenomic HBV DNA causing antigenemia without active replication": "explains HBsAg/HBeAg positivity with undetectable HBV DNA but would usually show HBV DNA in liver tissue (but tissue PCR negative). 2) False-positive HBsAg/HBeAg due to unknown assay cross-reactivity or novel interfering substance despite extensive interference testing. 3) Alternative cause of acute severe hepatocellular injury (toxin, drug-induced, autoimmune, metabolic) with coincidental HBsAg/HBeAg positivity (unknown origin)."
+      },
+      "reference_relevance": "Guidelines search returned no direct matches—this is an atypical complex case; existing guidelines on hepatitis B diagnosis recommend combining serology and HBV DNA and considering assay interference, occult HBV, integrated HBV DNA, and alternate diagnoses. The prior extensive testing reduced likelihood of most alternate causes but did not fully resolve the discordance.",
+      "action": "REQUEST TEST: Repeat HBV DNA quantitative in 1 week (already planned) and REQUEST TEST: Serum cryoglobulins and immune complex assays, and ORDER: repeat liver biopsy with more extensive molecular profiling (single-cell RNAseq) to detect focal occult HBV transcription or integrated HBV sequences; ASK PATIENT: Any new symptoms (worsening jaundice, confusion, bleeding), and consent for referral to specialized hepatology center/university virology lab for next-gen sequencing and expert review.",
+      "action_reason": "Detecting immune complexes or focal/infrequent HBV gene expression in liver at single-cell resolution could explain antigenemia without detectable bulk HBV DNA. Referral and advanced sequencing can identify rare integrated viral transcripts or novel interfering agents; clinical worsening would mandate urgent therapy."
+    },
+    {
+      "step_number": 18,
+      "new_information": "Persistently elevated AST/ALT with isolated positive HBsAg and HBeAg but repeatedly undetectable HBV DNA and negative tissue HBV testing; patient stable with mild jaundice and hepatomegaly.",
+      "uncertainties": {
+        "Occult HBV with antigen production from integrated DNA": "could explain antigenemia without viremia but extensive tissue testing negative",
+        "False-positive antigen assay interference from unknown source": "many tests negative",
+        "Drug-induced liver injury or other non-HBV hepatocellular causes": "glyburide stopped with no change",
+        "autoimmune, metabolic, other viruses largely excluded.": "under consideration"
+      },
+      "reference_relevance": "Guidelines search returned no directly applicable prior cases; past diagnostic queries were not helpful—this is an atypical, equivocal presentation requiring specialist input.",
+      "action": "ASK PATIENT: Do you consent to referral to a specialized hepatology and virology center for expert review, repeat sampling during symptomatic flare (including paired serum and liver tissue sent fresh to reference virology lab), and consideration of empirical antiviral therapy versus observation?",
+      "action_reason": "This case has persistent HBsAg/HBeAg positivity with no detectable HBV DNA despite exhaustive testing; specialized centers may have additional assays and expertise, and therapeutic decisions (empiric antivirals) should weigh risks/benefits; patient consent is needed to proceed with referral and possible empiric therapy."
+    },
+    {
+      "step_number": 19,
+      "new_information": "Patient consents to referral to specialized hepatology/virology center; still symptomatic with fatigue, RUQ dull ache, dark urine; HBsAg and HBeAg persistently positive but HBV DNA repeatedly undetectable including ultrasensitive assays; extensive testing for other causes negative; liver enzymes remain markedly elevated (AST 488, ALT 798) and bilirubin 3.6 mg/dL; patient stopped glyburide with no change.",
+      "uncertainties": {
+        "Occult HBV infection with focal hepatic replication": "positive HBsAg/HBeAg despite undetectable serum HBV DNA—could represent focal intrahepatic replication not captured on biopsy/assays",
+        "False-positive HBsAg/HBeAg due to unknown interfering factor": "despite extensive interference testing, possible novel interference",
+        "Non-HBV causes of acute severe hepatocellular injury (e.g., drug-induced liver injury from glyburide or other occult toxin, autoimmune hepatitis seronegative)": "fits transaminase elevation and clinical picture."
+      },
+      "reference_relevance": "Guideline search returned no directly applicable matches; available references on HBsAg/HBeAg positivity with undetectable HBV DNA suggest rare possibilities (occult focal hepatic replication, assay interference), but our extensive testing reduces likelihood; specialty center referral is appropriate for repeat fresh sampling and NGS.",
+      "action": "REQUEST TEST: Arrange urgent referral to specialized hepatology and virology center for repeat paired fresh serum and liver tissue sampling during symptomatic flare, advanced next-generation sequencing on fresh tissue and serum, and multidisciplinary review; also consider empirical antiviral therapy (entecavir or tenofovir) vs observation per hepatology team.",
+      "action_reason": "Specialized labs and fresh paired samples increase chance of detecting focal or low-level HBV replication or novel interfering agents; multidisciplinary review will guide whether empirical antiviral therapy is warranted given ongoing liver injury and persistent HBsAg/HBeAg positivity."
+    },
+    {
+      "step_number": 20,
+      "new_information": "Final specialized center testing arranged; patient symptomatic with elevated transaminases and bilirubin, persistent HBsAg and HBeAg positivity, repeatedly undetectable HBV DNA in serum and liver tissue, negative extensive alternative workup.",
+      "uncertainties": {
+        "Active HBV infection with occult/localized replication": "HBsAg+/HBeAg+ but HBV DNA−: suggests possible defective virions or nonreplicative surface antigen production",
+        "DILI (glyburide/sitagliptin)": "medication-induced hepatocellular injury",
+        "cryptogenic/seronegative autoimmune or other viral infection not captured.": "under consideration"
+      },
+      "reference_relevance": "Previous guideline search returned no direct matches; extensive testing reduces likelihood of most common causes. Specialized center referral is appropriate.",
+      "action": "REQUEST TEST: Initiate empirical antiviral therapy with tenofovir alafenamide (or tenofovir disoproxil fumarate) while awaiting advanced virology results and continue close monitoring of liver tests and HBV markers; document informed consent and rationale.",
+      "action_reason": "Persistent HBsAg and HBeAg positivity with significant hepatocellular injury (ALT>10x ULN) and hyperbilirubinemia suggests clinically significant hepatitis potentially related to HBV antigen expression despite undetectable HBV DNA; given risk of progression and diagnostic uncertainty despite exhaustive workup, empiric antiviral therapy may reduce liver inflammation if HBV-related or prevent worsening if occult replication emerges. Also stop potential hepatotoxins and monitor. Empiric therapy chosen over waiting because HBV DNA may be intermittently detectable or below current assays; antiviral therapy is low risk and can be stopped if later proven unnecessary."
+    }
+  ],
+  "accumulated_notes": "",
+  "current_uncertainties": {
+    "Active HBV infection with occult/localized replication": "HBsAg+/HBeAg+ but HBV DNA−: suggests possible defective virions or nonreplicative surface antigen production",
+    "DILI (glyburide/sitagliptin)": "medication-induced hepatocellular injury",
+    "cryptogenic/seronegative autoimmune or other viral infection not captured.": "under consideration"
+  },
+  "all_information": [
+    "Patient reports generalized fatigue, mild fever, abdominal pain, and nausea.",
+    "Vitals: T 38.1°C, BP 110/74 mm Hg, HR 99/min",
+    "Patient reports 3 weeks of diffuse then RUQ-predominant dull cramping pain (5/10), worse after eating, improved by lying down, no vomiting/diarrhea, dark urine, no jaundice, food exposure at a state fair over a month ago.",
+    "Patient has RUQ-predominant dull cramping abdominal pain worse after eating, low-grade fever 38.1°C, dark urine, no jaundice, onset generalized 3 weeks ago now localized, no vomiting/diarrhea, no urinary symptoms, recent food exposures at state fair.",
+    "Right upper quadrant ultrasound normal",
+    "HBsAg positive; AST 488 U/L; ALT 798 U/L; Alk Phos 72 U/L; Tbili 3.6 mg/dL; RUQ ultrasound normal; 3 weeks RUQ pain and dark urine; no recent vomiting/diarrhea, no jaundice on exam reported.",
+    "Patient reports no prior hepatitis B infection or vaccination; takes glyburide and sitagliptin for diabetes; drinks 1-2 beers/day; denies acetaminophen, herbals, IV drugs, transfusions, tattoos, high-risk sex; no confusion, bleeding, worsening pain or jaundice progression; dark urine persists.",
+    "Hepatitis B surface antigen positive; HBeAg positive; Hepatitis B core IgM negative; HBV DNA quantitative reported as normal; Markedly elevated transaminases (AST 488, ALT 798) with alkaline phosphatase normal and total bilirubin 3.6 mg/dL; normal INR and albumin; mild fever and RUQ pain for 3 weeks; CBC with mild leukocytosis and Hb 10.6.",
+    "HBsAg positive, HBeAg positive, anti-HBc IgG positive, anti-HBc IgM negative; ALT 798, AST 488, Alk Phos 72, Tbili 3.6; HBV DNA undetectable on sensitive assay; INR and albumin normal; RUQ ultrasound normal; other viral serologies and autoimmune markers negative; acetaminophen level normal",
+    "Reference-lab HBsAg positive with confirmatory neutralization positive, HBeAg positive, anti-HBc IgG positive, anti-HBc IgM negative, HBV DNA undetectable on high-sensitivity assay; AST 488, ALT 798, Alk Phos 72, T Bili 3.6; physical: scleral icterus and tender hepatomegaly; CBC: Hgb 10.6, WBC 11.6k, Plt 221k; PT/INR and albumin normal.",
+    "Reference-lab confirmed HBsAg positive; anti-HBc IgG positive, anti-HBc IgM negative; HBeAg positive; repeatedly undetectable HBV DNA on high-sensitivity assays; marked transaminase elevation (ALT 798, AST 488) and bilirubin 3.6 mg/dL; RUQ pain, hepatomegaly, mild scleral icterus; extensive negative workup for other viral, autoimmune, metabolic, toxic causes; normal imaging including MRCP and liver biopsy.",
+    "HBsAg positive, HBeAg positive, persistently undetectable HBV DNA in serum and tissue by sensitive assays; marked hepatocellular injury (AST 488, ALT 798), total bilirubin 3.6; patient on glyburide; mild hepatomegaly and scleral icterus.",
+    "Patient stopped glyburide temporarily (agreed).",
+    "Repeat HBsAg using alternate assay and PEG precipitation negative; heterophile antibodies and RF negative; patient stopped glyburide. Clinical picture: subacute (3 weeks) RUQ pain, dark urine, scleral icterus, hepatomegaly, markedly elevated transaminases (AST 488, ALT 798), total bilirubin 3.6, anemia Hgb 10.6, leukocytosis 11.6k. Extensive infectious, autoimmune, metabolic, toxic, and biliary workup unrevealing; HBV serology discordant with HBsAg intermittently positive but HBV DNA repeatedly undetectable including liver tissue. HBeAg previously positive.",
+    "Repeat HBsAg positive and HBeAg positive with undetectable HBV DNA on ultrasensitive assays in serum and liver tissue; two liver biopsies with negative HBV immunostaining and PCR; markedly elevated transaminases and bilirubin; patient stopped glyburide with no improvement.",
+    "Repeat HBsAg and HBeAg persistently positive on multiple platforms with confirmatory assays; anti-HBc IgG positive, anti-HBc IgM negative; HBV DNA repeatedly undetectable in serum and liver tissue including ultrasensitive assays; liver biopsy with no HBV antigens; extensive testing for other viruses, autoimmune, metabolic etiologies and assay interference negative; clinical hepatocellular injury with elevated AST/ALT and bilirubin and hepatomegaly; glyburide stopped with no acute change.",
+    "Repeat HBsAg and HBeAg persistently positive on multiple assays; HBV DNA repeatedly undetectable by ultrasensitive assays in serum and liver tissue; liver biopsy histology normal with no HBV immunostaining; markedly elevated ALT/AST and bilirubin; anti-HBc IgG positive, anti-HBc IgM negative.",
+    "Persistently elevated AST/ALT with isolated positive HBsAg and HBeAg but repeatedly undetectable HBV DNA and negative tissue HBV testing; patient stable with mild jaundice and hepatomegaly.",
+    "Patient consents to referral to specialized hepatology/virology center; still symptomatic with fatigue, RUQ dull ache, dark urine; HBsAg and HBeAg persistently positive but HBV DNA repeatedly undetectable including ultrasensitive assays; extensive testing for other causes negative; liver enzymes remain markedly elevated (AST 488, ALT 798) and bilirubin 3.6 mg/dL; patient stopped glyburide with no change.",
+    "Final specialized center testing arranged; patient symptomatic with elevated transaminases and bilirubin, persistent HBsAg and HBeAg positivity, repeatedly undetectable HBV DNA in serum and liver tissue, negative extensive alternative workup."
+  ]
+}

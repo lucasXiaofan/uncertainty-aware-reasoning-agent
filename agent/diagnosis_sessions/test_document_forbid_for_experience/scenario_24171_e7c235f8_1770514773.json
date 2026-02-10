@@ -1,0 +1,273 @@
+{
+  "session_id": "scenario_24171_e7c235f8_1770514773",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "8-month-old boy with feeding difficulties and abdominal distension",
+      "uncertainties": {
+        "Intestinal obstruction (malrotation with volvulus or intussusception)": "feeding difficulty and abdominal distension, may have vomiting, pain, and hemodynamic instability",
+        "Hirschsprung disease": "chronic constipation with progressive abdominal distension and poor feeding",
+        "Cystic fibrosis with malabsorption": "failure to thrive, bulky/greasy stools, and abdominal distension",
+        "Gastroenteritis/ileus": "acute distension with vomiting, fever, diarrhea"
+      },
+      "reference_relevance": "Helpful but limited: returned experiences focus on newborns with bilious vomiting and proximal obstructions (double-bubble), which underscores the need to urgently exclude volvulus/intussusception—applicable. Cardiac-focused recommendations are less relevant for an 8-month-old without dysmorphic features.",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Vital signs (HR, BP, RR, SpO2, temperature) will identify instability (shock, sepsis) or respiratory compromise, and presence of fever—crucial to prioritize urgent surgical/medical evaluation and guide next diagnostics (imaging, labs)."
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs normal: Temperature 36.8°C; Heart Rate 120 bpm; Respiratory Rate 30/min; Blood Pressure normal for age.",
+      "uncertainties": {
+        "Malrotation with midgut volvulus / proximal intestinal obstruction": "abdominal distension and feeding difficulty could reflect obstruction",
+        "Hirschsprung disease": "distal colonic aganglionosis can cause chronic constipation and progressive abdominal distension",
+        "Functional constipation / fecal impaction": "common at this age and can cause distension and feeding refusal"
+      },
+      "reference_relevance": "Partially helpful — guideline experiences emphasize urgent evaluation and imaging for bilious vomiting and the value of focused physical exam findings; most examples were neonates, so applicability to an 8-month-old is partial. Useful guidance: prioritize distinguishing obstructive (especially bilious vomiting) from constipation causes via history and abdominal exam before imaging.",
+      "action": "ASK PATIENT: Is the baby vomiting? If yes, is the vomit bilious (green) or non-bilious, and how often? When was the last bowel movement and what was its consistency (hard/pebble-like, soft, or liquid)? Has the baby had similar episodes before or a history of chronic constipation? Is there fever, increased irritability or painful crying, and has feeding/weight changed recently?",
+      "action_reason": "Answers will rapidly differentiate urgent proximal obstruction (bilious vomiting, sudden worsening) from distal obstructive or functional causes (chronic constipation, hard stools, gradual distension) and guide need for immediate imaging vs. conservative management."
+    },
+    {
+      "step_number": 3,
+      "new_information": "No vomiting; last bowel movement yesterday soft; abdominal tenderness with painful crying on palpation; afebrile; decreased feeding but gaining weight.",
+      "uncertainties": {
+        "Intussusception": "age and episodic severe abdominal pain/distension fit but absence of vomiting and bloody stool is atypical",
+        "Incarcerated inguinal hernia": "can cause localized abdominal pain/distension and feeding difficulties without vomiting—may be missed without groin exam",
+        "Urinary tract infection": "can present in infants with irritability, abdominal tenderness and reduced feeding despite afebrile status",
+        "Malrotation/volvulus": "typically presents with bilious vomiting and acute deterioration, making it less likely here."
+      },
+      "reference_relevance": "Query results were partially helpful—most matched experiences focused on bilious vomiting in neonates and surgical causes of obstruction. They support using abdominal ultrasound for suspected intussusception but were less directly applicable to an afebrile 8-month-old without vomiting. Ultrasound remains appropriate to evaluate intussusception and other abdominal pathology noninvasively.",
+      "action": "REQUEST TEST: Abdominal ultrasound (focused for intussusception)",
+      "action_reason": "Abdominal ultrasound is the most useful next test to identify or exclude intussusception (target/donut sign) and can detect other causes such as an abdominal mass or free fluid; a positive ultrasound allows prompt nonoperative reduction, while a negative study redirects evaluation toward hernia, UTI, or other causes."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Abdominal ultrasound focused for intussusception: normal.",
+      "uncertainties": {
+        "Intussusception": "less likely given normal focused ultrasound but intermittent intussusception can be missed",
+        "Incarcerated inguinal hernia": "can cause abdominal distension and focal tenderness without vomiting and may be missed without targeted groin/scrotal exam",
+        "Small-bowel obstruction (malrotation with intermittent volvulus or congenital bands)": "can present with abdominal distension and pain, early/partial obstruction may lack vomiting",
+        "Urinary tract infection/renal pathology": "less likely without fever or urinary symptoms but can present with abdominal pain in infants."
+      },
+      "reference_relevance": "Helpful: Guidelines recommend ultrasound as first-line for intussusception — a normal study reduces its likelihood but does not entirely exclude intermittent cases. Guidelines also support obtaining abdominal radiographs when obstruction is a concern, and recommending focused physical exam of the groin for incarcerated hernia. Therefore ultrasound result is useful but additional imaging/physical exam is warranted.",
+      "action": "REQUEST TEST: Abdominal X-ray (supine and upright)",
+      "action_reason": "An abdominal X-ray will assess bowel gas pattern, detect dilated loops and air-fluid levels suggestive of small-bowel obstruction or signs of perforation, and help differentiate obstructive surgical causes from non-surgical etiologies; this will narrow the differential and guide need for urgent surgical/contrast studies."
+    },
+    {
+      "step_number": 5,
+      "new_information": "Abdominal X-ray shows dilated bowel segments with absence of gas in the rectum, suggesting bowel obstruction.",
+      "uncertainties": {
+        "Midgut volvulus": "acute small-bowel obstruction with severe abdominal pain/distension and absent distal gas",
+        "urgent to exclude because of risk of ischemia. Intussusception": "age-appropriate (6-36 months) with episodic abdominal pain and distension — ultrasound was normal but may miss atypical/ileocolic/ileocecal presentations. Congenital/obstructive small-bowel lesion (atresia/stenosis or adhesive band): can present with obstruction without prior vomiting or chronic constipation. Hirschsprung disease: less likely given soft stool yesterday and no chronic constipation/intermittent obstruction, but can cause proximal dilation in severe cases."
+      },
+      "reference_relevance": "The guideline search highlighted that for radiographic signs of obstruction and concern for malrotation/volvulus, an upper GI contrast study is the recommended next diagnostic test; the experiences were helpful in prioritizing malrotation/volvulus as an urgent consideration despite absence of bilious vomiting and in recommending targeted imaging to confirm malrotation. Other experiences suggested evaluating for intussusception, but ultrasound was already normal, making contrast studies (air contrast enema) less favored as first step for volvulus. Overall the guidance was helpful and applicable.",
+      "action": "REQUEST TEST: Upper GI contrast study (fluoroscopic contrast study to evaluate for malrotation/midgut volvulus)",
+      "action_reason": "An upper GI contrast study is the most sensitive test to detect malrotation with midgut volvulus by assessing the position of the duodenojejunal junction (ligament of Treitz). This will rapidly differentiate malrotation/volvulus (surgical emergency) from other causes of obstruction and guide urgent surgical consultation if positive."
+    },
+    {
+      "step_number": 6,
+      "new_information": "Upper GI contrast study normal; abdominal x-ray shows dilated bowel segments with absence of rectal gas; abdominal ultrasound normal; baby has abdominal tenderness and decreased feeding but no vomiting; last stool was soft yesterday.",
+      "uncertainties": {
+        "Incarcerated inguinal hernia": "painful crying with abdominal tenderness and signs of obstruction",
+        "may not cause vomiting initially and can produce obstructive x-ray with absent rectal gas if distal loop incarcerated.": "under consideration",
+        "Distal colonic obstruction (Hirschsprung disease or colonic atresia)": "x-ray with absence of rectal gas and distension suggest distal obstruction, but prior normal soft stools and no chronic constipation make classic Hirschsprung less likely.",
+        "Small-bowel obstruction from congenital bands/internal hernia": "can present with dilated bowel and obstruction signs, with normal upper GI if obstruction is distal and not involving proximal jejunum."
+      },
+      "reference_relevance": "Partially helpful — prior guideline experiences focused on excluding malrotation/volvulus with upper GI series (which we did) and considering proximal obstructions; they offer limited direct guidance for diagnosing distal obstruction vs incarcerated inguinal hernia, so targeted physical exam and contrast enema guidance is needed.",
+      "action": "REQUEST TEST: Inguinal/scrotal physical examination (focused exam for inguinal hernia)",
+      "action_reason": "A focused inguinal/scrotal exam can identify a tender, irreducible inguinal mass (or scrotal swelling) consistent with an incarcerated hernia — a common, high-yield, and easily reversible cause of obstruction in this age group. Finding an incarcerated hernia would confirm the diagnosis and direct urgent surgical management; a normal exam would make distal intrinsic obstruction or internal hernia more likely and prompt next step testing (contrast enema to evaluate distal colon or abdominal CT/operative exploration)."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Inguinal/scrotal exam normal (no hernia).",
+      "uncertainties": {
+        "1) Ileocolic intussusception": "episodic painful crying and abdominal distension in an 8-month-old — ultrasound was normal but can be false-negative. 2) Distal small bowel obstruction (congenital adhesive band, internal hernia, Meckel-associated obstruction): abdominal x-ray shows dilated bowel and absence of rectal gas",
+        "upper GI study normal suggesting obstruction distal to ligament of Treitz. 3) Hirschsprung-associated functional distal obstruction/enterocolitis": "less likely given soft stool yesterday and no chronic constipation but still a consideration."
+      },
+      "reference_relevance": "Helpful — prior experiences support using contrast enema to evaluate distal obstruction and to diagnose/ treat ileocolic intussusception when ultrasound is inconclusive; guidelines note ultrasound can miss intussusception and contrast enema can both localize and reduce ileocolic intussusception. Upper GI normal narrows to distal obstruction. ",
+      "action": "REQUEST TEST: Contrast enema (air or water-soluble contrast fluoroscopic enema) to evaluate for ileocolic intussusception or distal colonic obstruction",
+      "action_reason": "A contrast/air enema will localize a distal obstruction, can diagnose ileocolic intussusception even when ultrasound is negative, and may be therapeutic if intussusception is present; it also helps identify a microcolon or transition point suggesting distal obstruction (Hirschsprung vs obstructing lesion)."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Contrast enema shows a transition zone in the distal colon compatible with Hirschsprung disease.",
+      "uncertainties": {
+        "Hirschsprung disease": "transition zone on contrast enema with distal obstruction signs (dilated proximal bowel, absence of rectal gas) — most likely",
+        "Colonic stricture (congenital or acquired)": "can produce a transition zone and obstruction but less likely without prior surgery, ischemia, or inflammatory history",
+        "Functional constipation/megacolon with fecal loading": "may mimic obstruction but contrast enema demonstrating a clear radiologic transition zone argues against simple functional fecal impaction",
+        "Intestinal neuronal dysplasia": "rare congenital enteric nervous system disorder that can have similar imaging but requires histologic differentiation."
+      },
+      "reference_relevance": "Helpful — prior guideline experiences indicate that contrast enema showing a transition zone is suggestive but not definitive for Hirschsprung disease; definitive diagnosis requires histologic confirmation (rectal suction or full‑thickness biopsy) and anorectal manometry is a useful adjunct when biopsy is inconclusive or not feasible.",
+      "action": "REQUEST TEST: Rectal suction biopsy (for histologic confirmation of aganglionosis)",
+      "action_reason": "A rectal suction biopsy is the gold‑standard diagnostic test to detect absence of ganglion cells and hypertrophic nerve trunks, which will confirm Hirschsprung disease and distinguish it from structural strictures or functional disorders; results will directly guide definitive surgical management (pull‑through) or prompt alternative diagnoses if ganglion cells are present."
+    },
+    {
+      "step_number": 9,
+      "new_information": "Rectal suction biopsy returned normal (ganglion cells present).",
+      "uncertainties": {
+        "Hirschsprung disease": "contrast enema shows distal transition zone suggesting HD but suction biopsy is normal — could be false-negative due to superficial or too-distal sampling",
+        "Internal anal sphincter achalasia (IASA)": "presents with obstructive symptoms and preserved ganglion cells on biopsy",
+        "Neuronal intestinal dysplasia / colonic neuropathy": "can present with similar obstructive picture with ganglion cells present."
+      },
+      "reference_relevance": "Helpful — guideline experiences recommend that when imaging (contrast enema) shows a transition zone suggestive of Hirschsprung disease but rectal suction biopsy is non-diagnostic/normal, the next step is a more definitive histologic evaluation (repeat/deeper biopsy or full-thickness rectal biopsy) and use of additional stains (calretinin, acetylcholinesterase) rather than accepting the suction biopsy as conclusive. Anorectal manometry can be adjunctive but is less reliable in infants and does not replace histologic confirmation.",
+      "action": "REQUEST TEST: Full-thickness rectal biopsy (surgical) with calretinin immunohistochemistry and acetylcholinesterase histochemistry",
+      "action_reason": "A full-thickness rectal biopsy obtains submucosa and myenteric plexus tissue, reducing the risk of false-negative results from superficial suction biopsy and allowing definitive evaluation for aganglionosis. Calretinin and AChE staining improve diagnostic accuracy (loss of calretinin and increased AChE support Hirschsprung disease). This will confirm or exclude Hirschsprung disease and distinguish it from functional/neuropathic causes of obstruction."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Full-thickness rectal biopsy with calretinin IHC and acetylcholinesterase histochemistry: normal (no aganglionosis).",
+      "uncertainties": {
+        "1) Hirschsprung disease": "imaging (contrast enema transition zone) suggested Hirschsprung, but two normal rectal biopsies (suction and full‑thickness) and normal calretinin/AChE reduce likelihood",
+        "ultrashort‑segment disease or sampling error still possible. 2) Congenital or acquired distal colonic mechanical obstruction (stricture/web/stenosis)": "explains transition zone and obstruction signs with preserved ganglion cells on biopsy. 3) Hypoganglionosis or intestinal neuronal dysplasia: can present with obstructive symptoms and may be missed on routine histology without quantitative neuronal counts or specialized stains. 4) Colonic motility disorder / chronic intestinal pseudo‑obstruction: could mimic mechanical obstruction with dilated proximal bowel and normal ganglia on biopsy."
+      },
+      "reference_relevance": "Prior guideline experiences: contrast enema transition zone is suggestive but not definitive for Hirschsprung; rectal biopsy is gold standard—two normal biopsies argue against classic Hirschsprung, making mechanical obstruction or motility disorders more likely. Guidelines support endoscopic evaluation to directly visualize distal colonic lumen and obtain targeted biopsies or therapeutic dilation when contrast studies suggest a focal distal lesion.",
+      "action": "REQUEST TEST: Flexible sigmoidoscopy/colonoscopy (endoscopic evaluation of distal colon and rectum) with direct visualization, targeted biopsies for quantitative neuronal counts and specialized stains (HuC/D, NADPH‑diaphorase), and possible therapeutic dilation if a stricture/web is identified.",
+      "action_reason": "Endoscopic visualization can identify focal mechanical causes (web, stricture, stenosis, extrinsic compression) that would produce a transition zone on contrast enema despite normal ganglion cells. It also allows targeted deeper biopsies and tissue sampling for specialized histologic assessment (to detect hypoganglionosis/intestinal neuronal dysplasia) that routine calretinin/AChE stains may miss. This test best differentiates between mechanical obstruction versus ganglion cell/neuronal disorders and can be diagnostic and potentially therapeutic."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Flexible sigmoidoscopy/colonoscopy with targeted biopsies (HuC/D, NADPH‑diaphorase) returned normal.",
+      "uncertainties": {
+        "1) Hirschsprung disease": "contrast enema shows transition zone but multiple biopsies (suction, full‑thickness, specialized stains) are normal — could represent sampling error, ultrashort-segment disease, or very proximal skip segment. 2) Chronic intestinal pseudo‑obstruction (CIPO)/primary motility disorder: clinical obstruction pattern with dilated bowel and normal histology. 3) Distal colonic obstructive lesion (congenital stricture/web): imaging transition zone could reflect anatomic narrowing missed on endoscopy or intermittent obstruction."
+      },
+      "reference_relevance": "Moderately helpful. Prior guideline experiences emphasize that anorectal manometry is a recommended, noninvasive adjunct when biopsies are inconclusive for Hirschsprung disease and imaging suggests a transition zone. They also note that multiple negative biopsies lower probability of classic Hirschsprung but do not fully exclude ultrashort/skip‑segment disease. Guidelines highlight manometry to assess the rectoanal inhibitory reflex (RAIR) before re‑sampling or surgical exploration.",
+      "action": "REQUEST TEST: Anorectal manometry (infant‑appropriate technique) to assess rectoanal inhibitory reflex (RAIR) and anal sphincter/colonic motor function.",
+      "action_reason": "Anorectal manometry will determine presence or absence of the RAIR — absent RAIR strongly supports Hirschsprung disease despite prior negative biopsies and would justify re‑sampling or surgical referral; presence of a normal RAIR makes Hirschsprung unlikely and supports motility disorder or anatomic intermittent obstruction, guiding further tests (full GI motility evaluation or targeted imaging/surgical review)."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Anorectal manometry (infant-appropriate) is normal with a preserved rectoanal inhibitory reflex (RAIR).",
+      "uncertainties": {
+        "Hirschsprung disease": "contrast enema shows a transition zone but normal rectal suction and full‑thickness biopsies and preserved RAIR argue strongly against classic HSCR",
+        "Congenital intestinal pseudo‑obstruction (CIPO)": "explains radiographic obstruction with normal histology and preserved RAIR — likely primary motility disorder",
+        "Hypoganglionosis/patchy aganglionosis": "could produce a transition zone and be missed on limited biopsies despite full‑thickness rectal biopsy (less likely but possible)",
+        "Distal mechanical obstruction (web/stricture) missed on endoscopy": "possible but colonoscopy/contrast enema were performed and were largely normal aside from transition zone."
+      },
+      "reference_relevance": "Helpful: prior guideline/experience recommends manometry (antroduodenal/colonic) to evaluate suspected motility disorders when histology is normal; contrast enema alone is insufficient to diagnose HSCR without supportive biopsy/manometry.",
+      "action": "REQUEST TEST: Antroduodenal and colonic manometry (infant‑appropriate technique) to assess small bowel and colonic motor function",
+      "action_reason": "Antroduodenal and colonic manometry will differentiate primary motility disorders (CIPO), which show abnormal propagation/low‑amplitude or absent peristalsis, from mechanical obstruction or Hirschsprung disease. Given preserved RAIR and normal biopsies, manometry is the next specific test to confirm a neuropathic or myopathic motility disorder and to guide medical vs surgical management. If manometry is normal, targeted repeat biopsies or further imaging for subtle mechanical obstruction should be considered."
+    },
+    {
+      "step_number": 13,
+      "new_information": "Antroduodenal and colonic manometry normal readings",
+      "uncertainties": {
+        "Hirschsprung disease (including ultrashort/skip-segment or sampling error)": "contrast enema shows transition zone",
+        "prior biopsies and manometry normal but sampling error or atypical variants possible": "under consideration",
+        "Congenital colonic mechanical obstruction (stenosis/web/atresia or extrinsic bands)": "explains radiographic transition zone and obstructive x‑ray pattern despite normal endoscopy if lesion is subtle or intermittent",
+        "Intestinal neuronal dysplasia or segmental hypoganglionosis": "patchy neuronal abnormalities can be missed on limited biopsies and may present with obstructive pattern",
+        "Intermittent extrinsic compression/adhesions": "may be missed on static imaging and endoscopy but cause obstruction clinically"
+      },
+      "reference_relevance": "Guideline search yielded mixed but relevant prior experiences: contrast enema transition zone suggests Hirschsprung but multiple normal biopsies/manometry lower its likelihood; prior guidelines and experiences support surgical exploration with intraoperative mapping biopsies when noninvasive tests are discordant or when obstructive physiology persists despite normal studies. Thus past guidelines are helpful and support proceeding to definitive diagnostic mapping.",
+      "action": "REQUEST TEST: Exploratory laparotomy with intraoperative direct inspection of the colon (identify webs/strictures/bands) and full‑thickness serial mapping biopsies (rectum, sigmoid, descending, transverse/proximal colon) with frozen section and formal histopathology including HuC/D, calretinin, AChE, NADPH‑diaphorase and quantitative neuronal counts",
+      "action_reason": "This invasive mapping differentiates Hirschsprung variants, segmental hypoganglionosis, and congenital mechanical lesions that can be missed by endoscopic biopsies or intermittent imaging; it is the definitive diagnostic step when contrast enema suggests a transition zone but multiple less‑invasive tests are discordant. Intraoperative inspection also allows immediate therapeutic resection/repair if a discrete obstructing lesion is found."
+    },
+    {
+      "step_number": 14,
+      "new_information": "Exploratory laparotomy with direct inspection of the colon and full‑thickness serial mapping biopsies (rectum through proximal colon) with HuC/D, calretinin, AChE, NADPH‑diaphorase and quantitative neuronal counts: all normal.",
+      "uncertainties": {
+        "Chronic intestinal pseudo‑obstruction (visceral myopathy)": "explains radiographic features and obstructive symptoms despite normal ganglia/manometry",
+        "Intermittent mechanical obstruction (adhesions/internal hernia/strangulating band)": "could produce episodic obstruction but negative laparotomy/ imaging so less likely",
+        "Hirschsprung disease (ultrashort‑segment or skip lesions)": "contrast enema shows transition zone but serial biopsies and manometry normal making this unlikely."
+      },
+      "reference_relevance": "Guidelines/experiences indicate that when extensive anatomic, histologic, manometric and endoscopic evaluations are normal but clinical and radiographic obstruction persist, consider chronic intestinal pseudo‑obstruction (CIPO) and pursue genetic testing for visceral myopathy/enteric dysmotility and specialized muscle histopathology (smooth muscle actin/desmin stains, electron microscopy). Prior experiences are helpful — they support obtaining molecular testing and re‑reviewing muscle histology rather than repeating broad invasive mapping.",
+      "action": "REQUEST TEST: Genetic testing — targeted pediatric chronic intestinal pseudo‑obstruction/enteric dysmotility panel (include ACTG2, FLNA, MYH11, SGOL1, RAD21 and other relevant genes) AND specialized re‑review of existing full‑thickness bowel tissue for smooth muscle pathology (immunostains for smooth muscle actin/desmin, electron microscopy)",
+      "action_reason": "Genetic causes of visceral myopathy (e.g., ACTG2) or subtle smooth muscle structural abnormalities can produce CIPO with normal neuronal studies and intermittent radiographic obstruction; identifying a pathogenic variant or muscle pathology will confirm visceral myopathy, guide management (prokinetics, feeding strategies, prognosis) and inform family counseling."
+    },
+    {
+      "step_number": 15,
+      "new_information": "Extensive workup including contrast enema with distal transition zone, multiple rectal and serial full‑thickness biopsies (including HuC/D, calretinin, AChE, NADPH‑diaphorase and quantitative neuronal counts), anorectal and antroduodenal/colonic manometry, exploratory laparotomy inspection, and targeted CIPO genetic panel with smooth muscle pathology review — all returned normal.",
+      "uncertainties": {
+        "1) Functional/distal colonic outlet obstruction or intermittent spasm": "imaging shows transition zone but biopsies and manometry normal — could be transient or functional spasm causing apparent transition",
+        "2) Chronic intestinal pseudo‑obstruction (CIPO) with intermittent/patchy dysmotility not captured on static manometry or genetic testing": "under consideration",
+        "3) Cystic fibrosis/DIOS or other obstructive metabolic causes": "can mimic distal obstruction though stool history atypical",
+        "4) Rare/episodic mechanical obstruction (intermittent volvulus/adhesions/web) not visualized intraoperatively.": "under consideration"
+      },
+      "reference_relevance": "Past guideline experiences emphasize using physiologic transit testing when manometry and biopsies are inconclusive for motility vs outlet obstruction. Imaging transition zones can be false‑positive with segmental spasm. Genetic testing and histology being normal reduces likelihood of classic Hirschsprung disease and primary myopathic neuropathic CIPO, but intermittent functional disorders remain possible. Thus guidelines are moderately helpful and support next-step physiologic transit testing.",
+      "action": "REQUEST TEST: Colonic transit study (radiopaque marker study or scintigraphic colonic transit) to quantify segmental and overall colonic transit times",
+      "action_reason": "A colonic transit study directly distinguishes slow‑transit colonic dysmotility (supporting CIPO/enteric dysmotility) from an outlet pattern (normal transit with distal retention suggesting functional/obstructive outlet or intermittent distal spasm). It's noninvasive, complements prior manometry, and helps localize where transit is delayed to guide further targeted evaluation or treatment (e.g., pelvic floor therapy vs prokinetics vs repeat imaging/intervention)."
+    },
+    {
+      "step_number": 16,
+      "new_information": "Colonic transit study is normal (radiopaque marker or scintigraphy).",
+      "uncertainties": {
+        "1) Hirschsprung disease": "contrast enema showed a transition zone, but multiple biopsy techniques (suction, full-thickness, mapping) and anorectal manometry are normal — residual uncertainty about very short-segment or patchy hypoganglionosis was largely addressed by mapping but cannot be 100% excluded",
+        "2) Chronic intestinal pseudo‑obstruction/enteric dysmotility": "clinical obstructive presentation and dilated bowel on x‑ray suggestive, but antroduodenal/colonic manometry and genetic panel are normal making this less likely",
+        "3) Cow's‑milk protein–related enterocolitis/colitis or eosinophilic colitis": "can cause abdominal distension, pain and feeding difficulties with largely normal imaging and may be patchy on biopsy so could be missed",
+        "4) Functional/behavioral functional gastrointestinal disorder": "durable growth and normal extensive testing raise possibility of a functional cause or intermittent partial obstruction."
+      },
+      "reference_relevance": "Query returned experiences highlighting that when structural, histologic, motility and genetic testing are concordantly normal, guidelines favor reassessing for nonstructural causes (food protein–related disease, functional disorders) and recommend trial of dietary modification or targeted history before further invasive testing. The guidance is moderately helpful — it supports shifting to noninvasive diagnostic/therapeutic trials given exhaustive negative workup.",
+      "action": "ASK PATIENT: Is the infant breastfed or formula‑fed? If formula, what type (standard cow's‑milk formula, soy, partially or extensively hydrolyzed)? Has the caregiver noticed blood or mucus in the stool, very watery/green or explosive stools, perianal excoriation, or any rashes/eczema? Any family history of atopy (asthma, eczema, food allergies)? Has there been any change in formula or introduction of cow's‑milk protein recently, and did symptoms change with that? Have antibiotics been given recently? Would the caregiver be willing to try a diagnostic therapeutic trial (2–4 weeks) of an extensively hydrolyzed formula or maternal dairy elimination if breastfeeding, and track symptoms (distension, crying with abdominal palpation, stool characteristics)?",
+      "action_reason": "Answers and a short dietary elimination trial will help distinguish cow's‑milk protein–related disease (which may respond rapidly to elimination despite normal biopsies) from primary neuromuscular/motility causes (unlikely to improve with diet) or functional disorders; these interventions are low‑risk and appropriate after exhaustive negative invasive testing."
+    },
+    {
+      "step_number": 17,
+      "new_information": "Caregiver agrees to maternal dairy elimination for 2–4 weeks; infant exclusively breastfed; no blood/mucus in stool; no atopy.",
+      "uncertainties": {
+        "1) Non‑IgE cow's‑milk protein allergy (non‑IgE CMPA/FPIES/proctocolitis)": "explains feeding difficulty, distension, painful abdominal palpation",
+        "biopsies can be patchy/normal. 2) Chronic intestinal pseudo‑obstruction/enteric dysmotility": "fits obstructive x‑ray and transition zone but extensive motility testing and genetics normal, making it less likely but not excluded. 3) Functional/infantile colic or visceral hypersensitivity: could cause pain and distension with normal tests."
+      },
+      "reference_relevance": "Helpful — prior guideline experiences support a diagnostic therapeutic trial of maternal dairy elimination for suspected non‑IgE CMPA when invasive testing is unrevealing; notes that histology can be patchy and diagnoses may rely on clinical response to elimination/rechallenge.",
+      "action": "ASK PATIENT: Begin strict maternal dairy elimination (avoid all cow’s‑milk protein in maternal diet) for 2–4 weeks while continuing breastfeeding; keep a daily diary of (a) abdominal distension, (b) episodes of painful crying with abdominal palpation, (c) feeding amount/tolerance, and (d) stool frequency/consistency. Return for clinical reassessment at 2 weeks; if symptoms improve, plan supervised maternal reintroduction or direct infant oral challenge to confirm diagnosis. If no improvement after 2–4 weeks, proceed to further evaluation for motility disorders and consider referral to pediatric gastroenterology and pain management.",
+      "action_reason": "A strict elimination trial is the least invasive, evidence‑supported next step when non‑IgE CMPA is suspected but biopsies/manometry/genetics are unrevealing. Clinical response (improvement in distension, pain and feeding) would support CMPA; lack of response would lower its probability and prompt renewed focus on motility or functional diagnoses and specialist referral."
+    },
+    {
+      "step_number": 18,
+      "new_information": "Caregiver agreed to start strict maternal dairy elimination while breastfeeding and will keep a daily diary of abdominal distension, painful crying with abdominal palpation, feeding tolerance, and stool patterns, with planned return in 2 weeks.",
+      "uncertainties": {
+        "1) Cow's‑milk protein‑induced enteropathy/colitis (non‑IgE CMPA)": "most likely — explains distension, pain with palpation, normal structural/neuromuscular testing, and potential response to maternal elimination. 2) Chronic intestinal pseudo‑obstruction/enteric dysmotility: less likely given normal antroduodenal/colonic manometry, normal genetics, and normal transit study, but persistent dysmotility could still be intermittent/early. 3) Intermittent mechanical obstruction (partial obstructing web/stricture/intussusception): unlikely after normal exploratory laparotomy, imaging, and endoscopy but may be transient or radiographically occult."
+      },
+      "reference_relevance": "Helpful — Prior guideline experiences support a diagnostic therapeutic trial of maternal cow’s‑milk protein elimination in exclusively breastfed infants with suspected CMPA when structural causes have been excluded; surgical/motility guideline references were useful to prioritize noninvasive trial after exhaustive negative testing. Some guideline entries emphasized cardiac and congenital anomaly assessment in neonates, which is less relevant here. Overall, guidelines support the chosen next-step (elimination trial) as an evidence‑based, low‑risk diagnostic maneuver.",
+      "action": "ASK PATIENT: Please confirm you will continue strict maternal avoidance of all cow’s‑milk protein for 2 weeks, maintain a daily diary recording (a) abdominal distension (measure/photograph if possible), (b) painful crying episodes with abdominal palpation, (c) feeding amount/tolerance, and (d) stool frequency/consistency. Return for clinical reassessment at 2 weeks. If symptoms improve, we will plan supervised maternal reintroduction or direct infant oral challenge to confirm diagnosis; if no improvement after 2–4 weeks, we will proceed with referral to pediatric gastroenterology for advanced motility evaluation and pain management.",
+      "action_reason": "A monitored 2‑week maternal dairy elimination is a low‑risk, high‑yield diagnostic therapeutic trial that can confirm or exclude cow’s‑milk protein‑induced enteropathy as the cause of the infant’s feeding difficulty, abdominal distension, and pain. Improvement during elimination would strongly favor non‑IgE CMPA and avoid further invasive testing; lack of improvement would push investigation toward motility disorders or other rarer causes and justify gastroenterology referral."
+    },
+    {
+      "step_number": 19,
+      "new_information": "Caregiver has begun strict maternal dairy elimination and will maintain a daily diary with abdominal distension photos, painful crying episodes on palpation, feeding tolerance, and stool details.",
+      "uncertainties": {
+        "1) Non‑IgE‑mediated cow’s‑milk protein allergy (CMPA)/food‑protein‑induced enterocolitis or proctocolitis": "likely to improve with maternal dairy elimination. 2) Functional abdominal pain/infantile colic/visceral hypersensitivity: may persist despite elimination and is suggested by normal extensive testing. 3) Enteric dysmotility/chronic intestinal pseudo‑obstruction or intermittent mechanical obstruction: less likely given normal imaging, manometry, biopsies and genetics but still a remote possibility if no improvement with diet."
+      },
+      "reference_relevance": "Helpful — prior guideline/experience supports a diagnostic therapeutic maternal elimination trial for suspected non‑IgE CMPA when extensive structural and motility testing is unrevealing. This approach is low risk and can be diagnostic if symptoms improve; if unhelpful, it directs next steps (motility referral).",
+      "action": "ASK PATIENT: Please return for clinical reassessment at 2 weeks after strict maternal dairy elimination. Call immediately and present to ED sooner if any of the following occur: bilious (green) vomiting, persistent fever, rapidly increasing abdominal distension or respiratory difficulty, lethargy/decreased responsiveness, refusal of feeds or inability to maintain hydration, new or worsening bloody stools, or no bowel movement for >48 hours. Continue the daily diary with photos and contact the clinic earlier if you notice clear improvement so we can plan supervised maternal reintroduction or infant challenge to confirm diagnosis.",
+      "action_reason": "A supervised 2‑week maternal dairy elimination is a low‑risk, high‑yield diagnostic trial for non‑IgE CMPA; symptomatic improvement within days to 2 weeks would confirm probable non‑IgE CMPA and avoid further invasive testing. If there is no improvement, persistent or worsening symptoms despite elimination would increase likelihood of a functional or motility disorder and prompt referral to pediatric gastroenterology for advanced evaluation and pain management."
+    },
+    {
+      "step_number": 20,
+      "new_information": "Final assessment requested: after exhaustive structural, histologic, motility, genetic testing (all normal) in 8‑month‑old breastfed infant with abdominal distension, painful abdominal palpation, soft stools, contrast enema showing distal transition zone but repeated ganglion cell–containing biopsies and normal RAIR and motility studies.",
+      "uncertainties": {
+        "Hirschsprung disease": "transition zone on contrast enema suggests possible HD, but multiple rectal and serial full‑thickness biopsies (with calretinin, AChE, HuC/D, NADPH‑diaphorase) normal and RAIR present — HD essentially excluded",
+        "Cow's‑milk protein–induced non‑IgE enteropathy/proctocolitis": "fits breastfed exposure, abdominal distension and pain with otherwise normal structural/motility studies — requires therapeutic confirmation with maternal dairy elimination",
+        "Chronic intestinal pseudo‑obstruction (CIPO)/enteric neuropathy": "possible given obstruction physiology on x‑ray, but antroduodenal/colonic manometry and genetic panel normal making primary CIPO unlikely."
+      },
+      "reference_relevance": "Prior guideline experiences for similar pediatric obstructive presentations partially helpful: contrast studies and imaging are sensitive but can be misleading (false-positive transition zones) when inflammation or functional spasm present; exhaustive biopsies and manometry are definitive for excluding Hirschsprung and primary neuropathic CIPO when normal. Therefore guideline recommendations support a therapeutic trial for non‑IgE food protein‑mediated disease when other causes excluded.",
+      "action": "FINAL DIAGNOSIS: Provisional diagnosis—non‑IgE mediated cow’s‑milk protein‑induced enteropathy/proctocolitis (breastmilk‑mediated) causing distal colonic functional obstruction/colonic dysmotility (Hirschsprung mimic). Confirm with clinical response to strict maternal cow’s‑milk protein elimination and supervised re‑challenge. If no improvement after 2–4 weeks, escalate to pediatric gastroenterology for further motility/pain evaluation and consider alternate diagnoses (occult enteric neuropathy, intermittent mechanical obstruction, or atypical CIPO).",
+      "action_reason": "All structural (imaging, endoscopy, laparotomy), histologic (rectal and serial mapping biopsies with specialized stains), motility (anorectal and antroduodenal/colonic manometry), and genetic testing were repeatedly normal, effectively excluding Hirschsprung disease, mechanical distal obstruction, and primary congenital enteric neuropathy. The contrast enema transition zone likely represents a functional/secondary transition from colonic hypomotility or inflammation rather than aganglionosis. The clinical context (breastfed infant, abdominal distension and painful episodes but normal stools and systemic signs) and lack of alternative explanations make non‑IgE cow’s‑milk protein–mediated enteropathy the most likely diagnosis pending therapeutic confirmation by maternal dairy elimination."
+    }
+  ],
+  "accumulated_notes": "",
+  "current_uncertainties": {
+    "Hirschsprung disease": "transition zone on contrast enema suggests possible HD, but multiple rectal and serial full‑thickness biopsies (with calretinin, AChE, HuC/D, NADPH‑diaphorase) normal and RAIR present — HD essentially excluded",
+    "Cow's‑milk protein–induced non‑IgE enteropathy/proctocolitis": "fits breastfed exposure, abdominal distension and pain with otherwise normal structural/motility studies — requires therapeutic confirmation with maternal dairy elimination",
+    "Chronic intestinal pseudo‑obstruction (CIPO)/enteric neuropathy": "possible given obstruction physiology on x‑ray, but antroduodenal/colonic manometry and genetic panel normal making primary CIPO unlikely."
+  },
+  "all_information": [
+    "8-month-old boy with feeding difficulties and abdominal distension",
+    "Vital signs normal: Temperature 36.8°C; Heart Rate 120 bpm; Respiratory Rate 30/min; Blood Pressure normal for age.",
+    "No vomiting; last bowel movement yesterday soft; abdominal tenderness with painful crying on palpation; afebrile; decreased feeding but gaining weight.",
+    "Abdominal ultrasound focused for intussusception: normal.",
+    "Abdominal X-ray shows dilated bowel segments with absence of gas in the rectum, suggesting bowel obstruction.",
+    "Upper GI contrast study normal; abdominal x-ray shows dilated bowel segments with absence of rectal gas; abdominal ultrasound normal; baby has abdominal tenderness and decreased feeding but no vomiting; last stool was soft yesterday.",
+    "Inguinal/scrotal exam normal (no hernia).",
+    "Contrast enema shows a transition zone in the distal colon compatible with Hirschsprung disease.",
+    "Rectal suction biopsy returned normal (ganglion cells present).",
+    "Full-thickness rectal biopsy with calretinin IHC and acetylcholinesterase histochemistry: normal (no aganglionosis).",
+    "Flexible sigmoidoscopy/colonoscopy with targeted biopsies (HuC/D, NADPH‑diaphorase) returned normal.",
+    "Anorectal manometry (infant-appropriate) is normal with a preserved rectoanal inhibitory reflex (RAIR).",
+    "Antroduodenal and colonic manometry normal readings",
+    "Exploratory laparotomy with direct inspection of the colon and full‑thickness serial mapping biopsies (rectum through proximal colon) with HuC/D, calretinin, AChE, NADPH‑diaphorase and quantitative neuronal counts: all normal.",
+    "Extensive workup including contrast enema with distal transition zone, multiple rectal and serial full‑thickness biopsies (including HuC/D, calretinin, AChE, NADPH‑diaphorase and quantitative neuronal counts), anorectal and antroduodenal/colonic manometry, exploratory laparotomy inspection, and targeted CIPO genetic panel with smooth muscle pathology review — all returned normal.",
+    "Colonic transit study is normal (radiopaque marker or scintigraphy).",
+    "Caregiver agrees to maternal dairy elimination for 2–4 weeks; infant exclusively breastfed; no blood/mucus in stool; no atopy.",
+    "Caregiver agreed to start strict maternal dairy elimination while breastfeeding and will keep a daily diary of abdominal distension, painful crying with abdominal palpation, feeding tolerance, and stool patterns, with planned return in 2 weeks.",
+    "Caregiver has begun strict maternal dairy elimination and will maintain a daily diary with abdominal distension photos, painful crying episodes on palpation, feeding tolerance, and stool details.",
+    "Final assessment requested: after exhaustive structural, histologic, motility, genetic testing (all normal) in 8‑month‑old breastfed infant with abdominal distension, painful abdominal palpation, soft stools, contrast enema showing distal transition zone but repeated ganglion cell–containing biopsies and normal RAIR and motility studies."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "MedQA_Ext_2": {
+    "dataset": "MedQA_Ext",
+    "scenario_id": 2,
+    "session_id": "scenario_10233_6f10a184_1770482117",
+    "correct_diagnosis": "Acute Hepatitis B",
+    "model_correct": true,
+    "experience_ids": [
+      2,
+      7,
+      12
+    ],
+    "timestamp": "2026-02-07T15:00:00"
+  },
+  "MedQA_Ext_7": {
+    "dataset": "MedQA_Ext",
+    "scenario_id": 7,
+    "session_id": "scenario_10553_68d14d12_1770482339",
+    "correct_diagnosis": "Chronic obstructive pulmonary disease",
+    "model_correct": true,
+    "experience_ids": [
+      1,
+      6,
+      11
+    ],
+    "timestamp": "2026-02-07T15:00:00"
+  },
+  "MedQA_Ext_8": {
+    "dataset": "MedQA_Ext",
+    "scenario_id": 8,
+    "session_id": "scenario_10236_b894de93_1770482117",
+    "correct_diagnosis": "Pneumonia",
+    "model_correct": true,
+    "experience_ids": [
+      4,
+      9,
+      14
+    ],
+    "timestamp": "2026-02-07T15:00:00"
+  },
+  "MedQA_Ext_15": {
+    "dataset": "MedQA_Ext",
+    "scenario_id": 15,
+    "session_id": "scenario_10235_8f76244d_1770482117",
+    "correct_diagnosis": "Hemophilia A",
+    "model_correct": false,
+    "experience_ids": [
+      3,
+      8,
+      13
+    ],
+    "timestamp": "2026-02-07T15:00:00"
+  },
+  "MedQA_Ext_20": {
+    "dataset": "MedQA_Ext",
+    "scenario_id": 20,
+    "session_id": "scenario_10234_ded5aa21_1770482117",
+    "correct_diagnosis": "Duodenal atresia",
+    "model_correct": true,
+    "experience_ids": [
+      5,
+      10,
+      15
+    ],
+    "timestamp": "2026-02-07T15:00:00"
+  }
+}

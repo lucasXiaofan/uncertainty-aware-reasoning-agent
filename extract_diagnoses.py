@@ -13,7 +13,7 @@ def extract_correct_diagnoses(file_path):
     return list(set(diagnoses))
 
 if __name__ == "__main__":
-    file_path = "benchmarks/AgentClinic/agentclinic_medqa_extended.jsonl"
+    file_path = "benchmarks/AgentClinic/agentclinic_medqa_extended_fixed.jsonl"
     diagnoses_list = extract_correct_diagnoses(file_path)
     print(diagnoses_list)
     print(len(diagnoses_list))

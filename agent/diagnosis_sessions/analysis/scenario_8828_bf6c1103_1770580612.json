@@ -1,0 +1,166 @@
+{
+  "session_id": "scenario_8828_bf6c1103_1770580612",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presents with swelling in the right knee and a family history of similar knee problems.",
+      "uncertainties": {
+        "Septic arthritis": "needs exclusion because fever, tachycardia, inability to bear weight, or leukocytosis would raise concern",
+        "Hemarthrosis from bleeding disorder (e.g., hemophilia or von Willebrand disease)": "family history suggests inherited bleeding disorder, especially if male relatives affected and with recurrent effusions",
+        "Traumatic hemarthrosis / acute injury": "recent trauma could cause isolated swelling without systemic signs",
+        "Inflammatory arthritis (juvenile idiopathic arthritis or early autoimmune arthritis)": "less likely if acute monoarticular and with acute onset, but possible if subacute/chronic or recurrent episodes."
+      },
+      "reference_relevance": "Guidelines/examples were helpful — multiple prior cases emphasize prioritizing exclusion of septic arthritis and considering inherited bleeding disorders when family history is present. They recommend early coagulation testing when hemarthrosis suspected but also stress obtaining vital signs to assess systemic infection risk.",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Vital signs (temperature, heart rate, respiratory rate, blood pressure, oxygen saturation) quickly help differentiate septic arthritis (fever, systemic signs) from noninfectious causes and determine urgency of joint aspiration and further testing; they are required early per best practices."
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs: Temperature 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min.",
+      "uncertainties": {
+        "Hemophilia A": "family history of similar knee problems and acute knee swelling/effusion suggest hemarthrosis from an inherited bleeding disorder",
+        "Septic arthritis": "tachycardia and hypotension raise concern for systemic infection causing monoarthritis",
+        "Traumatic hemarthrosis": "recent park play could indicate blunt trauma causing bleeding into joint",
+        "Reactive/transient synovitis": "possible but less likely with systemic instability."
+      },
+      "reference_relevance": "Helpful — prior experiences strongly suggest prioritizing evaluation for hemophilia in a young child with acute hemarthrosis and family history; they also highlight the need to exclude septic arthritis given vital sign abnormalities. These guidelines apply but must be tailored to the patient’s age, sex, trauma history, and bleeding history.",
+      "action": "ASK PATIENT: What is the patient's age and sex? Did the swelling start after a specific trauma or fall at the park? Can the child bear weight on the right leg and walk? Any history of easy bruising, prolonged bleeding after minor cuts or vaccinations, or prior joint bleeding episodes? Which family member had 'similar' problems (relation, sex) and was any bleeding disorder diagnosed? Any fever, recent infections, or other joint pains?",
+      "action_reason": "Age/sex and details about trauma, bleeding tendencies, and the affected relative will help distinguish hemarthrosis from traumatic causes and raise or lower suspicion for inherited bleeding disorders (X-linked hemophilia) versus septic arthritis or inflammatory causes; ability to bear weight and systemic symptoms help assess severity and need for urgent joint aspiration or imaging."
+    },
+    {
+      "step_number": 3,
+      "new_information": "18-month-old boy with acute right knee swelling, refusal to bear weight, no fever, family history of an affected uncle, vital signs: T 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min.",
+      "uncertainties": {
+        "Hemophilia A": "family history suggests X-linked bleeding disorder causing spontaneous hemarthrosis",
+        "Septic arthritis": "acute monoarthritis with refusal to bear weight could be septic—needs exclusion",
+        "Traumatic hemarthrosis/soft-tissue injury": "possible after park play without witnessed trauma."
+      },
+      "reference_relevance": "Guidelines/experiences were helpful: they prioritize coagulation testing (PT/aPTT/ACT and factor assays) in young males with possible family history of hemarthrosis, while also recommending inflammatory markers (CBC, ESR, CRP) to assess for septic arthritis. This is applicable here to guide non-invasive differentiation before invasive procedures.",
+      "action": "REQUEST TEST: CBC with differential, ESR, CRP, PT, aPTT, and Factor VIII activity level",
+      "action_reason": "CBC/ESR/CRP will help identify inflammation/infection consistent with septic arthritis; PT/aPTT and Factor VIII activity will evaluate for hemophilia A as the cause of hemarthrosis given the family history. These tests together will help distinguish between septic arthritis, hemarthrosis from a bleeding disorder, and traumatic effusion, and will guide need/timing of joint aspiration and factor replacement."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Normal CBC, ESR, CRP, PT, aPTT, and Factor VIII activity in an 18-month-old boy with acute right knee swelling and refusal to bear weight.",
+      "uncertainties": {
+        "Septic arthritis": "acute swelling and inability to bear weight",
+        "Traumatic hemarthrosis": "onset after park play without witnessed trauma",
+        "Inherited bleeding disorder (Hemophilia B or von Willebrand disease)": "family history of an affected uncle keeps this possible despite normal Factor VIII activity."
+      },
+      "reference_relevance": "Guidelines were helpful in highlighting the need to evaluate for inherited bleeding disorders and to obtain targeted factor assays; however, given afebrile status and normal inflammatory markers, the most immediately actionable test to distinguish septic arthritis from hemarthrosis is joint aspiration. Coagulation/ factor testing remains relevant if aspiration shows hemarthrosis without trauma.",
+      "action": "REQUEST TEST: Ultrasound-guided knee arthrocentesis with synovial fluid analysis (cell count with differential including RBC count, Gram stain, bacterial culture and sensitivity, and crystal analysis).",
+      "action_reason": "Synovial fluid analysis will rapidly distinguish septic arthritis (purulent, high WBC neutrophil-predominant, positive Gram stain/culture) from hemarthrosis (blood-stained fluid with high RBC count) and guide urgent management (antibiotics and orthopedic drainage vs orthopedic/surgical observation and hematology workup). This directly addresses the top diagnostic uncertainties and prevents delay in treating a potential septic joint."
+    },
+    {
+      "step_number": 5,
+      "new_information": "18-month-old boy with acute right knee swelling after playing at the park; now refuses to bear weight. Ultrasound-guided arthrocentesis: synovial fluid noninflammatory (low WBC, low RBC), Gram stain negative, cultures negative, crystals absent. CBC, ESR, CRP, PT, aPTT, and Factor VIII activity all normal.",
+      "uncertainties": {
+        "Occult/toddler fracture (e.g., tibial/fibular or distal femur fracture)": "focal swelling and refusal to bear weight after play",
+        "Transient synovitis": "normal inflammatory markers and noninflammatory synovial fluid support this diagnosis",
+        "Septic arthritis": "less likely given normal labs and noninflammatory synovial fluid but cannot be fully excluded early or if partially treated."
+      },
+      "reference_relevance": "Guideline experiences are helpful: they emphasize imaging (plain radiographs) to exclude occult/toddler fractures when a young child refuses to bear weight after play. They also note that normal inflammatory markers and noninflammatory synovial fluid lower the likelihood of septic arthritis, supporting observation and conservative management unless clinical deterioration occurs.",
+      "action": "REQUEST TEST: AP and lateral radiographs of the right knee and right lower leg (tibia/fibula) including distal femur",
+      "action_reason": "Plain radiographs are the next most useful test to detect occult/toddler fractures or intra-articular fractures that can present with swelling and refusal to bear weight; imaging will distinguish fracture from transient synovitis and guide immobilization/orthopedic referral. Given normal labs and noninflammatory synovial fluid, imaging has higher yield than additional labs at this time."
+    },
+    {
+      "step_number": 6,
+      "new_information": "AP and lateral radiographs of the right knee and right lower leg (tibia/fibula) are normal.",
+      "uncertainties": {
+        "Occult hip septic arthritis or transient synovitis": "knee symptoms may be referred from hip—needs exclusion with hip imaging/exam",
+        "Occult/nondisplaced tibial or femoral fracture (toddler's fracture)": "pain after play with normal initial radiographs possible",
+        "Traumatic hemarthrosis or soft-tissue injury": "possible despite no witnessed trauma",
+        "Inherited bleeding disorder (Hemophilia B or other)": "family history in a male relative raises concern despite normal Factor VIII and aPTT—Factor IX not yet tested."
+      },
+      "reference_relevance": "Guidelines and past experiences emphasize that in toddlers with knee pain and refusal to bear weight, hip pathology can present with knee pain; hip ultrasound is recommended to detect effusion (which may indicate septic arthritis or transient synovitis) and guide aspiration if needed. This guidance is helpful and directly applicable.",
+      "action": "REQUEST TEST: Right hip ultrasound (evaluate for effusion) and focused right hip physical examination (range of motion, pain with internal rotation)",
+      "action_reason": "A right hip ultrasound will detect an effusion that could indicate septic arthritis or transient synovitis as the source of referred knee pain; a focused hip exam (pain with passive internal rotation) helps localize pain to the hip. Identifying a hip effusion would prompt urgent aspiration to rule out septic arthritis; absence of effusion shifts probability toward occult tibial/femoral fracture or local knee soft-tissue injury and would prompt repeat radiographs or MRI as next steps."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Right hip ultrasound and focused hip physical examination are normal (no effusion; normal ROM; no pain with internal rotation).",
+      "uncertainties": {
+        "Occult/nondisplaced tibial (toddler) fracture": "playing mechanism and refusal to bear weight despite normal x-rays",
+        "Osteochondral or intra‑articular fracture (distal femur or proximal tibia)": "can present with effusion and initially normal radiographs",
+        "Nonaccidental trauma": "unexplained injury in a young child with unclear mechanism",
+        "Septic arthritis": "less likely given normal labs and synovial fluid but cannot be completely excluded early in course."
+      },
+      "reference_relevance": "Guidelines were moderately helpful. They appropriately prioritized exclusion of bleeding disorders and septic arthritis (coagulation tests and arthrocentesis performed and normal), but plain radiographs can miss nondisplaced pediatric fractures; guidelines recommend MRI when clinical suspicion for an occult fracture or intra‑articular injury remains high despite normal x‑rays.",
+      "action": "REQUEST IMAGES: MRI of the right knee (non‑contrast) including distal femur and proximal tibia; obtain under sedation/anesthesia as needed for age and motion control.",
+      "action_reason": "MRI is the most sensitive test to detect occult toddler fractures, physeal or osteochondral injuries, bone bruise, and internal derangement that plain radiographs can miss. Results will distinguish traumatic structural injury (fracture/osteochondral lesion) from soft‑tissue causes and guide orthopedic management; if MRI is negative, further evaluation for nonaccidental trauma or less common bleeding/orthopedic causes should be considered."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Parent consents to MRI under sedation; child fussy; no new swelling or pain elsewhere.",
+      "uncertainties": {
+        "Occult trauma/occult fracture or bone bruise": "recent park play, inability to bear weight, normal radiographs so MRI may reveal occult fracture or bone bruise",
+        "Hemarthrosis from inherited bleeding disorder (eg Hemophilia B or von Willebrand disease)": "male toddler with male relative affected suggests X‑linked or familial bleeding disorder though prior Factor VIII was normal and synovial fluid normal—still possible for other factors",
+        "Septic arthritis/osteomyelitis": "monoarticular swelling and refusal to bear weight raise concern but normal CBC/ESR/CRP and synovial fluid Gram stain and culture argue against, though early infection can have normal labs"
+      },
+      "reference_relevance": "Query returned prior experiences recommending MRI for occult fracture and targeted factor testing when family history suggests hemophilia. The guideline is helpful: MRI will likely identify occult bone or soft‑tissue injury which is the highest‑yield next step; simultaneous targeted factor testing (Factor IX and vWF) may be considered if MRI shows hemarthrosis or if bleeding history/family history becomes stronger.",
+      "action": "REQUEST TEST: MRI of the right knee (non‑contrast) including distal femur and proximal tibia under sedation as needed",
+      "action_reason": "MRI is the most sensitive test now to detect occult fracture, bone bruise, osteochondral injury, or soft‑tissue pathology that would explain acute swelling and inability to bear weight despite normal X‑rays; results will help differentiate traumatic injury from bleeding disorder-related hemarthrosis (which may also be visible) and guide subsequent targeted coagulation testing if hemarthrosis is identified."
+    },
+    {
+      "step_number": 9,
+      "new_information": "MRI of the right knee (non-contrast) including distal femur and proximal tibia: NORMAL",
+      "uncertainties": {
+        "Transient synovitis": "normal labs/imaging and acute onset after play",
+        "Septic arthritis": "child not bearing weight — serious concern despite normal labs/aspirate",
+        "Traumatic hemarthrosis": "acute onset during park play but imaging normal",
+        "Juvenile idiopathic arthritis": "less likely given acute presentation and normal inflammatory markers"
+      },
+      "reference_relevance": "Guidelines/experiences were partially helpful — they emphasized evaluating for hemarthrosis and inherited bleeding disorders (ACT, factor assays) given family history. In this case Factor VIII and routine coagulation tests are normal, reducing likelihood of hemophilia; guidelines are less directly applicable now but support continued focused assessment to exclude septic arthritis and occult trauma.",
+      "action": "REQUEST TEST: Focused right knee physical examination (inspection for bruising/abrasions, warmth/erythema, joint range of motion including pain with passive movement, assessment of ability to bear weight/gait, and neurovascular exam)",
+      "action_reason": "A careful focused knee exam will help distinguish septic arthritis (marked pain with passive ROM, systemic toxicity signs), from transient synovitis (often less severe pain, may still bear weight intermittently), traumatic hemarthrosis or soft‑tissue injury (external signs like ecchymosis, focal tenderness), and will guide need for repeat arthrocentesis, surgical consult, or observation given current normal labs and imaging."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Focused right knee physical exam: swelling present, warm to touch, no overlying erythema, normal passive and active range of motion, able to bear weight, neurovascular exam normal.",
+      "uncertainties": {
+        "Hemophilia A": "18-month-old boy with acute knee swelling and reported male relative with similar problems suggests possible X-linked bleeding disorder",
+        "Oligoarticular juvenile idiopathic arthritis (JIA)": "isolated knee swelling in a toddler with normal labs and imaging and preserved range of motion",
+        "Traumatic hemarthrosis": "onset after playing at the park could reflect an unwitnessed minor injury causing bleeding into the joint."
+      },
+      "reference_relevance": "Guideline search was helpful: multiple prior experiences emphasize that in a young male with isolated joint swelling and male relatives affected, hemophilia should be strongly considered even when screening tests can be normal; guidelines recommend clarifying family history and targeted factor testing (including repeat factor assays and testing for factor IX and vWF) if concern persists. This is applicable here because prior Factor VIII activity and routine coagulation screens were reportedly normal, but family history remains ambiguous and may change pre-test probability.",
+      "action": "ASK PATIENT: Which side of the family is the uncle on (maternal vs paternal)? Do you know whether he was ever diagnosed with a bleeding disorder (for example, hemophilia or von Willebrand disease), or did he have excessive bleeding after surgeries, tooth extractions, or vaccinations? Has any maternal male relative had similar joint bleeding episodes or easy bruising?",
+      "action_reason": "Clarifying the exact family history (particularly whether the affected relative is on the maternal side and whether a formal bleeding disorder diagnosis exists) will raise or lower the probability of an X-linked disorder like Hemophilia A and guide the need for targeted coagulation testing (repeat factor VIII/IX assays, vWF studies) versus pursuing rheumatologic or traumatic causes."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Maternal uncle had similar knee swelling but no diagnosed bleeding disorder and no history of excessive bleeding after procedures; no other maternal male relatives affected.",
+      "uncertainties": {
+        "1) Transient/reactive synovitis": "common in toddlers after minor activities, monoarticular knee swelling, normal labs/imaging, often resolves within days. 2) Oligoarticular juvenile idiopathic arthritis (JIA): can present as persistent monoarthritis of the knee in toddlers with normal systemic inflammatory markers early. 3) Traumatic soft‑tissue injury/occult intra‑articular injury: onset after park play supports this though no focal trauma witnessed and MRI normal. 4) Occult hemarthrosis/bleeding disorder (less likely): family history raises concern but normal coagulation studies and non‑bloody synovial fluid make this less likely."
+      },
+      "reference_relevance": "Guidelines were partially helpful: prior experiences emphasized checking factor assays/ACT when hemarthrosis suspected. In this case, coagulation studies including Factor VIII were normal and synovial fluid was not bloody, so hemophilia is less likely and the guideline recommendation to pursue factor testing is of limited applicability. The guidance reinforced prioritizing tests that differentiate transient synovitis vs persistent inflammatory arthritis.",
+      "action": "REQUEST TEST: Focused right knee physical examination (repeat in 7 days)",
+      "action_reason": "Repeat focused exam after short observation helps distinguish transient/reactive synovitis or minor soft‑tissue injury (expected improvement/resolution) from early oligoarticular JIA (persistence of swelling >6 weeks or progressive signs). If swelling persists or worsens at follow‑up, obtain repeat knee ultrasound and refer to pediatric rheumatology for further evaluation (including extended autoimmune and imaging workup)."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Final diagnosis: Transient synovitis",
+      "uncertainties": {},
+      "reference_relevance": "N/A - Final diagnosis",
+      "action": "DIAGNOSIS READY",
+      "action_reason": "Summary of findings supporting confidence: 18‑month‑old boy with a single, self‑limited episode of right knee swelling after playing. He was afebrile, bearing weight, and the focused knee exam returned to normal after 7 days. Extensive evaluation was unrevealing: CBC with differential, ESR, CRP normal; PT/aPTT normal; specific Factor VIII activity normal; ultrasound‑guided synovial fluid analysis (cell counts, Gram stain/culture, crystals) normal; knee and leg radiographs and noncontrast MRI normal. These results effectively rule out septic arthritis, inflammatory arthritis (JIA) as an active process, and a clinically significant hemarthrosis due to Hemophilia A (normal factor VIII activity and coagulation screens). Most likely diagnosis: post‑traumatic/aseptic (transient) synovitis of the right knee (minor soft‑tissue injury with reactive effusion) that has resolved.\n\nResidual uncertainties and what would be clarified with further monitoring: a bleeding disorder (including mild/atypical hemophilia, von Willebrand disease, or platelet function defects) remains a low but not zero possibility if recurrent spontaneous hemarthroses occur or if there is mucocutaneous bleeding. The reported maternal‑side uncle with “similar” knee problems is unconfirmed and not sufficient alone to establish an X‑linked bleeding disorder, particularly with current normal factor VIII levels and normal aPTT.\n\nRecommended immediate management and follow‑up: conservative care and observation (rest/limit activities until comfortable, ibuprofen for pain/anti‑inflammatory effect as appropriate for age and dosing, ice as needed). Provide return precautions: seek urgent care if fever, inability to bear weight, increasing swelling/pain, recurrent episodes, or any unusual bruising/bleeding. If the child has recurrent knee effusions or bleeding episodes, obtain further hematology evaluation including repeat factor VIII/IX assays, von Willebrand panel (vWF antigen, activity/ristocetin cofactor), platelet function testing, and consider genetic testing and pediatric hematology referral.\n\nRationale for finalizing diagnosis now: single transient episode with comprehensive normal labs/imaging and clinical resolution strongly supports a benign post‑traumatic/reactive synovitis rather than infectious, inflammatory, or inherited bleeding disorders. Further testing is reserved for recurrence or new red flags.",
+      "final_diagnosis": "Transient synovitis",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Patient presents with swelling in the right knee and a family history of similar knee problems.\n- Vital signs: Temperature 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min.\n- 18-month-old boy with acute right knee swelling, refusal to bear weight, no fever, family history of an affected uncle, vital signs: T 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min.\n- Normal CBC, ESR, CRP, PT, aPTT, and Factor VIII activity in an 18-month-old boy with acute right knee swelling and refusal to bear weight.\n- 18-month-old boy with acute right knee swelling after playing at the park; now refuses to bear weight. Ultrasound-guided arthrocentesis: synovial fluid noninflammatory (low WBC, low RBC), Gram stain negative, cultures negative, crystals absent. CBC, ESR, CRP, PT, aPTT, and Factor VIII activity all normal.\n- AP and lateral radiographs of the right knee and right lower leg (tibia/fibula) are normal.\n- Right hip ultrasound and focused hip physical examination are normal (no effusion; normal ROM; no pain with internal rotation).\n- Parent consents to MRI under sedation; child fussy; no new swelling or pain elsewhere.\n- MRI of the right knee (non-contrast) including distal femur and proximal tibia: NORMAL\n- Focused right knee physical exam: swelling present, warm to touch, no overlying erythema, normal passive and active range of motion, able to bear weight, neurovascular exam normal.\n- Maternal uncle had similar knee swelling but no diagnosed bleeding disorder and no history of excessive bleeding after procedures; no other maternal male relatives affected.\n\n## Clinician's Assessment:\nSummary of findings supporting confidence: 18‑month‑old boy with a single, self‑limited episode of right knee swelling after playing. He was afebrile, bearing weight, and the focused knee exam returned to normal after 7 days. Extensive evaluation was unrevealing: CBC with differential, ESR, CRP normal; PT/aPTT normal; specific Factor VIII activity normal; ultrasound‑guided synovial fluid analysis (cell counts, Gram stain/culture, crystals) normal; knee and leg radiographs and noncontrast MRI normal. These results effectively rule out septic arthritis, inflammatory arthritis (JIA) as an active process, and a clinically significant hemarthrosis due to Hemophilia A (normal factor VIII activity and coagulation screens). Most likely diagnosis: post‑traumatic/aseptic (transient) synovitis of the right knee (minor soft‑tissue injury with reactive effusion) that has resolved.\n\nResidual uncertainties and what would be clarified with further monitoring: a bleeding disorder (including mild/atypical hemophilia, von Willebrand disease, or platelet function defects) remains a low but not zero possibility if recurrent spontaneous hemarthroses occur or if there is mucocutaneous bleeding. The reported maternal‑side uncle with “similar” knee problems is unconfirmed and not sufficient alone to establish an X‑linked bleeding disorder, particularly with current normal factor VIII levels and normal aPTT.\n\nRecommended immediate management and follow‑up: conservative care and observation (rest/limit activities until comfortable, ibuprofen for pain/anti‑inflammatory effect as appropriate for age and dosing, ice as needed). Provide return precautions: seek urgent care if fever, inability to bear weight, increasing swelling/pain, recurrent episodes, or any unusual bruising/bleeding. If the child has recurrent knee effusions or bleeding episodes, obtain further hematology evaluation including repeat factor VIII/IX assays, von Willebrand panel (vWF antigen, activity/ristocetin cofactor), platelet function testing, and consider genetic testing and pediatric hematology referral.\n\nRationale for finalizing diagnosis now: single transient episode with comprehensive normal labs/imaging and clinical resolution strongly supports a benign post‑traumatic/reactive synovitis rather than infectious, inflammatory, or inherited bleeding disorders. Further testing is reserved for recurrence or new red flags.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n- \"Atrial fibrillation\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "",
+  "current_uncertainties": {},
+  "all_information": [
+    "Patient presents with swelling in the right knee and a family history of similar knee problems.",
+    "Vital signs: Temperature 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min.",
+    "18-month-old boy with acute right knee swelling, refusal to bear weight, no fever, family history of an affected uncle, vital signs: T 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min.",
+    "Normal CBC, ESR, CRP, PT, aPTT, and Factor VIII activity in an 18-month-old boy with acute right knee swelling and refusal to bear weight.",
+    "18-month-old boy with acute right knee swelling after playing at the park; now refuses to bear weight. Ultrasound-guided arthrocentesis: synovial fluid noninflammatory (low WBC, low RBC), Gram stain negative, cultures negative, crystals absent. CBC, ESR, CRP, PT, aPTT, and Factor VIII activity all normal.",
+    "AP and lateral radiographs of the right knee and right lower leg (tibia/fibula) are normal.",
+    "Right hip ultrasound and focused hip physical examination are normal (no effusion; normal ROM; no pain with internal rotation).",
+    "Parent consents to MRI under sedation; child fussy; no new swelling or pain elsewhere.",
+    "MRI of the right knee (non-contrast) including distal femur and proximal tibia: NORMAL",
+    "Focused right knee physical exam: swelling present, warm to touch, no overlying erythema, normal passive and active range of motion, able to bear weight, neurovascular exam normal.",
+    "Maternal uncle had similar knee swelling but no diagnosed bleeding disorder and no history of excessive bleeding after procedures; no other maternal male relatives affected."
+  ],
+  "final_diagnosis": "Transient synovitis"
+}

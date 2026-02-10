@@ -1,0 +1,271 @@
+{
+  "session_id": "scenario_28992_d341797f_1770517052",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient with persistent post-extraction bleeding and history of easy bruising.",
+      "uncertainties": {
+        "von Willebrand disease": "mucocutaneous bleeding and dental bleeding",
+        "Platelet function disorder": "mucocutaneous bleeding and normal platelet count",
+        "Thrombocytopenia": "would show low platelets on CBC",
+        "Medication-induced bleeding": "use of antiplatelet/anticoagulant could explain findings"
+      },
+      "reference_relevance": "No past guideline matches found; limited guidance from prior experiences — need basic labs and medication history to proceed",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Obtain baseline hemodynamic status to assess for ongoing significant blood loss and to triage urgency before further testing"
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vitals: T 37°C, BP 108/74 mmHg, HR 90/min, RR normal.",
+      "uncertainties": {
+        "von Willebrand disease": "mucocutaneous bleeding after dental extraction and easy bruising",
+        "Platelet dysfunction (qualitative or drug-induced)": "mucocutaneous bleeding and normal coagulation tests possible",
+        "Thrombocytopenia": "low platelet count causing easy bruising and post-procedure bleeding",
+        "Anticoagulant/antiplatelet medication effect or coagulation factor deficiency": "prolonged bleeding after procedure."
+      },
+      "reference_relevance": "No relevant past guideline matches found in search; limited guidance from previous experiences, so rely on standard diagnostic approach.",
+      "action": "ASK PATIENT: Have you taken any medications recently, including aspirin, NSAIDs, anticoagulants (warfarin, DOACs), or herbal supplements (e.g., ginkgo, garlic, fish oil)? Also ask if you have a personal or family history of bleeding disorders, frequency and location of bruising, and any prior abnormal bleeding after surgeries or childbirth.",
+      "action_reason": "Medication-induced platelet dysfunction or anticoagulation could explain prolonged bleeding and is easily identified. Family/personal bleeding history and pattern of bruising help distinguish vWD from platelet disorders or thrombocytopenia."
+    },
+    {
+      "step_number": 3,
+      "new_information": "Patient reports no medications; easy bruising a few times per month on arms/legs; family history of an uncle with easy bruising and joint swelling; persistent bleeding after wisdom tooth extraction.",
+      "uncertainties": {
+        "1) von Willebrand disease": "mucocutaneous bleeding (bruising, post-dental bleeding) and positive family history support this.\n2) Platelet function disorder (e.g., Glanzmann thrombasthenia, Bernard-Soulier): mucocutaneous bleeding with possible normal platelet count.\n3) Thrombocytopenia/immune thrombocytopenic purpura (ITP): recurrent bruising could reflect low platelet count.\n4) Hemophilia A/B or other factor deficiency: family history of joint swelling could reflect hemarthroses in a relative but patient's bleeding pattern is more mucocutaneous (less typical)."
+      },
+      "reference_relevance": "query_medical_guidelines returned no relevant guidelines. This is unhelpful, but standard hematology practice still indicates initial screening labs for bleeding diatheses (CBC, PT/INR, aPTT, fibrinogen) and targeted tests for vWD given mucocutaneous bleeding and family history.",
+      "action": "REQUEST TEST: CBC with platelet count; PT/INR; aPTT; fibrinogen; vWF antigen; vWF activity (ristocetin cofactor); and factor VIII level.",
+      "action_reason": "CBC will identify thrombocytopenia (supporting ITP). PT/INR and aPTT will detect coagulation factor deficiencies (e.g., hemophilia prolongs aPTT). vWF antigen/activity and factor VIII will evaluate for von Willebrand disease, which is likely given mucocutaneous bleeding and family history; fibrinogen checks for qualitative/quantitative fibrinogen disorders."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Isolated prolonged aPTT at 60 sec with normal PT and normal factor VIII, normal vWF, platelet count 160k.",
+      "uncertainties": {
+        "Hemophilia B (factor IX deficiency)": "prolonged aPTT, family history of male relative with bleeding and joint swelling suggests possible X-linked",
+        "Factor XI deficiency": "prolonged aPTT, bleeding after surgery/dental procedures",
+        "Lupus anticoagulant or specific inhibitor": "can prolong aPTT but usually not cause bleeding",
+        "von Willebrand disease unlikely given normal vWF and factor VIII.": "under consideration"
+      },
+      "reference_relevance": "No prior guideline matches found; available experiences not directly helpful, so further testing is needed to distinguish factor deficiencies vs inhibitors.",
+      "action": "REQUEST TEST: Mixing study (1:1 patient plasma with normal plasma) and factor IX activity level; if mixing corrects, suggests factor deficiency (test factor IX), if not, suggests inhibitor (perform Bethesda assay).",
+      "action_reason": "Mixing study distinguishes between factor deficiency (correction) and inhibitor/presence of lupus anticoagulant (no correction). Given normal factor VIII and vWF, factor IX deficiency (Hemophilia B) is a top differential; checking factor IX activity will confirm. Bethesda assay quantifies inhibitor if present."
+    },
+    {
+      "step_number": 5,
+      "new_information": "Mixing study (1:1) corrected prolonged aPTT; factor IX activity normal; PT mildly prolonged at 15 sec; platelet count normal; vWF and factor VIII normal; patient has persistent post-extraction bleeding and easy bruising; family history of bleeding and joint swelling in uncle.",
+      "uncertainties": {
+        "Factor XI deficiency": "prolonged aPTT corrected with mixing",
+        "mucosal and surgical bleeding including dental common, family history possible. Factor V deficiency": "can prolong both PT and aPTT and cause bleeding",
+        "corrected with mixing. Factor XII/prekallikrein/HMWK deficiency": "prolonged aPTT corrected but usually asymptomatic and less likely to cause bleeding. Platelet function disorder (e.g., Glanzmann): mucosal bleeding but would not explain prolonged aPTT."
+      },
+      "reference_relevance": "No relevant prior guidelines found from the search; therefore prior cases were not directly helpful. Clinical reasoning and lab pattern (isolated prolonged aPTT corrected by mixing with normal intrinsic factors VIII/IX normal) guide next testing.",
+      "action": "REQUEST TEST: Factor XI activity level",
+      "action_reason": "Measuring factor XI activity will directly confirm or exclude factor XI deficiency, which fits the pattern of corrected prolonged aPTT and dental/mucosal bleeding; if normal, next tests should include factor V activity and assays for contact factors (XII, PK, HMWK) and platelet function testing to explain bleeding."
+    },
+    {
+      "step_number": 6,
+      "new_information": "Factor XI activity level normal",
+      "uncertainties": {
+        "1) Platelet function disorder (e.g., Glanzmann thrombasthenia)": "mucocutaneous bleeding, normal platelet count, family history of bleeding",
+        "2) Contact factor deficiency (factor XII, prekallikrein, HMWK)": "explains isolated prolonged aPTT that corrects on mixing but typically not associated with bleeding",
+        "3) von Willebrand disease variant or qualitative vWF defect not detected by standard antigen/activity assays": "can cause mucocutaneous bleeding though initial vWF tests were normal"
+      },
+      "reference_relevance": "query_medical_guidelines returned no relevant prior guidelines for this specific constellation — limited helpfulness; general knowledge suggests platelet function testing and contact factor assays are next steps",
+      "action": "REQUEST TEST: Platelet function testing — PFA-100/closure time and light-transmission platelet aggregation with ADP, collagen, epinephrine, and ristocetin; flow cytometry for platelet GPIIb/IIIa and GPIb expression. Also REQUEST TEST: Factor XII, prekallikrein, and high-molecular-weight kininogen (HMWK) levels.",
+      "action_reason": "Platelet function tests will detect qualitative platelet disorders (e.g., Glanzmann or Bernard–Soulier) that fit the mucocutaneous bleeding and family history despite normal platelet count; contact factor assays will explain the isolated prolonged aPTT that corrects with mixing — if these are low and platelet tests are normal, then a contact factor deficiency is likely (though bleeding would remain unexplained); if platelet function is abnormal, that explains the patient's bleeding and guides management for dental/surgical procedures."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Mixing study corrected prolonged aPTT; PT mildly prolonged; platelet count and platelet function normal; fibrinogen normal; factor VIII, IX, XI, XII normal; patient has family history of easy bruising.",
+      "uncertainties": {
+        "Factor V deficiency": "both PT and aPTT prolonged, bleeding after surgery—consistent",
+        "Factor II (prothrombin) deficiency": "prolongs PT and aPTT and causes bleeding—possible",
+        "Factor X deficiency": "prolongs PT and aPTT—possible",
+        "Vitamin K deficiency or decreased synthesis (e.g., liver disease)": "would affect II, VII, IX, X and prolong PT and aPTT—possible but patient denies anticoagulants and has normal platelet function and no clear liver disease history."
+      },
+      "reference_relevance": "Query returned no directly applicable guidelines; existing experiences support that mixing correction points toward factor deficiencies of the common pathway (V, II, X) and recommend targeted factor assays and liver function testing to differentiate causes.",
+      "action": "REQUEST TEST: Factor V activity level; Factor II (prothrombin) activity level; Factor X activity level; Thrombin time (TT); Liver function tests (AST, ALT, total bilirubin, albumin)",
+      "action_reason": "Measuring factor V, II, and X activities will identify which common-pathway deficiency explains the corrected mixing study and prolonged PT/aPTT. TT and LFTs help exclude dysfibrinogenemia and hepatic synthetic failure as causes."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Normal factor V, II, X activities; normal thrombin time; normal liver function tests (AST, ALT, bilirubin, albumin). Persistent isolated prolonged aPTT (60 s) with prior 1:1 mixing reported as 'normal/correcting'. Patient has bleeding after tooth extraction and history of easy bruising; family history of bleeding and joint swelling in an uncle.",
+      "uncertainties": {
+        "1) Acquired hemophilia A (factor VIII inhibitor)": "prolonged aPTT with bleeding",
+        "immediate mixing reportedly corrected but time-dependent inhibitor could manifest after incubation. 2) Lupus anticoagulant/antiphospholipid antibodies": "can prolong aPTT",
+        "usually prothrombotic but can cause laboratory prolongation and inconsistent mixing results. 3) Heparin contamination or anticoagulant exposure": "can prolong aPTT artifactually—TT was normal which argues against but low-level heparin could be present. 4) Factor XIII deficiency: causes bleeding with normal routine coagulation tests—less likely given prolonged aPTT but remains a consideration if other causes excluded."
+      },
+      "reference_relevance": "query returned no relevant prior guidelines. The lack of guideline matches limits external references; rely on pathophysiology and targeted testing to differentiate causes.",
+      "action": "REQUEST TEST: Repeat aPTT with immediate and 2-hour incubated 1:1 mixing study; REQUEST TEST: Bethesda assay for factor VIII inhibitor if incubated mixing shows non-correction or suspect acquired hemophilia; REQUEST TEST: Lupus anticoagulant panel (dRVVT and LA-sensitive aPTT) and antiphospholipid antibodies (anticardiolipin IgG/IgM, beta2-glycoprotein I); REQUEST TEST: Anti-Xa level to exclude heparin contamination; REQUEST TEST: Factor XIII activity if above tests negative.",
+      "action_reason": "Incubated mixing distinguishes time-dependent inhibitors (eg, acquired factor VIII inhibitors) from simple factor deficiencies. Bethesda assay quantifies inhibitors if present. Lupus anticoagulant testing differentiates antiphospholipid-mediated prolongation. Anti-Xa rules out sample heparin contamination. Factor XIII testing addresses bleeding diathesis with normal routine coagulation tests if other causes are excluded."
+    },
+    {
+      "step_number": 9,
+      "new_information": "Persistent isolated prolonged aPTT 60 sec with normal mixing studies and comprehensive factor assays and inhibitors; clinical bleeding after dental extraction and easy bruising; family history of bleeding and joint swelling in uncle.",
+      "uncertainties": {
+        "Laboratory artifact/reagent issue": "prolonged aPTT due to preanalytical or reagent problem affecting aPTT measurement",
+        "Occult congenital hemophilia A/B with normal factor VIII/IX levels at testing due to assay variability or mild deficiency": "under consideration",
+        "Fibrinolytic disorder (alpha-2 antiplasmin deficiency or enhanced plasmin activity)": "causes bleeding with normal routine coag tests"
+      },
+      "reference_relevance": "Guidelines search returned no direct matches; prior experiences not directly helpful. However, differential focuses on lab artifact, mild/variable congenital factor deficiency, and fibrinolytic disorders which require specific tests not yet done.",
+      "action": "REQUEST TEST: Repeat aPTT on a new blood draw with a different reagent and different lab (external) and also perform thrombin generation assay, euglobulin clot lysis time (ECLT), plasminogen activity, alpha-2 antiplasmin level, and plasmin-alpha2-antiplasmin complexes; also REQUEST TEST: Genetic testing for hemophilia A/B (F8 and F9 gene sequencing) and family testing (if available).",
+      "action_reason": "A persistent isolated prolonged aPTT with normal mixing and factor levels raises possibility of assay artifact or less-common acquired or congenital disorders (mild/variable factor deficiency, fibrinolytic disorders). Repeating aPTT at an external lab with different reagents can exclude reagent-specific artifact. Thrombin generation assay and fibrinolysis tests (ECLT, plasminogen, alpha-2 antiplasmin, PAP complexes) assess hyperfibrinolysis, which can cause bleeding despite normal routine tests. Genetic testing for F8/F9 can identify mild hemophilia variants missed by functional assays and inform family risk."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Extensive hemostasis testing returned normal results across coagulation factors, vWF studies, platelet count and function tests, inhibitors, fibrinolysis, thrombin generation, and genetic testing for hemophilia A/B. Patient has easy bruising a few times a month and family history of similar bleeding and joint swelling; post-extraction persistent bleeding only at site of wisdom tooth removal.",
+      "uncertainties": {
+        "Atypical/qualitative vWD (type 2 variants not detected by standard assays)": "persistence: normal vWF antigen/activity but clinical bleeding and family history",
+        "Platelet secretion/storage pool disorder (delta storage pool deficiency) with normal LTA and PFA-100": "under consideration",
+        "Connective tissue disorder (eg, Ehlers-Danlos) causing vascular fragility and joint issues in family": "under consideration",
+        "Local surgical/technical cause or local hyperfibrinolysis at wound site despite normal systemic tests.": "under consideration"
+      },
+      "reference_relevance": "Prior guideline search returned no directly relevant matches; available diagnostic experiences are not helpful for a case with normal extensive laboratory evaluation—clinical correlation and targeted additional tests (platelet dense granule testing by electron microscopy, tests for connective tissue disorder, assessment for local fibrinolysis with tranexamic acid trial, evaluate surgical site for local causes) may be helpful.",
+      "action": "ASK PATIENT: Do you have any joint hypermobility, skin hyperextensibility, or family members with diagnosed connective tissue disorders? Also ask: when the bleeding occurs, is it mucosal (gums, nosebleeds) or mostly skin bruising? Any history of heavy menstrual bleeding? Have topical or systemic hemostatic measures (pressure, local hemostatics, tranexamic acid) been tried and were they effective?",
+      "action_reason": "These questions will help differentiate between systemic platelet/vWF disorders, connective tissue-related vascular fragility, and local surgical causes; responses guide targeted next tests (platelet dense granule studies, genetics for Ehlers-Danlos, local wound evaluation, therapeutic tranexamic acid trial)."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Patient reports bleeding from gums after extraction, easy bruising on arms/legs a few times monthly, no joint hypermobility or skin hyperextensibility, uncle with bleeding and joint swelling, gauze slowed but did not stop bleeding, no tranexamic acid given yet.",
+      "uncertainties": {
+        "Platelet dense‑granule (δ‑storage pool) deficiency": "mucosal bleeding with normal routine platelet aggregation and counts can be missed without ATP secretion/electron microscopy",
+        "Connective tissue disorder (e.g., vascular or classical Ehlers‑Danlos)": "explains easy bruising and family history of joint issues despite lack of overt skin hyperextensibility in patient",
+        "Unidentified platelet signaling/receptor defect (e.g., GPVI or novel platelet function disorder)": "could present with mucosal bleeding and normal standard tests."
+      },
+      "reference_relevance": "No relevant guidelines found from prior database search; existing guidelines for bleeding disorders emphasize evaluation for storage pool defects and specialized platelet secretion testing when standard assays are unrevealing—current guideline search returned no direct matches but this approach is supported by expert consensus in complex bleeding clinics.",
+      "action": "REQUEST TEST: Platelet electron microscopy for dense (delta) granules and platelet ATP secretion assay (lumi‑aggregometry) to assess dense‑granule storage pool function",
+      "action_reason": "These specialized tests detect storage pool deficiencies or secretion defects that can cause mucosal bleeding and easy bruising despite normal platelet count and routine aggregation/PFA‑100; a positive result would explain the phenotype and guide management (tranexamic acid, local hemostatics, platelet transfusion if severe)."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Persistent oral bleeding after wisdom tooth extraction with normal extensive hemostasis workup; patient reports mucosal bleeding only during this event and easy skin bruising; family history of bleeding and joint swelling in an uncle.",
+      "uncertainties": {
+        "1) Local surgical bleeding/inadequate local hemostasis": "bleeding localized to extraction site and only partially responsive to gauze packing",
+        "2) Occult platelet function defect not captured by standard assays (e.g., high-shear platelet receptor dysfunction or transient platelet dysfunction)": "mucosal bleeding and easy bruising suggest platelet-type bleeding despite normal platelet studies",
+        "3) Vascular/connective tissue disorder causing vessel fragility (e.g., certain Ehlers–Danlos variants)": "family history of joint swelling and easy bruising could indicate hereditary connective tissue disorder affecting hemostasis."
+      },
+      "reference_relevance": "No directly relevant past guideline entries returned for this specific combination—search unhelpful. Available evidence from tests suggests systemic coagulation and platelet pathways largely normal, so guideline search adds little; thus practical local therapeutic steps and focused clinical assessments are most informative now.",
+      "action": "REQUEST TEST: Oral surgical re-evaluation by oral surgeon/dentist for definitive local hemostasis (suture/ligation, local hemostatic agents like oxidized cellulose/gelatin sponge) AND trial of topical tranexamic acid mouthwash and consider systemic tranexamic acid if not contraindicated; also REQUEST TEST: Complete ISTH-BAT bleeding score (structured bleeding history).",
+      "action_reason": "If bleeding stops with definitive local hemostasis and/or tranexamic acid, this supports a predominantly local surgical bleeding cause rather than an unrecognized systemic disorder. A structured ISTH-BAT will quantify mucocutaneous bleeding and help distinguish a platelet-type/vascular bleeding phenotype and guide need for further genetic/connective-tissue evaluation or specialist referral."
+    },
+    {
+      "step_number": 13,
+      "new_information": "Extensive hemostasis workup normal across standard coagulation factors, platelet counts, platelet aggregation, vWF antigen/activity, fibrinolysis tests, and genetic testing for F8/F9; patient has persistent gum bleeding after extraction despite local measures and topical tranexamic acid; easy bruising and a family history (uncle) of bleeding and joint swelling.",
+      "uncertainties": {
+        "Local surgical bleeding/inadequate local hemostasis": "bleeding localized to extraction site despite some local measures",
+        "Occult platelet adhesion/ shear-dependent platelet dysfunction or qualitative vWF abnormality (e.g., multimer or collagen-binding defects) not detected by standard vWF antigen/activity or aggregation assays": "mucosal bleeding and bruising suggest platelet-vWF axis problem",
+        "Vascular/connective tissue disorder with fragility": "family history and bruising could reflect vascular fragility."
+      },
+      "reference_relevance": "query_medical_guidelines returned no directly relevant prior guidelines. Prior testing was comprehensive but may not assess shear-dependent vWF function or multimer structure; thus the guideline search was not helpful for this specific rare/occult defect.",
+      "action": "REQUEST TEST: vWF multimer analysis; vWF collagen-binding assay (vWF:CB); low-dose ristocetin-induced platelet aggregation (RIPA); platelet shear-based function testing (e.g., cone-and-plate(let) analyzer or microfluidic whole-blood flow assay); VWF gene sequencing and extended platelet-function gene panel; referral to hereditary bleeding disorder clinic/genetics for family evaluation.",
+      "action_reason": "These tests detect qualitative/structural vWF defects (abnormal multimers or impaired collagen binding) and shear-dependent platelet adhesion defects that are not identified by standard vWF antigen/activity or light-transmission aggregation; genetic testing and family evaluation will assess inherited causes given the family history and joint swelling in the uncle, and results will guide targeted therapies (DDAVP response, vWF concentrate, or local measures)."
+    },
+    {
+      "step_number": 14,
+      "new_information": "Extensive haemostasis workup normal across coagulation factors, platelet counts and function tests, vWF studies, fibrinolysis tests, genetic panels; persistent oral bleeding after tooth extraction with history of easy bruising and family history of bleeding.",
+      "uncertainties": {
+        "1) Mild/rare platelet function defect undetected by available assays": "platelet signaling/cytoskeletal defects or receptor defects",
+        "2) Vascular/connective tissue disorder causing vessel fragility (eg vascular Ehlers–Danlos or other collagen defects)": "under consideration",
+        "3) Local surgical/technical cause with inadequate local hemostasis.": "under consideration"
+      },
+      "reference_relevance": "Guidelines search returned no direct matches; prior diagnostic experiences are limited for ultra-rare platelet signaling or subtle connective tissue disorders not captured by standard testing. The lack of guideline hits suggests high uncertainty and the need for specialist input and targeted tests (skin biopsy for collagen, joint imaging, specialized platelet function assays under flow, family genetic testing of extended connective tissue genes).",
+      "action": "ASK PATIENT: Would you consent to a trial of systemic tranexamic acid (oral 1 g three times daily for 3–5 days) and would you be willing to undergo dermatology/genetics referral for connective tissue disorder evaluation (including possible skin biopsy) and extended genetic testing? Also ASK PATIENT: any prior family members with arterial/organ rupture, easy gum bleeding, or early deaths from bleeding?",
+      "action_reason": "Trial of systemic tranexamic acid could help control mucosal bleeding acutely and support a diagnosis of enhanced fibrinolysis or mucosal bleeding tendency if effective; genetic/dermatology workup can evaluate vascular/connective tissue causes given family history and normal hemostasis tests."
+    },
+    {
+      "step_number": 15,
+      "new_information": "Patient consents to systemic tranexamic acid trial (oral 1 g TID for 3–5 days) and dermatology/genetics referral for connective tissue disorder evaluation including potential skin biopsy.",
+      "uncertainties": {
+        "Mild/undetected platelet function disorder": "easy bruising and mucosal bleeding after extraction despite normal platelet studies",
+        "Connective tissue/vascular disorder (e.g., EDS variant) causing bruising": "family history of uncle with bruising and joint swelling but no overt hyperextensibility in patient",
+        "Local surgical/technical bleeding": "persistent post-extraction bleeding despite packing",
+        "Undetected hyperfibrinolysis": "mucosal bleeding that may respond to antifibrinolytics despite normal fibrinolysis labs."
+      },
+      "reference_relevance": "Query returned no past guideline matches; however, current comprehensive testing and clinical response may still guide management. Given lack of guideline data returned, plan to trial tranexamic acid and pursue dermatology/genetic evaluation to address connective tissue causes and consider further specialized platelet/vascular testing if bleeding persists.",
+      "action": "REQUEST TEST: Start systemic tranexamic acid oral 1 g three times daily for 3 days (extend to 5 days if bleeding continues) and arrange dermatology/genetics referral for connective tissue disorder evaluation and possible skin biopsy.",
+      "action_reason": "Tranexamic acid targets potential local hyperfibrinolysis at mucosal extraction site and is low-risk; dermatology/genetics referral will evaluate for connective tissue/vascular causes given family history and easy bruising despite normal hemostasis tests."
+    },
+    {
+      "step_number": 16,
+      "new_information": "Patient started on systemic tranexamic acid 1 g TID for 3 days; dermatology/genetics referral arranged; extensive hemostasis workup normal across coagulation factors, vWF studies, platelet function, fibrinolysis markers, mixing studies, inhibitors, and genetic panels.",
+      "uncertainties": {
+        "1) Local surgical bleeding due to inadequate local hemostasis": "packing slowed but did not stop bleeding",
+        "2) Vascular/connective tissue disorder (e.g., vascular Ehlers-Danlos)": "family history of uncle with bruising and joint swelling and patient easy bruising",
+        "3) Rare platelet/vascular abnormality not detected by standard tests (endothelial/adhesion defects or platelet signaling abnormalities)": "under consideration",
+        "4) Residual localized hyperfibrinolysis at extraction site responsive to antifibrinolytics.": "under consideration"
+      },
+      "reference_relevance": "The query returned no directly relevant past guideline cases; however, given normal comprehensive labs, guidelines are limited for rare platelet/vascular disorders and local hyperfibrinolysis—specialist referral and trial of antifibrinolytic therapy are reasonable.",
+      "action": "ASK PATIENT: Is the oral bleeding improving after starting tranexamic acid? Are you having any side effects (nausea, visual changes, muscle pain) and do you have history of thrombosis or active malignancy? Also ASK PATIENT: Have you noticed any abnormal scarring, thin/translucent skin, or family history of arterial rupture or easy bruising beyond your uncle?",
+      "action_reason": "Determining response to tranexamic acid helps evaluate if localized hyperfibrinolysis is the cause. Assessing thrombosis risk is necessary before continuing antifibrinolytics. Additional connective tissue signs increase suspicion for vascular EDS and guide urgency of genetics/dermatology evaluation."
+    },
+    {
+      "step_number": 17,
+      "new_information": "Oral bleeding improving with systemic tranexamic acid; patient reports no side effects; no history of thrombosis or malignancy; denies abnormal scarring or thin skin; family history limited to uncle with bruising and joint swelling; extensive coagulation and platelet testing and genetic testing normal.",
+      "uncertainties": {
+        "1) Local surgical bleeding/inadequate local hemostasis": "dental source possibly still oozing despite packing and suturing",
+        "2) Local or systemic hyperfibrinolysis not detected by standard labs but clinically responsive to antifibrinolytic therapy": "under consideration",
+        "3) Rare platelet function/connective tissue disorder or novel genetic bleeding disorder not detected by available tests.": "under consideration"
+      },
+      "reference_relevance": "Guidelines search returned no direct prior cases; however, the clinical response to tranexamic acid suggests fibrinolysis may be contributing even if labs are normal. Given normal broad hemostasis testing, priority is ensuring definitive local hemostasis and continued antifibrinolytic support; genetics/dermatology referral is reasonable to evaluate for occult connective tissue/platelet disorders.",
+      "action": "ASK PATIENT: Are you still having any joint pain or swelling like your uncle experienced, and do any of your bruises occur after minor bumps or spontaneously? Also ASK PATIENT: are you willing to stop tranexamic acid if you develop any signs of clotting (leg swelling, chest pain) and to follow up promptly if bleeding recurs?",
+      "action_reason": "Asking about joint symptoms and bruise triggers helps assess for underlying connective tissue or hemarthrosis history that could suggest hereditary disorders; confirming willingness to monitor for rare tranexamic acid complications ensures safety while continuing therapy."
+    },
+    {
+      "step_number": 18,
+      "new_information": "Oral bleeding improved with systemic tranexamic acid; still mild oozing but controlled.",
+      "uncertainties": {
+        "Local mucosal hyperfibrinolysis": "responds to TXA and mucosal bleeding",
+        "Mild inherited platelet function disorder not detected by standard tests": "mucocutaneous bleeding, family history",
+        "Connective tissue/vascular fragility": "easy bruising and family joint issues but lacking systemic connective tissue features."
+      },
+      "reference_relevance": "Query returned no directly relevant prior guidelines. However, the response to TXA and normal extensive haemostatic testing suggests a localized fibrinolytic process or subtle platelet dysfunction not captured by standard assays; genetic/connective-tissue evaluation remains moderately relevant given family history.",
+      "action": "ASK PATIENT: Are you willing to have a supervised dental procedure (e.g., re-suturing, local hemostatic agent application) with local tranexamic acid mouthwash plus topical hemostatics to achieve definitive control? If bleeding persists despite local measures, would you consent to a trial of short-course systemic antifibrinolytics prior to minor procedures in the future and to family member testing? Also ASK PATIENT: any history of hematuria, GI bleeding, or prolonged bleeding after minor cuts?",
+      "action_reason": "This helps confirm that bleeding is primarily local and responsive to antifibrinolytics, guides future peri-procedural management, and clarifies presence of other bleeding sites to evaluate for systemic bleeding disorder."
+    },
+    {
+      "step_number": 19,
+      "new_information": "Patient reports gum bleeding improved with systemic tranexamic acid and local measures; easy bruising after minor bumps; family history of uncle with bruising and joint swelling; no abnormal scarring or hypermobility; willing to undergo supervised dental hemostasis and family testing.",
+      "uncertainties": {
+        "Inherited platelet function disorder not detected by standard assays": "family history and mucocutaneous bleeding despite normal platelet function tests",
+        "connective tissue/vascular fragility disorder (e.g., atypical EDS) vs localized hyperfibrinolysis at oral site": "bleeding improved with antifibrinolytic therapy suggesting fibrinolytic contribution but systemic fibrinolysis tests normal."
+      },
+      "reference_relevance": "Guideline search returned no directly relevant prior cases; existing tests largely normal which limits applicability of typical bleeding disorder guidance—still, trial of antifibrinolytic has been clinically helpful and genetics referral may uncover atypical causes.",
+      "action": "REQUEST TEST: Supervised dental re-suturing/local hemostatics plus topical tranexamic acid mouthwash; arrange genetics/dermatology testing with possible skin biopsy and family member testing.",
+      "action_reason": "Local definitive hemostasis combined with topical/systemic antifibrinolytics addresses the immediate bleeding source; dermatology/genetics evaluation with family testing may identify atypical connective tissue or inherited bleeding disorders not captured by standard labs and will help guide long-term management and perioperative planning."
+    },
+    {
+      "step_number": 20,
+      "new_information": "Final diagnosis: Bleeding disorder, NOS",
+      "uncertainties": {},
+      "reference_relevance": "N/A - Final diagnosis",
+      "action": "DIAGNOSIS READY",
+      "action_reason": "After an extensive, stepwise evaluation including CBC, coagulation panel (PT/INR, multiple aPTT measurements with immediate and incubated 1:1 mixing and repeat external reagent), comprehensive factor assays (II, V, VIII, IX, X, XI, XIII), vWF testing (antigen, activity, multimer, collagen binding, RIPA), platelet studies (count, PFA-100, light-transmission aggregation with multiple agonists, lumi-aggregometry/ATP secretion, flow cytometry for GPIIb/IIIa and GPIb, electron microscopy for dense granules, shear-based assays), fibrinolysis testing (ECLT, plasminogen activity, alpha2-antiplasmin, PAP complexes), thrombin generation, antiphospholipid and lupus anticoagulant testing, anti-Xa, genetic sequencing for F8/F9 and VWF and extended platelet-gene panel, and targeted testing for contact factors — all of which returned normal — there is no laboratory evidence for a defined coagulation factor deficiency, von Willebrand disease, platelet structural or functional disorder, systemic hyperfibrinolysis, inhibitor, or antiphospholipid syndrome. Clinically, the patient has mucosal bleeding from a dental extraction that responded to topical and systemic tranexamic acid and a history of easy bruising with positive family history (uncle) for bruising/joint issues but no clear connective-tissue stigmata.\n\nMost likely diagnosis: Bleeding disorder not otherwise specified (NOS) — most consistent with: 1) localized oral-site hyperfibrinolysis contributing to prolonged post-extraction bleeding (supported by good response to topical/systemic tranexamic acid) and/or 2) a mild, inherited bleeding tendency below the detection threshold of current laboratory assays (subclinical/qualitative platelet or vessel-wall defect). \n\nWhy other causes are unlikely: Hemophilia A/B, factor deficiencies, vWD (all quantitative/qualitative tests normal), platelet count/major platelet function disorders, fibrinolytic system disorders, inhibitors, antiphospholipid antibody–mediated coagulopathy, and liver disease have been effectively excluded by the above testing and clinical history. A connective tissue disorder (e.g., Ehlers–Danlos) is less likely given lack of skin hyperextensibility, abnormal scarring, or joint hypermobility, though a mild familial connective-tissue variant cannot be absolutely excluded.\n\nRemaining uncertainties and what would clarify them: Intermittent or very mild platelet/vWF dysfunction or rare/novel genetic variants not covered by panels; small-vessel/vascular fragility not yet demonstrated on exam/skin biopsy; and confirmation of family segregation. To resolve these, I would pursue: family member targeted testing during bleeding episodes, extended genomic testing (whole-exome/genome with research referral), skin biopsy and dermatology/genetics evaluation for mild connective-tissue disease if clinical suspicion persists, and prospective documentation of bleeding phenotype (repeat ISTH-BAT if new events). \n\nPractical recommendations: continue topical/systemic tranexamic acid for ongoing/episodic mucosal bleeding and as prophylaxis (eg, oral TXA mouthwash or oral TXA 1 g TID starting the day of and for 3 days after future dental procedures), use local hemostatic measures (suture, oxidized cellulose/gelatin sponge, topical fibrin sealant) and avoid NSAIDs/aspirin. Provide written guidance for peri-procedural management and consider prophylactic TXA for minor procedures. Arrange continued follow-up at a hereditary bleeding disorders clinic and offer family-member evaluation. Provide urgent reassessment if bleeding worsens, hematuria, melena, hypotension, or thrombotic symptoms develop. ",
+      "final_diagnosis": "Bleeding disorder, NOS",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Patient with persistent post-extraction bleeding and history of easy bruising.\n- Vitals: T 37°C, BP 108/74 mmHg, HR 90/min, RR normal.\n- Patient reports no medications; easy bruising a few times per month on arms/legs; family history of an uncle with easy bruising and joint swelling; persistent bleeding after wisdom tooth extraction.\n- Isolated prolonged aPTT at 60 sec with normal PT and normal factor VIII, normal vWF, platelet count 160k.\n- Mixing study (1:1) corrected prolonged aPTT; factor IX activity normal; PT mildly prolonged at 15 sec; platelet count normal; vWF and factor VIII normal; patient has persistent post-extraction bleeding and easy bruising; family history of bleeding and joint swelling in uncle.\n- Factor XI activity level normal\n- Mixing study corrected prolonged aPTT; PT mildly prolonged; platelet count and platelet function normal; fibrinogen normal; factor VIII, IX, XI, XII normal; patient has family history of easy bruising.\n- Normal factor V, II, X activities; normal thrombin time; normal liver function tests (AST, ALT, bilirubin, albumin). Persistent isolated prolonged aPTT (60 s) with prior 1:1 mixing reported as 'normal/correcting'. Patient has bleeding after tooth extraction and history of easy bruising; family history of bleeding and joint swelling in an uncle.\n- Persistent isolated prolonged aPTT 60 sec with normal mixing studies and comprehensive factor assays and inhibitors; clinical bleeding after dental extraction and easy bruising; family history of bleeding and joint swelling in uncle.\n- Extensive hemostasis testing returned normal results across coagulation factors, vWF studies, platelet count and function tests, inhibitors, fibrinolysis, thrombin generation, and genetic testing for hemophilia A/B. Patient has easy bruising a few times a month and family history of similar bleeding and joint swelling; post-extraction persistent bleeding only at site of wisdom tooth removal.\n- Patient reports bleeding from gums after extraction, easy bruising on arms/legs a few times monthly, no joint hypermobility or skin hyperextensibility, uncle with bleeding and joint swelling, gauze slowed but did not stop bleeding, no tranexamic acid given yet.\n- Persistent oral bleeding after wisdom tooth extraction with normal extensive hemostasis workup; patient reports mucosal bleeding only during this event and easy skin bruising; family history of bleeding and joint swelling in an uncle.\n- Extensive hemostasis workup normal across standard coagulation factors, platelet counts, platelet aggregation, vWF antigen/activity, fibrinolysis tests, and genetic testing for F8/F9; patient has persistent gum bleeding after extraction despite local measures and topical tranexamic acid; easy bruising and a family history (uncle) of bleeding and joint swelling.\n- Extensive haemostasis workup normal across coagulation factors, platelet counts and function tests, vWF studies, fibrinolysis tests, genetic panels; persistent oral bleeding after tooth extraction with history of easy bruising and family history of bleeding.\n- Patient consents to systemic tranexamic acid trial (oral 1 g TID for 3–5 days) and dermatology/genetics referral for connective tissue disorder evaluation including potential skin biopsy.\n- Patient started on systemic tranexamic acid 1 g TID for 3 days; dermatology/genetics referral arranged; extensive hemostasis workup normal across coagulation factors, vWF studies, platelet function, fibrinolysis markers, mixing studies, inhibitors, and genetic panels.\n- Oral bleeding improving with systemic tranexamic acid; patient reports no side effects; no history of thrombosis or malignancy; denies abnormal scarring or thin skin; family history limited to uncle with bruising and joint swelling; extensive coagulation and platelet testing and genetic testing normal.\n- Oral bleeding improved with systemic tranexamic acid; still mild oozing but controlled.\n- Patient reports gum bleeding improved with systemic tranexamic acid and local measures; easy bruising after minor bumps; family history of uncle with bruising and joint swelling; no abnormal scarring or hypermobility; willing to undergo supervised dental hemostasis and family testing.\n\n## Clinician's Assessment:\nAfter an extensive, stepwise evaluation including CBC, coagulation panel (PT/INR, multiple aPTT measurements with immediate and incubated 1:1 mixing and repeat external reagent), comprehensive factor assays (II, V, VIII, IX, X, XI, XIII), vWF testing (antigen, activity, multimer, collagen binding, RIPA), platelet studies (count, PFA-100, light-transmission aggregation with multiple agonists, lumi-aggregometry/ATP secretion, flow cytometry for GPIIb/IIIa and GPIb, electron microscopy for dense granules, shear-based assays), fibrinolysis testing (ECLT, plasminogen activity, alpha2-antiplasmin, PAP complexes), thrombin generation, antiphospholipid and lupus anticoagulant testing, anti-Xa, genetic sequencing for F8/F9 and VWF and extended platelet-gene panel, and targeted testing for contact factors — all of which returned normal — there is no laboratory evidence for a defined coagulation factor deficiency, von Willebrand disease, platelet structural or functional disorder, systemic hyperfibrinolysis, inhibitor, or antiphospholipid syndrome. Clinically, the patient has mucosal bleeding from a dental extraction that responded to topical and systemic tranexamic acid and a history of easy bruising with positive family history (uncle) for bruising/joint issues but no clear connective-tissue stigmata.\n\nMost likely diagnosis: Bleeding disorder not otherwise specified (NOS) — most consistent with: 1) localized oral-site hyperfibrinolysis contributing to prolonged post-extraction bleeding (supported by good response to topical/systemic tranexamic acid) and/or 2) a mild, inherited bleeding tendency below the detection threshold of current laboratory assays (subclinical/qualitative platelet or vessel-wall defect). \n\nWhy other causes are unlikely: Hemophilia A/B, factor deficiencies, vWD (all quantitative/qualitative tests normal), platelet count/major platelet function disorders, fibrinolytic system disorders, inhibitors, antiphospholipid antibody–mediated coagulopathy, and liver disease have been effectively excluded by the above testing and clinical history. A connective tissue disorder (e.g., Ehlers–Danlos) is less likely given lack of skin hyperextensibility, abnormal scarring, or joint hypermobility, though a mild familial connective-tissue variant cannot be absolutely excluded.\n\nRemaining uncertainties and what would clarify them: Intermittent or very mild platelet/vWF dysfunction or rare/novel genetic variants not covered by panels; small-vessel/vascular fragility not yet demonstrated on exam/skin biopsy; and confirmation of family segregation. To resolve these, I would pursue: family member targeted testing during bleeding episodes, extended genomic testing (whole-exome/genome with research referral), skin biopsy and dermatology/genetics evaluation for mild connective-tissue disease if clinical suspicion persists, and prospective documentation of bleeding phenotype (repeat ISTH-BAT if new events). \n\nPractical recommendations: continue topical/systemic tranexamic acid for ongoing/episodic mucosal bleeding and as prophylaxis (eg, oral TXA mouthwash or oral TXA 1 g TID starting the day of and for 3 days after future dental procedures), use local hemostatic measures (suture, oxidized cellulose/gelatin sponge, topical fibrin sealant) and avoid NSAIDs/aspirin. Provide written guidance for peri-procedural management and consider prophylactic TXA for minor procedures. Arrange continued follow-up at a hereditary bleeding disorders clinic and offer family-member evaluation. Provide urgent reassessment if bleeding worsens, hematuria, melena, hypotension, or thrombotic symptoms develop. \n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n- \"Atrial fibrillation\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "",
+  "current_uncertainties": {},
+  "all_information": [
+    "Patient with persistent post-extraction bleeding and history of easy bruising.",
+    "Vitals: T 37°C, BP 108/74 mmHg, HR 90/min, RR normal.",
+    "Patient reports no medications; easy bruising a few times per month on arms/legs; family history of an uncle with easy bruising and joint swelling; persistent bleeding after wisdom tooth extraction.",
+    "Isolated prolonged aPTT at 60 sec with normal PT and normal factor VIII, normal vWF, platelet count 160k.",
+    "Mixing study (1:1) corrected prolonged aPTT; factor IX activity normal; PT mildly prolonged at 15 sec; platelet count normal; vWF and factor VIII normal; patient has persistent post-extraction bleeding and easy bruising; family history of bleeding and joint swelling in uncle.",
+    "Factor XI activity level normal",
+    "Mixing study corrected prolonged aPTT; PT mildly prolonged; platelet count and platelet function normal; fibrinogen normal; factor VIII, IX, XI, XII normal; patient has family history of easy bruising.",
+    "Normal factor V, II, X activities; normal thrombin time; normal liver function tests (AST, ALT, bilirubin, albumin). Persistent isolated prolonged aPTT (60 s) with prior 1:1 mixing reported as 'normal/correcting'. Patient has bleeding after tooth extraction and history of easy bruising; family history of bleeding and joint swelling in an uncle.",
+    "Persistent isolated prolonged aPTT 60 sec with normal mixing studies and comprehensive factor assays and inhibitors; clinical bleeding after dental extraction and easy bruising; family history of bleeding and joint swelling in uncle.",
+    "Extensive hemostasis testing returned normal results across coagulation factors, vWF studies, platelet count and function tests, inhibitors, fibrinolysis, thrombin generation, and genetic testing for hemophilia A/B. Patient has easy bruising a few times a month and family history of similar bleeding and joint swelling; post-extraction persistent bleeding only at site of wisdom tooth removal.",
+    "Patient reports bleeding from gums after extraction, easy bruising on arms/legs a few times monthly, no joint hypermobility or skin hyperextensibility, uncle with bleeding and joint swelling, gauze slowed but did not stop bleeding, no tranexamic acid given yet.",
+    "Persistent oral bleeding after wisdom tooth extraction with normal extensive hemostasis workup; patient reports mucosal bleeding only during this event and easy skin bruising; family history of bleeding and joint swelling in an uncle.",
+    "Extensive hemostasis workup normal across standard coagulation factors, platelet counts, platelet aggregation, vWF antigen/activity, fibrinolysis tests, and genetic testing for F8/F9; patient has persistent gum bleeding after extraction despite local measures and topical tranexamic acid; easy bruising and a family history (uncle) of bleeding and joint swelling.",
+    "Extensive haemostasis workup normal across coagulation factors, platelet counts and function tests, vWF studies, fibrinolysis tests, genetic panels; persistent oral bleeding after tooth extraction with history of easy bruising and family history of bleeding.",
+    "Patient consents to systemic tranexamic acid trial (oral 1 g TID for 3–5 days) and dermatology/genetics referral for connective tissue disorder evaluation including potential skin biopsy.",
+    "Patient started on systemic tranexamic acid 1 g TID for 3 days; dermatology/genetics referral arranged; extensive hemostasis workup normal across coagulation factors, vWF studies, platelet function, fibrinolysis markers, mixing studies, inhibitors, and genetic panels.",
+    "Oral bleeding improving with systemic tranexamic acid; patient reports no side effects; no history of thrombosis or malignancy; denies abnormal scarring or thin skin; family history limited to uncle with bruising and joint swelling; extensive coagulation and platelet testing and genetic testing normal.",
+    "Oral bleeding improved with systemic tranexamic acid; still mild oozing but controlled.",
+    "Patient reports gum bleeding improved with systemic tranexamic acid and local measures; easy bruising after minor bumps; family history of uncle with bruising and joint swelling; no abnormal scarring or hypermobility; willing to undergo supervised dental hemostasis and family testing."
+  ],
+  "final_diagnosis": "Bleeding disorder, NOS"
+}

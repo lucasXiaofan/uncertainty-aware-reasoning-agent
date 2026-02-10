@@ -1,0 +1,230 @@
+{
+  "session_id": "scenario_32477_99810517_1770518660",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presents with chronic cough and recurrent bouts of bronchitis.",
+      "current_uncertainties": [
+        "Chronic bronchitis (COPD): fits with chronic productive cough and recurrent bronchitic exacerbations",
+        "Asthma (including cough-variant asthma): can present with chronic cough and repeated bronchitic episodes",
+        "Bronchiectasis: recurrent infections and persistent productive cough suggest airway dilation and impaired clearance",
+        "Upper airway cough syndrome (post-nasal drip)/GERD: common causes of chronic cough that can predispose to recurrent bronchitis."
+      ],
+      "next_step_action": "REQUEST TEST: Vital Signs"
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs within normal limits: Temperature 36.7°C, BP 125/78 mmHg, HR 80 bpm, RR 16/min.",
+      "current_uncertainties": [
+        "Chronic bronchitis: recurrent bronchitic episodes and chronic productive cough suggest chronic bronchitis (COPD), especially in smokers",
+        "Asthma: can present with chronic cough and recurrent bronchitic exacerbations, may have wheeze or variable airflow obstruction",
+        "Bronchiectasis: recurrent infections with persistent productive, often purulent sputum and possible hemoptysis",
+        "Upper airway cough syndrome (postnasal drip): common cause of chronic cough, often accompanied by nasal symptoms and throat clearing."
+      ],
+      "next_step_action": "ASK PATIENT: How long have you had the cough and is it productive (if so, what is the sputum like)?"
+    },
+    {
+      "step_number": 3,
+      "new_information": "Chronic productive cough for 11 years with copious, thick, foamy, yellow-green sputum, worse in mornings, and recurrent bronchitis episodes requiring antibiotics.",
+      "current_uncertainties": [
+        "Bronchiectasis: chronic daily productive cough with large volumes of purulent sputum and frequent infections suggests airway dilation and impaired clearance",
+        "Chronic bronchitis/COPD: long-standing productive cough could reflect chronic bronchitic phenotype, especially if smoking history positive",
+        "Non-tuberculous mycobacterial (NTM) or other chronic airway infection: recurrent antibiotic-treated infections and purulent sputum could reflect NTM or atypical pathogens",
+        "Cystic fibrosis or primary ciliary dyskinesia (less likely adult-onset but possible): lifelong/longstanding productive cough and recurrent infections could reflect congenital mucociliary clearance disorders."
+      ],
+      "next_step_action": "ASK PATIENT: What is your age, and do you currently smoke or have you ever smoked (if yes, how many pack-years)?"
+    },
+    {
+      "step_number": 4,
+      "new_information": "Patient is 51 years old and has never smoked.",
+      "current_uncertainties": [
+        "Bronchiectasis: chronic, long-standing productive cough with copious purulent sputum and recurrent bronchitis is classic for bronchiectasis",
+        "Chronic bronchitis (COPD phenotype): chronic productive cough could fit but much less likely without smoking history",
+        "Primary ciliary dyskinesia / cystic fibrosis-related bronchiectasis: can cause lifelong productive cough and recurrent infections—consider if associated sinusitis/infertility but adult presentation less typical",
+        "Immunodeficiency (e.g., CVID) with recurrent respiratory infections leading to bronchiectasis: possible given recurrent antibiotic-treated bronchitis episodes."
+      ],
+      "next_step_action": "ASK PATIENT: Do you have a history of chronic sinusitis or frequent ear infections?"
+    },
+    {
+      "step_number": 5,
+      "new_information": "Patient denies chronic sinusitis or frequent ear infections.",
+      "current_uncertainties": [
+        "Bronchiectasis: chronic daily copious purulent sputum and recurrent infections for 11 years strongly suggest bronchiectasis",
+        "Chronic bronchitis (COPD): chronic productive cough meets clinical criteria but patient is a lifelong non-smoker making classic chronic bronchitis less likely",
+        "Nontuberculous mycobacterial (NTM) infection: can cause chronic productive cough and recurrent bronchitic episodes and is associated with bronchiectasis",
+        "Primary ciliary dyskinesia: causes chronic productive cough and recurrent infections but usually includes chronic sinusitis/otitis—absence of these makes it less likely."
+      ],
+      "next_step_action": "ASK PATIENT: Do you ever cough up blood (hemoptysis)?"
+    },
+    {
+      "step_number": 6,
+      "new_information": "Patient reports never coughing up blood (no hemoptysis).",
+      "current_uncertainties": [
+        "Bronchiectasis: chronic productive cough for 11 years with copious purulent sputum and recurrent bronchitis supports bronchiectasis",
+        "Chronic bronchitis (non-smoker/other exposures): chronic productive cough fits but lack of smoking history makes this less likely unless environmental/occupational exposures present",
+        "Primary ciliary dyskinesia: can cause lifelong productive cough and recurrent infections but typically has history of chronic sinusitis/ear infections and earlier onset, making it less likely here",
+        "Immunodeficiency (e.g., humoral immunodeficiency): recurrent bronchitis could reflect impaired host defenses, though absence of sinus disease somewhat lowers probability."
+      ],
+      "next_step_action": "REQUEST TEST: Chest (pulmonary) exam including auscultation and check for digital clubbing"
+    },
+    {
+      "step_number": 7,
+      "new_information": "Chest exam: no cyanosis or accessory muscle use; no digital clubbing. Auscultation: crackles and wheeze localized to the right middle lobe. Percussion normal; no thoracic tenderness.",
+      "current_uncertainties": [
+        "Bronchiectasis (diffuse or localized): copious, chronic purulent sputum and recurrent infections strongly suggest bronchiectasis",
+        "Chronic bronchitis: long-standing productive cough fits criteria though patient is a never-smoker making it less likely",
+        "Localized bronchiectasis or endobronchial obstruction (e.g., tumor or chronic aspiration): focal RML findings suggest a localized process causing recurrent infections",
+        "Immunodeficiency with recurrent infections: possible contributor to chronic productive cough though no other systemic features noted"
+      ],
+      "next_step_action": "REQUEST TEST: High-resolution CT chest"
+    },
+    {
+      "step_number": 8,
+      "new_information": "High-resolution CT chest: normal readings (no bronchiectasis or focal parenchymal abnormality).",
+      "current_uncertainties": [
+        "Chronic bronchitis (COPD phenotype): chronic productive cough for 11 years with recurrent bronchitis and morning cough fits criteria",
+        "HRCT can be normal in early/airway-predominant disease",
+        "never-smoker does not exclude non-tobacco causes",
+        "Bronchiectasis: copious purulent sputum and recurrent infections are typical, but a normal HRCT makes bronchiectasis unlikely since HRCT is the diagnostic standard",
+        "Immunodeficiency (e.g., common variable immunodeficiency or specific antibody deficiency): recurrent bacterial bronchitis and copious sputum over years could reflect impaired host defense despite normal imaging",
+        "Asthma with chronic cough/airway hyperreactivity: wheeze on exam and normal HRCT are compatible, and cough-variant or chronic asthma can produce productive cough though copious purulent sputum is less typical"
+      ],
+      "next_step_action": "REQUEST TEST: Spirometry with bronchodilator"
+    },
+    {
+      "step_number": 9,
+      "new_information": "Spirometry shows reduced FVC and reduced FEV1 with a normal FEV1/FVC ratio, suggesting a restrictive ventilatory defect.",
+      "current_uncertainties": [
+        "Bronchiectasis: fits chronic copious purulent sputum and recurrent bronchitis and focal crackles over RML, but HRCT was reported normal (could be mild/early or localized disease missed)",
+        "Chronic bronchitis/bronchial hypersecretion: explains productive cough and recurrent infections despite non-smoking history (possible environmental/occupational exposure or idiopathic chronic bronchitis)",
+        "Technical/effort-related restrictive pattern: spirometry may reflect poor effort or submaximal inhalation/expiration rather than true restriction",
+        "Immunodeficiency (e.g., CVID) with recurrent infections leading to chronic sputum/bronchiectasis: recurrent bacterial infections possible though HRCT would often show bronchiectasis."
+      ],
+      "next_step_action": "REQUEST TEST: Repeat spirometry including lung volumes (TLC), DLCO, and post-bronchodilator measurements"
+    },
+    {
+      "step_number": 10,
+      "new_information": "Repeat spirometry including lung volumes (TLC), DLCO, and post-bronchodilator measurements are all normal.",
+      "current_uncertainties": [
+        "Chronic bronchitis (non-smoker): long history of productive cough and recurrent bronchitis episodes consistent with chronic bronchitis despite non-smoking history",
+        "Bronchiectasis: copious, purulent sputum and recurrent infections suggest bronchiectasis but HRCT is normal and there's no clubbing, making it less likely",
+        "Chronic infection/colonization (including NTM): recurrent antibiotic-treated bronchitis raises possibility of chronic bacterial or nontuberculous mycobacterial infection despite normal CT",
+        "Asthma (cough-variant): could cause chronic cough and wheeze but lack of bronchodilator responsiveness and normal PFTs reduce likelihood."
+      ],
+      "next_step_action": "ASK PATIENT: Do you have any current or past occupational or home exposures to dust, fumes, chemicals, or biomass smoke, any bird or pet exposures, symptoms of reflux (heartburn/regurgitation), or are you taking an ACE inhibitor?"
+    },
+    {
+      "step_number": 11,
+      "new_information": "Patient denies occupational/home exposures to dust, fumes, chemicals, or biomass smoke; denies bird or pet exposures; denies reflux symptoms; not taking ACE inhibitors.",
+      "current_uncertainties": [
+        "Bronchiectasis: Copious, chronic morning productive cough and recurrent bronchitis episodes point toward bronchiectasis despite normal HRCT—possible early/segmental disease or false-negative imaging",
+        "Chronic bronchitis (non-smoker): Meets chronic productive cough criteria for years, but no smoking history makes typical COPD-related chronic bronchitis less likely though possible idiopathic/other exposures",
+        "Immunodeficiency (e.g., hypogammaglobulinemia): Recurrent bronchitis and chronic sputum production could reflect impaired host defenses leading to persistent infections",
+        "Non-tuberculous mycobacterial (NTM) or atypical infection: Chronic productive cough with recurrent infections can be due to NTM, which may not be obvious on routine testing."
+      ],
+      "next_step_action": "REQUEST TEST: Sputum culture and sensitivity including bacterial culture and mycobacterial (AFB) culture"
+    },
+    {
+      "step_number": 12,
+      "new_information": "Sputum culture: heavy growth of non-specific bacteria; no mycobacterial (AFB) or fungal growth; no antibiotic sensitivities reported for the cultured bacteria.",
+      "current_uncertainties": [
+        "Bronchiectasis: compatible with chronic productive cough and recurrent bacterial infections but contradicted by normal high-resolution CT and absence of clubbing",
+        "Humoral immunodeficiency (e.g., CVID): recurrent bacterial bronchitis and heavy bacterial colonization suggest impaired antibody-mediated defense",
+        "Chronic bronchitis (non-smoker phenotype): long-term productive cough with recurrent exacerbations fits history despite lack of smoking and normal spirometry",
+        "Airway clearance disorder/tracheobronchomalacia: could cause ineffective clearance with recurrent infections and copious sputum, not detected by HRCT alone."
+      ],
+      "next_step_action": "REQUEST TEST: Serum immunoglobulins (quantitative IgG, IgA, IgM) and HIV test"
+    },
+    {
+      "step_number": 13,
+      "new_information": "Serum immunoglobulins (IgG, IgA, IgM) and HIV test are within normal limits/negative.",
+      "current_uncertainties": [
+        "Bronchiectasis (right middle lobe): chronic productive cough with recurrent infections and focal crackles over RML suggest bronchiectasis despite a normal HRCT",
+        "Chronic bronchitis / chronic suppurative bronchitis (non-smoker): chronic productive cough for 11 years with recurrent bronchitis could represent chronic bronchitic phenotype without smoking history",
+        "Primary ciliary dyskinesia (or other mucociliary clearance disorder): lifelong productive cough pattern could reflect a mucociliary defect, though lack of sinusitis/otitis history makes this less likely",
+        "Chronic aspiration (silent GERD): recurrent lower respiratory infections and productive cough could be from microaspiration even without typical reflux symptoms."
+      ],
+      "next_step_action": "REQUEST TEST: Bronchoscopy with bronchoalveolar lavage and airway inspection"
+    },
+    {
+      "step_number": 14,
+      "new_information": "Bronchoscopy with bronchoalveolar lavage and airway inspection returned normal findings.",
+      "current_uncertainties": [
+        "Chronic bronchitis (non-smoker): long-standing productive cough for 11 years with recurrent antibiotic-treated bronchitis and heavy bacterial growth in sputum suggests chronic bronchitic process",
+        "Bronchiectasis (early/localized): copious purulent sputum and crackles over RML could reflect bronchiectasis despite a normal HRCT/bronchoscopy (possible early/focal disease or imaging false-negative)",
+        "Chronic suppurative/colonizing airway infection (including NTM or atypical bacteria): persistent heavy nonspecific bacterial growth and recurrent infections could represent chronic airway colonization or atypical organisms not detected on prior testing",
+        "Bronchorrhea from occult mucinous malignancy: profuse watery/foamy sputum raises the possibility of mucus-secreting tumor though normal imaging makes this less likely."
+      ],
+      "next_step_action": "REQUEST TEST: Repeat sputum studies—send for bacterial identification with antibiotic susceptibilities, PCR for NTM and atypical pathogens, and sputum cytology for malignant cells"
+    },
+    {
+      "step_number": 15,
+      "new_information": "Repeat sputum studies (bacterial ID with sensitivities, PCR for NTM and atypical pathogens, and sputum cytology) returned normal.",
+      "current_uncertainties": [
+        "Chronic bronchitis: long-standing productive cough and recurrent bronchitis episodes despite non-smoking history",
+        "Bronchiectasis: compatible with copious morning sputum and recurrent infections but HRCT normal and no digital clubbing make it less likely",
+        "Mucinous adenocarcinoma (bronchioloalveolar carcinoma): can cause chronic copious sputum, but normal HRCT, bronchoscopy, and sputum cytology reduce likelihood",
+        "Gastroesophageal reflux with chronic microaspiration: can cause chronic productive cough with otherwise normal imaging and tests, and may present without typical reflux symptoms"
+      ],
+      "next_step_action": "ASK PATIENT: Do you have coughing at night or when lying flat, choking or regurgitation while supine, hoarseness, chronic throat clearing, or a sour/bitter taste in your mouth (symptoms suggesting silent reflux/aspiration)?"
+    },
+    {
+      "step_number": 16,
+      "new_information": "Patient denies nocturnal cough, cough when lying flat, choking/regurgitation when supine, hoarseness, chronic throat clearing, or sour/bitter taste—no symptoms suggestive of reflux/aspiration.",
+      "current_uncertainties": [
+        "Chronic suppurative bronchitis / chronic bronchitis (non-smoker): long-standing productive cough with heavy non-specific bacterial growth but normal imaging and lung volumes",
+        "Bronchiectasis (localized or early): recurrent infections and focal crackles over RML could reflect bronchiectasis despite normal HRCT",
+        "Primary ciliary dyskinesia (PCD): chronic productive cough and recurrent infections could fit but absence of sinus disease and adult onset argue against",
+        "Silent gastroesophageal reflux with microaspiration: can be asymptomatic and cause chronic productive cough, but patient denies reflux symptoms"
+      ],
+      "next_step_action": "REQUEST TEST: 24-hour esophageal pH impedance monitoring"
+    },
+    {
+      "step_number": 17,
+      "new_information": "24-hour esophageal pH impedance monitoring: normal",
+      "current_uncertainties": [
+        "Chronic bronchitis: fits history of >11 years of productive cough with copious purulent sputum and recurrent antibiotic-treated bronchitis, despite nonsmoking status",
+        "Tracheobronchomalacia/dynamic airway collapse: can cause chronic cough and mucus retention with normal static HRCT and routine bronchoscopy that may miss dynamic expiratory collapse",
+        "Bronchiectasis: classically explains copious purulent sputum and recurrent infections but HRCT was normal, making it less likely though milder/early disease could be missed",
+        "Primary ciliary dyskinesia or other muco-ciliary clearance defect: would explain chronic productive cough but absence of chronic sinus/ear disease and adult onset argue against it"
+      ],
+      "next_step_action": "REQUEST TEST: Dynamic expiratory CT chest (airway protocol) to evaluate for tracheobronchomalacia/expiratory airway collapse"
+    },
+    {
+      "step_number": 18,
+      "new_information": "Dynamic expiratory CT chest (airway protocol) returned normal readings (no tracheobronchomalacia or expiratory airway collapse).",
+      "current_uncertainties": [
+        "Non-CF bronchiectasis: clinical history of 11 years of copious purulent sputum and recurrent bronchitis fits bronchiectasis, but HRCT is normal which makes typical bronchiectasis less likely though early/small-airway disease can be missed",
+        "Chronic (non-smoking) bronchitis: long-standing productive cough and recurrent infections without smoking or exposures supports chronic bronchitic phenotype/airway hypersecretion",
+        "Atypical cystic fibrosis (adult-onset or mild CFTR mutations): can present in adulthood with chronic productive cough and recurrent infections despite normal imaging",
+        "Primary ciliary dyskinesia: explains chronic productive cough and infections, but lack of chronic sinusitis/ear disease and absent situs make it less likely though not excluded."
+      ],
+      "next_step_action": "REQUEST TEST: Sweat chloride test and CFTR genetic testing"
+    },
+    {
+      "step_number": 19,
+      "new_information": "Sweat chloride test and CFTR genetic testing returned normal readings.",
+      "current_uncertainties": [
+        "Chronic bronchitis (chronic productive cough and recurrent bronchitis fits chronic bronchitic phenotype despite non-smoking history",
+        "normal imaging does not exclude chronic bronchitis)",
+        "Bronchiectasis (copious, purulent sputum and recurrent infections are typical, but high-resolution CT was normal arguing against established bronchiectasis",
+        "may be early/focal disease or missed)",
+        "Primary ciliary dyskinesia (can cause long-standing productive cough from impaired mucociliary clearance, but lack of chronic sinusitis/otitis and normal bronchoscopy make it less likely)",
+        "Specific antibody deficiency (normal quantitative Ig levels but recurrent bacterial bronchitis and heavy non-specific bacterial growth in sputum suggest possible functional antibody defect)"
+      ],
+      "next_step_action": "REQUEST TEST: Specific antibody response to pneumococcal polysaccharide vaccine (measure serotype-specific IgG titers pre-immunization and 4–6 weeks post-immunization)"
+    },
+    {
+      "step_number": 20,
+      "new_information": "Final diagnosis reached: Chronic bronchitis",
+      "current_uncertainties": [],
+      "next_step_action": "DIAGNOSIS READY",
+      "reason_ready": "The patient meets clinical criteria for chronic bronchitis (daily productive cough for >3 months/year for many years) and exhaustive testing has excluded alternative causes—normal high-resolution CT (no bronchiectasis or mass), normal bronchoscopy, normal immunologic and CF testing, normal esophageal pH monitoring, normal airway dynamics and lung volumes, and no evidence of atypical or mycobacterial infection. Given chronic daily copious purulent sputum with recurrent bacterial bronchitis and no identifiable structural, infectious, immunologic, or reflux-related cause, chronic (idiopathic) bronchitic airway disease with intermittent bacterial colonization is the most likely diagnosis.",
+      "final_diagnosis": "Chronic bronchitis",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Patient presents with chronic cough and recurrent bouts of bronchitis.\n- Vital signs within normal limits: Temperature 36.7°C, BP 125/78 mmHg, HR 80 bpm, RR 16/min.\n- Chronic productive cough for 11 years with copious, thick, foamy, yellow-green sputum, worse in mornings, and recurrent bronchitis episodes requiring antibiotics.\n- Patient is 51 years old and has never smoked.\n- Patient denies chronic sinusitis or frequent ear infections.\n- Patient reports never coughing up blood (no hemoptysis).\n- Chest exam: no cyanosis or accessory muscle use; no digital clubbing. Auscultation: crackles and wheeze localized to the right middle lobe. Percussion normal; no thoracic tenderness.\n- High-resolution CT chest: normal readings (no bronchiectasis or focal parenchymal abnormality).\n- Spirometry shows reduced FVC and reduced FEV1 with a normal FEV1/FVC ratio, suggesting a restrictive ventilatory defect.\n- Repeat spirometry including lung volumes (TLC), DLCO, and post-bronchodilator measurements are all normal.\n- Patient denies occupational/home exposures to dust, fumes, chemicals, or biomass smoke; denies bird or pet exposures; denies reflux symptoms; not taking ACE inhibitors.\n- Sputum culture: heavy growth of non-specific bacteria; no mycobacterial (AFB) or fungal growth; no antibiotic sensitivities reported for the cultured bacteria.\n- Serum immunoglobulins (IgG, IgA, IgM) and HIV test are within normal limits/negative.\n- Bronchoscopy with bronchoalveolar lavage and airway inspection returned normal findings.\n- Repeat sputum studies (bacterial ID with sensitivities, PCR for NTM and atypical pathogens, and sputum cytology) returned normal.\n- Patient denies nocturnal cough, cough when lying flat, choking/regurgitation when supine, hoarseness, chronic throat clearing, or sour/bitter taste—no symptoms suggestive of reflux/aspiration.\n- 24-hour esophageal pH impedance monitoring: normal\n- Dynamic expiratory CT chest (airway protocol) returned normal readings (no tracheobronchomalacia or expiratory airway collapse).\n- Sweat chloride test and CFTR genetic testing returned normal readings.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "[Step 1]\nNew Info: Patient presents with chronic cough and recurrent bouts of bronchitis.\nDifferential: Chronic bronchitis (COPD): fits with chronic productive cough and recurrent bronchitic exacerbations, Asthma (including cough-variant asthma): can present with chronic cough and repeated bronchitic episodes, Bronchiectasis: recurrent infections and persistent productive cough suggest airway dilation and impaired clearance, Upper airway cough syndrome (post-nasal drip)/GERD: common causes of chronic cough that can predispose to recurrent bronchitis.\nNext: REQUEST TEST: Vital Signs\n\n[Step 2]\nNew Info: Vital signs within normal limits: Temperature 36.7°C, BP 125/78 mmHg, HR 80 bpm, RR 16/min.\nDifferential: Chronic bronchitis: recurrent bronchitic episodes and chronic productive cough suggest chronic bronchitis (COPD), especially in smokers, Asthma: can present with chronic cough and recurrent bronchitic exacerbations, may have wheeze or variable airflow obstruction, Bronchiectasis: recurrent infections with persistent productive, often purulent sputum and possible hemoptysis, Upper airway cough syndrome (postnasal drip): common cause of chronic cough, often accompanied by nasal symptoms and throat clearing.\nNext: ASK PATIENT: How long have you had the cough and is it productive (if so, what is the sputum like)?\n\n[Step 3]\nNew Info: Chronic productive cough for 11 years with copious, thick, foamy, yellow-green sputum, worse in mornings, and recurrent bronchitis episodes requiring antibiotics.\nDifferential: Bronchiectasis: chronic daily productive cough with large volumes of purulent sputum and frequent infections suggests airway dilation and impaired clearance, Chronic bronchitis/COPD: long-standing productive cough could reflect chronic bronchitic phenotype, especially if smoking history positive, Non-tuberculous mycobacterial (NTM) or other chronic airway infection: recurrent antibiotic-treated infections and purulent sputum could reflect NTM or atypical pathogens, Cystic fibrosis or primary ciliary dyskinesia (less likely adult-onset but possible): lifelong/longstanding productive cough and recurrent infections could reflect congenital mucociliary clearance disorders.\nNext: ASK PATIENT: What is your age, and do you currently smoke or have you ever smoked (if yes, how many pack-years)?\n\n[Step 4]\nNew Info: Patient is 51 years old and has never smoked.\nDifferential: Bronchiectasis: chronic, long-standing productive cough with copious purulent sputum and recurrent bronchitis is classic for bronchiectasis, Chronic bronchitis (COPD phenotype): chronic productive cough could fit but much less likely without smoking history, Primary ciliary dyskinesia / cystic fibrosis-related bronchiectasis: can cause lifelong productive cough and recurrent infections—consider if associated sinusitis/infertility but adult presentation less typical, Immunodeficiency (e.g., CVID) with recurrent respiratory infections leading to bronchiectasis: possible given recurrent antibiotic-treated bronchitis episodes.\nNext: ASK PATIENT: Do you have a history of chronic sinusitis or frequent ear infections?\n\n[Step 5]\nNew Info: Patient denies chronic sinusitis or frequent ear infections.\nDifferential: Bronchiectasis: chronic daily copious purulent sputum and recurrent infections for 11 years strongly suggest bronchiectasis, Chronic bronchitis (COPD): chronic productive cough meets clinical criteria but patient is a lifelong non-smoker making classic chronic bronchitis less likely, Nontuberculous mycobacterial (NTM) infection: can cause chronic productive cough and recurrent bronchitic episodes and is associated with bronchiectasis, Primary ciliary dyskinesia: causes chronic productive cough and recurrent infections but usually includes chronic sinusitis/otitis—absence of these makes it less likely.\nNext: ASK PATIENT: Do you ever cough up blood (hemoptysis)?\n\n[Step 6]\nNew Info: Patient reports never coughing up blood (no hemoptysis).\nDifferential: Bronchiectasis: chronic productive cough for 11 years with copious purulent sputum and recurrent bronchitis supports bronchiectasis, Chronic bronchitis (non-smoker/other exposures): chronic productive cough fits but lack of smoking history makes this less likely unless environmental/occupational exposures present, Primary ciliary dyskinesia: can cause lifelong productive cough and recurrent infections but typically has history of chronic sinusitis/ear infections and earlier onset, making it less likely here, Immunodeficiency (e.g., humoral immunodeficiency): recurrent bronchitis could reflect impaired host defenses, though absence of sinus disease somewhat lowers probability.\nNext: REQUEST TEST: Chest (pulmonary) exam including auscultation and check for digital clubbing\n\n[Step 7]\nNew Info: Chest exam: no cyanosis or accessory muscle use; no digital clubbing. Auscultation: crackles and wheeze localized to the right middle lobe. Percussion normal; no thoracic tenderness.\nDifferential: Bronchiectasis (diffuse or localized): copious, chronic purulent sputum and recurrent infections strongly suggest bronchiectasis, Chronic bronchitis: long-standing productive cough fits criteria though patient is a never-smoker making it less likely, Localized bronchiectasis or endobronchial obstruction (e.g., tumor or chronic aspiration): focal RML findings suggest a localized process causing recurrent infections, Immunodeficiency with recurrent infections: possible contributor to chronic productive cough though no other systemic features noted\nNext: REQUEST TEST: High-resolution CT chest\n\n[Step 8]\nNew Info: High-resolution CT chest: normal readings (no bronchiectasis or focal parenchymal abnormality).\nDifferential: Chronic bronchitis (COPD phenotype): chronic productive cough for 11 years with recurrent bronchitis and morning cough fits criteria, HRCT can be normal in early/airway-predominant disease, never-smoker does not exclude non-tobacco causes, Bronchiectasis: copious purulent sputum and recurrent infections are typical, but a normal HRCT makes bronchiectasis unlikely since HRCT is the diagnostic standard, Immunodeficiency (e.g., common variable immunodeficiency or specific antibody deficiency): recurrent bacterial bronchitis and copious sputum over years could reflect impaired host defense despite normal imaging, Asthma with chronic cough/airway hyperreactivity: wheeze on exam and normal HRCT are compatible, and cough-variant or chronic asthma can produce productive cough though copious purulent sputum is less typical\nNext: REQUEST TEST: Spirometry with bronchodilator\n\n[Step 9]\nNew Info: Spirometry shows reduced FVC and reduced FEV1 with a normal FEV1/FVC ratio, suggesting a restrictive ventilatory defect.\nDifferential: Bronchiectasis: fits chronic copious purulent sputum and recurrent bronchitis and focal crackles over RML, but HRCT was reported normal (could be mild/early or localized disease missed), Chronic bronchitis/bronchial hypersecretion: explains productive cough and recurrent infections despite non-smoking history (possible environmental/occupational exposure or idiopathic chronic bronchitis), Technical/effort-related restrictive pattern: spirometry may reflect poor effort or submaximal inhalation/expiration rather than true restriction, Immunodeficiency (e.g., CVID) with recurrent infections leading to chronic sputum/bronchiectasis: recurrent bacterial infections possible though HRCT would often show bronchiectasis.\nNext: REQUEST TEST: Repeat spirometry including lung volumes (TLC), DLCO, and post-bronchodilator measurements\n\n[Step 10]\nNew Info: Repeat spirometry including lung volumes (TLC), DLCO, and post-bronchodilator measurements are all normal.\nDifferential: Chronic bronchitis (non-smoker): long history of productive cough and recurrent bronchitis episodes consistent with chronic bronchitis despite non-smoking history, Bronchiectasis: copious, purulent sputum and recurrent infections suggest bronchiectasis but HRCT is normal and there's no clubbing, making it less likely, Chronic infection/colonization (including NTM): recurrent antibiotic-treated bronchitis raises possibility of chronic bacterial or nontuberculous mycobacterial infection despite normal CT, Asthma (cough-variant): could cause chronic cough and wheeze but lack of bronchodilator responsiveness and normal PFTs reduce likelihood.\nNext: ASK PATIENT: Do you have any current or past occupational or home exposures to dust, fumes, chemicals, or biomass smoke, any bird or pet exposures, symptoms of reflux (heartburn/regurgitation), or are you taking an ACE inhibitor?\n\n[Step 11]\nNew Info: Patient denies occupational/home exposures to dust, fumes, chemicals, or biomass smoke; denies bird or pet exposures; denies reflux symptoms; not taking ACE inhibitors.\nDifferential: Bronchiectasis: Copious, chronic morning productive cough and recurrent bronchitis episodes point toward bronchiectasis despite normal HRCT—possible early/segmental disease or false-negative imaging, Chronic bronchitis (non-smoker): Meets chronic productive cough criteria for years, but no smoking history makes typical COPD-related chronic bronchitis less likely though possible idiopathic/other exposures, Immunodeficiency (e.g., hypogammaglobulinemia): Recurrent bronchitis and chronic sputum production could reflect impaired host defenses leading to persistent infections, Non-tuberculous mycobacterial (NTM) or atypical infection: Chronic productive cough with recurrent infections can be due to NTM, which may not be obvious on routine testing.\nNext: REQUEST TEST: Sputum culture and sensitivity including bacterial culture and mycobacterial (AFB) culture\n\n[Step 12]\nNew Info: Sputum culture: heavy growth of non-specific bacteria; no mycobacterial (AFB) or fungal growth; no antibiotic sensitivities reported for the cultured bacteria.\nDifferential: Bronchiectasis: compatible with chronic productive cough and recurrent bacterial infections but contradicted by normal high-resolution CT and absence of clubbing, Humoral immunodeficiency (e.g., CVID): recurrent bacterial bronchitis and heavy bacterial colonization suggest impaired antibody-mediated defense, Chronic bronchitis (non-smoker phenotype): long-term productive cough with recurrent exacerbations fits history despite lack of smoking and normal spirometry, Airway clearance disorder/tracheobronchomalacia: could cause ineffective clearance with recurrent infections and copious sputum, not detected by HRCT alone.\nNext: REQUEST TEST: Serum immunoglobulins (quantitative IgG, IgA, IgM) and HIV test\n\n[Step 13]\nNew Info: Serum immunoglobulins (IgG, IgA, IgM) and HIV test are within normal limits/negative.\nDifferential: Bronchiectasis (right middle lobe): chronic productive cough with recurrent infections and focal crackles over RML suggest bronchiectasis despite a normal HRCT, Chronic bronchitis / chronic suppurative bronchitis (non-smoker): chronic productive cough for 11 years with recurrent bronchitis could represent chronic bronchitic phenotype without smoking history, Primary ciliary dyskinesia (or other mucociliary clearance disorder): lifelong productive cough pattern could reflect a mucociliary defect, though lack of sinusitis/otitis history makes this less likely, Chronic aspiration (silent GERD): recurrent lower respiratory infections and productive cough could be from microaspiration even without typical reflux symptoms.\nNext: REQUEST TEST: Bronchoscopy with bronchoalveolar lavage and airway inspection\n\n[Step 14]\nNew Info: Bronchoscopy with bronchoalveolar lavage and airway inspection returned normal findings.\nDifferential: Chronic bronchitis (non-smoker): long-standing productive cough for 11 years with recurrent antibiotic-treated bronchitis and heavy bacterial growth in sputum suggests chronic bronchitic process, Bronchiectasis (early/localized): copious purulent sputum and crackles over RML could reflect bronchiectasis despite a normal HRCT/bronchoscopy (possible early/focal disease or imaging false-negative), Chronic suppurative/colonizing airway infection (including NTM or atypical bacteria): persistent heavy nonspecific bacterial growth and recurrent infections could represent chronic airway colonization or atypical organisms not detected on prior testing, Bronchorrhea from occult mucinous malignancy: profuse watery/foamy sputum raises the possibility of mucus-secreting tumor though normal imaging makes this less likely.\nNext: REQUEST TEST: Repeat sputum studies—send for bacterial identification with antibiotic susceptibilities, PCR for NTM and atypical pathogens, and sputum cytology for malignant cells\n\n[Step 15]\nNew Info: Repeat sputum studies (bacterial ID with sensitivities, PCR for NTM and atypical pathogens, and sputum cytology) returned normal.\nDifferential: Chronic bronchitis: long-standing productive cough and recurrent bronchitis episodes despite non-smoking history, Bronchiectasis: compatible with copious morning sputum and recurrent infections but HRCT normal and no digital clubbing make it less likely, Mucinous adenocarcinoma (bronchioloalveolar carcinoma): can cause chronic copious sputum, but normal HRCT, bronchoscopy, and sputum cytology reduce likelihood, Gastroesophageal reflux with chronic microaspiration: can cause chronic productive cough with otherwise normal imaging and tests, and may present without typical reflux symptoms\nNext: ASK PATIENT: Do you have coughing at night or when lying flat, choking or regurgitation while supine, hoarseness, chronic throat clearing, or a sour/bitter taste in your mouth (symptoms suggesting silent reflux/aspiration)?\n\n[Step 16]\nNew Info: Patient denies nocturnal cough, cough when lying flat, choking/regurgitation when supine, hoarseness, chronic throat clearing, or sour/bitter taste—no symptoms suggestive of reflux/aspiration.\nDifferential: Chronic suppurative bronchitis / chronic bronchitis (non-smoker): long-standing productive cough with heavy non-specific bacterial growth but normal imaging and lung volumes, Bronchiectasis (localized or early): recurrent infections and focal crackles over RML could reflect bronchiectasis despite normal HRCT, Primary ciliary dyskinesia (PCD): chronic productive cough and recurrent infections could fit but absence of sinus disease and adult onset argue against, Silent gastroesophageal reflux with microaspiration: can be asymptomatic and cause chronic productive cough, but patient denies reflux symptoms\nNext: REQUEST TEST: 24-hour esophageal pH impedance monitoring\n\n[Step 17]\nNew Info: 24-hour esophageal pH impedance monitoring: normal\nDifferential: Chronic bronchitis: fits history of >11 years of productive cough with copious purulent sputum and recurrent antibiotic-treated bronchitis, despite nonsmoking status, Tracheobronchomalacia/dynamic airway collapse: can cause chronic cough and mucus retention with normal static HRCT and routine bronchoscopy that may miss dynamic expiratory collapse, Bronchiectasis: classically explains copious purulent sputum and recurrent infections but HRCT was normal, making it less likely though milder/early disease could be missed, Primary ciliary dyskinesia or other muco-ciliary clearance defect: would explain chronic productive cough but absence of chronic sinus/ear disease and adult onset argue against it\nNext: REQUEST TEST: Dynamic expiratory CT chest (airway protocol) to evaluate for tracheobronchomalacia/expiratory airway collapse\n\n[Step 18]\nNew Info: Dynamic expiratory CT chest (airway protocol) returned normal readings (no tracheobronchomalacia or expiratory airway collapse).\nDifferential: Non-CF bronchiectasis: clinical history of 11 years of copious purulent sputum and recurrent bronchitis fits bronchiectasis, but HRCT is normal which makes typical bronchiectasis less likely though early/small-airway disease can be missed, Chronic (non-smoking) bronchitis: long-standing productive cough and recurrent infections without smoking or exposures supports chronic bronchitic phenotype/airway hypersecretion, Atypical cystic fibrosis (adult-onset or mild CFTR mutations): can present in adulthood with chronic productive cough and recurrent infections despite normal imaging, Primary ciliary dyskinesia: explains chronic productive cough and infections, but lack of chronic sinusitis/ear disease and absent situs make it less likely though not excluded.\nNext: REQUEST TEST: Sweat chloride test and CFTR genetic testing\n\n[Step 19]\nNew Info: Sweat chloride test and CFTR genetic testing returned normal readings.\nDifferential: Chronic bronchitis (chronic productive cough and recurrent bronchitis fits chronic bronchitic phenotype despite non-smoking history, normal imaging does not exclude chronic bronchitis), Bronchiectasis (copious, purulent sputum and recurrent infections are typical, but high-resolution CT was normal arguing against established bronchiectasis, may be early/focal disease or missed), Primary ciliary dyskinesia (can cause long-standing productive cough from impaired mucociliary clearance, but lack of chronic sinusitis/otitis and normal bronchoscopy make it less likely), Specific antibody deficiency (normal quantitative Ig levels but recurrent bacterial bronchitis and heavy non-specific bacterial growth in sputum suggest possible functional antibody defect)\nNext: REQUEST TEST: Specific antibody response to pneumococcal polysaccharide vaccine (measure serotype-specific IgG titers pre-immunization and 4–6 weeks post-immunization)",
+  "current_uncertainties": [],
+  "final_diagnosis": "Chronic bronchitis"
+}

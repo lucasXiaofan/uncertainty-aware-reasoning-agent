@@ -169,69 +169,100 @@ agents:
       You will be informed of your remaining actions (e.g., "Turn X of Y"). Use your rounds wisely.
 
       ## AGENTCLINIC ACTION DEFINITIONS
-      Available actions:
-      - "ASK PATIENT: [specific question]" - Ask the patient a specific question about symptoms, history, etc.
-      - "REQUEST TEST: Vital Signs" - Request vital signs (blood pressure, heart rate, temperature, respiratory rate, SpO2)
+      Available actions for document_step:
+      - "ASK PATIENT: [specific question]" - Ask the patient a question about symptoms, history, etc.
+      - "REQUEST TEST: Vital Signs" - Request vital signs
       - "REQUEST TEST: [Test_Name]" - Request a specific lab test or diagnostic test
-      - "REQUEST TEST: [Physical Exam]" - Request a specific physical examination (e.g., "Abdominal exam", "Cardiac exam")
-      - "REQUEST IMAGES" - Request imaging studies or visual information
+      - "REQUEST TEST: [Physical Exam]" - Request a physical examination (e.g., "Abdominal exam")
+      - "REQUEST IMAGES" - Request imaging studies
 
       ## CLINICAL BEST PRACTICES
-      1. **Request vital signs and patient demographics EARLY** when they are relevant to diagnosis
-         - Age, sex, vital signs often provide critical diagnostic clues
-         - Don't wait until late in the diagnostic process to gather baseline information
+      1. **Request vital signs and patient demographics EARLY**
       2. **Be specific** in your questions and test requests
       3. **Avoid redundant information gathering** - check what you've already documented
 
-      ## DIAGNOSTIC WORKFLOW (Three-Step Process)
+      ## DIAGNOSTIC WORKFLOW (Two-Step Process)
 
-      ### STEP 1: DOCUMENT NEW FINDINGS AND UNCERTAINTIES
-      - Document NEW information you discovered about the patient
-      - Avoid redundancy - don't repeat what is already documented
-      - Document your CURRENT UNCERTAINTIES that need differentiation for final diagnosis
-      - List 2-4 differential diagnoses with brief reasoning in format: "disease1: reasoning1; disease2: reasoning2"
+      ### STEP 1: QUERY GUIDELINES
+      Call query_medical_guidelines with:
+        * new_information: NEW findings from the patient/test response (atomic fact)
+        * uncertainties: Your current differential diagnoses ("disease1: reason1; disease2: reason2")
 
-      ### STEP 2: EVALUATE MEDICAL GUIDELINES (if provided)
-      - You may receive relevant medical guidelines about the current situation
-      - CRITICALLY REASON whether these guidelines are truly helpful for THIS case
-      - If guidelines are NOT helpful, use your own best clinical judgement
-      - DOCUMENT whether the guidelines were helpful (in reference_relevance parameter)
-      - Currently: Use "No relevant information retrieved" if no guidelines provided
+      This returns relevant past diagnostic experiences. CRITICALLY EVALUATE whether they apply to THIS case.
 
-      ### STEP 3: CHOOSE YOUR NEXT ACTION
-      You have TWO choices:
+      ### STEP 2: ACT
+      Based on the guidelines and your clinical reasoning, choose ONE:
 
       **Option A: Continue Information Gathering (use document_step)**
       - Call document_step with:
         * new_information: NEW atomic fact you just learned
-        * uncertainties: "disease1: reasoning1; disease2: reasoning2; ..." (2-4 diseases)
-        * reference_relevance: "No relevant information retrieved" (or assessment of guidelines if provided)
+        * uncertainties: "disease1: reasoning1; disease2: reasoning2; ..." (2-4 most likely diseases)
+        * reference_relevance: Your assessment of the guidelines (helpful/not helpful and why)
         * action: The specific action to take (using action format above)
         * reason: Why this action helps differentiate between your uncertainties
       - The tool returns your formatted action to output
 
-      **Option B: Call Final Diagnosis (use final_diagnosis_documented)**
-      Use when ONE of these conditions is met:
+      **Option B: Final Diagnosis (use final_diagnosis_documented)**
+      Use when:
       1. You are confident in diagnosis - explain HOW your uncertainties were resolved
-      2. You have used all/most rounds and still need to provide best diagnosis
-         - If you've used all rounds, mention what you would still clarify if given more chances
+      2. You have used all/most rounds - mention what you would still clarify
       - Call final_diagnosis_documented with:
         * reason: Why ready OR what you'd clarify with more rounds
 
-      ## IMPORTANT NOTES
-      - ONE tool call per turn: document_step OR final_diagnosis_documented
+      ## IMPORTANT
+      - ALWAYS call query_medical_guidelines FIRST, use your best judgement as the guideline may not always be helpful, then document_step or final_diagnosis_documented
+      - Two tool calls per turn: query first, then act
       - Track your rounds - don't waste actions on redundant information
       - Prioritize information that differentiates between your differential diagnoses
-      - Document your reasoning clearly at each step (especially in action reason)
 
     temperature: 0.2
     max_turns: 5
     tools:
+      - query_medical_guidelines
       - document_step
       - final_diagnosis_documented
     terminal_tools:
       - document_step
       - final_diagnosis_documented
+
+  experience_generation_agent:
+    model: "deepseek-chat"
+    system_prompt: |
+      You are analyzing a medical diagnostic session to identify key action improvements.
+
+      ## INPUT
+      1. Doctor's diagnostic session (structured steps with info, uncertainties, actions)
+      2. Ground truth (complete patient context, exam findings, lab results, correct diagnosis)
+
+      ## TASK
+      Find exactly 3 key steps where the doctor should change their action to gather
+      information aligned with ground truth. Focus on:
+      - Questions that would elicit key patient context present in ground truth
+      - Physical exams or tests that would reveal objective findings in ground truth
+      - Imaging the doctor missed when ground truth has imaging info
+
+      AgentClinic fact: Both physical examination and lab tests use "REQUEST TEST:" format.
+      The doctor only sees the doctor objective, not full patient info.
+
+      ## WORKFLOW
+      1. Compare session steps with ground truth to find information gaps
+      2. For each improvement, call generate_experience with:
+         - step_number: which session step to improve
+         - uncertainties: improved differentials ("disease1: reason1; disease2: reason2")
+         - action: improved action ("ASK PATIENT: ...", "REQUEST TEST: ...", "REQUEST IMAGES")
+         - action_reason: why this action is better than alternatives, referencing ground truth and correct diagnosis
+      3. Call complete_analysis when done
+      be objective and make reason helpful for medical reasoning, ex. why ceratain unceratines exist with given context, and why action differentiate them, 
+      do not mention ground truth in the action_reason
+      only focus on informaton seeking actions, not the final diagnosis, don't match a final diagnosis to an experience, focus is the uncertainties and actions to differentiate them
+      Call generate_experience exactly 3 times, then complete_analysis.
+    temperature: 0.3
+    max_turns: 5
+    tools:
+      - generate_experience
+      - complete_analysis
+    terminal_tools:
+      - complete_analysis
 
 # Tool schemas are auto-generated from the @tool decorator in implementations.py
 # The tool names here must match the names registered in the registry

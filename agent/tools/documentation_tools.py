@@ -2,12 +2,16 @@
 
 This module provides enhanced documentation tools that:
 1. Record diagnostic steps with structured fields (info, uncertainties, relevance, action, reason)
-2. Track medical guideline relevance
+2. Query past diagnostic experiences via BM25 search
 3. Synthesize final diagnosis from clean accumulated information
 """
 import os
+import re
 import json
+import math
+from pathlib import Path
 from typing import Dict, List
+from collections import defaultdict
 from .registry import tool
 from .diagnosis_session import (
     get_current_session,
@@ -15,6 +19,92 @@ from .diagnosis_session import (
     save_session,
     _get_session_path
 )
+
+EXPERIENCE_V1_FILE = Path(__file__).parent.parent / "memory" / "AgentClinic_experience_v1.json"
+
+
+@tool(
+    name="query_medical_guidelines",
+    description="Search past diagnostic experiences for relevant guidelines. Returns top 5 matches based on clinical context and differential diagnoses."
+)
+def query_medical_guidelines(new_information: str, uncertainties: str) -> str:
+    """Search past experiences using BM25 over context and uncertainties fields.
+
+    Args:
+        new_information: Current clinical findings (e.g., "25-year-old male with jaundice and ALT 2000")
+        uncertainties: Current differential diagnoses ("disease1: reason1; disease2: reason2")
+
+    Returns:
+        Formatted top 5 matching experiences with full details, or message if none found.
+    """
+    # return "No relevant guidelines found."
+
+    if not EXPERIENCE_V1_FILE.exists():
+        return "No medical guidelines available."
+    with open(EXPERIENCE_V1_FILE, "r", encoding="utf-8") as f:
+        experiences = json.load(f)
+    if not experiences:
+        return "No medical guidelines available."
+
+    # Build query from both inputs
+    query = f"{new_information} {uncertainties}"
+    query_tokens = re.findall(r'\b[a-z0-9]+\b', query.lower())
+    if not query_tokens:
+        return "No relevant guidelines found."
+
+    # Tokenize each experience's context + uncertainties as combined index
+    doc_tokens = []
+    for exp in experiences:
+        uncert = exp.get("uncertainties", {})
+        uncert_text = " ".join(f"{k} {v}" for k, v in uncert.items()) if isinstance(uncert, dict) else str(uncert)
+        combined = f"{exp.get('context', '')} {uncert_text}"
+        doc_tokens.append(re.findall(r'\b[a-z0-9]+\b', combined.lower()))
+
+    # BM25 scoring
+    N = len(doc_tokens)
+    avg_dl = sum(len(d) for d in doc_tokens) / N
+    k1, b = 1.5, 0.75
+
+    df = defaultdict(int)
+    for d in doc_tokens:
+        for term in set(d):
+            df[term] += 1
+
+    scores = []
+    for i, d in enumerate(doc_tokens):
+        tf = defaultdict(int)
+        for t in d:
+            tf[t] += 1
+        score = 0.0
+        dl = len(d)
+        for t in query_tokens:
+            if t not in tf:
+                continue
+            idf = math.log((N - df[t] + 0.5) / (df[t] + 0.5) + 1)
+            score += idf * (tf[t] * (k1 + 1)) / (tf[t] + k1 * (1 - b + b * dl / avg_dl))
+        if score > 0:
+            scores.append((i, score))
+
+    scores.sort(key=lambda x: x[1], reverse=True)
+    top5 = scores[:5]
+
+    if not top5:
+        return "No relevant guidelines found."
+
+    results = []
+    for idx, score in top5:
+        exp = experiences[idx]
+        uncert = exp.get("uncertainties", {})
+        u_str = "; ".join(f"{k}: {v}" for k, v in uncert.items()) if isinstance(uncert, dict) else str(uncert)
+        results.append(
+            f"[Experience #{exp.get('id', '?')}]\n"
+            f"Context: {exp.get('context', '')}\n"
+            f"Uncertainties: {u_str}\n"
+            f"Action: {exp.get('action', '')}\n"
+            f"Rationale: {exp.get('action_reason', '')}"
+        )
+
+    return "\n\n".join(results)
 
 
 @tool(

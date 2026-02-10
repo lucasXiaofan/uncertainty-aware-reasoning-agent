@@ -157,7 +157,7 @@ class SingleAgent:
             "thinking_process": thinking,
             "tool": tool,
             "args": args,
-            "result": result if tool == "brave_search" else None
+            "result": result
         })
 
     def _finalize(self, trajectory: dict, result, episode_id: str, args: dict = None) -> dict:

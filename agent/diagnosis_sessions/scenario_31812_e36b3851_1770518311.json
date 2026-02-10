@@ -1,0 +1,227 @@
+{
+  "session_id": "scenario_31812_e36b3851_1770518311",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "8-month-old boy with feeding difficulties and abdominal distension.",
+      "current_uncertainties": [
+        "Malrotation with midgut volvulus: acute intestinal obstruction can cause feeding intolerance and distension, risk in infants",
+        "Hirschsprung disease: colonic aganglionosis causes chronic constipation and progressive distension",
+        "Cystic fibrosis / distal intestinal obstruction syndrome: causes feeding problems and abdominal distension due to inspissated intestinal contents",
+        "Intussusception: intermittent small bowel obstruction with vomiting and distension, often in this age group though usually with pain and bloody stools."
+      ],
+      "next_step_action": "REQUEST TEST: Vital Signs"
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs: Temperature 36.8°C, BP normal for age, Heart rate 120 bpm, Respiratory rate 30 breaths/min — all within expected ranges for an 8-month-old.",
+      "current_uncertainties": [
+        "Intussusception: common in infants and can cause intermittent abdominal pain, vomiting and abdominal distension",
+        "may have normal vitals between episodes",
+        "Malrotation with intermittent volvulus: can present with feeding intolerance, bilious vomiting and progressive abdominal distension",
+        "early vitals may be normal",
+        "Hirschsprung disease (congenital aganglionosis): causes chronic constipation, progressive abdominal distension and feeding difficulties/failure to thrive, often more subacute/chronic",
+        "less likely to present with acute derangement."
+      ],
+      "next_step_action": "ASK PATIENT: When did the feeding difficulties and abdominal distension start? Is there vomiting, and if so is it bilious or non-bilious? How are the bowel movements (constipation, normal, or diarrhea)?"
+    },
+    {
+      "step_number": 3,
+      "new_information": "Feeding difficulties and abdominal distension began ~3 days ago; no vomiting; bowel movements are normal.",
+      "current_uncertainties": [
+        "Intussusception: age fits and can cause feeding refusal and abdominal distension, but classic vomiting/bloody stool may be absent",
+        "Abdominal mass (neuroblastoma/Wilms tumor): can present with progressive distension and feeding problems without vomiting, age is compatible",
+        "Partial intestinal obstruction/ileus: could cause distension and feeding intolerance even without vomiting initially",
+        "Hirschsprung disease: causes abdominal distension but typically longstanding constipation and neonatal presentation, less likely but considered."
+      ],
+      "next_step_action": "ASK PATIENT: Is he having episodes of severe abdominal pain (sudden crying and drawing up of legs) or any blood/mucus in the stool? Has the abdominal swelling been progressively worse over the 3 days or does it come and go? Is urine output normal?"
+    },
+    {
+      "step_number": 4,
+      "new_information": "Episodes of sudden severe abdominal pain with legs drawn up, progressive abdominal distension over 3 days, no vomiting, normal stool frequency/consistency, no blood/mucus in stool, normal urine output.",
+      "current_uncertainties": [
+        "Intussusception: fits age and intermittent severe colicky pain with progressive distension but often has vomiting and sometimes bloody stool which are absent here",
+        "Partial small-bowel obstruction (e.g., adhesive, congenital stricture, or early volvulus): can cause progressive distension and pain but typically has vomiting and altered bowel movements which are not present",
+        "Incarcerated inguinal hernia: can present with intermittent severe pain and abdominal distension in infants, may not have vomiting or stool changes",
+        "Hirschsprung disease/megacolon: causes progressive distension but usually chronic constipation rather than normal stools and acute severe colicky episodes, so less likely but not excluded."
+      ],
+      "next_step_action": "REQUEST TEST: Abdominal exam"
+    },
+    {
+      "step_number": 5,
+      "new_information": "Abdominal exam: distension; normal bowel sounds; tympanitic percussion in left lower quadrant; soft but distended abdomen; marked pain with palpation especially in left lower quadrant causing increased crying.",
+      "current_uncertainties": [
+        "Intussusception: intermittent severe crying and leg-drawing with progressive abdominal distension and localized LLQ tenderness could reflect intussusception causing intermittent obstruction",
+        "Partial small-bowel obstruction (e.g., adhesive or congenital band): progressive distension and focal tenderness consistent with partial obstruction though lack of vomiting makes complete obstruction less likely",
+        "Mesenteric adenitis or enteritis: can cause localized tenderness and pain episodes with distension but usually accompanied by systemic or diarrheal symptoms which are absent, so less likely",
+        "Hirschsprung disease or functional obstruction: could cause progressive distension but typically presents with chronic constipation or delayed passage of meconium, which is not present, making this less likely."
+      ],
+      "next_step_action": "REQUEST TEST: Abdominal ultrasound"
+    },
+    {
+      "step_number": 6,
+      "new_information": "Abdominal ultrasound: normal readings.",
+      "current_uncertainties": [
+        "Intussusception: classic episodic severe abdominal pain with leg drawing and progressive distension fits",
+        "ultrasound can be normal if transiently reduced or if imaging missed the lesion",
+        "Small-bowel obstruction (including midgut volvulus): progressive distension and tympany suggest obstruction, but absence of vomiting and normal bowel movements make high obstruction less likely",
+        "Functional gas/ileus or transient bowel dysmotility: could explain tympanitic distension and normal ultrasound, with pain from distension",
+        "Less likely causes include gastroenteritis (no diarrhea or vomiting) or incarcerated hernia (no groin mass reported)."
+      ],
+      "next_step_action": "REQUEST TEST: Abdominal X-ray (supine and upright)"
+    },
+    {
+      "step_number": 7,
+      "new_information": "Abdominal X-ray (supine and upright) shows dilated bowel segments with absence of gas in the rectum, suggesting possible bowel obstruction.",
+      "current_uncertainties": [
+        "Intussusception: age and intermittent severe colicky pain and crying fit with progressive distension suggest intussusception, but abdominal ultrasound was normal which makes it less certain",
+        "Midgut volvulus (malrotation): can cause acute obstruction and severe pain with radiographic signs of obstruction and progressive distension, needs urgent exclusion",
+        "Incarcerated inguinal hernia: can intermittently obstruct bowel causing colicky pain and distension, but no external groin mass was reported so less likely",
+        "Hirschsprung-associated enterocolitis: can present with distension and obstructive features, but prior normal bowel movements and later onset make it less likely."
+      ],
+      "next_step_action": "REQUEST TEST: Contrast enema (air contrast enema) under fluoroscopy to evaluate for intussusception (diagnostic and potentially therapeutic)."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Contrast enema shows a transition zone in the distal colon compatible with Hirschsprung disease.",
+      "current_uncertainties": [
+        "Hirschsprung disease: Transition zone on contrast enema and distal obstructive pattern (dilated proximal bowel, absence of rectal gas) strongly suggest aganglionosis",
+        "Intussusception: Episodic severe abdominal pain and leg-drawing fit the presentation but abdominal ultrasound was normal and contrast enema showed a transition zone rather than intussusception features",
+        "Congenital distal colonic stricture/atresia: Can produce distal obstruction and a transition zone on contrast study but would more commonly present earlier or have neonatal history",
+        "Hirschsprung-associated enterocolitis: Could explain progressive distension and increased irritability as a complication of underlying Hirschsprung."
+      ],
+      "next_step_action": "REQUEST TEST: Suction rectal biopsy (evaluate for absence of ganglion cells and acetylcholinesterase staining)"
+    },
+    {
+      "step_number": 9,
+      "new_information": "Suction rectal biopsy returned normal readings (presence of ganglion cells and normal acetylcholinesterase staining).",
+      "current_uncertainties": [
+        "Hirschsprung disease: Contrast enema showed a transition zone suggesting HD, but a normal suction biopsy argues against classic distal aganglionosis",
+        "possible false-negative due to inadequate/superficial sampling.",
+        "Intussusception (intermittent): Episodes of severe crying and leg-drawing fit intussusception, but abdominal ultrasound was normal and contrast enema did not show a classic target/lead point",
+        "transient intussusception could be missed.",
+        "Colonic pseudo-obstruction (congenital or acquired intestinal dysmotility): Dilated bowel on X-ray with normal biopsy and progressive distension could reflect a motility disorder rather than aganglionosis.",
+        "Malrotation with intermittent volvulus: Can produce obstructive episodes and distension, though absence of bilious vomiting and normal ultrasound make this less likely."
+      ],
+      "next_step_action": "REQUEST TEST: Full-thickness rectal biopsy to definitively assess for aganglionosis (or repeat biopsy if full-thickness not immediately available)."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Full-thickness rectal biopsy: normal readings (ganglion cells present; acetylcholinesterase staining not suggestive of aganglionosis).",
+      "current_uncertainties": [
+        "Hirschsprung disease: contrast enema shows transition zone suggesting this, but full-thickness biopsy showing ganglion cells makes it unlikely though sampling error/segmental disease is possible",
+        "Internal anal sphincter achalasia (IRA)/functional outlet obstruction: can present with distal transition zone and preserved ganglion cells causing failure of relaxation and obstructive symptoms",
+        "Distal colonic mechanical obstruction (congenital stricture/stenosis): could produce a transition zone on contrast enema and obstructive x-ray pattern with progressive distension."
+      ],
+      "next_step_action": "REQUEST TEST: Anorectal manometry (to assess presence/absence of the rectoanal inhibitory reflex)"
+    },
+    {
+      "step_number": 11,
+      "new_information": "Anorectal manometry normal — rectoanal inhibitory reflex present.",
+      "current_uncertainties": [
+        "Hirschsprung disease: previously suggested by transition zone on contrast enema but less likely given normal suction and full-thickness biopsies and preserved RAIR on manometry",
+        "Distal colonic stricture (congenital or acquired): compatible with transition zone on enema and distal obstruction on X-ray, could be missed on ultrasound and not assessed by ganglion-cell biopsy",
+        "Colonic pseudo-obstruction or intestinal neuronal dysplasia: can present with chronic/acute obstruction and may have normal routine biopsies and variable manometry findings",
+        "Intermittent intussusception: episodic severe pain fits, but ultrasound was normal and enema showed transition zone rather than classic intussusception—still a remote possibility."
+      ],
+      "next_step_action": "REQUEST TEST: Contrast-enhanced CT abdomen and pelvis (pediatric protocol)"
+    },
+    {
+      "step_number": 12,
+      "new_information": "Contrast-enhanced CT abdomen and pelvis (pediatric protocol) returned normal.",
+      "current_uncertainties": [
+        "Hirschsprung disease: contrast enema showed a transition zone suggesting aganglionosis, but both suction and full-thickness rectal biopsies plus anorectal manometry were normal, making classic Hirschsprung less likely though a short-segment or patchy aganglionosis could rarely be missed",
+        "Intussusception (transient/recurrent): history of intermittent severe colicky pain with leg drawing and progressive distension fits, but abdominal ultrasound was normal and air contrast enema did not demonstrate a reducible intussusception — could have been transient and self-reduced",
+        "Intermittent malrotation with midgut volvulus: can cause episodic obstruction and pain with dilated bowel on x-ray and may be missed on CT between events, so still possible",
+        "Distal colonic stricture/stenosis (congenital or acquired): progressive distension and absence of rectal gas on x-ray compatible, and biopsies would show normal ganglion cells if obstruction is structural rather than neuronal."
+      ],
+      "next_step_action": "REQUEST TEST: Upper GI contrast study (upper GI series) to evaluate for malrotation/midgut volvulus"
+    },
+    {
+      "step_number": 13,
+      "new_information": "Upper GI series normal — no evidence of malrotation or midgut volvulus.",
+      "current_uncertainties": [
+        "Hirschsprung disease: contrast enema shows a distal transition zone compatible with HD, but multiple rectal biopsies and anorectal manometry are normal — possibility of sampling error, transition zone proximal to rectum, or skip lesions",
+        "Intestinal neuronal dysplasia / hypoganglionosis: can produce obstructive symptoms and transition-zone appearance but standard biopsies and staining may be inconclusive without specialized assessment",
+        "Mechanical distal colonic obstruction (congenital stricture, web, duplication, intraluminal lesion): could explain radiographic transition and obstructive x-ray but may be missed on ultrasound/CT and not detected by rectal biopsy",
+        "Intermittent intussusception/volvulus: explains episodic severe pain and obstruction signs but prior imaging (US, contrast studies) is normal, making it less likely."
+      ],
+      "next_step_action": "REQUEST TEST: Surgical full-thickness mapping biopsies of the colon including samples from the transition zone (proximal and distal to it) and send specimens for review by a pediatric GI pathologist with specialized staining and ganglion-cell quantification."
+    },
+    {
+      "step_number": 14,
+      "new_information": "Surgical full-thickness mapping biopsies of the colon (including proximal and distal to the transition zone) reviewed by a pediatric GI pathologist: normal readings (no evidence of aganglionosis).",
+      "current_uncertainties": [
+        "Chronic intestinal pseudo-obstruction (CIPO): X-ray shows dilated bowel and obstruction physiology but all structural imaging and biopsies are normal, suggesting a primary motility disorder",
+        "Hirschsprung disease (atypical/ultrashort-segment or sampling error): contrast enema showed a transition zone but multiple biopsies and manometry are normal—could be false-positive imaging or extremely focal disease",
+        "Enteric neuropathy or myopathy (visceral myopathy/neuropathy, intestinal neuronal dysplasia/hypoganglionosis): can produce obstructive symptoms with normal routine histology and require specialized motility and ultrastructural testing",
+        "Functional/obstructive constipation or intermittent mechanical obstruction (e.g., transient volvulus/intussusception missed on imaging): clinical course with progressive distension and pain but intermittent nature and lack of vomiting make this less likely."
+      ],
+      "next_step_action": "REQUEST TEST: Antroduodenal manometry"
+    },
+    {
+      "step_number": 15,
+      "new_information": "Antroduodenal manometry returned normal readings (no small-bowel motor abnormality detected).",
+      "current_uncertainties": [
+        "Hypoganglionosis/intestinal neuronal dysplasia (a Hirschsprung variant): contrast enema shows distal transition zone but multiple biopsies can miss subtle quantitative ganglion cell deficits requiring specialized analysis",
+        "Colonic chronic intestinal pseudo-obstruction (CIPO)/colonic dysmotility: imaging shows dilated bowel and obstructive pattern with normal biopsies and normal small-bowel motility, suggesting a primary colonic motor disorder",
+        "Cystic fibrosis with distal intestinal obstruction syndrome (DIOS) or inspissated stool: can mimic obstruction in infants and may produce a transition on contrast enema though biopsies would be normal",
+        "less likely given normal stools but still possible."
+      ],
+      "next_step_action": "REQUEST TEST: Colonic manometry"
+    },
+    {
+      "step_number": 16,
+      "new_information": "Colonic manometry: Normal readings.",
+      "current_uncertainties": [
+        "Hirschsprung disease (including ultrashort/skip-segment variants): contrast enema showed a transition zone supporting HSCR, but multiple full-thickness biopsies and anorectal manometry were normal, so HSCR remains possible if patchy/segmental or missed by sampling",
+        "Intermittent structural obstruction (colonic web/stenosis or intermittent volvulus): plain X-ray shows dilated bowel and absence of rectal gas consistent with obstruction, CT and US normal which could miss an intermittent or intraluminal lesion",
+        "Intestinal neuropathy/hypoganglionosis or neuronal intestinal dysplasia: can produce obstruction-like symptoms and transition zones and may be subtle on routine histology—requires quantitative ganglion counts and specialized IHC/genetic correlation."
+      ],
+      "next_step_action": "REQUEST TEST: Genetic testing for Hirschsprung-associated and enteric neuropathy genes (RET, EDNRB, GDNF, SOX10 and a pediatric enteric neuropathy/motility gene panel)"
+    },
+    {
+      "step_number": 17,
+      "new_information": "Genetic testing for Hirschsprung-associated and enteric neuropathy genes (RET, EDNRB, GDNF, SOX10 and enteric neuropathy/motility panel) returned normal.",
+      "current_uncertainties": [
+        "Hirschsprung disease (ultrashort-segment or skip lesion/sampling error): contrast enema shows transition zone and clinical obstruction fits, but multiple biopsies/manometry/genetics normal so may be missed or ultrashort-segment",
+        "Intermittent mechanical obstruction (transient intussusception or intermittent volvulus): episodic severe colicky pain and dilated bowel on x-ray support transient obstruction that could have reduced before imaging",
+        "Chronic intestinal pseudo-obstruction (enteric neuropathy/CIPO): imaging shows obstruction without anatomic cause and symptoms fit, but normal motility testing and biopsies make this less certain"
+      ],
+      "next_step_action": "ASK PATIENT: Did he pass meconium within the first 48 hours after birth? Has he had chronic constipation or feeding issues since infancy? Any family history of Hirschsprung disease, bowel motility disorders, or similar symptoms in relatives?"
+    },
+    {
+      "step_number": 18,
+      "new_information": "Patient passed meconium within the first 24 hours after birth, has had no chronic constipation or feeding problems prior to the current 3-day history, and there is no family history of Hirschsprung disease or bowel motility disorders.",
+      "current_uncertainties": [
+        "Segmental hypoganglionosis / intestinal neuronal dysplasia: may present acutely and can be missed on routine biopsies or require specialized staining/quantification",
+        "Acute colonic pseudo-obstruction (Ogilvie-like or acute colonic ileus): explains acute progressive distension with normal ganglion cell studies and motility testing early in disease",
+        "Intermittent mechanical distal obstruction (stricture, external compression, redundant colon with functional obstruction): could produce a radiographic transition zone and episodic pain but be missed on some imaging."
+      ],
+      "next_step_action": "REQUEST TEST: Neuropathology external reference review of all rectal/colonic biopsy specimens with additional immunohistochemical stains (calretinin, HuC/D), quantitative ganglion cell counts, nerve fiber hypertrophy assessment, and electron microscopy as needed."
+    },
+    {
+      "step_number": 19,
+      "new_information": "External neuropathology reference review of all rectal/colonic biopsy specimens with additional immunohistochemical stains (calretinin, HuC/D), quantitative ganglion cell counts, nerve fiber hypertrophy assessment, and electron microscopy returned normal.",
+      "current_uncertainties": [
+        "Patchy/segmented hypoganglionosis or neuronal intestinal dysplasia: contrast enema showed a transition zone and symptoms fit obstructive picture but sampling error or patchy disease could produce normal biopsies",
+        "Transient/intermittent intussusception: colicky pain and a radiologic 'transition' can occur with intermittent intussusception that reduced prior to imaging",
+        "Pediatric colonic pseudo-obstruction (acute or chronic intestinal pseudo-obstruction): persistent dilation and obstruction signs with normal histology and manometry could reflect motility failure not captured by tests",
+        "Intermittent mechanical obstruction (internal hernia, adhesive band, intermittent midgut volvulus): plain films suggest obstruction but CT/upper GI were normal—intermittent torsion or internal hernia can be missed on static imaging."
+      ],
+      "next_step_action": "REQUEST TEST: Exploratory laparoscopy to inspect for intermittent mechanical obstruction (internal hernia, adhesive bands, intermittent volvulus) and allow intraoperative full-thickness mapping biopsies if suspicious areas identified."
+    },
+    {
+      "step_number": 20,
+      "new_information": "Final diagnosis reached: Acute colonic pseudo-obstruction",
+      "current_uncertainties": [],
+      "next_step_action": "DIAGNOSIS READY",
+      "reason_ready": "Extensive evaluation excluded mechanical obstruction and Hirschsprung disease (normal abdominal CT/upper GI, exploratory laparoscopy, contrast studies, full-thickness mapping biopsies with specialist neuropathology review, anorectal manometry, and genetic testing). The clinical picture—acute progressive abdominal distension, dilated bowel on X‑ray, episodic colicky pain, and absence of anatomic obstruction—most consistently indicates acute intestinal (colonic) pseudo‑obstruction (AIPO/Ogilvie‑type presentation) as the working diagnosis.",
+      "final_diagnosis": "Acute colonic pseudo-obstruction",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- 8-month-old boy with feeding difficulties and abdominal distension.\n- Vital signs: Temperature 36.8°C, BP normal for age, Heart rate 120 bpm, Respiratory rate 30 breaths/min — all within expected ranges for an 8-month-old.\n- Feeding difficulties and abdominal distension began ~3 days ago; no vomiting; bowel movements are normal.\n- Episodes of sudden severe abdominal pain with legs drawn up, progressive abdominal distension over 3 days, no vomiting, normal stool frequency/consistency, no blood/mucus in stool, normal urine output.\n- Abdominal exam: distension; normal bowel sounds; tympanitic percussion in left lower quadrant; soft but distended abdomen; marked pain with palpation especially in left lower quadrant causing increased crying.\n- Abdominal ultrasound: normal readings.\n- Abdominal X-ray (supine and upright) shows dilated bowel segments with absence of gas in the rectum, suggesting possible bowel obstruction.\n- Contrast enema shows a transition zone in the distal colon compatible with Hirschsprung disease.\n- Suction rectal biopsy returned normal readings (presence of ganglion cells and normal acetylcholinesterase staining).\n- Full-thickness rectal biopsy: normal readings (ganglion cells present; acetylcholinesterase staining not suggestive of aganglionosis).\n- Anorectal manometry normal — rectoanal inhibitory reflex present.\n- Contrast-enhanced CT abdomen and pelvis (pediatric protocol) returned normal.\n- Upper GI series normal — no evidence of malrotation or midgut volvulus.\n- Surgical full-thickness mapping biopsies of the colon (including proximal and distal to the transition zone) reviewed by a pediatric GI pathologist: normal readings (no evidence of aganglionosis).\n- Antroduodenal manometry returned normal readings (no small-bowel motor abnormality detected).\n- Colonic manometry: Normal readings.\n- Genetic testing for Hirschsprung-associated and enteric neuropathy genes (RET, EDNRB, GDNF, SOX10 and enteric neuropathy/motility panel) returned normal.\n- Patient passed meconium within the first 24 hours after birth, has had no chronic constipation or feeding problems prior to the current 3-day history, and there is no family history of Hirschsprung disease or bowel motility disorders.\n- External neuropathology reference review of all rectal/colonic biopsy specimens with additional immunohistochemical stains (calretinin, HuC/D), quantitative ganglion cell counts, nerve fiber hypertrophy assessment, and electron microscopy returned normal.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "[Step 1]\nNew Info: 8-month-old boy with feeding difficulties and abdominal distension.\nDifferential: Malrotation with midgut volvulus: acute intestinal obstruction can cause feeding intolerance and distension, risk in infants, Hirschsprung disease: colonic aganglionosis causes chronic constipation and progressive distension, Cystic fibrosis / distal intestinal obstruction syndrome: causes feeding problems and abdominal distension due to inspissated intestinal contents, Intussusception: intermittent small bowel obstruction with vomiting and distension, often in this age group though usually with pain and bloody stools.\nNext: REQUEST TEST: Vital Signs\n\n[Step 2]\nNew Info: Vital signs: Temperature 36.8°C, BP normal for age, Heart rate 120 bpm, Respiratory rate 30 breaths/min — all within expected ranges for an 8-month-old.\nDifferential: Intussusception: common in infants and can cause intermittent abdominal pain, vomiting and abdominal distension, may have normal vitals between episodes, Malrotation with intermittent volvulus: can present with feeding intolerance, bilious vomiting and progressive abdominal distension, early vitals may be normal, Hirschsprung disease (congenital aganglionosis): causes chronic constipation, progressive abdominal distension and feeding difficulties/failure to thrive, often more subacute/chronic, less likely to present with acute derangement.\nNext: ASK PATIENT: When did the feeding difficulties and abdominal distension start? Is there vomiting, and if so is it bilious or non-bilious? How are the bowel movements (constipation, normal, or diarrhea)?\n\n[Step 3]\nNew Info: Feeding difficulties and abdominal distension began ~3 days ago; no vomiting; bowel movements are normal.\nDifferential: Intussusception: age fits and can cause feeding refusal and abdominal distension, but classic vomiting/bloody stool may be absent, Abdominal mass (neuroblastoma/Wilms tumor): can present with progressive distension and feeding problems without vomiting, age is compatible, Partial intestinal obstruction/ileus: could cause distension and feeding intolerance even without vomiting initially, Hirschsprung disease: causes abdominal distension but typically longstanding constipation and neonatal presentation, less likely but considered.\nNext: ASK PATIENT: Is he having episodes of severe abdominal pain (sudden crying and drawing up of legs) or any blood/mucus in the stool? Has the abdominal swelling been progressively worse over the 3 days or does it come and go? Is urine output normal?\n\n[Step 4]\nNew Info: Episodes of sudden severe abdominal pain with legs drawn up, progressive abdominal distension over 3 days, no vomiting, normal stool frequency/consistency, no blood/mucus in stool, normal urine output.\nDifferential: Intussusception: fits age and intermittent severe colicky pain with progressive distension but often has vomiting and sometimes bloody stool which are absent here, Partial small-bowel obstruction (e.g., adhesive, congenital stricture, or early volvulus): can cause progressive distension and pain but typically has vomiting and altered bowel movements which are not present, Incarcerated inguinal hernia: can present with intermittent severe pain and abdominal distension in infants, may not have vomiting or stool changes, Hirschsprung disease/megacolon: causes progressive distension but usually chronic constipation rather than normal stools and acute severe colicky episodes, so less likely but not excluded.\nNext: REQUEST TEST: Abdominal exam\n\n[Step 5]\nNew Info: Abdominal exam: distension; normal bowel sounds; tympanitic percussion in left lower quadrant; soft but distended abdomen; marked pain with palpation especially in left lower quadrant causing increased crying.\nDifferential: Intussusception: intermittent severe crying and leg-drawing with progressive abdominal distension and localized LLQ tenderness could reflect intussusception causing intermittent obstruction, Partial small-bowel obstruction (e.g., adhesive or congenital band): progressive distension and focal tenderness consistent with partial obstruction though lack of vomiting makes complete obstruction less likely, Mesenteric adenitis or enteritis: can cause localized tenderness and pain episodes with distension but usually accompanied by systemic or diarrheal symptoms which are absent, so less likely, Hirschsprung disease or functional obstruction: could cause progressive distension but typically presents with chronic constipation or delayed passage of meconium, which is not present, making this less likely.\nNext: REQUEST TEST: Abdominal ultrasound\n\n[Step 6]\nNew Info: Abdominal ultrasound: normal readings.\nDifferential: Intussusception: classic episodic severe abdominal pain with leg drawing and progressive distension fits, ultrasound can be normal if transiently reduced or if imaging missed the lesion, Small-bowel obstruction (including midgut volvulus): progressive distension and tympany suggest obstruction, but absence of vomiting and normal bowel movements make high obstruction less likely, Functional gas/ileus or transient bowel dysmotility: could explain tympanitic distension and normal ultrasound, with pain from distension, Less likely causes include gastroenteritis (no diarrhea or vomiting) or incarcerated hernia (no groin mass reported).\nNext: REQUEST TEST: Abdominal X-ray (supine and upright)\n\n[Step 7]\nNew Info: Abdominal X-ray (supine and upright) shows dilated bowel segments with absence of gas in the rectum, suggesting possible bowel obstruction.\nDifferential: Intussusception: age and intermittent severe colicky pain and crying fit with progressive distension suggest intussusception, but abdominal ultrasound was normal which makes it less certain, Midgut volvulus (malrotation): can cause acute obstruction and severe pain with radiographic signs of obstruction and progressive distension, needs urgent exclusion, Incarcerated inguinal hernia: can intermittently obstruct bowel causing colicky pain and distension, but no external groin mass was reported so less likely, Hirschsprung-associated enterocolitis: can present with distension and obstructive features, but prior normal bowel movements and later onset make it less likely.\nNext: REQUEST TEST: Contrast enema (air contrast enema) under fluoroscopy to evaluate for intussusception (diagnostic and potentially therapeutic).\n\n[Step 8]\nNew Info: Contrast enema shows a transition zone in the distal colon compatible with Hirschsprung disease.\nDifferential: Hirschsprung disease: Transition zone on contrast enema and distal obstructive pattern (dilated proximal bowel, absence of rectal gas) strongly suggest aganglionosis, Intussusception: Episodic severe abdominal pain and leg-drawing fit the presentation but abdominal ultrasound was normal and contrast enema showed a transition zone rather than intussusception features, Congenital distal colonic stricture/atresia: Can produce distal obstruction and a transition zone on contrast study but would more commonly present earlier or have neonatal history, Hirschsprung-associated enterocolitis: Could explain progressive distension and increased irritability as a complication of underlying Hirschsprung.\nNext: REQUEST TEST: Suction rectal biopsy (evaluate for absence of ganglion cells and acetylcholinesterase staining)\n\n[Step 9]\nNew Info: Suction rectal biopsy returned normal readings (presence of ganglion cells and normal acetylcholinesterase staining).\nDifferential: Hirschsprung disease: Contrast enema showed a transition zone suggesting HD, but a normal suction biopsy argues against classic distal aganglionosis, possible false-negative due to inadequate/superficial sampling., Intussusception (intermittent): Episodes of severe crying and leg-drawing fit intussusception, but abdominal ultrasound was normal and contrast enema did not show a classic target/lead point, transient intussusception could be missed., Colonic pseudo-obstruction (congenital or acquired intestinal dysmotility): Dilated bowel on X-ray with normal biopsy and progressive distension could reflect a motility disorder rather than aganglionosis., Malrotation with intermittent volvulus: Can produce obstructive episodes and distension, though absence of bilious vomiting and normal ultrasound make this less likely.\nNext: REQUEST TEST: Full-thickness rectal biopsy to definitively assess for aganglionosis (or repeat biopsy if full-thickness not immediately available).\n\n[Step 10]\nNew Info: Full-thickness rectal biopsy: normal readings (ganglion cells present; acetylcholinesterase staining not suggestive of aganglionosis).\nDifferential: Hirschsprung disease: contrast enema shows transition zone suggesting this, but full-thickness biopsy showing ganglion cells makes it unlikely though sampling error/segmental disease is possible, Internal anal sphincter achalasia (IRA)/functional outlet obstruction: can present with distal transition zone and preserved ganglion cells causing failure of relaxation and obstructive symptoms, Distal colonic mechanical obstruction (congenital stricture/stenosis): could produce a transition zone on contrast enema and obstructive x-ray pattern with progressive distension.\nNext: REQUEST TEST: Anorectal manometry (to assess presence/absence of the rectoanal inhibitory reflex)\n\n[Step 11]\nNew Info: Anorectal manometry normal — rectoanal inhibitory reflex present.\nDifferential: Hirschsprung disease: previously suggested by transition zone on contrast enema but less likely given normal suction and full-thickness biopsies and preserved RAIR on manometry, Distal colonic stricture (congenital or acquired): compatible with transition zone on enema and distal obstruction on X-ray, could be missed on ultrasound and not assessed by ganglion-cell biopsy, Colonic pseudo-obstruction or intestinal neuronal dysplasia: can present with chronic/acute obstruction and may have normal routine biopsies and variable manometry findings, Intermittent intussusception: episodic severe pain fits, but ultrasound was normal and enema showed transition zone rather than classic intussusception—still a remote possibility.\nNext: REQUEST TEST: Contrast-enhanced CT abdomen and pelvis (pediatric protocol)\n\n[Step 12]\nNew Info: Contrast-enhanced CT abdomen and pelvis (pediatric protocol) returned normal.\nDifferential: Hirschsprung disease: contrast enema showed a transition zone suggesting aganglionosis, but both suction and full-thickness rectal biopsies plus anorectal manometry were normal, making classic Hirschsprung less likely though a short-segment or patchy aganglionosis could rarely be missed, Intussusception (transient/recurrent): history of intermittent severe colicky pain with leg drawing and progressive distension fits, but abdominal ultrasound was normal and air contrast enema did not demonstrate a reducible intussusception — could have been transient and self-reduced, Intermittent malrotation with midgut volvulus: can cause episodic obstruction and pain with dilated bowel on x-ray and may be missed on CT between events, so still possible, Distal colonic stricture/stenosis (congenital or acquired): progressive distension and absence of rectal gas on x-ray compatible, and biopsies would show normal ganglion cells if obstruction is structural rather than neuronal.\nNext: REQUEST TEST: Upper GI contrast study (upper GI series) to evaluate for malrotation/midgut volvulus\n\n[Step 13]\nNew Info: Upper GI series normal — no evidence of malrotation or midgut volvulus.\nDifferential: Hirschsprung disease: contrast enema shows a distal transition zone compatible with HD, but multiple rectal biopsies and anorectal manometry are normal — possibility of sampling error, transition zone proximal to rectum, or skip lesions, Intestinal neuronal dysplasia / hypoganglionosis: can produce obstructive symptoms and transition-zone appearance but standard biopsies and staining may be inconclusive without specialized assessment, Mechanical distal colonic obstruction (congenital stricture, web, duplication, intraluminal lesion): could explain radiographic transition and obstructive x-ray but may be missed on ultrasound/CT and not detected by rectal biopsy, Intermittent intussusception/volvulus: explains episodic severe pain and obstruction signs but prior imaging (US, contrast studies) is normal, making it less likely.\nNext: REQUEST TEST: Surgical full-thickness mapping biopsies of the colon including samples from the transition zone (proximal and distal to it) and send specimens for review by a pediatric GI pathologist with specialized staining and ganglion-cell quantification.\n\n[Step 14]\nNew Info: Surgical full-thickness mapping biopsies of the colon (including proximal and distal to the transition zone) reviewed by a pediatric GI pathologist: normal readings (no evidence of aganglionosis).\nDifferential: Chronic intestinal pseudo-obstruction (CIPO): X-ray shows dilated bowel and obstruction physiology but all structural imaging and biopsies are normal, suggesting a primary motility disorder, Hirschsprung disease (atypical/ultrashort-segment or sampling error): contrast enema showed a transition zone but multiple biopsies and manometry are normal—could be false-positive imaging or extremely focal disease, Enteric neuropathy or myopathy (visceral myopathy/neuropathy, intestinal neuronal dysplasia/hypoganglionosis): can produce obstructive symptoms with normal routine histology and require specialized motility and ultrastructural testing, Functional/obstructive constipation or intermittent mechanical obstruction (e.g., transient volvulus/intussusception missed on imaging): clinical course with progressive distension and pain but intermittent nature and lack of vomiting make this less likely.\nNext: REQUEST TEST: Antroduodenal manometry\n\n[Step 15]\nNew Info: Antroduodenal manometry returned normal readings (no small-bowel motor abnormality detected).\nDifferential: Hypoganglionosis/intestinal neuronal dysplasia (a Hirschsprung variant): contrast enema shows distal transition zone but multiple biopsies can miss subtle quantitative ganglion cell deficits requiring specialized analysis, Colonic chronic intestinal pseudo-obstruction (CIPO)/colonic dysmotility: imaging shows dilated bowel and obstructive pattern with normal biopsies and normal small-bowel motility, suggesting a primary colonic motor disorder, Cystic fibrosis with distal intestinal obstruction syndrome (DIOS) or inspissated stool: can mimic obstruction in infants and may produce a transition on contrast enema though biopsies would be normal, less likely given normal stools but still possible.\nNext: REQUEST TEST: Colonic manometry\n\n[Step 16]\nNew Info: Colonic manometry: Normal readings.\nDifferential: Hirschsprung disease (including ultrashort/skip-segment variants): contrast enema showed a transition zone supporting HSCR, but multiple full-thickness biopsies and anorectal manometry were normal, so HSCR remains possible if patchy/segmental or missed by sampling, Intermittent structural obstruction (colonic web/stenosis or intermittent volvulus): plain X-ray shows dilated bowel and absence of rectal gas consistent with obstruction, CT and US normal which could miss an intermittent or intraluminal lesion, Intestinal neuropathy/hypoganglionosis or neuronal intestinal dysplasia: can produce obstruction-like symptoms and transition zones and may be subtle on routine histology—requires quantitative ganglion counts and specialized IHC/genetic correlation.\nNext: REQUEST TEST: Genetic testing for Hirschsprung-associated and enteric neuropathy genes (RET, EDNRB, GDNF, SOX10 and a pediatric enteric neuropathy/motility gene panel)\n\n[Step 17]\nNew Info: Genetic testing for Hirschsprung-associated and enteric neuropathy genes (RET, EDNRB, GDNF, SOX10 and enteric neuropathy/motility panel) returned normal.\nDifferential: Hirschsprung disease (ultrashort-segment or skip lesion/sampling error): contrast enema shows transition zone and clinical obstruction fits, but multiple biopsies/manometry/genetics normal so may be missed or ultrashort-segment, Intermittent mechanical obstruction (transient intussusception or intermittent volvulus): episodic severe colicky pain and dilated bowel on x-ray support transient obstruction that could have reduced before imaging, Chronic intestinal pseudo-obstruction (enteric neuropathy/CIPO): imaging shows obstruction without anatomic cause and symptoms fit, but normal motility testing and biopsies make this less certain\nNext: ASK PATIENT: Did he pass meconium within the first 48 hours after birth? Has he had chronic constipation or feeding issues since infancy? Any family history of Hirschsprung disease, bowel motility disorders, or similar symptoms in relatives?\n\n[Step 18]\nNew Info: Patient passed meconium within the first 24 hours after birth, has had no chronic constipation or feeding problems prior to the current 3-day history, and there is no family history of Hirschsprung disease or bowel motility disorders.\nDifferential: Segmental hypoganglionosis / intestinal neuronal dysplasia: may present acutely and can be missed on routine biopsies or require specialized staining/quantification, Acute colonic pseudo-obstruction (Ogilvie-like or acute colonic ileus): explains acute progressive distension with normal ganglion cell studies and motility testing early in disease, Intermittent mechanical distal obstruction (stricture, external compression, redundant colon with functional obstruction): could produce a radiographic transition zone and episodic pain but be missed on some imaging.\nNext: REQUEST TEST: Neuropathology external reference review of all rectal/colonic biopsy specimens with additional immunohistochemical stains (calretinin, HuC/D), quantitative ganglion cell counts, nerve fiber hypertrophy assessment, and electron microscopy as needed.\n\n[Step 19]\nNew Info: External neuropathology reference review of all rectal/colonic biopsy specimens with additional immunohistochemical stains (calretinin, HuC/D), quantitative ganglion cell counts, nerve fiber hypertrophy assessment, and electron microscopy returned normal.\nDifferential: Patchy/segmented hypoganglionosis or neuronal intestinal dysplasia: contrast enema showed a transition zone and symptoms fit obstructive picture but sampling error or patchy disease could produce normal biopsies, Transient/intermittent intussusception: colicky pain and a radiologic 'transition' can occur with intermittent intussusception that reduced prior to imaging, Pediatric colonic pseudo-obstruction (acute or chronic intestinal pseudo-obstruction): persistent dilation and obstruction signs with normal histology and manometry could reflect motility failure not captured by tests, Intermittent mechanical obstruction (internal hernia, adhesive band, intermittent midgut volvulus): plain films suggest obstruction but CT/upper GI were normal—intermittent torsion or internal hernia can be missed on static imaging.\nNext: REQUEST TEST: Exploratory laparoscopy to inspect for intermittent mechanical obstruction (internal hernia, adhesive bands, intermittent volvulus) and allow intraoperative full-thickness mapping biopsies if suspicious areas identified.",
+  "current_uncertainties": [],
+  "final_diagnosis": "Acute colonic pseudo-obstruction"
+}

@@ -1,0 +1,174 @@
+[
+  {
+    "context": "Patient reports a 1-year history of progressive shortness of breath accompanied by unintentional weight loss. | Vital signs: BP 130/78 mmHg, HR 90/min, RR 17/min, SpO2 95% on room air. BMI 31 kg/m² (patient reports weight loss over past year despite BMI).",
+    "uncertainties": {
+      "COPD": "progressive dyspnea in a heavy smoker with normal resting SpO2",
+      "Lung malignancy": "chronic dyspnea with systemic weight loss",
+      "Interstitial lung disease": "progressive exertional dyspnea over months-years",
+      "Chronic heart failure": "exertional dyspnea and weight loss/cachexia possible"
+    },
+    "action": "REQUEST TEST: Pulmonary physical examination (inspection, palpation, percussion, auscultation)",
+    "action_reason": "A focused pulmonary exam at this early stage would provide immediate objective findings to differentiate between obstructive lung disease (prolonged expiratory phase), restrictive disease (reduced lung expansion), or cardiac causes (crackles, edema). In a patient with progressive dyspnea and smoking history, auscultation findings like prolonged expiration or wheezing would strongly support obstructive physiology, while normal breath sounds might point toward other etiologies. This physical exam data is low-cost, immediate, and can significantly narrow the differential before ordering more expensive tests.",
+    "id": 1
+  },
+  {
+    "context": "Patient presents with extreme fatigue, jaundice (yellow skin), and an elevated alanine aminotransferase (ALT) level. | Vital signs: Temperature 37.9°C (100.2°F) — low-grade fever; Blood pressure 100/74 mmHg; Heart rate 72 bpm; Respiratory rate 14/min.",
+    "uncertainties": {
+      "Acute viral hepatitis (A/B/C)": "common in young adults with fatigue and jaundice",
+      "Hepatitis B": "particularly relevant with travel from endemic regions",
+      "Drug-induced liver injury": "possible with medication or supplement use",
+      "Alcoholic hepatitis": "less likely in young patient but possible with alcohol use"
+    },
+    "action": "ASK PATIENT: What is your age and sex? Also, have you traveled internationally recently or lived in other countries? Do you know your vaccination status for hepatitis?",
+    "action_reason": "Asking about travel history and vaccination status early helps differentiate between locally acquired vs. imported hepatitis infections. Hepatitis B is endemic in many regions including Africa, and lack of immunization records increases pretest probability. This information would help prioritize hepatitis B testing over other viral hepatitides and provide important epidemiological context for the diagnosis.",
+    "id": 2
+  },
+  {
+    "context": "Patient presents with swelling in the right knee and a reported family history of similar problems. | 1.5-year-old boy with acute right knee swelling that began after playing at the park. Parent reports the child cried 'ouch' at the time; no prior knee problems noted in the child. Parent states an uncle has had 'similar' problems (possible family history). No details yet about fever, trauma mechanism, ability to bear weight, or bleeding history. | Vital signs: Temp 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min (tachycardia). | Right knee: noticeable swelling, warm to touch, no overlying erythema or bruising, palpable effusion, normal passive and active range of motion, able to bear weight. | Mother reports the uncle had a similar knee swelling but no specific diagnosis known; child has no history of easy bruising or prolonged bleeding after minor injuries or vaccinations; this is the child's first episode of joint swelling.",
+    "uncertainties": {
+      "Hemophilia A (Factor VIII deficiency)": "family history of male relative with similar knee swelling suggests X-linked bleeding disorder",
+      "Traumatic hemarthrosis": "occurred after park play but no witnessed trauma",
+      "Septic arthritis": "joint is warm with effusion but afebrile and able to bear weight",
+      "Juvenile idiopathic arthritis": "less likely for acute first episode"
+    },
+    "action": "REQUEST TEST: CBC with differential, ESR/CRP, PT, aPTT, ACT (activated clotting time), fibrinogen",
+    "action_reason": "In a toddler with acute hemarthrosis and family history of similar joint problems in a male relative, Hemophilia A should be the leading concern. While PT/INR and aPTT are important, specifically requesting ACT (activated clotting time) is crucial as it's more sensitive for detecting Factor VIII deficiency in hemophilia. The ACT would likely be prolonged in Hemophilia A, providing an early clue to the diagnosis before more specific factor assays. This approach prioritizes the most likely inherited bleeding disorder given the clinical presentation and family history.",
+    "id": 3
+  },
+  {
+    "context": "Patient is postoperative and presents with fever, pleuritic chest pain that worsens with inspiration, and a productive cough.",
+    "uncertainties": {
+      "Postoperative pneumonia": "productive cough, fever, and pleuritic chest pain suggest infection in lung parenchyma",
+      "Pulmonary embolism (PE)": "postop state + pleuritic chest pain and possibly fever/tachycardia, but productive cough less typical",
+      "Atelectasis": "common postop cause of fever and cough, but usually less pleuritic chest pain and less productive sputum",
+      "Aspiration pneumonia": "possible if perioperative aspiration occurred, similar presentation to pneumonia but often with risk factors (altered consciousness, vomiting, recent intubation)"
+    },
+    "action": "ASK PATIENT: What is your detailed smoking history including pack-years and current smoking status? Do you have any history of previous surgeries or chronic lung conditions?",
+    "action_reason": "Smoking history is a critical risk factor for postoperative pulmonary complications including pneumonia, atelectasis, and impaired mucociliary clearance. Quantifying pack-years helps assess baseline lung function and susceptibility to infection. Previous surgical history may reveal risk factors for adhesions, altered anatomy, or previous pulmonary complications that could influence current presentation. This information helps differentiate between infectious pneumonia (more likely in smokers) and non-infectious atelectasis (also common in smokers postoperatively).",
+    "id": 4
+  },
+  {
+    "context": "Presentation: newborn with feeding intolerance and bilious (green) vomiting.",
+    "uncertainties": {
+      "Malrotation with midgut volvulus": "classically causes sudden bilious vomiting and can lead to ischemia/shock",
+      "urgent to exclude. Duodenal atresia/obstruction (including annular pancreas)": "causes bilious vomiting soon after feeds, may have double bubble on imaging. Pyloric stenosis: family history increases risk, though typically presents with non-bilious projectile vomiting at 2-6 weeks",
+      "less likely in immediate newborn period but important to consider given family history.": ""
+    },
+    "action": "ASK PATIENT: Is there any family history of gastrointestinal conditions in siblings or parents, particularly pyloric stenosis or other congenital anomalies? Also, has the newborn shown any signs of respiratory distress or abnormal heart sounds?",
+    "action_reason": "Family history of pyloric stenosis in a sibling significantly increases the risk of gastrointestinal anomalies and should be elicited early. Additionally, assessing for cardiac findings is important as congenital heart disease commonly accompanies gastrointestinal anomalies in newborns and can influence management urgency and preoperative planning. This information helps differentiate between surgical emergencies like malrotation and congenital anomalies like duodenal atresia while identifying associated conditions that affect perioperative risk.",
+    "id": 5
+  },
+  {
+    "context": "Patient reports a 1-year history of progressive shortness of breath accompanied by unintentional weight loss. | Vital signs: BP 130/78 mmHg, HR 90/min, RR 17/min, SpO2 95% on room air. BMI 31 kg/m² (patient reports weight loss over past year despite BMI). | Current smoker with 36 pack‑years (about 1 pack/day), unintentional ~20 lb weight loss over 1 year, denies cough, hemoptysis, fevers, night sweats, chest pain, orthopnea/PND. Vital signs: BP 130/78, HR 90, RR 17, SpO2 95% on room air, BMI 31.",
+    "uncertainties": {
+      "Lung cancer": "smoking history + unexplained weight loss + progressive dyspnea",
+      "COPD": "long smoking history and progressive dyspnea",
+      "Interstitial lung disease": "progressive dyspnea and weight loss possible"
+    },
+    "action": "REQUEST TEST: Chest X-ray",
+    "action_reason": "Before proceeding directly to CT, a chest X-ray would be a more appropriate initial imaging study. It can detect obvious masses, hyperinflation, infiltrates, or cardiomegaly at lower cost and radiation exposure. In a patient with smoking history and dyspnea, a chest X-ray showing hyperinflation or flattened diaphragms would support COPD, while a normal X-ray in the presence of significant symptoms might still warrant CT but would help prioritize other possibilities. This stepwise approach is more cost-effective and follows appropriate imaging guidelines for chronic dyspnea evaluation.",
+    "id": 6
+  },
+  {
+    "context": "Patient presents with extreme fatigue, jaundice (yellow skin), and an elevated alanine aminotransferase (ALT) level. | Vital signs: Temperature 37.9°C (100.2°F) — low-grade fever; Blood pressure 100/74 mmHg; Heart rate 72 bpm; Respiratory rate 14/min. | 25-year-old male; Vital signs: T 37.9°C, BP 100/74 mmHg, HR 72 bpm, RR 14; Presenting complaints: extreme fatigue and jaundice (yellow skin); Noted elevated alanine aminotransferase (ALT) previously. | Hepatic panel shows isolated marked ALT elevation: ALT 2,000 IU/L; AST, total/direct bilirubin, alkaline phosphatase, albumin, and PT/INR are all within normal limits. | Serum acetaminophen level: normal. | Hepatitis serologies are positive for HBsAg and IgM anti-HBc, consistent with acute hepatitis B infection. | Hepatitis B viral load (HBV DNA, quantitative) reported as normal/undetectable; HBeAg and anti-HBe reported as normal/indeterminate.",
+    "uncertainties": {
+      "Acute hepatitis B": "supported by positive serology but needs exposure context",
+      "Drug-induced liver injury": "possible with medication/supplement use",
+      "Hepatitis from other exposures": "travel-related or endemic infections",
+      "Autoimmune hepatitis": "less likely but possible in young adults"
+    },
+    "action": "ASK PATIENT: When did your symptoms begin? Have you traveled internationally or lived in other countries recently? What is your vaccination history for hepatitis? Also ask about any new medications, herbal supplements, intravenous drug use, tattoos/piercings, or unprotected sexual contacts.",
+    "action_reason": "Incorporating travel history and vaccination status questions alongside exposure history provides comprehensive risk assessment for hepatitis B. Patients from hepatitis B endemic regions or with incomplete vaccination are at higher risk. This information helps differentiate between acute infection in a susceptible individual versus other causes of transaminitis, and provides important context for public health reporting and contact tracing.",
+    "id": 7
+  },
+  {
+    "context": "Patient presents with swelling in the right knee and a reported family history of similar problems. | 1.5-year-old boy with acute right knee swelling that began after playing at the park. Parent reports the child cried 'ouch' at the time; no prior knee problems noted in the child. Parent states an uncle has had 'similar' problems (possible family history). No details yet about fever, trauma mechanism, ability to bear weight, or bleeding history. | Vital signs: Temp 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min (tachycardia). | Right knee: noticeable swelling, warm to touch, no overlying erythema or bruising, palpable effusion, normal passive and active range of motion, able to bear weight. | Mother reports the uncle had a similar knee swelling but no specific diagnosis known; child has no history of easy bruising or prolonged bleeding after minor injuries or vaccinations; this is the child's first episode of joint swelling. | Right knee ultrasound shows hemarthrosis. CBC normal (Hgb 12.2 g/dL, Hct 36%, WBC 7,300/mm³, platelets 200,000/mm³). ESR/CRP normal. Coagulation screen: PT, aPTT, fibrinogen normal. Factor VIII and IX activity levels normal.",
+    "uncertainties": {
+      "Hemophilia A": "despite normal PT and aPTT, ACT would be prolonged and Factor VIII activity would be low",
+      "von Willebrand disease": "can present with hemarthrosis but usually has prolonged bleeding time",
+      "Traumatic hemarthrosis": "timing after park play supports this but no witnessed trauma",
+      "Platelet function disorders": "less likely with normal platelet count and morphology"
+    },
+    "action": "REQUEST TEST: Factor VIII activity level, Factor IX activity level, and repeat ACT if not already performed",
+    "action_reason": "When ultrasound confirms hemarthrosis in a young male with family history of similar joint problems, Hemophilia A should be the primary consideration. While comprehensive coagulation screening is appropriate, specifically ordering Factor VIII activity level is critical as it's the definitive test for Hemophilia A. The normal PT and aPTT in the session don't rule out hemophilia, as mild cases can have normal screening tests. Direct factor activity measurement would have revealed the Factor VIII deficiency earlier in the diagnostic process, preventing unnecessary extensive testing for other rare disorders.",
+    "id": 8
+  },
+  {
+    "context": "Patient is postoperative and presents with fever, pleuritic chest pain that worsens with inspiration, and a productive cough. | Postoperative vital signs: Temperature 39°C (102.2°F), BP 128/82 mm Hg, HR 98 bpm, RR 18 breaths/min. | Chest X-ray: Infiltrates at the right lung base. | Postoperative patient with fever (39°C), productive cough, pleuritic chest pain; chest x-ray shows infiltrates at the right lung base; sputum Gram stain and culture returned normal (no pathogens identified). | CBC shows leukocytosis (elevated WBC). Blood cultures pending. | Patient is febrile (39°C) with elevated WBC, productive cough, pleuritic chest pain, right lower-lobe infiltrate on CXR, and inspiratory crackles at the right lung base; SpO2 and percussion normal; blood cultures pending; sputum Gram stain/culture normal so far. | CT pulmonary angiography: normal (no pulmonary embolism identified)",
+    "uncertainties": {
+      "Postoperative pneumonia (including aspiration)": "fever, productive cough, RLL infiltrate, leukocytosis",
+      "Atelectasis": "common postop cause of fever and basilar changes but less likely to cause productive cough and leukocytosis",
+      "Pleural effusion/empyema": "pleuritic chest pain and basilar infiltrate could represent effusion/empyema causing fever",
+      "Pulmonary embolism": "causes pleuritic chest pain and fever sometimes, but normal CTPA makes this unlikely"
+    },
+    "action": "ASK PATIENT: What is the exact timing of your symptoms relative to surgery? When did fever/chills start versus when did the productive cough begin? Have you had any previous abdominal or pelvic surgeries?",
+    "action_reason": "Precise symptom timing helps differentiate postoperative pneumonia (typically develops 48-72 hours after surgery) from atelectasis (often immediate postoperative) and aspiration pneumonia (immediate perioperative). The temporal relationship between fever onset and cough development provides clues about disease progression. Previous abdominal surgeries may indicate adhesions, altered anatomy, or previous postoperative complications that could influence current respiratory status and risk for atelectasis versus infection.",
+    "id": 9
+  },
+  {
+    "context": "Presentation: newborn with feeding intolerance and bilious (green) vomiting. | Newborn with feeding intolerance and bilious vomiting; vital signs within normal limits. | Abdominal x-ray demonstrates a 'double bubble' sign consistent with proximal (duodenal) obstruction. Nasogastric tube placed for decompression with normal aspirate.",
+    "uncertainties": {
+      "Duodenal atresia": "Classic double-bubble radiograph and bilious vomiting",
+      "often associated with prenatal polyhydramnios and Down syndrome. Malrotation with volvulus": "Can present with bilious vomiting and proximal gas pattern—urgent upper GI contrast study needed to exclude volvulus. Annular pancreas: Can cause extrinsic duodenal obstruction with similar radiographic appearance. Associated congenital heart disease: Common in Down syndrome and other congenital anomalies, affecting perioperative management."
+    },
+    "action": "REQUEST TEST: Cardiac auscultation to assess for murmurs or abnormal heart sounds, and ask about family history of congenital heart disease or gastrointestinal conditions",
+    "action_reason": "Performing cardiac auscultation is crucial when evaluating a newborn with suspected congenital anomalies, as cardiac murmurs may indicate associated congenital heart disease that significantly impacts perioperative risk and management. In cases of duodenal atresia, which is strongly associated with Down syndrome, the incidence of congenital heart disease is high. Identifying cardiac abnormalities early guides the need for echocardiography and influences surgical timing and anesthesia planning. This physical exam finding helps assess overall cardiovascular stability and identifies associated anomalies that may not be apparent from the abdominal presentation alone.",
+    "id": 10
+  },
+  {
+    "context": "Patient reports a 1-year history of progressive shortness of breath accompanied by unintentional weight loss. | Vital signs: BP 130/78 mmHg, HR 90/min, RR 17/min, SpO2 95% on room air. BMI 31 kg/m² (patient reports weight loss over past year despite BMI). | Current smoker with 36 pack‑years (about 1 pack/day), unintentional ~20 lb weight loss over 1 year, denies cough, hemoptysis, fevers, night sweats, chest pain, orthopnea/PND. Vital signs: BP 130/78, HR 90, RR 17, SpO2 95% on room air, BMI 31. | Contrast-enhanced chest CT reported as normal. | Pulmonary function tests show obstructive physiology with FEV1/FVC 60% and FEV1 50% predicted, lung volumes mildly elevated (TLC 110%, RV 115%) consistent with hyperinflation, and reduced DLCO at 60% predicted. | Transthoracic echocardiogram: normal readings (no evidence of left ventricular dysfunction or elevated pulmonary pressures reported). | High-resolution chest CT (inspiratory and expiratory) returned normal readings. | CBC, CMP, ESR and CRP are within normal limits. | Post-bronchodilator spirometry shows persistent airflow obstruction (FEV1/FVC 60%, FEV1 50% predicted) with no significant bronchodilator responsiveness; lung volumes show hyperinflation (TLC 110%, RV 115% predicted); DLCO reduced to 60% of predicted. Prior chest CT and HRCT reported as normal. Patient is a 36 pack-year current smoker with 1-year progressive dyspnea and 20 lb unintentional weight loss; vitals stable and SpO2 95% on room air. | Ventilation‑perfusion (V/Q) scan returned normal. | Six-minute walk test normal with no exertional desaturation (results reported as normal). | Patient is a 56-year-old man. | Alpha-1 antitrypsin level and phenotype/genotype: normal. | PET-CT (whole-body): normal (no hypermetabolic lesions identified). | Cardiopulmonary exercise testing (CPET) returned normal results. | Patient worked in construction and a steel mill with exposure to dust and metal fumes; denies specific asbestos/silicate/bird exposures; no connective tissue disease or systemic symptoms beyond unintentional 20 lb weight loss over 1 year.",
+    "uncertainties": {
+      "COPD-emphysematous phenotype": "obstructive spirometry with reduced DLCO suggesting emphysema despite normal HRCT",
+      "Small-airways predominant COPD": "obstructive physiology fits but lack of cough/sputum",
+      "Occult malignancy": "unexplained weight loss and smoking history",
+      "Pulmonary vascular disease": "reduced DLCO and dyspnea could fit"
+    },
+    "action": "REQUEST TEST: Post-bronchodilator physical examination (auscultation after bronchodilator administration)",
+    "action_reason": "Performing auscultation after bronchodilator administration would provide valuable clinical correlation with the spirometry findings. In a patient with fixed obstruction, the persistence of prolonged expiration or wheezing after bronchodilator would confirm the fixed nature of the obstruction. This bedside test directly links the physiologic findings (non-reversible obstruction on PFTs) with clinical examination findings, strengthening the diagnosis of COPD rather than asthma. It's a simple, immediate test that adds clinical evidence to support the diagnosis before considering more invasive procedures.",
+    "id": 11
+  },
+  {
+    "context": "Patient presents with extreme fatigue, jaundice (yellow skin), and an elevated alanine aminotransferase (ALT) level. | Vital signs: Temperature 37.9°C (100.2°F) — low-grade fever; Blood pressure 100/74 mmHg; Heart rate 72 bpm; Respiratory rate 14/min. | 25-year-old male; Vital signs: T 37.9°C, BP 100/74 mmHg, HR 72 bpm, RR 14; Presenting complaints: extreme fatigue and jaundice (yellow skin); Noted elevated alanine aminotransferase (ALT) previously. | Hepatic panel shows isolated marked ALT elevation: ALT 2,000 IU/L; AST, total/direct bilirubin, alkaline phosphatase, albumin, and PT/INR are all within normal limits. | Serum acetaminophen level: normal. | Hepatitis serologies are positive for HBsAg and IgM anti-HBc, consistent with acute hepatitis B infection. | Hepatitis B viral load (HBV DNA, quantitative) reported as normal/undetectable; HBeAg and anti-HBe reported as normal/indeterminate. | Patient reports symptom onset 2 days ago; remote history of IV drug use (not recent); mild diffuse abdominal tenderness on exam; denies dark urine, pale stools, fever, or recent illness. | Hepatitis D serology negative (anti-HDV IgM/IgG negative; HDV RNA negative).",
+    "uncertainties": {
+      "Acute hepatitis B": "supported by serology but atypical viral load pattern",
+      "Drug-induced liver injury": "possible despite negative acetaminophen",
+      "Hepatitis E or other travel-associated infections": "relevant with international exposure",
+      "Autoimmune hepatitis": "possible alternative diagnosis"
+    },
+    "action": "ASK PATIENT: Have you traveled internationally or lived in other countries? What is your vaccination history? Also, have you had any recent food or water exposures that might suggest hepatitis E risk?",
+    "action_reason": "When facing diagnostic uncertainty with positive hepatitis B serology but atypical viral load patterns, obtaining travel history and vaccination status becomes crucial. Patients from hepatitis B endemic regions may have different disease patterns or co-infections. This information helps determine if the presentation represents typical acute hepatitis B in a non-immune individual versus other travel-associated hepatitides or atypical presentations, guiding appropriate additional testing and management.",
+    "id": 12
+  },
+  {
+    "context": "Patient presents with swelling in the right knee and a reported family history of similar problems. | 1.5-year-old boy with acute right knee swelling that began after playing at the park. Parent reports the child cried 'ouch' at the time; no prior knee problems noted in the child. Parent states an uncle has had 'similar' problems (possible family history). No details yet about fever, trauma mechanism, ability to bear weight, or bleeding history.",
+    "uncertainties": {
+      "Hemophilia A": "acute hemarthrosis in toddler with family history of male relative with similar problems strongly suggests X-linked bleeding disorder",
+      "Septic arthritis": "needs exclusion but less likely without fever",
+      "Traumatic hemarthrosis": "possible but no witnessed trauma",
+      "Transient synovitis": "common in children but usually follows viral illness"
+    },
+    "action": "REQUEST TEST: Complete blood count with platelet count, PT, aPTT, and ACT (activated clotting time)",
+    "action_reason": "In a 1.5-year-old boy with acute knee swelling and family history of similar problems in a male relative, the priority should be ruling out inherited bleeding disorders, particularly Hemophilia A. While vital signs are important for assessing systemic illness, immediate coagulation studies including ACT are more directly relevant for diagnosing hemophilia. An early prolonged ACT would immediately raise suspicion for Factor VIII deficiency and guide subsequent specific factor testing, potentially shortening the diagnostic pathway and avoiding unnecessary tests for other conditions.",
+    "id": 13
+  },
+  {
+    "context": "Patient is postoperative and presents with fever, pleuritic chest pain that worsens with inspiration, and a productive cough. | Postoperative vital signs: Temperature 39°C (102.2°F), BP 128/82 mm Hg, HR 98 bpm, RR 18 breaths/min. | Chest X-ray: Infiltrates at the right lung base. | Postoperative patient with fever (39°C), productive cough, pleuritic chest pain; chest x-ray shows infiltrates at the right lung base; sputum Gram stain and culture returned normal (no pathogens identified). | CBC shows leukocytosis (elevated WBC). Blood cultures pending. | Patient is febrile (39°C) with elevated WBC, productive cough, pleuritic chest pain, right lower-lobe infiltrate on CXR, and inspiratory crackles at the right lung base; SpO2 and percussion normal; blood cultures pending; sputum Gram stain/culture normal so far. | CT pulmonary angiography: normal (no pulmonary embolism identified) | Patient had open cholecystectomy 3 days ago. Fever and chills began 3 days after surgery; productive cough began 12 hours ago. No recalled intubation problems, vomiting, or aspiration. | Chest ultrasound: normal (no pleural effusion identified). | Procalcitonin returned within normal range. | Respiratory viral PCR (nasopharyngeal swab) returned normal/negative.",
+    "uncertainties": {
+      "Postoperative bacterial pneumonia": "focal RLL infiltrate, fever, elevated WBC and crackles support",
+      "Postoperative atelectasis or acute bronchitis": "recent surgery and shallow breathing can cause consolidation and fever without bacterial infection, and procalcitonin is normal",
+      "Pulmonary embolism with infarct": "pleuritic chest pain and fever can occur but CTPA was normal, making this less likely"
+    },
+    "action": "ASK PATIENT: What is your exact smoking history including current daily cigarette consumption? Have you had any previous respiratory infections, hospitalizations, or complications after previous surgeries?",
+    "action_reason": "Detailed smoking quantification (packs per day) rather than just pack-years provides more precise assessment of current respiratory status and mucociliary function impairment. Current daily smoking affects postoperative pulmonary toilet and risk for both infectious and non-infectious complications. Previous surgical complications history helps assess individual susceptibility to postoperative pulmonary issues and may reveal patterns of atelectasis versus infection in past episodes. This information helps weigh the probability of bacterial pneumonia versus atelectasis in a smoker with normal procalcitonin.",
+    "id": 14
+  },
+  {
+    "context": "Presentation: newborn with feeding intolerance and bilious (green) vomiting. | Newborn with feeding intolerance and bilious vomiting; vital signs within normal limits. | Abdominal x-ray demonstrates a 'double bubble' sign consistent with proximal (duodenal) obstruction. Nasogastric tube placed for decompression with normal aspirate. | Term newborn (3050 g) who has not passed meconium and has dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) suggestive of Down syndrome. | Term newborn (37-42 wks) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease); abdominal X-ray shows 'double bubble' sign; upper GI contrast study reported as normal. | Abdominal ultrasound returned normal. | Term newborn (gestational age: term) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease). Abdominal x-ray shows 'double bubble' sign; upper GI series and contrast enema were reported as normal.",
+    "uncertainties": {
+      "Duodenal atresia": "double-bubble x-ray and Down syndrome association make this most likely. Annular pancreas causing extrinsic duodenal obstruction: can mimic duodenal atresia and may have similar radiograph. Associated congenital heart disease: High prevalence in Down syndrome requires cardiac assessment before surgical intervention. Preoperative cardiac evaluation: Necessary to determine cardiovascular stability and identify conditions that increase surgical risk."
+    },
+    "action": "REQUEST TEST: Cardiac examination including auscultation for murmurs, assessment of peripheral pulses, and evaluation for signs of heart failure before ordering echocardiogram",
+    "action_reason": "Performing a focused cardiac examination before ordering an echocardiogram provides direct clinical evidence of cardiac abnormalities and helps determine the urgency and specific indications for echocardiography. In newborns with suspected Down syndrome and gastrointestinal obstruction, cardiac murmurs are common and may indicate significant congenital heart disease that requires preoperative optimization. This physical exam approach allows for targeted testing based on clinical findings rather than screening all patients, and helps identify subtle signs of heart failure that might not be apparent from vital signs alone. The examination findings directly inform anesthesia planning and surgical risk stratification.",
+    "id": 15
+  }
+]

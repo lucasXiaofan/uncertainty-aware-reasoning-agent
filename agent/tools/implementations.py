@@ -531,3 +531,95 @@ Diagnosis:"""
 
     # Return AgentClinic-compatible format
     return f"DIAGNOSIS READY: {final_diagnosis_text}"
+
+
+# =============================================================================
+# Experience Generation Tool (v1 - from documented sessions)
+# =============================================================================
+
+EXPERIENCE_V1_FILE = Path(__file__).parent.parent / "memory" / "AgentClinic_experience_v1.json"
+EXPERIENCE_V1_LOCK = EXPERIENCE_V1_FILE.with_suffix(".lock")
+
+_experience_session_dir = None
+
+
+def set_experience_session_dir(path: str):
+    """Set session directory for generate_experience tool."""
+    global _experience_session_dir
+    _experience_session_dir = Path(path) if path else None
+
+
+@tool(name="generate_experience", description="Save one improved experience from a diagnostic session step. Builds context from accumulated information up to the given step number.")
+def generate_experience(step_number: int, uncertainties: str, action: str, action_reason: str) -> str:
+    """Generate and save one experience item from a session step.
+
+    Args:
+        step_number: Which session step to improve
+        uncertainties: Improved differentials ("disease1: reason1; disease2: reason2")
+        action: Improved action (e.g., "ASK PATIENT: ...", "REQUEST TEST: ...")
+        action_reason: Why this action is better, referencing ground truth
+
+    Returns:
+        Confirmation message
+    """
+    session_id = get_current_session()
+    if not session_id:
+        return "Error: No active session."
+
+    # Load session from configured or default directory
+    session_dir = _experience_session_dir or (Path(__file__).parent.parent / "diagnosis_sessions")
+    session_path = session_dir / f"{session_id}.json"
+    if not session_path.exists():
+        return f"Error: Session not found: {session_path}"
+    with open(session_path, "r", encoding="utf-8") as f:
+        session = json.load(f)
+
+    # Build context: accumulated new_information up to step_number
+    context_parts = []
+    for step in session.get("steps", []):
+        if step.get("step_number", 0) <= step_number:
+            info = step.get("new_information", "")
+            if info and not info.startswith("Final diagnosis"):
+                context_parts.append(info)
+    context = " | ".join(context_parts)
+
+    # Parse uncertainties into dict
+    uncert_dict = {}
+    for item in uncertainties.split(";"):
+        item = item.strip()
+        if ":" in item:
+            k, v = item.split(":", 1)
+            uncert_dict[k.strip()] = v.strip()
+        elif item:
+            uncert_dict[item] = ""
+
+    # Cross-process safe write with file locking
+    lock_fd = _acquire_file_lock(EXPERIENCE_V1_LOCK)
+    try:
+        experiences = []
+        if EXPERIENCE_V1_FILE.exists():
+            try:
+                with open(EXPERIENCE_V1_FILE, "r", encoding="utf-8") as f:
+                    c = f.read().strip()
+                    if c:
+                        experiences = json.loads(c)
+            except (json.JSONDecodeError, Exception):
+                experiences = []
+
+        # Auto-increment ID based on existing max
+        max_id = max((e.get("id", 0) for e in experiences), default=0)
+        exp_id = max_id + 1
+
+        experience = {
+            "id": exp_id,
+            "context": context,
+            "uncertainties": uncert_dict,
+            "action": action,
+            "action_reason": action_reason,
+        }
+        experiences.append(experience)
+        with open(EXPERIENCE_V1_FILE, "w", encoding="utf-8") as f:
+            json.dump(experiences, f, indent=2, ensure_ascii=False)
+        return json.dumps({"status": "saved", "experience_id": exp_id, "total": len(experiences)})
+    finally:
+        _release_file_lock(lock_fd)

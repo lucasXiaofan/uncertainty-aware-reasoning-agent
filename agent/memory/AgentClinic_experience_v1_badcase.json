@@ -1,0 +1,163 @@
+[
+  {
+    "context": "Patient presents with extreme fatigue, jaundice (yellow skin), and an elevated alanine aminotransferase (ALT) level. | Vital signs: Temperature 37.9°C (100.2°F) — low-grade fever; Blood pressure 100/74 mmHg; Heart rate 72 bpm; Respiratory rate 14/min.",
+    "uncertainties": {
+      "Acute viral hepatitis (A/B/C)": "common in young adults with fatigue and jaundice",
+      "Hepatitis B": "particularly relevant given patient's African origin and unverified vaccination status",
+      "Drug-induced liver injury": "possible given unknown medication history",
+      "Travel-related infections": "important given patient's origin from Africa"
+    },
+    "action": "ASK PATIENT: What is your age, sex, and country of origin? Do you have any immunization records or know your vaccination status? Have you traveled recently or lived in areas with high hepatitis prevalence?",
+    "action_reason": "The ground truth reveals the patient moved from Africa at age 18 and has unverified vaccination status. This is crucial epidemiological information since hepatitis B is highly endemic in Africa. Asking about country of origin and vaccination status early would immediately raise suspicion for hepatitis B and guide appropriate testing priorities."
+  },
+  {
+    "context": "Patient reports a 1-year history of progressive shortness of breath accompanied by unintentional weight loss. | Vital signs: BP 130/78 mmHg, HR 90/min, RR 17/min, SpO2 95% on room air. BMI 31 kg/m² (patient reports weight loss over past year despite BMI).",
+    "uncertainties": {
+      "COPD": "smoking history and progressive dyspnea suggest obstructive lung disease",
+      "Lung cancer": "chronic dyspnea with systemic weight loss",
+      "Interstitial lung disease": "progressive exertional dyspnea over months-years",
+      "Chronic heart failure": "exertional dyspnea and weight loss possible"
+    },
+    "action": "REQUEST TEST: Pulmonary physical examination (inspection, palpation, percussion, auscultation for prolonged expiratory phase, wheezing, crackles)",
+    "action_reason": "The ground truth reveals key physical exam findings: \"mildly prolonged expiratory phase with no wheezing or crackles\" which is a classic finding in COPD. This physical exam would have provided early objective evidence supporting COPD diagnosis and could have streamlined the diagnostic workup by focusing on obstructive lung disease rather than pursuing extensive testing for alternative diagnoses like malignancy or pulmonary vascular disease."
+  },
+  {
+    "context": "Patient presents with swelling in the right knee and a reported family history of similar problems. | 1.5-year-old boy with acute right knee swelling that began after playing at the park. Parent reports the child cried 'ouch' at the time; no prior knee problems noted in the child. Parent states an uncle has had 'similar' problems (possible family history). No details yet about fever, trauma mechanism, ability to bear weight, or bleeding history.",
+    "uncertainties": {
+      "Hemophilia A": "acute hemarthrosis in a toddler with family history of similar problems in male relative",
+      "Septic arthritis": "acute swelling but afebrile",
+      "Traumatic hemarthrosis": "onset after play but no witnessed trauma",
+      "Transient synovitis": "common in children but usually less severe"
+    },
+    "action": "REQUEST TEST: Coagulation panel (PT, aPTT, ACT) and CBC",
+    "action_reason": "In a toddler with acute knee swelling and family history of similar problems in a male relative, Hemophilia A should be high on the differential. Ground truth shows prolonged ACT (52.0s) and PT (14.0s), which would have been detected early with coagulation testing. Requesting vitals alone misses the opportunity to identify coagulopathy early, delaying the correct diagnosis of Hemophilia A."
+  },
+  {
+    "context": "Presentation: newborn with feeding intolerance and bilious (green) vomiting.",
+    "uncertainties": {
+      "Duodenal atresia": "classic presentation with bilious vomiting and feeding intolerance in newborn",
+      "Malrotation with midgut volvulus": "surgical emergency with similar presentation",
+      "Pyloric stenosis": "family history of brother with this condition could suggest genetic predisposition to GI abnormalities"
+    },
+    "action": "ASK PATIENT: Is there any family history of gastrointestinal conditions in siblings or parents, particularly pyloric stenosis or other congenital anomalies? Also, has a cardiac murmur been noted on examination?",
+    "action_reason": "The ground truth reveals the patient's brother had pyloric stenosis surgery, which is important family history that could influence the differential diagnosis. Additionally, the ground truth mentions a grade 2/6 holosystolic murmur, which is crucial for identifying potential congenital heart disease (common in Down syndrome) and would affect preoperative planning. This information is more immediately valuable than just vital signs for a newborn with suspected congenital anomalies."
+  },
+  {
+    "context": "Patient is postoperative and presents with fever, pleuritic chest pain that worsens with inspiration, and a productive cough. | Postoperative vital signs: Temperature 39°C (102.2°F), BP 128/82 mm Hg, HR 98 bpm, RR 18 breaths/min. | Chest X-ray: Infiltrates at the right lung base. | Postoperative patient with fever (39°C), productive cough, pleuritic chest pain; chest x-ray shows infiltrates at the right lung base; sputum Gram stain and culture returned normal (no pathogens identified). | CBC shows leukocytosis (elevated WBC). Blood cultures pending. | Patient is febrile (39°C) with elevated WBC, productive cough, pleuritic chest pain, right lower-lobe infiltrate on CXR, and inspiratory crackles at the right lung base; SpO2 and percussion normal; blood cultures pending; sputum Gram stain/culture normal so far. | CT pulmonary angiography: normal (no pulmonary embolism identified)",
+    "uncertainties": {
+      "Postoperative pneumonia": "fever, productive cough, RLL infiltrate, leukocytosis",
+      "Atelectasis": "common postop cause of fever and basilar changes but less likely to cause productive cough and leukocytosis",
+      "Aspiration pneumonia": "possible despite no witnessed event, could cause focal infiltrate at dependent lung base"
+    },
+    "action": "ASK PATIENT: What type of surgery did you have and when? Were there any problems with intubation, vomiting, or suspected aspiration during or after surgery? When did your cough and fever start relative to the surgery? Do you smoke cigarettes, and if so, how many packs per day and for how many years?",
+    "action_reason": "The ground truth reveals the patient is a 17-pack-year smoker, which is a critical risk factor for pneumonia that was missed. Smoking history significantly increases pneumonia risk and should be obtained early in the diagnostic process. Adding this question to the existing surgical history inquiry would provide essential context for evaluating pneumonia likelihood versus atelectasis."
+  },
+  {
+    "context": "Patient presents with extreme fatigue, jaundice (yellow skin), and an elevated alanine aminotransferase (ALT) level. | Vital signs: Temperature 37.9°C (100.2°F) — low-grade fever; Blood pressure 100/74 mmHg; Heart rate 72 bpm; Respiratory rate 14/min. | 25-year-old male; Vital signs: T 37.9°C, BP 100/74 mmHg, HR 72 bpm, RR 14; Presenting complaints: extreme fatigue and jaundice (yellow skin); Noted elevated alanine aminotransferase (ALT) previously. | Hepatic panel shows isolated marked ALT elevation: ALT 2,000 IU/L; AST, total/direct bilirubin, alkaline phosphatase, albumin, and PT/INR are all within normal limits. | Serum acetaminophen level: normal.",
+    "uncertainties": {
+      "Acute hepatitis B": "high suspicion given patient's African origin and IV drug use history",
+      "Hepatitis A and C": "need exclusion",
+      "Hepatitis D": "important co-infection risk with IV drug use",
+      "Complete viral hepatitis panel needed for comprehensive evaluation": ""
+    },
+    "action": "REQUEST TEST: Complete hepatitis viral panel (HAV IgM, HBsAg, anti-HBs, IgM anti-HBc, anti-HCV, anti-HDV) and quantitative HBV DNA",
+    "action_reason": "The ground truth shows a complete hepatitis panel is already available and would immediately reveal HBsAg positive and IgM anti-HBc positive for acute hepatitis B diagnosis. Ordering the complete panel at step 5 (after acetaminophen level) rather than just hepatitis serologies would provide all necessary information at once, including anti-HDV which is important given the IV drug use history, and would expedite diagnosis."
+  },
+  {
+    "context": "Patient reports a 1-year history of progressive shortness of breath accompanied by unintentional weight loss. | Vital signs: BP 130/78 mmHg, HR 90/min, RR 17/min, SpO2 95% on room air. BMI 31 kg/m² (patient reports weight loss over past year despite BMI). | Current smoker with 36 pack‑years (about 1 pack/day), unintentional ~20 lb weight loss over 1 year, denies cough, hemoptysis, fevers, night sweats, chest pain, orthopnea/PND. Vital signs: BP 130/78, HR 90, RR 17, SpO2 95% on room air, BMI 31. | Contrast-enhanced chest CT reported as normal. | Pulmonary function tests show obstructive physiology with FEV1/FVC 60% and FEV1 50% predicted, lung volumes mildly elevated (TLC 110%, RV 115%) consistent with hyperinflation, and reduced DLCO at 60% predicted. | Transthoracic echocardiogram: normal readings (no evidence of left ventricular dysfunction or elevated pulmonary pressures reported). | High-resolution chest CT (inspiratory and expiratory) returned normal readings. | CBC, CMP, ESR and CRP are within normal limits. | Post-bronchodilator spirometry shows persistent airflow obstruction (FEV1/FVC 60%, FEV1 50% predicted) with no significant bronchodilator responsiveness; lung volumes show hyperinflation (TLC 110%, RV 115% predicted); DLCO reduced to 60% of predicted. Prior chest CT and HRCT reported as normal. Patient is a 36 pack-year current smoker with 1-year progressive dyspnea and 20 lb unintentional weight loss; vitals stable and SpO2 95% on room air. | Ventilation‑perfusion (V/Q) scan returned normal. | Six-minute walk test normal with no exertional desaturation (results reported as normal). | Patient is a 56-year-old man. | Alpha-1 antitrypsin level and phenotype/genotype: normal. | PET-CT (whole-body): normal (no hypermetabolic lesions identified). | Cardiopulmonary exercise testing (CPET) returned normal results. | Patient worked in construction and a steel mill with exposure to dust and metal fumes; denies specific asbestos/silicate/bird exposures; no connective tissue disease or systemic symptoms beyond unintentional 20 lb weight loss over 1 year.",
+    "uncertainties": {
+      "COPD—emphysematous phenotype": "smoking history with obstructive spirometry, hyperinflation and reduced DLCO suggesting emphysema",
+      "Small‑airways predominant COPD/chronic bronchitis": "obstructive physiology fits",
+      "Occult malignancy": "unexplained weight loss and smoking history raise concern",
+      "Pulmonary vascular disease": "reduced DLCO and dyspnea could fit"
+    },
+    "action": "REQUEST TEST: Detailed pulmonary auscultation focusing on expiratory phase duration and breath sounds",
+    "action_reason": "At this late stage, the doctor finally requests a physical exam but should have specifically asked for auscultation findings. The ground truth shows \"mildly prolonged expiratory phase\" - a key physical finding in COPD that would have provided direct clinical evidence supporting the diagnosis. This finding, combined with the PFT results, would have strengthened the COPD diagnosis earlier and reduced uncertainty about occult malignancy or pulmonary vascular disease."
+  },
+  {
+    "context": "Patient presents with swelling in the right knee and a reported family history of similar problems. | 1.5-year-old boy with acute right knee swelling that began after playing at the park. Parent reports the child cried 'ouch' at the time; no prior knee problems noted in the child. Parent states an uncle has had 'similar' problems (possible family history). No details yet about fever, trauma mechanism, ability to bear weight, or bleeding history. | Vital signs: Temp 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min (tachycardia). | Right knee: noticeable swelling, warm to touch, no overlying erythema or bruising, palpable effusion, normal passive and active range of motion, able to bear weight. | Mother reports the uncle had a similar knee swelling but no specific diagnosis known; child has no history of easy bruising or prolonged bleeding after minor injuries or vaccinations; this is the child's first episode of joint swelling.",
+    "uncertainties": {
+      "Hemophilia A": "hemarthrosis with family history, normal PT but prolonged ACT in ground truth",
+      "Traumatic hemarthrosis": "post-play but no witnessed trauma",
+      "Septic arthritis": "warm joint but afebrile",
+      "Juvenile idiopathic arthritis": "less likely for acute first episode"
+    },
+    "action": "REQUEST TEST: Coagulation panel including ACT (activated clotting time) specifically, not just PT/aPTT",
+    "action_reason": "The doctor ordered PT/INR and aPTT but missed ACT testing. Ground truth shows ACT prolonged at 52.0s while PT is only mildly elevated at 14.0s. In Hemophilia A, ACT is often more sensitive than PT for detecting coagulation abnormalities. Including ACT in the initial coagulation panel would have revealed the coagulopathy earlier, pointing directly to Hemophilia A rather than pursuing extensive normal factor testing."
+  },
+  {
+    "context": "Patient is postoperative and presents with fever, pleuritic chest pain that worsens with inspiration, and a productive cough. | Postoperative vital signs: Temperature 39°C (102.2°F), BP 128/82 mm Hg, HR 98 bpm, RR 18 breaths/min. | Chest X-ray: Infiltrates at the right lung base. | Postoperative patient with fever (39°C), productive cough, pleuritic chest pain; chest x-ray shows infiltrates at the right lung base; sputum Gram stain and culture returned normal (no pathogens identified). | CBC shows leukocytosis (elevated WBC). Blood cultures pending.",
+    "uncertainties": {
+      "Postoperative pneumonia (incl. aspiration)": "fever, productive cough, leukocytosis, RLL infiltrate on CXR",
+      "Pulmonary embolism with pulmonary infarct/pleurisy": "postoperative hypercoagulable state, pleuritic chest pain, can cause fever and focal opacity",
+      "Empyema/complicated parapneumonic effusion": "persistent fever, productive cough, and RLL opacity possibly representing pleural-based collection"
+    },
+    "action": "REQUEST TEST: Chest auscultation specifically for crackles, rhonchi, or bronchial breath sounds at right lung base",
+    "action_reason": "The ground truth physical exam already documents 'inspiratory crackles at the right lung base' which is a key finding supporting pneumonia. Requesting this specific auscultation finding earlier (step 5 instead of step 11) would provide objective evidence of consolidation and help differentiate pneumonia from atelectasis or PE. Crackles are a classic finding in pneumonia that should be sought early in the diagnostic workup."
+  },
+  {
+    "context": "Presentation: newborn with feeding intolerance and bilious (green) vomiting. | Newborn with feeding intolerance and bilious vomiting; vital signs within normal limits. | Abdominal x-ray demonstrates a 'double bubble' sign consistent with proximal (duodenal) obstruction. Nasogastric tube placed for decompression with normal aspirate.",
+    "uncertainties": {
+      "Duodenal atresia": "double-bubble sign on x-ray with bilious vomiting",
+      "Malrotation with volvulus": "must exclude due to surgical urgency",
+      "Annular pancreas": "similar radiographic appearance",
+      "Pyloric stenosis": "less likely in newborn but family history could be relevant"
+    },
+    "action": "ASK PATIENT: What is the family history of gastrointestinal conditions, particularly in siblings? Also, perform focused cardiac auscultation to check for murmurs given the dysmorphic features suggestive of Down syndrome.",
+    "action_reason": "The ground truth specifically mentions the patient's older brother had surgery for pyloric stenosis, which is important family history that should be elicited. Additionally, the ground truth documents a grade 2/6 holosystolic murmur, which is critical to identify given the association between Down syndrome and congenital heart defects. This information would guide the need for preoperative echocardiogram and affect surgical planning earlier in the diagnostic process."
+  },
+  {
+    "context": "Patient presents with extreme fatigue, jaundice (yellow skin), and an elevated alanine aminotransferase (ALT) level. | Vital signs: Temperature 37.9°C (100.2°F) — low-grade fever; Blood pressure 100/74 mmHg; Heart rate 72 bpm; Respiratory rate 14/min. | 25-year-old male; Vital signs: T 37.9°C, BP 100/74 mmHg, HR 72 bpm, RR 14; Presenting complaints: extreme fatigue and jaundice (yellow skin); Noted elevated alanine aminotransferase (ALT) previously. | Hepatic panel shows isolated marked ALT elevation: ALT 2,000 IU/L; AST, total/direct bilirubin, alkaline phosphatase, albumin, and PT/INR are all within normal limits. | Serum acetaminophen level: normal. | Hepatitis serologies are positive for HBsAg and IgM anti-HBc, consistent with acute hepatitis B infection. | Hepatitis B viral load (HBV DNA, quantitative) reported as normal/undetectable; HBeAg and anti-HBe reported as normal/indeterminate.",
+    "uncertainties": {
+      "Acute hepatitis B": "confirmed by serology but need travel/exposure details",
+      "Hepatitis E": "important consideration given travel from Africa",
+      "Complete exposure history": "needed for epidemiological context",
+      "Immunization status": "critical for management and contact tracing"
+    },
+    "action": "ASK PATIENT: You mentioned moving from Africa - which country and when? Have you traveled back recently? What is your vaccination history for hepatitis? Have you had any recent food/water exposures that might suggest hepatitis E?",
+    "action_reason": "The ground truth specifies the patient moved from Africa at age 18. This detailed travel history is crucial for hepatitis B risk assessment (high endemicity in Africa) and should prompt consideration of hepatitis E, which is also prevalent in some African regions. Asking about specific country of origin and recent travel would provide important epidemiological context that was missed in the original questioning."
+  },
+  {
+    "context": "Patient reports a 1-year history of progressive shortness of breath accompanied by unintentional weight loss. | Vital signs: BP 130/78 mmHg, HR 90/min, RR 17/min, SpO2 95% on room air. BMI 31 kg/m² (patient reports weight loss over past year despite BMI). | Current smoker with 36 pack‑years (about 1 pack/day), unintentional ~20 lb weight loss over 1 year, denies cough, hemoptysis, fevers, night sweats, chest pain, orthopnea/PND. Vital signs: BP 130/78, HR 90, RR 17, SpO2 95% on room air, BMI 31. | Contrast-enhanced chest CT reported as normal.",
+    "uncertainties": {
+      "COPD": "long smoking history and progressive dyspnea suggest obstructive lung disease but CT normal doesn't exclude airway disease",
+      "Pulmonary arterial hypertension": "progressive exertional dyspnea with normal chest CT raises concern",
+      "Lung cancer": "significant unintentional weight loss and heavy smoking history raise concern",
+      "Interstitial lung disease": "progressive dyspnea could be ILD but normal CT makes it less likely"
+    },
+    "action": "REQUEST TEST: Pulmonary physical examination including auscultation for prolonged expiration and breath sound assessment",
+    "action_reason": "After the normal CT scan, the doctor should have performed a focused physical exam rather than immediately proceeding to PFTs. The ground truth shows \"mildly prolonged expiratory phase\" - a physical finding that directly supports airway obstruction/COPD. This would have provided clinical correlation for the eventual PFT findings and helped prioritize COPD in the differential diagnosis, potentially avoiding some of the extensive subsequent testing for alternative diagnoses."
+  },
+  {
+    "context": "Patient presents with swelling in the right knee and a reported family history of similar problems. | 1.5-year-old boy with acute right knee swelling that began after playing at the park. Parent reports the child cried 'ouch' at the time; no prior knee problems noted in the child. Parent states an uncle has had 'similar' problems (possible family history). No details yet about fever, trauma mechanism, ability to bear weight, or bleeding history. | Vital signs: Temp 37.1°C, BP 90/52 mm Hg, HR 146/min, RR 26/min (tachycardia). | Right knee: noticeable swelling, warm to touch, no overlying erythema or bruising, palpable effusion, normal passive and active range of motion, able to bear weight. | Mother reports the uncle had a similar knee swelling but no specific diagnosis known; child has no history of easy bruising or prolonged bleeding after minor injuries or vaccinations; this is the child's first episode of joint swelling. | Right knee ultrasound shows hemarthrosis. CBC normal (Hgb 12.2 g/dL, Hct 36%, WBC 7,300/mm³, platelets 200,000/mm³). ESR/CRP normal. Coagulation screen: PT, aPTT, fibrinogen normal. Factor VIII and IX activity levels normal.",
+    "uncertainties": {
+      "Hemophilia A": "hemarthrosis with prolonged ACT in ground truth despite normal PT/aPTT",
+      "Traumatic hemarthrosis": "timing suggests injury but coagulation abnormal",
+      "von Willebrand disease": "possible but less likely with normal PT/aPTT",
+      "Synovial vascular malformation": "rare cause of hemarthrosis"
+    },
+    "action": "REQUEST TEST: Repeat coagulation studies with ACT and specific Factor VIII activity level immediately",
+    "action_reason": "When ultrasound showed hemarthrosis and initial coagulation tests were reportedly normal (but ACT was not checked), the doctor should have immediately repeated coagulation studies including ACT and ordered specific Factor VIII testing. Ground truth shows prolonged ACT (52.0s) which is characteristic of Hemophilia A. Instead, the doctor pursued von Willebrand and platelet function testing, delaying the correct diagnosis. Early Factor VIII testing would have revealed the deficiency characteristic of Hemophilia A."
+  },
+  {
+    "context": "Presentation: newborn with feeding intolerance and bilious (green) vomiting. | Newborn with feeding intolerance and bilious vomiting; vital signs within normal limits. | Abdominal x-ray demonstrates a 'double bubble' sign consistent with proximal (duodenal) obstruction. Nasogastric tube placed for decompression with normal aspirate. | Term newborn (3050 g) who has not passed meconium and has dysmorphic features (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease) suggestive of Down syndrome. | Term newborn (37-42 wks) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease); abdominal X-ray shows 'double bubble' sign; upper GI contrast study reported as normal. | Abdominal ultrasound returned normal. | Term newborn (gestational age: term) birth weight 3050 g; has not passed meconium; dysmorphic features consistent with Down syndrome (epicanthal folds, upslanting palpebral fissures, low-set ears, single transverse palmar crease). Abdominal x-ray shows 'double bubble' sign; upper GI series and contrast enema were reported as normal.",
+    "uncertainties": {
+      "Duodenal atresia": "most likely given double-bubble and Down syndrome features",
+      "Annular pancreas": "possible alternative",
+      "Congenital heart disease": "high probability given Down syndrome phenotype"
+    },
+    "action": "REQUEST TEST: Perform focused cardiac examination including auscultation for murmurs, and document detailed family history including any gastrointestinal conditions in first-degree relatives",
+    "action_reason": "The ground truth contains two critical pieces of information that were missed: 1) A grade 2/6 holosystolic murmur heard at the left mid to lower sternal border, and 2) Family history of brother with pyloric stenosis. Performing a focused cardiac exam would have identified the murmur earlier, prompting timely echocardiogram. Documenting family history would have provided additional context for the congenital GI anomaly. This is more important than routine labs at this stage when the diagnosis is already strongly suspected."
+  },
+  {
+    "context": "Patient is postoperative and presents with fever, pleuritic chest pain that worsens with inspiration, and a productive cough. | Postoperative vital signs: Temperature 39°C (102.2°F), BP 128/82 mm Hg, HR 98 bpm, RR 18 breaths/min.",
+    "uncertainties": {
+      "Postoperative pneumonia": "fever, pleuritic chest pain worse with inspiration, productive cough suggestive of pneumonia",
+      "Pulmonary embolism": "postoperative state with pleuritic chest pain and possible fever, typically with hypoxia and tachycardia—productive cough less typical",
+      "Atelectasis": "common postoperative cause of fever and respiratory symptoms, may cause pleuritic chest pain but often low-grade fever and minimal sputum",
+      "Empyema or parapneumonic effusion": "could follow pneumonia with persistent fever and pleuritic pain"
+    },
+    "action": "ASK PATIENT: Do you smoke cigarettes? If yes, how many packs per day and for how many years? Also, what is your occupation and any recent travel or sick contacts?",
+    "action_reason": "The ground truth shows the patient is a 17-pack-year smoker, which is a major risk factor for pneumonia that should be obtained in the initial history. Smoking history dramatically increases pneumonia risk and should be asked early when evaluating postoperative respiratory symptoms. This information would help prioritize pneumonia in the differential diagnosis from the beginning and guide appropriate testing and treatment decisions."
+  }
+]

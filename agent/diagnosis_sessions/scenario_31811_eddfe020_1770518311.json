@@ -1,0 +1,224 @@
+{
+  "session_id": "scenario_31811_eddfe020_1770518311",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presents with persistent bleeding after wisdom tooth extraction and has a history of easy bruising.",
+      "current_uncertainties": [
+        "von Willebrand disease: common cause of mucocutaneous bleeding including dental bleeding",
+        "Thrombocytopenia/ITP: low platelet count causes easy bruising and prolonged bleeding after procedures",
+        "Platelet function disorder (e.g., Glanzmann thrombasthenia or drug-induced dysfunction): mucocutaneous bleeding with possibly normal platelet count",
+        "Hemophilia A/B (less likely if female or no family history): factor VIII/IX deficiency can cause prolonged bleeding after surgery."
+      ],
+      "next_step_action": "REQUEST TEST: Vital Signs"
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs: Temperature 37°C, Blood Pressure 108/74 mm Hg, Heart Rate 90/min, Respiratory Rate normal — patient hemodynamically stable.",
+      "current_uncertainties": [
+        "von Willebrand disease: mucocutaneous and dental bleeding common and fits easy bruising and prolonged post-extraction bleeding",
+        "Platelet dysfunction (drug-induced or inherited): aspirin/NSAIDs or inherited platelet function defects can cause easy bruising and prolonged oral bleeding",
+        "Thrombocytopenia: low platelet count could explain petechiae, bruising, and surgical bleeding",
+        "Coagulation factor deficiency (e.g., hemophilia or acquired coagulopathy/liver disease): less likely without hemodynamic instability but can cause prolonged post-procedural bleeding."
+      ],
+      "next_step_action": "ASK PATIENT: Are you taking any blood thinners, antiplatelet medications, NSAIDs, or herbal supplements (e.g., warfarin, aspirin, clopidogrel, ibuprofen, ginkgo, fish oil)?"
+    },
+    {
+      "step_number": 3,
+      "new_information": "Patient reports not taking any blood thinners, antiplatelet drugs, NSAIDs, or herbal supplements and takes no medications.",
+      "current_uncertainties": [
+        "von Willebrand disease: common cause of mucocutaneous bleeding and prolonged post-dental extraction bleeding",
+        "Platelet count or function disorder (e.g., ITP or inherited platelet function defect): would cause easy bruising and mucosal bleeding",
+        "Coagulation factor deficiency (e.g., Hemophilia A/B or acquired factor deficiency): can cause prolonged post-procedural bleeding though deep tissue bleeding is more typical",
+        "Liver disease or vitamin K deficiency affecting multiple clotting factors: can cause bleeding but less likely without other systemic signs"
+      ],
+      "next_step_action": "ASK PATIENT: Have you had heavy or prolonged bleeding after previous dental work, surgeries, or menstrual periods? Do you have any family history of bleeding disorders?"
+    },
+    {
+      "step_number": 4,
+      "new_information": "Patient reports no prior surgeries or dental work. Family history is positive: an uncle with similar bleeding problems, easy bruising, and episodes of joint swelling.",
+      "current_uncertainties": [
+        "Hemophilia A or B: family history of an affected uncle with joint swelling (suggesting hemarthroses) raises suspicion for X-linked hemophilia, especially if patient is male",
+        "von Willebrand disease: common, autosomal, causes mucocutaneous bleeding and easy bruising with positive family history and could explain prolonged post-dental bleeding",
+        "Platelet function disorder or thrombocytopenia: can cause mucocutaneous bleeding and prolonged bleeding after extraction but less likely to cause hemarthroses noted in uncle."
+      ],
+      "next_step_action": "ASK PATIENT: What is your sex (male or female)? Have you ever had joint swelling or bleeding into joints (hemarthroses), heavy menstrual bleeding (if female), significant nosebleeds, or blood in urine/stool?"
+    },
+    {
+      "step_number": 5,
+      "new_information": "Patient is male and denies joint swelling/hemarthroses, significant nosebleeds, hematuria, or GI bleeding.",
+      "current_uncertainties": [
+        "von Willebrand disease: common cause of mucocutaneous bleeding and easy bruising, often with family history",
+        "Hemophilia A or B: X-linked, males may present after trauma/surgery with prolonged bleeding though hemarthroses more typical in moderate/severe disease",
+        "Platelet function disorder (congenital or acquired): can cause mucocutaneous bleeding and easy bruising despite normal platelet count",
+        "Thrombocytopenia: low platelet count would explain easy bruising and post-extraction bleeding but needs CBC confirmation."
+      ],
+      "next_step_action": "REQUEST TEST: Complete blood count (CBC) with platelet count"
+    },
+    {
+      "step_number": 6,
+      "new_information": "CBC: Platelet count 160,000/mm³ (within normal range); peripheral smear shows normal-sized platelets; hematocrit 35%, WBC 8,500/mm³.",
+      "current_uncertainties": [
+        "von Willebrand disease: mucocutaneous bleeding (postextraction, easy bruising) with normal platelet count",
+        "Hemophilia A or B: X-linked family history (male patient, uncle affected) and surgical bleeding possible, often with normal platelet count but prolonged aPTT",
+        "Platelet function disorder (e.g., Glanzmann thrombasthenia): normal platelet count/size but dysfunctional platelets causing mucocutaneous bleeding, less likely given family history but possible."
+      ],
+      "next_step_action": "REQUEST TEST: PT/INR, aPTT, von Willebrand factor antigen, ristocetin cofactor activity, and factor VIII activity"
+    },
+    {
+      "step_number": 7,
+      "new_information": "PT normal, INR normal, aPTT prolonged at 60 seconds; von Willebrand factor antigen, ristocetin cofactor activity, and factor VIII activity are normal.",
+      "current_uncertainties": [
+        "Hemophilia B (factor IX deficiency): prolonged aPTT with normal factor VIII and vWF, male with family history of bleeding suggests X-linked disorder",
+        "Factor XI deficiency: can present with isolated prolonged aPTT and bleeding after procedures, autosomal inheritance possible",
+        "Lupus anticoagulant or specific factor inhibitor: can prolong aPTT (may be lab artifact or inhibitor) though usually associated with thrombosis rather than bleeding",
+        "Pre-analytical/heparin contamination: sample artifact causing isolated prolonged aPTT unlikely given history but must be considered."
+      ],
+      "next_step_action": "REQUEST TEST: Mixing study (1:1 patient:normal plasma) and factor IX activity level"
+    },
+    {
+      "step_number": 8,
+      "new_information": "Mixing study (1:1 patient:normal plasma) corrected the prolonged aPTT to normal; factor IX activity level is normal.",
+      "current_uncertainties": [
+        "Factor XI deficiency: isolated prolonged aPTT that corrects with mixing and normal FVIII/IX suggests possible FXI deficiency which can cause bleeding after dental procedures",
+        "Platelet function disorder (e.g., Glanzmann thrombasthenia): persistent mucocutaneous bleeding and easy bruising with normal platelet count/size and normal vWF tests suggests platelet function defect",
+        "Factor XII deficiency: corrected mixing with prolonged aPTT could be due to FXII deficiency, but FXII typically does not cause bleeding and is therefore less likely clinically."
+      ],
+      "next_step_action": "REQUEST TEST: Factor XI activity level"
+    },
+    {
+      "step_number": 9,
+      "new_information": "Factor XI activity level: normal.",
+      "current_uncertainties": [
+        "Inherited platelet function disorder (e.g., Glanzmann thrombasthenia or storage pool disease): explains mucocutaneous bleeding with normal platelet count and smear and could cause post-extraction bleeding",
+        "Contact pathway deficiency (factor XII, prekallikrein, HMWK): explains isolated prolonged aPTT with normal mixing and normal intrinsic factor assays but typically does NOT cause bleeding, so less likely to explain clinical bleeding",
+        "Local surgical/technical bleeding at extraction site or local fibrinolysis: could cause persistent post-extraction bleeding despite largely normal systemic tests, though positive family history and easy bruising argue for systemic disorder."
+      ],
+      "next_step_action": "REQUEST TEST: Platelet function analysis (PFA-100) and platelet aggregation studies with agonists (ADP, collagen, epinephrine, ristocetin)."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Platelet function analysis (PFA-100) and platelet aggregation studies with agonists (ADP, collagen, epinephrine, ristocetin) are normal.",
+      "current_uncertainties": [
+        "Contact factor deficiency (e.g., factor XII, prekallikrein, HMWK): explains isolated prolonged aPTT with correction on mixing but typically does NOT cause bleeding, which conflicts with patient's bleeding",
+        "Pre-analytical heparin contamination or sample artifact: would prolong aPTT and could correct on mixing, could explain discordant labs and clinical bleeding if heparin exposure occurred",
+        "Mild or atypical intrinsic pathway factor deficiency not yet measured (e.g., factor XII measured? not yet): could cause prolonged aPTT—uncertainty because measured factors VIII, IX, XI are normal",
+        "Rare platelet function/qualitative disorder not detected by standard aggregation/PFA (e.g., secretion defect): bleeding history and easy bruising support platelet disorder despite normal conventional testing."
+      ],
+      "next_step_action": "REQUEST TEST: Repeat aPTT with a fresh citrate sample drawn by clean venipuncture, plus anti-Xa level to assess for heparin contamination, and factor XII activity level"
+    },
+    {
+      "step_number": 11,
+      "new_information": "Repeat aPTT remains prolonged at 60 seconds on a fresh citrate sample; anti-Xa level normal (no heparin contamination); factor XII activity normal.",
+      "current_uncertainties": [
+        "Prekallikrein or high-molecular-weight kininogen deficiency: explains isolated prolonged aPTT with normal clotting factor assays but usually does not cause bleeding",
+        "Hemophilia A (mild or assay variability) or other factor deficiency not detected/assay error: family history of an uncle with bleeding and joint swelling could indicate X-linked hemophilia despite normal factor VIII assay—possible lab variability or carrier-related issues",
+        "Laboratory artifact or reagent sensitivity/interference: persistent isolated aPTT prolongation with normal factor levels could be due to assay/reagent issues or uncommon inhibitors not detected by standard mixing studies."
+      ],
+      "next_step_action": "ASK PATIENT: Is the uncle with similar bleeding and joint swelling your mother's brother (i.e., on your maternal side)?"
+    },
+    {
+      "step_number": 12,
+      "new_information": "Patient reports maternal uncle with similar bleeding and joint swelling (maternal side).",
+      "current_uncertainties": [
+        "Hemophilia A or B: maternal uncle with hemarthroses suggests an X-linked factor VIII/IX deficiency",
+        "patient's factor VIII/IX activities are currently normal, so this is less likely but cannot be excluded (mild or variable levels, lab timing).",
+        "Lupus anticoagulant / antiphospholipid antibodies: explains isolated prolonged aPTT with normal mixing in some assays",
+        "typically associated with thrombosis rather than bleeding and family history less supportive.",
+        "Contact factor deficiency (prekallikrein or high-molecular-weight kininogen): causes isolated prolonged aPTT without bleeding—fits lab pattern but not the bleeding/family history.",
+        "Platelet function disorder not detected by standard testing (rare defects/storage pool): could cause mucocutaneous bleeding despite normal PFA-100/aggregation studies."
+      ],
+      "next_step_action": "ASK PATIENT: Has your mother or any sisters had bleeding problems (heavy menstrual bleeding, easy bruising), and was your maternal uncle formally diagnosed with a bleeding disorder such as hemophilia?"
+    },
+    {
+      "step_number": 13,
+      "new_information": "Patient's mother has no bleeding problems; patient has no sisters. Maternal uncle had bleeding and joint swelling but no confirmed diagnosis.",
+      "current_uncertainties": [
+        "Hemophilia A (factor VIII deficiency or time-dependent inhibitor): male with maternal-uncle history and prolonged aPTT but current factor VIII assay normal — could be assay variability or inhibitor detected only after incubation",
+        "Hemophilia B (factor IX deficiency): similar X-linked pattern fits family history and prolonged aPTT though factor IX activity was reported normal",
+        "Contact factor deficiency (prekallikrein or high-molecular-weight kininogen): explains isolated prolonged aPTT with normal mixing/corrected tests but usually does not cause bleeding, which conflicts with clinical history",
+        "Lupus anticoagulant/antiphospholipid antibody: can prolong aPTT but typically not associated with bleeding and mixing often fails to correct, making it less likely but still a consideration given unexplained prolonged aPTT"
+      ],
+      "next_step_action": "REQUEST TEST: Incubated (2-hour at 37°C) mixing study and Bethesda assay for factor VIII inhibitor; repeat factor VIII activity using a chromogenic assay"
+    },
+    {
+      "step_number": 14,
+      "new_information": "Incubated (2-hour at 37°C) mixing study normal, Bethesda assay for factor VIII inhibitor normal, and repeat factor VIII activity by chromogenic assay normal.",
+      "current_uncertainties": [
+        "Occult/intermittent hemophilia A or B: maternal-uncle history suggests X-linked bleeding disorder but repeated factor VIII/IX assays and mixing studies are normal",
+        "Contact pathway or prekallikrein/HMWK deficiency: explains isolated prolonged aPTT (60 s) with normal hemostasis tests but typically does not cause bleeding",
+        "Connective tissue/vascular disorder (e.g., Ehlers–Danlos vascular or other collagen disorder): can cause easy bruising and mucosal bleeding with essentially normal coagulation studies and could explain family history of joint problems",
+        "Primary hyperfibrinolysis (α2-antiplasmin deficiency or increased plasmin activity): can cause mucosal bleeding and surgical bleeding despite normal routine coagulation tests."
+      ],
+      "next_step_action": "REQUEST TEST: Focused physical exam for connective tissue disorder — assess skin hyperextensibility, fragility (scars/petechiae), and Beighton score for joint hypermobility; inspect surgical site for ongoing local bleeding or wound dehiscence."
+    },
+    {
+      "step_number": 15,
+      "new_information": "Persistent oozing from the wisdom tooth extraction site on surgical inspection; several old bruises of different ages noted on extremities.",
+      "current_uncertainties": [
+        "Local surgical bleeding/inadequate hemostasis: ongoing oozing localized to extraction site with no major systemic abnormality on many tests",
+        "Fibrinolytic disorder (e.g., alpha-2-antiplasmin deficiency or hyperfibrinolysis): can cause mucocutaneous bleeding and persistent oozing with otherwise normal platelet and clotting factor studies",
+        "Mild/atypical hemophilia or intermittent factor deficiency not detected by assays: family history (maternal uncle) raises concern though repeated factor VIII/IX assays and mixing studies are normal",
+        "Rare/contact factor deficiency or laboratory artifact (prekallikrein/HMWK or other inhibitors): explains unexplained prolonged aPTT but typically not associated with bleeding, creating uncertainty."
+      ],
+      "next_step_action": "REQUEST TEST: Alpha-2-antiplasmin level, plasminogen activity, euglobulin clot lysis time, and factor XIII activity"
+    },
+    {
+      "step_number": 16,
+      "new_information": "Alpha-2-antiplasmin level, plasminogen activity, euglobulin clot lysis time, and factor XIII activity are all normal.",
+      "current_uncertainties": [
+        "Lupus anticoagulant/antiphospholipid antibodies: explains isolated prolonged aPTT with normal factor assays and mixing studies (lab artifact) though typically associated with thrombosis rather than bleeding",
+        "Dysfibrinogenemia or hypofibrinogenemia: can cause mucocutaneous bleeding and prolonged clotting times not detected by routine factor assays",
+        "von Willebrand disease (including type 2 variants): clinical bleeding/bruising fits but initial vWF antigen and ristocetin activity were normal—some variants may be missed",
+        "Contact factor deficiency (prekallikrein/HMWK) or other pre-analytical artifact: can cause markedly prolonged aPTT without bleeding—fits lab but not clinical bleeding."
+      ],
+      "next_step_action": "REQUEST TEST: Dilute Russell Viper Venom Time (DRVVT) and full lupus anticoagulant panel"
+    },
+    {
+      "step_number": 17,
+      "new_information": "Dilute Russell Viper Venom Time (DRVVT) and full lupus anticoagulant panel returned normal.",
+      "current_uncertainties": [
+        "Dysfibrinogenemia or hypofibrinogenemia: unexplained mucosal bleeding and persistent oozing with otherwise normal platelet count/function and normal common factor levels — fibrinogen dysfunction could explain bleeding despite normal PT/aPTT factor assays",
+        "Prekallikrein (Fletcher factor) deficiency: can cause markedly prolonged aPTT with otherwise normal hemostasis and normal factor assays, though usually asymptomatic",
+        "Mild/variant hemophilia A or B (including rare functional variants): family history on maternal side and bleeding after dental extraction raise concern, but repeated factor VIII/IX assays (including chromogenic) and mixing studies are normal, making this less likely",
+        "Acquired platelet dysfunction not detected by standard aggregation/PFA tests (e.g., storage pool disorder or drug effect): persistent mucosal bleeding with normal aggregation studies — less likely but possible."
+      ],
+      "next_step_action": "REQUEST TEST: Thrombin time, reptilase time, and Clauss fibrinogen level"
+    },
+    {
+      "step_number": 18,
+      "new_information": "Thrombin time: normal; reptilase time: normal; Clauss fibrinogen level: normal.",
+      "current_uncertainties": [
+        "Local surgical bleeding/inadequate local hemostasis: persistent oozing at extraction site with otherwise largely normal systemic hemostasis",
+        "Platelet secretion/storage-pool defect not detected by standard aggregation/PFA: platelet count and standard aggregation normal but rare defects can be missed",
+        "Mild/variable hemophilia A or B with intermittent low factor levels or assay interference: family history (maternal uncle) suggests X-linked disorder though repeated factor VIII/IX assays are normal",
+        "Contact pathway deficiency (prekallikrein or HMWK): explains isolated prolonged aPTT with normal mixing studies and normal factor XII but typically does not cause bleeding."
+      ],
+      "next_step_action": "REQUEST TEST: Thromboelastography (TEG) with kaolin activation to assess global clot formation, strength, and fibrinolysis"
+    },
+    {
+      "step_number": 19,
+      "new_information": "Thromboelastography (TEG) with kaolin activation is normal, indicating global clot formation, strength, and fibrinolysis are within expected ranges.",
+      "current_uncertainties": [
+        "Prekallikrein/HMWK deficiency: explains isolated prolonged aPTT with correction on mixing and normal factor assays but typically causes no bleeding",
+        "could account for lab discrepancy",
+        "von Willebrand disease (qualitative or multimer abnormality): fits mucocutaneous bleeding and family history but initial vWF antigen and RCo were normal",
+        "Local surgical/iatrogenic bleeding or inadequate local hemostasis: explains persistent oozing despite normal systemic tests",
+        "Platelet storage pool or other platelet function defect not detected by routine aggregation/PFA testing: could cause mucocutaneous bleeding and easy bruising despite normal standard assays."
+      ],
+      "next_step_action": "REQUEST TEST: Prekallikrein and high-molecular-weight kininogen (HMWK) levels"
+    },
+    {
+      "step_number": 20,
+      "new_information": "Final diagnosis reached: ",
+      "current_uncertainties": [],
+      "next_step_action": "DIAGNOSIS READY",
+      "reason_ready": "All common causes of bleeding with an isolated prolonged aPTT have been excluded by directed testing (heparin contamination/anti-Xa, inhibitors including lupus anticoagulant and factor VIII inhibitor, deficiencies of factors VIII, IX, XI, XII, prekallikrein/HMWK, von Willebrand disease, platelet dysfunction, fibrinolysis), yet the patient has persistent bleeding and a maternal-line male relative with bleeding—this pattern is most consistent with an inherited, atypical intrinsic-pathway defect (e.g., a cryptic/mild hemophilia A/B variant or other genetic coagulopathy) that may not be evident on routine factor assays. I am confident in this assessment and recommend urgent hematology referral and targeted genetic testing for factor VIII/IX and other coagulation gene variants to confirm the diagnosis and guide peri-procedural management.",
+      "final_diagnosis": "",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Patient presents with persistent bleeding after wisdom tooth extraction and has a history of easy bruising.\n- Vital signs: Temperature 37°C, Blood Pressure 108/74 mm Hg, Heart Rate 90/min, Respiratory Rate normal — patient hemodynamically stable.\n- Patient reports not taking any blood thinners, antiplatelet drugs, NSAIDs, or herbal supplements and takes no medications.\n- Patient reports no prior surgeries or dental work. Family history is positive: an uncle with similar bleeding problems, easy bruising, and episodes of joint swelling.\n- Patient is male and denies joint swelling/hemarthroses, significant nosebleeds, hematuria, or GI bleeding.\n- CBC: Platelet count 160,000/mm³ (within normal range); peripheral smear shows normal-sized platelets; hematocrit 35%, WBC 8,500/mm³.\n- PT normal, INR normal, aPTT prolonged at 60 seconds; von Willebrand factor antigen, ristocetin cofactor activity, and factor VIII activity are normal.\n- Mixing study (1:1 patient:normal plasma) corrected the prolonged aPTT to normal; factor IX activity level is normal.\n- Factor XI activity level: normal.\n- Platelet function analysis (PFA-100) and platelet aggregation studies with agonists (ADP, collagen, epinephrine, ristocetin) are normal.\n- Repeat aPTT remains prolonged at 60 seconds on a fresh citrate sample; anti-Xa level normal (no heparin contamination); factor XII activity normal.\n- Patient reports maternal uncle with similar bleeding and joint swelling (maternal side).\n- Patient's mother has no bleeding problems; patient has no sisters. Maternal uncle had bleeding and joint swelling but no confirmed diagnosis.\n- Incubated (2-hour at 37°C) mixing study normal, Bethesda assay for factor VIII inhibitor normal, and repeat factor VIII activity by chromogenic assay normal.\n- Persistent oozing from the wisdom tooth extraction site on surgical inspection; several old bruises of different ages noted on extremities.\n- Alpha-2-antiplasmin level, plasminogen activity, euglobulin clot lysis time, and factor XIII activity are all normal.\n- Dilute Russell Viper Venom Time (DRVVT) and full lupus anticoagulant panel returned normal.\n- Thrombin time: normal; reptilase time: normal; Clauss fibrinogen level: normal.\n- Thromboelastography (TEG) with kaolin activation is normal, indicating global clot formation, strength, and fibrinolysis are within expected ranges.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "[Step 1]\nNew Info: Patient presents with persistent bleeding after wisdom tooth extraction and has a history of easy bruising.\nDifferential: von Willebrand disease: common cause of mucocutaneous bleeding including dental bleeding, Thrombocytopenia/ITP: low platelet count causes easy bruising and prolonged bleeding after procedures, Platelet function disorder (e.g., Glanzmann thrombasthenia or drug-induced dysfunction): mucocutaneous bleeding with possibly normal platelet count, Hemophilia A/B (less likely if female or no family history): factor VIII/IX deficiency can cause prolonged bleeding after surgery.\nNext: REQUEST TEST: Vital Signs\n\n[Step 2]\nNew Info: Vital signs: Temperature 37°C, Blood Pressure 108/74 mm Hg, Heart Rate 90/min, Respiratory Rate normal — patient hemodynamically stable.\nDifferential: von Willebrand disease: mucocutaneous and dental bleeding common and fits easy bruising and prolonged post-extraction bleeding, Platelet dysfunction (drug-induced or inherited): aspirin/NSAIDs or inherited platelet function defects can cause easy bruising and prolonged oral bleeding, Thrombocytopenia: low platelet count could explain petechiae, bruising, and surgical bleeding, Coagulation factor deficiency (e.g., hemophilia or acquired coagulopathy/liver disease): less likely without hemodynamic instability but can cause prolonged post-procedural bleeding.\nNext: ASK PATIENT: Are you taking any blood thinners, antiplatelet medications, NSAIDs, or herbal supplements (e.g., warfarin, aspirin, clopidogrel, ibuprofen, ginkgo, fish oil)?\n\n[Step 3]\nNew Info: Patient reports not taking any blood thinners, antiplatelet drugs, NSAIDs, or herbal supplements and takes no medications.\nDifferential: von Willebrand disease: common cause of mucocutaneous bleeding and prolonged post-dental extraction bleeding, Platelet count or function disorder (e.g., ITP or inherited platelet function defect): would cause easy bruising and mucosal bleeding, Coagulation factor deficiency (e.g., Hemophilia A/B or acquired factor deficiency): can cause prolonged post-procedural bleeding though deep tissue bleeding is more typical, Liver disease or vitamin K deficiency affecting multiple clotting factors: can cause bleeding but less likely without other systemic signs\nNext: ASK PATIENT: Have you had heavy or prolonged bleeding after previous dental work, surgeries, or menstrual periods? Do you have any family history of bleeding disorders?\n\n[Step 4]\nNew Info: Patient reports no prior surgeries or dental work. Family history is positive: an uncle with similar bleeding problems, easy bruising, and episodes of joint swelling.\nDifferential: Hemophilia A or B: family history of an affected uncle with joint swelling (suggesting hemarthroses) raises suspicion for X-linked hemophilia, especially if patient is male, von Willebrand disease: common, autosomal, causes mucocutaneous bleeding and easy bruising with positive family history and could explain prolonged post-dental bleeding, Platelet function disorder or thrombocytopenia: can cause mucocutaneous bleeding and prolonged bleeding after extraction but less likely to cause hemarthroses noted in uncle.\nNext: ASK PATIENT: What is your sex (male or female)? Have you ever had joint swelling or bleeding into joints (hemarthroses), heavy menstrual bleeding (if female), significant nosebleeds, or blood in urine/stool?\n\n[Step 5]\nNew Info: Patient is male and denies joint swelling/hemarthroses, significant nosebleeds, hematuria, or GI bleeding.\nDifferential: von Willebrand disease: common cause of mucocutaneous bleeding and easy bruising, often with family history, Hemophilia A or B: X-linked, males may present after trauma/surgery with prolonged bleeding though hemarthroses more typical in moderate/severe disease, Platelet function disorder (congenital or acquired): can cause mucocutaneous bleeding and easy bruising despite normal platelet count, Thrombocytopenia: low platelet count would explain easy bruising and post-extraction bleeding but needs CBC confirmation.\nNext: REQUEST TEST: Complete blood count (CBC) with platelet count\n\n[Step 6]\nNew Info: CBC: Platelet count 160,000/mm³ (within normal range); peripheral smear shows normal-sized platelets; hematocrit 35%, WBC 8,500/mm³.\nDifferential: von Willebrand disease: mucocutaneous bleeding (postextraction, easy bruising) with normal platelet count, Hemophilia A or B: X-linked family history (male patient, uncle affected) and surgical bleeding possible, often with normal platelet count but prolonged aPTT, Platelet function disorder (e.g., Glanzmann thrombasthenia): normal platelet count/size but dysfunctional platelets causing mucocutaneous bleeding, less likely given family history but possible.\nNext: REQUEST TEST: PT/INR, aPTT, von Willebrand factor antigen, ristocetin cofactor activity, and factor VIII activity\n\n[Step 7]\nNew Info: PT normal, INR normal, aPTT prolonged at 60 seconds; von Willebrand factor antigen, ristocetin cofactor activity, and factor VIII activity are normal.\nDifferential: Hemophilia B (factor IX deficiency): prolonged aPTT with normal factor VIII and vWF, male with family history of bleeding suggests X-linked disorder, Factor XI deficiency: can present with isolated prolonged aPTT and bleeding after procedures, autosomal inheritance possible, Lupus anticoagulant or specific factor inhibitor: can prolong aPTT (may be lab artifact or inhibitor) though usually associated with thrombosis rather than bleeding, Pre-analytical/heparin contamination: sample artifact causing isolated prolonged aPTT unlikely given history but must be considered.\nNext: REQUEST TEST: Mixing study (1:1 patient:normal plasma) and factor IX activity level\n\n[Step 8]\nNew Info: Mixing study (1:1 patient:normal plasma) corrected the prolonged aPTT to normal; factor IX activity level is normal.\nDifferential: Factor XI deficiency: isolated prolonged aPTT that corrects with mixing and normal FVIII/IX suggests possible FXI deficiency which can cause bleeding after dental procedures, Platelet function disorder (e.g., Glanzmann thrombasthenia): persistent mucocutaneous bleeding and easy bruising with normal platelet count/size and normal vWF tests suggests platelet function defect, Factor XII deficiency: corrected mixing with prolonged aPTT could be due to FXII deficiency, but FXII typically does not cause bleeding and is therefore less likely clinically.\nNext: REQUEST TEST: Factor XI activity level\n\n[Step 9]\nNew Info: Factor XI activity level: normal.\nDifferential: Inherited platelet function disorder (e.g., Glanzmann thrombasthenia or storage pool disease): explains mucocutaneous bleeding with normal platelet count and smear and could cause post-extraction bleeding, Contact pathway deficiency (factor XII, prekallikrein, HMWK): explains isolated prolonged aPTT with normal mixing and normal intrinsic factor assays but typically does NOT cause bleeding, so less likely to explain clinical bleeding, Local surgical/technical bleeding at extraction site or local fibrinolysis: could cause persistent post-extraction bleeding despite largely normal systemic tests, though positive family history and easy bruising argue for systemic disorder.\nNext: REQUEST TEST: Platelet function analysis (PFA-100) and platelet aggregation studies with agonists (ADP, collagen, epinephrine, ristocetin).\n\n[Step 10]\nNew Info: Platelet function analysis (PFA-100) and platelet aggregation studies with agonists (ADP, collagen, epinephrine, ristocetin) are normal.\nDifferential: Contact factor deficiency (e.g., factor XII, prekallikrein, HMWK): explains isolated prolonged aPTT with correction on mixing but typically does NOT cause bleeding, which conflicts with patient's bleeding, Pre-analytical heparin contamination or sample artifact: would prolong aPTT and could correct on mixing, could explain discordant labs and clinical bleeding if heparin exposure occurred, Mild or atypical intrinsic pathway factor deficiency not yet measured (e.g., factor XII measured? not yet): could cause prolonged aPTT—uncertainty because measured factors VIII, IX, XI are normal, Rare platelet function/qualitative disorder not detected by standard aggregation/PFA (e.g., secretion defect): bleeding history and easy bruising support platelet disorder despite normal conventional testing.\nNext: REQUEST TEST: Repeat aPTT with a fresh citrate sample drawn by clean venipuncture, plus anti-Xa level to assess for heparin contamination, and factor XII activity level\n\n[Step 11]\nNew Info: Repeat aPTT remains prolonged at 60 seconds on a fresh citrate sample; anti-Xa level normal (no heparin contamination); factor XII activity normal.\nDifferential: Prekallikrein or high-molecular-weight kininogen deficiency: explains isolated prolonged aPTT with normal clotting factor assays but usually does not cause bleeding, Hemophilia A (mild or assay variability) or other factor deficiency not detected/assay error: family history of an uncle with bleeding and joint swelling could indicate X-linked hemophilia despite normal factor VIII assay—possible lab variability or carrier-related issues, Laboratory artifact or reagent sensitivity/interference: persistent isolated aPTT prolongation with normal factor levels could be due to assay/reagent issues or uncommon inhibitors not detected by standard mixing studies.\nNext: ASK PATIENT: Is the uncle with similar bleeding and joint swelling your mother's brother (i.e., on your maternal side)?\n\n[Step 12]\nNew Info: Patient reports maternal uncle with similar bleeding and joint swelling (maternal side).\nDifferential: Hemophilia A or B: maternal uncle with hemarthroses suggests an X-linked factor VIII/IX deficiency, patient's factor VIII/IX activities are currently normal, so this is less likely but cannot be excluded (mild or variable levels, lab timing)., Lupus anticoagulant / antiphospholipid antibodies: explains isolated prolonged aPTT with normal mixing in some assays, typically associated with thrombosis rather than bleeding and family history less supportive., Contact factor deficiency (prekallikrein or high-molecular-weight kininogen): causes isolated prolonged aPTT without bleeding—fits lab pattern but not the bleeding/family history., Platelet function disorder not detected by standard testing (rare defects/storage pool): could cause mucocutaneous bleeding despite normal PFA-100/aggregation studies.\nNext: ASK PATIENT: Has your mother or any sisters had bleeding problems (heavy menstrual bleeding, easy bruising), and was your maternal uncle formally diagnosed with a bleeding disorder such as hemophilia?\n\n[Step 13]\nNew Info: Patient's mother has no bleeding problems; patient has no sisters. Maternal uncle had bleeding and joint swelling but no confirmed diagnosis.\nDifferential: Hemophilia A (factor VIII deficiency or time-dependent inhibitor): male with maternal-uncle history and prolonged aPTT but current factor VIII assay normal — could be assay variability or inhibitor detected only after incubation, Hemophilia B (factor IX deficiency): similar X-linked pattern fits family history and prolonged aPTT though factor IX activity was reported normal, Contact factor deficiency (prekallikrein or high-molecular-weight kininogen): explains isolated prolonged aPTT with normal mixing/corrected tests but usually does not cause bleeding, which conflicts with clinical history, Lupus anticoagulant/antiphospholipid antibody: can prolong aPTT but typically not associated with bleeding and mixing often fails to correct, making it less likely but still a consideration given unexplained prolonged aPTT\nNext: REQUEST TEST: Incubated (2-hour at 37°C) mixing study and Bethesda assay for factor VIII inhibitor; repeat factor VIII activity using a chromogenic assay\n\n[Step 14]\nNew Info: Incubated (2-hour at 37°C) mixing study normal, Bethesda assay for factor VIII inhibitor normal, and repeat factor VIII activity by chromogenic assay normal.\nDifferential: Occult/intermittent hemophilia A or B: maternal-uncle history suggests X-linked bleeding disorder but repeated factor VIII/IX assays and mixing studies are normal, Contact pathway or prekallikrein/HMWK deficiency: explains isolated prolonged aPTT (60 s) with normal hemostasis tests but typically does not cause bleeding, Connective tissue/vascular disorder (e.g., Ehlers–Danlos vascular or other collagen disorder): can cause easy bruising and mucosal bleeding with essentially normal coagulation studies and could explain family history of joint problems, Primary hyperfibrinolysis (α2-antiplasmin deficiency or increased plasmin activity): can cause mucosal bleeding and surgical bleeding despite normal routine coagulation tests.\nNext: REQUEST TEST: Focused physical exam for connective tissue disorder — assess skin hyperextensibility, fragility (scars/petechiae), and Beighton score for joint hypermobility; inspect surgical site for ongoing local bleeding or wound dehiscence.\n\n[Step 15]\nNew Info: Persistent oozing from the wisdom tooth extraction site on surgical inspection; several old bruises of different ages noted on extremities.\nDifferential: Local surgical bleeding/inadequate hemostasis: ongoing oozing localized to extraction site with no major systemic abnormality on many tests, Fibrinolytic disorder (e.g., alpha-2-antiplasmin deficiency or hyperfibrinolysis): can cause mucocutaneous bleeding and persistent oozing with otherwise normal platelet and clotting factor studies, Mild/atypical hemophilia or intermittent factor deficiency not detected by assays: family history (maternal uncle) raises concern though repeated factor VIII/IX assays and mixing studies are normal, Rare/contact factor deficiency or laboratory artifact (prekallikrein/HMWK or other inhibitors): explains unexplained prolonged aPTT but typically not associated with bleeding, creating uncertainty.\nNext: REQUEST TEST: Alpha-2-antiplasmin level, plasminogen activity, euglobulin clot lysis time, and factor XIII activity\n\n[Step 16]\nNew Info: Alpha-2-antiplasmin level, plasminogen activity, euglobulin clot lysis time, and factor XIII activity are all normal.\nDifferential: Lupus anticoagulant/antiphospholipid antibodies: explains isolated prolonged aPTT with normal factor assays and mixing studies (lab artifact) though typically associated with thrombosis rather than bleeding, Dysfibrinogenemia or hypofibrinogenemia: can cause mucocutaneous bleeding and prolonged clotting times not detected by routine factor assays, von Willebrand disease (including type 2 variants): clinical bleeding/bruising fits but initial vWF antigen and ristocetin activity were normal—some variants may be missed, Contact factor deficiency (prekallikrein/HMWK) or other pre-analytical artifact: can cause markedly prolonged aPTT without bleeding—fits lab but not clinical bleeding.\nNext: REQUEST TEST: Dilute Russell Viper Venom Time (DRVVT) and full lupus anticoagulant panel\n\n[Step 17]\nNew Info: Dilute Russell Viper Venom Time (DRVVT) and full lupus anticoagulant panel returned normal.\nDifferential: Dysfibrinogenemia or hypofibrinogenemia: unexplained mucosal bleeding and persistent oozing with otherwise normal platelet count/function and normal common factor levels — fibrinogen dysfunction could explain bleeding despite normal PT/aPTT factor assays, Prekallikrein (Fletcher factor) deficiency: can cause markedly prolonged aPTT with otherwise normal hemostasis and normal factor assays, though usually asymptomatic, Mild/variant hemophilia A or B (including rare functional variants): family history on maternal side and bleeding after dental extraction raise concern, but repeated factor VIII/IX assays (including chromogenic) and mixing studies are normal, making this less likely, Acquired platelet dysfunction not detected by standard aggregation/PFA tests (e.g., storage pool disorder or drug effect): persistent mucosal bleeding with normal aggregation studies — less likely but possible.\nNext: REQUEST TEST: Thrombin time, reptilase time, and Clauss fibrinogen level\n\n[Step 18]\nNew Info: Thrombin time: normal; reptilase time: normal; Clauss fibrinogen level: normal.\nDifferential: Local surgical bleeding/inadequate local hemostasis: persistent oozing at extraction site with otherwise largely normal systemic hemostasis, Platelet secretion/storage-pool defect not detected by standard aggregation/PFA: platelet count and standard aggregation normal but rare defects can be missed, Mild/variable hemophilia A or B with intermittent low factor levels or assay interference: family history (maternal uncle) suggests X-linked disorder though repeated factor VIII/IX assays are normal, Contact pathway deficiency (prekallikrein or HMWK): explains isolated prolonged aPTT with normal mixing studies and normal factor XII but typically does not cause bleeding.\nNext: REQUEST TEST: Thromboelastography (TEG) with kaolin activation to assess global clot formation, strength, and fibrinolysis\n\n[Step 19]\nNew Info: Thromboelastography (TEG) with kaolin activation is normal, indicating global clot formation, strength, and fibrinolysis are within expected ranges.\nDifferential: Prekallikrein/HMWK deficiency: explains isolated prolonged aPTT with correction on mixing and normal factor assays but typically causes no bleeding, could account for lab discrepancy, von Willebrand disease (qualitative or multimer abnormality): fits mucocutaneous bleeding and family history but initial vWF antigen and RCo were normal, Local surgical/iatrogenic bleeding or inadequate local hemostasis: explains persistent oozing despite normal systemic tests, Platelet storage pool or other platelet function defect not detected by routine aggregation/PFA testing: could cause mucocutaneous bleeding and easy bruising despite normal standard assays.\nNext: REQUEST TEST: Prekallikrein and high-molecular-weight kininogen (HMWK) levels",
+  "current_uncertainties": [],
+  "final_diagnosis": ""
+}

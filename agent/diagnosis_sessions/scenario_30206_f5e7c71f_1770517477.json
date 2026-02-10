@@ -1,0 +1,284 @@
+{
+  "session_id": "scenario_30206_f5e7c71f_1770517477",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presents with chronic cough and recurrent bouts of bronchitis.",
+      "uncertainties": {
+        "COPD": "chronic productive cough and recurrent exacerbations, especially in smokers",
+        "Bronchiectasis": "recurrent infections with large-volume purulent sputum and persistent cough",
+        "Asthma": "chronic cough variant or poorly controlled asthma causing recurrent bronchitic episodes",
+        "GERD/postnasal drip": "chronic cough without large sputum production and variable timing"
+      },
+      "reference_relevance": "query returned no relevant guidelines; limited direct guidance from past experiences for this exact presentation, so proceed with standard initial evaluation (vital signs, focused history)",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Vital signs (temperature, HR, RR, BP, SpO2) quickly identify current infection, hypoxemia or systemic illness and help prioritize further testing and urgency of care, which differentiates acute infectious exacerbation from stable chronic conditions."
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs normal: T 36.7°C, BP 125/78 mmHg, HR 80, RR16",
+      "uncertainties": {
+        "Chronic bronchitis/COPD": "recurrent bronchitic episodes and chronic productive cough",
+        "Asthma (including cough-variant)": "chronic cough, intermittent wheeze",
+        "Bronchiectasis": "recurrent infections, chronic productive cough possibly foul-smelling sputum",
+        "GERD/Upper airway cough syndrome": "chronic cough without systemic signs"
+      },
+      "reference_relevance": "No relevant prior guidelines found — limited guidance from database; current vitals non-contributory to narrowing differential",
+      "action": "ASK PATIENT: Do you currently smoke or have you smoked in the past? If yes, how many pack-years? Also, do you produce sputum—what color, amount, and any blood?",
+      "action_reason": "Smoking history and sputum characteristics help distinguish chronic bronchitis/COPD from asthma and other causes; hemoptysis or purulent sputum suggests bronchiectasis or infection"
+    },
+    {
+      "step_number": 3,
+      "new_information": "Patient is a lifelong non-smoker who produces large volumes of thick, foamy, yellow-green purulent sputum, especially in the mornings, without hemoptysis.",
+      "uncertainties": {
+        "Bronchiectasis": "recurrent infections and large-volume purulent sputum are typical",
+        "Bronchiectasis due to underlying causes (CF, immunodeficiency, PCD)": "consider if recurrent infections since young or other features",
+        "Chronic bronchitis (COPD)": "less likely due to never smoker",
+        "Chronic sinusitis/postnasal drip": "less likely to produce large purulent sputum."
+      },
+      "reference_relevance": "No directly relevant past guideline documents returned—search didn't find exact matches; clinical reasoning still supports bronchiectasis as leading diagnosis given sputum characteristics and recurrent bronchitis.",
+      "action": "ASK PATIENT: Have you had similar symptoms since childhood or adolescence? Any history of sinusitis, ear infections, infertility, or hearing problems? Any family history of cystic fibrosis or chronic lung disease? Also, have you had prior chest CT scans or sputum cultures?",
+      "action_reason": "These questions differentiate bronchiectasis due to congenital causes (CF, PCD) or acquired causes; childhood onset and ENT issues suggest PCD or CF; prior imaging or cultures would inform next diagnostic testing (CT chest, sputum microbiology)."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Symptoms began 11 years ago (adult-onset); no history of sinusitis, ear infections, infertility, hearing problems, or family history of CF; no prior chest CT scans or sputum cultures.",
+      "uncertainties": {
+        "Bronchiectasis": "chronic productive cough with large morning sputum and recurrent infections consistent",
+        "Nontuberculous mycobacterial (NTM) infection": "chronic purulent sputum and recurrent bronchitis could reflect NTM, especially if CT shows nodular/bronchiectatic disease",
+        "Immunodeficiency (e.g., hypogammaglobulinemia/CVID)": "less likely given lack of other sinopulmonary or systemic infections but still possible",
+        "Chronic bronchitis/COPD from non-smoking causes": "possible but less likely in lifelong non-smoker without known exposures."
+      },
+      "reference_relevance": "query_medical_guidelines returned no relevant guidelines for this specific presentation — not helpful. This means we must rely on standard diagnostic steps (imaging and microbiology) rather than prepackaged guideline matches.",
+      "action": "REQUEST TEST: High-resolution chest CT (HRCT) of the chest",
+      "action_reason": "HRCT is the single most useful next test to evaluate for bronchiectasis (bronchial dilation, wall thickening, mucus plugging) and can show patterns suggestive of NTM (nodular bronchiectatic disease, tree-in-bud, cavities). Imaging will help distinguish bronchiectasis from chronic bronchitic changes and guide subsequent testing (targeted sputum cultures including AFB/mycobacterial studies) and immunologic evaluation if structural disease is found."
+    },
+    {
+      "step_number": 5,
+      "new_information": "High-resolution chest CT (HRCT) of the chest: normal",
+      "uncertainties": {
+        "1) Chronic bronchitis (non-smoking)": "chronic productive cough for 11 years with recurrent bronchitic infections despite no smoking history",
+        "2) Bronchiectasis": "recurrent purulent sputum and morning cough suggestive but HRCT normal making bronchiectasis less likely currently",
+        "3) Immunodeficiency (e.g., selective IgG deficiency/CVID)": "recurrent bacterial bronchitis over years without usual risk factors raising concern"
+      },
+      "reference_relevance": "query returned no relevant prior-guideline matches — not helpful; however, the normal HRCT shifts probability away from bronchiectasis and increases the relative importance of immunologic causes and chronic bronchitic phenotypes",
+      "action": "REQUEST TEST: Serum immunoglobulins — quantitative IgG, IgA, IgM and IgG subclasses",
+      "action_reason": "Measuring immunoglobulins helps identify humoral immunodeficiency (which would explain recurrent bacterial lower respiratory infections over many years) and would change management (e.g., immunology referral, immunoglobulin replacement) if abnormal; a normal result would make chronic non-infectious bronchitic causes more likely and prompt spirometry/sputum culture next to identify airway disease or pathogens."
+    },
+    {
+      "step_number": 6,
+      "new_information": "Serum immunoglobulins are normal.",
+      "uncertainties": {
+        "Bronchiectasis": "persistent productive cough but normal HRCT makes this less likely though early/airway-dominant bronchiectasis can be missed",
+        "Chronic bronchitis or chronic suppurative lung disease": "consistent with productive cough and purulent sputum in a non-smoker possibly due to environmental exposures or recurrent infections",
+        "Non-tuberculous mycobacterial infection (e.g., MAC) or atypical organisms": "can cause chronic productive cough with purulent sputum despite normal HRCT early on",
+        "Primary ciliary dyskinesia unlikely given adult onset and absence of sinus/ENT issues": "under consideration"
+      },
+      "reference_relevance": "No relevant prior guidelines returned — query did not provide useful past diagnostic matches; however, existing tests (normal immunoglobulins, normal HRCT) narrow some causes but do not resolve etiology.",
+      "action": "ASK PATIENT: Have you had fever, night sweats, weight loss, or prolonged fatigue? Any history of exposure to birds, hot tubs, or soil (possible Mycobacterium avium complex or fungal exposures)? Also, do you have any environmental or occupational exposures (work with dust, chemicals, mold)?",
+      "action_reason": "To evaluate for systemic symptoms or exposures that increase suspicion for NTM, fungal infection, or environmental causes that could explain chronic purulent sputum despite normal HRCT."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Patient denies systemic symptoms (fever, weight loss, night sweats) and specific environmental/occupational exposures; no bird/hot tub/soil exposures.",
+      "uncertainties": {
+        "Chronic bronchitis (non-smoking)": "chronic productive cough with purulent sputum despite never smoking",
+        "Chronic airway infection (including NTM)": "long-standing productive cough without systemic symptoms possible",
+        "Asthma (cough-variant)": "could present with chronic cough and normal imaging",
+        "Bronchiectasis (early/mild or central)": "less likely with normal HRCT but not excluded."
+      },
+      "reference_relevance": "Query returned no direct guidelines; available experience not directly helpful, but normal HRCT and immunoglobulins reduce likelihood of bronchiectasis and humoral immunodeficiency. Guidelines not helpful in pinpointing cause; need microbiology and functional testing.",
+      "action": "REQUEST TEST: Sputum Gram stain and culture (including mycobacterial culture) and sputum microscopy for eosinophils; REQUEST TEST: Spirometry with bronchodilator; REQUEST TEST: Fractional exhaled nitric oxide (FeNO) if available",
+      "action_reason": "Sputum cultures will identify chronic bacterial or atypical/NTM infections; sputum eosinophils can suggest eosinophilic bronchitis; spirometry with bronchodilator and FeNO help evaluate for asthma/cough-variant asthma and reversibility."
+    },
+    {
+      "step_number": 8,
+      "new_information": "Sputum culture: heavy non-specific bacterial growth; spirometry: reduced FVC and FEV1 with normal FEV1/FVC; FeNO normal; sputum eosinophils normal.",
+      "uncertainties": {
+        "1) Chronic bronchitis/airway colonization": "productive cough with purulent sputum and positive bacterial cultures suggest chronic bronchitis or recurrent bacterial colonization",
+        "2) Restrictive lung disease (intrinsic or extrinsic)": "spirometry shows reduced FVC and FEV1 with preserved ratio suggesting restriction",
+        "3) Bronchiectasis despite normal HRCT (early or subtle)": "recurrent sputum production and colonization could still represent mild/central bronchiectasis missed by HRCT",
+        "4) Non-eosinophilic asthma/bronchiolitis": "chronic cough possible but tests not supportive (normal FeNO, no reversibility)."
+      },
+      "reference_relevance": "Previous guideline search returned no matches; available evidence is partially helpful. The normal HRCT argues against overt bronchiectasis but doesn't fully exclude early or central disease; normal immunoglobulins argue against major humoral immunodeficiency; spirometry pattern suggests restrictive physiology needing further evaluation. Cultures show bacterial colonization but species non-specific—could reflect chronic infection or contamination.",
+      "action": "REQUEST TEST: Full pulmonary function testing including lung volumes and DLCO; REQUEST TEST: Repeat high-resolution chest CT with expiratory and inspiratory views focused on airways (or CT with airway protocol) and consider targeted sinus CT; ASK PATIENT: Any history of connective tissue disease symptoms (joint pain, skin changes, Raynaud's), prior radiation/chemotherapy, or neuromuscular disease symptoms that might cause restrictive pattern?",
+      "action_reason": "Lung volumes and DLCO will differentiate true restriction from poor effort or air trapping. Repeat HRCT with expiratory views may reveal bronchiectasis or small airways disease missed on prior scan; asked connective tissue/neuromuscular history to evaluate causes of restrictive pattern."
+    },
+    {
+      "step_number": 9,
+      "new_information": "Full PFT normal; repeat HRCT inspiratory/expiratory normal; targeted sinus CT normal (no sinus disease).",
+      "uncertainties": {
+        "1) Chronic bacterial bronchitis": "supported by chronic productive cough and heavy non-specific bacterial growth in sputum despite normal imaging",
+        "2) Gastroesophageal reflux-related chronic cough/aspiration": "possible cause of chronic productive cough with normal imaging and recurrent bronchitis",
+        "3) Chronic/recurrent airway infection from non-tuberculous mycobacteria or atypical organisms despite negative cultures": "less likely but possible",
+        "4) Uncommon causes like primary ciliary dyskinesia or immunodeficiency": "unlikely given adult onset and normal immunoglobulins and no sinonasal/infertility history."
+      },
+      "reference_relevance": "Guidelines search returned no specific matches; earlier investigations are comprehensive and helpful in excluding bronchiectasis, immunodeficiency, and structural sinus disease. Lack of guideline matches reduces external evidence but testing results guide next steps.",
+      "action": "ASK PATIENT: Have you been evaluated or treated for gastroesophageal reflux disease (GERD)? Do you have symptoms of reflux—heartburn, regurgitation, nocturnal cough, or worse cough after meals or when lying down? Also, have you tried empiric proton pump inhibitor therapy? Additionally: ASK PATIENT: Do you have symptoms of obstructive sleep apnea (snoring, daytime sleepiness, witnessed apneas)?",
+      "action_reason": "GERD/aspiration and occult OSA can cause chronic productive cough and recurrent bronchitis despite normal imaging; asking about reflux and prior empiric PPI therapy helps differentiate GERD-related cough. OSA can increase aspiration risk. These are noninvasive, high-yield history items that will guide whether empiric PPI therapy, pH testing, or sleep evaluation is warranted."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Patient denies GERD symptoms and has not tried proton pump inhibitor therapy; no symptoms of obstructive sleep apnea.",
+      "uncertainties": {
+        "1) Chronic bacterial bronchitis": "supported by chronic productive cough with heavy non-specific bacterial growth",
+        "2) Silent GERD with microaspiration": "less likely clinically (no symptoms) but still possible",
+        "3) Airway structural abnormality like tracheobronchomalacia or localized bronchiectasis missed on CT": "less likely because high-quality HRCT with expiratory/inspiratory views was normal, but dynamic airway collapse can be missed without bronchoscopy",
+        "4) Primary ciliary dyskinesia/cystic fibrosis unlikely given adult onset, normal sinuses, no infertility, and normal immunoglobulins.": "under consideration"
+      },
+      "reference_relevance": "Guidelines search returned no clear matches; prior experiences limited. The diagnostic uncertainty remains; empirical therapy and targeted testing may help differentiate causes. Specifically, bronchoscopy with dynamic evaluation and clearance assessment could detect tracheobronchomalacia or retained secretions; empiric trial of airway clearance therapy and targeted antibiotics could assess response consistent with chronic bacterial bronchitis; pH monitoring or trial of PPI could evaluate occult GERD but patient lacks symptoms making GERD less likely.",
+      "action": "REQUEST TEST: Bronchoscopy with dynamic airway evaluation, bronchoalveolar lavage for quantitative bacterial culture, and assessment of airway clearance; ASK PATIENT: Are you willing to try airway clearance techniques (daily chest physiotherapy/positive expiratory pressure devices) and a supervised 2–4 week trial of targeted antibiotics if bronchoscopy cultures show pathogenic bacteria?",
+      "action_reason": "Bronchoscopy can detect tracheobronchomalacia or localized endobronchial lesions missed on CT and provide lower-airway cultures to guide therapy. A trial of airway clearance and targeted antibiotics would help confirm chronic bacterial bronchitis if symptoms and sputum improve; GERD testing is lower yield given absent reflux symptoms."
+    },
+    {
+      "step_number": 11,
+      "new_information": "Bronchoscopy with dynamic airway evaluation, bronchoalveolar lavage for quantitative bacterial culture, and assessment of airway clearance: NORMAL READINGS",
+      "uncertainties": {
+        "Chronic bacterial bronchitis": "Reasoning—productive cough with heavy non-specific bacteria in sputum but normal BAL suggests possible upper airway colonization or intermittent infection",
+        "Laryngopharyngeal reflux/upper airway cough syndrome": "Reasoning—chronic productive cough without clear sinonasal or GERD symptoms but possible silent reflux",
+        "Cough hypersensitivity syndrome (neuropathic cough)": "Reasoning—normal imaging, PFTs, BAL, and lack of other explanatory findings"
+      },
+      "reference_relevance": "Guideline search returned no matches—limited direct prior cases in database; however investigative steps taken align with best practice for chronic cough to exclude structural, immunologic, infectious, and obstructive causes",
+      "action": "ASK PATIENT: Are you willing to try a trial of empiric therapies to help differentiate causes? Specifically: 1) a 4-week course of a macrolide antibiotic (e.g., azithromycin 250–500 mg three times weekly or 250 mg daily) to target chronic bacterial bronchitis/anti-inflammatory effects; 2) initiation of airway clearance techniques (daily chest physiotherapy or positive expiratory pressure device); 3) a 4–8 week trial of proton pump inhibitor therapy at standard dosing to assess laryngopharyngeal reflux contribution; and 4) a trial of neuromodulator therapy (e.g., gabapentin) if empiric trials fail. Would you accept starting with options 1–3 concurrently or prefer to sequence them?",
+      "action_reason": "These empiric interventions help differentiate between chronic bacterial colonization/bronchitis, silent reflux/post-nasal drip, and cough hypersensitivity when objective testing is unrevealing; response (or lack) to specific therapy informs diagnosis and further testing."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Patient consents to concurrent empiric therapy with macrolide (azithromycin), airway clearance techniques, and PPI trial.",
+      "uncertainties": {
+        "Chronic bacterial bronchitis": "purulent sputum and sputum cultures grew heavy non-specific bacteria",
+        "Laryngopharyngeal reflux (LPR)": "possible despite lack of typical symptoms",
+        "Non-eosinophilic chronic cough/airway sensory neuropathy": "cough persists with normal imaging and eosinophils."
+      },
+      "reference_relevance": "Query returned no relevant guidelines; prior experiences not found—this plan follows clinical practice for unexplained chronic productive cough when structural disease and immunodeficiency are excluded.",
+      "action": "REQUEST TEST: Start azithromycin 250 mg three times weekly for 12 weeks; Start daily airway clearance techniques (home PEP device or physiotherapy) with instruction and follow-up in 2 weeks; Start omeprazole 40 mg daily for 8 weeks",
+      "action_reason": "Concurrent trials target the most likely reversible causes: macrolide for chronic bacterial bronchitis and anti-inflammatory effects; airway clearance to reduce sputum retention and bacterial burden; PPI to evaluate occult reflux contribution. Trial duration is sufficient to assess effect while monitoring for side effects."
+    },
+    {
+      "step_number": 13,
+      "new_information": "Follow-up after initiating azithromycin 3x/week, daily airway clearance, and omeprazole 40 mg daily returned as 'NORMAL READINGS' (unclear whether this refers to symptom improvement).",
+      "uncertainties": {
+        "1) Chronic bacterial bronchitis/chronic suppurative bronchitis": "productive cough with heavy non-specific bacterial sputum culture despite normal imaging and bronchoscopy",
+        "2) Cough hypersensitivity syndrome (neurogenic cough)": "normal imaging/PFTs/BAL and possible lack of response to empiric therapy",
+        "3) Laryngopharyngeal reflux (LPR)/GERD-related cough": "trial of PPI done but response unknown",
+        "4) Non-asthmatic eosinophilic bronchitis": "less likely due to normal sputum eosinophils and FeNO but still considered if symptoms persist."
+      },
+      "reference_relevance": "Prior guideline query returned no specific matching guidelines. Empiric macrolide, airway clearance, and PPI trials are consistent with common clinical practice for chronic productive cough, but the lack of targeted guideline output limits evidence-based direction; therefore clinical response to therapy is the most useful next data point.",
+      "action": "ASK PATIENT: Since starting azithromycin, daily airway clearance, and omeprazole, have your cough and sputum changed? Please quantify: reduction in cough frequency (days/week), change in cough severity (mild/moderate/severe), change in sputum volume and color (less/more/same), improvement in morning cough, any new or worsening throat symptoms (hoarseness, throat clearing, globus), and any side effects from medications (GI upset, hearing changes, dizziness, rash). Also report any change in sleep or exercise tolerance.",
+      "action_reason": "Patient-reported change after empiric therapies is the highest-yield information now to distinguish persistent airway infection versus neurogenic cough or reflux-related cough and to decide next steps (continue macrolide vs stop and pursue alternative diagnostics such as ENT evaluation with laryngoscopy or neuromodulator trial)."
+    },
+    {
+      "step_number": 14,
+      "new_information": "After azithromycin + airway clearance + PPI trial: cough frequency reduced from daily to 4 days/week; cough milder; sputum less voluminous and less foamy but still thick yellow-green; no side effects.",
+      "uncertainties": {
+        "Chronic bacterial bronchitis": "supported by heavy sputum and clinical response to macrolide",
+        "Bronchiectasis (non-CF)": "less likely given two normal HRCTs and normal bronchoscopy, but still considered given chronic productive cough",
+        "Persistent bacterial colonization/biofilm or atypical/NTM infection": "possible given heavy non-specific growth and incomplete response to macrolide."
+      },
+      "reference_relevance": "No relevant past guideline matches returned; therefore limited external guidance. The empiric therapy produced partial improvement, which is informative but not definitive.",
+      "action": "ASK PATIENT: Are you willing to provide an induced sputum sample (or expectorated morning sample) for quantitative culture including extended culture for NTM and atypical bacteria, and to undergo measurement of cough impact using a cough-specific questionnaire (e.g., Leicester Cough Questionnaire) to quantify symptom burden?",
+      "action_reason": "A repeat, targeted sputum culture including extended NTM/atypical testing may detect persistent or atypical pathogens/biofilm organisms and help guide further antibiotic therapy. Quantifying cough impact will help track response to ongoing therapies and objective improvement."
+    },
+    {
+      "step_number": 15,
+      "new_information": "Patient consented to provide induced/morning sputum sample for quantitative culture including extended culture for NTM and atypical bacteria; will complete Leicester Cough Questionnaire.",
+      "uncertainties": {
+        "Chronic bacterial bronchitis": "productiv cough with heavy non-specific bacterial growth and partial response to macrolide",
+        "Airway microbiome dysbiosis/bronchitic phenotype of COPD/asthma": "symptoms improved with macrolide and airway clearance",
+        "Occult/early bronchiectasis or small-airway disease not seen on HRCT": "recurrent sputum and bronchitis but imaging normal."
+      },
+      "reference_relevance": "Guidelines search returned no directly relevant past cases. However, existing diagnostic steps (sputum cultures, HRCT, bronchoscopy, PFTs) were unhelpful; the new sputum culture may identify persistent pathogens (including NTM or atypicals) and antibiotic stewardship guidance supports targeted therapy if pathogenic bacteria are isolated. Leicester Cough Questionnaire will quantify response to current therapy to help decide next steps.",
+      "action": "REQUEST TEST: Induced morning sputum sample for quantitative bacterial culture including extended culture for non-tuberculous mycobacteria (NTM) and atypical bacteria; and administration of Leicester Cough Questionnaire",
+      "action_reason": "Quantitative extended sputum cultures can identify persistent or atypical organisms guiding targeted therapy or indicating NTM disease; symptom quantification with Leicester Cough Questionnaire will objectively document clinical response to current empiric therapies and inform need for further interventions."
+    },
+    {
+      "step_number": 16,
+      "new_information": "After empiric 12-week azithromycin, airway clearance, and 8-week omeprazole: partial improvement—cough frequency decreased to 4 days/week, milder severity, sputum volume decreased and less foamy but persistent thick yellow-green sputum. Induced sputum and prior bronchoscopy cultures: heavy growth of non-specific bacteria; no NTM or fungal growth. HRCT chest (including inspiratory/expiratory airway protocol) and bronchoscopy normal. Full pulmonary function testing including lung volumes and DLCO normal. Sputum eosinophils and FeNO normal. No systemic symptoms or exposures. Patient agreeable to further testing and treatment.",
+      "uncertainties": {
+        "1) Chronic bacterial bronchitis": "supported by chronic productive cough, improvement with macrolide, and bacterial growth—uncertainty about need for longer/targeted antibiotics versus airway clearance optimization. 2) Early/occult bronchiectasis or small airways disease not detected on HRCT: supported by recurrent infections and sputum but imaging and bronchoscopy normal. 3) GERD-related microaspiration or laryngopharyngeal reflux: partial response to PPI but no reflux symptoms—uncertain contribution."
+      },
+      "reference_relevance": "Query returned no directly relevant prior guidelines; however, clinical reasoning suggests macrolide-responsive chronic bronchitis is plausible. Lack of guideline matches may reflect atypical presentation or insufficiently similar cases in database.",
+      "action": "ASK PATIENT: Would you be willing to attempt (A) an extended 12-week course of targeted antibiotics guided by culture and antibiotic susceptibility (or rotating courses if colonizing organisms persist), or (B) trial of inhaled hypertonic saline (7%) nebulized once or twice daily for airway clearance for 4–8 weeks, or (C) both approaches together? Also, are you willing to consider ENT evaluation for laryngopharyngeal reflux and laryngeal hypersensitivity and to start a neuromodulator like gabapentin if cough persists after these steps? Please state preferences and any contraindications to inhaled hypertonic saline or gabapentin.",
+      "action_reason": "This action aims to differentiate chronic bacterial bronchitis responsive to targeted/longer antibiotics versus airway-clearance-responsive persistent sputum from small-airways disease or mucus hypersecretion. ENT eval and neuromodulator trial would address refractory cough from laryngeal hypersensitivity or LPR."
+    },
+    {
+      "step_number": 17,
+      "new_information": "Patient agrees to combined approach: extended 12-week targeted antibiotics guided by sputum culture and inhaled hypertonic saline 7% twice daily plus continued airway clearance; open to ENT evaluation and neuromodulator therapy if needed; no contraindications to saline or gabapentin.",
+      "uncertainties": {
+        "Chronic bacterial bronchitis": "likely—productivity, culture growth, partial macrolide response",
+        "Non-CF bronchiectasis": "less likely given normal HRCT/bronchoscopy but cannot be fully excluded",
+        "Laryngeal hypersensitivity/GERD-related cough": "less likely given productive sputum and limited PPI benefit",
+        "NTM/atypical infection": "unlikely with negative extended cultures but possible if repeat cultures positive."
+      },
+      "reference_relevance": "No specific past guideline matches found; past experiences weren't helpful—this plan is empiric and aligns with clinical practice for chronic productive cough with bacterial colonization and partial macrolide response.",
+      "action": "REQUEST TEST: Start 12-week targeted antibiotic regimen based on sputum culture sensitivities (select appropriate oral agent), and start inhaled hypertonic saline 7% nebulized BID with monitoring for bronchospasm; schedule ENT evaluation for laryngopharyngeal reflux and laryngeal hypersensitivity; continue airway clearance techniques and follow-up in 4 weeks to assess response.",
+      "action_reason": "Targeted antibiotics may further reduce bacterial burden driving chronic bronchitis; hypertonic saline can enhance airway clearance and reduce sputum viscosity; ENT evaluation addresses possible laryngeal contributions; early follow-up will assess improvement and side effects."
+    },
+    {
+      "step_number": 18,
+      "new_information": "After 12-week targeted antibiotics + inhaled hypertonic saline + airway clearance + PPI, patient reports reduction from daily cough to 4 days/week and milder symptoms; sputum less foamy and voluminous; induced sputum cultures persistently show heavy growth of nonspecific bacteria; no systemic symptoms; HRCT normal; bronchoscopy normal; PFTs normal.",
+      "uncertainties": {
+        "Chronic bacterial bronchitis": "supported by sputum cultures and symptomatic partial response to antibiotics",
+        "Bronchiectasis (radiographically occult or small-airway disease)": "less likely due to normal HRCT and bronchoscopy, but possible small-airway disease not detected",
+        "Laryngeal hypersensitivity/LPR": "possible contributor but limited by partial response to PPI",
+        "Non-eosinophilic neutrophilic asthma/bronchiolitis or COPD-like small airways disease": "PFTs mostly normal",
+        "CF, immunodeficiency, NTM less likely given histories and tests.": "under consideration"
+      },
+      "reference_relevance": "Guideline search yielded no directly applicable prior guidelines. However, the documented responses and tests align with chronic bronchitis / chronic suppurative lung disease management pathway — guidelines partially helpful: important to consider cough hypersensitivity and airway colonization with non-pathogenic bacteria as cause of chronic productive cough when structural disease absent.",
+      "action": "REQUEST TEST: ENT laryngoscopy with stroboscopy to evaluate for laryngeal hypersensitivity, vocal cord dysfunction, abnormal secretions, and posterior laryngeal cobblestoning; ASK PATIENT: Are you willing to start a neuromodulator (gabapentin 300 mg nightly titrating as tolerated up to 300 mg TID over 2–4 weeks) for 8–12 weeks to assess cough hypersensitivity if ENT evaluation suggests laryngeal hypersensitivity?",
+      "action_reason": "ENT laryngoscopy can detect laryngeal abnormalities (cobblestoning, reflux changes, vocal cord dysfunction) that contribute to chronic cough when lower airway imaging/PFTs are normal. A trial of a neuromodulator can help if laryngeal hypersensitivity/cough hypersensitivity is suspected, especially after optimizing airway clearance, antibiotics, and reflux therapy."
+    },
+    {
+      "step_number": 19,
+      "new_information": "ENT laryngoscopy with stroboscopy normal",
+      "uncertainties": {
+        "Chronic bacterial bronchitis": "productive long-term sputum, heavy non-specific bacterial growth",
+        "Cough hypersensitivity syndrome": "persistent cough despite normal laryngoscopy",
+        "Occult bronchiectasis/structural airway disease": "long history but normal HRCT"
+      },
+      "reference_relevance": "Not helpful—query returned no relevant guidelines; however prior steps and responses provide evidence of partial response to antibiotics and airway clearance suggesting chronic bacterial bronchitis is likely, while repeated normal imaging and bronchoscopy argue against bronchiectasis and structural disease. ENT normal reduces likelihood of laryngopharyngeal reflux/laryngeal hypersensitivity but does not exclude cough hypersensitivity.",
+      "action": "ASK PATIENT: You've had an 11-year history of productive cough with thick yellow-green sputum and partial improvement with antibiotics and airway clearance. Are you experiencing significant daily quality-of-life impairment from the cough now (rate 0–10, 10 worst)? Also, are you open to trying neuromodulator therapy (e.g., gabapentin) next, given ENT is normal, or would you prefer continued longer-term macrolide therapy/rotating antibiotics versus inhaled antibiotics—do you have preferences, concerns, or plans for pregnancy? Any antibiotic allergies?",
+      "action_reason": "This question helps decide whether to pursue neuromodulator therapy for cough hypersensitivity versus long-term antimicrobial strategies for chronic bacterial bronchitis and ensures safety (pregnancy plans/allergies) and patient preferences guide the next steps."
+    },
+    {
+      "step_number": 20,
+      "new_information": "Patient reports cough impact 5/10; open to gabapentin; no pregnancy or antibiotic allergies",
+      "uncertainties": {
+        "1) Chronic bacterial bronchitis/chronic suppurative bronchitis": "supported by chronic productive purulent cough with positive non-specific bacterial cultures and partial response to macrolide and antibiotics",
+        "2) Cough hypersensitivity syndrome/neurogenic cough": "supported by persistent cough despite optimized airway clearance, antibiotics, normal imaging, normal ENT",
+        "3) Occult bronchiectasis": "less likely given repeated normal HRCT including expiratory views and normal bronchoscopy, but small airways disease could be missed."
+      },
+      "reference_relevance": "Guidelines not found from query_medical_guidelines; prior experiences not directly applicable but standard diagnostic steps (exclude bronchiectasis, immunodeficiency, GERD, laryngeal causes) have been done and mostly normal; empiric therapies produced partial response suggesting mixed phenotype (infectious component + hypersensitivity).",
+      "action": "REQUEST TEST: Start trial of gabapentin 300 mg nightly, titrate as tolerated to 300 mg TID over 2–4 weeks for 8–12 weeks to assess cough hypersensitivity syndrome; continue airway clearance and consider maintenance macrolide if symptoms recur after neuromodulator trial.",
+      "action_reason": "Gabapentin addresses cough hypersensitivity when structural/infectious causes are largely excluded and ENT is normal; patient consents and prior infection-directed therapies gave only partial improvement, so neuromodulator trial can clarify neurogenic contribution while continuing airway clearance; monitor for side effects and reassess cough score and sputum."
+    }
+  ],
+  "accumulated_notes": "",
+  "current_uncertainties": {
+    "1) Chronic bacterial bronchitis/chronic suppurative bronchitis": "supported by chronic productive purulent cough with positive non-specific bacterial cultures and partial response to macrolide and antibiotics",
+    "2) Cough hypersensitivity syndrome/neurogenic cough": "supported by persistent cough despite optimized airway clearance, antibiotics, normal imaging, normal ENT",
+    "3) Occult bronchiectasis": "less likely given repeated normal HRCT including expiratory views and normal bronchoscopy, but small airways disease could be missed."
+  },
+  "all_information": [
+    "Patient presents with chronic cough and recurrent bouts of bronchitis.",
+    "Vital signs normal: T 36.7°C, BP 125/78 mmHg, HR 80, RR16",
+    "Patient is a lifelong non-smoker who produces large volumes of thick, foamy, yellow-green purulent sputum, especially in the mornings, without hemoptysis.",
+    "Symptoms began 11 years ago (adult-onset); no history of sinusitis, ear infections, infertility, hearing problems, or family history of CF; no prior chest CT scans or sputum cultures.",
+    "High-resolution chest CT (HRCT) of the chest: normal",
+    "Serum immunoglobulins are normal.",
+    "Patient denies systemic symptoms (fever, weight loss, night sweats) and specific environmental/occupational exposures; no bird/hot tub/soil exposures.",
+    "Sputum culture: heavy non-specific bacterial growth; spirometry: reduced FVC and FEV1 with normal FEV1/FVC; FeNO normal; sputum eosinophils normal.",
+    "Full PFT normal; repeat HRCT inspiratory/expiratory normal; targeted sinus CT normal (no sinus disease).",
+    "Patient denies GERD symptoms and has not tried proton pump inhibitor therapy; no symptoms of obstructive sleep apnea.",
+    "Bronchoscopy with dynamic airway evaluation, bronchoalveolar lavage for quantitative bacterial culture, and assessment of airway clearance: NORMAL READINGS",
+    "Patient consents to concurrent empiric therapy with macrolide (azithromycin), airway clearance techniques, and PPI trial.",
+    "Follow-up after initiating azithromycin 3x/week, daily airway clearance, and omeprazole 40 mg daily returned as 'NORMAL READINGS' (unclear whether this refers to symptom improvement).",
+    "After azithromycin + airway clearance + PPI trial: cough frequency reduced from daily to 4 days/week; cough milder; sputum less voluminous and less foamy but still thick yellow-green; no side effects.",
+    "Patient consented to provide induced/morning sputum sample for quantitative culture including extended culture for NTM and atypical bacteria; will complete Leicester Cough Questionnaire.",
+    "After empiric 12-week azithromycin, airway clearance, and 8-week omeprazole: partial improvement—cough frequency decreased to 4 days/week, milder severity, sputum volume decreased and less foamy but persistent thick yellow-green sputum. Induced sputum and prior bronchoscopy cultures: heavy growth of non-specific bacteria; no NTM or fungal growth. HRCT chest (including inspiratory/expiratory airway protocol) and bronchoscopy normal. Full pulmonary function testing including lung volumes and DLCO normal. Sputum eosinophils and FeNO normal. No systemic symptoms or exposures. Patient agreeable to further testing and treatment.",
+    "Patient agrees to combined approach: extended 12-week targeted antibiotics guided by sputum culture and inhaled hypertonic saline 7% twice daily plus continued airway clearance; open to ENT evaluation and neuromodulator therapy if needed; no contraindications to saline or gabapentin.",
+    "After 12-week targeted antibiotics + inhaled hypertonic saline + airway clearance + PPI, patient reports reduction from daily cough to 4 days/week and milder symptoms; sputum less foamy and voluminous; induced sputum cultures persistently show heavy growth of nonspecific bacteria; no systemic symptoms; HRCT normal; bronchoscopy normal; PFTs normal.",
+    "ENT laryngoscopy with stroboscopy normal",
+    "Patient reports cough impact 5/10; open to gabapentin; no pregnancy or antibiotic allergies"
+  ]
+}

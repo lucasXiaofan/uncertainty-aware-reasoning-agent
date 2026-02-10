@@ -1,0 +1,270 @@
+{
+  "session_id": "scenario_24170_09196717_1770514773",
+  "steps": [
+    {
+      "step_number": 1,
+      "new_information": "Patient presents with chronic cough, weight loss, and generalized weakness.",
+      "uncertainties": {
+        "Pulmonary tuberculosis": "chronic cough, weight loss, night sweats possible",
+        "Lung cancer (bronchogenic carcinoma)": "chronic cough and weight loss, especially in smokers or older adults",
+        "Chronic suppurative lung disease/bronchiectasis or chronic fungal infection": "chronic cough with systemic symptoms possible",
+        "HIV-related opportunistic infection or malignancy": "systemic symptoms and chronic cough in immunosuppressed."
+      },
+      "reference_relevance": "Guideline experiences emphasized obtaining vital signs, focused pulmonary exam, smoking history, and chest x-ray early. These recommendations are helpful—vital signs and smoking history are low-cost, high-yield data points to prioritize before imaging or invasive testing.",
+      "action": "REQUEST TEST: Vital Signs",
+      "action_reason": "Vital signs (temperature, BP, HR, RR, SpO2) and basic demographics (age, sex, smoking status) will identify fever (supports infection/TB), hypoxia (severity and need for urgent oxygen/ imaging), and risk factors (age/smoking) to narrow the differential and guide next focused questions and tests."
+    },
+    {
+      "step_number": 2,
+      "new_information": "Vital signs: Temperature 38.1°C, BP 122/80 mmHg, HR 84 bpm, RR 16 breaths/min",
+      "uncertainties": {
+        "Pulmonary tuberculosis": "chronic cough, weight loss, low-grade fever",
+        "Lung cancer (bronchogenic carcinoma)": "chronic cough, weight loss, possible systemic symptoms",
+        "Chronic pulmonary infection/bronchiectasis (including fungal)": "chronic cough, sputum production, weight loss, low-grade fever"
+      },
+      "reference_relevance": "Helpful — prior diagnostic experiences support obtaining a chest X-ray as the initial, low-cost imaging to detect masses, cavitation, infiltrates, or bronchiectasis that help differentiate TB, malignancy, and chronic infections. Chest X-ray often guides need for CT or sputum studies.",
+      "action": "REQUEST TEST: Chest X-ray (PA and lateral)",
+      "action_reason": "A chest radiograph will quickly identify patterns (upper‑lobe cavitation suggesting TB, focal mass suggesting malignancy, diffuse/bronchiectatic changes suggesting chronic infection) and guide next steps (sputum AFB, CT chest, bronchoscopy). It is rapid and specific enough to narrow the differential before more invasive testing."
+    },
+    {
+      "step_number": 3,
+      "new_information": "Chest X-ray shows diffuse bilateral infiltrates",
+      "uncertainties": {
+        "Pulmonary tuberculosis": "chronic cough, weight loss, low-grade fever, diffuse infiltrates on CXR suggesting possible miliary or disseminated TB",
+        "Pneumocystis jirovecii pneumonia (PCP)": "diffuse interstitial infiltrates and subacute cough/weakness, higher if patient is immunocompromised (HIV+ or on immunosuppressants)",
+        "Miliary metastatic disease or disseminated fungal infection (e.g., histoplasmosis)": "systemic weight loss and diffuse nodular/infiltrative pattern possible",
+        "Atypical/viral pneumonia": "can cause diffuse infiltrates but less likely to produce prolonged weight loss and chronicity"
+      },
+      "reference_relevance": "Partly helpful — returned experiences emphasize obtaining focused pulmonary exam, smoking/immunosuppression history, and targeted microbiologic testing (sputum AFB/NAAT, HIV testing). Some guideline examples were postoperative and less applicable to a chronic presentation, but overall guidance to pursue sputum TB testing and assess immune status is applicable.",
+      "action": "REQUEST TEST: Sputum for AFB smear and Mycobacterium tuberculosis NAAT (obtain 3 early-morning specimens)",
+      "action_reason": "Sputum AFB smear and NAAT are high-yield for diagnosing pulmonary TB (including miliary/disseminated forms) and will rapidly distinguish TB from other causes; positive results would direct isolation and anti-TB therapy, while negative results would prompt further testing (HIV test, bronchoscopy with BAL for PCP/fungal studies, CT chest, sputum cytology) to differentiate PCP, metastatic disease, or fungal infection."
+    },
+    {
+      "step_number": 4,
+      "new_information": "Three early-morning sputum AFB smears and Mycobacterium tuberculosis NAAT returned negative.",
+      "uncertainties": {
+        "Pulmonary tuberculosis": "clinical features (chronic cough, weight loss, fever, diffuse infiltrates) fit but negative sputum/NAAT reduce probability though miliary/paucibacillary TB still possible",
+        "Pneumocystis jirovecii pneumonia (PCP)": "subacute cough, weight loss, low‑grade fever, diffuse interstitial infiltrates — more likely if immunosuppressed (e.g., HIV)",
+        "Disseminated fungal infection (histoplasmosis/coccidioidomycosis)": "chronic systemic symptoms and diffuse infiltrates possible depending on exposure",
+        "Malignancy with miliary metastases/lymphangitic carcinomatosis": "explains weight loss and diffuse infiltrates, fever less typical but possible."
+      },
+      "reference_relevance": "Helpful — prior experiences emphasize that negative sputum/NAAT lower TB probability but do not exclude TB (esp. miliary/paucibacillary disease), and they highlight the importance of assessing immunosuppression (HIV) to evaluate for PCP and opportunistic infections. Guides next-step testing toward HIV and immunologic workup.",
+      "action": "REQUEST TEST: HIV 4th-generation antigen/antibody test and CD4 count (and order HIV-1 RNA if acute infection suspected)",
+      "action_reason": "HIV status and CD4 count strongly influence the probability of PCP and other opportunistic/disseminated infections and alter interpretation of negative TB testing. A positive test would prioritize bronchoscopy/BAL for PCP and fungal stains; a negative test would shift focus toward non‑HIV causes (e.g., malignancy, non‑tuberculous infections) and prompt CT chest and tissue diagnosis."
+    },
+    {
+      "step_number": 5,
+      "new_information": "HIV 4th-generation antigen/antibody test and CD4 count normal (HIV-negative, no severe CD4 lymphopenia)",
+      "uncertainties": {
+        "Pneumocystis jirovecii pneumonia (PJP)": "possible given diffuse interstitial/ground-glass pattern and weight loss but less likely without severe immunosuppression",
+        "Atypical/viral pneumonia (e.g., influenza, CMV, respiratory viruses)": "can produce diffuse infiltrates and systemic symptoms",
+        "Miliary/disseminated tuberculosis": "systemic symptoms and diffuse/miliary pattern remain possible despite negative sputum NAAT and smears",
+        "Diffuse metastatic disease or interstitial lung disease (e.g., sarcoidosis, hypersensitivity pneumonitis)": "chronic cough, weight loss, and diffuse infiltrates on CXR"
+      },
+      "reference_relevance": "Guidelines and prior experiences were helpful — they emphasize obtaining focused pulmonary physical exam and high-resolution chest CT to better characterize diffuse infiltrates, and bronchoscopy/BAL and targeted microbiologic testing when sputum studies are non-diagnostic. This is applicable to this case because sputum AFB and NAAT are negative and HIV is negative, so imaging and lower-respiratory sampling will guide next steps.",
+      "action": "REQUEST TEST: High-resolution chest CT (inspiratory and expiratory) — noncontrast HRCT to characterize pattern (ground-glass, nodular/miliary, reticular) and distribution",
+      "action_reason": "HRCT will differentiate ground-glass (supports PJP/viral/acute interstitial pneumonitis) vs miliary nodules (supports disseminated TB or metastatic disease) vs reticular/honeycombing (supports chronic interstitial lung disease). Imaging will direct targeted testing (e.g., bronchoscopy with BAL for PJP PCR/cytology, CT-guided biopsy, or oncologic workup) and avoid unnecessary empiric therapies."
+    },
+    {
+      "step_number": 6,
+      "new_information": "High-resolution chest CT is normal despite prior chest X-ray showing diffuse infiltrates; patient has low-grade fever (38.1°C), chronic cough, weight loss, generalized weakness; sputum AFB smear and TB NAAT negative; HIV test negative.",
+      "uncertainties": {
+        "Pulmonary tuberculosis": "compatible with chronic cough, weight loss and fever but sputum tests negative—could be paucibacillary or endobronchial disease",
+        "Pulmonary malignancy (primary lung cancer, lymphoma, or metastatic disease)": "systemic symptoms and CXR infiltrates but CT may miss airway‑predominant or diffuse infiltrative malignancy",
+        "Chronic infection or inflammatory lung disease (fungal infection, sarcoidosis, hypersensitivity pneumonitis, organizing pneumonia)": "can present with constitutional symptoms and discordant radiographs/CT."
+      },
+      "reference_relevance": "Partially helpful — guideline experiences emphasize that when noninvasive testing (sputum, CT) is inconclusive, bronchoscopy with BAL and transbronchial biopsy is high-yield for diagnosing smear‑negative TB, occult malignancy, fungal infections, and inflammatory lung diseases. No single past case matched exactly, but recommendations support invasive sampling in this context.",
+      "action": "REQUEST TEST: Bronchoscopy with bronchoalveolar lavage and transbronchial biopsy (send BAL for Gram stain/culture, fungal culture, mycobacterial culture and PCR, cytology, and differential cell count)",
+      "action_reason": "Bronchoscopy with BAL and transbronchial biopsy allows direct airway visualization (identify endobronchial lesions), obtains lower respiratory samples for cultures and molecular testing for TB/fungi, and provides tissue for histopathology to diagnose malignancy, sarcoidosis, organizing pneumonia, or other inflammatory processes—highly useful when chest X‑ray and CT are discordant and sputum tests are non-diagnostic."
+    },
+    {
+      "step_number": 7,
+      "new_information": "Bronchoscopy with bronchoalveolar lavage and transbronchial biopsy returned normal results.",
+      "uncertainties": {
+        "Occult malignancy (e.g., lymphoma, metastatic carcinoma)": "unexplained weight loss, fever, diffuse infiltrates but bronchoscopic biopsy can miss focal or extrapulmonary disease",
+        "Chronic/prolonged fungal infection (Histoplasma, Coccidioides, Blastomyces)": "systemic symptoms with potentially false-negative BAL/biopsy early or if disease is extrapulmonary",
+        "Pulmonary vasculitis or systemic autoimmune disease (granulomatosis with polyangiitis, sarcoidosis)": "constitutional symptoms and diffuse radiographic findings can occur with normal bronchoscopy early",
+        "less likely but important to exclude.": "under consideration"
+      },
+      "reference_relevance": "Guideline experiences highlighted the value of targeted bedside examination and basic labs to distinguish obstructive lung disease versus systemic causes; these recommendations are moderately helpful — they emphasize the need for systemic evaluation (labs, focused exam, PET/CT) that apply here, but prior guideline examples focused more on PFTs or cardiac exams rather than the systemic serologic workup needed in this case.",
+      "action": "REQUEST TEST: CBC with differential, CMP, ESR, CRP, and LDH",
+      "action_reason": "These baseline blood tests screen for anemia, leukocytosis or leukopenia, renal/hepatic dysfunction, systemic inflammation, and elevated LDH that can suggest hematologic malignancy (e.g., lymphoma) or severe infection. Results will help prioritize next steps (e.g., hematology/oncology referral, serologic fungal testing, ANCA/autoimmune serologies, PET-CT, or targeted biopsy) and differentiate between infectious, malignant, and inflammatory causes."
+    },
+    {
+      "step_number": 8,
+      "new_information": "CBC, CMP, ESR, CRP, and LDH are within normal limits in a patient with chronic cough, weight loss, generalized weakness, low-grade fever (38.1°C), chest x-ray showing diffuse infiltrates, but HRCT chest and bronchoscopy/BAL/transbronchial biopsy previously reported as normal; sputum AFB and TB NAAT x3 negative; HIV 4th-gen negative.",
+      "uncertainties": {
+        "Occult malignancy (lung or extrapulmonary)": "weight loss and chronic cough suggest malignancy but normal HRCT and bronchoscopy reduce but do not exclude it",
+        "Chronic/atypical infection (paucibacillary TB, NTM, endemic fungi)": "compatible with symptoms and CXR infiltrates but multiple negative microbiologic tests and normal inflammatory markers lower probability yet do not exclude low-burden or extrapulmonary infection",
+        "Inflammatory/organizing pneumonia or other non-infectious inflammatory lung disease (cryptogenic organizing pneumonia, sarcoidosis)": "can present with weight loss and cough with variable lab/CT findings, some cases may show subtle imaging or be RT-PCR/biopsy-negative."
+      },
+      "reference_relevance": "Guidelines/experiences moderately helpful: prior cases highlight PET-CT and further imaging when noninvasive testing is unrevealing for unexplained weight loss and persistent symptoms; physical exam and detailed exposure/smoking history also commonly recommended but imaging (PET-CT) is useful to detect occult malignancy or metabolically active inflammation when CT is unrevealing.",
+      "action": "REQUEST TEST: PET-CT (whole-body)",
+      "action_reason": "A whole-body PET-CT will detect metabolically active malignancy or granulomatous/inflammatory foci not evident on noncontrast HRCT or bronchoscopy, helping to distinguish occult cancer from chronic infection or inflammatory disease. A positive focal hypermetabolic lesion would direct targeted biopsy; a diffusely increased uptake could support inflammatory/infectious etiologies. A negative PET-CT would reduce the likelihood of an occult malignancy and guide toward other nonmetabolic causes (e.g., functional/medication-related, chronic aspiration)."
+    },
+    {
+      "step_number": 9,
+      "new_information": "PET-CT (whole-body) normal",
+      "uncertainties": {
+        "Pulmonary tuberculosis": "compatible symptoms (chronic cough, weight loss, low-grade fever) and diffuse infiltrates on CXR but multiple sputum AFB/NAAT and BAL mycobacterial tests negative — possibility of paucibacillary disease or false negatives",
+        "Endemic/chronic pulmonary fungal infection (Histoplasma, Coccidioides, Cryptococcus)": "can cause chronic cough, constitutional symptoms and may be missed on routine cultures/biopsy",
+        "Occult malignancy (bronchogenic carcinoma, lymphangitic carcinomatosis, PET-negative tumor)": "systemic symptoms and diffuse radiographic findings could represent malignancy despite normal PET and nondiagnostic bronchoscopic sampling (sampling error or low-metabolic tumor)"
+      },
+      "reference_relevance": "Guidelines/experiences were moderately helpful: prior recommendations to perform chest imaging, bronchoscopy with BAL/biopsy, mycobacterial testing and PET-CT have been followed and are negative, which reduces but does not exclude TB and malignancy. The guidance highlights that endemic fungal testing (antigen/serology) and repeat or alternative sampling strategies are useful when initial invasive testing is nondiagnostic — this is applicable and helpful.",
+      "action": "REQUEST TEST: Fungal serology and antigen panel — urine Histoplasma antigen, serum cryptococcal antigen, Coccidioides IgM/IgG serology, and fungal blood cultures",
+      "action_reason": "Endemic and chronic fungal infections can present with chronic cough, weight loss and low-grade fever yet be missed by routine cultures/bronchoscopy; urine Histoplasma antigen and serum cryptococcal antigen are sensitive for disseminated/pulmonary disease and coccidioidal serology can detect chronic infection. Positive results would identify a treatable infectious etiology and avoid empiric anti-TB or oncologic therapy; negative results would increase the likelihood of occult malignancy or other noninfectious causes and prompt consideration of repeat tissue sampling (surgical lung biopsy) or targeted PET/CT review."
+    },
+    {
+      "step_number": 10,
+      "new_information": "Fungal serology and antigen panel returned negative.",
+      "uncertainties": {
+        "Granulomatosis with polyangiitis (GPA)": "chronic cough, systemic symptoms, can have normal early imaging and requires ANCA/urinalysis for detection",
+        "Nontuberculous mycobacterial (NTM) or occult mycobacterial infection": "chronic cough and weight loss, may be missed on initial NAAT/smears and require repeat/extended cultures and specialized testing",
+        "Occult malignancy (including lymphoma)": "systemic weight loss and weakness could reflect malignancy despite negative PET-CT (false negatives possible for some tumors)."
+      },
+      "reference_relevance": "Past guideline experiences are moderately helpful — they recommend pursuing autoimmune serologies and repeat specialized microbiologic testing when extensive infectious and imaging evaluations are unrevealing. They support using noninvasive, specific tests (ANCA, urinalysis) to evaluate for vasculitis and ordering repeat/extended mycobacterial cultures for suspected NTM.",
+      "action": "REQUEST TEST: c-ANCA (PR3) and p-ANCA (MPO) and Urinalysis with microscopy (to assess for renal involvement)",
+      "action_reason": "ANCA testing and urinalysis are noninvasive, high-yield next steps to evaluate for GPA/vasculitis, which can present with chronic cough, systemic symptoms, and may be missed on initial imaging and infectious workup. Positive findings (ANCA positivity, hematuria/proteinuria) would support vasculitis and direct further testing (ENT evaluation, renal function, tissue biopsy). A negative result would lower GPA probability and shift focus back to repeat microbiologic testing (NTM) or hematologic malignancy evaluation."
+    },
+    {
+      "step_number": 11,
+      "new_information": "c-ANCA (PR3), p-ANCA (MPO), and urinalysis with microscopy: NORMAL",
+      "uncertainties": {
+        "1) Nontuberculous mycobacterial infection or occult TB": "systemic symptoms and chronic cough persist despite prior negative tests—mycobacterial disease can be paucibacillary and require repeated cultures and exposure history",
+        "2) Hypersensitivity pneumonitis (chronic)": "chronic cough, weight loss, low-grade fever and diffuse infiltrates could fit if ongoing antigen exposure (birds, hot tubs, molds) despite normal HRCT early or sampling error",
+        "3) Occult malignancy (lymphoma, indolent bronchogenic carcinoma)": "systemic symptoms and weight loss but PET-CT and BAL negative decrease likelihood though do not exclude low-grade malignancy."
+      },
+      "reference_relevance": "Past guideline experiences emphasize targeted exposure and smoking history questions and environmental risk assessment when infection and inflammatory causes remain after extensive testing. These guidelines are helpful—exposure history often identifies hypersensitivity pneumonitis or NTM risk factors and guides specific further testing (antigen avoidance, repeat cultures, specialized serologies).",
+      "action": "ASK PATIENT: Have you had any exposures to birds (pigeons, parakeets) or feather products, worked with or been exposed to mold, farming, hay, hot tubs/whirlpools, humidifiers, or air‑conditioning systems? What is your current smoking status and exact smoking history (cigarettes per day and pack‑years)? Any recent travel, known TB exposure, or recurrent water exposures (hot tubs, gardening/soil)? Are you taking any immunosuppressive medications (steroids, biologics) or do you have episodes of night sweats, fevers, hemoptysis, or swollen lymph nodes? How much weight have you lost and over what timeframe?",
+      "action_reason": "A focused environmental/occupational and smoking history plus details on systemic B symptoms and immunosuppression will help distinguish hypersensitivity pneumonitis (specific antigen exposures), NTM/TB (water/soil/hot-tub exposure, TB contacts), and occult malignancy (B symptoms, lymphadenopathy) and will guide targeted next tests (antigen-specific IgG, repeat mycobacterial cultures, or PET-targeted biopsies)."
+    },
+    {
+      "step_number": 12,
+      "new_information": "Patient incarcerated until 9 months ago; ongoing fevers, night sweats, cough, weight loss 7.5 kg over 6 months (context reiterated).",
+      "uncertainties": {
+        "Pulmonary tuberculosis (paucibacillary/occult)": "incarceration exposure and constitutional symptoms but multiple negative respiratory tests",
+        "Nontuberculous mycobacterial infection (MAC/others)": "can be culture-negative early or require specific culture techniques",
+        "Occult malignancy (lymphoma)": "B symptoms present but PET-CT normal reduces likelihood"
+      },
+      "reference_relevance": "Partially helpful — prior guideline experiences recommend repeat TB-specific testing (IGRA), prolonged mycobacterial cultures, and considering extrapulmonary sampling when respiratory microbiology is repeatedly negative. However, many recommend matching clinical context to test sensitivity; given multiple negative high-yield tests, guidelines caution against over-reliance on a single negative NAAT/smear.",
+      "action": "ASK PATIENT: Have you ever had a tuberculin skin test (PPD) or interferon-gamma release assay (Quantiferon/T-SPOT)? Have you ever been treated for tuberculosis or received BCG vaccination? Any known household or close contacts with active TB? Any focal bone/back pain or persistent lymph node swelling?",
+      "action_reason": "Prior TB testing, prior treatment, or BCG history will change pretest probability and interpretation of negative sputum/BAL studies; known TB contacts or localizing symptoms (lymphadenopathy, bone pain) would prompt targeted extrapulmonary evaluation (e.g., lymph node biopsy, spine imaging) or empiric treatment versus continued diagnostic observation."
+    },
+    {
+      "step_number": 13,
+      "new_information": "Patient reports never having had a PPD or IGRA and has never been treated for tuberculosis.",
+      "uncertainties": {
+        "Pulmonary tuberculosis (smear/NAAT-negative/paucibacillary)": "incarceration exposure and systemic symptoms but negative initial tests",
+        "Nontuberculous mycobacterial infection": "chronic cough and systemic symptoms despite negative initial tests",
+        "Occult malignancy (e.g., lymphoma)": "B symptoms and weight loss but prior PET-CT normal"
+      },
+      "reference_relevance": "Guideline experiences were partially helpful: they emphasize the need for mycobacterial cultures and IGRA in smear/NAAT-negative suspected TB and suggest considering extrapulmonary mycobacterial testing. Some experiences highlighted the value of focused physical exam and targeted cultures. However, many returned experiences were about other pulmonary disorders and did not fully address workup after multiple negative advanced tests.",
+      "action": "REQUEST TEST: Interferon-gamma release assay (Quantiferon-TB Gold) AND repeat sputum mycobacterial cultures (3 early-morning specimens) with liquid (MGIT) and solid media, plus blood mycobacterial cultures; also REQUEST TEST: Urine mycobacterial PCR/culture (to assess extrapulmonary TB)",
+      "action_reason": "IGRA will assess TB infection/exposure status when prior sputum NAAT/smears were negative. Mycobacterial cultures (liquid and solid) are more sensitive for paucibacillary disease and may detect organisms missed by NAAT/smear; blood and urine mycobacterial testing can identify extrapulmonary or disseminated disease given systemic symptoms and history of incarceration."
+    },
+    {
+      "step_number": 14,
+      "new_information": "Interferon-gamma release assay negative and repeat respiratory, blood, and urine mycobacterial tests (including cultures and PCR) are negative.",
+      "uncertainties": {
+        "1) Tuberculosis (pulmonary or extrapulmonary/marrow)": "incarceration history and prolonged B symptoms keep TB on differential despite negative noninvasive tests",
+        "2) Hematologic malignancy (lymphoma, marrow-only disease)": "systemic B symptoms with normal PET-CT and imaging—marrow-limited disease can be PET-negative",
+        "3) Disseminated occult infection (atypical mycobacteria, fungal organisms, brucella/Q fever)": "symptoms persist and noninvasive tests may miss marrow-seeded organisms."
+      },
+      "reference_relevance": "Past experiences/guidelines indicate that when extensive noninvasive testing (imaging, sputum/BAL, serologies, PET) is unrevealing but systemic B symptoms persist, bone marrow biopsy with targeted cultures (AFB, fungal) and histology is a high-yield next step to detect marrow-infiltrative processes or culture-negative infections.",
+      "action": "REQUEST TEST: Bone marrow biopsy and aspirate — obtain core biopsy and aspirate; send for histopathology (including AFB/fungal special stains), flow cytometry, cytogenetics, mycobacterial culture/PCR (MGIT and solid media), fungal culture, and routine bacterial cultures.",
+      "action_reason": "Bone marrow examination can detect marrow-limited lymphoma, granulomatous inflammation from disseminated TB or fungal infections, and may allow recovery of organisms missed by sputum/BAL and blood cultures; this test best differentiates between marrow-infiltrative malignancy versus occult disseminated infection in a patient with persistent B symptoms and otherwise unrevealing workup."
+    },
+    {
+      "step_number": 15,
+      "new_information": "Bone marrow biopsy and aspirate normal including AFB/fungal stains and cultures.",
+      "uncertainties": {
+        "1) Paucibacillary/extrapulmonary TB": "incarceration history and constitutional symptoms but extensive mycobacterial testing negative",
+        "2) Occult lymphoproliferative disorder (e.g., indolent lymphoma)": "B symptoms present despite normal PET-CT and bone marrow",
+        "3) Interstitial/inflammatory lung disease (cryptogenic organizing pneumonia, sarcoidosis, UIP/NSIP)": "systemic symptoms and diffuse infiltrates but HRCT and transbronchial biopsy non-diagnostic",
+        "4) Atypical/occult infection (NTM, endemic fungi, other)": "multiple cultures/serologies negative but could be focal or low burden."
+      },
+      "reference_relevance": "Prior guideline experiences support obtaining a definitive tissue diagnosis when noninvasive testing (imaging, BAL, transbronchial biopsy, extensive microbiology, serology, PET, bone marrow) is unrevealing. This is helpful: VATS surgical lung biopsy often has higher diagnostic yield for interstitial lung disease, granulomatous disease, and occult malignancy when less invasive methods are nondiagnostic. Risks exist (anesthesia, air leak, bleeding) but are justified given persistent unexplained systemic illness and multiple prior negative tests.",
+      "action": "REQUEST TEST: Surgical (VATS) lung biopsy with multiple wedge biopsies; send tissue for histopathology (H&E), AFB and fungal special stains, bacterial/fungal/mycobacterial cultures and PCR, flow cytometry, and molecular studies as indicated.",
+      "action_reason": "A VATS wedge biopsy provides larger, full‑thickness lung tissue allowing diagnosis of interstitial pneumonias (UIP/NSIP), granulomatous disease (sarcoid, TB, fungi), organizing pneumonia, and occult lymphoma or other malignancies that often evade detection on transbronchial biopsy and imaging. Given exhaustive negative noninvasive testing, VATS biopsy is the next step to obtain a definitive diagnosis and guide targeted therapy."
+    },
+    {
+      "step_number": 16,
+      "new_information": "VATS lung biopsy with multiple wedge biopsies: normal histopathology and negative AFB/fungal special stains and cultures.",
+      "uncertainties": {
+        "1) Occult fastidious infection (eg, Nocardia, Coxiella burnetii/Q fever, other intracellular or difficult-to-culture bacteria)": "systemic symptoms with negative routine cultures/stains",
+        "2) Low‑burden/extrapulmonary mycobacterial infection (paucibacillary TB/NTM) despite negative standard testing": "under consideration",
+        "3) Indolent hematologic malignancy or non‑PET‑avid lymphoma/sarcoidosis": "B symptoms with negative PET/biopsy possibly due to patchy disease or low-grade process."
+      },
+      "reference_relevance": "Past guideline experiences suggest that when extensive conventional testing (cultures, stains, histopathology, PET-CT, VATS biopsy) is non-diagnostic, molecular diagnostics (broad-range 16S/ITS sequencing) and targeted PCR/serology for culture-negative organisms (Nocardia, Coxiella) can identify fastidious pathogens missed by routine methods. These guidelines are helpful and support proceeding to molecular testing of stored tissue and targeted serologies.",
+      "action": "REQUEST TEST: Broad-range bacterial (16S rRNA) and fungal (ITS) PCR/sequencing on stored VATS lung tissue and BAL fluid; perform modified acid-fast (Fite) stain and Nocardia-specific PCR on tissue/BAL; order Coxiella burnetii serology (phase I and II IgG/IgM) and Coxiella PCR on blood/BAL.",
+      "action_reason": "Broad-range molecular testing and targeted PCR/serology can detect fastidious or intracellular pathogens (Nocardia, Coxiella, other bacteria/fungi) that are often missed by routine cultures and stains; this will help distinguish occult infectious causes from noninfectious inflammatory or neoplastic processes and is a high-yield next diagnostic step given prior exhaustive negative workup."
+    },
+    {
+      "step_number": 17,
+      "new_information": "Extensive infectious, autoimmune, malignancy workup including sputum AFB/NAAT, repeat mycobacterial cultures, BAL with cultures/PCR, bone marrow biopsy, VATS lung biopsy, PET-CT, and broad fungal/atypical panels all normal; ongoing fevers, night sweats, cough, 7.5 kg weight loss over 6 months; history of incarceration 9 months ago; HIV negative.",
+      "uncertainties": {
+        "Pulmonary tuberculosis (paucibacillary/extrapulmonary)": "incarceration exposure increases risk but multiple negative microbiologic and histopathologic tests argue against but can't fully exclude",
+        "Occult lymphoma or other malignancy (including PET-negative or patchy disease)": "B symptoms fit but PET-CT and biopsies normal—some lymphomas can be PET-negative or missed by sampling",
+        "Immunodeficiency or dysproteinemia (e.g., common variable immunodeficiency, monoclonal gammopathy) with atypical infections or non-diagnostic inflammatory response": "could explain persistent symptoms with negative standard testing",
+        "Chronic inflammatory/interstitial lung disease (e.g., HP, sarcoidosis, COP)": "compatible with symptoms but multiple biopsies and HRCT were non-diagnostic/normal."
+      },
+      "reference_relevance": "Prior guideline experiences partially helpful: they emphasize focused, low-risk bedside tests and targeted immunologic evaluation when extensive infectious/malignant workup is unrevealing. Many cases with normal imaging/biopsy benefit from checking immune status and serum protein disorders. Given negative invasive testing, immunologic/dysproteinemia evaluation is high yield to explain susceptibility to occult infection or paraneoplastic processes.",
+      "action": "REQUEST TEST: Quantitative immunoglobulins (IgG, IgA, IgM), serum protein electrophoresis (SPEP) with immunofixation, and quantitative lymphocyte subsets (flow cytometry: CD3, CD4, CD8, CD19, CD56)",
+      "action_reason": "These tests evaluate for humoral immunodeficiency or monoclonal gammopathy that could predispose to atypical or low-burden infections and produce systemic symptoms despite negative microbiologic studies. They also screen for lymphoproliferative disorders that can be missed on PET or focal biopsy and may help prioritize further targeted testing (e.g., hematology referral, bone marrow re-evaluation) or immune replacement if indicated."
+    },
+    {
+      "step_number": 18,
+      "new_information": "Quantitative immunoglobulins, serum protein electrophoresis with immunofixation, and quantitative lymphocyte subsets (CD3, CD4, CD8, CD19, CD56) are all normal.",
+      "uncertainties": {
+        "1) Smear/NAAT-negative pulmonary or extrapulmonary tuberculosis": "chronic cough, fevers, night sweats, weight loss, incarceration exposure—but many mycobacterial tests negative so disease may be paucibacillary or extrapulmonary. 2) Occult lymphoma (including indolent or PET‑negative subtypes): systemic B symptoms and weight loss despite negative PET, bone marrow, and VATS—some lymphomas can be biopsy‑occult or extranodal. 3) Occult systemic/chronic intracellular infection (eg Whipple disease, Bartonella, chronic Brucella/Coxiella, atypical fungal infections): explains systemic symptoms despite negative routine testing."
+      },
+      "reference_relevance": "Past guideline experiences were partially helpful: they emphasize focused history and bedside exam to uncover exposures and localizing features, but many prior advanced diagnostic tests here were nondiagnostic, so guideline suggestions (physical exam, exposure/ travel history) remain relevant yet insufficient alone to resolve uncertainties.",
+      "action": "ASK PATIENT: Do you have ongoing or intermittent diarrhea, abdominal pain, greasy stools, weight loss from poor absorption, or joint pains? Any new skin lesions, petechiae, or tender/supracentimetric lymph nodes you've noticed? Have you had cognitive changes, memory problems, headaches, or focal neurologic symptoms? Also, are your fevers/night sweats daily or intermittent and how many nights per week do they wake you?",
+      "action_reason": "Gastrointestinal symptoms (diarrhea, malabsorption, arthralgias) and neurologic signs would point toward systemic infections like Whipple disease or Bartonella and help distinguish them from pulmonary‑limited TB or occult lymphoma; pattern/severity of night sweats and detectable peripheral lymphadenopathy can support lymphoma or chronic infection and guide targeted repeat biopsies or serologies."
+    },
+    {
+      "step_number": 19,
+      "new_information": "Patient reports daily low-grade fevers, night sweats 5–6 nights/week, chronic cough, weakness, poor appetite, and 7.5 kg weight loss over 6 months; extensive negative infectious/autoimmune/malignancy/immunodeficiency workup despite prior objective fever (T 38.1°C).",
+      "uncertainties": {
+        "1) Occult/atypical mycobacterial or tuberculosis infection": "incarceration exposure and classic constitutional symptoms but repeatedly negative sputum/BAL/tissue/urine/blood cultures and IGRA. 2) Occult malignancy (eg, lymphoma/occult metastatic disease): B symptoms and weight loss but PET-CT and multiple tissue biopsies are normal. 3) Factitious disorder or malingering (including surreptitious fever induction or symptom fabrication): persistent subjective/objective symptoms with uniformly negative extensive objective testing raising concern for non-organic causes."
+      },
+      "reference_relevance": "The queried experiences were moderately helpful. Prior cases emphasize the value of direct observation, supervised specimen collection, and psychiatric evaluation when exhaustive testing is unrevealing; they also support targeted bedside reassessment (eg, repeat observed vitals/exam) to confirm objective findings. However, most guideline experiences focused on stepwise infectious/malignancy workups rather than managing suspected factitious presentations, so applicability is partial.",
+      "action": "ASK PATIENT: Would you agree to a short inpatient observed evaluation with continuous temperature monitoring, supervised medication administration and supervised collection of specimens (to confirm true fevers and exclude sample tampering), and a psychiatry consultation? Also, are you currently taking any non-prescription medications, herbal remedies, or illicit substances we should know about?",
+      "action_reason": "Observed inpatient monitoring with supervised specimen collection will confirm whether the fevers and other objective signs are reproducible and genuine (supporting occult infection/malignancy) versus inconsistent or induced (supporting factitious disorder). A psychiatry consult helps assess for factitious disorder, somatic symptom disorder, or malingering and addresses psychosocial contributors. Asking about non-prescription/illicit substances may reveal exogenous causes of symptoms or fever-mimicking agents and helps avoid unnecessary further invasive testing."
+    },
+    {
+      "step_number": 20,
+      "new_information": "Final diagnosis: Factitious disorder",
+      "uncertainties": {},
+      "reference_relevance": "N/A - Final diagnosis",
+      "action": "DIAGNOSIS READY",
+      "action_reason": "Summary of reasoning and readiness for final diagnosis:\n\nFindings: 6 months of chronic cough, daily low‑grade fevers with night sweats, 7.5 kg weight loss, weakness and anorexia. Objective clinic temperature recorded 38.1°C. Chest x‑ray shows diffuse infiltrates but HRCT and PET‑CT normal. Extensive microbiologic, serologic, molecular, and histopathologic evaluation is uniformly negative: repeated sputum AFB/NAAT/cultures (including liquid MGIT), BAL with cultures and PCR, transbronchial and VATS wedge lung biopsies with special stains and cultures, blood/urine mycobacterial testing, bone marrow biopsy with AFB/fungal stains and cultures, broad-range 16S/ITS sequencing, fungal serologies/antigens (Histoplasma urine, cryptococcal antigen, Coccidioides), Coxiella/Nocardia testing, HIV, Quantiferon, ANCA, quantitative immunoglobulins, SPEP, lymphocyte subsets, CBC, ESR/CRP, LDH — all normal. Patient has incarceration history (raises TB pretest probability), but multiple negative tests across tissue, fluid, and blood make occult TB or occult disseminated infection exceedingly unlikely. PET‑CT and multiple biopsies make occult malignancy (including lymphoma) unlikely.\n\nDiagnostic synthesis and conclusion: Given the exhaustive negative objective workup despite persistent subjective symptoms, the most likely explanation is a disorder in the spectrum of factitious disorder (fever fabrication / induced or simulated fever) or, less likely, psychogenic (stress‑related) fever. This fits because: (1) objective inflammatory and microbiologic testing are repeatedly normal, (2) advanced imaging and tissue sampling show no pathologic process, and (3) the only documented fever is low‑grade and not yet confirmed under continuous observed inpatient monitoring.\n\nHow uncertainties were resolved: Infectious causes (including TB and atypical mycobacteria) and malignancy were actively and repeatedly searched for using appropriate specimens, imaging (including PET‑CT), and invasive tissue sampling; their absence across these modalities substantially lowers their likelihood. Autoimmune and immunodeficiency causes were also tested and not supported. That leaves non‑organic causes (factitious/psychogenic) as the most parsimonious explanation.\n\nRemaining clarifications that would ideally be obtained (and recommended next steps):\n- Inpatient observed evaluation with continuous temperature monitoring, supervised specimen collection, and direct observation of febrile episodes to confirm whether objective fevers recur under observation (patient has consented). Confirmation of lack of objective fever during observation would support factitious disorder; confirmation of recurrent objective fever with correlating inflammatory response would require re‑evaluation and repeat targeted testing.\n- Psychiatric assessment (consult liaison psychiatry) to evaluate for factitious disorder, somatic symptom disorder, depression, or other psychiatric contributors, and to plan supportive management.\n- Social work involvement and careful, nonjudgmental discussion with the patient; maintain therapeutic alliance while avoiding confrontation or premature accusation.\n- If inpatient monitoring documents true fever with new objective inflammatory changes, repeat targeted microbiologic and molecular testing (observed, time‑stamped samples) and consider empiric therapy guided by new findings.\n\nFinal documented diagnosis (provisional): Chronic unexplained low‑grade fever and constitutional symptoms most consistent with factitious disorder (fever fabrication) vs psychogenic fever. Provisional diagnosis pending confirmation by inpatient observed monitoring (continuous temperatures and supervised specimen collection) and psychiatric evaluation.\n\nImmediate management recommendations: Arrange inpatient observed monitoring as agreed, initiate supportive care (nutrition, symptomatic treatment for night sweats and insomnia), consult psychiatry and social work, avoid unnecessary empiric prolonged antimicrobial therapy unless new objective data emerge, and approach the patient nonjudgmentally to preserve trust and facilitate psychiatric care and recovery.",
+      "final_diagnosis": "Factitious disorder",
+      "synthesis_prompt": "You are a medical diagnosis synthesizer. Based on all the information gathered during a clinical evaluation, provide a single, specific final diagnosis.\n\n## Information Gathered:\n- Patient presents with chronic cough, weight loss, and generalized weakness.\n- Vital signs: Temperature 38.1°C, BP 122/80 mmHg, HR 84 bpm, RR 16 breaths/min\n- Chest X-ray shows diffuse bilateral infiltrates\n- Three early-morning sputum AFB smears and Mycobacterium tuberculosis NAAT returned negative.\n- HIV 4th-generation antigen/antibody test and CD4 count normal (HIV-negative, no severe CD4 lymphopenia)\n- High-resolution chest CT is normal despite prior chest X-ray showing diffuse infiltrates; patient has low-grade fever (38.1°C), chronic cough, weight loss, generalized weakness; sputum AFB smear and TB NAAT negative; HIV test negative.\n- Bronchoscopy with bronchoalveolar lavage and transbronchial biopsy returned normal results.\n- CBC, CMP, ESR, CRP, and LDH are within normal limits in a patient with chronic cough, weight loss, generalized weakness, low-grade fever (38.1°C), chest x-ray showing diffuse infiltrates, but HRCT chest and bronchoscopy/BAL/transbronchial biopsy previously reported as normal; sputum AFB and TB NAAT x3 negative; HIV 4th-gen negative.\n- PET-CT (whole-body) normal\n- Fungal serology and antigen panel returned negative.\n- c-ANCA (PR3), p-ANCA (MPO), and urinalysis with microscopy: NORMAL\n- Patient incarcerated until 9 months ago; ongoing fevers, night sweats, cough, weight loss 7.5 kg over 6 months (context reiterated).\n- Patient reports never having had a PPD or IGRA and has never been treated for tuberculosis.\n- Interferon-gamma release assay negative and repeat respiratory, blood, and urine mycobacterial tests (including cultures and PCR) are negative.\n- Bone marrow biopsy and aspirate normal including AFB/fungal stains and cultures.\n- VATS lung biopsy with multiple wedge biopsies: normal histopathology and negative AFB/fungal special stains and cultures.\n- Extensive infectious, autoimmune, malignancy workup including sputum AFB/NAAT, repeat mycobacterial cultures, BAL with cultures/PCR, bone marrow biopsy, VATS lung biopsy, PET-CT, and broad fungal/atypical panels all normal; ongoing fevers, night sweats, cough, 7.5 kg weight loss over 6 months; history of incarceration 9 months ago; HIV negative.\n- Quantitative immunoglobulins, serum protein electrophoresis with immunofixation, and quantitative lymphocyte subsets (CD3, CD4, CD8, CD19, CD56) are all normal.\n- Patient reports daily low-grade fevers, night sweats 5–6 nights/week, chronic cough, weakness, poor appetite, and 7.5 kg weight loss over 6 months; extensive negative infectious/autoimmune/malignancy/immunodeficiency workup despite prior objective fever (T 38.1°C).\n\n## Clinician's Assessment:\nSummary of reasoning and readiness for final diagnosis:\n\nFindings: 6 months of chronic cough, daily low‑grade fevers with night sweats, 7.5 kg weight loss, weakness and anorexia. Objective clinic temperature recorded 38.1°C. Chest x‑ray shows diffuse infiltrates but HRCT and PET‑CT normal. Extensive microbiologic, serologic, molecular, and histopathologic evaluation is uniformly negative: repeated sputum AFB/NAAT/cultures (including liquid MGIT), BAL with cultures and PCR, transbronchial and VATS wedge lung biopsies with special stains and cultures, blood/urine mycobacterial testing, bone marrow biopsy with AFB/fungal stains and cultures, broad-range 16S/ITS sequencing, fungal serologies/antigens (Histoplasma urine, cryptococcal antigen, Coccidioides), Coxiella/Nocardia testing, HIV, Quantiferon, ANCA, quantitative immunoglobulins, SPEP, lymphocyte subsets, CBC, ESR/CRP, LDH — all normal. Patient has incarceration history (raises TB pretest probability), but multiple negative tests across tissue, fluid, and blood make occult TB or occult disseminated infection exceedingly unlikely. PET‑CT and multiple biopsies make occult malignancy (including lymphoma) unlikely.\n\nDiagnostic synthesis and conclusion: Given the exhaustive negative objective workup despite persistent subjective symptoms, the most likely explanation is a disorder in the spectrum of factitious disorder (fever fabrication / induced or simulated fever) or, less likely, psychogenic (stress‑related) fever. This fits because: (1) objective inflammatory and microbiologic testing are repeatedly normal, (2) advanced imaging and tissue sampling show no pathologic process, and (3) the only documented fever is low‑grade and not yet confirmed under continuous observed inpatient monitoring.\n\nHow uncertainties were resolved: Infectious causes (including TB and atypical mycobacteria) and malignancy were actively and repeatedly searched for using appropriate specimens, imaging (including PET‑CT), and invasive tissue sampling; their absence across these modalities substantially lowers their likelihood. Autoimmune and immunodeficiency causes were also tested and not supported. That leaves non‑organic causes (factitious/psychogenic) as the most parsimonious explanation.\n\nRemaining clarifications that would ideally be obtained (and recommended next steps):\n- Inpatient observed evaluation with continuous temperature monitoring, supervised specimen collection, and direct observation of febrile episodes to confirm whether objective fevers recur under observation (patient has consented). Confirmation of lack of objective fever during observation would support factitious disorder; confirmation of recurrent objective fever with correlating inflammatory response would require re‑evaluation and repeat targeted testing.\n- Psychiatric assessment (consult liaison psychiatry) to evaluate for factitious disorder, somatic symptom disorder, depression, or other psychiatric contributors, and to plan supportive management.\n- Social work involvement and careful, nonjudgmental discussion with the patient; maintain therapeutic alliance while avoiding confrontation or premature accusation.\n- If inpatient monitoring documents true fever with new objective inflammatory changes, repeat targeted microbiologic and molecular testing (observed, time‑stamped samples) and consider empiric therapy guided by new findings.\n\nFinal documented diagnosis (provisional): Chronic unexplained low‑grade fever and constitutional symptoms most consistent with factitious disorder (fever fabrication) vs psychogenic fever. Provisional diagnosis pending confirmation by inpatient observed monitoring (continuous temperatures and supervised specimen collection) and psychiatric evaluation.\n\nImmediate management recommendations: Arrange inpatient observed monitoring as agreed, initiate supportive care (nutrition, symptomatic treatment for night sweats and insomnia), consult psychiatry and social work, avoid unnecessary empiric prolonged antimicrobial therapy unless new objective data emerge, and approach the patient nonjudgmentally to preserve trust and facilitate psychiatric care and recovery.\n\n## Task:\nProvide a single, specific diagnosis (1-3 words). Examples:\n- \"Acute appendicitis\"\n- \"Community-acquired pneumonia\"\n- \"Type 2 diabetes mellitus\"\n- \"Atrial fibrillation\"\n\nDiagnosis:"
+    }
+  ],
+  "accumulated_notes": "",
+  "current_uncertainties": {},
+  "all_information": [
+    "Patient presents with chronic cough, weight loss, and generalized weakness.",
+    "Vital signs: Temperature 38.1°C, BP 122/80 mmHg, HR 84 bpm, RR 16 breaths/min",
+    "Chest X-ray shows diffuse bilateral infiltrates",
+    "Three early-morning sputum AFB smears and Mycobacterium tuberculosis NAAT returned negative.",
+    "HIV 4th-generation antigen/antibody test and CD4 count normal (HIV-negative, no severe CD4 lymphopenia)",
+    "High-resolution chest CT is normal despite prior chest X-ray showing diffuse infiltrates; patient has low-grade fever (38.1°C), chronic cough, weight loss, generalized weakness; sputum AFB smear and TB NAAT negative; HIV test negative.",
+    "Bronchoscopy with bronchoalveolar lavage and transbronchial biopsy returned normal results.",
+    "CBC, CMP, ESR, CRP, and LDH are within normal limits in a patient with chronic cough, weight loss, generalized weakness, low-grade fever (38.1°C), chest x-ray showing diffuse infiltrates, but HRCT chest and bronchoscopy/BAL/transbronchial biopsy previously reported as normal; sputum AFB and TB NAAT x3 negative; HIV 4th-gen negative.",
+    "PET-CT (whole-body) normal",
+    "Fungal serology and antigen panel returned negative.",
+    "c-ANCA (PR3), p-ANCA (MPO), and urinalysis with microscopy: NORMAL",
+    "Patient incarcerated until 9 months ago; ongoing fevers, night sweats, cough, weight loss 7.5 kg over 6 months (context reiterated).",
+    "Patient reports never having had a PPD or IGRA and has never been treated for tuberculosis.",
+    "Interferon-gamma release assay negative and repeat respiratory, blood, and urine mycobacterial tests (including cultures and PCR) are negative.",
+    "Bone marrow biopsy and aspirate normal including AFB/fungal stains and cultures.",
+    "VATS lung biopsy with multiple wedge biopsies: normal histopathology and negative AFB/fungal special stains and cultures.",
+    "Extensive infectious, autoimmune, malignancy workup including sputum AFB/NAAT, repeat mycobacterial cultures, BAL with cultures/PCR, bone marrow biopsy, VATS lung biopsy, PET-CT, and broad fungal/atypical panels all normal; ongoing fevers, night sweats, cough, 7.5 kg weight loss over 6 months; history of incarceration 9 months ago; HIV negative.",
+    "Quantitative immunoglobulins, serum protein electrophoresis with immunofixation, and quantitative lymphocyte subsets (CD3, CD4, CD8, CD19, CD56) are all normal.",
+    "Patient reports daily low-grade fevers, night sweats 5–6 nights/week, chronic cough, weakness, poor appetite, and 7.5 kg weight loss over 6 months; extensive negative infectious/autoimmune/malignancy/immunodeficiency workup despite prior objective fever (T 38.1°C)."
+  ],
+  "final_diagnosis": "Factitious disorder"
+}

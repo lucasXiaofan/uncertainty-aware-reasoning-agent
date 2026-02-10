@@ -10,8 +10,11 @@ from .implementations import (
     select_experiences,
     diagnosis_step,
     final_diagnosis,
+    generate_experience,
+    set_experience_session_dir,
 )
 from .documentation_tools import (
+    query_medical_guidelines,
     document_step,
     final_diagnosis_documented,
     get_current_documented_response,
@@ -47,7 +50,11 @@ __all__ = [
     # Uncertainty-aware diagnosis tools
     "diagnosis_step",
     "final_diagnosis",
+    # Experience generation tools
+    "generate_experience",
+    "set_experience_session_dir",
     # Documentation-focused diagnosis tools
+    "query_medical_guidelines",
     "document_step",
     "final_diagnosis_documented",
     "get_current_documented_response",
