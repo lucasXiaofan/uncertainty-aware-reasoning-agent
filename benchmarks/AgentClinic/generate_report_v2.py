@@ -180,6 +180,8 @@ def parse_and_report(file_path, output_file=None):
                 iteration += 1 # Increment after a full turn
             elif role == "Measurement":
                 report += f"- **Measurement Agent**: {content}\n"
+            elif role == "Doctor_Uncertainty":
+                report += f"- **Doctor Uncertainty Reasoning**: {content}\n"
 
         report += "---\n\n"
 

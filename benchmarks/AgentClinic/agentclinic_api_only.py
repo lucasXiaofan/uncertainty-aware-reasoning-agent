@@ -28,7 +28,53 @@ from uncertainty_aware_doctor import UncertaintyAwareDoctorAgent
 # Global client variable
 client = None
 
-def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_requested=False, scene=None, max_prompt_len=2**14, clip_prompt=False, return_usage=False):
+
+def _normalize_response_text(content):
+    if content is None:
+        return ""
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts = []
+        for chunk in content:
+            if isinstance(chunk, dict):
+                text_value = chunk.get("text")
+                if isinstance(text_value, str):
+                    parts.append(text_value)
+            elif isinstance(chunk, str):
+                parts.append(chunk)
+        return "".join(parts)
+    return str(content)
+
+
+def _try_parse_json_object(text):
+    if not isinstance(text, str):
+        return None
+    stripped = text.strip()
+    if not stripped:
+        return None
+
+    try:
+        value = json.loads(stripped)
+        if isinstance(value, dict):
+            return value
+    except Exception:
+        pass
+
+    start = stripped.find("{")
+    end = stripped.rfind("}")
+    if start != -1 and end != -1 and start < end:
+        candidate = stripped[start:end + 1]
+        try:
+            value = json.loads(candidate)
+            if isinstance(value, dict):
+                return value
+        except Exception:
+            pass
+    return None
+
+
+def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_requested=False, scene=None, max_prompt_len=2**14, clip_prompt=False, return_usage=False, response_format_schema=None):
     global client
     # Simplified model check - focusing on API models
     if model_str not in ["gpt4", "gpt3.5", "gpt4o", "gpt-4o-mini", "gpt4v", "o1-preview", "gpt-5-mini"] and "gpt" not in model_str and "/" not in model_str:
@@ -36,100 +82,156 @@ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_
          pass
 
     for _ in range(tries):
-        if clip_prompt: prompt = prompt[:max_prompt_len]
-        try:
-            if not client:
-                # Fallback init if not set in main (e.g. env var)
-                client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+        if clip_prompt:
+            prompt = prompt[:max_prompt_len]
 
-            if image_requested:
-                messages = [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", 
-                    "content": [
-                        {"type": "text", "text": prompt},
-                        {"type": "image_url",
-                            "image_url": {
-                                "url": "{}".format(scene.image_url),
+        structured_modes = ["plain"]
+        if response_format_schema is not None:
+            structured_modes = ["schema", "prompt_json"]
+
+        for structured_mode in structured_modes:
+            try:
+                if not client:
+                    # Fallback init if not set in main (e.g. env var)
+                    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+                active_prompt = prompt
+                if structured_mode == "prompt_json":
+                    active_prompt = (
+                        prompt
+                        + "\n\nRespond ONLY as valid JSON with exactly these keys: "
+                        + '{"answer": "<doctor dialogue>", "uncertainty_reasoning": "<top 3 likely diagnoses; why likely; what differentiates them>"}'
+                    )
+
+                if image_requested:
+                    messages = [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user",
+                        "content": [
+                            {"type": "text", "text": active_prompt},
+                            {"type": "image_url",
+                                "image_url": {
+                                    "url": "{}".format(scene.image_url),
+                                },
                             },
-                        },
-                    ]},]
-                # Unified chat completion call for vision/multimodal if supported by model
-                # For now, mapping specific models to their vision counterparts or just passing through
-                model_to_use = model_str
-                if model_str == "gpt4v": model_to_use = "gpt-4-vision-preview"
-                
-                
-                # Determine token parameter based on model
-                token_param = "max_tokens"
-                if "gpt-5" in model_str or "o1" in model_str:
-                    token_param = "max_completion_tokens"
+                        ]},]
+                    # Unified chat completion call for vision/multimodal if supported by model
+                    # For now, mapping specific models to their vision counterparts or just passing through
+                    model_to_use = model_str
+                    if model_str == "gpt4v":
+                        model_to_use = "gpt-4-vision-preview"
 
-                kwargs = {
-                    "model": model_to_use,
-                    "messages": messages,
-                    token_param: 16000 if token_param == "max_completion_tokens" else 10000
-                }
+                    # Determine token parameter based on model
+                    token_param = "max_tokens"
+                    if "gpt-5" in model_str or "o1" in model_str:
+                        token_param = "max_completion_tokens"
 
-                response = client.chat.completions.create(**kwargs)
-                answer = response.choices[0].message.content or ""
-                if not answer:
-                    print(f"DEBUG: Empty response from model {model_to_use}. Full response: {response}")
+                    kwargs = {
+                        "model": model_to_use,
+                        "messages": messages,
+                        token_param: 16000 if token_param == "max_completion_tokens" else 10000
+                    }
+                    if structured_mode == "schema":
+                        kwargs["response_format"] = {
+                            "type": "json_schema",
+                            "json_schema": {
+                                "name": "doctor_structured_turn",
+                                "strict": True,
+                                "schema": response_format_schema,
+                            },
+                        }
 
-                # Return usage if requested
-                if return_usage:
-                    usage = response.usage if hasattr(response, 'usage') else None
-                    return answer, usage
-            
-            else: # Text only
-                messages = [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": prompt}]
-                
-                model_to_use = model_str
-                if model_str == "gpt4": model_to_use = "gpt-4-turbo-preview"
-                elif model_str == "gpt3.5": model_to_use = "gpt-3.5-turbo"
-                elif model_str == "o1-preview": model_to_use = "o1-preview-2024-09-12"
-                
-                # Special handling for o1-preview which might not support system prompt in the same way or other quirks
-                # But keeping it simple as per original code structure
-                if model_str == "o1-preview":
-                     messages = [{"role": "user", "content": system_prompt + prompt}]
+                    response = client.chat.completions.create(**kwargs)
+                    answer = _normalize_response_text(response.choices[0].message.content)
+                    if not answer:
+                        print(f"DEBUG: Empty response from model {model_to_use}. Full response: {response}")
 
-                
-                # Determine token parameter based on model
-                token_param = "max_tokens"
-                if "gpt-5" in model_str or "o1" in model_str:
-                    token_param = "max_completion_tokens" # Use compatible parameter for reasoning models
+                    if response_format_schema is not None:
+                        structured_answer = _try_parse_json_object(answer)
+                        if not structured_answer:
+                            raise ValueError("Structured response parsing failed")
+                        if return_usage:
+                            usage = response.usage if hasattr(response, 'usage') else None
+                            return structured_answer, usage
+                        return structured_answer
 
-                kwargs = {
-                    "model": model_to_use,
-                    "messages": messages,
-                    token_param: 16000 if token_param == "max_completion_tokens" else 4096
-                }
+                    # Return usage if requested
+                    if return_usage:
+                        usage = response.usage if hasattr(response, 'usage') else None
+                        return answer, usage
 
-                # Handle o1-preview special case (no max tokens limit usually or high limit)
-                if model_str == "o1-preview":
-                     kwargs[token_param] = None
+                else: # Text only
+                    messages = [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": active_prompt}]
 
-                response = client.chat.completions.create(**kwargs)
-                answer = response.choices[0].message.content or ""
-                if not answer:
-                    print(f"DEBUG: Empty response from model {model_to_use}. Full response: {response}")
+                    model_to_use = model_str
+                    if model_str == "gpt4":
+                        model_to_use = "gpt-4-turbo-preview"
+                    elif model_str == "gpt3.5":
+                        model_to_use = "gpt-3.5-turbo"
+                    elif model_str == "o1-preview":
+                        model_to_use = "o1-preview-2024-09-12"
 
-                answer = re.sub("\s+", " ", answer)
+                    # Special handling for o1-preview which might not support system prompt in the same way or other quirks
+                    # But keeping it simple as per original code structure
+                    if model_str == "o1-preview":
+                        messages = [{"role": "user", "content": system_prompt + active_prompt}]
 
-                # Return usage if requested
-                if return_usage:
-                    usage = response.usage if hasattr(response, 'usage') else None
-                    return answer, usage
+                    # Determine token parameter based on model
+                    token_param = "max_tokens"
+                    if "gpt-5" in model_str or "o1" in model_str:
+                        token_param = "max_completion_tokens" # Use compatible parameter for reasoning models
 
-            return answer
-        
-        except Exception as e:
-            print(f"Error querying model {model_str}: {e}")
-            time.sleep(timeout)
-            continue
+                    kwargs = {
+                        "model": model_to_use,
+                        "messages": messages,
+                        token_param: 16000 if token_param == "max_completion_tokens" else 4096
+                    }
+                    if structured_mode == "schema":
+                        kwargs["response_format"] = {
+                            "type": "json_schema",
+                            "json_schema": {
+                                "name": "doctor_structured_turn",
+                                "strict": True,
+                                "schema": response_format_schema,
+                            },
+                        }
+
+                    # Handle o1-preview special case (no max tokens limit usually or high limit)
+                    if model_str == "o1-preview":
+                        kwargs[token_param] = None
+
+                    response = client.chat.completions.create(**kwargs)
+                    answer = _normalize_response_text(response.choices[0].message.content)
+                    if not answer:
+                        print(f"DEBUG: Empty response from model {model_to_use}. Full response: {response}")
+
+                    if response_format_schema is not None:
+                        structured_answer = _try_parse_json_object(answer)
+                        if not structured_answer:
+                            raise ValueError("Structured response parsing failed")
+                        if return_usage:
+                            usage = response.usage if hasattr(response, 'usage') else None
+                            return structured_answer, usage
+                        return structured_answer
+
+                    answer = re.sub(r"\s+", " ", answer)
+
+                    # Return usage if requested
+                    if return_usage:
+                        usage = response.usage if hasattr(response, 'usage') else None
+                        return answer, usage
+
+                return answer
+
+            except Exception as e:
+                print(f"Error querying model {model_str}: {e}")
+                if structured_mode == "schema" and response_format_schema is not None:
+                    # fallback to prompt-level JSON request when schema mode is unsupported
+                    continue
+                time.sleep(timeout)
+                break
     raise Exception("Max retries: timeout")
 
 
@@ -253,6 +355,9 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
 
             print("Doctor [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), doctor_dialogue)
             dialogue_log.append(f"Doctor: {doctor_dialogue}")
+            current_uncertainty_reasoning = getattr(doctor_agent, "last_uncertainty_reasoning", "")
+            if current_uncertainty_reasoning:
+                dialogue_log.append(f"Doctor_Uncertainty: {current_uncertainty_reasoning}")
 
             # Doctor has arrived at a diagnosis, check correctness
             if "DIAGNOSIS READY" in doctor_dialogue:
@@ -292,6 +397,7 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                         "problem_info": scenario.scenario_dict,
                         "correct_diagnosis": str(scenario.diagnosis_information()),
                         "model_diagnosis": doctor_dialogue,
+                        "model_uncertainty_reasoning": current_uncertainty_reasoning,
                         "correct": correctness,
                         "dialogue_history": dialogue_log,
                         "token_usage": token_usage,
@@ -357,6 +463,7 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                     "problem_info": scenario.scenario_dict,
                     "correct_diagnosis": str(scenario.diagnosis_information()),
                     "model_diagnosis": "No diagnosis reached",
+                    "model_uncertainty_reasoning": getattr(doctor_agent, "last_uncertainty_reasoning", ""),
                     "correct": False,
                     "dialogue_history": dialogue_log,
                     "token_usage": token_usage,
@@ -653,6 +760,7 @@ class DoctorAgent:
         self.total_tokens = 0
         self.prompt_tokens = 0
         self.completion_tokens = 0
+        self.last_uncertainty_reasoning = ""
 
     def generate_bias(self) -> str:
         if self.bias_present == "recency":
@@ -687,34 +795,98 @@ class DoctorAgent:
 
     def inference_doctor(self, question, image_requested=False, memory_context="") -> str:
         answer = str()
+        uncertainty_reasoning = ""
 
         # Build experience prompt with optional memory context
         experience = """### SYSTEM & TOOL INSTRUCTIONS (CRITICAL)
-1. **Unified Test Interface:** Due to system design, Physical Examinations (PE) and Vital Signs are accessed via the test command. You cannot 'see' the patient automatically. - To check Vitals or the physcial information about the patient or do a Physical Exam, you MUST use: "REQUEST TEST: [Name]" - To order Labs/Imaging, you also use: "REQUEST TEST: [Name]"
+1. **Unified Test Interface:** Due to system design, Physical Examinations (PE) and Vital Signs are accessed via the test command. You cannot 'see' the patient automatically. - To check Vitals or the physcial information about the patient or do a Physical Exam, you MUST use: "REQUEST TEST: [Name]" (ex "REQUEST TEST: Abdominal_Examination") - To order Tests, you also use: "REQUEST TEST: [Name]", you may also request medical images related to the disease to be returned with \"REQUEST IMAGES\"
 
 2. **Dialogue:** When talking to the patient, focus your questions on: Demographics, History of Present Illness (Symptoms), Past Medical History, and Social History.
 
-### CLINICAL WORKFLOW PROTOCOL Please follow this logical order to simulate a real doctor's reasoning: 1. **Establish Baseline:** You are highly recommended to ALWAYS request "REQUEST TEST: Vital_Signs" and "REQUEST TEST: Abdominal_Examination" early in the process to narrow down the scope.
+### CLINICAL WORKFLOW PROTOCOL Please follow this logical order to simulate a real doctor's reasoning: if necessary,  "REQUEST TEST: Vital_Signs" early in the process to narrow down the scope.
 2. **Investigate:** Ask the patient questions to understand the history and symptom range.
+If a requested physical exam, laboratory test, or imaging study is unavailable, declined, or its result is unspecified:
+
+1. Do NOT repeat the same request.
+2. Do NOT request highly specific or procedure-level tests.
+3. Instead, either:
+   a) Request a broader category of tests (e.g., CBC, basic metabolic panel, liver function test, urinalysis, coagulation panel, inflammatory markers), or
+   b) If the test is unavailable, choose the next-best discriminative test or return to high-value questions from history/exam.
+
+4. Avoid redundant clarification questions 
+5. do not ask patient question and request test at the same time
 
 ### RULES - **Diagnosis:** When you have gathered sufficient evidence to be confident, output "DIAGNOSIS READY: [diagnosis here]". - **Mutually Exclusive:** if you need ask further questions or request tests you are not ready for Diagnosis
+
+### experiences
+[EXP-01] IMAGING SYNDROME → PIVOT
+Stage: Post X-ray
+Trigger: diffuse dilated bowel loops + absent rectal gas in neonate
+Action: pivot from "distal obstruction" → "functional aganglionic obstruction"
+Eliminates: malrotation, jejunoileal atresia, meconium ileus (without CF history)
+Raises: Hirschsprung's to leading
+
+[EXP-02] LEADING DIAGNOSIS → CONFIRMATORY ACTION
+Stage: Post pivot
+Trigger: functional aganglionic obstruction is leading candidate
+Action: rectal biopsy — only test that confirms mechanism directly
+Skip: contrast enema if biopsy is available
+
+[EXP-03] COMMIT THRESHOLD
+Stage: Post biopsy
+Trigger: absent ganglion cells confirmed
+Action: commit immediately, stop testing
+Rule: pathognomonic finding = no further discrimination needed
+
+CHAIN: EXP-01 → EXP-02 → EXP-03
+Each fires only if the previous one executed correctly
 """
         if memory_context:
             experience += f"\n\n### RELEVANT DIAGNOSTIC EXPERIENCES FROM PAST CASES:\n{memory_context}\n"
 
         if self.infs >= self.MAX_INFS: return "Maximum inferences reached"
 
-        result = query_model(self.backend, experience + "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: ", self.system_prompt() + experience, image_requested=image_requested, scene=self.scenario, return_usage=True)
+        doctor_structured_schema = {
+            "type": "object",
+            "properties": {
+                "answer": {"type": "string"},
+                "uncertainty_reasoning": {"type": "string"},
+            },
+            "required": ["answer", "uncertainty_reasoning"],
+            "additionalProperties": False,
+        }
+
+        result = query_model(
+            self.backend,
+            experience + "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: ",
+            self.system_prompt() + experience + "\n\nFor every response, provide structured output with two fields: "
+            + "answer (your normal doctor dialogue, including REQUEST TEST / DIAGNOSIS READY when appropriate) and "
+            + "uncertainty_reasoning (top 3 most likely diagnoses, why each is likely, and what information/test would best differentiate them).",
+            image_requested=image_requested,
+            scene=self.scenario,
+            return_usage=True,
+            response_format_schema=doctor_structured_schema,
+        )
 
         if isinstance(result, tuple):
-            answer, usage = result
+            parsed_response, usage = result
+            if isinstance(parsed_response, dict):
+                answer = str(parsed_response.get("answer", "")).strip()
+                uncertainty_reasoning = str(parsed_response.get("uncertainty_reasoning", "")).strip()
+            else:
+                answer = str(parsed_response)
             if usage:
                 self.total_tokens += getattr(usage, 'total_tokens', 0)
                 self.prompt_tokens += getattr(usage, 'prompt_tokens', 0)
                 self.completion_tokens += getattr(usage, 'completion_tokens', 0)
         else:
-            answer = result
+            if isinstance(result, dict):
+                answer = str(result.get("answer", "")).strip()
+                uncertainty_reasoning = str(result.get("uncertainty_reasoning", "")).strip()
+            else:
+                answer = str(result)
 
+        self.last_uncertainty_reasoning = uncertainty_reasoning
         self.agent_hist += question + "\n\n" + answer + "\n\n"
         self.infs += 1
         return answer
@@ -730,6 +902,7 @@ class DoctorAgent:
     def reset(self) -> None:
         self.agent_hist = ""
         self.presentation = self.scenario.examiner_information()
+        self.last_uncertainty_reasoning = ""
 
 
 class MeasurementAgent:
@@ -761,7 +934,7 @@ class MeasurementAgent:
 
     def system_prompt(self) -> str:
         base = "You are an measurement reader who responds with medical test results. Please respond in the format \"RESULTS: [results here]\""
-        presentation = "\n\nBelow is all of the information you have. {}. \n\n If the requested results are not in your data then you can respond with NORMAL READINGS.".format(self.information)
+        presentation = "\n\nBelow is all of the information you have. {}. \n\n If the requested results are not in your data then you can respond with Test unavailable".format(self.information) # suspect "NORMAL READINGS" is misleading llm's diagnosis
         return base + presentation
     
     def add_hist(self, hist_str) -> None:

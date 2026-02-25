@@ -133,7 +133,7 @@ echo "========================================================"
 
 # Dependencies for uv run
 DEPS="--with openai>=1.0.0 --with regex --with python-dotenv --with pyyaml"
-COMMON_ARGS="--doctor_llm $MODEL --total_inferences 20 $USE_MEMORY $USE_UNCERTAINTY_AWARE"
+COMMON_ARGS="--doctor_llm $MODEL --total_inferences 15 $USE_MEMORY $USE_UNCERTAINTY_AWARE"
 
 # Backup original dataset
 cd "$AGENTCLINIC_DIR"

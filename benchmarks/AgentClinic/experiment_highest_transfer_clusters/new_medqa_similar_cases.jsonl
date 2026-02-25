@@ -1,0 +1,156 @@
+{
+  "OSCE_Examination": {
+    "Objective_for_Doctor": "Assess and diagnose the patient presenting with hematuria, abdominal discomfort, and bilateral flank masses.",
+    "Patient_Actor": {
+      "Demographics": "34-year-old male",
+      "History": "The patient presents with abdominal discomfort and visible blood in the urine for the past 2 days. He reports having similar episodes of abdominal discomfort intermittently over the past 5 years, although he does not recall prior hematuria. He has a known history of hypertension for the past 2 years and is currently on antihypertensive medication. He denies weight loss, skin rashes, joint pain, vomiting, changes in bowel habits, or smoking.",
+      "Symptoms": {
+        "Primary_Symptom": "Hematuria and abdominal discomfort",
+        "Secondary_Symptoms": [
+          "Recurrent abdominal discomfort over 5 years",
+          "History of hypertension"
+        ]
+      },
+      "Past_Medical_History": "Hypertension for 2 years on medication. No known autoimmune disease or malignancy.",
+      "Social_History": "Non-smoker. No significant occupational or environmental exposures reported.",
+      "Review_of_Systems": "Denies fever, vomiting, bowel habit changes, skin rashes, joint pain, or weight loss."
+    },
+    "Physical_Examination_Findings": {
+      "Vital_Signs": {
+        "Temperature": "Afebrile",
+        "Blood_Pressure": "Hypertensive (exact value not provided)",
+        "Heart_Rate": "Normal",
+        "Respiratory_Rate": "Normal"
+      },
+      "Kidney_Examination": {
+        "Flank_Masses": "Ballotable masses palpable bilaterally",
+        "Costovertebral_angle_tenderness": "Not specifically noted",
+        "Abdominal_Examination": "Normal bowel sounds, no abdominal tenderness"
+      }
+    },
+    "Test_Results": {
+      "Urinalysis": {
+        "Protein": "Negative",
+        "RBC": "Numerous"
+      },
+      "Blood_Work": {
+        "Urea": "50 mg/dL",
+        "Creatinine": "1.4 mg/dL"
+      },
+      "Imaging": {
+        "Ultrasonography": {
+          "Findings": "Bilaterally enlarged kidneys with multiple anechoic cysts having well-defined walls"
+        },
+        "CT_Scan": {
+          "Findings": "Multiple cysts present in both kidneys"
+        }
+      }
+    },
+    "Correct_Diagnosis": "Autosomal dominant polycystic kidney disease (ADPKD)"
+  }
+}
+{
+  "OSCE_Examination": {
+    "Objective_for_Doctor": "Assess and diagnose a term newborn presenting shortly after birth with feeding intolerance and bilious vomiting, in the context of dysmorphic features and abnormal abdominal findings.",
+    "Patient_Actor": {
+      "Demographics": "6-hour-old male newborn, birth weight 3050 g (6 lb 12 oz)",
+      "History": "The infant was born at term to a 35-year-old woman via normal vaginal delivery. Pregnancy was largely uncomplicated, though several prenatal checkups were missed. Six hours after delivery, the infant developed feeding intolerance and multiple episodes of bilious vomiting. There is a family history of pyloric stenosis in an older sibling.",
+      "Symptoms": {
+        "Primary_Symptom": "Bilious vomiting",
+        "Secondary_Symptoms": [
+          "Feeding intolerance",
+          "Abdominal distension"
+        ]
+      },
+      "Past_Medical_History": "Newborn with no prior medical conditions.",
+      "Family_History": "Older brother had hypertrophic pyloric stenosis requiring surgery as an infant.",
+      "Social_History": "No relevant environmental or social risk factors identified.",
+      "Review_of_Systems": "No respiratory distress noted. Feeding intolerance and gastrointestinal symptoms predominate."
+    },
+    "Physical_Examination_Findings": {
+      "Vital_Signs": {
+        "Temperature": "Within normal limits",
+        "Heart_Rate": "Within normal limits for age",
+        "Respiratory_Rate": "Within normal limits for age",
+        "Blood_Pressure": "Not routinely assessed in this age group"
+      },
+      "General_Examination": {
+        "Dysmorphic_Features": [
+          "Epicanthal folds",
+          "Upward slanting palpebral fissures",
+          "Low-set ears",
+          "Single transverse palmar crease"
+        ]
+      },
+      "Cardiovascular_Examination": {
+        "Auscultation": "Grade 2/6 holosystolic murmur at the left mid to lower sternal border"
+      },
+      "Respiratory_Examination": {
+        "Auscultation": "Clear lung fields bilaterally"
+      },
+      "Abdominal_Examination": {
+        "Inspection": "Distended upper abdomen with concave-shaped lower abdomen",
+        "Auscultation": "Bowel sounds present",
+        "Palpation": "No organomegaly detected"
+      }
+    },
+    "Test_Results": {
+      "Abdominal_X-ray": {
+        "Findings": "Characteristic double-bubble appearance with air in the stomach and proximal duodenum and absence of distal bowel gas, consistent with proximal intestinal obstruction."
+      }
+    },
+    "Correct_Diagnosis": "Duodenal atresia"
+  }
+}
+{
+  "OSCE_Examination": {
+    "Objective_for_Doctor": "Assess and diagnose the patient presenting with seizure and altered mental status.",
+    "Patient_Actor": {
+      "Demographics": "71-year-old male",
+      "History": "The patient was brought to the emergency department after experiencing a generalized tonic-clonic seizure. According to his son, the patient has no prior history of seizures but has had progressive confusion and generalized weakness over the past several weeks.",
+      "Symptoms": {
+        "Primary_Symptom": "Generalized tonic-clonic seizure",
+        "Secondary_Symptoms": [
+          "Increasing confusion",
+          "Generalized weakness"
+        ]
+      },
+      "Past_Medical_History": "No known history of seizures. Other past medical history is not specified.",
+      "Social_History": "Not provided.",
+      "Review_of_Systems": "No additional complaints reported beyond neurological symptoms."
+    },
+    "Physical_Examination_Findings": {
+      "Vital_Signs": {
+        "Temperature": "37°C (98.6°F)",
+        "Blood_Pressure": "122/88 mmHg",
+        "Heart_Rate": "67 bpm",
+        "Respiratory_Rate": "15 breaths/min"
+      },
+      "Neurological_Examination": {
+        "Mental_Status": "Disoriented.",
+        "Cranial_Nerves": "Pupils round and reactive to light and accommodation.",
+        "Motor_Examination": "Muscle strength 3/5 bilaterally.",
+        "Sensory_Examination": "Not specified.",
+        "Coordination": "Not specified.",
+        "Reflexes": "Hyporeflexia in all four extremities."
+      },
+      "Other_Findings": {
+        "Cardiovascular": "Regular rhythm without murmurs.",
+        "Respiratory": "Clear to auscultation bilaterally.",
+        "Abdomen": "Soft.",
+        "Extremities": "No edema."
+      }
+    },
+    "Test_Results": {
+      "Serum_Laboratory_Analysis": {
+        "Na": "120 mEq/L",
+        "Serum_Osmolality": "248 mOsm/kg"
+      },
+      "Urinalysis": {
+        "Urine_Osmolality": "Elevated"
+      }
+    },
+    "Correct_Diagnosis": "Syndrome of Inappropriate Antidiuretic Hormone (SIADH)",
+
+  }
+}
