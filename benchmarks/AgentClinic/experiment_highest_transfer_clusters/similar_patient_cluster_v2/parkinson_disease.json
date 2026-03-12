@@ -1,0 +1,28 @@
+[
+  {
+    "question": "A 70-year-old man is accompanied by his wife to the primary care clinic for hand tremors. He states that he first noticed the tremor of his left hand 1 year ago. Since then, the tremor has been worsening and now he can hardly relax when trying to read. His wife says that she is also worried about his memory. She had to take over the finances several weeks ago after learning that he had forgotten to pay the bills for the past few months. The patient\u2019s medical history is significant for hypertension. He takes aspirin and amlodipine. His mother had schizophrenia. The patient drinks 1-2 beers a night and is a former cigar smoker. On physical examination, he speaks softly and has reduced facial expressions. He has a resting tremor that is worse on the left, and he resists manipulation of his bilateral upper extremities. Which of the following is the most likely diagnosis?",
+    "answer": "Parkinson disease",
+    "options": {
+      "A": "Essential tremor",
+      "B": "Dementia with Lewy bodies",
+      "C": "Parkinson disease",
+      "D": "Progressive supranuclear palsy",
+      "E": "Tardive dyskinesia"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "C"
+  },
+  {
+    "question": "A 65-year-old man is brought to the emergency department because of a 3-day history of increasing shortness of breath and chest pain. He has had a productive cough with foul-smelling sputum for 1 week. He has gastritis as well as advanced Parkinson disease and currently lives in an assisted-living community. He smoked one pack of cigarettes daily for 40 years but quit 5 years ago. He has a 30-year history of alcohol abuse but has not consumed any alcohol in the past 5 years. His temperature is 39.3\u00b0C (102.7\u00b0F), he is tachycardic and tachypneic and his oxygen saturation is 77% on room air. Auscultation of the lung shows rales and decreased breath sounds over the right upper lung field. Examination shows a resting tremor. Laboratory studies show:\nHematocrit 38%\nLeukocyte count 17,000/mm3\nPlatelet count 210,000/mm3\nLactic acid 4.1 mmol/L (N=0.5\u20131.5)\nA x-ray of the chest shows infiltrates in the right upper lobe. Which of the following is the most significant predisposing factor for this patient's respiratory symptoms?\"",
+    "answer": "Parkinson disease\n\"",
+    "options": {
+      "A": "Living in an assisted-living community",
+      "B": "Tobacco use history",
+      "C": "Past history of alcohol abuse",
+      "D": "Gastritis",
+      "E": "Parkinson disease\n\""
+    },
+    "meta_info": "step1",
+    "answer_idx": "E"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "question": "An 8-month-old boy is brought to a medical office by his mother. The mother states that the boy has been very fussy and has not been feeding recently. The mother thinks the baby has been gaining weight despite not feeding well. The boy was delivered vaginally at 39 weeks gestation without complications. On physical examination, the boy is noted to be crying in his mother\u2019s arms. There is no evidence of cyanosis, and the cardiac examination is within normal limits. The crying intensifies when the abdomen is palpated. The abdomen is distended with tympany in the left lower quadrant. You suspect a condition caused by the failure of specialized cells to migrate. What is the most likely diagnosis?",
+    "answer": "Hirschsprung disease",
+    "options": {
+      "A": "Meckel diverticulum",
+      "B": "DiGeorge syndrome",
+      "C": "Pyloric stenosis",
+      "D": "Duodenal atresia",
+      "E": "Hirschsprung disease"
+    },
+    "meta_info": "step1",
+    "answer_idx": "E"
+  },
+  {
+    "question": "Two days following the home birth of her son, a mother brings the infant to the pediatric emergency room because of bilious vomiting. He is unable to pass meconium and his abdomen is distended. Endoscopic biopsy of the proximal colon demonstrates an absence of Meissner\u2019s and Auerbach\u2019s plexi in the bowel wall. Which of the following is the most likely diagnosis?",
+    "answer": "Hirschsprung\u2019s disease",
+    "options": {
+      "A": "Hirschsprung\u2019s disease",
+      "B": "Ileocecal intussusception",
+      "C": "Meckel\u2019s diverticulum",
+      "D": "Juvenile polyposis syndrome",
+      "E": "Volvulus of the sigmoid colon"
+    },
+    "meta_info": "step1",
+    "answer_idx": "A"
+  },
+  {
+    "question": "A 5-year-old boy with Down syndrome presents with his mother. The patient\u2019s mother says that he isn\u2019t playing or eating as much as he used to and seems lethargic. Expected developmental delays are present and stable. Physical examination reveals dry mucous membranes and abdominal distention with no tenderness to palpation. An abdominal radiograph is shown in the image below. Which of the following is the most likely diagnosis in this patient?",
+    "answer": "Hirschsprung's disease",
+    "options": {
+      "A": "Pyloric stenosis",
+      "B": "Ulcerative colitis",
+      "C": "Anal atresia",
+      "D": "Incarcerated hernia",
+      "E": "Hirschsprung's disease"
+    },
+    "meta_info": "step1",
+    "answer_idx": "E"
+  },
+  {
+    "question": "A 3-year-old girl is brought to the physician by her parents due to observations of rapid, random, horizontal and vertical eye movements along with occasional jerking movements of her limbs and head. CT scan reveals an abdominal mass that crosses the midline. Further work-up reveals elevated 24-hour urinary homovanillic acid and vanillylmandelic acid. Which of the following diseases pathologically originates from the type of cells as this patient\u2019s most likely diagnosis?",
+    "answer": "Hirschsprung disease",
+    "options": {
+      "A": "Craniopharyngioma",
+      "B": "Hirschsprung disease",
+      "C": "Medulloblastoma",
+      "D": "Parinaud syndrome",
+      "E": "Pilocytic astrocytoma"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "B"
+  },
+  {
+    "question": "A 4-month-old girl is brought to the office by her parents because they noticed a mass protruding from her rectum and, she has been producing green colored emesis for the past 24 hours. Her parents noticed the mass when she had a bowel movement while changing her diaper. She strained to have this bowel movement 24 hours ago, shortly afterwards she had 3 episodes of greenish vomiting. She has a past medical history of failure to pass meconium for 2 days after birth. Her vital signs include: heart rate 190/min, respiratory rate 44/min, temperature 37.2\u00b0C (99.0\u00b0F), and blood pressure 80/50 mm Hg. On physical examination, the abdomen is distended. Examination of the anus reveals extrusion of the rectal mucosa through the external anal sphincter, and digital rectal examination produces an explosive expulsion of gas and stool. The abdominal radiograph shows bowel distention and absence of distal gas. What is the most likely cause?",
+    "answer": "Hirschsprung disease",
+    "options": {
+      "A": "Malnutrition",
+      "B": "Enterobiasis",
+      "C": "Hirschsprung disease",
+      "D": "Myelomeningocele",
+      "E": "Cystic fibrosis"
+    },
+    "meta_info": "step1",
+    "answer_idx": "C"
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "OSCE_Examination": {
+    "Objective_for_Doctor": "Evaluate a newborn with seizures, feeding difficulty, and abnormal physical findings to determine the underlying cause.",
+    "Patient_Actor": {
+      "Demographics": {
+        "Age": "2 days",
+        "Sex": "Male"
+      },
+      "History": "A 2-day-old male newborn delivered vaginally at 36 weeks gestation developed generalized convulsions lasting approximately 2 minutes. Prior to the event, he was lethargic and had difficulty feeding. Pregnancy and delivery were uncomplicated, with Apgar scores of 7 and 8 at 1 and 5 minutes, respectively.",
+      "Symptoms": {
+        "Primary_Symptom": "Generalized convulsions",
+        "Secondary_Symptoms": [
+          "Difficulty feeding",
+          "Lethargy"
+        ]
+      },
+      "Past_Medical_History": "No known medical conditions; mother took folic acid and a multivitamin; maternal immunizations up to date.",
+      "Social_History": "Third pregnancy of a 29-year-old mother; previous pregnancies and deliveries uncomplicated.",
+      "Review_of_Systems": "No additional symptoms noted"
+    },
+    "Physical_Examination_Findings": {
+      "Vital_Signs": "Within normal limits",
+      "General_Examination": {
+        "Appearance": "Lethargic newborn"
+      },
+      "Skin_Examination": {
+        "Color": "Icteric",
+        "Lesions": "Several purpura noted"
+      },
+      "Head_Examination": {
+        "Head_Circumference": "99th percentile for gestational age"
+      },
+      "Growth_Parameters": {
+        "Weight": "5th percentile for gestational age",
+        "Length": "5th percentile for gestational age"
+      },
+      "Ocular_Examination": {
+        "Posterior_Segment": "Posterior uveitis observed"
+      },
+      "Neurological_Examination": {
+        "Seizure_Activity": "History of generalized convulsions"
+      }
+    },
+    "Test_Results": {
+      "Auditory_Screening": {
+        "Findings": "Did not pass auditory screening tests"
+      },
+      "Cranial_Ultrasonography": {
+        "Findings": "Ventricular dilatation and hyperechoic foci within the cortex, basal ganglia, and periventricular region"
+      }
+    },
+    "Correct_Diagnosis": "Congenital toxoplasmosis"
+  }
+}

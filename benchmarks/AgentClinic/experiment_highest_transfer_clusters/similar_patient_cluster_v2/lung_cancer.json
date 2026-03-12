@@ -1,0 +1,119 @@
+[
+  {
+    "question": "A 48-year-old female presents to the emergency room with mental status changes.\nLaboratory analysis of the patient's serum shows:\nNa 122 mEq/L\nK 3.9 mEq/L\nHCO3 24 mEq/L\nBUN 21 mg/dL\nCr 0.9 mg/dL\nCa 8.5 mg/dL\nGlu 105 mg/dL\n\nUrinalysis shows:\nOsmolality 334 mOsm/kg\nNa 45 mEq/L\nGlu 0 mg/dL\n\nWhich of the following is the most likely diagnosis?",
+    "answer": "Lung cancer",
+    "options": {
+      "A": "Aspirin overdose",
+      "B": "Diarrhea",
+      "C": "Diabetes insipidus",
+      "D": "Primary polydipsia",
+      "E": "Lung cancer"
+    },
+    "meta_info": "step1",
+    "answer_idx": "E"
+  },
+  {
+    "question": "A 68-year-old man presents to the emergency department complaining of difficulty in breathing for the past 2 days. He has had recurrent episodes of bacterial pneumonia in the right lower lobe during the last 6 months. His last episode of pneumonia started 7 days ago for which he is being treated with antibiotics. He has a 35-pack-year smoking history. Past medical history is significant for hypertension for which he takes lisinopril. Physical examination reveals decreased breath sounds and dullness to percussion in the right lung base. Chest X-ray reveals a large right-sided pleural effusion, and chest CT scan shows a large mass near the hilum of the right lung. Cytologic examination of pleural fluid shows evidence of malignancy. Which of the following is the most likely diagnosis of this patient?",
+    "answer": "Small cell lung cancer",
+    "options": {
+      "A": "Pulmonary hamartoma",
+      "B": "Mesothelioma",
+      "C": "Non-small cell lung cancer",
+      "D": "Small cell lung cancer",
+      "E": "Metastatic lung disease"
+    },
+    "meta_info": "step1",
+    "answer_idx": "D"
+  },
+  {
+    "question": "A 61-year-old man presents to the urgent care clinic complaining of cough and unintentional weight loss over the past 3 months. He works as a computer engineer, and he informs you that he has been having to meet several deadlines recently and has been under significant stress. His medical history is significant for gout, hypertension, hypercholesterolemia, diabetes mellitus type 2, and pulmonary histoplasmosis 10 years ago. He currently smokes 2 packs of cigarettes/day, drinks a 6-pack of beer/day, and he endorses a past history of cocaine use back in the early 2000s but currently denies any drug use. The vital signs include: temperature 36.7\u00b0C (98.0\u00b0F), blood pressure 126/74 mm Hg, heart rate 87/min, and respiratory rate 18/min. His physical examination shows minimal bibasilar rales, but otherwise clear lungs on auscultation, grade 2/6 holosystolic murmur, and a benign abdominal physical examination. However, on routine lab testing, you notice that his sodium is 127 mEq/L. His chest X-ray is shown in the picture. Which of the following is the most likely underlying diagnosis?",
+    "answer": "Small cell lung cancer",
+    "options": {
+      "A": "Small cell lung cancer",
+      "B": "Non-small cell lung cancer",
+      "C": "Large cell lung cancer",
+      "D": "Squamous cell carcinoma",
+      "E": "Adenocarcinoma"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "A"
+  },
+  {
+    "question": "A 41-year-old woman comes to the physician because of a 1-year history of fatigue, irregular menstrual cycles, and recurrent sinus infections. Examination shows hirsutism and hypopigmented linear striations on the abdomen. Serum studies show hypernatremia, hypokalemia, and metabolic alkalosis. A 24-hour urinary cortisol level is elevated. Serum ACTH is also elevated. High-dose dexamethasone does not suppress serum cortisol levels. Which of the following is the most likely underlying cause of this patient's condition?",
+    "answer": "Small cell lung cancer",
+    "options": {
+      "A": "Adrenal carcinoma",
+      "B": "Adrenal adenoma",
+      "C": "Pituitary adenoma",
+      "D": "Pheochromocytoma",
+      "E": "Small cell lung cancer"
+    },
+    "meta_info": "step1",
+    "answer_idx": "E"
+  },
+  {
+    "question": "A 67-year-old man presents to his primary care physician because of a dry cough and shortness of breath for 2 months. He notes that recently he has had easy bruising of the skin without obvious trauma. He has a past history of chronic obstructive pulmonary disease and recently diagnosed with type 2 diabetes. Family history is non-contributory. He has smoked 1 pack of cigarettes daily for 35 years but quit 3 years ago. His temperature is 37.1\u00b0C (98.7\u00b0F), blood pressure is 170/80 mm Hg, and pulse is 85/min. On physical examination, the patient's face is round and plethoric and there are large supraclavicular fat pads. Breath sounds are diminished all over the chest without focal rales or wheezes. Chest X-ray is shown in the picture. Which of the following is the most likely etiology of this patient's condition?",
+    "answer": "Small cell lung cancer",
+    "options": {
+      "A": "Small cell lung cancer",
+      "B": "Adenocarcinoma of the lung",
+      "C": "Squamous cell carcinoma of the lung",
+      "D": "Large cell carcinoma of the lung",
+      "E": "Wegener granulomatosis"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "A"
+  },
+  {
+    "question": "A 72-year-old woman is brought to the emergency department because of lethargy and weakness for the past 5 days. During this period, she has had a headache that worsens when she leans forward or lies down. Her arms and face have appeared swollen over the past 2 weeks. She has a history of hypertension and invasive ductal carcinoma of the left breast. She underwent radical amputation of the left breast followed by radiation therapy 4 years ago. She has smoked two packs of cigarettes daily for 40 years. Current medications include aspirin, hydrochlorothiazide, and tamoxifen. Her temperature is 37.2\u00b0C (99\u00b0F), pulse is 103/min, and blood pressure is 98/56 mm Hg. Examination shows jugular venous distention, a mastectomy scar over the left thorax, and engorged veins on the anterior chest wall. There is no axillary or cervical lymphadenopathy. There is 1+ pitting edema in both arms. Which of the following is the most likely cause of this patient's symptoms?",
+    "answer": "Lung cancer",
+    "options": {
+      "A": "Pulmonary tuberculosis",
+      "B": "Pulmonary embolism",
+      "C": "Constrictive pericarditis",
+      "D": "Lung cancer",
+      "E": "Nephrotic syndrome\n\""
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "D"
+  },
+  {
+    "question": "A 35-year-old female comes to the physician because of a 2-year history of progressive fatigue and joint pain. She has a 1-year history of skin problems and a 4-month history of episodic pallor of her fingers. She reports that the skin of her face, neck, and hands is always dry and itchy; there are also numerous \u201cred spots\u201d on her face. She has become more \u201cclumsy\u201d and often drops objects. She has gastroesophageal reflux disease treated with lansoprazole. She does not smoke. She occasionally drinks a beer or a glass of wine. Her temperature is 36.5\u00b0C (97.7\u00b0F), blood pressure is 154/98 mm Hg, and pulse is 75/min. Examination shows hardening and thickening of the skin of face, neck, and hands. There are small dilated blood vessels around her mouth and on her oral mucosa. Mouth opening is reduced. Active and passive range of motion of the proximal and distal interphalangeal joints is limited. Cardiopulmonary examination shows no abnormalities. Her creatinine is 1.4 mg/dL. The patient is at increased risk for which of the following complications?",
+    "answer": "Lung cancer",
+    "options": {
+      "A": "Dental caries",
+      "B": "Antiphospholipid syndrome",
+      "C": "Lung cancer",
+      "D": "Urolithiasis",
+      "E": "Dactylitis"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "C"
+  },
+  {
+    "question": "A 75-year-old gentleman is brought to the ED with confusion that started earlier this morning. His family notes that he was complaining of feeling weak last night and also had a slight tremor at the time. He is afebrile and he has no known chronic medical conditions. Physical exam reveals a cooperative but confused gentleman. His mucous membranes are moist, he has no focal neurological deficits, and his skin turgor is within normal limits. His lab results are notable for:\n\nSerum Na+: 123 mEq/L\nPlasma osmolality: 268 mOsm/kg\nUrine osmolality: 349 mOsm/kg\nUrine Na+: 47 mEq/L\n\nWhich of the following malignancies is most likely to be responsible for this patient's presentation?",
+    "answer": "Small cell lung cancer",
+    "options": {
+      "A": "Esophageal squamous cell carcinoma",
+      "B": "Non-seminomatous germ cell tumor",
+      "C": "Gastric adenocarcinoma",
+      "D": "Rib osteosarcoma",
+      "E": "Small cell lung cancer"
+    },
+    "meta_info": "step1",
+    "answer_idx": "E"
+  },
+  {
+    "question": "A 68-year-old woman is brought to the physician by her husband for the evaluation of confusion and memory deficits for the last month. During this period, she has also had mild weakness in her left leg. She has hypertension and hyperlipidemia. Her current medications include enalapril and atorvastatin. She has smoked two packs of cigarettes daily for the last 45 years. She drinks a glass of wine every day. Her temperature is 37\u00b0C (98.6\u00b0F), pulse is 75/min, and blood pressure is 135/85 mm Hg. She is oriented only to person. She recalls 2 out of 3 objects immediately and none after 5 minutes. The patient is unable to lift her eyebrows or to smile. Muscle strength is decreased in the left lower extremity. A T2-weighted MRI scan of the head shows several hyperintense round lesions in the frontal and temporal lobe at the border of the gray and white matter. Which of the following is the most likely diagnosis?",
+    "answer": "Lung cancer",
+    "options": {
+      "A": "Progressive multifocal leukoencephalopathy",
+      "B": "Glioblastoma multiforme",
+      "C": "Multiple sclerosis",
+      "D": "Colorectal cancer",
+      "E": "Lung cancer"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "E"
+  }
+]

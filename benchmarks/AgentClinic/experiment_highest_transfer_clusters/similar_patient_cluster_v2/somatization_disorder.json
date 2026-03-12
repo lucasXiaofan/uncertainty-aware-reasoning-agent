@@ -1,0 +1,54 @@
+[
+  {
+    "question": "A 42-year-old man comes to the physician because of a 3-year history of urinating up to 20 times each day. He has not had any dysuria and nocturia. He has been evaluated by several urologists but has not received a specific diagnosis despite extensive diagnostic testing. Various pharmacologic treatments have not improved his symptoms. He quit his job 1 year ago and stopped attending social events because his frequent urination has been disruptive. He spends most of his time at the library trying to learn what could be causing his symptoms. He would like to undergo a CT scan of his entire body to evaluate for cancer. Physical examination and laboratory studies show no abnormalities. Mental status examination shows a depressed mood and constricted affect. There is no evidence of suicidal ideation. Which of the following is the most likely explanation for this patient's symptoms?",
+    "answer": "Somatic symptom disorder",
+    "options": {
+      "A": "Malingering",
+      "B": "Atypical depression",
+      "C": "Somatic symptom disorder",
+      "D": "Adjustment disorder",
+      "E": "Recurrent urinary tract infections"
+    },
+    "meta_info": "step1",
+    "answer_idx": "C"
+  },
+  {
+    "question": "A 45-year-old woman repetitively visits the general surgery clinic worried that her inguinal hernia is incarcerated. 2 months ago, she was seen in the emergency department where she presented with a left lower abdominal swelling. The mass was easily reduced and the patient was referred to the general surgery clinic for elective surgical repair. Because her condition was deemed not urgent, she was informed that she was down on the surgical waiting list. Despite this, she continues to visit the clinic and the ED worried that her bowels are \u2018trapped and dying.\u2019 Each time she is reassured and any protrusion present is quickly reduced. She has previously frequently visited her primary care physician for complaints of abdominal pain and inconsistent bowel habits, but no etiology could be identified. She continues to intermittently have these symptoms and spends hours every day worrying about what may be going on. She has no other significant past medical history. Which of the following is the most appropriate diagnosis?",
+    "answer": "Somatic symptom disorder",
+    "options": {
+      "A": "Conversion disorder",
+      "B": "Malingering disorder",
+      "C": "Factitious disorder",
+      "D": "Illness anxiety disorder",
+      "E": "Somatic symptom disorder"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "E"
+  },
+  {
+    "question": "A 28-year-old man comes to the physician because of a 1-year history of chronic back pain. He explains that the pain started after getting a job at a logistics company. He does not recall any trauma and does not have morning stiffness or neurological symptoms. He has been seen by two other physicians for his back pain who did not establish a diagnosis. The patient also has abdominal bloating and a feeling of constipation that started 3 weeks ago. After doing extensive research on the internet, he is concerned that the symptoms might be caused by pancreatic cancer. He would like to undergo a CT scan of his abdomen for reassurance. He has a history of episodic chest pain, for which he underwent medical evaluation with another healthcare provider. Tests showed no pathological results. He does not smoke or drink alcohol. He reports that he is under significant pressure from his superiors due to frequent performance evaluations. He takes daily multivitamins and glucosamine to prevent arthritis. His vital signs are within normal limits. Examination shows a soft, non-tender, non-distended abdomen and mild bilateral paraspinal muscle tenderness. The remainder of the examination, including a neurologic examination, shows no abnormalities. Laboratory studies are within the reference range. An x-ray of the spine shows no abnormalities. Which of the following is the most likely explanation for this patient's symptoms?",
+    "answer": "Somatic symptom disorder",
+    "options": {
+      "A": "Malignant neoplasm",
+      "B": "Atypical depression",
+      "C": "Irritable bowel syndrome",
+      "D": "Somatic symptom disorder",
+      "E": "Acute stress disorder"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "D"
+  },
+  {
+    "question": "A 32-year-old woman comes in to see her physician because she has had undiagnosed abdominal pain for the past 3 and a half years. Her pain is not related to meals and does not correspond to a particular time of day, although she does report nausea and bloating. In the past two years she has had two endoscopies, a colonoscopy, and an exploratory laproscopy - without any results. She is very concerned because her mother has a history of colon cancer. The patient has been unable to work or maintain a social life because she's constantly worrying about her condition. What is this patient's most likely diagnosis?",
+    "answer": "Somatic symptom disorder",
+    "options": {
+      "A": "Somatic symptom disorder",
+      "B": "Functional neurologic symptom disorder",
+      "C": "Hypochondriasis",
+      "D": "Factitious disorder",
+      "E": "Body dysmorphic disorder"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "A"
+  }
+]

@@ -29,6 +29,34 @@ from uncertainty_aware_doctor import UncertaintyAwareDoctorAgent
 client = None
 
 
+def _load_knowledge_text(knowledge_mode: str) -> str:
+    mode = (knowledge_mode or "none").strip().lower()
+    if mode not in {"none", "symptom", "diagnosis", "both"}:
+        print(f"Warning: unknown knowledge mode '{knowledge_mode}', defaulting to none")
+        return ""
+
+    if mode == "none":
+        return ""
+
+    med_resource_dir = Path(__file__).resolve().parent / "experiment_highest_transfer_clusters" / "med_resource"
+    symptom_path = med_resource_dir / "symptom_knowledge.txt"
+    diagnosis_path = med_resource_dir / "diagnosis_knowledge.txt"
+
+    parts = []
+    if mode in {"symptom", "both"}:
+        if symptom_path.exists():
+            parts.append("### EXTERNAL SYMPTOM KNOWLEDGE\n" + symptom_path.read_text(encoding="utf-8").strip())
+        else:
+            print(f"Warning: symptom knowledge file not found: {symptom_path}")
+    if mode in {"diagnosis", "both"}:
+        if diagnosis_path.exists():
+            parts.append("### EXTERNAL DIAGNOSIS KNOWLEDGE\n" + diagnosis_path.read_text(encoding="utf-8").strip())
+        else:
+            print(f"Warning: diagnosis knowledge file not found: {diagnosis_path}")
+
+    return "\n\n".join([p for p in parts if p]).strip()
+
+
 def _normalize_response_text(content):
     if content is None:
         return ""
@@ -241,7 +269,7 @@ def compare_results(diagnosis, correct_diagnosis, moderator_llm):
     return answer.lower()
 
 
-def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False, use_uncertainty_aware=False, uncertainty_agent_type="uncertainty_aware_doctor"):
+def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False, use_uncertainty_aware=False, uncertainty_agent_type="uncertainty_aware_doctor", knowledge_mode="none"):
     global client
     if api_key:
         client = OpenAI(api_key=api_key)
@@ -268,6 +296,8 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
         scenario_loader = ScenarioLoaderNEJMExtended()
     elif dataset == "MIMICIV":
         scenario_loader = ScenarioLoaderMIMICIV()
+    elif dataset == "NewMedQA":
+        scenario_loader = ScenarioLoaderNewMedQA()
     else:
         raise Exception("Dataset {} does not exist".format(str(dataset)))
     total_correct = 0
@@ -307,7 +337,8 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                 bias_present=doctor_bias,
                 backend_str=doctor_llm,
                 max_infs=total_inferences,
-                img_request=img_request)
+                img_request=img_request,
+                knowledge_mode=knowledge_mode)
 
         print(f"\n\n================================================================")
         print(f"STARTING SCENARIO {_scenario_id}")
@@ -552,6 +583,21 @@ class ScenarioLoaderMedQAExtended:
         return self.scenarios[id]
         
 
+class ScenarioLoaderNewMedQA:
+    def __init__(self) -> None:
+        with open("experiment_highest_transfer_clusters/new_medqa_similar_cases.jsonl", "r") as f:
+            self.scenario_strs = [json.loads(line) for line in f]
+        self.scenarios = [ScenarioMedQAExtended(_str) for _str in self.scenario_strs]
+        self.num_scenarios = len(self.scenarios)
+    
+    def sample_scenario(self):
+        return self.scenarios[random.randint(0, len(self.scenarios)-1)]
+    
+    def get_scenario(self, id):
+        if id is None: return self.sample_scenario()
+        return self.scenarios[id]
+
+
 class ScenarioMIMICIVQA:
     def __init__(self, scenario_dict) -> None:
         self.scenario_dict = scenario_dict
@@ -746,7 +792,7 @@ class PatientAgent:
 
 
 class DoctorAgent:
-    def __init__(self, scenario, backend_str="deepseek/deepseek-v3.2", max_infs=20, bias_present=None, img_request=False) -> None:
+    def __init__(self, scenario, backend_str="deepseek/deepseek-v3.2", max_infs=20, bias_present=None, img_request=False, knowledge_mode="none") -> None:
         self.infs = 0
         self.MAX_INFS = max_infs
         self.agent_hist = ""
@@ -761,6 +807,9 @@ class DoctorAgent:
         self.prompt_tokens = 0
         self.completion_tokens = 0
         self.last_uncertainty_reasoning = ""
+        self.knowledge_mode = (knowledge_mode or "none").strip().lower()
+        self.knowledge_text = _load_knowledge_text(self.knowledge_mode)
+        self._experience_printed = False
 
     def generate_bias(self) -> str:
         if self.bias_present == "recency":
@@ -817,32 +866,86 @@ If a requested physical exam, laboratory test, or imaging study is unavailable, 
 5. do not ask patient question and request test at the same time
 
 ### RULES - **Diagnosis:** When you have gathered sufficient evidence to be confident, output "DIAGNOSIS READY: [diagnosis here]". - **Mutually Exclusive:** if you need ask further questions or request tests you are not ready for Diagnosis
-
-### experiences
-[EXP-01] IMAGING SYNDROME → PIVOT
-Stage: Post X-ray
-Trigger: diffuse dilated bowel loops + absent rectal gas in neonate
-Action: pivot from "distal obstruction" → "functional aganglionic obstruction"
-Eliminates: malrotation, jejunoileal atresia, meconium ileus (without CF history)
-Raises: Hirschsprung's to leading
-
-[EXP-02] LEADING DIAGNOSIS → CONFIRMATORY ACTION
-Stage: Post pivot
-Trigger: functional aganglionic obstruction is leading candidate
-Action: rectal biopsy — only test that confirms mechanism directly
-Skip: contrast enema if biopsy is available
-
-[EXP-03] COMMIT THRESHOLD
-Stage: Post biopsy
-Trigger: absent ganglion cells confirmed
-Action: commit immediately, stop testing
-Rule: pathognomonic finding = no further discrimination needed
-
-CHAIN: EXP-01 → EXP-02 → EXP-03
-Each fires only if the previous one executed correctly
 """
-        if memory_context:
-            experience += f"\n\n### RELEVANT DIAGNOSTIC EXPERIENCES FROM PAST CASES:\n{memory_context}\n"
+# [EXP-05] 
+# Trigger: Continuous machinery murmur on newborn cardiac exam
+# Suggestion: Order echocardiogram
+
+# [EXP-07] 
+# Trigger: High clinical suspicion for congenital infection with classic triad
+# Suggestion: Order infant rubella IgM
+
+# [EXP-02] 
+# Trigger: functional aganglionic obstruction is leading candidate
+# Suggestion: rectal biopsy 
+
+# [EXP-03] 
+# Trigger: Na 120 mEq/L + low serum osmolality + elevated urine osmolality
+# Suggestion: order urine sodium
+
+
+
+
+# [EXP-01] IMAGING SYNDROME → PIVOT
+# Stage: Post X-ray
+# Trigger: diffuse dilated bowel loops + absent rectal gas in neonate
+# Action: pivot from "distal obstruction" → "functional aganglionic obstruction"
+# Eliminates: malrotation, jejunoileal atresia, meconium ileus (without CF history)
+
+# [EXP-02] LEADING DIAGNOSIS → CONFIRMATORY ACTION
+# Stage: Post pivot
+# Trigger: functional aganglionic obstruction is leading candidate
+# Action: rectal biopsy — only test that confirms mechanism directly
+# Skip: contrast enema if biopsy is available
+
+
+# [EXP-03] LAB SYNDROME → PIVOT
+# Stage: Post basic metabolic panel
+# Trigger: Na 120 mEq/L + low serum osmolality + inappropriately high urine osmolality
+# Action: pivot from “structural CNS process” → “water-retention metabolic encephalopathy”
+# Eliminates: chronic subdural hematoma, brain tumor, encephalitis as primary cause
+# Raises: SIADH to leading diagnosis
+
+# [EXP-04] LEADING DIAGNOSIS → CONFIRMATORY ACTION
+# Stage: Post pivot
+# Trigger: Na 120 mEq/L + low serum osmolality + elevated urine osmolality
+# Action: order urine sodium
+# Skip: EEG, head CT, further neurologic exams
+
+# [EXP-05] LEADING DIAGNOSIS → CONFIRMATORY ACTION
+# Stage: Initial assessment
+# Trigger: Continuous machinery murmur on newborn cardiac exam
+# Action: Order echocardiogram
+# Skip: Gastrointestinal obstruction workup
+
+# [EXP-06] IMAGING SYNDROME → PIVOT
+# Stage: After echocardiogram
+# Trigger: Echocardiogram showing patent ductus arteriosus
+# Action: Ask mother about febrile illness or rash during early pregnancy
+# Skip: Further evaluation of bowel function
+
+# [EXP-07] LEADING DIAGNOSIS → CONFIRMATORY ACTION
+# Stage: Physical examination synthesis
+# Trigger: Congenital cataracts with failed newborn hearing screen
+# Action: Order TORCH serologies
+# Skip: Observation for delayed meconium passage
+
+
+# CHAIN: EXP-01 → EXP-02
+# CHAIN: EXP-03 → EXP-04
+# CHAIN: EXP-05 → EXP-06 → EXP-07
+# Each fires only if the previous one executed correctly
+# """
+        # if memory_context:
+        #     experience += f"\n\n### RELEVANT DIAGNOSTIC EXPERIENCES FROM PAST CASES:\n{memory_context}\n"
+        if self.knowledge_text:
+            experience += f"\n\n### EXTERNAL MEDICAL KNOWLEDGE ({self.knowledge_mode.upper()}):\n{self.knowledge_text}\n"
+
+        if not self._experience_printed:
+            print("\n================ DOCTOR EXPERIENCE PROMPT START ================")
+            print(experience)
+            print("================= DOCTOR EXPERIENCE PROMPT END =================\n")
+            self._experience_printed = True
 
         if self.infs >= self.MAX_INFS: return "Maximum inferences reached"
 
@@ -861,7 +964,7 @@ Each fires only if the previous one executed correctly
             experience + "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: ",
             self.system_prompt() + experience + "\n\nFor every response, provide structured output with two fields: "
             + "answer (your normal doctor dialogue, including REQUEST TEST / DIAGNOSIS READY when appropriate) and "
-            + "uncertainty_reasoning (top 3 most likely diagnoses, why each is likely, and what information/test would best differentiate them).",
+            + "uncertainty_reasoning (top 3 most likely diagnoses, briefly mentionwhat information/test would best differentiate them).",
             image_requested=image_requested,
             scene=self.scenario,
             return_usage=True,
@@ -903,6 +1006,7 @@ Each fires only if the previous one executed correctly
         self.agent_hist = ""
         self.presentation = self.scenario.examiner_information()
         self.last_uncertainty_reasoning = ""
+        self._experience_printed = False
 
 
 class MeasurementAgent:
@@ -948,7 +1052,7 @@ class MeasurementAgent:
 
 
 if __name__ == "__main__":
-    model_name = "x-ai/grok-4.1-fast"
+    model_name = "deepseek/deepseek-v3.2"
     parser = argparse.ArgumentParser(description='Medical Diagnosis Simulation CLI')
     parser.add_argument('--openai_api_key', type=str, required=False, help='OpenAI API Key')
     parser.add_argument('--inf_type', type=str, choices=['llm', 'human_doctor', 'human_patient'], default='llm')
@@ -968,6 +1072,7 @@ if __name__ == "__main__":
     parser.add_argument('--use_memory', action='store_true', default=False, help='Enable memory retrieval from past experiences (default: disabled)')
     parser.add_argument('--use_uncertainty_aware', action='store_true', default=False, help='Use uncertainty-aware doctor agent with explicit reasoning tracking (default: disabled)')
     parser.add_argument('--uncertainty_agent_type', type=str, default='uncertainty_aware_doctor', help='Uncertainty-aware agent type (default: uncertainty_aware_doctor)')
+    parser.add_argument('--knowledge', type=str, default='none', choices=['none', 'symptom', 'diagnosis', 'both'], help='External knowledge mode for DoctorAgent (default: none)')
     args = parser.parse_args()
 
-    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory, args.use_uncertainty_aware, args.uncertainty_agent_type)
+    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory, args.use_uncertainty_aware, args.uncertainty_agent_type, args.knowledge)

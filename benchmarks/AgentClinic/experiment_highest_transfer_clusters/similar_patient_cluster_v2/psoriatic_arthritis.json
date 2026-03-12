@@ -1,0 +1,28 @@
+[
+  {
+    "question": "A 42-year-old woman comes to the physician because of stiffness and pain in multiple joints. She says that the fingers on both of her hands have become increasingly stiff and difficult to move over the past 8 months. She also complains of nails that break easily and look spotty as well as chronic back pain. She had a urinary tract infection a year ago that was treated with antibiotics. She is sexually active with 2 male partners and uses condoms inconsistently. Her vitals are within normal limits. A photograph of her right hand is shown. There are multiple, well-demarcated red plaques with silvery-white scales over the shins and back. Serum studies show a negative rheumatoid factor and ANA. Which of the following is the most likely diagnosis?",
+    "answer": "Psoriatic arthritis\n\"",
+    "options": {
+      "A": "Secondary syphilis",
+      "B": "Ankylosing spondylitis",
+      "C": "Rheumatoid arthritis",
+      "D": "Systemic lupus erythematosus",
+      "E": "Psoriatic arthritis\n\""
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "E"
+  },
+  {
+    "question": "A 47-year-old man presents to his primary care physician complaining of pain and stiffness in his right index finger and left knee. The past medical history is remarkable for severe dandruff and an episode of apparent gout in the left 1st toe 6 months ago, which never resolved. The physical examination confirms dactylitis of the right index finger and several toes, as well as synovitis of the left knee. He is also noted to have pitting of his fingernails. Plain X-rays of his hand reveal erosions in the distal interphalangeal (DIP) joint and periarticular new bone formation. Which of the following is most consistent with these findings?",
+    "answer": "Psoriatic arthritis",
+    "options": {
+      "A": "Rheumatoid arthritis",
+      "B": "Psoriatic arthritis",
+      "C": "Osteoarthritis",
+      "D": "Reactive arthritis",
+      "E": "Pseudogout"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "B"
+  }
+]

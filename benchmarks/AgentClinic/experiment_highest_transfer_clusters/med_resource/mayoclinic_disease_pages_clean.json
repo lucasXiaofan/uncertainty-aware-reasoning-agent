@@ -1,0 +1,208 @@
+{
+  "generated_at": "2026-03-07T21:06:39.729260+00:00",
+  "source": "mayoclinic.org",
+  "count": 6,
+  "records": [
+    {
+      "disease": "Hirschsprung's disease",
+      "rank": 1,
+      "selected": "",
+      "symptoms_causes": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/hirschsprungs-disease/symptoms-causes/syc-20351556",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/hirschsprungs-disease/symptoms-causes/syc-20351556",
+        "status_code": 200,
+        "title": "Hirschsprung's disease",
+        "headings": [
+          "Symptoms"
+        ],
+        "clean_content": "## Symptoms\nSymptoms of Hirschsprung disease depend on how bad the condition is. Usually symptoms start shortly after birth, but sometimes don't show up until later in life.\nTypically, the most obvious symptom is a newborn's failure to have a bowel movement within 48 hours after birth.\nOther symptoms in newborns may include:\n- Constipation or gas, which might make a newborn fussy.\n- Diarrhea.\n- Failure to thrive.\n- Stomach pain.\n- Swollen belly.\n- Vomiting, including a green or brown substance.\nIn older children, symptoms can include:\n- Long-lasting constipation.\n- Gas.\n- Failure to gain weight.\n- Fatigue.\n- Stomach pain.\n- Swollen belly.",
+        "fetched_at": "2026-03-07T21:06:31.102754+00:00",
+        "error": ""
+      },
+      "diagnosis_url": "https://www.mayoclinic.org/diseases-conditions/hirschsprungs-disease/diagnosis-treatment/drc-20351561",
+      "diagnosis_treatment": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/hirschsprungs-disease/diagnosis-treatment/drc-20351561",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/hirschsprungs-disease/diagnosis-treatment/drc-20351561",
+        "status_code": 200,
+        "title": "Hirschsprung's disease",
+        "headings": [
+          "Diagnosis",
+          "More Information"
+        ],
+        "clean_content": "## Diagnosis\nTo diagnose Hirschsprung disease, a healthcare professional will do an exam and ask questions about the child's bowel movements. One or more of the following tests may be recommended to diagnose or rule out Hirschsprung disease:\n- Removing a sample of colon tissue for testing. Called a biopsy, this is the best way to identify Hirschsprung disease. A biopsy sample can be collected using a suction device. The sample will then be looked at under a microscope to see if nerve cells are missing.\n- Stomach X-ray using a contrast dye. A dye is placed into the bowel through a special tube placed in the rectum. The dye fills and coats the lining of the bowel, showing a clear outline of the colon and rectum. The X-ray will often show the difference between the part of bowel without nerves and the often-swollen section of bowel behind it.\n- Measuring control of the muscles around the rectum. Called an anal manometry, this test is typically done on older children and adults. During this test, a balloon is inflated inside the rectum. The surrounding muscle should relax as a result. If it doesn't, Hirschsprung disease could be the cause.\n## More Information\n- Ileostomy\n- X-ray",
+        "fetched_at": "2026-03-07T21:06:31.880727+00:00",
+        "error": ""
+      }
+    },
+    {
+      "disease": "Lung cancer",
+      "rank": 2,
+      "selected": 1,
+      "symptoms_causes": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/lung-cancer/symptoms-causes/syc-20374620",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/lung-cancer/symptoms-causes/syc-20374620",
+        "status_code": 200,
+        "title": "Lung cancer",
+        "headings": [
+          "Symptoms",
+          "When to see a doctor",
+          "Get Mayo Clinic cancer expertise delivered to your inbox.",
+          "Thank you for subscribing",
+          "Sorry something went wrong with your subscription"
+        ],
+        "clean_content": "## Symptoms\nLung cancer typically doesn't cause symptoms early on. Symptoms of lung cancer usually happen when the disease is advanced.\nSigns and symptoms of lung cancer that happen in and around the lungs may include:\n- A new cough that doesn't go away.\n- Chest pain.\n- Coughing up blood, even a small amount.\n- Hoarseness.\n- Shortness of breath.\n- Wheezing.\nSigns and symptoms that happen when lung cancer spreads to other parts of the body may include:\n- Bone pain.\n- Headache.\n- Losing weight without trying.\n- Loss of appetite.\n- Swelling in the face or neck.\n## When to see a doctor\nMake an appointment with your doctor or other healthcare professional if you have any symptoms that worry you.\nIf you smoke and haven't been able to quit, make an appointment. Your healthcare professional can recommend strategies for quitting smoking. These may include counseling, medicines and nicotine replacement products.\nThere is a problem with information submitted for this request. Review/update the information highlighted below and resubmit the form.\n## Get Mayo Clinic cancer expertise delivered to your inbox.\nSubscribe for free and receive an in-depth guide to coping with cancer, plus helpful information on how to get a second opinion. You can unsubscribe at any time. Click here for an email preview.\nError Select a topic\nError Email field is required\nError Include a valid email address\nWe use the data you provide to deliver you the content you requested. To provide you with the most relevant and helpful information, we may combine your email and website data with other information we have about you. If you are a Mayo Clinic patient, we will only use your protected health information as outlined in our Notice of Privacy Practices . You may opt out of email communications at any time by clicking on the unsubscribe link in the email.\n## Thank you for subscribing\nYour in-depth coping with cancer guide will be in your inbox shortly. You will also receive emails from Mayo Clinic on the latest about cancer news, research, and care.\nIf you don’t receive our email within 5 minutes, check your SPAM folder, then contact us at newsletters@mayoclinic.com .\n## Sorry something went wrong with your subscription\nPlease, try again in a couple of minutes",
+        "fetched_at": "2026-03-07T21:06:32.418393+00:00",
+        "error": ""
+      },
+      "diagnosis_url": "https://www.mayoclinic.org/diseases-conditions/lung-cancer/diagnosis-treatment/drc-20374627",
+      "diagnosis_treatment": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/lung-cancer/diagnosis-treatment/drc-20374627",
+        "final_url": "https://ww  w.mayoclinic.org/diseases-conditions/lung-cancer/diagnosis-treatment/drc-20374627",
+        "status_code": 200,
+        "title": "Lung cancer",
+        "headings": [
+          "Diagnosis",
+          "Bronchoscopy",
+          "Bronchoscopy",
+          "Testing healthy people for lung cancer",
+          "Tests to diagnose lung cancer",
+          "Tests to determine the extent of the cancer",
+          "Care at Mayo Clinic",
+          "More Information"
+        ],
+        "clean_content": "## Diagnosis\n## Bronchoscopy\n## Bronchoscopy\nIn flexible bronchoscopy, a healthcare professional inserts a thin, bendable tube through the mouth or nose into the lungs. A light and a small camera on the bronchoscope allow the health professional to look inside the lungs' airways.\nLung cancer diagnosis often starts with an imaging test to look at the lungs. If you have symptoms that worry you, a healthcare professional might start with an X-ray. If you smoke or used to smoke, you might have an imaging test to look for signs of lung cancer before you develop symptoms.\n## Testing healthy people for lung cancer\nPeople with an increased risk of lung cancer may consider yearly lung cancer screening using low-dose CT scans. Lung cancer screening is generally offered to people 50 and older who smoked heavily for many years. Screening also is offered to people who have quit smoking in the past 15 years.\nDiscuss your lung cancer risk with your healthcare professional. Together you can decide whether lung cancer screening is right for you.\n## Tests to diagnose lung cancer\nIf your healthcare professional thinks you may have lung cancer, a number of tests can be used to look for cancerous cells and to rule out other conditions.\nTests may include:\n- Imaging tests. Imaging tests make pictures of the body. They can show the location and size of the lung cancer. Tests might include X-ray, MRI , CT and positron emission tomography, which also is called a PET scan.\n- Sputum cytology. Sputum is the mucus that is coughed up from the lungs. If you are coughing up sputum, it can be looked at under a microscope. The sputum can sometimes show lung cancer cells.\n- Biopsy. A biopsy is a procedure to remove a sample of tissue for testing in a lab. Your healthcare team can perform a lung cancer biopsy several ways. One way is bronchoscopy. During bronchoscopy, a healthcare professional passes a lighted tube with a camera down your throat into your lungs to examine the area. Special tools can be passed through the tube to collect a sample of tissue. Mediastinoscopy also is an option. During mediastinoscopy, an incision is made at the base of your neck. Surgical tools are then inserted behind your breastbone to take tissue samples from lymph nodes. Another option is a needle biopsy. In a needle biopsy, your healthcare professional uses X-ray or CT images to guide a needle through the skin on your chest. The needle goes into the lung tissue to collect cells that could be cancerous. A biopsy sample also may be taken from lymph nodes or other areas where cancer has spread.\nYour cancer cells will be carefully tested in a lab to find out what type of lung cancer you have. The results can help determine the likely outcome of your cancer, called the prognosis, and guide your treatment.\n## Tests to determine the extent of the cancer\nIf you're diagnosed with lung cancer, you may have other tests to see if the cancer has spread. These tests help your healthcare team find out the extent of your cancer, also called the stage. Cancer staging tests often involve imaging tests. The tests might look for signs of cancer in your lymph nodes or in other parts of your body. Your healthcare team uses the cancer staging test results to help create your treatment plan.\nImaging tests may include MRI , CT , bone scans and PET scan. Not every test is right for every person. Talk with your healthcare professional about which procedures will work for you.\nThe stages of lung cancer range from 1 to 4. The lowest number means that the cancer is small and only in the lung. As the cancer grows larger or spreads outside of the lungs, the numbers get higher. A stage 4 lung cancer has spread to other areas of the body.\nIn small cell lung cancer, the stages may be called limited or extensive. In the limited stage, the cancer affects one lung and the area around it. In the extensive stage, the cancer has spread to the other lung or to other parts of the body.\n## Care at Mayo Clinic\nOur caring team of Mayo Clinic experts can help you with your lung cancer-related health concerns. Start Here\n## More Information\n- Lung cancer care at Mayo Clinic\n- Bone scan\n- Bronchoscopy\n- CT scan\n- Lung cancer screening\n- MRI\n- Positron emission tomography scan\n- X-ray\n- Infographic: Lung Cancer",
+        "fetched_at": "2026-03-07T21:06:33.384543+00:00",
+        "error": ""
+      }
+    },
+    {
+      "disease": "Parkinson disease",
+      "rank": 3,
+      "selected": "",
+      "symptoms_causes": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/parkinsons-disease/symptoms-causes/syc-20376055",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/parkinsons-disease/symptoms-causes/syc-20376055",
+        "status_code": 200,
+        "title": "Parkinson's disease",
+        "headings": [
+          "Symptoms",
+          "When to see a doctor"
+        ],
+        "clean_content": "## Symptoms\nParkinson's disease symptoms can be different for everyone. Early symptoms may be mild, and you may not even notice them. Symptoms often begin on one side of the body, then affect both sides. Symptoms are usually worse on one side than the other. Some Parkinson's disease symptoms are similar to those of other disorders.\nParkinson's symptoms may include:\n- Tremor. This rhythmic shaking usually begins in the hands or fingers. Sometimes tremor begins in the foot or jaw. You may rub your thumb and forefinger back and forth. This is known as a pill-rolling tremor. Your hand may tremble when it's at rest or when you're under stress. You may notice that you shake less when you're doing some sort of task or moving around.\n- Slowed movement, also called bradykinesia. Parkinson's disease may slow your movement, making simple tasks more difficult. It may be hard to get out of a chair, shower or get dressed. You may have less expression in your face. It may be hard to blink.\n- Rigid muscles. You may have stiff muscles in any part of your body. Your muscles may feel tense and painful, and your arm movements may be short and jerky.\n- Poor posture and balance. Your posture may become stooped. You may fall or have balance problems.\n- Loss of automatic movements. You may be less able to make certain movements that you typically do without thinking, including blinking, smiling or swinging your arms when you walk.\n- Speech changes. You may speak softly or quickly, slur, or hesitate before talking. Your speech may be flat or monotone, without typical speech patterns.\n- Writing changes. You may have trouble writing, and your writing may appear cramped and small.\n- Nonmotor symptoms. These may include depression, anxiety, constipation and sleep problems. They also may include acting out dreams, needing to urinate often, trouble smelling, problems with thinking and memory, and feeling very tired.\n## When to see a doctor\nSee a healthcare professional if you have any symptoms of Parkinson's disease. This will help diagnose your condition and rule out other causes.\nThere is a problem with information submitted for this request. Review/update the information highlighted below and resubmit the form.",
+        "fetched_at": "2026-03-07T21:06:34.413644+00:00",
+        "error": ""
+      },
+      "diagnosis_url": "https://www.mayoclinic.org/diseases-conditions/parkinsons-disease/diagnosis-treatment/drc-20376062",
+      "diagnosis_treatment": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/parkinsons-disease/diagnosis-treatment/drc-20376062",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/parkinsons-disease/diagnosis-treatment/drc-20376062",
+        "status_code": 200,
+        "title": "Parkinson's disease",
+        "headings": [
+          "Diagnosis",
+          "Care at Mayo Clinic",
+          "More Information"
+        ],
+        "clean_content": "## Diagnosis\nCurrently, there isn't a specific test to diagnose Parkinson's disease. A diagnosis is made by a doctor trained in nervous system conditions, known as a neurologist. A diagnosis of Parkinson's is based on your medical history, a review of your symptoms, and a neurological and physical exam.\nIt can take time to diagnose Parkinson's disease. Healthcare professionals may recommend regular follow-up appointments with neurologists trained in movement disorders to evaluate your condition and symptoms over time and diagnose Parkinson's disease.\nYour healthcare team may order some of these tests and procedures:\n- Physical and neurological exam. This includes taking your medical history and doing a neurological exam that tests your thinking and mental abilities, senses, coordination, and reflexes.\n- Blood and lab tests. These are used to rule out other conditions that may be causing your symptoms.\n- Imaging tests, such as an MRI , brain ultrasound and PET scan. These are used to rule out other conditions. They are not very helpful in diagnosing Parkinson's disease.\n- A specific single-photon emission computerized tomography (SPECT) scan called a dopamine transporter (DAT) scan. This can help support the suspicion that you have Parkinson's disease and help identify different types of tremor. But it is your symptoms and the results of your neurological exam that determine your diagnosis. Most people do not require a DAT scan.\n- Genetic testing. This tests for gene changes if there is a known family history of Parkinson's disease or if you have early-onset disease.\n- A short, low-dose treatment of medicines. You may be given medicines used to treat Parkinson's disease to see if you get better. If your symptoms show significant improvement, this may help confirm your diagnosis. You must be given a sufficient dose to show the benefit, as getting low doses for a day or two isn't reliable.\n- Follow-up appointments. Regular appointments with neurologists trained in movement disorders may be needed over time to confirm a diagnosis.\n- Alpha-synuclein test. This test, also called an alpha-synuclein seed amplification assay, detects Parkinson's disease before symptoms begin. Alpha-synuclein clumps are a hallmark sign of Parkinson's disease. Healthcare professionals can test for this condition in the skin or spinal fluid. Alpha-synuclein is found in Lewy bodies. It forms clumps that the body can't break down. The clumps spread and damage brain cells. In a 2023 study, researchers tested the spinal fluid of more than 1,000 people to look for clumps of the protein alpha-synuclein. The test accurately identified people with Parkinson's disease 87.7% of the time. The test also was highly sensitive for detecting people at risk of Parkinson's disease. This study of the alpha-synuclein seed amplification assay was the largest so far. Some researchers say the study may be a breakthrough for Parkinson's disease diagnosis, research and treatment trials. But larger studies are needed. There's hope among researchers that in the future, the test could be done using blood samples rather than spinal fluid.\n## Care at Mayo Clinic\nOur caring team of Mayo Clinic experts can help you with your Parkinson's disease-related health concerns. Start Here\n## More Information\n- Parkinson's disease care at Mayo Clinic\n- Neurological examinations\n- Parkinson's test",
+        "fetched_at": "2026-03-07T21:06:35.246083+00:00",
+        "error": ""
+      }
+    },
+    {
+      "disease": "Somatization disorder (Somatic symptom disorder)",
+      "rank": 4,
+      "selected": 1,
+      "symptoms_causes": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/somatic-symptom-disorder/symptoms-causes/syc-20377776",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/somatic-symptom-disorder/symptoms-causes/syc-20377776",
+        "status_code": 200,
+        "title": "Somatic symptom disorder",
+        "headings": [
+          "Symptoms",
+          "When to see a doctor",
+          "When it's a loved one"
+        ],
+        "clean_content": "## Symptoms\nSymptoms of somatic symptom disorder may include:\n- Specific symptoms, such as pain or shortness of breath.\n- General symptoms, such as feeling very tired or weak.\n- Symptoms not related to any medical cause.\n- Symptoms related to a medical condition but that are more severe than usually expected.\n- One symptom, many symptoms or symptoms that change over time.\n- Mild, moderate or severe symptoms.\nPain is the most common symptom. But whatever your symptoms, you have constant stressful thoughts, feelings and behaviors related to those symptoms. This can make it hard to live your daily life and sometimes can be disabling.\nFor somatic symptom disorder, the way you think about and react to symptoms and how they affect your daily life are more important than which physical symptoms you have.\nPeople with somatic symptom disorder often:\n- Constantly worry about possible illness or how much the symptoms affect them.\n- View usual physical sensations as a sign of severe illness.\n- Fear that symptoms are serious even when illness has been ruled out.\n- Think that physical sensations are threatening or harmful.\n- Believe that they need more medical evaluation and treatment, but healthcare visits and treatments don't lessen their concerns.\n- Fear that physical activity may cause damage to their bodies.\n- Constantly check their bodies for issues.\n- Limit or stay away from activities due to the stress of symptoms.\n- Talk about having more-severe disability than expected from a medical condition.\n## When to see a doctor\nBecause physical symptoms can be related to a medical condition, it's important to have a healthcare professional look at you.\nAfter a medical exam, if your healthcare professional believes that you may have somatic symptom disorder, you can talk about a referral to a mental health professional who can work with you and your healthcare team. A mental health professional can help you understand your condition and learn how to lessen your symptoms to make your quality of life better.\n## When it's a loved one\nIf a loved one has somatic symptom disorder, it can be hard to accept that a serious illness isn't the cause and that the person can still function in life despite the symptoms. Encourage the person to follow through on a mental health referral. Think about going along so you both can learn tips and strategies to help ease symptoms.",
+        "fetched_at": "2026-03-07T21:06:36.005865+00:00",
+        "error": ""
+      },
+      "diagnosis_url": "https://www.mayßoclinic.org/diseases-conditions/somatic-symptom-disorder/diagnosis-treatment/drc-20377781",
+      "diagnosis_treatment": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/somatic-symptom-disorder/diagnosis-treatment/drc-20377781",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/somatic-symptom-disorder/diagnosis-treatment/drc-20377781",
+        "status_code": 200,
+        "title": "Somatic symptom disorder",
+        "headings": [
+          "Diagnosis"
+        ],
+        "clean_content": "## Diagnosis\nTo make a diagnosis of somatic symptom disorder, you'll likely have a physical exam and any tests your healthcare professional recommends. Your healthcare professional can help find out whether you have any health conditions that need treatment.\nYour healthcare professional also may refer you to a mental health professional, who may:\n- Do a mental health exam by talking with you about your symptoms, fears or concerns; stressful situations; and situations you may be avoiding due to somatic symptoms. You also may talk about relationships and your family history.\n- Have you fill out forms or answer questions to learn about your anxiety, mood and physical symptoms.\n- Ask you about alcohol, drug or other substance use.\nA mental health professional may diagnose somatic symptom disorder if:\n- You have one or more somatic symptoms, for example, pain or extreme tiredness, that cause distress or issues in daily life.\n- You constantly think about how serious your symptoms are, you're very anxious about your health or symptoms, or you spend too much time and energy on your symptoms or health concerns.\n- You have symptoms that worry you for more than six months, even if symptoms vary.",
+        "fetched_at": "2026-03-07T21:06:36.843892+00:00",
+        "error": ""
+      }
+    },
+    {
+      "disease": "MEN1",
+      "rank": 5,
+      "selected": 1,
+      "symptoms_causes": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/multiple-endocrine-neoplasia-type-1/symptoms-causes/syc-20353064",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/men-1/symptoms-causes/syc-20353064",
+        "status_code": 200,
+        "title": "Multiple endocrine neoplasia, type 1 (MEN 1)",
+        "headings": [
+          "Symptoms"
+        ],
+        "clean_content": "## Symptoms\nSymptoms of multiple endocrine neoplasia, type 1 (MEN 1) can include the following:\n- Tiredness.\n- Bone pain or broken bones.\n- Kidney stones.\n- Ulcers in the stomach or intestines.\n- Stomach pain.\n- Muscle weakness.\n- Depression.\n- Acid reflux.\n- Frequent diarrhea.\nSymptoms are caused by the release of too many hormones in the body.",
+        "fetched_at": "2026-03-07T21:06:37.405387+00:00",
+        "error": ""
+      },
+      "diagnosis_url": "https://www.mayoclinic.org/diseases-conditions/men-1/diagnosis-treatment/drc-20446823",
+      "diagnosis_treatment": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/men-1/diagnosis-treatment/drc-20446823",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/men-1/diagnosis-treatment/drc-20446823",
+        "status_code": 200,
+        "title": "Multiple endocrine neoplasia, type 1 (MEN 1)",
+        "headings": [
+          "Diagnosis",
+          "Care at Mayo Clinic"
+        ],
+        "clean_content": "## Diagnosis\nTo find out if you have multiple endocrine neoplasia, type 1 (MEN 1), your healthcare professional starts by doing a physical exam. You also answer questions about your health history and family history. You may have a blood test and imaging tests, including the following:\n- Magnetic resonance imaging (MRI). An MRI uses a magnetic field and radio waves to make images of the organs and tissues in the body.\n- Computerized tomography (CT) scan. A CT scan combines a series of X-ray images taken from different angles. A computer then makes detailed pictures of the inside of the body.\n- Positron emission tomography (PET) scan. A PET scan uses a substance that releases low levels of radiation to help make images of changes taking place inside the body.\n- Nuclear medicine scans. These scans use liquid substances that give off low levels of radiation to help find tumors.\n- Endoscopic ultrasound of the pancreas and other scans. An endoscopic ultrasound uses sound waves to make images of the digestive tract and other nearby organs and tissues.\nGenetic testing may help find out whether someone has a genetic change that causes MEN 1. If so, that person's children are at risk of having the same genetic change and getting MEN 1. Parents and siblings also are at risk of having the genetic change that causes MEN 1.\nIf no related genetic changes are found in family members, then family members don't need more screening tests. But genetic testing cannot find all the genetic changes that can cause MEN 1. If genetic testing doesn't confirm MEN 1, but it's likely that a person has it, more testing is needed. That person, as well as family members, still needs follow-up healthcare checkups with blood tests and imaging tests.\n## Care at Mayo Clinic\nOur caring team of Mayo Clinic experts can help you with your Multiple endocrine neoplasia, type 1 (MEN 1)-related health concerns. Start Here",
+        "fetched_at": "2026-03-07T21:06:37.979261+00:00",
+        "error": ""
+      }
+    },
+    {
+      "disease": "Psoriatic arthritis",
+      "rank": 6,
+      "selected": 1,
+      "symptoms_causes": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/psoriatic-arthritis/symptoms-causes/syc-20354076",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/psoriatic-arthritis/symptoms-causes/syc-20354076",
+        "status_code": 200,
+        "title": "Psoriatic arthritis",
+        "headings": [
+          "Symptoms"
+        ],
+        "clean_content": "## Symptoms\nPsoriatic arthritis and psoriasis are long-term conditions that can get worse over time. But symptoms also can come and go. You may have flare-ups where symptoms get worse. And you may have periods of relief when symptoms improve or go away for a while.\nPsoriatic arthritis can affect joints on one or both sides of your body. Psoriatic arthritis shares some symptoms with rheumatoid arthritis. In both conditions, joints may feel painful, swollen and warm to the touch.\nPsoriatic arthritis also may cause:\n- Swollen fingers and toes. Fingers and toes may become swollen and puffy, sometimes looking like sausages.\n- Foot pain. You may feel pain where tendons or ligaments attach to bones. This condition is especially common at the back of the heel, called Achilles tendinitis, or in the sole of the foot, called plantar fasciitis.\n- Lower back pain. Some people develop a condition called spondylitis, which causes pain and stiffness in the spine and pelvis.\n- Changes in nails. Fingernails or toenails may develop tiny dents, called pits. The nails may become brittle or crumbly, and they may start to lift away from the skin underneath. These changes can look like a fungal nail infection, so it's important to have your care team check to be sure of the cause.\n- Eye inflammation. A condition called uveitis can cause red, painful eyes and blurry vision. If not diagnosed and treated, it can lead to vision loss.\n- Fatigue. Many people with psoriatic arthritis get very tired.",
+        "fetched_at": "2026-03-07T21:06:38.429075+00:00",
+        "error": ""
+      },
+      "diagnosis_url": "https://www.mayoclinic.org/diseases-conditions/psoriatic-arthritis/diagnosis-treatment/drc-20354081",
+      "diagnosis_treatment": {
+        "source_url": "https://www.mayoclinic.org/diseases-conditions/psoriatic-arthritis/diagnosis-treatment/drc-20354081",
+        "final_url": "https://www.mayoclinic.org/diseases-conditions/psoriatic-arthritis/diagnosis-treatment/drc-20354081",
+        "status_code": 200,
+        "title": "Psoriatic arthritis",
+        "headings": [
+          "Diagnosis",
+          "Imaging tests",
+          "Laboratory tests",
+          "More Information"
+        ],
+        "clean_content": "## Diagnosis\nTo find out if you have psoriatic arthritis, your healthcare professional likely will start with a physical exam. During the visit, your healthcare professional may:\n- Look at your joints for swelling or tenderness.\n- Check your fingernails for signs of pitting or peeling.\n- Press on the bottoms of your feet and around your heels to check for sore spots.\nNo single test can confirm a diagnosis of psoriatic arthritis. But different tests can help rule out other causes of joint pain, such as rheumatoid arthritis or gout.\n## Imaging tests\n- X-rays can show changes in the joints that are common in psoriatic arthritis but not seen in other types of arthritis.\n- MRI scans create detailed pictures of bones, joints and soft tissue. These scans are especially helpful for checking the tendons and ligaments in the feet and lower back.\n## Laboratory tests\n- Rheumatoid factor test (RF test) checks for an antibody found in people with rheumatoid arthritis. If the antibody is missing, this may help your healthcare professional confirm psoriatic arthritis instead.\n- Joint fluid test involves removing a small sample of fluid from a swollen joint, often in the knee, using a needle. If the fluid contains uric acid crystals, this may mean you have gout. Some people can have both gout and psoriatic arthritis.\n## More Information\n- MRI\n- Rheumatoid factor\n- X-ray",
+        "fetched_at": "2026-03-07T21:06:38.872425+00:00",
+        "error": ""
+      }
+    }
+  ]
+}

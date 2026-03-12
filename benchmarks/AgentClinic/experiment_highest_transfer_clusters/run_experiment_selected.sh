@@ -2,15 +2,40 @@
 
 # Run selected AgentClinic cases from a specified split or data file
 # Usage:
-#   ./run_experiment_selected.sh [options]
-# Examples:
+#   ./run_experiment_selected.sh [SPLIT] [MODEL] [OPTIONS]
+#
+# Positional Arguments:
+#   SPLIT              (Optional) Base name for the data file. Looks for <SPLIT>.jsonl if --data_file is empty. Default: one_case_test
+#   MODEL              (Optional) Model for the doctor agent (e.g., openai/gpt-5-mini, gpt-4o). Default: openai/gpt-5-mini
+#
+# Selection Options (Must provide either --ids or --count):
+#   --ids <list>       Select specific case IDs (comma-separated, eg: 0,2,8,15).
+#   --count <num>      Evaluate a specified number of cases. Selects the first N cases unless --random is provided.
+#   --start <idx>      (Optional) Start evaluating from index <idx> (0-indexed). Usable with --count. Default: 0
+#   --random           (Optional) Select <count> random cases rather than sequential ones from start index.
+#   --ids_1based       (Optional) Treat provided IDs as 1-based indices instead of 0-based.
+#
+# Output & Execution Options:
+#   --name <str>       (Optional) Experiment name to use as a prefix for the output JSONL file.
+#   --folder <str>     (Optional) Name of the experiment output folder. Default: experiment_<timestamp>
+#   --workers <num>    (Optional) Number of parallel workers/processes to run cases. Default: 10
+#
+# Agent Configuration Options:
+#   --use_memory       (Optional) Give the doctor access to memory context from past diagnosed cases.
+#   --use_uncertainty_aware  (Optional) Enable uncertainty-aware tracking for the doctor agent.
+#   --agent_type <str> (Optional) Specify uncertainty agent type (e.g., uncertainty_aware_doctor). Used with --use_uncertainty_aware.
+#   --knowledge <mode> (Optional) External knowledge mode for doctor prompt: none|symptom|diagnosis|both. Default: none
+#
+# Data Target Overrides Options:
+#   --data_file <path>        (Optional) Path to a custom dataset (.jsonl) file to load cases from.
+#   --agent_dataset <dataset> (Optional) Override dataset handler (e.g. MIMICIV, NEJM, MedQA, NewMedQA). Automatically inferred otherwise.
+#
+# Specific Examples:
 #   ./run_experiment_selected.sh --count 50 --data_file /path/to/agentclinic_mimiciv.jsonl
 #   ./run_experiment_selected.sh --count 100 --random --data_file /path/to/agentclinic_mimiciv.jsonl
-#   ./run_experiment_selected.sh --count 50 --model openai/gpt-5-mini --data_file /path/to/file.jsonl
-#   ./run_experiment_selected.sh --ids 2,8,15,20 --data_file /path/to/file.jsonl
-#   ./run_experiment_selected.sh test openai/gpt-5-mini --ids 2,8,15,20
-#   ./run_experiment_selected.sh test openai/gpt-5-mini --ids 1,13 --use_uncertainty_aware --agent_type uncertainty_documentation_agent
-
+#   ./run_experiment_selected.sh new_medqa_similar_cases openai/gpt-5-mini --count 3
+#   ./run_experiment_selected.sh test gpt-4o --ids 2,8,15,20
+#   ./run_experiment_selected.sh test deepseek/deepseek-r1 --ids 1,13 --use_uncertainty_aware --agent_type uncertainty_documentation_agent
 set -e
 
 # Optional positional args (skip if first arg looks like a flag)
@@ -28,6 +53,7 @@ fi
 USE_MEMORY=""
 USE_UNCERTAINTY_AWARE=""
 EXPERIMENT_NAME=""
+FOLDER_NAME=""
 AGENT_TYPE="uncertainty_aware_doctor"
 WORKERS=10
 DATA_FILE_OVERRIDE=""
@@ -36,6 +62,7 @@ COUNT=""
 START_INDEX=0
 RANDOM_SELECT=""
 AGENT_DATASET=""
+KNOWLEDGE_MODE="none"
 
 IDS_LIST=()
 
@@ -73,6 +100,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --name)
             EXPERIMENT_NAME="$2"
+            shift 2
+            ;;
+        --folder)
+            FOLDER_NAME="$2"
             shift 2
             ;;
         --workers)
@@ -119,9 +150,17 @@ while [[ $# -gt 0 ]]; do
             AGENT_DATASET="$2"
             shift 2
             ;;
+        --knowledge)
+            KNOWLEDGE_MODE="$2"
+            if [[ ! "$KNOWLEDGE_MODE" =~ ^(none|symptom|diagnosis|both)$ ]]; then
+                echo "Error: --knowledge must be one of: none, symptom, diagnosis, both"
+                exit 1
+            fi
+            shift 2
+            ;;
         *)
             echo "Unknown option: $1"
-            echo "Usage: $0 [SPLIT] [model_name] {--ids 2,8,15,20 | --count N} [--random] [--use_memory] [--use_uncertainty_aware] [--agent_type NAME] [--name experiment_name] [--workers N] [--data_file FILE] [--ids_1based]"
+            echo "Usage: $0 [SPLIT] [model_name] {--ids 2,8,15,20 | --count N} [--random] [--use_memory] [--use_uncertainty_aware] [--agent_type NAME] [--knowledge none|symptom|diagnosis|both] [--name experiment_name] [--workers N] [--data_file FILE] [--ids_1based]"
             exit 1
             ;;
     esac
@@ -142,7 +181,7 @@ fi
 # Directories
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 AGENTCLINIC_DIR="$(dirname "$SCRIPT_DIR")"
-RESULTS_DIR="$SCRIPT_DIR/results"
+RESULTS_DIR="/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/experiment_highest_transfer_clusters/results"
 
 # Resolve data file and agent_dataset
 if [[ -n "$DATA_FILE_OVERRIDE" ]]; then
@@ -158,6 +197,7 @@ if [[ -z "$AGENT_DATASET" ]]; then
         agentclinic_mimiciv*)   AGENT_DATASET="MIMICIV" ;;
         agentclinic_nejm_ext*) AGENT_DATASET="NEJM_Ext" ;;
         agentclinic_nejm*)     AGENT_DATASET="NEJM" ;;
+        new_medqa_similar_cases*) AGENT_DATASET="NewMedQA" ;;
         agentclinic_medqa_ext*|*) AGENT_DATASET="MedQA_Ext" ;;
     esac
 fi
@@ -237,6 +277,15 @@ done
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 MODEL_SAFE=$(echo "$MODEL" | tr '/' '_')
 
+# Experiment output folder
+if [[ -n "$FOLDER_NAME" ]]; then
+    FOLDER_SAFE=$(echo "$FOLDER_NAME" | tr ' /' '_')
+    EXP_FOLDER="$RESULTS_DIR/$FOLDER_SAFE"
+else
+    EXP_FOLDER="$RESULTS_DIR/experiment_${TIMESTAMP}"
+fi
+mkdir -p "$EXP_FOLDER"
+
 MEMORY_SUFFIX=""
 if [[ -n "$USE_MEMORY" ]]; then
     MEMORY_SUFFIX="_memory"
@@ -252,9 +301,9 @@ BASE_NAME=${BASE_NAME%.jsonl}
 
 if [[ -n "$EXPERIMENT_NAME" ]]; then
     EXPERIMENT_SAFE=$(echo "$EXPERIMENT_NAME" | tr ' /' '_')
-    OUTPUT_FILE="$RESULTS_DIR/${EXPERIMENT_SAFE}_${MODEL_SAFE}${MEMORY_SUFFIX}${UA_SUFFIX}_${TIMESTAMP}.jsonl"
+    OUTPUT_FILE="$EXP_FOLDER/${EXPERIMENT_SAFE}_${MODEL_SAFE}${MEMORY_SUFFIX}${UA_SUFFIX}_${TIMESTAMP}.jsonl"
 else
-    OUTPUT_FILE="$RESULTS_DIR/${BASE_NAME}_${MODEL_SAFE}${MEMORY_SUFFIX}${UA_SUFFIX}_selected_${TIMESTAMP}.jsonl"
+    OUTPUT_FILE="$EXP_FOLDER/${BASE_NAME}_${MODEL_SAFE}${MEMORY_SUFFIX}${UA_SUFFIX}_selected_${TIMESTAMP}.jsonl"
 fi
 
 echo "========================================================"
@@ -265,12 +314,14 @@ echo "Agent Dataset:      $AGENT_DATASET"
 echo "Model:              $MODEL"
 echo "Memory:             $([ -n "$USE_MEMORY" ] && echo "ENABLED" || echo "disabled")"
 echo "Uncertainty-Aware:  $([ -n "$USE_UNCERTAINTY_AWARE" ] && echo "ENABLED" || echo "disabled")"
+echo "Knowledge:          $KNOWLEDGE_MODE"
 if [[ -n "$USE_UNCERTAINTY_AWARE" ]]; then
     echo "UA Agent Type:      $AGENT_TYPE"
 fi
 if [[ -n "$EXPERIMENT_NAME" ]]; then
     echo "Experiment:         $EXPERIMENT_NAME"
 fi
+echo "Output folder:      $EXP_FOLDER"
 echo "Num cases in file:  $NUM_CASES"
 echo "Selected count:     ${#NORMALIZED_IDS[@]}"
 if [[ -n "$RANDOM_SELECT" ]]; then
@@ -288,6 +339,7 @@ echo "========================================================"
 # Dependencies for uv run
 DEPS="--with openai>=1.0.0 --with regex --with python-dotenv --with pyyaml"
 COMMON_ARGS="--doctor_llm $MODEL --total_inferences 20 $USE_MEMORY $USE_UNCERTAINTY_AWARE"
+COMMON_ARGS="$COMMON_ARGS --knowledge $KNOWLEDGE_MODE"
 if [[ -n "$USE_UNCERTAINTY_AWARE" ]]; then
     COMMON_ARGS="$COMMON_ARGS --uncertainty_agent_type $AGENT_TYPE"
 fi
@@ -300,6 +352,7 @@ case "$AGENT_DATASET" in
     MedQA_Ext)  LOADER_FILE="agentclinic_medqa_extended.jsonl" ;;
     NEJM)       LOADER_FILE="agentclinic_nejm.jsonl" ;;
     NEJM_Ext)   LOADER_FILE="agentclinic_nejm_extended.jsonl" ;;
+    NewMedQA)   LOADER_FILE="experiment_highest_transfer_clusters/new_medqa_similar_cases.jsonl" ;;
     *)          LOADER_FILE="agentclinic_medqa_extended.jsonl" ;;
 esac
 
@@ -326,7 +379,7 @@ echo "--------------------------------------------------------"
 
 run_case() {
     local scenario_id=$1
-    local tmp_file="$RESULTS_DIR/tmp_case_${scenario_id}_${TIMESTAMP}.jsonl"
+    local tmp_file="$EXP_FOLDER/tmp_case_${scenario_id}_${TIMESTAMP}.jsonl"
 
     uv run $DEPS agentclinic_api_only.py \
         --agent_dataset "$AGENT_DATASET" \
@@ -339,7 +392,7 @@ run_case() {
 }
 
 export -f run_case
-export RESULTS_DIR TIMESTAMP DEPS COMMON_ARGS AGENT_DATASET
+export RESULTS_DIR EXP_FOLDER TIMESTAMP DEPS COMMON_ARGS AGENT_DATASET
 
 printf "%s\n" "${NORMALIZED_IDS[@]}" | xargs -P "$WORKERS" -I {} bash -c 'run_case "$@"' _ {}
 
@@ -349,14 +402,14 @@ echo "Merging results..."
 # Merge results
 > "$OUTPUT_FILE"
 for i in "${NORMALIZED_IDS[@]}"; do
-    tmp_file="$RESULTS_DIR/tmp_case_${i}_${TIMESTAMP}.jsonl"
+    tmp_file="$EXP_FOLDER/tmp_case_${i}_${TIMESTAMP}.jsonl"
     if [ -f "$tmp_file" ]; then
         cat "$tmp_file" >> "$OUTPUT_FILE"
     fi
 done
 
 # Clean up temp files
-rm -f "$RESULTS_DIR"/tmp_case_*_"${TIMESTAMP}".jsonl
+rm -f "$EXP_FOLDER"/tmp_case_*_"${TIMESTAMP}".jsonl
 
 # Restore original dataset if we copied
 if [[ -n "$NEEDS_COPY" ]]; then
@@ -385,7 +438,7 @@ echo "Cases:       $TOTAL cases processed"
 
 # Re-evaluate failed cases with full problem_info using gpt-5-mini
 REEVAL_SCRIPT="$SCRIPT_DIR/reevaluate_false_cases_full_info.py"
-REEVAL_CSV="${OUTPUT_FILE%.jsonl}_false_cases_full_info_eval_${TIMESTAMP}.csv"
+REEVAL_CSV="$EXP_FOLDER/false_cases_full_info_eval_${TIMESTAMP}.csv"
 if [ -f "$REEVAL_SCRIPT" ]; then
     echo "Re-eval:     running false-case full-info check..."
     uv run $DEPS python "$REEVAL_SCRIPT" \

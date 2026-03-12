@@ -1,0 +1,28 @@
+[
+  {
+    "question": "A 40-year-old woman, gravida 2, para 2, comes to the physician because of fatigue, nausea, joint pain, and mild flank pain for 2 months. She has refractory acid reflux and antral and duodenal peptic ulcers for which she takes omeprazole. She also has chronic, foul-smelling, light-colored diarrhea. Five years ago she was successfully treated for infertility with bromocriptine. She reports recently feeling sad and unmotivated at work. She does not smoke or drink alcohol. She is 175 cm (5 ft 9 in) tall and weighs 100 kg (220 lb); BMI is 32.7 kg/m2. Her temperature is 37\u00b0C (98.8\u00b0F), pulse is 78/min, and blood pressure is 150/90 mm Hg. Cardiopulmonary examination shows no abnormalities. The abdomen is moderately distended and diffusely tender to palpation. There is mild costovertebral angle tenderness. Her serum calcium concentration is 12 mg/dL, phosphorus concentration is 2 mg/dL, and parathyroid hormone level is 900 pg/mL. Abdominal ultrasound shows mobile echogenic foci with acoustic shadowing in her ureteropelvic junctions bilaterally. A mutation in which of the following genes is most likely present in this patient?",
+    "answer": "MEN1",
+    "options": {
+      "A": "NF2",
+      "B": "VHL",
+      "C": "C-Kit",
+      "D": "RET",
+      "E": "MEN1"
+    },
+    "meta_info": "step2&3",
+    "answer_idx": "E"
+  },
+  {
+    "question": "A 56-year-old man comes to the clinic complaining of intermittent abdominal pain for the past 2 months. He reports that the pain improves with oral intake and is concentrated at the epigastric area. The pain is described as gnawing in quality and improves when he takes his wife\u2019s ranitidine. He denies weight changes, fever, chest pain, or recent travel but endorses \u201cbrain fog\u201d and decreased libido. An upper endoscopy reveals ulcerations at the duodenum and jejunum. Physical examination demonstrates bilateral hemianopsia, gynecomastia, and diffuse pain upon palpation at the epigastric area. Laboratory findings are demonstrated below:\n\nSerum:\nNa+: 137 mEq/dL\nCl-: 96 mEq/L\nK+: 3.9 mEq/dL\nHCO3-: 25 mEq/L\nGlucose: 110 mg/dL\nCreatinine: .7 mg/dL\nCa2+: 13.5 mg/dL\n\nWhat is the best explanation for this patient\u2019s findings?",
+    "answer": "Mutation of the MEN1 gene",
+    "options": {
+      "A": "Gastrin secreting tumor of the pancreas",
+      "B": "Infection with Helicobacter pylori",
+      "C": "Mutation of the APC gene",
+      "D": "Mutation of the MEN1 gene",
+      "E": "Mutation of the RET gene"
+    },
+    "meta_info": "step1",
+    "answer_idx": "D"
+  }
+]
