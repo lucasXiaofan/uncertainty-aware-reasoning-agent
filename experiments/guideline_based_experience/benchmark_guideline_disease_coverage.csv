@@ -1,0 +1,298 @@
+disease,benchmark_sources,benchmark_count,found_in_mayoclinical_json,mayoclinical_match_type,mayoclinical_match_id,mayoclinical_match_title,found_in_results_txt,results_match_file
+"Abdominal pain, epigastric",agentclinic_mimiciv,1,false,,,,true,11777.txt
+"Abdominal pain, right lower quadrant",agentclinic_mimiciv,1,false,,,,true,11944.txt
+Acalculous cholecystitis,agentclinic_medqa_extended_fixed,2,true,text_contains,2647,Drugs and Supplements,true,11307.txt
+Achalasia and cardiospasm,agentclinic_mimiciv,1,false,,,,false,
+Actinic Keratosis,agentclinic_medqa_extended_fixed,2,true,text_contains,182,Squamous cell carcinoma of the skin,true,10287.txt
+Active chronic hepatitis B infection,agentclinic_medqa_extended_fixed,1,false,,,,false,
+Acute Hepatitis B,agentclinic_medqa_extended_fixed,1,true,text_contains,1441,Hepatitis B,true,10061.txt
+Acute Mesenteric Ischemia,agentclinic_medqa_extended_fixed,1,true,text_contains,915,Intestinal ischemia,true,11358.txt
+Acute Pharyngitis,agentclinic_mimiciv,3,false,,,,true,11303.txt
+Acute appendicitis with generalized peritonitis,agentclinic_mimiciv,1,false,,,,false,
+Acute appendicitis without mention of peritonitis,agentclinic_mimiciv,8,false,,,,false,
+Acute infective polyneuritis,agentclinic_mimiciv,1,false,,,,false,
+Acute interstitial nephritis,agentclinic_medqa_extended_fixed,1,true,text_contains,3613,Drugs and Supplements,true,10095.txt
+Acute lymphoblastic leukemia,agentclinic_medqa_extended_fixed,1,true,text_contains,206,Acute lymphocytic leukemia,true,10030.txt
+Acute myelogenous leukemia,agentclinic_medqa_extended_fixed,1,true,text_contains,219,Leukemia,true,10181.txt
+"Acute pericarditis, unspecified",agentclinic_mimiciv,1,false,,,,false,
+Acute pharyngitis,agentclinic_mimiciv,3,false,,,,true,11303.txt
+"Acute pharyngitis, unspecified",agentclinic_mimiciv,1,false,,,,false,
+Acute tonsillitis,agentclinic_mimiciv,1,false,,,,true,11303.txt
+Acute venous embolism and thrombosis of unspecified deep vessels of lower extremity,agentclinic_mimiciv,1,false,,,,false,
+Adenomatous polyp,agentclinic_medqa_extended_fixed,1,true,text_contains,60,Rectal cancer,true,10385.txt
+Adhesive capsulitis,agentclinic_medqa_extended_fixed,2,true,text_contains,807,Frozen shoulder,true,11471.txt
+Advanced sleep phase disorder,agentclinic_medqa_extended_fixed,1,false,,,,true,15070.txt
+Akathisia,agentclinic_medqa_extended_fixed,1,true,text_contains,10311,Drugs and Supplements,true,10004.txt
+"Alcohol abuse with intoxication, unspecified",agentclinic_mimiciv,6,false,,,,false,
+"Alcohol abuse, unspecified",agentclinic_mimiciv,10,false,,,,false,
+Anaphylactic reaction due to unspecified food,agentclinic_mimiciv,1,false,,,,false,
+Anomalies of other endocrine glands,agentclinic_mimiciv,1,false,,,,false,
+"Anxiety state, unspecified",agentclinic_mimiciv,2,false,,,,false,
+Aortic valve stenosis,agentclinic_medqa_extended_fixed,1,true,text_contains,32,Aortic valve regurgitation,true,1056.txt
+Apical lung tumor,agentclinic_medqa_extended_fixed,1,false,,,,true,11556.txt
+Aromatase deficiency,agentclinic_medqa_extended_fixed,1,false,,,,true,12148.txt
+Asthma,agentclinic_medqa_extended_fixed,1,true,text_contains,22,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,0.txt
+Atherosclerosis of native arteries of the extremities with rest pain,agentclinic_mimiciv,1,false,,,,false,
+Atrial Myxoma,agentclinic_medqa_extended_fixed,1,false,,,,true,11649.txt
+Atrial Septal Defect,agentclinic_medqa_extended_fixed,1,true,text_contains,127,Congenital heart defects in children,true,1020.txt
+Atrial fibrillation,agentclinic_mimiciv,1,true,text_contains,9,Rheumatic fever,true,0.txt
+Autosomal dominant polycystic kidney disease,agentclinic_medqa_extended_fixed,2,true,text_contains,496,Polycystic kidney disease,true,11356.txt
+Bacillus cereus infection,agentclinic_medqa_extended_fixed,2,false,,,,true,17539.txt
+"Backache, unspecified",agentclinic_mimiciv,1,false,,,,false,
+Bacterial Pharyngitis,agentclinic_mimiciv,1,false,,,,true,10110.txt
+Bacterial Vaginosis,agentclinic_mimiciv,1,true,text_contains,165,Cervicitis,true,10173.txt
+Bartter's syndrome,agentclinic_medqa_extended_fixed,1,true,text_contains,5798,Drugs and Supplements,true,10844.txt
+Bed bug bite,agentclinic_medqa_extended_fixed,1,false,,,,true,13378.txt
+Benign Paroxysmal Positional Vertigo (BPPV),agentclinic_medqa_extended_fixed,1,true,title_contains,299,Benign paroxysmal positional vertigo (BPPV),true,10185.txt
+Benign neoplasm of ovary,agentclinic_mimiciv,1,false,,,,false,
+Benign paroxysmal positional vertigo,agentclinic_medqa_extended_fixed,1,true,title_contains,299,Benign paroxysmal positional vertigo (BPPV),true,10185.txt
+Biliary atresia,agentclinic_medqa_extended_fixed,1,true,text_contains,79,Cirrhosis,true,10804.txt
+Bipolar II Disorder,agentclinic_mimiciv,1,true,text_contains,291,Bipolar disorder,true,11019.txt
+Boerhaave syndrome,agentclinic_medqa_extended_fixed,1,false,,,,true,11346.txt
+Borderline personality disorder,agentclinic_medqa_extended_fixed,1,true,text_contains,33,Intermittent explosive disorder,true,10464.txt
+Bowen's Disease,agentclinic_medqa_extended_fixed,1,true,text_contains,182,Squamous cell carcinoma of the skin,true,11692.txt
+Breast milk jaundice,agentclinic_medqa_extended_fixed,1,false,,,,true,12979.txt
+Brief Psychotic Disorder,agentclinic_medqa_extended_fixed,2,false,,,,true,10185.txt
+Bronchiectasis,agentclinic_medqa_extended_fixed,1,true,text_contains,200,Chronic cough,true,10118.txt
+Bullous pemphigoid,agentclinic_medqa_extended_fixed,1,true,title_exact,288,Bullous pemphigoid,true,10091.txt
+C. difficile colitis,agentclinic_medqa_extended_fixed,1,true,text_contains,283,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10181.txt
+"Calculus of bile duct without mention of cholecystitis, without mention of obstruction",agentclinic_mimiciv,1,false,,,,false,
+"Calculus of gallbladder and bile duct with other cholecystitis, without mention of obstruction",agentclinic_mimiciv,1,false,,,,false,
+Calculus of gallbladder with acute and chronic cholecystitis without obstruction,agentclinic_mimiciv,1,false,,,,false,
+"Calculus of gallbladder with acute cholecystitis, without mention of obstruction",agentclinic_mimiciv,1,false,,,,false,
+"Calculus of gallbladder with other cholecystitis, without mention of obstruction",agentclinic_mimiciv,1,false,,,,false,
+Calculus of kidney,agentclinic_mimiciv,2,false,,,,false,
+Calculus of ureter,agentclinic_mimiciv,2,false,,,,false,
+Cardiac Contusion,agentclinic_medqa_extended_fixed,1,false,,,,true,11573.txt
+Cardiac Tamponade,agentclinic_medqa_extended_fixed,1,true,text_contains,498,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10056.txt
+Cardiac contusion,agentclinic_medqa_extended_fixed,1,false,,,,true,11573.txt
+Cellulitis and abscess of face,agentclinic_mimiciv,2,false,,,,false,
+"Cellulitis and abscess of finger, unspecified",agentclinic_mimiciv,1,false,,,,false,
+"Cellulitis and abscess of foot, except toes",agentclinic_mimiciv,1,false,,,,false,
+"Cellulitis and abscess of leg, except foot",agentclinic_mimiciv,4,false,,,,false,
+Cellulitis and abscess of upper arm and forearm,agentclinic_mimiciv,2,false,,,,false,
+Central retinal artery occlusion,agentclinic_medqa_extended_fixed,2,false,,,,true,11062.txt
+"Cerebral aneurysm, nonruptured",agentclinic_mimiciv,1,false,,,,false,
+"Cerebral artery occlusion, unspecified with cerebral infarction",agentclinic_mimiciv,1,false,,,,false,
+Cervical spondylosis with myelopathy,agentclinic_mimiciv,1,false,,,,false,
+Cervical spondylosis without myelopathy,agentclinic_mimiciv,1,false,,,,false,
+"Chest pain, unspecified",agentclinic_mimiciv,25,false,,,,false,
+Chickenpox,agentclinic_medqa_extended_fixed,1,true,text_contains,31,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10012.txt
+Chronic Granulomatous Disease,agentclinic_medqa_extended_fixed,1,true,title_exact,223,Chronic granulomatous disease,true,10537.txt
+Chronic Venous Insufficiency,agentclinic_medqa_extended_fixed,1,true,text_contains,458,Edema,true,1109.txt
+Chronic kidney failure,agentclinic_medqa_extended_fixed,2,true,text_contains,20,Kidney cancer,true,10091.txt
+Chronic lymphocytic leukemia,agentclinic_medqa_extended_fixed,2,true,title_exact,121,Chronic lymphocytic leukemia,true,10134.txt
+Chronic lymphocytic leukemia (CLL),agentclinic_medqa_extended_fixed,2,true,title_exact,121,Chronic lymphocytic leukemia,true,10134.txt
+Chronic obstructive pulmonary disease,agentclinic_medqa_extended_fixed,2,true,text_contains,143,Pneumothorax,true,0.txt
+Chronic obstructive pulmonary disease (COPD),agentclinic_medqa_extended_fixed,1,true,text_contains,143,Pneumothorax,true,0.txt
+Chronic paroxysmal hemicrania,agentclinic_mimiciv,1,false,,,,true,15441.txt
+Coarctation of the aorta,agentclinic_medqa_extended_fixed,1,true,text_contains,274,Brain aneurysm,true,10364.txt
+Complex partial seizure,agentclinic_medqa_extended_fixed,1,true,text_contains,410,Epilepsy,true,10663.txt
+Compression of the brain,agentclinic_mimiciv,1,true,text_contains,11611,Lumbar puncture (spinal tap),true,12032.txt
+Congenital Rubella Infection,agentclinic_medqa_extended_fixed,1,false,,,,true,14082.txt
+"Contact dermatitis and other eczema, unspecified cause",agentclinic_mimiciv,1,false,,,,false,
+Crohn’s disease,agentclinic_medqa_extended_fixed,1,true,text_contains,2908,Drugs and Supplements,true,10161.txt
+Cytomegalovirus retinitis,agentclinic_medqa_extended_fixed,1,false,,,,true,10157.txt
+De Quervain tenosynovitis,agentclinic_medqa_extended_fixed,1,true,text_contains,589,Wrist pain,true,11522.txt
+"Depressive disorder, not elsewhere classified",agentclinic_mimiciv,5,false,,,,false,
+Dermatofibroma,agentclinic_medqa_extended_fixed,1,false,,,,true,12867.txt
+Diabetes Mellitus with possible Diabetic Neuropathy,agentclinic_mimiciv,1,false,,,,false,
+"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",agentclinic_mimiciv,1,false,,,,false,
+Diffuse large B-cell lymphoma,agentclinic_medqa_extended_fixed,1,true,text_contains,121,Chronic lymphocytic leukemia,true,10095.txt
+Disc herniation,agentclinic_medqa_extended_fixed,1,false,,,,true,10486.txt
+Displacement of cervical intervertebral disc without myelopathy,agentclinic_mimiciv,1,false,,,,false,
+Displacement of lumbar intervertebral disc without myelopathy,agentclinic_mimiciv,4,false,,,,false,
+Dissection of vertebral artery,agentclinic_mimiciv,1,false,,,,false,
+Disseminated Gonococcal Infection,agentclinic_medqa_extended_fixed,1,false,,,,true,10111.txt
+Diverticulitis of colon (without mention of hemorrhage),agentclinic_mimiciv,3,false,,,,false,
+Dizziness and giddiness,agentclinic_mimiciv,2,false,,,,false,
+Double aortic arch,agentclinic_medqa_extended_fixed,1,false,,,,true,11345.txt
+Dumping Syndrome,agentclinic_medqa_extended_fixed,1,true,text_contains,6,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,12241.txt
+Duodenal atresia,agentclinic_medqa_extended_fixed,1,false,,,,true,11823.txt
+Eczematous dermatitis,agentclinic_medqa_extended_fixed,1,false,,,,true,10667.txt
+Endometritis,agentclinic_medqa_extended_fixed,1,true,text_contains,546,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10173.txt
+Epidermoid cyst,agentclinic_medqa_extended_fixed,1,true,title_contains,241,Epidermoid cysts,true,11116.txt
+Epigastric abdominal pain likely due to Gallstones/Cholelithiasis,agentclinic_mimiciv,1,false,,,,false,
+Epistaxis,agentclinic_mimiciv,1,true,text_contains,5628,Drugs and Supplements,true,10018.txt
+Erythema Infectiosum,agentclinic_medqa_extended_fixed,1,false,,,,true,1244.txt
+Erythema Toxicum,agentclinic_medqa_extended_fixed,1,false,,,,true,14160.txt
+Essential thrombocythemia,agentclinic_medqa_extended_fixed,1,true,text_contains,474,Pulmonary hypertension,true,10056.txt
+Ewing sarcoma,agentclinic_medqa_extended_fixed,2,true,text_contains,257,Bone cancer,true,10095.txt
+Exertional heat stroke,agentclinic_medqa_extended_fixed,1,false,,,,true,10004.txt
+Factitious disorder,agentclinic_medqa_extended_fixed,2,true,title_exact,1078,Factitious disorder,true,11380.txt
+Femoropopliteal artery stenosis,agentclinic_medqa_extended_fixed,2,false,,,,false,
+Fibroadenoma,agentclinic_medqa_extended_fixed,1,true,title_exact,1103,Fibroadenoma,true,10398.txt
+Frontotemporal Dementia,agentclinic_medqa_extended_fixed,2,true,text_contains,179,Chronic traumatic encephalopathy,true,11191.txt
+Fulminant hepatic failure,agentclinic_medqa_extended_fixed,1,true,text_contains,746,Acute liver failure,true,10190.txt
+Gastric peptic ulcer,agentclinic_medqa_extended_fixed,2,false,,,,true,16335.txt
+Genitopelvic pain disorder,agentclinic_medqa_extended_fixed,1,false,,,,false,
+Glanzmann’s Thrombasthenia,agentclinic_medqa_extended_fixed,1,false,,,,true,10417.txt
+Glossopharyngeal Neuralgia,agentclinic_medqa_extended_fixed,1,false,,,,true,10092.txt
+Granulosa cell tumor,agentclinic_medqa_extended_fixed,1,false,,,,true,12547.txt
+Hair Tourniquet Syndrome,agentclinic_medqa_extended_fixed,1,false,,,,true,11444.txt
+Hair tourniquet syndrome,agentclinic_medqa_extended_fixed,1,false,,,,true,11444.txt
+Hemolytic uremic syndrome,agentclinic_medqa_extended_fixed,1,true,text_contains,12,Acute kidney failure,true,10095.txt
+Hemophilia,agentclinic_medqa_extended_fixed,1,true,text_contains,1049,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10187.txt
+Hemophilia A,agentclinic_medqa_extended_fixed,1,true,text_contains,1480,Hemophilia,true,10187.txt
+Hemorrhoids,agentclinic_medqa_extended_fixed,1,true,text_contains,19,Anal itching,true,10019.txt
+Hirschsprung disease,agentclinic_medqa_extended_fixed,1,true,text_contains,2708,Drugs and Supplements,true,11375.txt
+Hirschsprung’s disease,agentclinic_medqa_extended_fixed,1,false,,,,false,
+Histoplasmosis,agentclinic_medqa_extended_fixed,1,true,text_contains,876,Iritis,true,10360.txt
+Huntington disease,agentclinic_medqa_extended_fixed,1,true,text_contains,6225,Drugs and Supplements,true,10836.txt
+Hydronephrosis with renal and ureteral calculous obstruction,agentclinic_mimiciv,1,false,,,,false,
+Hypertrophic Cardiomyopathy,agentclinic_medqa_extended_fixed,1,true,text_contains,27,Mitral valve regurgitation,true,10012.txt
+Hypertrophic cardiomyopathy,agentclinic_medqa_extended_fixed,1,true,text_contains,27,Mitral valve regurgitation,true,10012.txt
+Ichthyosis Vulgaris,agentclinic_medqa_extended_fixed,1,false,,,,true,14830.txt
+Impaired erythropoietin production,agentclinic_medqa_extended_fixed,1,false,,,,true,11964.txt
+"Infective otitis externa, unspecified",agentclinic_mimiciv,1,false,,,,false,
+Interstitial Emphysema,agentclinic_mimiciv,1,false,,,,true,12075.txt
+Interstitial cystitis,agentclinic_medqa_extended_fixed,1,true,text_contains,225,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10158.txt
+"Intervertebral disc disorders with radiculopathy, lumbosacral region",agentclinic_mimiciv,1,false,,,,false,
+Intraventricular Hemorrhage,agentclinic_medqa_extended_fixed,1,true,text_contains,497,Premature birth,true,10012.txt
+Irritable Bowel Syndrome,agentclinic_medqa_extended_fixed,1,true,text_contains,151,Microscopic colitis,true,10055.txt
+Ischiorectal abscess,agentclinic_mimiciv,1,false,,,,true,11373.txt
+Keratoacanthoma,agentclinic_medqa_extended_fixed,1,true,text_contains,5770,Drugs and Supplements,true,10234.txt
+Labyrinthitis,agentclinic_medqa_extended_fixed,1,true,text_contains,1756,Dizziness,true,10094.txt
+Lambert-Eaton Syndrome,agentclinic_medqa_extended_fixed,1,true,text_contains,2091,Drugs and Supplements,true,10256.txt
+Lambert-Eaton syndrome,agentclinic_medqa_extended_fixed,1,true,text_contains,2091,Drugs and Supplements,true,10256.txt
+Left tubal pregnancy without intrauterine pregnancy,agentclinic_mimiciv,1,false,,,,false,
+Legg-Calvé-Perthes disease (LCPD),agentclinic_medqa_extended_fixed,1,true,title_exact,1321,Legg-Calve-Perthes disease,true,11001.txt
+"Leiomyoma of uterus, unspecified",agentclinic_mimiciv,2,false,,,,false,
+Leprosy,agentclinic_medqa_extended_fixed,1,true,text_contains,590,Peripheral neuropathy,true,10182.txt
+Lichen Sclerosus,agentclinic_medqa_extended_fixed,2,true,text_contains,135,Vulvar cancer,true,11896.txt
+Lisdexamfetamine intoxication,agentclinic_medqa_extended_fixed,1,false,,,,false,
+Listeriosis,agentclinic_medqa_extended_fixed,1,true,text_contains,1919,Drugs and Supplements,true,10380.txt
+Lumbago,agentclinic_mimiciv,1,false,,,,true,10656.txt
+Lung cancer,agentclinic_medqa_extended_fixed,1,true,title_exact,68,Lung cancer,true,10019.txt
+Lyme Disease,agentclinic_mimiciv,1,true,text_contains,590,Peripheral neuropathy,true,10111.txt
+MEN1,agentclinic_medqa_extended_fixed,1,true,text_contains,11164,Cholesterol test,true,1172.txt
+Major depressive disorder,agentclinic_medqa_extended_fixed,1,true,title_contains,159,Depression (major depressive disorder),true,10035.txt
+"Major depressive disorder, recurrent severe without psychotic features",agentclinic_mimiciv,1,false,,,,false,
+"Major depressive disorder, single episode, unspecified",agentclinic_mimiciv,6,false,,,,false,
+Malignant melanoma,agentclinic_medqa_extended_fixed,1,true,text_contains,260,Pancreatic cancer,true,10167.txt
+"Malignant neoplasm of kidney, except pelvis",agentclinic_mimiciv,1,false,,,,false,
+"Malignant neoplasm of left kidney, except renal pelvis",agentclinic_mimiciv,1,false,,,,false,
+Malignant neoplasm of prostate,agentclinic_mimiciv,1,false,,,,true,10769.txt
+Malignant neoplasm of thyroid gland,agentclinic_mimiciv,2,false,,,,false,
+Medullary Sponge Kidney,agentclinic_medqa_extended_fixed,1,true,text_contains,11296,Intravenous pyelogram,true,11388.txt
+Meigs syndrome,agentclinic_medqa_extended_fixed,1,false,,,,true,13326.txt
+Membranous nephropathy,agentclinic_medqa_extended_fixed,1,true,text_contains,1857,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10091.txt
+"Migraine with aura, not intractable, without status migrainosus",agentclinic_mimiciv,1,false,,,,false,
+Minimal Change Disease,agentclinic_medqa_extended_fixed,1,true,text_contains,1857,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10019.txt
+Molluscum contagiosum,agentclinic_medqa_extended_fixed,2,true,text_contains,1221,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10456.txt
+Mononucleosis (Infectious mononucleosis caused by Epstein-Barr virus),agentclinic_mimiciv,1,true,text_contains,41,Ruptured spleen,true,10185.txt
+Multiple system atrophy,agentclinic_medqa_extended_fixed,1,true,text_contains,23,REM sleep behavior disorder,true,11311.txt
+Myasthenia gravis,agentclinic_medqa_extended_fixed,2,true,text_contains,141,Paraneoplastic syndromes of the nervous system,true,10012.txt
+Neonatal Respiratory Distress Syndrome (NRDS),agentclinic_medqa_extended_fixed,1,false,,,,true,10007.txt
+Neuroleptic Malignant Syndrome,agentclinic_medqa_extended_fixed,2,true,text_contains,1901,Drugs and Supplements,true,10036.txt
+Neuroleptic malignant syndrome,agentclinic_medqa_extended_fixed,1,true,text_contains,1901,Drugs and Supplements,true,10036.txt
+Nightmare disorder,agentclinic_medqa_extended_fixed,1,true,title_exact,1860,Nightmare disorder,true,10950.txt
+Normal behavior,agentclinic_medqa_extended_fixed,1,true,text_contains,1867,Drugs and Supplements,true,10041.txt
+Occipital neuralgia,agentclinic_mimiciv,1,false,,,,true,11761.txt
+Occlusion and stenosis of carotid artery without mention of cerebral infarction,agentclinic_mimiciv,1,false,,,,false,
+Onychia and paronychia of finger,agentclinic_mimiciv,1,false,,,,false,
+"Opioid abuse, continuous",agentclinic_mimiciv,1,false,,,,false,
+Oppositional Defiant Disorder,agentclinic_medqa_extended_fixed,1,true,text_contains,810,Attention-deficit/hyperactivity disorder (ADHD) in children,true,11019.txt
+Osteoarthritis,agentclinic_medqa_extended_fixed,2,true,text_contains,29,Rheumatoid arthritis,true,10012.txt
+Osteoclastoma,agentclinic_medqa_extended_fixed,1,false,,,,true,12348.txt
+Other and unspecified noninfectious gastroenteritis and colitis,agentclinic_mimiciv,1,false,,,,false,
+Other causes of myelitis,agentclinic_mimiciv,1,false,,,,false,
+Other chest pain,agentclinic_mimiciv,4,false,,,,true,3686.txt
+Other convulsions,agentclinic_mimiciv,1,false,,,,false,
+Other pulmonary embolism and infarction,agentclinic_mimiciv,1,false,,,,false,
+Other respiratory abnormalities,agentclinic_mimiciv,1,false,,,,true,19082.txt
+"Otitis media, unspecified, left ear",agentclinic_mimiciv,1,false,,,,false,
+Pain in limb,agentclinic_mimiciv,1,false,,,,false,
+Pancreatic adenocarcinoma,agentclinic_medqa_extended_fixed,2,true,text_contains,260,Pancreatic cancer,true,10167.txt
+Papillary carcinoma of the thyroid,agentclinic_medqa_extended_fixed,1,false,,,,true,12433.txt
+Parkinson disease,agentclinic_medqa_extended_fixed,1,true,text_contains,1909,Drugs and Supplements,true,10004.txt
+Paroxysmal Atrial Fibrillation,agentclinic_medqa_extended_fixed,1,true,text_contains,833,Atrial fibrillation,true,10447.txt
+Pathologic fracture of vertebrae,agentclinic_mimiciv,1,false,,,,false,
+Pelvic inflammatory disease,agentclinic_medqa_extended_fixed,1,true,text_contains,142,Chlamydia trachomatis,true,10055.txt
+Pemphigus vulgaris,agentclinic_medqa_extended_fixed,1,true,text_contains,632,Pemphigus,true,10572.txt
+Peptic Ulcer Disease,agentclinic_mimiciv,1,true,text_contains,1719,Systemic mastocytosis,true,10017.txt
+Perforated gastric peptic ulcer,agentclinic_medqa_extended_fixed,1,false,,,,false,
+"Peripheral vertigo, unspecified",agentclinic_mimiciv,2,false,,,,false,
+Peritonsillar abscess,agentclinic_mimiciv,3,true,text_contains,991,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,11303.txt
+Pes anserine bursitis,agentclinic_medqa_extended_fixed,1,true,text_contains,363,Knee bursitis,true,11543.txt
+Phyllodes tumor,agentclinic_medqa_extended_fixed,2,true,text_contains,1103,Fibroadenoma,true,12858.txt
+Physiological neonatal jaundice,agentclinic_medqa_extended_fixed,1,false,,,,false,
+Pilonidal cyst with abscess,agentclinic_mimiciv,1,false,,,,false,
+Plummer-Vinson syndrome,agentclinic_medqa_extended_fixed,1,false,,,,true,11345.txt
+Pneumonia,agentclinic_medqa_extended_fixed,3,true,text_contains,22,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10010.txt
+"Pneumonia, organism unspecified",agentclinic_mimiciv,1,false,,,,false,
+Polymyositis,agentclinic_medqa_extended_fixed,1,true,title_exact,465,Polymyositis,true,10020.txt
+Polyostotic Fibrous Dysplasia,agentclinic_medqa_extended_fixed,1,false,,,,true,11820.txt
+Posterior hip dislocation,agentclinic_medqa_extended_fixed,1,false,,,,true,11488.txt
+Posttraumatic stress disorder,agentclinic_medqa_extended_fixed,1,true,text_contains,3217,Drugs and Supplements,true,10052.txt
+Primary sclerosing cholangitis,agentclinic_medqa_extended_fixed,1,true,text_contains,79,Cirrhosis,true,10822.txt
+Progressive multifocal encephalopathy (PML),agentclinic_medqa_extended_fixed,1,true,text_contains,1994,Drugs and Supplements,true,10034.txt
+Progressive multifocal leukoencephalopathy,agentclinic_medqa_extended_fixed,1,true,text_contains,1994,Drugs and Supplements,true,10034.txt
+Pseudocyesis,agentclinic_medqa_extended_fixed,2,false,,,,true,12870.txt
+Pseudomonas keratitis,agentclinic_medqa_extended_fixed,1,false,,,,true,11745.txt
+Psoriatic arthritis,agentclinic_medqa_extended_fixed,2,true,text_contains,591,Psoriasis,true,10068.txt
+"Pyelonephritis, unspecified",agentclinic_mimiciv,1,false,,,,false,
+Pyoderma gangrenosum,agentclinic_medqa_extended_fixed,1,true,title_exact,587,Pyoderma gangrenosum,true,10389.txt
+Reaction to spinal or lumbar puncture,agentclinic_mimiciv,1,false,,,,false,
+Reactive Arthritis,agentclinic_medqa_extended_fixed,1,true,text_contains,10,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,105.txt
+Renal colic,agentclinic_mimiciv,1,false,,,,true,10338.txt
+Respiratory Distress Syndrome,agentclinic_medqa_extended_fixed,1,true,text_contains,133,Coronavirus disease 2019 (COVID-19),true,10007.txt
+Rhabdomyolysis,agentclinic_mimiciv,3,true,text_contains,12,Acute kidney failure,true,10020.txt
+Right tubal pregnancy without intrauterine pregnancy,agentclinic_mimiciv,1,false,,,,false,
+Roseola infantum,agentclinic_medqa_extended_fixed,1,false,,,,true,14540.txt
+Rupture of the flexor digitorum profundus tendon at its point of insertion,agentclinic_medqa_extended_fixed,1,false,,,,false,
+Ruptured ovarian cyst,agentclinic_medqa_extended_fixed,1,false,,,,true,11383.txt
+Schizoaffective disorder,agentclinic_medqa_extended_fixed,1,true,title_exact,1694,Schizoaffective disorder,true,10190.txt
+"Schizoaffective disorder, unspecified",agentclinic_mimiciv,1,false,,,,false,
+Schizoid Personality Disorder,agentclinic_medqa_extended_fixed,1,true,text_contains,500,Personality disorders,true,15506.txt
+Schizophrenia,agentclinic_medqa_extended_fixed,1,true,title_contains,263,Childhood schizophrenia,true,10004.txt
+Schizophreniform Disorder,agentclinic_medqa_extended_fixed,1,false,,,,true,10184.txt
+Schizotypal personality disorder,agentclinic_medqa_extended_fixed,1,true,text_contains,500,Personality disorders,true,13015.txt
+Seborrheic dermatitis,agentclinic_medqa_extended_fixed,1,true,text_contains,229,Cradle cap,true,10005.txt
+Seborrheic keratosis,agentclinic_medqa_extended_fixed,2,true,text_contains,859,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10550.txt
+Serum sickness-like reaction,agentclinic_medqa_extended_fixed,1,false,,,,true,10053.txt
+Silent Thyroiditis,agentclinic_medqa_extended_fixed,1,false,,,,true,1192.txt
+Silicosis,agentclinic_medqa_extended_fixed,1,false,,,,true,11406.txt
+Situational syncope,agentclinic_medqa_extended_fixed,1,false,,,,true,11311.txt
+Somatization disorder,agentclinic_medqa_extended_fixed,2,false,,,,true,11656.txt
+Spinal Stenosis,agentclinic_medqa_extended_fixed,1,true,text_contains,384,Back pain,true,1110.txt
+Squamous cell carcinoma,agentclinic_medqa_extended_fixed,1,true,text_contains,68,Lung cancer,true,10019.txt
+Steven-Johnson syndrome,agentclinic_medqa_extended_fixed,1,true,text_contains,5228,Drugs and Supplements,true,10968.txt
+Streptococcal pharyngitis,agentclinic_mimiciv,2,true,text_contains,8556,Drugs and Supplements,true,10105.txt
+Streptococcal sore throat,agentclinic_mimiciv,1,false,,,,true,11303.txt
+Suicidal ideation,agentclinic_mimiciv,1,true,text_contains,2025,Drugs and Supplements,true,10020.txt
+Syncope and collapse,agentclinic_mimiciv,1,false,,,,true,11311.txt
+Syringomyelia,agentclinic_medqa_extended_fixed,2,true,text_contains,178,Chiari malformation,true,11395.txt
+Takotsubo cardiomyopathy,agentclinic_medqa_extended_fixed,2,true,text_contains,383,Broken heart syndrome,true,1018.txt
+Temporomandibular joint dysfunction,agentclinic_medqa_extended_fixed,1,false,,,,true,11941.txt
+Testicular torsion,agentclinic_medqa_extended_fixed,1,true,text_contains,267,Undescended testicle,true,11442.txt
+Tetralogy of Fallot,agentclinic_medqa_extended_fixed,1,true,text_contains,127,Congenital heart defects in children,true,10270.txt
+"The findings do not strongly indicate a specific acute pathology and may be consistent with a non-specific viral illness or early presentation of a more specific illness. The normal range of most test results suggests that there is no immediate acute disease. Given the generalized symptoms and lack of specific findings, a conservative approach with symptomatic treatment and watchful waiting is recommended with instructions to return or seek further care if symptoms worsen or if more specific symptoms develop.",agentclinic_mimiciv,1,false,,,,false,
+Thoracic aortic rupture,agentclinic_medqa_extended_fixed,1,false,,,,true,12073.txt
+"Threatened premature labor, antepartum condition or complication",agentclinic_mimiciv,1,false,,,,false,
+Thrombotic Thrombocytopenic Purpura,agentclinic_medqa_extended_fixed,1,true,text_contains,12,Acute kidney failure,true,10029.txt
+Tinea cruris,agentclinic_medqa_extended_fixed,1,true,text_contains,2,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10156.txt
+"Torsion of testis, unspecified",agentclinic_mimiciv,2,false,,,,false,
+Toxic diffuse goiter without mention of thyrotoxic crisis or storm,agentclinic_mimiciv,1,false,,,,false,
+Toxic exposure,agentclinic_medqa_extended_fixed,1,true,text_contains,72,Cerebral palsy,true,10078.txt
+Tracheobronchial rupture,agentclinic_medqa_extended_fixed,1,false,,,,true,12073.txt
+Tuberculosis,agentclinic_medqa_extended_fixed,1,true,text_contains,200,Chronic cough,true,10012.txt
+Type 2 Diabetes Mellitus with signs of hypertension and microalbuminuria,agentclinic_mimiciv,1,false,,,,false,
+Ulcerative (chronic) enterocolitis,agentclinic_mimiciv,1,true,text_contains,3,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,0.txt
+"Umbilical hernia with obstruction, without gangrene",agentclinic_mimiciv,1,false,,,,false,
+Unspecified acute appendicitis,agentclinic_mimiciv,2,false,,,,false,
+Unspecified appendicitis,agentclinic_mimiciv,1,false,,,,false,
+Unspecified intestinal obstruction,agentclinic_mimiciv,1,false,,,,true,16326.txt
+Unspecified psychosis,agentclinic_mimiciv,1,false,,,,false,
+"Unspecified psychosis possibly compounded by substance use (noting the positive opiate screen). However, thorough examination and history are required to exclude other organic causes.",agentclinic_mimiciv,1,false,,,,false,
+"Unspecified schizophrenia, unspecified",agentclinic_mimiciv,1,false,,,,false,
+Unspecified sinusitis (chronic),agentclinic_mimiciv,1,true,text_contains,3,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,0.txt
+Unspecified transient cerebral ischemia,agentclinic_mimiciv,1,false,,,,false,
+Unspecified viral meningitis,agentclinic_mimiciv,1,false,,,,false,
+Uterine rupture,agentclinic_medqa_extended_fixed,1,true,text_contains,1108,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,11408.txt
+Vaginal septum,agentclinic_medqa_extended_fixed,1,false,,,,true,11431.txt
+Valley fever,agentclinic_medqa_extended_fixed,1,true,text_contains,269,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,1212.txt
+Varicella,agentclinic_medqa_extended_fixed,1,true,text_contains,31,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10.txt
+Vasovagal syncope,agentclinic_medqa_extended_fixed,1,true,title_exact,1053,Vasovagal syncope,true,1043.txt
+Vitiligo,agentclinic_medqa_extended_fixed,2,true,text_contains,1045,https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg,true,10092.txt
+Waldenstrom macroglobulinemia,agentclinic_medqa_extended_fixed,1,true,text_contains,177,Cryoglobulinemia,true,10134.txt

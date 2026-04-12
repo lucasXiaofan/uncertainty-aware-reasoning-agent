@@ -1,0 +1,118 @@
+Diagnosis: Streptococcal sore throat
+Source: mayoclinic
+Guideline title: Sore throat
+Guideline id: 586
+Relevant scenario_ids: 184
+Matched alias: sore throat
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg
+Sore throat
+Overview
+
+
+A sore throat is pain, scratchiness or irritation of the throat that often worsens when you swallow. The most common cause of a sore throat (pharyngitis) is a viral infection, such as a cold or the flu. A sore throat caused by a virus resolves on its own.
+Strep throat (streptococcal infection), a less common type of sore throat caused by bacteria, requires treatment with antibiotics to prevent complications. Other less common causes of sore throat might require more complex treatment.
+Symptoms
+
+
+Symptoms of a sore throat can vary depending on the cause. Signs and symptoms might include:
+Pain or a scratchy sensation in the throat
+Pain that worsens with swallowing or talking
+Difficulty swallowing
+Sore, swollen glands in your neck or jaw
+Swollen, red tonsils
+White patches or pus on your tonsils
+A hoarse or muffled voice
+Infections causing a sore throat might result in other signs and symptoms, including:
+Fever
+Cough
+Runny nose
+Sneezing
+Body aches
+Headache
+Nausea or vomiting
+When to see a doctor
+
+
+Take your child to a doctor ifyour child's sore throat doesn't go away with the first drink in the morning, recommends the American Academy of Pediatrics.
+Get immediate care if your child hassevere signs and symptoms such as:
+Difficulty breathing
+Difficulty swallowing
+Unusual drooling, which might indicate an inability to swallow
+If you're an adult, see your doctor ifyou have a sore throat and any of the following associated problems, according to the American Academy of Otolaryngology — Head and Neck Surgery:
+A sore throat that is severe or lasts longer than a week
+Difficulty swallowing
+Difficulty breathing
+Difficulty opening your mouth
+Joint pain
+Earache
+Rash
+Fever higher than 101 F (38.3 C)
+Blood in your saliva or phlegm
+Frequently recurring sore throats
+A lump in your neck
+Hoarseness lasting more than two weeks
+Swelling in your neck or face
+Causes
+
+
+Viruses that cause the common cold and the flu also cause most sore throats. Less often, bacterial infections cause sore throats.
+Viral infections
+Viral illnesses that cause a sore throat include:
+Common cold
+Flu (influenza)
+Mono (mononucleosis)
+Measles
+Chickenpox
+Coronavirus disease 2019 (COVID-19)
+Croup — a common childhood illness characterized by a harsh, barking cough
+Bacterial infections
+Many bacterial infections can cause a sore throat. The most common is Streptococcus pyogenes (group A streptococcus) which causes strep throat.
+Other causes
+Other causes of a sore throat include:
+Allergies.Allergies to pet dander, molds, dust and pollen can cause a sore throat. The problem may be complicated by postnasal drip, which can irritate and inflame the throat.
+Dryness.Dry indoor air can make your throat feel rough and scratchy. Breathing through your mouth — often because of chronic nasal congestion — also can cause a dry, sore throat.
+Irritants.Outdoor air pollution and indoor pollution such as tobacco smoke or chemicals can cause a chronic sore throat. Chewing tobacco, drinking alcohol and eating spicy foods also can irritate your throat.
+Muscle strain.You can strain muscles in your throat by yelling, talking loudly or talking for long periods without rest.
+Gastroesophageal reflux disease (GERD).GERD is a digestive system disorder in which stomach acids back up in the food pipe (esophagus).
+Other signs or symptoms may include heartburn, hoarseness, regurgitation of stomach contents and the sensation of a lump in your throat.
+HIV infection.A sore throat and other flu-like symptoms sometimes appear early after someone is infected with HIV.
+Also, someone who is HIV-positive might have a chronic or recurring sore throat due to a fungal infection called oral thrush or due to a viral infection called cytomegalovirus (CMV), which can be serious in people with compromised immune systems.
+Tumors.Cancerous tumors of the throat, tongue or voice box (larynx) can cause a sore throat. Other signs or symptoms may include hoarseness, difficulty swallowing, noisy breathing, a lump in the neck, and blood in saliva or phlegm.
+Rarely, an infected area of tissue (abscess) in the throat or swelling of the small cartilage "lid" that covers the windpipe (epiglottitis) can cause a sore throat. Both can block the airway, creating a medical emergency.
+Risk factors
+
+
+Although anyone can get a sore throat, some factors make you more susceptible, including:
+Age.Children and teens are most likely to develop sore throats. Children ages 3 to 15 are also more likely to have strep throat, the most common bacterial infection associated with a sore throat.
+Exposure to tobacco smoke.Smoking and secondhand smoke can irritate the throat. The use of tobacco products also increases the risk of cancers of the mouth, throat and voice box.
+Allergies.Seasonal allergies or ongoing allergic reactions to dust, molds or pet dander make developing a sore throat more likely.
+Exposure to chemical irritants.Particles in the air from burning fossil fuels and common household chemicals can cause throat irritation.
+Chronic or frequent sinus infections.Drainage from your nose can irritate your throat or spread infection.
+Close quarters.Viral and bacterial infections spread easily anywhere people gather, whether in child care centers, classrooms, offices or airplanes.
+Weakened immunity.You're more susceptible to infections in general if your resistance is low. Common causes of lowered immunity include HIV, diabetes, treatment with steroids or chemotherapy drugs, stress, fatigue, and poor diet.
+Prevention
+
+
+The best way to prevent sore throats is to avoid the germs that cause them and practice good hygiene. Follow these tips and teach your child to do the same:
+Wash your handsthoroughly and frequently for at least 20 seconds, especially after using the toilet, before and after eating, and after sneezing or coughing.
+Avoid touching your face.Avoid touching your eyes, nose or mouth.
+Avoid sharingfood, drinking glasses or utensils.
+Cough or sneezeinto a tissue and throw it away, and then wash your hands. When necessary, sneeze into your elbow.
+Use alcohol-based hand sanitizersas an alternative to washing hands when soap and water aren't available.
+Avoid touchingpublic phones or drinking fountains with your mouth.
+Regularly clean and disinfectphones, doorknobs, light switches, remotes and computer keyboards. When you travel, clean phones, light switches and remotes in your hotel room.
+Avoid close contactwith people who are sick or have symptoms.
+By Mayo Clinic Staff
+Terms & Conditions
+Notice of Nondiscrimination
+Privacy Policy
+Advertising & Sponsorship Policy
+Notice of Privacy Practices
+Accessibility Statement
+Manage Cookies
+Site Map
+© 1998-2023 Mayo Foundation for Medical Education and Research (MFMER). All rights reserved.

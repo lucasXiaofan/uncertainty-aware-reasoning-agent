@@ -19,11 +19,6 @@ agent_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../agen
 if agent_path not in sys.path:
     sys.path.append(agent_path)
 
-# Import memory retrieval
-from memory_retrieval_agent import retrieve_relevant_experiences
-
-# Import uncertainty-aware doctor
-from uncertainty_aware_doctor import UncertaintyAwareDoctorAgent
 
 # Global client variable
 client = None
@@ -157,6 +152,7 @@ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_
                     kwargs = {
                         "model": model_to_use,
                         "messages": messages,
+                        "temperature": 0.5,
                         token_param: 16000 if token_param == "max_completion_tokens" else 10000
                     }
                     if structured_mode == "schema":
@@ -269,7 +265,7 @@ def compare_results(diagnosis, correct_diagnosis, moderator_llm):
     return answer.lower()
 
 
-def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False, use_uncertainty_aware=False, uncertainty_agent_type="uncertainty_aware_doctor", knowledge_mode="none"):
+def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False, use_uncertainty_aware=False, uncertainty_agent_type="uncertainty_aware_doctor", knowledge_mode="none", data_file=None):
     global client
     if api_key:
         client = OpenAI(api_key=api_key)
@@ -285,19 +281,16 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
     if not client:
         print("Warning: No API key provided for OpenAI client.")
 
-    # Load MedQA, MIMICIV or NEJM agent case scenarios
-    if dataset == "MedQA":
-        scenario_loader = ScenarioLoaderMedQA()
-    elif dataset == "MedQA_Ext":
-        scenario_loader = ScenarioLoaderMedQAExtended()
+    # Load scenario data. MedQA and MedQA_Ext share the same OSCE schema, so a
+    # custom data_file can be used for either, including mixed subsets.
+    if dataset in {"MedQA", "MedQA_Ext", "NewMedQA"}:
+        scenario_loader = ScenarioLoaderOSCE(data_file=data_file, dataset=dataset)
     elif dataset == "NEJM":
         scenario_loader = ScenarioLoaderNEJM()
     elif dataset == "NEJM_Ext":
         scenario_loader = ScenarioLoaderNEJMExtended()
     elif dataset == "MIMICIV":
-        scenario_loader = ScenarioLoaderMIMICIV()
-    elif dataset == "NewMedQA":
-        scenario_loader = ScenarioLoaderNewMedQA()
+        scenario_loader = ScenarioLoaderMIMICIV(data_file=data_file)
     else:
         raise Exception("Dataset {} does not exist".format(str(dataset)))
     total_correct = 0
@@ -322,23 +315,14 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
             bias_present=patient_bias,
             backend_str=patient_llm)
         
-        # Instantiate Doctor Agent
-        if use_uncertainty_aware:
-            doctor_agent = UncertaintyAwareDoctorAgent(
-                scenario=scenario,
-                bias_present=doctor_bias,
-                backend_str=doctor_llm,
-                max_infs=total_inferences,
-                img_request=img_request,
-                agent_type=uncertainty_agent_type)
-        else:
-            doctor_agent = DoctorAgent(
-                scenario=scenario,
-                bias_present=doctor_bias,
-                backend_str=doctor_llm,
-                max_infs=total_inferences,
-                img_request=img_request,
-                knowledge_mode=knowledge_mode)
+ 
+        doctor_agent = DoctorAgent(
+            scenario=scenario,
+            bias_present=doctor_bias,
+            backend_str=doctor_llm,
+            max_infs=total_inferences,
+            img_request=img_request,
+            knowledge_mode=knowledge_mode)
 
         print(f"\n\n================================================================")
         print(f"STARTING SCENARIO {_scenario_id}")
@@ -369,11 +353,7 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
 
             # Get memory context from past experiences (optional)
             memory_context = ""
-            if use_memory and len(conversation_history) > 0:
-                memory_context = retrieve_relevant_experiences(
-                    conversation_history=conversation_history,
-                    session_id=session_id
-                )
+
 
             # Obtain doctor dialogue (human or llm agent)
             if inf_type == "human_doctor":
@@ -505,7 +485,7 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
 
 
 
-class ScenarioMedQA:
+class ScenarioOSCE:
     def __init__(self, scenario_dict) -> None:
         self.scenario_dict = scenario_dict
         self.tests = scenario_dict["OSCE_Examination"]["Test_Results"]
@@ -529,12 +509,27 @@ class ScenarioMedQA:
         return self.diagnosis
 
 
-class ScenarioLoaderMedQA:
-    def __init__(self) -> None:
-        with open("agentclinic_medqa.jsonl", "r") as f:
+class ScenarioLoaderOSCE:
+    DEFAULT_DATA_FILES = {
+        "MedQA": "agentclinic_medqa.jsonl",
+        "MedQA_Ext": "agentclinic_medqa_extended.jsonl",
+        "NewMedQA": "experiment_highest_transfer_clusters/new_medqa_similar_cases.jsonl",
+    }
+
+    def __init__(self, data_file=None, dataset="MedQA") -> None:
+        scenario_path = self._resolve_data_file(data_file, dataset)
+        with open(scenario_path, "r") as f:
             self.scenario_strs = [json.loads(line) for line in f]
-        self.scenarios = [ScenarioMedQA(_str) for _str in self.scenario_strs]
+        self.scenarios = [ScenarioOSCE(_str) for _str in self.scenario_strs]
         self.num_scenarios = len(self.scenarios)
+
+    @classmethod
+    def _resolve_data_file(cls, data_file, dataset):
+        if data_file:
+            return data_file
+        if dataset not in cls.DEFAULT_DATA_FILES:
+            raise ValueError(f"No default data file configured for dataset '{dataset}'")
+        return cls.DEFAULT_DATA_FILES[dataset]
     
     def sample_scenario(self):
         return self.scenarios[random.randint(0, len(self.scenarios)-1)]
@@ -543,60 +538,6 @@ class ScenarioLoaderMedQA:
         if id is None: return self.sample_scenario()
         return self.scenarios[id]
         
-
-class ScenarioMedQAExtended:
-    def __init__(self, scenario_dict) -> None:
-        self.scenario_dict = scenario_dict
-        self.tests = scenario_dict["OSCE_Examination"]["Test_Results"]
-        self.diagnosis = scenario_dict["OSCE_Examination"]["Correct_Diagnosis"]
-        self.patient_info  = scenario_dict["OSCE_Examination"]["Patient_Actor"]
-        self.examiner_info  = scenario_dict["OSCE_Examination"]["Objective_for_Doctor"]
-        self.physical_exams = scenario_dict["OSCE_Examination"]["Physical_Examination_Findings"]
-    
-    def patient_information(self) -> dict:
-        return self.patient_info
-
-    def examiner_information(self) -> dict:
-        return self.examiner_info
-    
-    def exam_information(self) -> dict:
-        exams = self.physical_exams
-        exams["tests"] = self.tests
-        return exams
-    
-    def diagnosis_information(self) -> dict:
-        return self.diagnosis
-
-
-class ScenarioLoaderMedQAExtended:
-    def __init__(self) -> None:
-        with open("agentclinic_medqa_extended.jsonl", "r") as f:
-            self.scenario_strs = [json.loads(line) for line in f]
-        self.scenarios = [ScenarioMedQAExtended(_str) for _str in self.scenario_strs]
-        self.num_scenarios = len(self.scenarios)
-    
-    def sample_scenario(self):
-        return self.scenarios[random.randint(0, len(self.scenarios)-1)]
-    
-    def get_scenario(self, id):
-        if id is None: return self.sample_scenario()
-        return self.scenarios[id]
-        
-
-class ScenarioLoaderNewMedQA:
-    def __init__(self) -> None:
-        with open("experiment_highest_transfer_clusters/new_medqa_similar_cases.jsonl", "r") as f:
-            self.scenario_strs = [json.loads(line) for line in f]
-        self.scenarios = [ScenarioMedQAExtended(_str) for _str in self.scenario_strs]
-        self.num_scenarios = len(self.scenarios)
-    
-    def sample_scenario(self):
-        return self.scenarios[random.randint(0, len(self.scenarios)-1)]
-    
-    def get_scenario(self, id):
-        if id is None: return self.sample_scenario()
-        return self.scenarios[id]
-
 
 class ScenarioMIMICIVQA:
     def __init__(self, scenario_dict) -> None:
@@ -623,8 +564,11 @@ class ScenarioMIMICIVQA:
 
 
 class ScenarioLoaderMIMICIV:
-    def __init__(self) -> None:
-        with open("agentclinic_mimiciv.jsonl", "r") as f:
+    DEFAULT_DATA_FILE = "agentclinic_mimiciv.jsonl"
+
+    def __init__(self, data_file=None) -> None:
+        scenario_path = data_file or self.DEFAULT_DATA_FILE
+        with open(scenario_path, "r") as f:
             self.scenario_strs = [json.loads(line) for line in f]
         self.scenarios = [ScenarioMIMICIVQA(_str) for _str in self.scenario_strs]
         self.num_scenarios = len(self.scenarios)
@@ -847,7 +791,16 @@ class DoctorAgent:
         uncertainty_reasoning = ""
 
         # Build experience prompt with optional memory context
-        experience = """### SYSTEM & TOOL INSTRUCTIONS (CRITICAL)
+
+        # below experience are for mimic now
+        experience = """### 
+You are a general hospital physician evaluating a real-world clinical case (EHR-style, like MIMIC).
+Key assumptions:
+- Information may be incomplete or noisy.
+- Diagnoses correspond to ICD-style labels
+provide a clinically appropriate assessment
+
+SYSTEM & TOOL INSTRUCTIONS 
 1. **Unified Test Interface:** Due to system design, Physical Examinations (PE) and Vital Signs are accessed via the test command. You cannot 'see' the patient automatically. - To check Vitals or the physcial information about the patient or do a Physical Exam, you MUST use: "REQUEST TEST: [Name]" (ex "REQUEST TEST: Abdominal_Examination") - To order Tests, you also use: "REQUEST TEST: [Name]", you may also request medical images related to the disease to be returned with \"REQUEST IMAGES\"
 
 2. **Dialogue:** When talking to the patient, focus your questions on: Demographics, History of Present Illness (Symptoms), Past Medical History, and Social History.
@@ -856,88 +809,19 @@ class DoctorAgent:
 2. **Investigate:** Ask the patient questions to understand the history and symptom range.
 If a requested physical exam, laboratory test, or imaging study is unavailable, declined, or its result is unspecified:
 
-1. Do NOT repeat the same request.
+1. Do NOT repeat the same request, one test request at a time
 2. Do NOT request highly specific or procedure-level tests.
 3. Instead, either:
    a) Request a broader category of tests (e.g., CBC, basic metabolic panel, liver function test, urinalysis, coagulation panel, inflammatory markers), or
-   b) If the test is unavailable, choose the next-best discriminative test or return to high-value questions from history/exam.
+   b) If the test is unavailable, choose the next-best discriminative test, physical examination or return to high-value questions from history/exam.
 
 4. Avoid redundant clarification questions 
 5. do not ask patient question and request test at the same time
 
 ### RULES - **Diagnosis:** When you have gathered sufficient evidence to be confident, output "DIAGNOSIS READY: [diagnosis here]". - **Mutually Exclusive:** if you need ask further questions or request tests you are not ready for Diagnosis
+
 """
-# [EXP-05] 
-# Trigger: Continuous machinery murmur on newborn cardiac exam
-# Suggestion: Order echocardiogram
 
-# [EXP-07] 
-# Trigger: High clinical suspicion for congenital infection with classic triad
-# Suggestion: Order infant rubella IgM
-
-# [EXP-02] 
-# Trigger: functional aganglionic obstruction is leading candidate
-# Suggestion: rectal biopsy 
-
-# [EXP-03] 
-# Trigger: Na 120 mEq/L + low serum osmolality + elevated urine osmolality
-# Suggestion: order urine sodium
-
-
-
-
-# [EXP-01] IMAGING SYNDROME → PIVOT
-# Stage: Post X-ray
-# Trigger: diffuse dilated bowel loops + absent rectal gas in neonate
-# Action: pivot from "distal obstruction" → "functional aganglionic obstruction"
-# Eliminates: malrotation, jejunoileal atresia, meconium ileus (without CF history)
-
-# [EXP-02] LEADING DIAGNOSIS → CONFIRMATORY ACTION
-# Stage: Post pivot
-# Trigger: functional aganglionic obstruction is leading candidate
-# Action: rectal biopsy — only test that confirms mechanism directly
-# Skip: contrast enema if biopsy is available
-
-
-# [EXP-03] LAB SYNDROME → PIVOT
-# Stage: Post basic metabolic panel
-# Trigger: Na 120 mEq/L + low serum osmolality + inappropriately high urine osmolality
-# Action: pivot from “structural CNS process” → “water-retention metabolic encephalopathy”
-# Eliminates: chronic subdural hematoma, brain tumor, encephalitis as primary cause
-# Raises: SIADH to leading diagnosis
-
-# [EXP-04] LEADING DIAGNOSIS → CONFIRMATORY ACTION
-# Stage: Post pivot
-# Trigger: Na 120 mEq/L + low serum osmolality + elevated urine osmolality
-# Action: order urine sodium
-# Skip: EEG, head CT, further neurologic exams
-
-# [EXP-05] LEADING DIAGNOSIS → CONFIRMATORY ACTION
-# Stage: Initial assessment
-# Trigger: Continuous machinery murmur on newborn cardiac exam
-# Action: Order echocardiogram
-# Skip: Gastrointestinal obstruction workup
-
-# [EXP-06] IMAGING SYNDROME → PIVOT
-# Stage: After echocardiogram
-# Trigger: Echocardiogram showing patent ductus arteriosus
-# Action: Ask mother about febrile illness or rash during early pregnancy
-# Skip: Further evaluation of bowel function
-
-# [EXP-07] LEADING DIAGNOSIS → CONFIRMATORY ACTION
-# Stage: Physical examination synthesis
-# Trigger: Congenital cataracts with failed newborn hearing screen
-# Action: Order TORCH serologies
-# Skip: Observation for delayed meconium passage
-
-
-# CHAIN: EXP-01 → EXP-02
-# CHAIN: EXP-03 → EXP-04
-# CHAIN: EXP-05 → EXP-06 → EXP-07
-# Each fires only if the previous one executed correctly
-# """
-        # if memory_context:
-        #     experience += f"\n\n### RELEVANT DIAGNOSTIC EXPERIENCES FROM PAST CASES:\n{memory_context}\n"
         if self.knowledge_text:
             experience += f"\n\n### EXTERNAL MEDICAL KNOWLEDGE ({self.knowledge_mode.upper()}):\n{self.knowledge_text}\n"
 
@@ -1069,10 +953,11 @@ if __name__ == "__main__":
     
     parser.add_argument('--output_file', type=str, default=None, required=False, help='File to append results to')
     parser.add_argument('--scenario_offset', type=int, default=0, required=False, help='Scenario ID to start from')
+    parser.add_argument('--data_file', type=str, default=None, required=False, help='Override scenario JSONL path for compatible datasets')
     parser.add_argument('--use_memory', action='store_true', default=False, help='Enable memory retrieval from past experiences (default: disabled)')
     parser.add_argument('--use_uncertainty_aware', action='store_true', default=False, help='Use uncertainty-aware doctor agent with explicit reasoning tracking (default: disabled)')
     parser.add_argument('--uncertainty_agent_type', type=str, default='uncertainty_aware_doctor', help='Uncertainty-aware agent type (default: uncertainty_aware_doctor)')
     parser.add_argument('--knowledge', type=str, default='none', choices=['none', 'symptom', 'diagnosis', 'both'], help='External knowledge mode for DoctorAgent (default: none)')
     args = parser.parse_args()
 
-    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory, args.use_uncertainty_aware, args.uncertainty_agent_type, args.knowledge)
+    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory, args.use_uncertainty_aware, args.uncertainty_agent_type, args.knowledge, args.data_file)

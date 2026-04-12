@@ -1,0 +1,71 @@
+Diagnosis: Left tubal pregnancy without intrauterine pregnancy
+Original diagnosis label: Left tubal pregnancy without intrauterine pregnancy
+Source: mayoclinic
+Guideline title: Ectopic pregnancy
+Guideline id: 398
+Relevant scenario_ids: 52
+Matched alias: ectopic pregnancy
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg
+Ectopic pregnancy
+Overview
+
+
+Pregnancy begins with a fertilized egg. Normally, the fertilized egg attaches to the lining of the uterus. An ectopic pregnancy occurs when a fertilized egg implants and grows outside the main cavity of the uterus.
+An ectopic pregnancy most often occurs in a fallopian tube, which carries eggs from the ovaries to the uterus. This type of ectopic pregnancy is called a tubal pregnancy. Sometimes, an ectopic pregnancy occurs in other areas of the body, such as the ovary, abdominal cavity or the lower part of the uterus (cervix), which connects to the vagina.
+An ectopic pregnancy can't proceed normally. The fertilized egg can't survive, and the growing tissue may cause life-threatening bleeding, if left untreated.
+Symptoms
+
+
+You may not notice any symptoms at first. However, some women who have an ectopic pregnancy have the usual early signs or symptoms of pregnancy — a missed period, breast tenderness and nausea.
+If you take a pregnancy test, the result will be positive. Still, an ectopic pregnancy can't continue as normal.
+As the fertilized egg grows in the improper place, signs and symptoms become more noticeable.
+Early warning of ectopic pregnancy
+Often, the first warning signs of an ectopic pregnancy are light vaginal bleeding and pelvic pain.
+If blood leaks from the fallopian tube, you may feel shoulder pain or an urge to have a bowel movement. Your specific symptoms depend on where the blood collects and which nerves are irritated.
+Emergency symptoms
+If the fertilized egg continues to grow in the fallopian tube, it can cause the tube to rupture. Heavy bleeding inside the abdomen is likely. Symptoms of this life-threatening event include extreme lightheadedness, fainting and shock.
+When to see a doctor
+
+
+Seek emergency medical help if you have any signs or symptoms of an ectopic pregnancy, including:
+Severe abdominal or pelvic pain accompanied by vaginal bleeding
+Extreme lightheadedness or fainting
+Shoulder pain
+Causes
+
+
+A tubal pregnancy — the most common type of ectopic pregnancy — happens when a fertilized egg gets stuck on its way to the uterus, often because the fallopian tube is damaged by inflammation or is misshapen. Hormonal imbalances or abnormal development of the fertilized egg also might play a role.
+Risk factors
+
+
+Some things that make you more likely to have an ectopic pregnancy are:
+Previous ectopic pregnancy.If you've had this type of pregnancy before, you're more likely to have another.
+Inflammation or infection.Sexually transmitted infections, such as gonorrhea or chlamydia, can cause inflammation in the tubes and other nearby organs, and increase your risk of an ectopic pregnancy.
+Fertility treatments.Some research suggests that women who have in vitro fertilization (IVF) or similar treatments are more likely to have an ectopic pregnancy. Infertility itself may also raise your risk.
+Tubal surgery.Surgery to correct a closed or damaged fallopian tube can increase the risk of an ectopic pregnancy.
+Choice of birth control.The chance of getting pregnant while using an intrauterine device (IUD) is rare. However, if you do get pregnant with an intrauterine device (IUD) in place, it's more likely to be ectopic. Tubal ligation, a permanent method of birth control commonly known as "having your tubes tied," also raises your risk, if you become pregnant after this procedure.
+Smoking.Cigarette smoking just before you get pregnant can increase the risk of an ectopic pregnancy. The more you smoke, the greater the risk.
+Complications
+
+
+An ectopic pregnancy can cause your fallopian tube to burst open. Without treatment, the ruptured tube can lead to life-threatening bleeding.
+Prevention
+
+
+There's no way to prevent an ectopic pregnancy, but here are some ways to decrease your risk:
+Limiting the number of sexual partners and using a condom during sex helps to prevent sexually transmitted infections and may reduce the risk of pelvic inflammatory disease.
+Don't smoke. If you do, quit before you try to get pregnant.
+By Mayo Clinic Staff
+Terms & Conditions
+Notice of Nondiscrimination
+Privacy Policy
+Advertising & Sponsorship Policy
+Notice of Privacy Practices
+Accessibility Statement
+Manage Cookies
+Site Map
+© 1998-2023 Mayo Foundation for Medical Education and Research (MFMER). All rights reserved.

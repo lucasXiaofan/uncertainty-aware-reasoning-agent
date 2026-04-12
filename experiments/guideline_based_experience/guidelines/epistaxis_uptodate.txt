@@ -1,0 +1,304 @@
+Diagnosis: Epistaxis
+Source: uptodate
+Guideline title: Management of epistaxis in children
+Guideline id: 11878.txt
+Relevant scenario_ids: 119
+Matched alias: epistaxis
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/结果/11878.txt
+
+Guideline content
+
+Management of epistaxis in children
+
+   Author:
+          Anna H Messner, MD
+
+   Section Editors:
+          Anne M Stack, MD
+          Glenn C Isaacson, MD, FAAP
+
+   Deputy Editor:
+          James F Wiley, II, MD, MPH
+
+   Contributor Disclosures
+   All topics are updated as new evidence becomes available and our peer review process is complete.
+   Literature review current through: Jul 2023.
+   This topic last updated: Jul 22, 2022.
+
+   INTRODUCTION — The management of epistaxis in children will be reviewed here. The epidemiology, etiology, and evaluation of epistaxis in children are discussed separately. (See "Causes of epistaxis in children" and "Evaluation of epistaxis in children".)
+
+   BACKGROUND — Epistaxis is common in children. Childhood nosebleeds are rarely severe and seldom require hospital admission [1]. Nonetheless, frequent minor nosebleeds can be both bothersome and alarming for parents/caregivers and children. Most epistaxis in children is minor and is easily managed with direct compression of the nasal alae for 5 to 10 minutes. For more significant or recurrent epistaxis, other techniques might include vasoconstrictor nose spray, cautery with silver nitrate, topical sealants or glue, nasal packing, or balloon catheters. Children with refractory epistaxis or underlying local or systemic factors (eg, nasal tumor or bleeding disorder) that predispose to epistaxis require an individualized approach to management and specialty consultation.
+
+   EMERGENCY TREATMENT — Our approach to epistaxis in children is largely consistent with the clinical practice guidelines published by the American Academy of Otolaryngology-Head and Neck Surgery Foundation and endorsed by the American Academy of Pediatrics [2,3]. Most children with epistaxis have spontaneous anterior nasal bleeding without airway compromise or hemodynamic instability. Rapid assessment of general appearance, vital signs, airway stability, and mental status are still necessary to identify children who require airway intervention and/or fluid resuscitation. Airway intervention may be needed for patients who are spitting or regurgitating blood and in those with hemorrhagic shock. (See "Technique of emergency endotracheal intubation in children" and "Hypovolemic shock in children: Initial evaluation and management", section on 'Fluid resuscitation'.)
+
+   In patients with marked nasal hemorrhage, rapid assessment and stabilization is followed immediately by attempts to identify the etiology and source of bleeding and initiation of measures to control it. Blood factors or platelets should be administered to patients who have bleeding disorders that can be treated with such products. (See 'Refractory epistaxis' below and 'Bleeding disorders' below.)
+
+   The remainder of the evaluation is undertaken after the patient is stabilized. (See "Evaluation of epistaxis in children".)
+
+   ACUTE MANAGEMENT — In stable children, management of epistaxis consists of control of acute hemorrhage and prevention of recurrences by controlling underlying local or systemic disease processes. Active bleeding usually responds to simple compression, but may require topical vasoconstriction, cautery, application of a hemostatic agent, nasal packing, or more aggressive measures as described below [4].
+
+   Direct pressure — Active bleeding usually responds to direct pressure (algorithm 1). The correct method is to pinch the nasal alae together below the bony portion of the nose (figure 1) and apply pressure to the Kiesselbach plexus (figure 2 and figure 3), the most common site of nosebleeds. If clots are present, they may be removed by having the child gently blow their nose or, in younger children, by suction aspiration [2]. Pressure by either pinching the nose or with a nose clip is then applied for five minutes or longer before checking to see if the bleeding is controlled [4]. If the patient is too young to reliably pinch their nose closed, a caregiver (preferred if willing and able) or a member of the healthcare team should provide direct pressure.
+
+   During direct compression, the child should be sitting up and bent forward at the waist to minimize bleeding into the oral cavity and hypopharynx (picture 1). This position avoids possible aspiration or swallowing of the blood. Efforts to calm the child (eg, distraction, reassuring statements, and positive imagery) and reduce crying are complementary to direct compression.
+
+   Control of bleeding is usually achieved within 5 to 10 minutes after constant direct pressure.
+
+   Topical vasoconstriction — If direct compression alone does not stop the nosebleed, we suggest topical vasoconstriction with oxymetazoline (Afrin, Mucinex Sinus-Max nasal spray) rather than phenylephrine (Neo-Synephrine Nasal) followed by another attempt at direct pressure (algorithm 1). If using cotton/gauze application, the cotton/gauze is kept in place during direct pressure and immediately removed after control of bleeding. The dose of oxymetazoline 0.05% is one to two squirts into the bleeding side of the nose. Oxymetazoline is preferred to phenylephrine because phenylephrine has been associated with significant morbidity and even mortality when used topically in children in the operative setting [5].
+
+   Other techniques
+
+   Cautery — An anterior septal bleed unresponsive to the above measures may benefit from cautery, either chemically or electrically (thermally) (algorithm 1) [6]. Cauterization is also commonly used for children with recurrent benign epistaxis who are seen in the otolaryngology clinic (see 'Prevention of recurrent benign epistaxis' below). The procedure is typically well tolerated by most children despite minor pain:
+
+   ●Apply topical anesthesia (eg, 50/50 mixture of 2% lidocaine solution and 0.05% oxymetazoline on a soaked cotton ball or gauze) to the bleeding site for 10 to 15 minutes.
+
+   ●Perform cautery:
+
+   •Chemical – Chemical cautery is usually accomplished with 25 to 75 percent silver nitrate sticks. The applicator tip is applied to a small area surrounding the active or suspected bleeding site with care to avoid intact skin (picture 2 and picture 3) [4]. The agent will work only on a relatively dry surface; the bleeding point itself cannot be cauterized until hemostasis is achieved either through cautery of the adjacent area, vasoconstrictive agents, and/or direct pressure.
+
+   •Electrical device – Electrical cautery works equally well or better than silver nitrate, but also requires a dry surface. Both types of cautery may cause rhinorrhea and crusting.
+
+   Although there is little to no quality evidence that bilateral cautery is associated with subsequent septal perforations, it is recommended that bilateral septal cautery be performed judiciously [2]. Care should be taken that the silver nitrate mixed with mucus does not drip onto the upper lip, as it can cause a temporary unsightly gray discoloration of the skin that typically resolves after a few days. Some clinicians choose to use a nasal speculum to better expose the area to be cauterized, although it is not required.
+
+   Nasal packing — If cautery is unsuccessful or prevented by persistent bleeding, nasal packing is the next step to manage anterior nosebleeds in children ≥3 years of age (algorithm 1) [2,4]. Nasal packing should be avoided in infants <3 years old because of the increased risk of aspiration and airway obstruction. Serious epistaxis warranting nasal packing in this age group is rare and requires prompt evaluation by a pediatric otolaryngologist.
+
+   Once nasal packing is required, otolaryngology consultation is usually warranted. The otolaryngologist can place the pack and help determine the underlying cause of the bleeding. In patients with a suspected or known hereditary hemorrhagic telangiectasia, bleeding disorder, or receiving anticoagulation or antiplatelet medications, the clinician should use resorbable packing to avoid rebleeding associated with nasal packing removal [2]. For young children, we suggest the use of resorbable packing to avoid unnecessary emotional trauma or need for sedation caused by nasal packing removal. For patients with known bleeding disorders and severe bleeding requiring nasal packing, topical antifibrinolytic agents (ie, topical epsilon-aminocaproic acid or tranexamic acid) and systemic treatment (eg, factor replacement in patients with hemophilia) in consultation with a hematologist is warranted. (See 'Bleeding disorders' below.)
+
+   After anterior nasal packing is placed, the oropharynx must be examined to confirm adequate hemostasis. Posterior bleeding may be present if patients report swallowing blood after anterior nasal packing has been placed. Evaluation for posterior bleeding requires consultation with an otolaryngologist, and possibly placement of posterior nasal packing.
+
+   In addition, hospital admission may be required, because the need for nasal packing is suggestive of an underlying disorder that may require observation for rebleeding and further evaluation if the cause is unknown.
+
+   The techniques for nasal packing vary according to the type of material used:
+
+   ●Resorbable nasal pack – Resorbable nasal pack components and brand names include [2]:
+
+   •Gelatin (Gelfoam)
+
+   •Oxidized, regenerated cellulose (Surgicel)
+
+   •Microfibrillar collagen (Avitene)
+
+   •Synthetic biodegradable foam (NasoPore, HemoPore)
+
+   •Carboxymethylcellulose (Nasastent, Sinu-Foam)
+
+   •Chitosan-based polymers (PosiSep)
+
+   •Hyaluronic acid (MeroGel)
+
+   •Hemostatic agents (Floseal, Surgiflo)
+
+   These products may require mixing and then are applied over the bleeding site according to manufacturer's instructions.
+
+   ●Nonresorbable nasal pack – For children receiving nonresorbable nasal packing, we suggest a pediatric nasal sponge (eg, Merocel, Rapid Rhino, Rhino Rocket) (picture 4) rather than insertion of sterile petroleum-impregnated gauze [2]:
+
+   •Pediatric nasal sponge – The pack is inserted directly along the floor of the nasal cavity and is expanded with 10 to 20 mL of saline. Bulging of the soft palate or excessive pain indicates overinflation and requires careful deflation to maintain control of bleeding while avoiding complications associated with excessive pressure on the soft palate, nasal mucosa, and/or nasal septum.
+
+   •Sterile-impregnated gauze – Gauze nasal packing is performed with a nasal speculum and bayonet forceps that are used to insert petroleum-impregnated gauze (one-quarter to one-half inch) in an accordion fashion. Packing starts along the nasal cavity floor and progresses from the bottom and back of the nose forward until the nasal cavity is filled. Correct placement requires specific training and experience. Gauze packing provides a tight pack. However, it takes longer to place than a nasal sponge, is uncomfortable and may create additional mucosal injury. Thus, it is an acceptable method when performed by an experienced clinician, but the alternatives above are preferred.
+
+   Nonresorbable packs require close follow-up by an otolaryngologist to determine the timing of removal (typically one to five days). The practitioner, caregiver, and child should be prepared for possible rebleeding at the time of pack removal.
+
+   For children with nonresorbable anterior nasal packs, we suggest that prophylactic antibiotics not be given routinely. While the pack is in place, and even after its removal, there is a rare risk of staphylococcal toxic shock syndrome or infective endocarditis [7,8]. Neither prophylactic systemic antibiotics nor impregnation of nasal packing with antibiotic ointment eradicate nasal carriage or reliably prevent toxic shock syndrome. Though antibiotics are not routinely recommended for patients with nasal packing in place, individual studies looking at toxic shock syndrome are underpowered to detect prevention of this rare complication, thus the risks and benefits of antibiotic use in patients with packing in place should be evaluated for each patient [2,9,10]. Antibiotics may be prescribed if there is evidence of an underlying sinus infection (table 1). (See "Acute bacterial rhinosinusitis in children: Microbiology and management", section on 'Empiric antibiotics'.)
+
+   Indications for consultation — Most episodes of epistaxis resolve with compression of the nasal alae for 5 to 10 minutes and do not require specialty care. Referral to or consultation with an otolaryngologist or other specialist is indicated for patients with refractory epistaxis (eg, uncontrollable bleeding, posterior epistaxis, or hemodynamically unstable [4]), troublesome recurrent epistaxis, or local abnormalities, such as tumors (image 1) or telangiectasias. (See 'Refractory epistaxis' below and "Causes of epistaxis in children".)
+
+   In addition, consultation with an otolaryngologist may be helpful in children who require nasal packing. The otolaryngologist can place the pack and help to determine the underlying cause of bleeding. (See 'Emergency treatment' above and 'Nasal packing' above.)
+
+   Referral to hematology may be warranted for patients with abnormal bleeding studies, severe or recurrent bleeding, and/or a family history of bleeding disorders. (See "Approach to the child with bleeding symptoms" and "Evaluation of epistaxis in children", section on 'Laboratory evaluation'.)
+
+   REFRACTORY EPISTAXIS
+
+   Approach — Refractory epistaxis in children occurs most commonly in the setting of a bleeding disorder, benign tumor, hereditary hemorrhagic telangiectasia, or a nasal fracture [11]. When epistaxis in a child cannot be controlled by one of the methods described above, more aggressive therapeutic procedures may be necessary as follows:
+
+   ●Nasal balloon catheters – Placement of nasal balloon catheters is relatively straightforward and can be accomplished rapidly by any trained clinician. A single or double balloon catheter (eg, a Foley catheter, Rapid Rhino, Epistat, Epi-Max, Post-stat, or Post-stop) can be inserted (picture 5). The technique for insertion is discussed in detail separately. (See "Approach to the adult with epistaxis", section on 'Balloon catheters' and "Approach to the adult with epistaxis", section on 'Foley catheter'.)
+
+   Patients who require nasal balloon catheter placement warrant prompt consultation with a pediatric otolaryngologist to expedite further evaluation and definitive management.
+
+   ●Endovascular embolization – Embolization of the internal maxillary artery has been reported to be successful in cases of intractable epistaxis unresponsive to other treatments. An otolaryngologist with pediatric expertise should guide the decision to perform embolization versus operative control. In one report of over 11,000 children hospitalized for epistaxis, embolization was performed in <1 percent of patients [2,11].
+
+   Embolization also has been useful in controlling bleeding in patients with hereditary hemorrhagic telangiectasia, juvenile angiofibromas, hemangiomas, arterial-venous malformations, and traumatic arterial lacerations. In general, morbidity is low when embolization is performed by an experienced interventional radiologist. However, most studies report a small incidence of major complications, usually stroke [12].
+
+   ●Operative control – Surgery (transnasal endoscopy and direct cautery or arterial ligation) by an otolaryngologist with pediatric experience is necessary in some cases, particularly those in which the bleeding is of posterior or superior origin [13].
+
+   Once patients with refractory or prolonged (>30 minutes) epistaxis are stabilized, the cause and source of the bleeding require additional evaluation that includes (see "Evaluation of epistaxis in children"):
+
+   ●Rhinoscopy and, if bleeding is persistent, nasal endoscopy by an otolaryngologist.
+
+   ●Evaluation for a bleeding disorder, including personal and family history of bleeding and measurement of platelet count, prothrombin time, activated partial thromboplastin time, and von Willebrand factors (VWFs). Consultation with a pediatric hematologist is also suggested. (See "Approach to the child with bleeding symptoms".)
+
+   ●If a mass lesion is suspected, computed tomography (CT) with contrast or magnetic resonance imaging (MRI).
+
+   Special populations — Children with underlying local or systemic factors that predispose to epistaxis often require an individualized approach to management and/or specialty consultation.
+
+   Bleeding disorders — When managing epistaxis in patients with bleeding disorders, consultation with the patient's regular clinician(s) and/or individuals with expertise in bleeding disorders is strongly encouraged. In addition to local therapies discussed above, topical antifibrinolytic agents (ie, topical epsilon-aminocaproic acid or tranexamic acid) may be advised to improve hemostasis. Systemic interventions may be required if bleeding is severe or persists despite local interventions.
+
+   Additional information is discussed in separate topic reviews:
+
+   ●Hemophilia – Important information for management includes the type of hemophilia (hemophilia A [factor VIII deficiency] or B [factor IX deficiency]), the disease severity (baseline factor activity levels), and whether an inhibitor is present. Mild hemophilia A may be treated with desmopressin (DDAVP) in some cases. Administration of factor concentrates and other agents may be required in severe hemophilia and/or for more severe bleeding (table 2). (See "Treatment of bleeding and perioperative management in hemophilia A and B", section on 'Minor bleeding'.)
+
+   ●von Willebrand disease (VWD) – Important information for management of epistaxis includes the type of VWD if known (table 3) and whether a DDAVP response test has been performed (and the result) because this information determines the appropriate treatment. (See "von Willebrand disease (VWD): Treatment of minor bleeding, use of DDAVP, and routine preventive care".)
+
+   For patients with severe or persistent bleeding, treatment options besides DDAVP include aminocaproic acid (Amicar), tranexamic acid, VWF concentrates, and, for selected patients, factor VIII concentrates or platelet transfusions. Hematology consultation is strongly encouraged. (See "von Willebrand disease (VWD): Treatment of major bleeding and major surgery".)
+
+   For children with acquired von Willebrand syndrome (aVWS), treatment is directed at the underlying cause. VWF concentrates or immunosuppressive agents may be used in some cases. (See "Acquired von Willebrand syndrome".)
+
+   ●Thrombocytopenia or platelet function disorders – A number of treatments are available including platelet transfusions, and, for immune thrombocytopenia (ITP), intravenous immune globulin (IVIG) and glucocorticoids (table 4). The indications and choice of therapy are discussed separately.
+
+   •ITP – (See "Immune thrombocytopenia (ITP) in children: Initial management", section on 'Treatment approach'.)
+
+   •Other causes of thrombocytopenia – (See "Platelet transfusion: Indications, ordering, and associated risks", section on 'Specific clinical scenarios'.)
+
+   •Platelet function disorders – (See "Inherited platelet function disorders (IPFDs)", section on 'Treatment'.)
+
+   Anticoagulated patients — In addition to local therapies discussed above, there may be a role for stopping the anticoagulant and/or administering a reversal agent. The decision to stop and/or reverse anticoagulation must balance the risk of thrombosis if the anticoagulant is discontinued with the risk of serious complications from bleeding if the anticoagulant is continued. As an example, we generally would not stop or reverse anticoagulation if the child has a mechanical heart valve or a recent large pulmonary embolism unless bleeding is considered to be life-threatening. The specialty physician who ordered the anticoagulant medications should be consulted before reversal.
+
+   Reversal strategies are discussed separately:
+
+   ●Warfarin – (See "Management of warfarin-associated bleeding or supratherapeutic INR", section on 'Treatment of bleeding'.)
+
+   ●Direct oral anticoagulants – (See "Management of bleeding in patients receiving direct oral anticoagulants".)
+
+   ●Heparins – (See "Heparin and LMW heparin: Dosing and adverse effects", section on 'Bleeding'.)
+
+   Hereditary hemorrhagic telangiectasia — Epistaxis may be the presenting finding in a child with hereditary hemorrhagic telangiectasia (HHT) or may occur in a child with known HHT [14]. There are numerous options for treatment. Specific therapies and details of administration are discussed separately. (See "Hereditary hemorrhagic telangiectasia (HHT): Evaluation and therapy for specific vascular lesions", section on 'Epistaxis'.)
+
+   If bleeding is chronic and/or significant, iron deficiency may develop. Testing or monitoring for iron deficiency may be appropriate. (See "Iron deficiency in infants and children <12 years: Screening, prevention, clinical manifestations, and diagnosis" and "Hereditary hemorrhagic telangiectasia (HHT): Routine care including screening for asymptomatic AVMs", section on 'Iron status'.)
+
+   Juvenile nasopharyngeal angiofibroma — Juvenile nasopharyngeal angiofibroma is treated with surgery or radiotherapy (image 1). (See "Causes of epistaxis in children", section on 'Tumors'.)
+
+   DISCHARGE INSTRUCTIONS — Discharge instructions for children with epistaxis should include education regarding home management, indications for reevaluation, and prevention of recurrent episodes.
+
+   In addition, if packing is in place, the family should be educated regarding the type of packing, timing of and planning for packing removal (if not resorbable). They should also be informed to seek prompt medical attention if the child develops fever and/or rash.
+
+   Children with nasal packing in place typically follow up with an otolaryngologist within one to five days for packing removal and reexamination. Children who have undergone cauterization of the nasal septum only need to follow up with their primary care physician or otolaryngologist if the epistaxis recurs.
+
+   Simple compression may be used to control nosebleeds at home. Parents/caregivers and patients may require explicit instructions and frequent review of the proper technique, as described above. (See 'Direct pressure' above and 'Prevention of recurrent benign epistaxis' below.)
+
+   Application of pressure to the Kiesselbach plexus is crucial, since this site is the source of most nosebleeds in children. Some patients and parents/caregivers believe that they should compress the nasal bones between the eyes, but compression between the eyes does not affect the source of bleeding. Some families or other caregivers also believe that ice or a cool cloth should be applied to the neck, forehead, or nasal bones, but reduction of nasal blood flow using this technique has not been substantiated [15].
+
+   Families or other caregivers may also try to induce vasoconstriction with over-the-counter decongestants (eg, oxymetazoline), but the family should be warned that oxymetazoline should be used sparingly and for a maximum of three days to avoid rebound hyperemia with recurrent epistaxis.
+
+   If simple compression and/or vasoconstriction are not successful in controlling bleeding, then further measures must be taken, usually in an emergency department setting [16].
+
+   PREVENTION OF RECURRENT BENIGN EPISTAXIS — In children, recurrent episodes of benign epistaxis are more common than epistaxis that cannot be controlled. Recurrence of epistaxis can be prevented only if the many causes are considered and appropriate preventive measures are instituted. To ensure that recurrent epistaxis is benign, children with recurrent epistaxis should be examined closely for a foreign body or nasal mass; bleeding disorders should be excluded in the appropriate clinical setting and the suggested laboratory evaluation is discussed separately. (See "Evaluation of epistaxis in children", section on 'Examination' and "Evaluation of epistaxis in children", section on 'Laboratory evaluation' and "Causes of epistaxis in children".)
+
+   We suggest humidification of the nasal mucosa and prevention of local trauma as first-line therapies for prevention of recurrent benign epistaxis in children. Running a warm or cold humidifier containing water without additives in the child's bedroom during the night can be helpful, but may be contraindicated in the child with severe allergies or pulmonary problems. Alternatively, saline nose spray or gel, commonly available over-the-counter in most drug stores, can be applied to the nose two to four times a day. In addition, prevention of local trauma by discouraging nose picking, keeping fingernails closely trimmed, and use of protective face gear, as indicated, during sports participation is appropriate for all patients [16].
+
+   Additional measures vary depending upon the suspected underlying cause of epistaxis, and include:
+
+   ●Topical therapy – Various topical treatments (eg, mupirocin) have been advocated to reduce chronic inflammation caused by Staphylococcus aureus, which may play a role in recurrent epistaxis. These agents may be applied to the mucosa of the nasal septum, potentially decreasing the propensity to bleed. Application is typically recommended one to two times per day. Care must be taken that the applicator (often a cotton swab) does not traumatize the mucosa of the nose. However, the indications and duration of this therapy are unclear, and long-term benefit has not been established [17].
+
+   Petroleum jelly application to the nose is often recommended but has not been proven to have benefit over simple observation [18].
+
+   ●Cautery – Cauterization of the septum with silver nitrate, as described above, may be a temporizing measure if prominent vessels are seen in the Kiesselbach plexus. Chemical cautery with silver nitrate can typically be performed in an office/ambulatory setting. (See 'Cautery' above.)
+
+   Alternatively, children who are unable to cooperate may require general anesthesia for a cautery procedure. If the procedure is done in the operating room, monopolar or bipolar cautery may be used. In one study of 110 children, bipolar cautery was found to have a longer nosebleed-free period within two years of treatment compared with chemical cautery, although there was no difference between the two cautery methods two years after treatment [19]. (See 'Cautery' above.)
+
+   ●Patients with allergic rhinitis – Minor nosebleeds are commonly listed as a potential side effect of intranasal corticosteroids. However, a recently published systematic review on the use of intranasal corticosteroid therapy in children concluded that the incidence of epistaxis in children using intranasal corticosteroids was no higher than those using a placebo [20]. If a trial off intranasal corticosteroids is recommended, alternative therapy (eg, oral antihistamines) can be offered to assist with allergic rhinitis symptoms. (See "Pharmacotherapy of allergic rhinitis".)
+
+   The best treatment for recurrent epistaxis in children is not known. Limited evidence suggests that cautery with topical therapy or topical therapy alone may be helpful in the short-term but may not provide improved long-term resolution of recurrent epistaxis:
+
+   ●A systematic review of five small trials evaluated the short-term effectiveness of various interventions for recurrent idiopathic epistaxis in 468 children [21]. Interventions included silver nitrate cautery, application of antiseptic cream containing 0.5% neomycin and 0.1% chlorhexidine (eg, Naseptin), and application of petroleum jelly. Resolution of epistaxis at four to eight weeks in children undergoing cautery, topical therapy, or both varied from approximately 50 to 98 percent compared with 29 to 44 percent in two studies with a total of 94 control patients [18,22]. The highest reported success (98 percent) occurred in 49 children with visible anterior nasal vessels who received cautery with 75 percent silver nitrate followed by application of chlorhexidine-neomycin cream (0.5% neomycin and 0.1% chlorhexidine) [21,23]. Application of petroleum jelly in a prospective trial of 105 children was not significantly different from control [18].
+
+   ●In one trial that was included in the systematic review and compared the frequency of recurrent epistaxis in 93 children with visible septal blood vessels who received either cautery with 75 percent silver nitrate and chlorhexidine-neomycin cream or chlorhexidine-neomycin cream alone, more patients treated with cautery plus antiseptic cream had clinically significantly reduced frequency and severity of bleeding at four weeks than those using cream alone (91 versus 70 percent, respectively), but complete resolution of recurrent epistaxis at eight weeks was not statistically different (46 versus 30 percent, respectively) [6].
+
+   ●In a five-year follow-up study of 60 of 88 children who initially underwent treatment with chlorhexidine-neomycin cream or chlorhexidine-neomycin cream and cautery, 65 percent were found to still have problems with epistaxis, and children who had undergone cautery had the highest frequency of recurrent epistaxis (77 percent) [17].
+
+   Thus, the optimal approach for long-term prevention of bleeding in children with recurrent idiopathic epistaxis is unclear and further research is needed [21].
+
+   PROGNOSIS — Most episodes of nose bleeding in children resolve spontaneously or with compression of the nasal alae as described above. Recurrent idiopathic epistaxis appears to resolve with time and is uncommon in children older than 14 years [24].
+
+   INFORMATION FOR PATIENTS — UpToDate offers two types of patient education materials, "The Basics" and "Beyond the Basics." The Basics patient education pieces are written in plain language, at the 5^th to 6^th grade reading level, and they answer the four or five key questions a patient might have about a given condition. These articles are best for patients who want a general overview and who prefer short, easy-to-read materials. Beyond the Basics patient education pieces are longer, more sophisticated, and more detailed. These articles are written at the 10^th to 12^th grade reading level and are best for patients who want in-depth information and are comfortable with some medical jargon.
+
+   Here are the patient education articles that are relevant to this topic. We encourage you to print or e-mail these topics to your patients. (You can also locate patient education articles on a variety of subjects by searching on "patient info" and the keyword(s) of interest.)
+
+   ●Basics topic (see "Patient education: Nosebleeds (The Basics)")
+
+   ●Beyond the Basics topic (see "Patient education: Nosebleeds (epistaxis) (Beyond the Basics)")
+
+   SUMMARY AND RECOMMENDATIONS
+
+   ●Emergency treatment – Identify respiratory compromise or hemodynamic instability that requires airway intervention and/or fluid resuscitation. Initiate bleeding control measures and obtain an emergency otolaryngology consultation, and, for patients with known bleeding disorders, a pediatric hematology consultation. (See 'Emergency treatment' above and 'Bleeding disorders' above.)
+
+   ●Acute management – The algorithm summarizes a stepwise approach to epistaxis treatment in children with active bleeding but no known underlying bleeding predisposition (algorithm 1) (see 'Acute management' above):
+
+   •Direct compression – Apply constant direct compression to the nasal alae below the bony portion of the nose (figure 3). Control of bleeding usually occurs within 5 to 10 minutes. (See 'Direct pressure' above.)
+
+   •Topical vasoconstriction – If direct compression alone does not stop the nosebleed, we suggest topical vasoconstriction (eg, 1 to 2 squirts of oxymetazoline 0.05% solution applied directly to the bleeding site or onto a small piece of cotton or gauze that is applied to the bleeding site) (Grade 2C) and repeat direct compression. (See 'Topical vasoconstriction' above.)
+
+   •Cautery – If bleeding continues and is clearly arising from the anterior septum, we suggest cautery (Grade 2C). After topical anesthesia, either chemical cautery with silver nitrate (picture 2 and picture 3) or electrical device cautery can be effective.
+
+   •Nasal packing – Children ≥3 years old in whom bleeding is severe or for whom the previously described measures are unsuccessful require nasal packing; otolaryngology consultation is usually warranted to facilitate packing and to help determine the bleeding source and cause. In patients with suspected or known hereditary hemorrhagic telangiectasia, bleeding disorder, or receiving anticoagulation or antiplatelet medications, the clinician should use resorbable packing. Other considerations in children who require nasal packing include (see 'Nasal packing' above):
+
+   -For young children and those with increased rebleeding risk (see 'Special populations' above), we suggest the use of resorbable nasal packing (Grade 2C). This approach avoids the pain and trauma of packing removal and prevents recurrent bleeding. Otherwise, either resorbable or nonresorbable packing (picture 4) is acceptable. More detail about nasal packing is provided above. (See 'Nasal packing' above.)
+
+   -For children receiving nonresorbable anterior nasal packs, we suggest that prophylactic antibiotics not be given routinely (Grade 2C). However, these patients require close follow-up by an otolaryngologist and their caregivers should be informed to seek prompt attention if they develop fever and/or rash.
+
+   -Nasal packing should be avoided in children <3 years old because of the increased risk of aspiration and airway obstruction. Serious epistaxis in this age group is rare and requires prompt evaluation by a pediatric otolaryngologist.
+
+   •Advanced techniques – In the rare child with bleeding refractory to all of these techniques, more aggressive procedures may be necessary and include (see 'Approach' above):
+
+   -Insertion of a nasal balloon catheter (eg, Foley catheter, Rapid Rhino, Epistat) (picture 5), which can be accomplished by any trained clinician, although prompt otolaryngology consultation is also indicated (see "Approach to the adult with epistaxis", section on 'Balloon catheters' and "Approach to the adult with epistaxis", section on 'Foley catheter')
+
+   -Endovascular embolization or operative control as determined by an otolaryngologist with pediatric expertise
+
+   ●Refractory bleeding – Refractory epistaxis in children occurs most commonly in the setting of a bleeding disorder, benign tumor, hereditary hemorrhagic telangiectasia, or a nasal fracture. Patients with epistaxis that is prolonged (eg, >30 minutes) or refractory warrant (see 'Approach' above):
+
+   •Rhinoscopy and nasal endoscopy by an otolaryngologist
+
+   •Evaluation for a bleeding disorder (see "Evaluation of epistaxis in children", section on 'Laboratory evaluation')
+
+   •For patients in whom a mass lesion is seen on examination or suspected, CT with contrast or MRI of the nasopharynx
+
+   ●Indications for specialty consultation – Most episodes of epistaxis resolve with compression of the nasal alae for 5 to 10 minutes and do not require specialty care. Consultation with or referral to an otolaryngologist or other specialist is indicated for patients with:
+
+   •Refractory epistaxis (eg, uncontrollable bleeding, posterior epistaxis, or hemodynamically unstable)
+
+   •Local abnormalities, such as tumors (image 1) or telangiectasias
+
+   •Troublesome recurrent epistaxis (see 'Refractory epistaxis' above and "Causes of epistaxis in children")
+
+   ●Special populations – In addition to the acute management above, children with epistaxis and specific conditions require an individualized approach (see 'Special populations' above):
+
+   •Children with bleeding disorders – Topical antifibrinolytic agents (ie, topical epsilon-aminocaproic acid or tranexamic acid) and disease specific treatment such as:
+
+   -Hemophilia – Factor replacement and adjunct thrombotic therapies (table 2) (see "Treatment of bleeding and perioperative management in hemophilia A and B", section on 'Minor bleeding')
+
+   -von Willebrand disease – Treatment varies by type of disease (table 3) and responsiveness to desmopressin (DDAVP) (see "von Willebrand disease (VWD): Treatment of major bleeding and major surgery")
+
+   -Thrombocytopenia – Treatment of the specific condition and, if bleeding is severe, platelet transfusion (see 'Bleeding disorders' above)
+
+   •Anticoagulated patients – For patients with serious epistaxis, consultation with the prescribing specialty physician to determine risks versus benefits of reversal of anticoagulation (see 'Anticoagulated patients' above)
+
+   •Hereditary hemorrhagic telangiectasia – Treatment of underlying condition (see "Hereditary hemorrhagic telangiectasia (HHT): Evaluation and therapy for specific vascular lesions", section on 'Epistaxis')
+
+   ●Recurrent benign epistaxis – For children with recurrent benign epistaxis, first-line measures include humidification of the nasal mucosa and prevention of local trauma to prevent bleeding. Other treatment options include cautery in children with prominent anterior nasal septal blood vessels and topical therapies (eg, mupirocin). (See 'Prevention of recurrent benign epistaxis' above.)
+   Use of UpToDate is subject to the Terms of Use.
+
+REFERENCES
+
+    1. Svider P, Arianpour K, Mutchnick S. Management of Epistaxis in Children and Adolescents: Avoiding a Chaotic Approach. Pediatr Clin North Am 2018; 65:607.
+    2. Tunkel DE, Anne S, Payne SC, et al. Clinical Practice Guideline: Nosebleed (Epistaxis). Otolaryngol Head Neck Surg 2020; 162:S1.
+    3. Tunkel DE, Anne S, Payne SC, et al. Clinical Practice Guideline: Nosebleed (Epistaxis) Executive Summary. Otolaryngol Head Neck Surg 2020; 162:8.
+    4. Béquignon E, Teissier N, Gauthier A, et al. Emergency Department care of childhood epistaxis. Emerg Med J 2017; 34:543.
+    5. Higgins TS, Hwang PH, Kingdom TT, et al. Systematic review of topical vasoconstrictors in endoscopic sinus surgery. Laryngoscope 2011; 121:422.
+    6. Calder N, Kang S, Fraser L, et al. A double-blind randomized controlled trial of management of recurrent nosebleeds in children. Otolaryngol Head Neck Surg 2009; 140:670.
+    7. Aeumjaturapat S, Supanakorn S, Cutchavaree A. Toxic shock syndrome after anterior-posterior nasal packing. J Med Assoc Thai 2001; 84:453.
+    8. Jayawardena S, Eisdorfer J, Indulkar S, Zarkaria M. Infective endocarditis of native valve after anterior nasal packing. Am J Ther 2006; 13:460.
+    9. Pepper C, Lo S, Toma A. Prospective study of the risk of not using prophylactic antibiotics in nasal packing for epistaxis. J Laryngol Otol 2012; 126:257.
+   10. Lange JL, Peeden EH, Stringer SP. Are prophylactic systemic antibiotics necessary with nasal packing? A systematic review. Am J Rhinol Allergy 2017; 31:240.
+   11. Baugh TP, Chang CWD. Epidemiology and Management of Pediatric Epistaxis. Otolaryngol Head Neck Surg 2018; 159:712.
+   12. Christensen NP, Smith DS, Barnwell SL, Wax MK. Arterial embolization in the management of posterior epistaxis. Otolaryngol Head Neck Surg 2005; 133:748.
+   13. D'Oto AD, Cox S, Svider P, et al. Safety and efficacy of sphenopalatine artery ligation in recalcitrant pediatric epistaxis. Int J Pediatr Otorhinolaryngol 2019; 123:128.
+   14. Gonzalez CD, Mcdonald J, Stevenson DA, et al. Epistaxis in children and adolescents with hereditary hemorrhagic telangiectasia. Laryngoscope 2018; 128:1714.
+   15. Teymoortash A, Sesterhenn A, Kress R, et al. Efficacy of ice packs in the management of epistaxis. Clin Otolaryngol Allied Sci 2003; 28:545.
+   16. Bernius M, Perlin D. Pediatric ear, nose, and throat emergencies. Pediatr Clin North Am 2006; 53:195.
+   17. Robertson S, Kubba H. Long-term effectiveness of antiseptic cream for recurrent epistaxis in childhood: five-year follow up of a randomised, controlled trial. J Laryngol Otol 2008; 122:1084.
+   18. Loughran S, Spinou E, Clement WA, et al. A prospective, single-blind, randomized controlled trial of petroleum jelly/Vaseline for recurrent paediatric epistaxis. Clin Otolaryngol Allied Sci 2004; 29:266.
+   19. Johnson N, Faria J, Behar P. A Comparison of Bipolar Electrocautery and Chemical Cautery for Control of Pediatric Recurrent Anterior Epistaxis. Otolaryngol Head Neck Surg 2015; 153:851.
+   20. Donaldson AM, Choby G, Kim DH, et al. Intranasal Corticosteroid Therapy: Systematic Review and Meta-analysis of Reported Safety and Adverse Effects in Children. Otolaryngol Head Neck Surg 2020; 163:1087.
+   21. Qureishi A, Burton MJ. Interventions for recurrent idiopathic epistaxis (nosebleeds) in children. Cochrane Database Syst Rev 2012; :CD004461.
+   22. Kubba H, MacAndie C, Botma M, et al. A prospective, single-blind, randomized controlled trial of antiseptic cream for recurrent epistaxis in childhood. Clin Otolaryngol Allied Sci 2001; 26:465.
+   23. Glynn F, Amin M, Sheahan P, Mc Shane D. Prospective double blind randomized clinical trial comparing 75% versus 95% silver nitrate cauterization in the management of idiopathic childhood epistaxis. Int J Pediatr Otorhinolaryngol 2011; 75:81.
+   24. McGarry G. Nosebleeds in children. Clin Evid 2005; :399.
+
+   Topic 6484 Version 30.0

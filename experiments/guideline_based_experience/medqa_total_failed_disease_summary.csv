@@ -1,0 +1,43 @@
+disease_name,failed_case_count,guideline_found_in_disease_coverage,match_type,matched_coverage_disease_name,has_mayoclinic,has_uptodate,coverage_source
+Dumping Syndrome,2,yes,exact,Dumping syndrome,yes,no,mayoclinic_only
+Glossopharyngeal Neuralgia,2,yes,exact,Glossopharyngeal neuralgia,no,yes,uptodate_only
+Granulosa cell tumor,2,no,unmatched,,,,
+Lung cancer,2,yes,exact,Lung cancer,yes,yes,both
+Schizotypal personality disorder,2,yes,exact,Schizotypal personality disorder,yes,no,mayoclinic_only
+Adhesive capsulitis,1,no,unmatched,,,,
+Apical lung tumor,1,no,unmatched,,,,
+Aromatase deficiency,1,no,unmatched,,,,
+Asthma,1,yes,exact,Asthma,yes,no,mayoclinic_only
+Bed bug bite,1,no,unmatched,,,,
+Benign paroxysmal positional vertigo,1,yes,exact,Benign paroxysmal positional vertigo,no,yes,uptodate_only
+Congenital Rubella Infection,1,no,unmatched,,,,
+De Quervain tenosynovitis,1,yes,exact,De Quervain tenosynovitis,yes,no,mayoclinic_only
+Double aortic arch,1,no,unmatched,,,,
+Eczematous dermatitis,1,no,unmatched,,,,
+Erythema Infectiosum,1,no,unmatched,,,,
+Essential thrombocythemia,1,no,unmatched,,,,
+Frontotemporal Dementia,1,yes,exact,Frontotemporal dementia,yes,no,mayoclinic_only
+Hemophilia,1,yes,exact,Hemophilia,yes,yes,both
+Hirschsprung’s disease,1,yes,normalized,Hirschsprung's disease,yes,no,mayoclinic_only
+Impaired erythropoietin production,1,no,unmatched,,,,
+Labyrinthitis,1,yes,exact,Labyrinthitis,no,yes,uptodate_only
+Legg-Calvé-Perthes disease (LCPD),1,no,unmatched,,,,
+Lisdexamfetamine intoxication,1,no,unmatched,,,,
+Medullary Sponge Kidney,1,yes,exact,Medullary sponge kidney,no,yes,uptodate_only
+MEN1,1,no,unmatched,,,,
+Normal behavior,1,no,unmatched,,,,
+Oppositional Defiant Disorder,1,no,unmatched,,,,
+Pancreatic adenocarcinoma,1,no,unmatched,,,,
+Parkinson disease,1,yes,exact,Parkinson disease,no,yes,uptodate_only
+Paroxysmal Atrial Fibrillation,1,yes,exact,Paroxysmal atrial fibrillation,no,yes,uptodate_only
+Pes anserine bursitis,1,no,unmatched,,,,
+Phyllodes tumor,1,no,unmatched,,,,
+Polyostotic Fibrous Dysplasia,1,no,unmatched,,,,
+Psoriatic arthritis,1,yes,exact,Psoriatic arthritis,yes,yes,both
+Silent Thyroiditis,1,no,unmatched,,,,
+Somatization disorder,1,no,unmatched,,,,
+Syringomyelia,1,yes,exact,Syringomyelia,yes,no,mayoclinic_only
+Testicular torsion,1,yes,exact,Testicular torsion,yes,no,mayoclinic_only
+Thrombotic Thrombocytopenic Purpura,1,no,unmatched,,,,
+Vitiligo,1,yes,exact,Vitiligo,yes,yes,both
+Waldenstrom macroglobulinemia,1,yes,exact,Waldenstrom macroglobulinemia,yes,no,mayoclinic_only

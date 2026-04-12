@@ -1,0 +1,98 @@
+Diagnosis: Acute tonsillitis
+Source: mayoclinic
+Guideline title: Tonsillitis
+Guideline id: 991
+Relevant scenario_ids: 135
+Matched alias: tonsillitis
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg
+Tonsillitis
+Overview
+
+
+Tonsillitis is inflammation of the tonsils, two oval-shaped pads of tissue at the back of the throat — one tonsil on each side. Signs and symptoms of tonsillitis include swollen tonsils, sore throat, difficulty swallowing and tender lymph nodes on the sides of the neck.
+Most cases of tonsillitis are caused by infection with a common virus, but bacterial infections also may cause tonsillitis.
+Because appropriate treatment for tonsillitis depends on the cause, it's important to get a prompt and accurate diagnosis. Surgery to remove tonsils, once a common procedure to treat tonsillitis, is usually performed only when tonsillitis occurs frequently, doesn't respond to other treatments or causes serious complications.
+Symptoms
+
+
+Tonsillitis most commonly affects children between preschool ages and the midteenage years. Common signs and symptoms of tonsillitis include:
+Red, swollen tonsils
+White or yellow coating or patches on the tonsils
+Sore throat
+Difficult or painful swallowing
+Fever
+Enlarged, tender glands (lymph nodes) in the neck
+A scratchy, muffled or throaty voice
+Bad breath
+Stomachache
+Neck pain or stiff neck
+Headache
+In young children who are unable to describe how they feel, signs of tonsillitis may include:
+Drooling due to difficult or painful swallowing
+Refusal to eat
+Unusual fussiness
+When to see a doctor
+
+
+It's important to get an accurate diagnosis if your child has symptoms that may indicate tonsillitis.
+Call your doctor ifyour child is experiencing:
+A sore throat with fever
+A sore throat that doesn't go away within 24 to 48 hours
+Painful or difficult swallowing
+Extreme weakness, fatigue or fussiness
+Get immediate care ifyour child has any of these signs:
+Difficulty breathing
+Extreme difficulty swallowing
+Excessive drooling
+Causes
+
+
+Tonsillitis is most often caused by common viruses, but bacterial infections also can be the cause.
+The most common bacterium causing tonsillitis is Streptococcus pyogenes (group A streptococcus), the bacterium that causes strep throat. Other strains of strep and other bacteria also may cause tonsillitis.
+Why do tonsils get infected?
+The tonsils are the immune system's first line of defense against bacteria and viruses that enter your mouth. This function may make the tonsils particularly vulnerable to infection and inflammation. However, the tonsil's immune system function declines after puberty — a factor that may account for the rare cases of tonsillitis in adults.
+Risk factors
+
+
+Risk factors for tonsillitis include:
+Young age.Tonsillitis most often affects children, and tonsillitis caused by bacteria is most common in children ages 5 to 15.
+Frequent exposure to germs.School-age children are in close contact with their peers and frequently exposed to viruses or bacteria that can cause tonsillitis.
+Complications
+
+
+Inflammation or swelling of the tonsils from frequent or ongoing (chronic) tonsillitis can cause complications such as:
+Disrupted breathing during sleep (obstructive sleep apnea)
+Infection that spreads deep into surrounding tissue (tonsillar cellulitis)
+Infection that results in a collection of pus behind a tonsil (peritonsillar abscess)
+Strep infection
+If tonsillitis caused by group A streptococcus or another strain of streptococcal bacteria isn't treated or if antibiotic treatment is incomplete, your child has an increased risk of rare disorders such as:
+Rheumatic fever, a serious inflammatory condition that can affect the heart, joints, nervous system and skin
+Complications of scarlet fever, a streptococcal infection characterized by a prominent rash
+Inflammation of the kidney (poststreptococcal glomerulonephritis)
+Poststreptococcal reactive arthritis, a condition that causes inflammation of the joints
+Prevention
+
+
+The germs that cause viral and bacterial tonsillitis are contagious. Therefore, the best prevention is to practice good hygiene. Teach your child to:
+Wash his or her hands thoroughly and frequently, especially after using the toilet and before eating
+Avoid sharing food, drinking glasses, water bottles or utensils
+Replace his or her toothbrush after being diagnosed with tonsillitis
+To help your child prevent the spread of a bacterial or viral infection to others:
+Keep your child at home when he or she is ill
+Ask your doctor when it's all right for your child to return to school
+Teach your child to cough or sneeze into a tissue or, when necessary, into his or her elbow
+Teach your child to wash his or her hands after sneezing or coughing
+By Mayo Clinic Staff
+Terms & Conditions
+Notice of Nondiscrimination
+Privacy Policy
+Advertising & Sponsorship Policy
+Notice of Privacy Practices
+Accessibility Statement
+Manage Cookies
+Site Map
+© 1998-2023 Mayo Foundation for Medical Education and Research (MFMER). All rights reserved.

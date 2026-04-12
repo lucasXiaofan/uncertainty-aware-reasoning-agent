@@ -1,0 +1,65 @@
+Diagnosis: Schizoaffective disorder
+Original diagnosis label: Schizoaffective disorder, unspecified
+Source: mayoclinic
+Guideline title: Schizoaffective disorder
+Guideline id: 1694
+Relevant scenario_ids: 43
+Matched alias: schizoaffective disorder
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+Schizoaffective disorder
+Overview
+
+
+Schizoaffective disorder is a mental health disorder that is marked by a combination of schizophrenia symptoms, such as hallucinations or delusions, and mood disorder symptoms, such as depression or mania.
+The two types of schizoaffective disorder — both of which include some symptoms of schizophrenia — are:
+Bipolar type, which includes episodes of mania and sometimes major depression
+Depressive type, which includes only major depressive episodes
+Schizoaffective disorder may run a unique course in each affected person.
+Untreated schizoaffective disorder may lead to problems functioning at work, at school and in social situations, causing loneliness and trouble holding down a job or attending school. People with schizoaffective disorder may need assistance and support with daily functioning. Treatment can help manage symptoms and improve quality of life.
+Symptoms
+
+
+Schizoaffective disorder symptoms may vary from person to person. People with the condition experience psychotic symptoms, such as hallucinations or delusions, as well as symptoms of a mood disorder — either bipolar type (episodes of mania and sometimes depression) or depressive type (episodes of depression).
+Although the development and course of schizoaffective disorder may vary, defining features include a major mood episode (depressed or manic mood) and at least a two-week period of psychotic symptoms when a major mood episode is not present.
+Signs and symptoms of schizoaffective disorder depend on the type — bipolar or depressive type — and may include, among others:
+Delusions — having false, fixed beliefs, despite evidence to the contrary
+Hallucinations, such as hearing voices or seeing things that aren't there
+Impaired communication and speech, such as being incoherent
+Bizarre or unusual behavior
+Symptoms of depression, such as feeling empty, sad or worthless
+Periods of manic mood, with an increase in energy and a decreased need for sleep over several days, and behaviors that are out of character
+Impaired occupational, academic and social functioning
+Problems with managing personal care, including cleanliness and physical appearance
+When to see a doctor
+If you think someone you know may have schizoaffective disorder symptoms, talk to that person about your concerns. Although you can't force someone to seek professional help, you can offer encouragement and support and help find a qualified doctor or mental health professional.
+If your loved one can't provide his or her own food, clothing or shelter, or if the safety of your loved one or others is a concern, you may need to call 911 or other emergency responders for help so that your loved one can be evaluated by a mental health professional.
+Suicidal thoughts or behavior
+Talk of suicide or suicidal behavior may occur in someone with schizoaffective disorder. If you have a loved one who is in danger of attempting suicide or has made a suicide attempt, make sure someone stays with that person. Call 911 or your local emergency number immediately. Or, if you can do so safely, take the person to the nearest hospital emergency room.
+Causes
+
+
+The exact causes of schizoaffective disorder are still being investigated, but genetics are likely a factor.
+Risk factors
+
+
+Factors that increase the risk of developing schizoaffective disorder include:
+Having a close blood relative — such as a parent or sibling — who has schizoaffective disorder, schizophrenia or bipolar disorder
+Stressful events that may trigger symptoms
+Taking mind-altering drugs, which may worsen symptoms when an underlying disorder is present
+Complications
+
+
+People with schizoaffective disorder are at an increased risk of:
+Suicide, suicide attempts or suicidal thoughts
+Social isolation
+Family and interpersonal conflicts
+Unemployment
+Anxiety disorders
+Alcohol or other substance use problems
+Significant health problems
+Poverty and homelessness
+By Mayo Clinic Staff
+.

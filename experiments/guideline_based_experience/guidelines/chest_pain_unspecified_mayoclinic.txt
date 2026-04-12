@@ -1,0 +1,73 @@
+Diagnosis: Chest pain, unspecified
+Source: mayoclinic
+Guideline title: Chest pain
+Guideline id: 189
+Relevant scenario_ids: 18, 22, 29, 33, 35, 41, 42, 50, 53, 71, 76, 84, 96, 105, 106, 143, 151, 158, 159, 160, 165, 167, 177, 178, 179
+Matched alias: chest pain
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+Chest pain
+Overview
+
+
+Chest pain appears in many forms, ranging from a sharp stab to a dull ache. Sometimes chest pain feels crushing or burning. In certain cases, the pain travels up the neck and into the jaw and then spreads to the back or down one or both arms.
+Many different problems can cause chest pain. The most life-threatening causes involve the heart or lungs. Because chest pain can be due to a serious problem, it's important to seek immediate medical help.
+Symptoms
+
+
+Chest pain can feel different depending on what's triggering the symptom. Often, the cause has nothing to do with the heart — though there's no easy way to tell without seeing a health care provider.
+Heart-related chest pain
+Chest pain is often associated with heart disease. But many people with heart disease say they have a mild discomfort that they wouldn't really call pain. Chest discomfort due to a heart attack or another heart problem may feel like:
+Pressure, fullness, burning or tightness in the chest.
+Crushing or searing pain that spreads to the back, neck, jaw, shoulders, and one or both arms.
+Pain that lasts more than a few minutes, gets worse with activity, goes away and comes back, or varies in intensity.
+Shortness of breath.
+Cold sweats.
+Dizziness, lightheadedness or weakness.
+Racing heartbeats.
+Nausea or vomiting.
+Other types of chest pain
+It can be difficult to tell if chest pain is related to the heart or caused by something else. Usually, chest pain is less likely due to a heart problem if it happens with:
+A sour taste or a sensation of food reentering the mouth
+Trouble swallowing
+Pain that gets better or worse when you change body position
+Pain that gets worse when you breathe deeply or cough
+Tenderness when you push on your chest
+Pain that continues for many hours
+The classic symptoms of heartburn — a painful, burning sensation behind the breastbone — can be caused by problems with the heart or the stomach.
+When to see a doctor
+If you have new or unexplained chest pain or think you're having a heart attack, call 911 or emergency medical help immediately. Don't ignore the symptoms of a heart attack. If you can't get an ambulance or emergency vehicle to come to you, have a neighbor or a friend drive you to the nearest hospital. Drive yourself only if you have no other option.
+Causes
+
+
+Chest pain has many possible causes, all of which need medical care.
+Heart-related causes
+Examples of heart-related causes of chest pain include:
+Angina.This is chest pain caused by poor blood flow to the heart. This is often caused by the buildup of thick plaques on the inner walls of the arteries that carry blood to the heart. These plaques narrow the arteries and restrict the heart's blood supply, particularly during physical activity.
+Heart attack.A heart attack results from blocked blood flow to the heart muscle, often from a blood clot. Angina can be the main symptom felt during a heart attack.
+Aortic dissection.This life-threatening condition involves the main artery leading from the heart, called the aorta. If the inner layers of this blood vessel separate, blood is forced between the layers and can cause the aorta to rupture.
+Inflammation of the sac around the heart, called pericarditis.This condition usually causes sharp pain that gets worse when breathing in or lying down.
+Digestive causes
+Chest pain can be caused by disorders of the digestive system, including:
+Heartburn.This is a painful, burning feeling behind the breastbone. It occurs when stomach acid washes up from the stomach into the tube that connects the throat to the stomach. That tube is called the esophagus.
+Swallowing disorders.Problems with the esophagus can make swallowing difficult and even painful.
+Gallbladder or pancreas problems.Gallstones or inflammation of the gallbladder or pancreas can cause stomach pain that spreads to the chest.
+Muscle and bone causes
+Some types of chest pain are associated with injuries and other problems affecting the structures that make up the chest wall. These conditions include:
+Costochondritis.In this condition, the cartilage of the rib cage, particularly the cartilage that joins the ribs to the breastbone, becomes inflamed and painful.
+Sore muscles.Chronic pain syndromes, such as fibromyalgia, may cause long-term pain that affects the chest muscles.
+Injured ribs.A bruised or broken rib can cause chest pain.
+Lung-related causes
+Many lung problems can cause chest pain, including:
+A blood clot in the lung, called a pulmonary embolism.A blood clot that gets stuck in a lung artery can block blood flow to lung tissue.
+Inflammation of the membrane covering the lungs, called pleurisy.This condition causes chest pain that gets worse when you breathe in or cough.
+Collapsed lung.Chest pain due a collapsed lung typically begins suddenly. It can last for hours. It usually causes shortness of breath. A collapsed lung occurs when air leaks into the space between the lung and the ribs.
+High blood pressure in the lung arteries, called pulmonary hypertension.This condition affects the arteries carrying blood to the lungs. It can cause chest pain.
+Other causes
+Chest pain also can be caused by:
+Panic attack.If you have periods of intense fear with chest pain, you may be having a panic attack. Panic attack symptoms also include a rapid heartbeat, rapid breathing, a lot of sweating, shortness of breath, nausea, dizziness and a fear of dying. It can be hard to tell the difference between a heart attack and a panic attack. Always seek medical help if you aren't sure of the cause of chest pain.
+Shingles.This condition can cause intense pain and a band of blisters from the back around to the chest area.
+By Mayo Clinic Staff
+.

@@ -25,6 +25,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+experiments/guideline_based_experience/结果
+experiments/guideline_based_experience/mayoclinical.json
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -222,3 +224,6 @@ data/*.csv
 logs/
 outputs/
 .vscode/
+
+/mimic_hosp
+/archive

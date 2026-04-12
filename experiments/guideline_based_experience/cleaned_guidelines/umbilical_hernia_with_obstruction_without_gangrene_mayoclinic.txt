@@ -1,0 +1,63 @@
+Diagnosis: Umbilical hernia with obstruction, without gangrene
+Original diagnosis label: Umbilical hernia with obstruction, without gangrene
+Source: mayoclinic
+Guideline title: Umbilical hernia
+Guideline id: 1252
+Relevant scenario_ids: 130
+Matched alias: umbilical hernia
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg
+Umbilical hernia
+Overview
+
+
+An umbilical hernia occurs when part of your intestine bulges through the opening in your abdominal muscles near your bellybutton (navel). Umbilical hernias are common and typically harmless.
+Umbilical hernias are most common in infants, but they can affect adults as well. In an infant, an umbilical hernia may be especially evident when the infant cries, causing the bellybutton to protrude. This is a classic sign of an umbilical hernia.
+Children's umbilical hernias often close on their own in the first two years of life, though some remain open into the fifth year or longer. Umbilical hernias that appear during adulthood are more likely to need surgical repair.
+Symptoms
+
+
+An umbilical hernia creates a soft swelling or bulge near the navel. In babies who have an umbilical hernia, the bulge may be visible only when they cry, cough or strain.
+Umbilical hernias in children are usually painless. Umbilical hernias that appear during adulthood may cause abdominal discomfort.
+When to see a doctor
+
+
+If you suspect that your baby has an umbilical hernia, talk with the baby's doctor. Seek emergency care if your baby has an umbilical hernia and:
+Appears to be in pain
+Begins to vomit
+Has tenderness, swelling or discoloration at the site of the hernia
+Similar guidelines apply to adults. Talk with your doctor if you have a bulge near your navel. Seek emergency care if the bulge becomes painful or tender. Prompt diagnosis and treatment can help prevent complications.
+Causes
+
+
+During gestation, the umbilical cord passes through a small opening in the baby's abdominal muscles. The opening normally closes just after birth. If the muscles don't join together completely in the midline of the abdominal wall, an umbilical hernia may appear at birth or later in life.
+In adults, too much abdominal pressure contributes to umbilical hernias. Causes of increased pressure in the abdomen include:
+Obesity
+Multiple pregnancies
+Fluid in the abdominal cavity
+Previous abdominal surgery
+Long-term peritoneal dialysis to treat kidney failure
+Risk factors
+
+
+Umbilical hernias are most common in infants — especially premature babies and those with low birth weights. In the United States, black infants appear to have a slightly increased risk of umbilical hernias. The condition affects boys and girls equally.
+For adults, being overweight or having multiple pregnancies may increase the risk of developing an umbilical hernia. This type of hernia tends to be more common in women.
+Complications
+
+
+For children, complications of an umbilical hernia are rare. Complications can occur when the protruding abdominal tissue becomes trapped (incarcerated) and can no longer be pushed back into the abdominal cavity. This reduces the blood supply to the section of trapped intestine and can lead to abdominal pain and tissue damage.
+If the trapped portion of intestine is completely cut off from the blood supply, it can lead to tissue death. Infection may spread throughout the abdominal cavity, causing a life-threatening situation.
+Adults with umbilical hernias are somewhat more likely to experience a blockage of the intestines. Emergency surgery is typically required to treat these complications.
+By Mayo Clinic Staff
+Terms & Conditions
+Notice of Nondiscrimination
+Privacy Policy
+Advertising & Sponsorship Policy
+Notice of Privacy Practices
+Accessibility Statement
+Manage Cookies
+Site Map
+© 1998-2023 Mayo Foundation for Medical Education and Research (MFMER). All rights reserved.

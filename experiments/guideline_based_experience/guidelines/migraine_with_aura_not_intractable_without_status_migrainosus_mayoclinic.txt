@@ -1,0 +1,63 @@
+Diagnosis: Migraine with aura, not intractable, without status migrainosus
+Source: mayoclinic
+Guideline title: Migraine with aura
+Guideline id: 1144
+Relevant scenario_ids: 14
+Matched alias: migraine aura
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg
+Migraine with aura
+Overview
+
+
+Migraine with aura (also called classic migraine) is a recurring headache that strikes after or at the same time as sensory disturbances called aura. These disturbances can include flashes of light, blind spots, and other vision changes or tingling in your hand or face.
+Treatments for migraine with aura and migraine without aura (also called common migraine) are usually the same. You can try to prevent migraine with aura with the same medications and self-care measures used to prevent migraine.
+Symptoms
+
+
+Migraine aura symptoms include temporary visual or other disturbances that usually strike before other migraine symptoms — such as intense head pain, nausea, and sensitivity to light and sound.
+Migraine aura usually occurs within an hour before head pain begins and generally lasts less than 60 minutes. Sometimes migraine aura occurs without headache, especially in people age 50 and older.
+Visual signs and symptoms
+Most people who have migraine with aura develop temporary visual signs and symptoms, which tend to start in the center of the field of vision and spread outward. These might include:
+Blind spots (scotomas), which are sometimes outlined by simple geometric designs
+Zigzag lines that gradually float across your field of vision
+Shimmering spots or stars
+Changes in vision or vision loss
+Flashes of light
+Other disturbances
+Other temporary disturbances sometimes associated with migraine aura include:
+Numbness, typically felt as tingling in one hand or on one side of your face that may spread slowly along a limb
+Speech or language difficulty
+Muscle weakness
+When to see a doctor
+
+
+See your doctor immediately if you have new signs and symptoms of migraine with aura, such as temporary vision loss, speech or language difficulty, and muscle weakness on one side of your body. Your doctor will need to rule out more-serious conditions, such as a stroke.
+Causes
+
+
+There is evidence that the migraine aura is due to an electrical or chemical wave that moves across the brain. The part of the brain where the electrical or chemical wave spreads determines the type of symptoms you might experience.
+This electrical or chemical wave can occur in areas that process sensory signals, speech centers or centers that control movement. The most common type of aura is visual aura, which occurs when a wave of electrical activity spreads through the visual cortex and causes visual symptoms.
+The electrical and chemical waves can occur with normal functioning of the nerves and do not cause harm to the brain.
+Many of the same factors that trigger migraine can also trigger migraine with aura, including stress, bright lights, some foods and medications, too much or too little sleep, and menstruation.
+Risk factors
+
+
+Although no specific factors appear to increase the risk of migraine with aura, migraines in general seem to be more common in people with a family history of migraine. Migraines are also more common in women than in men.
+Complications
+
+
+People who have migraine with aura are at a mildly increased risk of stroke.
+By Mayo Clinic Staff
+Terms & Conditions
+Notice of Nondiscrimination
+Privacy Policy
+Advertising & Sponsorship Policy
+Notice of Privacy Practices
+Accessibility Statement
+Manage Cookies
+Site Map
+© 1998-2023 Mayo Foundation for Medical Education and Research (MFMER). All rights reserved.

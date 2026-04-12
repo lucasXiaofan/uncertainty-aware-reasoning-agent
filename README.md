@@ -1,82 +1,55 @@
 # uncertainty-aware-reasoning-agent
 
-## Overview
+## Current Focus
 
-This repository implements and evaluates AI agents for medical diagnostic tasks, with a focus on:
+This repository is currently focused on OSCE-style multi-round medical diagnosis with:
 
-- **Reasoning under uncertainty**: Handling incomplete or ambiguous medical information through probabilistic reasoning and confidence estimation
-- **Experience-based learning**: Generating and utilizing memory from past cases to improve diagnostic accuracy
-- **Multi-benchmark evaluation**: Testing across diverse medical diagnostic datasets (AgentClinic, MediQ, HealthBench, MAQuE)
-- **Multi-round interaction**: Engaging in iterative diagnostic conversations to gather additional information and refine diagnoses
-- **Tool usage for uncertainty reduction**: Leveraging external tools (medical databases, calculators, search) to reduce diagnostic uncertainty and validate hypotheses
+- a **doctor agent**
+- a **patient agent**
+- a **measurement/examination agent**
 
-## Benchmarks
+The current main setting is **MIMIC-style data**. The patient generation and interaction logic are derived from **AgentClinic**, then adapted for more challenging MIMIC-like cases.
 
-The framework is designed to test against the following medical diagnostic benchmarks:
+The active goal is to build an **agentic learning loop** where an LLM:
 
-1. **AgentClinic** - Clinical decision-making scenarios (Need install github repo: https://github.com/SamuelSchmidgall/AgentClinic)
-2. **MediQ** - Medical question answering (Need install github repo: https://github.com/stellalisy/mediQ)
-3. **HealthBench** - Comprehensive health assessment tasks (Need install github repo: looking for healthbench: https://github.com/openai/simple-evals)
-4. **MAQuE** - Medical Question Understanding and Evaluation (current no github available)
+1. runs on training cases,
+2. generates useful experience from those cases,
+3. uses those learned experiences to improve on unseen test cases,
+4. especially when test patients have similar diagnoses or similar clinical patterns.
 
-## Project Phases
+## Project History
 
-### Phase 1: Baseline Implementation (Current) ✅
-- Set up API-based agents using OpenAI API
-- Implement DSPy React agent as baseline (https://dspy.ai/tutorials/customer_service_agent/)
-- Establish evaluation metrics across benchmarks
-- Create reproducible testing pipeline
+The direction of the project changed over time:
 
-## Quick Start
+- Earlier work explored **single-agent** and **multi-agent** approaches on **MediQ**.
+- That line was stopped because **MediQ mixes subjective and objective QA together**, which made it a weaker fit for the kind of iterative diagnostic interaction we want.
+- The work then moved to **AgentClinic** with **MedQA-style** data.
+- The current emphasis is **MIMIC-style data**, because it is more challenging and gives better opportunities to create clinically similar patients for transfer and experience-based improvement.
 
-### Installation
+## Current Behavior
 
-```bash
-# Clone and setup
-git clone <your-repo-url>
-cd uncertainty-aware-reasoning-agent
+The measurement agent has been adjusted so that when the doctor asks for an examination or test that is **not present in the provided case information**, it returns:
 
-# Install dependencies
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+`Test unavailable`
 
-# Configure API key
-cp .env.example .env
-# Edit .env and add your OPENAI_API_KEY
-```
+instead of inventing or implying normal findings. This is intended to reduce misleading signals to the doctor agent.
 
-### Run Example
+## Main Code
 
-```bash
-# Test the baseline DSPy ReAct agent
-python example_usage.py
-```
+The main working code is under `src/`.
 
-### Run Evaluations
+For the current runnable AgentClinic-based setup, use:
+
+- [src/agentclinic_code/README.md](/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/src/agentclinic_code/README.md)
+
+That README contains the quickest way to run an experiment.
+
+## Quick Pointer
+
+If you want to run a quick experiment, start in:
 
 ```bash
-# Run baseline evaluation (after benchmark setup)
-python run_baseline.py --benchmark all
+cd src/agentclinic_code
 ```
 
-For detailed setup instructions, see [SETUP.md](SETUP.md).
-
-## Repository Structure
-
-```
-src/
-├── agents/              # Agent implementations
-│   ├── base_agent.py   # Abstract base class
-│   └── dspy_react_agent.py  # DSPy ReAct baseline
-├── benchmarks/          # Benchmark integrations
-│   ├── base_benchmark.py
-│   ├── agentclinic_wrapper.py
-│   └── mediq_wrapper.py
-└── utils/               # Utilities
-
-config.yaml              # Configuration
-requirements.txt         # Dependencies
-example_usage.py        # Example script
-run_baseline.py         # Main evaluation script
-```
+and follow the instructions in `src/agentclinic_code/README.md`.

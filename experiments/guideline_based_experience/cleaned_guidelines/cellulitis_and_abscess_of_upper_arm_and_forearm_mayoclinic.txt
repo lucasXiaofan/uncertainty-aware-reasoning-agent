@@ -1,0 +1,86 @@
+Diagnosis: Cellulitis and abscess of upper arm and forearm
+Original diagnosis label: Cellulitis and abscess of upper arm and forearm
+Source: mayoclinic
+Guideline title: Cellulitis
+Guideline id: 205
+Relevant scenario_ids: 138, 145
+Matched alias: cellulitis
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg
+Cellulitis
+Overview
+
+
+Cellulitis (sel-u-LIE-tis) is a common, potentially serious bacterial skin infection. The affected skin is swollen and inflamed and is typically painful and warm to the touch.
+Cellulitis usually affects the lower legs, but it can occur on the face, arms and other areas. The infection happens when a break in the skin allows bacteria to enter.
+Left untreated, the infection can spread to the lymph nodes and bloodstream and rapidly become life-threatening. It isn't usually spread from person to person.
+Symptoms
+
+
+Cellulitis usually occurs on one side of the body. Its signs and symptoms may include:
+An irritated area of skin that tends to expand
+Swelling
+Tenderness
+Pain
+Warmth
+Fever
+Chills
+Spots
+Blisters
+Skin dimpling
+When to see a doctor
+
+
+It's important to identify and treat cellulitis early because the condition can spread rapidly throughout your body.
+Seek emergency care if:
+You have a swollen, tender rash or a rash that's changing rapidly
+You have a fever
+See your health care provider, preferably within the same day, if:
+You have a rash that's swollen, tender and warm — and it's expanding — but you don't have a fever
+Causes
+
+
+Cellulitis is caused when bacteria, most commonly streptococcus and staphylococcus, enter through a crack or break in the skin. The incidence of a more serious staphylococcus infection called methicillin-resistant Staphylococcus aureus (MRSA) is increasing.
+Cellulitis can occur anywhere on the body, but the most common location is the lower leg. Bacteria are most likely to enter broken, dry, flaky or swollen skin, such as through a recent surgical site, cuts, puncture wounds, ulcers, athlete's foot or dermatitis.
+Risk factors
+
+
+Several factors increase the risk of cellulitis:
+Injury.Any cut, fracture, burn or scrape gives bacteria an entry point.
+Weakened immune system.Conditions that weaken the immune system — such as diabetes, leukemia and HIV/AIDS — increase the risk of infection. Certain medications also can weaken the immune system.
+Skin conditions.Conditions such as atopic dermatitis (eczema), athlete's foot and shingles can cause breaks in the skin, which give bacteria an entry point.
+Long-term (chronic) swelling of the arms or legs (lymphedema).This condition sometimes happens after surgery.
+History of cellulitis.Having had cellulitis before increases the risk of getting it again.
+Being overweight.Excess weight increases the risk of developing cellulitis.
+Complications
+
+
+Untreated cellulitis might lead to bacteremia, endocarditis, osteomyelitis, toxic shock syndrome or sepsis. Rarely, the infection can spread to the deep layer of tissue called the fascial lining. Necrotizing fasciitis is an example of a deep-layer infection. It's an extreme emergency.
+Recurrent episodes of cellulitis may damage the lymphatic drainage system and cause chronic swelling of the affected limb.
+Prevention
+
+
+If your cellulitis recurs, your health care provider may recommend preventive antibiotics. To help prevent cellulitis and other infections, take these precautions when you have a skin wound:
+Wash the wound daily with soap and water.Do this gently as part of your normal bathing.
+Ask your health care provider whether it would help to apply a protective cream or ointment.For most surface wounds, a nonprescription ointment (Vaseline, Polysporin, others) provides adequate protection.
+Cover the wound with a bandage.Change bandages at least daily.
+Watch for signs of infection.Irritation, pain and pus all signal possible infection and the need for medical care.
+People with diabetes or poor circulation need to take extra precautions to prevent skin injury. Good skin care includes the following:
+Inspecting your feet daily.Regularly check your feet for signs of injury so that you can catch infections early.
+Moisturizing your skin regularly.Lubricating the skin helps prevent cracking and peeling. Don't apply moisturizer to open sores.
+Trimming your fingernails and toenails carefully.Take care not to injure the surrounding skin.
+Protecting your hands and feet.Wear footwear and gloves suitable to your activities.
+Promptly treating infections on the skin's surface, such as athlete's foot.Minor skin infections can easily spread from person to person. Treat fungal infections as soon as they occur.
+By Mayo Clinic Staff
+Terms & Conditions
+Notice of Nondiscrimination
+Privacy Policy
+Advertising & Sponsorship Policy
+Notice of Privacy Practices
+Accessibility Statement
+Manage Cookies
+Site Map
+© 1998-2023 Mayo Foundation for Medical Education and Research (MFMER). All rights reserved.

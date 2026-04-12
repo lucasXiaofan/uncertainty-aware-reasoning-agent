@@ -1,0 +1,77 @@
+Diagnosis: Unspecified sinusitis (chronic)
+Source: mayoclinic
+Guideline title: Acute sinusitis
+Guideline id: 698
+Relevant scenario_ids: 97
+Matched alias: sinusitis
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+Acute sinusitis
+Overview
+
+
+Acute sinusitis causes the spaces inside your nose (sinuses) to become inflamed and swollen. This interferes with drainage and causes mucus to build up.
+With acute sinusitis, it might be difficult to breathe through your nose. The area around your eyes and face might feel swollen, and you might have throbbing facial pain or a headache.
+Acute sinusitis is mostly caused by the common cold. Unless a bacterial infection develops, most cases resolve within a week to 10 days. Home remedies may be all you need to treat acute sinusitis. Sinusitis that lasts more than 12 weeks despite medical treatment is called chronic sinusitis.
+Symptoms
+
+
+Acute sinusitis signs and symptoms often include:
+Thick, yellow or greenish mucus from the nose (runny nose) or down the back of the throat (postnasal drainage)
+Blocked or stuffy nose (congestion) causing difficulty breathing through your nose
+Pain, tenderness, swelling and pressure around your eyes, cheeks, nose or forehead that worsens when bending over
+Other signs and symptoms include:
+Ear pressure
+Headache
+Aching in your teeth
+Altered sense of smell
+Cough
+Bad breath
+Fatigue
+Fever
+When to see a doctor
+Most people with acute sinusitis don't need to see a doctor.
+Contact your doctorif you have any of the following:
+Symptoms that last more than a week or so
+Symptoms that worsen after seeming to improve
+A persistent fever
+A history of recurrent or chronic sinusitis
+See a doctor immediatelyif you have signs or symptoms that may indicate a serious infection:
+Pain, swelling or redness around your eyes
+High fever
+Confusion
+Double vision or other vision changes
+Stiff neck
+Causes
+
+
+Acute sinusitis is most often caused by the common cold, which is an infection with a virus. In some cases, an infection with bacteria develops.
+Risk factors
+
+
+You may be at increased risk of getting sinusitis if you have:
+Hay fever or another allergic conditionthat affects your sinuses
+A common coldthat affects your sinuses
+A nasal passage abnormality,such as a deviated nasal septum, nasal polyps or tumors
+A medical conditionsuch as cystic fibrosis or an immune system disorder such as HIV/AIDS
+Exposure to smoke,either from smoking or through secondhand smoke exposure
+Complications
+
+
+Acute sinusitis complications are uncommon, and serious complications are rare. If they occur, complications might include:
+Chronic sinusitis.Acute sinusitis may be a flare-up of a long-term problem known as chronic sinusitis. Chronic sinusitis lasts longer than 12 weeks.
+Meningitis.This infection causes inflammation of the membranes and fluid surrounding your brain and spinal cord.
+Other infections.Uncommonly, an infection can spread to the bones (osteomyelitis) or skin (cellulitis).
+Vision problems.If the infection spreads to your eye socket, it can cause reduced vision or even blindness that can be permanent.
+Prevention
+
+
+Take these steps to help reduce your risk of getting acute sinusitis:
+Avoid upper respiratory infections.Try to stay away from people who have colds or who are sick with other infections. Wash your hands frequently with soap and water, especially before your meals.
+Manage your allergies.Work with your doctor to keep symptoms under control.
+Avoid cigarette smoke and polluted air.Tobacco smoke and other pollutants can irritate and inflame your lungs and nasal passages.
+Use a humidifier.If the air in your home is dry, such as it is if you have forced-air heat, adding moisture to the air may help prevent sinusitis. Be sure the humidifier stays clean and free of mold with regular, thorough cleaning.
+By Mayo Clinic Staff
+.

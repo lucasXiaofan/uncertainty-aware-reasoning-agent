@@ -1,0 +1,46 @@
+Diagnosis: Unspecified appendicitis
+Source: mayoclinic
+Guideline title: Appendicitis
+Guideline id: 752
+Relevant scenario_ids: 166
+Matched alias: appendicitis
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+Appendicitis
+Overview
+
+
+Appendicitis is an inflammation of the appendix, a finger-shaped pouch that projects from your colon on the lower right side of your abdomen.
+Appendicitis causes pain in your lower right abdomen. However, in most people, pain begins around the navel and then moves. As inflammation worsens, appendicitis pain typically increases and eventually becomes severe.
+Although anyone can develop appendicitis, most often it occurs in people between the ages of 10 and 30. Standard treatment is surgical removal of the appendix.
+Symptoms
+
+
+Signs and symptoms of appendicitis may include:
+Sudden pain that begins on the right side of the lower abdomen
+Sudden pain that begins around your navel and often shifts to your lower right abdomen
+Pain that worsens if you cough, walk or make other jarring movements
+Nausea and vomiting
+Loss of appetite
+Low-grade fever that may worsen as the illness progresses
+Constipation or diarrhea
+Abdominal bloating
+Flatulence
+The site of your pain may vary, depending on your age and the position of your appendix. When you're pregnant, the pain may seem to come from your upper abdomen because your appendix is higher during pregnancy.
+When to see a doctor
+Make an appointment with a doctor if you or your child has worrisome signs or symptoms. Severe abdominal pain requires immediate medical attention.
+Causes
+
+
+A blockage in the lining of the appendix that results in infection is the likely cause of appendicitis. The bacteria multiply rapidly, causing the appendix to become inflamed, swollen and filled with pus. If not treated promptly, the appendix can rupture.
+Complications
+
+
+Appendicitis can cause serious complications, such as:
+A ruptured appendix.A rupture spreads infection throughout your abdomen (peritonitis). Possibly life-threatening, this condition requires immediate surgery to remove the appendix and clean your abdominal cavity.
+A pocket of pus that forms in the abdomen.If your appendix bursts, you may develop a pocket of infection (abscess). In most cases, a surgeon drains the abscess by placing a tube through your abdominal wall into the abscess. The tube is left in place for about two weeks, and you're given antibiotics to clear the infection.
+Once the infection is clear, you'll have surgery to remove the appendix. In some cases, the abscess is drained, and the appendix is removed immediately.
+By Mayo Clinic Staff
+.

@@ -1,0 +1,448 @@
+Diagnosis: Infective otitis externa
+Original diagnosis label: Infective otitis externa, unspecified
+Source: uptodate
+Guideline title: Acute otitis media in adults
+Guideline id: 15365.txt
+Relevant scenario_ids: 32
+Matched alias: otitis media
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/结果/15365.txt
+
+Guideline content
+
+Acute otitis media in adults
+
+   Authors:
+          Charles J Limb, MD
+          Lawrence R Lustig, MD
+          Marlene L Durand, MD
+
+   Section Editor:
+          Daniel G Deschler, MD, FACS
+
+   Deputy Editor:
+          Jane Givens, MD, MSCE
+
+   Contributor Disclosures
+   All topics are updated as new evidence becomes available and our peer review process is complete.
+   Literature review current through: Jul 2023.
+   This topic last updated: Feb 28, 2023.
+
+   Please read the Disclaimer at the end of this page.
+
+   INTRODUCTION — Acute otitis media (AOM) is primarily an infection of childhood and is the most common pediatric infection for which antibiotics are prescribed in the United States [1,2]. The vast majority of the medical literature focuses on the diagnosis, management, and complications of pediatric AOM, and much of our information of AOM in adults is extrapolated from studies in children.
+
+   This topic will address the etiology, diagnosis, and treatment of AOM in adults. Issues related to AOM and other common middle ear pathology in children are discussed separately. (See "Acute otitis media in children: Clinical manifestations and diagnosis" and "Acute otitis media in children: Epidemiology, microbiology, and complications" and "Acute otitis media in children: Treatment" and "Otitis media with effusion (serous otitis media) in children: Clinical features and diagnosis" and "Otitis media with effusion (serous otitis media) in children: Management".)
+
+   Evaluation and management of chronic otitis media (COM) in adults are also discussed separately. (See "Chronic otitis media and cholesteatoma in adults".)
+
+   DEFINITION — Acute otitis media (AOM) is an acute, suppurative infectious process marked by the presence of infected middle ear fluid and inflammation of the mucosa lining the middle ear space (picture 1). The infection is most frequently precipitated by impaired function of the Eustachian tube, resulting in the retention and suppuration of retained secretions (figure 1). AOM may also be associated with purulent otorrhea if there is a ruptured tympanic membrane. AOM usually responds promptly to antimicrobial therapy.
+
+   EPIDEMIOLOGY OF ACUTE OTITIS MEDIA — Acute otitis media (AOM) occurs much more commonly in children than in adults. The overall incidence of AOM has decreased over the last several decades.
+
+   Most cases of AOM occur in young children ages 6 to 24 months, with the incidence of AOM declining significantly after age 5 [1,3]. A 2005 global disease burden modeling-based study estimated the annual incidence of AOM as follows: children under age 5 years, 45 to 60 percent; children aged 5 to 14 years, 19 to 22 percent; children and adults aged 15 to 24 years, 3.1 to 3.5 percent; and adults aged 25 to 85 years, 1.5 to 2.3 percent [4]. The incidence of AOM among adults in resource-rich countries is likely less than 1 percent based upon data from this study. In a 2014 to 2018 study of adult outpatient visits to United States veterans administration medical centers, the incidence of AOM and otitis media with effusion (OME) was 2.7 and 1.4 per 1000 person-years, respectively [5]. In a 2015 to 2018 Netherlands study including patients age ≥15, there was an overall incidence of AOM of 5.3 per 1000 person-years; the incidence declined with age (age 15 to 39, 7.1 per 1000 person-years; age ≥64
+   years, 2.7 per 1000 person-years) [6].
+
+   The incidence of AOM in children in the United States has fallen over the past two decades. In the United States, both outpatient visits and antibiotic prescriptions for AOM in children under age 5 declined by one-third between 1995 and 2006 [7]. In addition, there was a downward trend in visits for AOM in children under age 7 from 2001 to 2011, and an especially rapid decline in visits for children under age 2 during 2010 to 2011 [8].
+
+   The introduction of routine pneumococcal vaccination in infants may be a contributor to this decline in incidence. The 7-valent pneumococcal vaccine (PCV7) was introduced in the United States in 2000 and replaced by the 13-valent pneumococcal (PCV13) vaccine in 2010.
+
+   The declining incidence in AOM has also been seen other countries, potentially due to the introduction of the pneumococcal vaccine. As an example, in Sweden, following the introduction of general pneumococcal vaccination for infants in 2009, the incidence of AOM declined by 42 percent in children under age 5 and by 21 percent in children ages 5 to 17 [9]. (See "Pneumococcal vaccination in children".)
+
+   MICROBIOLOGY — The majority of data on the microbiology of acute otitis media (AOM) has been documented by cultures of middle ear fluid obtained by needle aspiration (myringotomy) in children, but the microbiology of AOM in adults is similar to that seen in the pediatric population.
+
+   In children, the most common bacterial pathogens are Streptococcus pneumoniae and nontypeable Haemophilus influenzae, with Moraxella catarrhalis the third most common bacterial etiology [3,10]. Globally, S. pneumoniae and H. influenzae combined caused 50 to 60 percent of pediatric AOM cases, while M. catarrhalis was responsible for 3 to 14 percent [11]. Group A streptococcus and Staphylococcus aureus are less frequent causes of AOM in general pediatric populations, although S. aureus may be a significant pathogen in adults based upon limited studies. Additionally, Group A streptococcus may be an important pathogen in patients with severe AOM requiring hospitalization [12,13]. Representative studies include:
+
+   ●A 1991 study of the myringotomy samples of 34 adults with AOM reported the major pathogens to be nontypeable H. influenzae (26 percent), S. pneumoniae (21 percent), M. catarrhalis (3 percent), Group A streptococcus (3 percent), and S. aureus (3 percent) [14].
+
+   ●A South Korean study analyzing middle ear fluid from a mixed adult and pediatric population with AOM and spontaneous tympanic membrane perforation revealed the major pathogens to be S. aureus (21 percent, including methicillin-resistant S. aureus [MRSA] in 4 percent), S. pneumoniae (16 percent), Pseudomonas species (8 percent), H. influenzae (5 percent), and Klebsiella (5 percent) [12]. Coagulase-negative staphylococci were isolated in 24 percent of cultures, however, suggesting possible contamination by ear canal flora.
+
+   ●In 60 adults with severe AOM requiring hospitalization, almost 50 percent were culture-negative, while culture-positive cases demonstrated Group A streptococcus (15 percent), S. pneumoniae (10 percent), Pseudomonas (8 percent), and S. aureus (5 percent) [13]. The source of culture (fluid from perforated tympanic membrane versus myringotomy) in this study was not reported.
+
+   ●Most common causative organisms:
+
+   •Streptococcus pneumoniae – S. pneumoniae is one of the most important bacterial causes of AOM. There are no studies of which pneumococcal serotypes are most likely to cause AOM in adults, but in children there has been a detectable shift in causative serotypes since the introduction of the 7-valent and 13-valent pneumococcal vaccines (PCV7 and PCV13). (See "Acute otitis media in children: Epidemiology, microbiology, and complications", section on 'Effect of infant immunization'.)
+
+   In adults, the Centers for Disease Control and Prevention (CDC) recommends immunization with PCV13 and the 23-valent pneumococcal polysaccharide vaccine (PPSV23) depending on age and/or coexisting medical conditions. Although there are no data evaluating the prevention of AOM by pneumococcal vaccines in adults as there are in children, these vaccines are likely to have some protective effect. Recommendations on vaccine administration in adults are discussed elsewhere. (See "Pneumococcal vaccination in adults".)
+
+   •Haemophilus influenzae – AOM due to H. influenzae in patients of all ages is due to nontypeable strains in the majority of patients [14]. (See "Epidemiology, clinical manifestations, diagnosis, and treatment of Haemophilus influenzae", section on 'Nontypeable H. influenzae'.)
+
+   •Moraxella catarrhalis – M. catarrhalis is responsible for 3 to 14 percent of AOM in children and is the third most common otopathogen [11]. High-quality data in adults are more limited, but in one study M. catarrhalis caused 3 percent of adult AOM cases [14].
+
+   •Staphylococcus aureus – AOM due to S. aureus, including methicillin-resistant strains, is uncommon in children. It is possibly more common as a cause of AOM in adults, but the actual incidence is unknown. S. aureus is known to occur in patients with chronic suppurative otitis media (CSOM) and may be associated with persistent otorrhea following insertion of tympanostomy tubes [15]. (See "Chronic otitis media and cholesteatoma in adults", section on 'Microbiology of chronic suppurative otitis media'.)
+
+   •Group A streptococcus – Before antibiotics, Group A streptococcus was a leading cause of AOM and resulted in significant severe middle ear disease, causing frequent perforation of the tympanic membrane and mastoiditis [16,17]. Group A streptococcus is now an uncommon cause of AOM, although the reason for this is not known [18]. However, when it occurs, cases of Group A streptococcal AOM in adults may be particularly fulminant and was found to be the most common cause of severe AOM requiring hospitalization in one study [13].
+
+   ●Viral pathogens:
+
+   •A viral upper respiratory infection is a common predisposing factor for AOM in children, and viruses may coinfect the middle ear along with bacteria [19]. This is likely true in adults as well, although studies in the adult population are lacking. In children, studies using reverse transcription polymerase chain reaction (RT-PCR) have detected viruses in 11 to 71 percent of the middle ears with AOM; rhinovirus and respiratory syncytial virus were most commonly identified, although parainfluenza, coronavirus, and adenovirus were also occasionally detected [20]. Since the onset of the coronavirus disease 2019 (COVID-19) pandemic, several studies in adults have reported cases of AOM in patients with COVID-19; in some cases, the causative virus, severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) was detected in the middle ear fluid [21-23].
+
+   ●Less common or rare causative organisms:
+
+   •Mycoplasma pneumoniae – Some patients with lower respiratory tract infection due to M. pneumoniae have concurrent AOM, although the etiologic role of M. pneumoniae in the AOM is uncertain. Studies of M. pneumoniae in adult AOM are lacking. In a Finnish study of children (ages two months to two years) with AOM, 4 percent of middle ear fluid samples tested positive for M. pneumonia, but most (69 percent) of these M. pneumoniae-positive samples also tested positive for a typical AOM pathogen (M. catarrhalis, S. pneumoniae, H. influenzae) [24].
+
+   •Rare causes include diphtheritic otitis, tuberculous otitis, and otogenous tetanus, and otitis media due to Chlamydia trachomatis.
+
+   PATIENT FACTORS CONTRIBUTING TO THE DEVELOPMENT OF ACUTE OTITIS MEDIA — Eustachian tube dysfunction, entities causing Eustachian tube compression or outlet obstruction, or an abnormality of host immunologic response can be a predisposing factor in the development of acute otitis media (AOM).
+
+   Eustachian tube dysfunction — Eustachian tube dysfunction is the most important factor in the pathogenesis of middle ear infections in both childhood and adulthood (figure 1). Eustachian tube dysfunction induces a relative negative pressure in the middle ear space, with the lack of aeration and accumulation of fluid providing an environment conducive to the development of AOM or otitis media with effusion. Anatomic changes in adolescence, with descent of the soft palate muscle sling relative to the Eustachian tube orifice, improves Eustachian tube patency. This anatomic change contributes to the decline in incidence of AOM with age. However, poor tubal function can persist into adulthood, and AOM can still occur at any age due to Eustachian tube dysfunction. (See "Eustachian tube dysfunction".)
+
+   Eustachian tube obstruction — Anything causing external compression of the Eustachian tube, or obstruction of the Eustachian tube or of its outlet, can also predispose to AOM, particularly unilateral AOM. Examples include malignancy (ie, lymphoma, nasopharyngeal carcinoma) and post-radiation fibrosis. (See 'Recurrent acute otitis media' below and "Eustachian tube dysfunction", section on 'Obstructive dysfunction'.)
+
+   Immune dysfunction — The respiratory mucosal membrane that lines the Eustachian tube, middle ear space, and mastoid air cells presents an immunologic defensive barrier, and any abnormality of this barrier may increase the risk of infection.
+
+   In response to any infection, there is an increase in production of mucus (which contains the potent antibacterial enzyme lysozyme) by the respiratory epithelium [25]. Along with increased mucus production, there is dilatation of mucosal blood vessels, which brings white blood cells and antibodies to the area, all of which contribute to the mucopurulent defensive barrier.
+
+   In addition, respiratory epithelium contains motile cilia, which promote the mobilization of secretions. Ineffective mucociliary clearance due to ciliary dyskinesia may impair the normal function of this important host immunologic defense [26,27]. (See "Primary ciliary dyskinesia (immotile-cilia syndrome)", section on 'Otitis'.)
+
+   The incidence of AOM and related complications is increased in children with congenital or acquired immunologic deficiencies, a risk that persists into adulthood [25]. All major classes of immunoglobulins have been identified in middle ear effusions of patients with AOM, and the presence of type-specific antibodies in these effusions is associated with an earlier resolution of infection. (See "Clinical manifestations, epidemiology, and diagnosis of common variable immunodeficiency in adults", section on 'Sinopulmonary infections'.)
+
+   The risks of AOM and its complications are also increased in patients who have a concomitant malignancy, use immunosuppressive drugs, or have a history of previous radiation of the nasopharyngeal region [28].
+
+   PRESENTATION AND DIAGNOSIS — It is essential to make an accurate diagnosis of acute otitis media (AOM) to avoid overtreatment with inappropriate antibiotic therapy. Evaluation of the patient's clinical presentation and a careful otoscopic examination are important in making the correct diagnosis.
+
+   Clinical manifestations — In adults, an upper respiratory tract infection or exacerbation of seasonal allergic rhinitis often precedes the onset of AOM. In adults, AOM is typically unilateral and is associated with otalgia (ear pain) and decreased or muffled hearing. The pain may be mild, moderate, or severe. If the tympanic membrane has ruptured, the patient may report a sudden relief of pain, possibly accompanied by purulent otorrhea.
+
+   Dysequilibrium may be present but is described infrequently. Conductive hearing loss, which may occur due to the presence of middle ear fluid, is usually transient.
+
+   Other symptoms, such as high fever, severe pain behind the ear, or facial paralysis, suggest unusual complications. (See 'Other possible complications of acute otitis media' below.)
+
+   Diagnosis with otoscopy — In adults with suspected AOM, the diagnosis is confirmed by the presence of typical features on otoscopic examination (figure 2).
+
+   Key features include:
+
+   ●Bulging tympanic membrane (picture 1)
+
+   ●Reduced mobility of the tympanic membrane when pneumatic pressure is applied (if pneumatoscopy is available)
+
+   Other features, which may or may not be present in adults with AOM include:
+
+   ●Partial or complete opacification of the tympanic membrane
+
+   ●Erythema of tympanic membrane
+
+   Examination with a handheld otoscope is essential for an accurate diagnosis of AOM. The addition of pneumatoscopy allows evaluation of tympanic membrane motion and is therefore also recommended for diagnosis. Otomicroscopy, generally available only in otorhinology specialty practices, permits even greater visualization of the tympanic membrane.
+
+   Examination typically demonstrates tympanic membrane bulging, opacification, erythema (picture 1), and poor mobility when pneumatic pressure is applied using a pneumatic otoscope (movie 1 and picture 2). A normal tympanic membrane is translucent (picture 3). By contrast, when there is fluid in the middle ear, the tympanic membrane appears cloudy, yellowish, or opaque. When there is an air-fluid level present, the tympanic membrane appears translucent above and opaque below the line of demarcation (picture 4). If there is an associated tympanic membrane rupture, there may be a visible perforation and possibly purulent material in the ear canal.
+
+   Some patients with suspected AOM may have a significant amount of cerumen partially or completely obstructing the ear canal, preventing adequate evaluation of the tympanic membrane. For these patients, we advise cautious removal of the obstructing material with either gentle curettage or aspiration under direct visualization. When AOM is a concern, removal of cerumen via irrigation should always be avoided because of risk of tympanic membrane rupture. If the obstructing cerumen cannot safely be relieved via curettage or aspiration, referral to otorhinology is appropriate.
+
+   The predictive value and accuracy of abnormal otoscope findings has been studied in children but has not been reported for adults with AOM [29-31]. In a pediatric population, the triad of a bulging tympanic membrane, impaired mobility, and redness or cloudiness of the tympanic membrane predicted the diagnosis of AOM, confirmed with myringotomy, in 83 to 99 percent of cases (table 1) [31]. In another study, a bulging tympanic membrane was more predictive of AOM than a red tympanic membrane [29].
+
+   DIFFERENTIAL DIAGNOSIS — The differential diagnosis of acute otitis media (AOM) includes otitis media with effusion (OME) (figure 2), chronic otitis media (COM), external otitis (otitis externa), herpes zoster infection, and other deep space head and neck infections.
+
+   Otitis media with effusion — An entity that is commonly clinically misidentified as AOM in adults is OME (figure 2). OME is defined by the presence of middle ear fluid without acute signs of bacterial infection or illness. OME can result from recent viral infection, barotrauma, or allergy and may precede or follow an episode of AOM. Eustachian tube dysfunction is often a predisposing factor. Rarely, OME is caused by obstruction of the Eustachian tube orifice in the nasopharynx by a mass such as nasopharyngeal carcinoma or other cancer, or as a result of radiation treatment for nasopharyngeal malignancy. Thus, any case of recurrent, unilateral otitis media with effusion warrants nasopharyngoscopy and possibly computed tomography (CT) to rule out obstructive pathology. (See "Eustachian tube dysfunction" and "Eustachian tube dysfunction", section on 'Obstructive dysfunction'.)
+
+   OME is often characterized by a temporary conductive hearing loss and a sense of aural fullness. If the effusion becomes chronic, it may be a precursor to tympanic membrane retraction and perforation.
+
+   Otoscopic findings of OME include visible fluid (often yellowish, but sometimes clear) behind an intact tympanic membrane. For patients with longstanding Eustachian tube dysfunction, the tympanic membrane may also be retracted. A normal tympanic membrane is shown in a photograph (picture 3) compared with a retracted tympanic membrane (picture 5). Viscous bubbles may also be seen behind the tympanic membrane, particularly during pneumatic otoscopy. Pneumatic otoscopy reveals reduced mobility of the ear drum when there is fluid in the middle ear. The tympanic membrane may even appear mildly erythematous in OME.
+
+   In patients with symptoms of ear fullness associated with hearing loss in whom direct examination of the tympanic membrane is difficult or limited, referral for audiometry and tympanometry is appropriate. In patients with symptoms due to OME, audiometry will reveal a mild to moderate conductive hearing loss, and tympanometry will be abnormal (figure 3). If sensorineural hearing loss is identified on audiometry, patients should be referred to otolaryngology.
+
+   In the majority of cases, OME resolves without treatment within 12 weeks. In a small percentage of cases, the effusion persists and requires additional intervention, such as pressure equalization tubes.
+
+   ●For patients who are minimally or mildly symptomatic (with intermittent aural fullness, no or minimal discomfort, and no or minimal conductive hearing loss), no treatment other than reassurance is necessary.
+
+   ●For patients who are more symptomatic (with persistent aural fullness, minimal to moderate discomfort, and conductive hearing loss), simple maneuvers such as intermittent autoinsufflation may be helpful in relieving symptoms until the effusion resolves. This can be done by pinching the nose while gently exhaling through the nose, forcing air back through the Eustachian tube and thus repressurizing the ear.
+
+   ●For adult patients with moderately symptomatic OME due to acute seasonal allergic rhinitis, short-term treatment with antihistamines, systemic decongestants, and/or nasal corticosteroids can be used. High-quality data regarding the efficacy of these treatments in adults are lacking, but we find short-term (≤12 weeks) use of one or a combination of these agents to be helpful for these patients in our clinical practice. (See "Pharmacotherapy of allergic rhinitis".)
+
+   ●For adult patients with moderately symptomatic OME due to an upper respiratory tract infection, we use either short-term treatment (6 to 10 weeks, or less if symptoms resolve) with nasal saline, systemic decongestants, nasal corticosteroids, or a combination of these therapies. With more severe symptoms, or in the case of unavoidable air travel, we also may treat with topical vasoconstrictor decongestants such as oxymetazoline (duration of treatment never to exceed 48 hours). However, air travel with the presence of an effusion is not recommended due to potential barotrauma to the ear. (See "The common cold in adults: Treatment and prevention", section on 'Moderate to severe symptoms' and "Pharmacotherapy of allergic rhinitis" and "An overview of rhinitis", section on 'Nasal decongestant sprays'.)
+
+   ●If the effusion does not resolve within 12 weeks, or if there is persistent pain, troublesome hearing loss, or concern over barotrauma (ie, unavoidable airplane travel before resolution of the effusion), the patient should be referred for possible myringotomy with tube placement.
+
+   ●For patients with recurrent, unilateral OME, fiberoptic nasopharyngoscopy should be performed to rule out nasopharyngeal pathology, such as nasopharyngeal carcinoma, especially in high-risk groups. (See "Epidemiology, etiology, and diagnosis of nasopharyngeal carcinoma", section on 'Geographic and ethnic distribution'.)
+
+   ●If sensorineural hearing loss is demonstrated, particularly in the presence of normal tympanometry, immediate referral to an otolaryngologist is warranted for possible therapy with glucocorticoids and to rule out a retrocochlear lesion. (See "Evaluation of hearing loss in adults".)
+
+   A systematic review of small studies of autoinsufflation in children did not demonstrate a significant difference in tympanometry results between intervention and control patients [32]. Similar studies are not available in adults, but the maneuver is without adverse effects and may be helpful to some patients in relieving symptoms while the effusion resolves on its own.
+
+   OME develops primarily from a mechanical/obstructive phenomenon. There is no evidence that decongestants and antihistamines are beneficial in the treatment of OME in children [33]. However, in adults, nasopharyngeal swelling from an upper respiratory tract infection or seasonal allergic rhinitis can induce transient Eustachian tube dysfunction, and decongestants might relieve symptoms by alleviating nasal congestion. As a result, most patients are treated with decongestants, antihistamines, or nasal corticosteroids despite a lack of high-quality data demonstrating a clear benefit in OME. (See "The common cold in adults: Diagnosis and clinical features", section on 'Acute otitis media' and "Pharmacotherapy of allergic rhinitis".)
+
+   There are no available randomized trials of myringotomy for the treatment of OME in adults, but case series have shown myringotomy for OME to be effective, with infrequent adverse effects [34]. Myringotomy with tube placement is contraindicated in patients with irreversible Eustachian tube dysfunction secondary to etiologies such as cancer or radiation therapy involving the Eustachian tube. Placement of a tympanostomy tube in these patients may potentially result in chronic otorrhea, and hearing loss from a chronic effusion must be weighed against the potential development of a chronically draining ear [35]. There is increasing evidence that Eustachian tube balloon dilation ("tuboplasty") can help patients with refractory Eustachian tube dysfunction, although experience with this procedure is relatively limited and data on long-term outcomes for such procedures are lacking [36]. (See "Eustachian tube dysfunction", section on 'Surgical management if symptoms persist despite medical
+   therapy'.)
+
+   There are limited data regarding the yield of nasopharyngoscopy in the routine workup of isolated otitis media with effusion, but individuals from China, Southeast Asia, and Northern Africa are at increased risk for nasopharyngeal carcinoma, and such patients should be considered for referral to otorhinology for further evaluation [37]. (See "Epidemiology, etiology, and diagnosis of nasopharyngeal carcinoma", section on 'Geographic and ethnic distribution'.)
+
+   Chronic otitis media — COM is diagnosed when there is a subacute or chronic tympanic membrane perforation which occurs in the setting of a chronic ear infection or recurrent infections.
+
+   ●Benign COM is characterized by a tympanic membrane perforation without accompanying drainage.
+
+   ●In COM with effusion (or chronic serous otitis media) there is continuous, typically straw colored, serous drainage through the perforated tympanic membrane.
+
+   ●Chronic suppurative otitis media (CSOM) is defined by chronic purulent drainage through the perforated tympanic membrane.
+
+   Some otologists alternatively classify COM based on the presence of either a chronic tympanic membrane perforation ("COM mucosal disease") or cholesteatoma ("COM benign squamous disease"). The term "active" is also used if there is otorrhea and "inactive" if it remains dry. (See "Chronic otitis media and cholesteatoma in adults".)
+
+   Bullous myringitis — Bullous myringitis is an infectious condition in which blisters (bullae) or vesicles develop on the tympanic membrane [38,39] (picture 6). The disorder may mimic AOM with a thickened and erythematous tympanic membrane, but the pathologic process is limited to the tympanic membrane and does not affect the contents of the middle ear. Compared with AOM, bullous myringitis may be particularly painful.
+
+   The etiology is unknown, but it is believed to be viral. In studies published over 50 years ago, experimental infection of adult volunteers with M. pneumoniae resulted in hemorrhagic bullous myringitis [40]. However, subsequent studies of bullous myringitis have not identified M. pneumoniae as a causative agent.
+
+   External otitis (Otitis externa) — External otitis is characterized by a painful, inflamed, erythematous ear canal, occasionally involving a small portion of the auricle. The ear canal may be partially occluded by inflammatory debris. However, there is no middle ear effusion present in external otitis. The tympanic membrane in the majority of cases appears normal, without bulging or retraction, although there might be some minimal erythema present. (See "External otitis: Pathogenesis, clinical features, and diagnosis" and "External otitis: Treatment".)
+
+   Herpes zoster — The diagnosis of herpes zoster is established with development of the classic dermatomal vesicular rash. However, prodromal pain may precede the rash by several days or, less commonly, a week or more. Herpes zoster may occur in the absence of any visible lesions (zoster sine herpete), making the diagnosis more difficult.
+
+   The Ramsay Hunt syndrome (herpes zoster oticus) is characterized by the triad of ipsilateral facial paralysis, ear pain, and vesicles involving the auditory canal and auricle, and can also cause vertigo. (See "Epidemiology, clinical manifestations, and diagnosis of herpes zoster", section on 'Rash' and "Epidemiology, clinical manifestations, and diagnosis of herpes zoster", section on 'Ramsay Hunt syndrome (herpes zoster oticus)'.)
+
+   Deep space head and neck infections — Some deep space head and neck infections may cause referred pain to the ear and are discussed separately. (See "Deep neck space infections in adults".)
+
+   TREATMENT OF ACUTE OTITIS MEDIA — Antibiotics are the mainstay of treatment of uncomplicated acute otitis media (AOM) in adults, and initial antibiotic choice is determined by knowledge of the most common causative pathogens. (See 'Microbiology' above.)
+
+   In children with AOM, at least one-quarter of cases are attributable to a viral respiratory pathogen, and some episodes of AOM resolve without antibacterial agents. In the United States, the American Academy of Pediatrics and the American Academy of Family Physicians present initial observation as an option for certain children with mild symptoms [41]. (See "Acute otitis media in children: Treatment", section on 'Antibiotic therapy versus observation'.)
+
+   In adults with AOM, however, data about the incidence of viral etiologies or the safety of withholding antimicrobial drugs are limited. Since AOM is unusual in adults, and complications may be significant, it seems prudent to treat all adults patients with antibiotic therapy. (See 'Other possible complications of acute otitis media' below.)
+
+   While awaiting response to antibiotic therapy, it is important to address the relief of pain, which can be significant. Most patients can be treated effectively with an analgesic such as a nonsteroidal antiinflammatory medication or acetaminophen.
+
+   Choice of initial antibiotic — Our choice for first-line therapy is amoxicillin-clavulanate.
+
+   ●In most adults, the dose is amoxicillin 875 mg with clavulanate 125 mg orally twice daily.
+
+   ●However, in patients at high risk for severe infections or infections with resistant S. pneumoniae (eg, those who live in regions with ≥10 percent penicillin-non-susceptible S. pneumoniae, are older than 65 years, are immunocompromised, have been recently hospitalized, or have used antibiotics in the past month), we use a higher dose of the amoxicillin component:
+
+   •Amoxicillin 1000 mg with clavulanate 62.5 mg, extended-release, orally twice daily (for lower-weight patients and/or those with milder infections)
+
+   •Amoxicillin 2000 mg with clavulanate 125 mg, extended-release, orally twice daily (for higher-weight patients and/or those with more severe infections)
+
+   If patients cannot use amoxicillin-clavulanate, we typically use a cephalosporin, as discussed elsewhere (see 'Penicillin allergy' below). However, if amoxicillin-clavulanate or one of the cephalosporins are unavailable or cost prohibitive, then amoxicillin may be used as alternative first-line therapy.
+
+   ●In most adults, the dose of amoxicillin is 500 mg orally three times daily or 875 mg orally twice daily.
+
+   ●In patients at high risk for severe infections or infections with resistant S. pneumoniae (eg, those who live in regions with ≥10 percent penicillin-non-susceptible S. pneumoniae, are older than 65 years, are immunocompromised, have been recently hospitalized, or have used antibiotics in the past month), we advise the use of high-dose amoxicillin:
+
+   •Amoxicillin 1000 mg orally three times daily
+
+   The rationale for our preference for amoxicillin-clavulanate is its spectrum of activity, which will cover the most common otopathogens. The preferred antibacterial drug for the patient with AOM must be active against S. pneumoniae, nontypeable H. influenzae, and M. catarrhalis [42-45]. Although data are not available for adults with AOM, one-third to one-half of H. influenzae isolates from middle ear fluid of children with AOM in the United States produce beta-lactamase, and nearly all isolates of M. catarrhalis produce beta-lactamase. S. aureus may also be an important pathogen in adults based upon limited studies. Clinicians should be aware that even high-dose amoxicillin is ineffective in treating AOM due to beta-lactamase-producing H. influenzae or M. catarrhalis (which are increasing in prevalence) and AOM due to S. aureus. (See 'Microbiology' above and "Acute otitis media in children: Epidemiology, microbiology, and complications".)
+
+   Beta-lactamase inhibitors are ineffective against penicillin-non-susceptible S. pneumoniae because the mechanism of resistance is different and the addition of clavulanate does not extend the coverage for these organisms; however, this resistance usually can be overcome by the increased dose of amoxicillin described above. High doses of amoxicillin are effective against most penicillin-non-susceptible S. pneumoniae isolates in AOM since these typically display only intermediate, not full resistance to penicillin.
+
+   There are no society guideline recommendations regarding antibiotic choice in the treatment of AOM in adults, although there are recommendations for adolescents. Additionally, there are society recommendations for antibiotic choice in the treatment of acute bacterial sinusitis in adults, an infection with similar microbiology to AOM [46]. (See "Acute otitis media in children: Treatment" and "Uncomplicated acute sinusitis and rhinosinusitis in adults: Treatment", section on 'Antibiotics'.)
+
+   Penicillin allergy — Acceptable alternatives to amoxicillin-clavulanate therapy in patients with an allergy to penicillin depend upon the type and severity of the previous reaction (algorithm 1). Severe reactions are characterized by urticaria, anaphylaxis, angioedema, or Stevens-Johnson syndrome. (See "Allergy evaluation for immediate penicillin allergy: Skin test-based diagnostic strategies and cross-reactivity with other beta-lactam antibiotics", section on 'Patients reporting a past reaction to amoxicillin or ampicillin' and "Penicillin allergy: Immediate reactions".)
+
+   ●In patients without severe reactions, and who do not have a known allergy to a cephalosporin, we use one of the following as alternative first-line therapy:
+
+   •Cefdinir, 300 mg orally twice daily or 600 mg once daily.
+
+   •Cefpodoxime, 200 mg orally twice daily.
+
+   •Cefuroxime, 500 mg orally twice daily.
+
+   •Ceftriaxone, 1 to 2 g intravenously (IV) or 1 g intramuscularly (IM) once daily for three days. Although a single dose may be sufficient in pediatric patients, clinical trials in pediatric patients demonstrated a three-day course to be more effective [47].
+
+   ●For patients with a known severe allergy to beta-lactam antibiotics or who have a known allergy to cephalosporins, we use doxycycline or a macrolide. For these patients, antibiotic choices include:
+
+   •Doxycycline, 100 mg orally every 12 hours
+
+   •Azithromycin, 500 mg orally on day 1, then 250 mg orally days 2 through 5
+
+   •Clarithromycin, 500 mg orally every 12 hours
+
+   Among S. pneumoniae isolates, there is a high rate of resistance to macrolides (azithromycin and clarithromycin). We do not use trimethoprim-sulfamethoxazole because of a high rate of resistance among both H. influenzae and S. pneumoniae and because it is not effective against Group A streptococcus. Similarly, we do not use clindamycin because it has no activity against H. influenzae.
+
+   Duration of therapy — High-quality data regarding optimal duration of therapy are lacking, but we treat patients with mild to moderate infections for five to seven days, and those with more severe infections (significant hearing loss, severe pain, and/or marked tympanic membrane erythema) with a 10-day course of antibiotics. Patients with severe AOM and systemic symptoms may require more intensive initial treatment, including middle ear fluid cultures, blood cultures, and initial treatment with intravenous antibiotics.
+
+   Lack of initial response — With appropriate antimicrobial therapy, most patients with AOM are significantly improved within 48 to 72 hours. If there is no improvement, the patient should be re-examined. The patient may have developed a new focus of infection or have received inadequate therapy. We manage failures of first-line therapy in adults similarly to failures of initial therapy in pediatric AOM:
+
+   ●If the patient received an antibiotic other than amoxicillin-clavulanate as the initial regimen and is able to tolerate penicillins, we treat with high-dose extended-release amoxicillin-clavulanate (2000 mg amoxicillin with 125 mg clavulanate, extended-release) orally twice daily for 10 days.
+
+   ●If the patient failed initial treatment with amoxicillin-clavulanate, one of the following options are used:
+
+   •Cefdinir 300 mg orally twice daily or 600 mg once daily for 10 days.
+
+   •Cefpodoxime 200 mg orally twice daily for 10 days.
+
+   •Cefuroxime 500 mg orally twice daily for 10 days.
+
+   •Ceftriaxone 1 to 2 g IV once daily for three or more days (the duration of treatment depends upon the clinical response; patients should be examined after three days to determine the need for additional therapy).
+
+   •Levofloxacin 500 mg orally once daily for 5 to 10 days (the duration of treatment depends upon the clinical severity and response to therapy). Use of a fluoroquinolone should be considered only if no other options are available.
+
+   •Moxifloxacin 400 mg orally once daily for 5 to 10 days (the duration of treatment depends upon the clinical severity and response to therapy). Use of a fluoroquinolone should be considered only if no other options are available.
+
+   The oral cephalosporins are less potent against penicillin-non-susceptible S. pneumonia than amoxicillin-clavulanate. Ceftriaxone is typically effective and will treat most penicillin-non-susceptible S. pneumoniae strains. Only the fluoroquinolones with activity against respiratory pathogens (levofloxacin or moxifloxacin) should be considered for use in the treatment of uncomplicated AOM. Like all fluoroquinolones, however, they have a boxed warning from the US Food and Drug Administration (FDA) due to potential serious side effects, and they should be used only as a last resort when there are no other available options for therapy.
+
+   In patients with severe infections, or who are at high risk for infection with resistant organisms or severe infection, and who fail to respond to second-line therapy, middle ear fluid (obtained via tympanocentesis) sent for culture may help guide subsequent antibiotic choices.
+
+   Management of acute tympanic membrane rupture in acute otitis media — The majority of acute tympanic membrane perforations that occur as a result of AOM will heal spontaneously. When it occurs, the perforation allows drainage of infected fluid, relieving middle ear pressure and permitting the extensively vascularized tympanic membrane to heal more quickly. There are no data in pediatric or adult patients as to whether adding a topical antibiotic in patients with AOM and a ruptured tympanic membrane has benefit over treating with oral antibiotics alone.
+
+   In patients with AOM and acute tympanic membrane rupture, some UpToDate authors treat with topical antibiotic ear drops in addition to oral antibiotics, while other authors treat with oral antibiotic alone.
+
+   If a topical antibiotic is used, we choose one without any known ototoxicity (eg, we avoid aminoglycoside containing preparations), and we treat for 7 to 10 days (table 2).
+
+   Additionally, until there is documented healing of the tympanic membrane perforation, the patient should use appropriate water precautions:
+
+   ●No swimming or diving
+
+   ●Avoid getting water in the affected ear when bathing or showering (ie, use a cotton ball coated with petroleum jelly in the ear to create a barrier)
+
+   In some cases, especially in recurrent or severe episodes of AOM, perforations may become chronic. (See 'Chronic tympanic membrane perforation' below.)
+
+   WHEN TO REFER
+
+   Recurrent acute otitis media — Patients with recurrent unilateral acute otitis media (AOM; ie, more than two episodes over a six-month time period) should undergo investigation for Eustachian tube or nasopharyngeal pathology. Fiberoptic nasopharyngoscopy and/or contrast magnetic resonance imaging (MRI) of the skull base and nasopharynx should be performed to rule out the possibility of a malignant process obstructing the Eustachian tube orifice. (See "Eustachian tube dysfunction", section on 'Obstructive dysfunction'.)
+
+   Persistent hearing loss following acute otitis media — Transient subjective hearing loss can occur in the affected ear during an episode of AOM due to the presence of fluid in the middle ear. However, subjective hearing loss that persists for more than one to two weeks following resolution of the infection and effusion is abnormal and should be followed up with an audiogram and otolaryngologic consultation.
+
+   Chronic tympanic membrane perforation — Tympanic membrane rupture may occur in AOM but will heal spontaneously in most cases. However, in recurrent or severe episodes of AOM, perforations may become chronic. Patients with perforations that persist for twelve weeks or longer (with or without associated suppurative drainage) should be referred to an otolaryngologist for further management. (See "Chronic otitis media and cholesteatoma in adults".)
+
+   OTHER POSSIBLE COMPLICATIONS OF ACUTE OTITIS MEDIA — Other complications following an episode of acute otitis media (AOM) in adults are rare but can occur due to a variety of factors, such as impaired immune status, abnormal anatomy, inadequate antibiotic treatment, or a particularly virulent pathogen. Complications may result from seeding of vascular channels and extension along preformed pathways including the oval window, round window, internal auditory canal, or endolymphatic duct.
+
+   Mastoiditis and other infectious complications in adults develop in less than 0.5 percent of cases of AOM [48,49]. Among combined adult and pediatric United States emergency department visits for complications of AOM between 2009 and 2011, the most common diagnoses were acute mastoiditis (0.16 percent), labyrinthitis (0.06 percent), and facial paresis (0.03 percent) [50]. In another study including only adults, acute mastoiditis also accounted for the majority of the complications [49].
+
+   Mastoiditis — The mastoid bone (the portion of the petrous temporal bone that lies superior to the middle ear cavity) (figure 1) contains air cells and is connected by the mastoid antrum to the middle ear. Most cases of AOM are associated with some degree of subclinical mastoiditis (inflammation or infection), although the incidence of clinically significant mastoiditis has been low since the introduction of antibiotics. Prior to antibiotics, acute coalescent mastoiditis complicated approximately 20 percent of cases of AOM, but, following the introduction of antibiotics, the incidence fell to 0.4 percent by 1959 and to 0.24 percent by 1993 [51,52]. In a United Kingdom study, from 1982 through 2012, the overall incidence of mastoiditis was 5.6 per 10,000 AOM episodes, with a higher rate in adults >20 years compared with patients ≤20 years (11.4 versus 3.7 per 10,000 AOM episodes, respectively) [53].
+
+   Mastoiditis is more common in children than adults; when it occurs in older adults, it may be particularly severe [54,55].
+
+   A spectrum of disease is associated with mastoiditis. Mastoid effusion is seen on computed tomography (CT) in all patients with AOM, but in the vast majority of cases it is not clinically significant. Clinically significant suppurative mastoiditis may present with fever, posterior ear pain and/or local erythema over the mastoid bone, edema of the pinna, or a posteriorly and downwardly displaced auricle.
+
+   In coalescent mastoiditis, the infection occupies the mastoid air spaces, causing destruction of the bony septae that separates the air spaces, and CT demonstrates characteristic loss of the trabecular bone [56].
+
+   When pus enters the mastoid air cells under pressure, it may lead to the dissolution of surrounding bone, and the infection may then spread to regional structures. Complicated mastoiditis (when infection spreads beyond the mastoid bone) can lead to dangerous complications due to proximity of the mastoid to the posterior cranial fossa, lateral sinuses, facial nerve canal, semicircular canals, and the petrous tip of the temporal bone.
+
+   If symptoms are present suggesting complicated mastoiditis (including swelling over the mastoid, facial paralysis, vertigo, sensorineural hearing loss, or other evidence that the infection has spread locally beyond the mastoid), surgical consultation should be obtained and CT performed. If there is a concern for the development of an intracranial complication (ie, septic lateral sinus thrombosis, intracranial abscess), then magnetic resonance imaging (MRI) should also be done.
+
+   Any patient with acute suppurative mastoiditis should be admitted to the hospital and started on intravenous (IV) antibiotics, and surgical consultation should be obtained. When suppurative mastoiditis occurs as a complication of AOM, antibiotics with activity against S. pneumoniae and H. influenzae should be given. When it presents as a complication of chronic otitis media (COM), coverage should include S. aureus (including methicillin-resistant S. aureus [MRSA]), Pseudomonas, and enteric Gram-negative rods. (See "Chronic otitis media and cholesteatoma in adults", section on 'Mastoiditis'.)
+
+   If patients with suppurative or coalescent mastoiditis do not respond to conservative therapy with IV antibiotics, surgical intervention is warranted, including mastoidectomy for debridement of infected and necrotic bone. (See "Chronic otitis media and cholesteatoma in adults", section on 'Surgical treatment'.)
+
+   Labyrinthitis — Labyrinthitis may occur infrequently as a result of both acute and chronic ear infections, and it presents as nausea, vomiting, vertigo, tinnitus, and hearing loss.
+
+   Serous labyrinthitis is a pre-suppurative condition in which the labyrinth undergoes inflammatory changes in association with acute suppurative otitis media. It is not associated with permanent auditory or vestibular dysfunction, and treatment is predominantly medical (treatment of the AOM and symptomatic treatment of the vertigo, nausea, etc), unless persistent granulation tissue or cholesteatoma are present. (See "Treatment of vertigo", section on 'Symptomatic treatment' and "Chronic otitis media and cholesteatoma in adults", section on 'Cholesteatoma removal'.)
+
+   Rarely, purulent (suppurative) labyrinthitis can develop, caused by direct extension of the AOM infection into the inner ear. This presents with more intense vertigo, tinnitus, hearing loss, vomiting, nausea, and also a clinical presentation of a more acutely ill patient.
+
+   Facial paralysis — Facial paralysis can occur as a rare complication of AOM through two different mechanisms.
+
+   There can be direct spread of the infection from the middle ear (via microdehiscences in the bony canal of the facial nerve, the Fallopian canal) to the nerve itself; as the inflamed nerve swells within this confined channel, a compression injury results in facial paralysis.
+
+   In the setting of an infection (more commonly seen in COM with cholesteatoma than in AOM), erosion of the bone overlying the facial nerve can directly compress the facial nerve; this typically occurs in the tympanic or vertical mastoid segment of the nerve. In AOM, however, facial nerve paresis can occur in the absence of any evidence of bony dehiscence in the facial canal. In a retrospective study of 24 adults with AOM complicated by facial nerve palsy, 54 percent had no evidence of bony dehiscence on high-resolution temporal bone CT [57].
+
+   Hearing loss — Hearing loss can occur as a result of both acute and chronic ear infections, although it is more commonly seen in cases of COM. The hearing loss is usually conductive in nature due to either ossicular erosion or tympanic membrane perforation.
+
+   Sensorineural hearing loss may rarely occur, particularly in the setting of a new infection in an adult without a prior history of ear infections. In COM, the round window membrane is much thicker, and thus inflammatory material (which may be ototoxic) is much less likely to enter the inner ear. (See "Etiology of hearing loss in adults".)
+
+   Petrositis (petrous apicitis) — The petrous apex of the temporal bone also contains air cells and is susceptible to infection, but typically only in the setting of mastoiditis. Due to closely related neural and vascular structures, inflammation and infection of the petrous apex can result in neural compromise. The inflammation may extend into Dorello's canal (containing the sixth cranial nerve and inferior petrosal sinus) and the Gasserian ganglion (sensory ganglion of the trigeminal nerve), causing the triad of symptoms known as Gradenigo syndrome: lateral rectus palsy, retro-orbital pain, and otorrhea. The classic triad is not always present, but the presence of both otorrhea and retro-orbital eye pain should raise the suspicion for petrositis.
+
+   The acute form typically develops rapidly in a normally pneumatized petrous apex air cell system. Diagnosis is supported by temporal bone CT, demonstrating opacification of the mastoid air cells system and petrous apex, bony erosion within the petrous apex, and enhancement of the cavernous sinus. High-resolution MRI with gadolinium demonstrates a low-intensity signal on T1-weighted images, high-intensity signal on T2-weighted images, with ring enhancement. MRI findings are important in distinguishing petrositis from other lesions of the petrous apex.
+
+   The most common organism responsible for petrositis is Pseudomonas aeruginosa, although S. aureus, S. pneumoniae, and anaerobes also have been reported [58]. In a review of 44 cases of petrositis treated over 40 years at a single institution, most cases occurred in adults and were related to otitis media.
+
+   Treatment consists of appropriate intravenous antibiotic therapy to cover the most likely responsible organisms. Consultation with an infectious disease specialist should be obtained early. Surgical exploration is usually reserved for those who do not respond quickly to antibiotic therapy, or who develop complications from the infection [59]. For patients treated medically and for those requiring surgery, prolonged antibiotics (eg, six weeks) are indicated.
+
+   Otitic meningitis — Otitic meningitis is the most common intracranial complication of chronic otitis and mastoiditis, although meningitis may also occur in association with AOM as well. All forms of otitic meningitis typically present with the classic signs of meningitis, including fever, neck stiffness, photophobia, and mental status changes, although some of these symptoms and signs may be absent initially [60]. The meningitis is usually generalized, and lumbar puncture with cerebrospinal fluid (CSF) studies demonstrate typical CSF findings of bacterial meningitis, and bacteria may even be seen on Gram stain of the spun CSF. (See "Clinical features and diagnosis of acute bacterial meningitis in adults".)
+
+   The most common pathogens are S. pneumoniae, although other pathogens, including H. influenzae, Group A streptococcus, and Neisseriae meningitidis may also be causative in some cases. In one study of 12 adults treated for otitic meningitis due to AOM, all seven cases with positive cerebrospinal fluid cultures were caused by S. pneumoniae [61]. In another study including both adults and children, the major pathogen was also identified as S. pneumoniae [61,62]. Successful treatment of otitic meningitis requires appropriate treatment, including IV antibiotics, and may additionally require surgical drainage of the mastoid. (See "Initial therapy and prognosis of bacterial meningitis in adults".)
+
+   Epidural, subdural, and brain abscess — Epidural, subdural, and brain abscesses are all rare complications of AOM in adults.
+
+   Epidural abscesses occur most commonly secondary to erosion of the posterior fossa plate. Less commonly, erosion of the tegmen mastoideum can lead to a middle fossa epidural abscess. Epidural abscesses resulting from acute or chronic ear infections present most commonly as headache that is occasionally relieved by profuse otorrhea. Treatment requires surgical drainage after identification of the abscess on MRI or CT imaging, in addition to intravenous antibiotics. (See "Intracranial epidural abscess".)
+
+   The presentation of a subdural abscess may closely mirror that of an epidural abscess, although neurologic signs are more likely to accompany abscesses that occur in the subdural space (between the dura and arachnoid meningeal layers). The mechanism underlying the development of a subdural abscess is thought to be bone erosion followed by septic thrombophlebitis. Treatment is the same as for epidural abscess. (See "Intracranial epidural abscess".)
+
+   Brain abscesses that occur in association with an acute or chronic ear infection will typically involve the temporal lobe or cerebellum. Successful treatment requires drainage of the brain abscess, followed by surgical eradication of the mastoid infection and a prolonged course of IV antibiotic therapy. (See "Pathogenesis, clinical manifestations, and diagnosis of brain abscess" and "Treatment and prognosis of bacterial brain abscess".)
+
+   Otitic hydrocephalus — Otitic hydrocephalus is a rare syndrome of increased intracranial pressure and suppurative otitis media, which occurs in the absence of a brain abscess or meningitis [63]. The pathogenesis seems to involve abnormal cerebrospinal fluid metabolism secondary to inflamed meninges, and the typical case occurs following prolonged otitis media. The most common presenting symptom is headache on the side of the involved ear. Papilledema is noted on examination, and there is evidence of hydrocephalus on imaging (CT or MRI). Appropriate management includes treatment of the ear disease and conventional measures of lowering intracranial pressure. (See "Evaluation and management of elevated intracranial pressure in adults".)
+
+   Septic lateral sinus thrombosis — Septic lateral sinus thrombosis (or sigmoid thrombophlebitis) may occur as a result of AOM in the setting of concomitant acute mastoiditis. The lateral, or sigmoid, sinus runs through the posterior portion of the mastoid cortex, where it eventually forms the jugular bulb and internal jugular vein.
+
+   Septic lateral sinus thrombosis often presents subacutely, with an earache that persists for several weeks before the onset of the headache. Signs of increased intracranial pressure, lower cranial neuropathies, and Griesinger's sign (postauricular edema due to emissary vein thrombophlebitis) are variable and signify progression of the condition. Sigmoid thrombophlebitis may extend to the jugular vein, with resultant internal jugular vein thrombosis.
+
+   Treatment requires IV antibiotics and, if necessary, drainage of the perisinus abscess via a transmastoid approach with exposure of the sigmoid sinus. Anticoagulation may be indicated. (See "Septic dural sinus thrombosis", section on 'Treatment'.)
+
+   SOCIETY GUIDELINE LINKS — Links to society and government-sponsored guidelines from selected countries and regions around the world are provided separately. (See "Society guideline links: Acute otitis media, otitis media with effusion, and external otitis".)
+
+   SUMMARY AND RECOMMENDATIONS
+
+   ●Definition and overview – Acute otitis media (AOM) is an acute, suppurative infectious process marked by the presence of infected middle ear fluid and inflammation of the mucosa lining the middle ear space (picture 1). The infection is most frequently precipitated by impaired function of the Eustachian tube, resulting in the retention and suppuration of retained secretions (figure 1). AOM may also be associated with purulent otorrhea if there is a ruptured tympanic membrane. AOM usually responds promptly to antimicrobial therapy. (See 'Definition' above.)
+
+   ●Microbiology – Common bacteria causing AOM in both children and adults are Streptococcus pneumoniae and Haemophilus influenzae. Group A Streptococcus, Staphylococcus aureus, and Moraxella catarrhalis are less frequent causes. (See 'Microbiology' above.)
+
+   ●Pathogenesis of AOM in adults – Eustachian tube dysfunction, commonly related to seasonal allergic rhinitis or upper respiratory tract infection, is the most important factor in the pathogenesis of middle ear infections in adults. (See 'Patient factors contributing to the development of acute otitis media' above.)
+
+   ●Clinical presentation and diagnosis – AOM is typically associated with the development of unilateral otalgia and decreased hearing. Otoscopy is required for accurate diagnosis; the addition of pneumatic otoscopy, if available, is helpful in providing additional diagnostic information (movie 1 and picture 2). The tympanic membrane in AOM is bulging, opacified, immobile, and often erythematous (picture 1). On physical examination (or audiometry if available), a conductive hearing loss may be demonstrated. (See 'Presentation and diagnosis' above and 'Diagnosis with otoscopy' above.)
+
+   ●Otitis media with effusion: Presentation and diagnosis – An entity that is commonly mistaken for AOM is otitis media with effusion (OME) (figure 2). OME is often characterized by hearing loss and a sense aural fullness. Otoscopy reveals the presence of middle ear fluid (picture 4) without a bulging tympanic membrane or evidence of active infection. In OME, the tympanic membrane is intact and may or may not be retracted (picture 5), depending on the chronicity of the effusion. (See 'Otitis media with effusion' above.)
+
+   ●Otitis media with effusion: Management – In OME, the majority of effusions will resolve over the course of 12 weeks, and most patients can be observed over this time period. In patients with substantial symptoms, we offer treatment with antihistamines (for OME due to allergic rhinitis), oral decongestants, and/or nasal corticosteroids. Myringotomy with tympanostomy tubes may be considered for persistent symptomatic effusions at 12 weeks and earlier for selected patients with need for immediate pressure equalization (eg, air travel that cannot be deferred). Patients with recurrent, unilateral OME should be referred for full nasopharyngeal evaluation to rule out obstructive pathology. (See 'Otitis media with effusion' above.)
+
+   ●Antibiotics for adults with AOM: Initial therapy – We suggest that adults with AOM be managed with antibiotic treatment rather than "watchful waiting" (Grade 2B). The preferred antibacterial drug for the patient with AOM must be active against S. pneumoniae, nontypeable H. influenzae, and M. catarrhalis. We suggest amoxicillin-clavulanate rather than amoxicillin (Grade 2C). Amoxicillin-clavulanate is active against the increasingly prevalent otopathogens that produce a beta-lactamase, whereas amoxicillin is not. Resistance to penicillins in S. pneumoniae is by a different mechanism than beta-lactamase production, and AOM due to resistant S. pneumoniae can usually be treated by high-dose amoxicillin, including formulations of amoxicillin-clavulanate that contain high-dose amoxicillin.
+
+   Second- or third-generation cephalosporins are alternative agents in patients with mild penicillin allergy or who are known to tolerate cephalosporins. Alternatives in patients who are highly penicillin-allergic and/or allergic to cephalosporins include doxycycline. (See 'Treatment of acute otitis media' above.)
+
+   ●Antibiotics for patients who do not respond to initial therapy – Patients who do not respond symptomatically within 48 to 72 hours should be re-examined. Treatment regimens for patients who did not respond to the initial antibiotic course include high-dose amoxicillin-clavulanate (if this was not used initially), a second- or third-generation cephalosporin, if one was not initially used, or a second-line agent as described above. (See 'Lack of initial response' above.)
+
+   ●Management of ruptured tympanic membrane in AOM – The tympanic membrane may rupture as a result of the infection in some patients with AOM. In patients with AOM and acute tympanic membrane rupture, some UpToDate authors treat with topical antibiotic ear drops in addition to oral antibiotics, while other authors treat with oral antibiotics alone. If one does choose to treat, agents containing ototoxic medications (eg, aminoglycosides) should be avoided (table 2). Water precautions should be used until there is documented healing of the tympanic membrane. (See 'Management of acute tympanic membrane rupture in acute otitis media' above.)
+
+   ●Indications for referral – Patients with recurrent AOM (>2 episodes in a six-month period), persistent hearing loss following AOM, and chronic tympanic membrane perforation following AOM (>12 weeks) should be referred for otorhinology consultation. (See 'When to refer' above.)
+
+   ACKNOWLEDGMENT — The editorial staff at UpToDate acknowledge Jerome Klein, MD, who contributed to an earlier version of this topic review.
+
+REFERENCES
+
+    1. Rettig EM, Tunkel DE. Acute otitis media in children. In: Infections of the Ears, Nose, Throat, and Sinuses, Durand ML, Deschler DG (Eds), Springer International Publishing AG, Cham, Switzerland 2018. p.45.
+    2. Centers for Disease Control and Prevention. Antibiotic prescribing and use in doctor's offices. https://www.cdc.gov/antibiotic-use/community/for-hcp/outpatient-hcp/pediatric-treatment-rec.html (Accessed on November 17, 2018).
+    3. Pichichero ME. Otitis media. Pediatr Clin North Am 2013; 60:391.
+    4. Monasta L, Ronfani L, Marchetti F, et al. Burden of disease caused by otitis media: systematic review and global estimates. PLoS One 2012; 7:e36226.
+    5. Pontefract B, Nevers M, Fleming-Dutra KE, et al. Diagnosis and Antibiotic Management of Otitis Media and Otitis Externa in United States Veterans. Open Forum Infect Dis 2019; 6:ofz432.
+    6. Rijk MH, Hullegie S, Schilder AGM, et al. Incidence and management of acute otitis media in adults: a primary care-based cohort study. Fam Pract 2021; 38:448.
+    7. Grijalva CG, Nuorti JP, Griffin MR. Antibiotic prescription rates for acute respiratory tract infections in US ambulatory settings. JAMA 2009; 302:758.
+    8. Marom T, Tan A, Wilkinson GS, et al. Trends in otitis media-related health care use in the United States, 2001-2011. JAMA Pediatr 2014; 168:68.
+    9. Johansson Kostenniemi U, Palm J, Silfverdal SA. Reductions in otitis and other respiratory tract infections following childhood pneumococcal vaccination. Acta Paediatr 2018.
+   10. Casey JR, Adlowitz DG, Pichichero ME. New patterns in the otopathogens causing acute otitis media six to eight years after introduction of pneumococcal conjugate vaccine. Pediatr Infect Dis J 2010; 29:304.
+   11. Ngo CC, Massa HM, Thornton RB, Cripps AW. Predominant Bacteria Detected from the Middle Ear Fluid of Children Experiencing Otitis Media: A Systematic Review. PLoS One 2016; 11:e0150949.
+   12. Kim SH, Jeon EJ, Hong SM, et al. Bacterial Species and Antibiotic Sensitivity in Korean Patients Diagnosed with Acute Otitis Media and Otitis Media with Effusion. J Korean Med Sci 2017; 32:672.
+   13. Laulajainen Hongisto A, Jero J, Markkola A, et al. Severe Acute Otitis Media and Acute Mastoiditis in Adults. J Int Adv Otol 2016; 12:224.
+   14. Celin SE, Bluestone CD, Stephenson J, et al. Bacteriology of acute otitis media in adults. JAMA 1991; 266:2249.
+   15. Hartnick CJ, Shott S, Willging JP, Myer CM 3rd. Methicillin-resistant Staphylococcus aureus otorrhea after tympanostomy tube placement: an emerging concern. Arch Otolaryngol Head Neck Surg 2000; 126:1440.
+   16. Valentine E.. Bacteriologic Study of Middle Ear Infections. J Infect Dis 1924; 35:177.
+   17. Shulman ST, Tanz RR. Streptococcal otitis media: from epidemiology to pathogenesis. Clin Infect Dis 2005; 41:42.
+   18. Segal N, Givon-Lavi N, Leibovitz E, et al. Acute otitis media caused by Streptococcus pyogenes in children. Clin Infect Dis 2005; 41:35.
+   19. Pettigrew MM, Gent JF, Pyles RB, et al. Viral-bacterial interactions and risk of acute otitis media complicating upper respiratory tract infection. J Clin Microbiol 2011; 49:3750.
+   20. Liaw J, Saadi R, Patel VA, Isildak H. Middle Ear Viral Load Considerations in the COVID-19 Era: A Systematic Review. Otol Neurotol 2021; 42:217.
+   21. Fidan V. New type of corona virus induced acute otitis media in adult. Am J Otolaryngol 2020; 41:102487.
+   22. Raad N, Ghorbani J, Mikaniki N, et al. Otitis media in coronavirus disease 2019: a case series. J Laryngol Otol 2021; 135:10.
+   23. Mohan S, Workman A, Barshak M, et al. Considerations in Management of Acute Otitis Media in the COVID-19 Era. Ann Otol Rhinol Laryngol 2021; 130:520.
+   24. Räty R, Kleemola M. Detection of Mycoplasma pneumoniae by polymerase chain reaction in middle ear fluids from infants with acute otitis media. Pediatr Infect Dis J 2000; 19:666.
+   25. Ilia S, Goulielmos GN, Samonis G, Galanakis E. Host's response in otitis media: understanding genetic susceptibility. Pediatr Infect Dis J 2008; 27:929.
+   26. Prulière-Escabasse V, Coste A, Chauvin P, et al. Otologic features in children with primary ciliary dyskinesia. Arch Otolaryngol Head Neck Surg 2010; 136:1121.
+   27. Takeuchi K, Kitano M, Sakaida H, et al. Analysis of Otologic Features of Patients With Primary Ciliary Dyskinesia. Otol Neurotol 2017; 38:e451.
+   28. Wang SZ, Wang WF, Zhang HY, et al. Analysis of anatomical factors controlling the morbidity of radiation-induced otitis media with effusion. Radiother Oncol 2007; 85:463.
+   29. Rothman R, Owens T, Simel DL. Does this child have acute otitis media? JAMA 2003; 290:1633.
+   30. Karma PH, Penttilä MA, Sipilä MM, Kataja MJ. Otoscopic diagnosis of middle ear effusion in acute and non-acute otitis media. I. The value of different otoscopic findings. Int J Pediatr Otorhinolaryngol 1989; 17:37.
+   31. Karma PH, Sipila MM, Kayaja MJ, Penttila MA. Pneumatic otoscopy and otitis media: The value of different tympanic membrane findings and their combinations. In: Recent advances in otitis media: proceedings of the Fifth International Symposium, Lim DJ, Bluestone CD, Klein JO, et al (Eds), Decker, Burlington, Ontario 1993. p.41.
+   32. Perera R, Haynes J, Glasziou P, Heneghan CJ. Autoinflation for hearing loss associated with otitis media with effusion. Cochrane Database Syst Rev 2006; :CD006285.
+   33. Cantekin EI, Mandel EM, Bluestone CD, et al. Lack of efficacy of a decongestant-antihistamine combination for otitis media with effusion ("secretory" otitis media) in children. Results of a double-blind, randomized trial. N Engl J Med 1983; 308:297.
+   34. Luxford WM, Sheehy JL. Myringotomy and ventilation tubes: a report of 1,568 ears. Laryngoscope 1982; 92:1293.
+   35. Xu YD, Ou YK, Zheng YQ, et al. The treatment for postirradiation otitis media with effusion: a study of three methods. Laryngoscope 2008; 118:2040.
+   36. Hwang SY, Kok S, Walton J. Balloon dilation for eustachian tube dysfunction: systematic review. J Laryngol Otol 2016; 130 Suppl 4:S2.
+   37. Dang PT, Gubbels SP. Is nasopharyngoscopy necessary in adult-onset otitis media with effusion? Laryngoscope 2013; 123:2081.
+   38. Mellick LB, Verma N. The Mycoplasma pneumoniae and bullous myringitis myth. Pediatr Emerg Care 2010; 26:966.
+   39. Kotikoski MJ, Kleemola M, Palmu AA. No evidence of Mycoplasma pneumoniae in acute myringitis. Pediatr Infect Dis J 2004; 23:465.
+   40. RIFKIND D, CHANOCK R, KRAVETZ H, et al. Ear involvement (myringitis) and primary atypical pneumonia following inoculation of volunteers with Eaton agent. Am Rev Respir Dis 1962; 85:479.
+   41. Lieberthal AS, Carroll AE, Chonmaitree T, et al. The diagnosis and management of acute otitis media. Pediatrics 2013; 131:e964.
+   42. Jacobs MR, Dagan R, Appelbaum PC, Burch DJ. Prevalence of antimicrobial-resistant pathogens in middle ear fluid: multinational study of 917 children with acute otitis media. Antimicrob Agents Chemother 1998; 42:589.
+   43. Kaplan SL. The emergence of resistant pneumococcus as a pathogen in childhood upper respiratory tract infections. Semin Respir Infect 1995; 10:31.
+   44. Pichichero ME, Casey JR. Acute otitis media disease management. Minerva Pediatr 2003; 55:415.
+   45. Thanaviratananich S, Laopaiboon M, Vatanasapt P. Once or twice daily versus three times daily amoxicillin with or without clavulanate for the treatment of acute otitis media. Cochrane Database Syst Rev 2008; :CD004975.
+   46. Rosenfeld RM, Piccirillo JF, Chandrasekhar SS, et al. Clinical practice guideline (update): adult sinusitis. Otolaryngol Head Neck Surg 2015; 152:S1.
+   47. Leibovitz E, Piglansky L, Raiz S, et al. Bacteriologic and clinical efficacy of one day vs. three day intramuscular ceftriaxone for treatment of nonresponsive acute otitis media in children. Pediatr Infect Dis J 2000; 19:1040.
+   48. Hafidh MA, Keogh I, Walsh RM, et al. Otogenic intracranial complications. a 7-year retrospective review. Am J Otolaryngol 2006; 27:390.
+   49. Leskinen K, Jero J. Acute complications of otitis media in adults. Clin Otolaryngol 2005; 30:511.
+   50. Ren Y, Sethi RKV, Stankovic KM. Acute Otitis Media and Associated Complications in United States Emergency Departments. Otol Neurotol 2018; 39:1005.
+   51. Lin K, Moonis G, Lustig LR. Mastoiditis. In: Infections of the Ears, Nose, Throat, and Sinuses, Durand ML, Deschler DG (Eds), Springer International Publishing AG, Cham, Switzerland 2018. p.67.
+   52. HOUSE HP. Otitis media; a comparative study of the results obtained in therapy before and after the introduction of the sulfonamide compounds. Arch Otolaryngol 1946; 43:371.
+   53. Cushen R, Francis NA. Antibiotic use and serious complications following acute otitis media and acute sinusitis: a retrospective cohort study. Br J Gen Pract 2020; 70:e255.
+   54. Samuels MA, Gonzalez RG, Kim AY, Stemmer-Rachamimov A. Case records of the Massachusetts General Hospital. Case 34-2007. A 77-year-old man with ear pain, difficulty speaking, and altered mental status. N Engl J Med 2007; 357:1957.
+   55. Stenfeldt K, Hermansson A. Acute mastoiditis in southern Sweden: a study of occurrence and clinical course of acute mastoiditis before and after introduction of new treatment recommendations for AOM. Eur Arch Otorhinolaryngol 2010; 267:1855.
+   56. Smith JA, Danner CJ. Complications of chronic otitis media and cholesteatoma. Otolaryngol Clin North Am 2006; 39:1237.
+   57. Meerwein C, Pazahr S, Stadler TM, et al. An intact bony tympanic facial canal does not protect from secondary facial paresis in adult acute otitis media. J Laryngol Otol 2020; 134:409.
+   58. Gadre AK, Chole RA. The changing face of petrous apicitis-a 40-year experience. Laryngoscope 2018; 128:195.
+   59. Kong SK, Lee IW, Goh EK, Park SE. Acute otitis media-induced petrous apicitis presenting as the Gradenigo syndrome: successfully treated by ventilation tube insertion. Am J Otolaryngol 2011; 32:445.
+   60. Lim ZM, Friedland PL, Boeddinghaus R, et al. Otitic meningitis, superior semicircular canal dehiscence, and encephalocele: a case series. Otol Neurotol 2012; 33:610.
+   61. Kaplan DM, Gluck O, Kraus M, et al. Acute bacterial meningitis caused by acute otitis media in adults: A series of 12 patients. Ear Nose Throat J 2017; 96:20.
+   62. Migirov L, Duvdevani S, Kronenberg J. Otogenic intracranial complications: a review of 28 cases. Acta Otolaryngol 2005; 125:819.
+   63. Sadoghi M, Dabirmoghaddam P. Otitic hydrocephalus: case report and literature review. Am J Otolaryngol 2007; 28:187.
+
+   This generalized information is a limited summary of diagnosis, treatment, and/or medication information. It is not meant to be comprehensive and should be used as a tool to help the user understand and/or assess potential diagnostic and treatment options. It does NOT include all information about conditions, treatments, medications, side effects, or risks that may apply to a specific patient. It is not intended to be medical advice or a substitute for the medical advice, diagnosis, or treatment of a health care provider based on the health care provider's examination and assessment of a patient's specific and unique circumstances. Patients must speak with a health care provider for complete information about their health, medical questions, and treatment options, including any risks or benefits regarding use of medications. This information does not endorse any treatments or medications as safe, effective, or approved for treating a specific patient. UpToDate, Inc. and its affiliates
+   disclaim any warranty or liability relating to this information or the use thereof. The use of this information is governed by the Terms of Use, available at https://uptodate.cn/legal/china/license ©2023 UpToDate, Inc. and its affiliates and/or licensors. All rights reserved.
+   Topic 6872 Version 61.0

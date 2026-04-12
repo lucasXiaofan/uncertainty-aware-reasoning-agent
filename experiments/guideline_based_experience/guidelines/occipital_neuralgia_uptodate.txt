@@ -1,0 +1,245 @@
+Diagnosis: Occipital neuralgia
+Source: uptodate
+Guideline title: Occipital neuralgia
+Guideline id: 18134.txt
+Relevant scenario_ids: 16
+Matched alias: occipital neuralgia
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/结果/18134.txt
+
+Guideline content
+
+Occipital neuralgia
+
+   Author:
+          Ivan Garza, MD
+
+   Section Editor:
+          Jerry W Swanson, MD, MHPE
+
+   Deputy Editor:
+          Richard P Goddeau, Jr, DO, FAHA
+
+   Contributor Disclosures
+   All topics are updated as new evidence becomes available and our peer review process is complete.
+   Literature review current through: Jul 2023.
+   This topic last updated: Feb 07, 2023.
+
+   INTRODUCTION — Neuralgia is a form of neuropathic pain that is characterized by the following features [1-3]:
+
+   ●Paroxysmal, brief (seconds to a few minutes), shock- or lightning-like pain that follows a peripheral or cranial nerve distribution and can spread to adjacent areas in the course of the attack.
+
+   ●By definition, no objective neurologic deficits are found in the distribution of the affected nerve. (See "Overview of craniofacial pain".)
+
+   ●Attacks can be provoked by nonpainful stimulation (allodynia) of trigger points or zones.
+
+   ●A refractory period follows attacks; the duration of the refractory period shortens as the disease progresses.
+
+   Occipital neuralgia can be a cause of headache in the occipital region. It is described as a unilateral or bilateral paroxysmal shooting or stabbing pain in the posterior part of the scalp, involving the greater, lesser, and/or third occipital nerve distribution, sometimes accompanied by diminished sensation or dysesthesia in the affected area, and commonly associated with tenderness over the involved nerve or nerves [4,5].
+
+   This topic will review clinical aspects of occipital neuralgia. Other cranial neuralgias and central causes of facial pain are discussed separately. (See "Overview of craniofacial pain" and "Central neuropathic facial pain" and "Cold stimulus headache" and "Nervus intermedius neuralgia" and "Nummular headache" and "Trigeminal neuralgia".)
+
+   ANATOMY — Sensation in the posterior head and neck is supplied by medial branches of dorsal primary rami of cervical nerve roots C2, C3, C4, and occasionally C5 (figure 1).
+
+   The greater occipital nerve originates from the second cervical nerve, perforates the semispinalis capitis and trapezius muscles, and supplies sensation to the uppermost neck and posterior head from the suboccipital area to the vertex.
+
+   The third occipital nerve originates from the third cervical spinal nerve, perforates the trapezius muscle, and supplies sensation to the upper posterior neck and lower occipital region of the scalp, medial to the greater occipital nerve territory.
+
+   The lesser occipital nerve is formed by divisions of the second and third cervical nerves, ascends along the posterior margin of the sternocleidomastoid muscle, and provides sensory fibers to the area of the scalp lateral to the greater occipital nerve, behind and superior to the auricle [6-8].
+
+   PATHOPHYSIOLOGY — The pathophysiology of occipital neuralgia is uncertain. The currently accepted view is that this disorder results from the chronic entrapment of the occipital nerves by the posterior neck and scalp muscles [9-11]. However, only limited evidence supports the concept of irritation of the occipital nerves as the cause, chiefly from surgical studies. Some cases develop following Arnold-Chiari malformation surgery or other surgeries at the cranial base, craniocervical junction, or upper cervical spine [12,13]. In one series of 872 patients with acoustic neuroma who underwent surgical resection, occipital neuralgia subsequently occurred in 15 patients (1.9 percent) [14].
+
+   Another hypothesis is that occipital neuralgia results from injury to the C2-C3 nerve roots and/or occipital nerves through different mechanisms (chronic instability, entrapment, trauma, inflammation) [15]. Some have proposed vascular compression of the nerve by the occipital artery [16-18].
+
+   Most often, occipital neuralgia appears to develop spontaneously.
+
+   EPIDEMIOLOGY — Occipital neuralgia is thought by many nonspecialists to be common, but it is a relatively rare encounter in clinical practice among headache specialists. The literature on occipital neuralgia is conflicting, and the actual incidence and prevalence are unknown [19]. This may be in part since, quite often, the diagnosis is given to patients with any pain in the occipital region even when diagnostic criteria are not met or even when the pain is not neuropathic. In a population-based study of adults aged 55 to 94 years, the lifetime prevalence of cranial neuralgias in general was 1.6 percent [20]. In a 10-year prospective registry of patients from a headache outpatient clinic, 1.2 percent of patients were diagnosed with occipital neuralgia and most (80 percent) were female [21].
+
+   Injuries such as whiplash during motor vehicle accidents may be a risk factor for occipital neuralgia [8].
+
+   CLINICAL MANIFESTATIONS — The pain of occipital neuralgia has a sudden onset. It is described as severe, stabbing, electric, shock-like, sharp, or shooting. It originates in the nuchal region and immediately spreads toward the vertex. The bouts of pain may start spontaneously or be provoked by specific maneuvers such as brushing the hair, exposing to cold, or moving the neck. The pain is usually unilateral, but bilateral cases occur as well. A dull occipital discomfort may be present during periods between the painful paroxysms. In a case series of 68 patients with occipital neuralgia, baseline pain was present in 91 percent [21].
+
+   On examination, pressure, palpation, or percussion over the occipital nerve trunks may reveal local tenderness [5], trigger painful paroxysms, worsen the background discomfort, or elicit paresthesias along the distribution of the affected nerve. Percussion of the nerve often reproduces the distribution of pain (Tinel's sign).
+
+   Cervical range of motion may be restricted and local posterior neck muscle spasms may be found.
+
+   Although somewhat contradictory to the strict definition of neuralgia, occipital neuralgia is sometimes accompanied by diminished sensation or dysesthesia in the affected area [5]. The remainder of the neurologic exam is typically normal. An abnormal neurologic exam is an alert for potential alternative or underlying causes of the symptoms [8,10,11]. (See 'Differential diagnosis' below.)
+
+   DIAGNOSIS — The diagnosis of occipital neuralgia is considered when typical clinical features are present; the diagnosis can be confirmed when pain is transiently relieved by a local occipital anesthetic block [22]. However, it is important to note that an occipital nerve block is a nonspecific intervention to which multiple other primary and secondary headache disorders may favorably respond, so symptomatic relief does not indicate a specific etiology [22].
+
+   Diagnostic criteria — The diagnostic criteria for occipital neuralgia from the International Classification of Headache Disorders, 3^rd edition (ICHD-3) are as follows [5]:
+
+   ●(A) Unilateral or bilateral pain in the distribution(s) of the greater, lesser, and/or third occipital nerves and fulfilling criteria B through D
+
+   ●(B) Pain has at least two of the following three characteristics:
+
+   •Recurring in paroxysmal attacks lasting from a few seconds to minutes
+
+   •Severe intensity
+
+   •Shooting, stabbing, or sharp in quality
+
+   ●(C) Pain is associated with both of the following:
+
+   •Dysesthesia and/or allodynia apparent during innocuous stimulation of the scalp and/or hair
+
+   •Either or both of the following:
+
+   -Tenderness over the affected nerve branches
+
+   -Trigger points at the emergence of the greater occipital nerve or in the distribution of C2
+
+   ●(D) Pain is eased temporarily by local anesthetic block of the affected nerve(s)
+
+   ●(E) Not better accounted for by another ICHD-3 diagnosis
+
+   The ICHD-3 classification requires distinguishing occipital neuralgia from occipital referral of pain from the atlantoaxial or upper zygapophyseal joints or from tender trigger points in neck muscles or their insertions [5].
+
+   By definition and diagnostic criteria, the diagnosis is not occipital neuralgia if the pain does not resolve after occipital nerve block. Thus, other causes for the neuralgiform pain (such as cervicogenic headache) should be explored if occipital nerve block fails.
+
+   Evaluation — A careful evaluation of the upper cervical spine and posterior fossa is imperative for patients with suspected occipital neuralgia [22]. There are no clear guidelines regarding the utility of neuroimaging studies for the evaluation of occipital neuralgia. However, because structural and infiltrative lesions may cause occipital neuralgia (see 'Differential diagnosis' below), we suggest obtaining magnetic resonance imaging (MRI) of the head and cervical spine for new cases of suspected occipital neuralgia, and we recommend imaging particularly if the pain is atypical or if the neurologic examination is abnormal [23].
+
+   The presence of continuous (rather than intermittent) occipital pain and the absence of impaired sensation suggests the pain is referred from some of the structures in the cervical region mentioned above [24]. (See 'Differential diagnosis' below.)
+
+   Cervical medial branch blocks can provide the means to detect whether or not the neck pain is originating in one or more of the upper zygapophyseal joints [25].
+
+   Differential diagnosis — The differential diagnosis of cervical spine pain referred to the head is broad. Possible sources of such pain include structures innervated by the upper three cervical spinal nerves, including the following [9]:
+
+   ●Median atlantoaxial, atlanto-occipital, and lateral atlantoaxial joints
+
+   ●C2-3 zygapophyseal joint
+
+   ●Suboccipital and upper posterior neck muscles
+
+   ●Upper prevertebral muscles
+
+   ●Spinal and posterior cranial fossa dura mater
+
+   ●Vertebral arteries
+
+   ●C2-3 intervertebral disc
+
+   ●Trapezius and sternocleidomastoid muscles
+
+   Thus, occipital neuralgia must be differentiated from referred occipital pain that originates in any of these structures. Multiple structural and infiltrative lesions have been identified as causes of occipital neuralgia, including meningioma, schwannoma, arteriovenous fistula, vascular compression, pyomyositis, multiple myeloma, myelitis, C2 cavernous malformation, C2 spinal cord infarction, and C2-3 inflammatory demyelinating disease [23,26-34]. In most cases, the cause of occipital pain cannot be deduced on the basis of clinical features alone, thus warranting proper evaluation with neuroimaging. (See 'Evaluation' above.)
+
+   Cervicogenic headache is thought to be caused by referred pain from the upper cervical joints and is another consideration in the differential diagnosis. The pathophysiology, true source of pain, and even the existence of cervicogenic headache as a distinct clinical entity have been debated and remain somewhat controversial. This is discussed separately. (See "Cervicogenic headache".)
+
+   TREATMENT — Occipital nerve block (ONB) is often the initial treatment of choice for occipital neuralgia as it can potentially be both diagnostic and therapeutic. Alternative or adjunctive local and oral agents are used in patients who report partial or transient benefit from ONB. (See 'Diagnosis' above.)
+
+   Occipital nerve block — Anesthetic nerve block (typically along with a glucocorticoid agent) helps support the diagnosis of occipital neuralgia in the right clinical context and provides immediate or partial pain relief, which may extend weeks or even months [11,35,36]. Importantly, however, not all occipital headaches occur on the basis of occipital neuralgia, and a favorable response to occipital nerve block does not equate to a diagnosis of occipital neuralgia. Other primary and secondary headache disorders may respond favorably to an occipital nerve block, which stresses the need to fulfill International Classification of Headache Disorders, 3^rd edition (ICHD-3) diagnostic criteria. The procedure should be performed by physicians who are trained to perform the procedure. In one case series of 44 patients diagnosed with occipital neuralgia, administration of lidocaine or bupivacaine and 4 mg dexamethasone targeting either the greater or both greater and lesser occipital nerves showed 95
+   percent response rate assessed at 24 hours and at 6-month follow-up. During that time, over 80 percent of patients required no adjunctive medication for pain control, and the mean interval to repeat injection for symptoms relief was 270 days [37]. In another single-center registry, 53 patients receiving an injection of 1% lidocaine without a corticosteroid reported a response rate of optimal pain relief in 73 percent, with more than 95 percent of patients reporting pain relief lasting two or more months [21].
+
+   ONB is usually performed by targeting tender points approximating affected branches of the C2 nerve, either the greater (GON) or lesser occipital nerve (LON). Injection sites are identified with surface localization using the external occipital protuberance as reference landmark with GON 2 cm inferior and laterally and LON 5 cm laterally [37]. Other techniques to identify injection site include using one-third the distance from the external occipital protuberance to the mastoid process or using ultrasound to identify the occipital artery as typically just lateral to the GON [13,36,38,39].
+
+   The procedure can be repeated when pain recurs [8,11]. A review by the American Headache Society recommended at least three-month interval between injections if corticosteroids are used [40].
+
+   The procedure is generally safe with few complications, as long as the anesthetic/glucocorticoid injection is not inadvertently injected intravascularly [41]. Rarely, a patient may become cushingoid secondary to serial glucocorticoid-containing blocks [35,42]. In one retrospective review of 89 patients receiving a total of 315 nerve blocks, 9 percent reported adverse effects, most commonly transient dizziness or elevated blood pressure. While adverse effects were more common with bilateral injections, no difference was seen between lidocaine at 1, 2, or 5% [43].
+
+   Alternative or adjunctive treatment options — Because ONBs require procedural training and provide partial or only temporary relief in some patients, medications or other options are often used in clinical practice alone or simultaneously with periodic ONBs. Patients may prefer oral agents over injections.
+
+   ●Pharmacotherapy – Gabapentinoids or other oral agents commonly used to treat other headache disorders including cervicogenic headache may provide pain relief alone or in concert with ONB. However, these agents have not been systematically studied for this condition. Options include [8,22,24,44]:
+
+   •Gabapentin
+
+   •Pregabalin
+
+   •Amitriptyline
+
+   •Baclofen
+
+   •Carbamazepine
+
+   ●Patients with neck pain – In the setting of acute occipital neuralgia secondary to traumatic cervical strain/sprain injury, immobilization using a neck collar for two to three weeks may provide relief of painful paroxysms [8,45]. The application of local moist heat may alleviate muscle spasm and pain. Other patients might get some relief by applying cold locally one to three times daily [8].
+
+   Patients with refractory pain — Patients who do not respond to nerve block or to conservative measures should be evaluated in experienced centers for consideration of alternative treatments. Options include botulinum toxin type A injections, pulsed radiofrequency (PRF), or occipital nerve decompression or stimulation.
+
+   ●Botulinum toxin type A injections have suggested benefit in two small case series (n = 6 each) of patients who failed nerve blocks and oral medications [46,47]. In one, ONBs with botulinum toxin type A 50 units appeared to provide a longer duration of analgesia than diagnostic local anesthetics [46]. In the other series, botulinum toxin injected into regions traversed by the greater and lesser occipital nerves was associated with improvement in sharp/shooting pain but no improvement in dull and aching pain [47]. Ultrasound may have a role in finding specific occipital nerve entrapment locations to target with botulinum toxin injections [13]. Ultimately, however, large placebo-controlled trials are needed to determine whether botulinum toxin injections have a role in the management of occipital neuralgia.
+
+   ●Pulsed radiofrequency treatment is an option if local anesthetic plus glucocorticoids fail to provide sufficient relief, but conclusive evidence in support of PRF as an interventional treatment option for occipital neuralgia is lacking [48]. One trial of 81 patients with occipital neuralgia comparing PRF with occipital nerve block showed higher success rates with PRF (61 versus 36 percent; odds ratio [OR] 2.79, 95% CI 1.13-6.9) at six weeks, but this effect declined (34 versus 14 percent; OR 3.2, 95% CI 1.0-10.1) at three months and was nonsignificant at six months [49].
+
+   ●Occipital nerve surgical decompression may benefit selected patients. In a small series of 11 patients with medically refractory occipital neuralgia, decompression at the level of the semispinalis capitis and trapezial tunnel was associated with pain resolution in three, significant pain relief in six, and no pain improvement in two patients over a mean follow-up period of approximately 12 months [50]. In another series of patients with occipital neuralgia, pain resolved in 6 of 11 patients at six months following surgical decompression; one patient failed to get relief [51]. However, surgical decompression is not a routine therapeutic measure and should be reserved for use in a tertiary care center with expertise in peripheral nerve neurosurgery.
+
+   ●Occipital nerve stimulation has been employed in selected cases of severe occipital neuralgia unresponsive to less invasive measures [52-54], but this method should be reserved for use in a pain center with expertise in neuromodulation.
+
+   SOCIETY GUIDELINE LINKS — Links to society and government-sponsored guidelines from selected countries and regions around the world are provided separately. (See "Society guideline links: Neuropathic pain".)
+
+   SUMMARY AND RECOMMENDATIONS
+
+   ●Definition – Occipital neuralgia is an uncommon cause of headache in the occipital region. It is characterized by paroxysmal jabbing pain in the greater, lesser, and/or third occipital nerve distribution (figure 1). In most cases, the condition develops spontaneously. (See 'Anatomy' above and 'Pathophysiology' above.)
+
+   ●Clinical manifestations – The pain of occipital neuralgia is sudden in onset and described as stabbing, electric, shock-like, sharp, or shooting. It originates in the nuchal region and immediately spreads toward the vertex. Attacks may begin spontaneously or may be provoked by specific maneuvers. A dull occipital discomfort can be present during periods between the painful paroxysms. Examination may reveal local tenderness and/or hypesthesia in the territory of the affected nerve (figure 1). Percussion may elicit paresthesias along the distribution of the affected nerve. (See 'Clinical manifestations' above.)
+
+   ●Diagnosis – The diagnosis of occipital neuralgia is considered when typical clinical features are present. The diagnosis can be confirmed when pain is transiently relieved by a local occipital anesthetic block. However, other headache disorders may also favorably respond to occipital nerve blocks, so symptomatic relief does not indicate a specific etiology. (See 'Diagnosis' above.)
+
+   ●Imaging evaluation for underlying causes – For patients with newly diagnosed occipital neuralgia, we suggest imaging with magnetic resonance imaging of the head and cervical spine to exclude structural or infiltrative lesions, and we recommend imaging particularly for patients who have atypical pain or an abnormal neurologic examination. (See 'Evaluation' above.)
+
+   ●Differential diagnosis – Occipital neuralgia must be distinguished from referred occipital pain originating from atlantoaxial or upper zygapophyseal joints, tender trigger points in neck muscles, or other structures innervated by the upper three cervical spinal nerves. Secondary causes of occipital head pain include structural and infiltrative lesions. (See 'Differential diagnosis' above.)
+
+   ●Treatment
+
+   •Occipital nerve block – For patients with occipital neuralgia who have moderate to severe pain or debilitating symptoms, we suggest a local occipital nerve block over other therapies (Grade 2C). Pain relief, which is typically prompt, supports the diagnosis and may last several weeks or even months. The procedure is generally safe and can be repeated when pain recurs. Other causes for the neuralgiform pain should be explored if occipital nerve block fails. (See 'Occipital nerve block' above.)
+
+   •Alternative treatment options – Patients whose pain is not completely sufficiently managed with occipital nerve blocks may benefit from a switch to or addition of pharmacotherapy such as gabapentin, pregabalin, amitriptyline, baclofen, or carbamazepine. (See 'Alternative or adjunctive treatment options' above.)
+
+   Patients who are refractory to conservative measures should be evaluated in experienced centers for consideration of alternative treatments (eg, botulinum toxin type A injections, pulsed radiofrequency, occipital nerve decompression, or stimulation). (See 'Patients with refractory pain' above.)
+
+   Use of UpToDate is subject to the Terms of Use.
+
+REFERENCES
+
+    1. Bruyn GW. Nervus intermedius neuralgia (Hunt). Cephalalgia 1984; 4:71.
+    2. Peter C, Watson N. Trigeminal neuropathy and neuralgia. In: Neurological therapeutics: Principles and practice, Noseworthy JH (Ed), Martin Dunitz, London, New York 2003. p.1849.
+    3. Goodwin JG, Bajwa ZH. Understanding the patient with chronic pain. In: Principles and practice of pain medicine, Warfield CA, Bajwa ZH (Eds), McGraw Hill, USA 2004. p.55.
+    4. Bogduk N. The anatomy of occipital neuralgia. Clin Exp Neurol 1981; 17:167.
+    5. Headache Classification Committee of the International Headache Society (IHS) The International Classification of Headache Disorders, 3rd edition. Cephalalgia 2018; 38:1.
+    6. Hiat JL, Gartner LP. Neck. In: Head and neck anatomy, Lippincott Williams and Wilkins, Philadelphia, PA 2001. p.109.
+    7. Lang J. Musculature. In: Clinical anatomy of the cervical spine, Thieme Medical Publishers, New York 1993. p.127.
+    8. Handel TE, Kaplan RJ. Occipital Neuralgia. In: Essentials of physical medicine and rehabilitation, Frontera WR, Silver JK (Eds), Lippincott Williams and Wilkins, Philadelphia, PA 2002. p.38.
+    9. Bogduk N. The neck and headaches. Neurol Clin 2004; 22:151.
+   10. Boes CJ, Copobianco DJ, Cutrer FM, et al. Headache and other craniofacial pain. In: Neurology in clinical practice, Bradley WG, Daroff RB, Fenichel GM, et al (Eds), Butterworth Heinemann, Philadelphia 2004. p.2055.
+   11. Ashkenazi A, Levin M. Three common neuralgias. How to manage trigeminal, occipital, and postherpetic pain. Postgrad Med 2004; 116:16.
+   12. Guan Q, Xing F, Long Y, Xiang Z. Postoperative occipital neuralgia in posterior upper cervical spine surgery: a systematic review. Neurosurg Rev 2018; 41:779.
+   13. Narouze S. Occipital Neuralgia Diagnosis and Treatment: The Role of Ultrasound. Headache 2016; 56:801.
+   14. Riedy LN, Heiferman DM, Szujewski CC, et al. Occipital Neuralgia following Acoustic Neuroma Resection. J Neurol Surg B Skull Base 2022; 83:e135.
+   15. Elias WJ, Burchiel KJ. Trigeminal neuralgia and other neuropathic pain syndromes of the head and face. Curr Pain Headache Rep 2002; 6:115.
+   16. White JB, Atkinson PP, Cloft HJ, Atkinson JL. Vascular compression as a potential cause of occipital neuralgia: a case report. Cephalalgia 2008; 28:78.
+   17. Shimizu S, Oka H, Osawa S, et al. Can proximity of the occipital artery to the greater occipital nerve act as a cause of idiopathic greater occipital neuralgia? An anatomical and histological evaluation of the artery-nerve relationship. Plast Reconstr Surg 2007; 119:2029.
+   18. Sharma RR, Parekh HC, Prabhu S, et al. Compression of the C-2 root by a rare anomalous ectatic vertebral artery. Case report. J Neurosurg 1993; 78:669.
+   19. Manzoni GC, Torelli P. Epidemiology of typical and atypical craniofacial neuralgias. Neurol Sci 2005; 26 Suppl 2:s65.
+   20. Schwaiger J, Kiechl S, Seppi K, et al. Prevalence of primary headaches and cranial neuralgias in men and women aged 55-94 years (Bruneck Study). Cephalalgia 2009; 29:179.
+   21. Martínez-Pías E, Trigo-López J, García-Azorín D, et al. Clinical Characteristics and Therapeutic Results in a Series of 68 Patients with Occipital Neuralgia. Pain Med 2021; 22:396.
+   22. Facial pain and the neuralgias. In: Handbook of headache management: A practical guide to diagnosis and treatment of head, neck, and facial pain. Saper, JR, Silberstein, S, Gordon, CD, et al (Eds), Lippincott Williams and Wilkins, Baltimore, Maryland 1999. p.249.
+   23. Garza I. Craniocervical junction schwannoma mimicking occipital neuralgia. Headache 2007; 47:1204.
+   24. Cranial neuralgias and central causes of facial pain. In: Mechanism and management of headache, Lance JW, Goadsby PJ (Eds), Elsevier Butterworth Heinemann, Philadelphia 2005. p.333.
+   25. Bogduk, N, Karasek, M. Precision diagnosis and treatment of back and neck pain. In: Continuum: Pain and palliative care, Miller, AE (Ed), Lippincott Williams and Wilkins, Philadelphia, PA 2005. p.94.
+   26. Yamada G, Toyoda T, Katada E, Matsukawa N. Occipital Neuralgia Secondary to C2 Spinal Cord Infarction. Intern Med 2022; 61:2353.
+   27. Cornely C, Fischer M, Ingianni G, Isenmann S. Greater occipital nerve neuralgia caused by pathological arterial contact: treatment by surgical decompression. Headache 2011; 51:609.
+   28. Kim NH, Yang SY, Koo JB, Jeong SW. Occipital neuralgia as the only presenting symptom of foramen magnum meningioma. J Clin Neurol 2009; 5:198.
+   29. Peltier J, Baroncini M, Thines L, et al. Subacute involvement of the medulla oblongata and occipital neuralgia revealing an intracranial dural arteriovenous fistula of the craniocervical junction. Neurol India 2011; 59:285.
+   30. Sierra-Hidalgo F, Ruíz J, Morales-Cartagena A, et al. Infiltrative cervical lesions causing symptomatic occipital neuralgia. Cephalalgia 2011; 31:1493.
+   31. Boes CJ. C2 myelitis presenting with neuralgiform occipital pain. Neurology 2005; 64:1093.
+   32. Lucchesi C, Puglioli M, Gori S. Occipital neuralgia: a symptomatic case caused by an abnormal left vertebral artery. Neurol Sci 2013; 34:243.
+   33. Kissoon NR, Watson JC, Boes CJ, Kantarci OH. Occipital neuralgia associates with high cervical spinal cord lesions in idiopathic inflammatory demyelinating disease. Cephalalgia 2019; 39:21.
+   34. Ha SW, Choi JG, Son BC. Occipital Neuralgia from C2 Cavernous Malformation. Asian J Neurosurg 2018; 13:442.
+   35. Ward JB. Greater occipital nerve block. Semin Neurol 2003; 23:59.
+   36. Pingree MJ, Sole JS, Oʼ Brien TG, et al. Clinical Efficacy of an Ultrasound-Guided Greater Occipital Nerve Block at the Level of C2. Reg Anesth Pain Med 2017; 42:99.
+   37. Juškys R, Šustickas G. Effectiveness of treatment of occipital neuralgia using the nerve block technique: a prospective analysis of 44 patients. Acta Med Litu 2018; 25:53.
+   38. Inan LE, Inan N, Unal-Artık HA, et al. Greater occipital nerve block in migraine prophylaxis: Narrative review. Cephalalgia 2019; 39:908.
+   39. Dach F, Éckeli ÁL, Ferreira Kdos S, Speciali JG. Nerve block for the treatment of headaches and cranial neuralgias - a practical approach. Headache 2015; 55 Suppl 1:59.
+   40. Blumenfeld A, Ashkenazi A, Napchan U, et al. Expert consensus recommendations for the performance of peripheral nerve blocks for headaches--a narrative review. Headache 2013; 53:437.
+   41. Lehmann, LJ. Peripheral nerve blocks. In: Principles and practice of pain medicine, Warfield, CA, Bajwa, ZH (Eds), McGraw-Hill, USA 2004. p.684.
+   42. Lavin PJ, Workman R. Cushing syndrome induced by serial occipital nerve blocks containing corticosteroids. Headache 2001; 41:902.
+   43. Sahai-Srivastava S, Subhani D. Adverse effect profile of lidocaine injections for occipital nerve block in occipital neuralgia. J Headache Pain 2010; 11:519.
+   44. Tepper SJ. Cranial Neuralgias. Continuum (Minneap Minn) 2018; 24:1157.
+   45. Evans RW. Some observations on whiplash injuries. Neurol Clin 1992; 10:975.
+   46. Kapural L, Stillman M, Kapural M, et al. Botulinum toxin occipital nerve block for the treatment of severe occipital neuralgia: a case series. Pain Pract 2007; 7:337.
+   47. Taylor M, Silva S, Cottrell C. Botulinum toxin type-A (BOTOX) in the treatment of occipital neuralgia: a pilot study. Headache 2008; 48:1476.
+   48. Manolitsis N, Elahi F. Pulsed radiofrequency for occipital neuralgia. Pain Physician 2014; 17:E709.
+   49. Cohen SP, Peterlin BL, Fulton L, et al. Randomized, double-blind, comparative-effectiveness study comparing pulsed radiofrequency to steroid injections for occipital neuralgia or migraine with occipital nerve tenderness. Pain 2015; 156:2585.
+   50. Jose A, Nagori SA, Chattopadhyay PK, Roychoudhury A. Greater Occipital Nerve Decompression for Occipital Neuralgia. J Craniofac Surg 2018; 29:e518.
+   51. Son BC. Decompression of the Greater Occipital Nerve for Occipital Neuralgia and Chronic Occipital Headache Caused by Entrapment of the Greater Occipital Nerve. J Neurol Surg A Cent Eur Neurosurg 2022; 83:461.
+   52. Salmasi V, Olatoye OO, Terkawi AS, et al. Peripheral Nerve Stimulation for Occipital Neuralgia. Pain Med 2020; 21:S13.
+   53. Skaribas I, Calvillo O, Delikanaki-Skaribas E. Occipital peripheral nerve stimulation in the management of chronic intractable occipital neuralgia in a patient with neurofibromatosis type 1: a case report. J Med Case Rep 2011; 5:174.
+   54. Eldrige JS, Obray JB, Pingree MJ, Hoelzer BC. Occipital neuromodulation: ultrasound guidance for peripheral nerve stimulator implantation. Pain Pract 2010; 10:580.
+
+   Topic 3330 Version 21.0

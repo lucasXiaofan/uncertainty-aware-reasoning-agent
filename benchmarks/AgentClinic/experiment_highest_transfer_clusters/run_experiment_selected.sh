@@ -1,54 +1,42 @@
 #!/bin/bash
 
-# Run selected AgentClinic cases from a specified split or data file
+# Run selected AgentClinic cases from a dataset file
 # Usage:
-#   ./run_experiment_selected.sh [SPLIT] [MODEL] [OPTIONS]
+#   ./run_experiment_selected.sh --model <model> --data_file <path> {--ids <list> | --count <num>} [OPTIONS]
 #
-# Positional Arguments:
-#   SPLIT              (Optional) Base name for the data file. Looks for <SPLIT>.jsonl if --data_file is empty. Default: one_case_test
-#   MODEL              (Optional) Model for the doctor agent (e.g., openai/gpt-5-mini, gpt-4o). Default: openai/gpt-5-mini
+# Required:
+#   --model <str>      Model for the doctor agent (e.g., openai/gpt-4o, deepseek/deepseek-r1).
+#   --data_file <path> Path to the dataset (.jsonl) file.
+#   --ids <list>       Select specific case IDs (comma-separated, e.g. 0,2,8,15).
+#     OR
+#   --count <num>      Evaluate a specified number of cases (first N, or random N with --random).
 #
-# Selection Options (Must provide either --ids or --count):
-#   --ids <list>       Select specific case IDs (comma-separated, eg: 0,2,8,15).
-#   --count <num>      Evaluate a specified number of cases. Selects the first N cases unless --random is provided.
-#   --start <idx>      (Optional) Start evaluating from index <idx> (0-indexed). Usable with --count. Default: 0
-#   --random           (Optional) Select <count> random cases rather than sequential ones from start index.
+# Selection Options:
+#   --start <idx>      (Optional) Start evaluating from index <idx> (0-indexed). Default: 0
+#   --random           (Optional) Select <count> random cases rather than sequential ones.
 #   --ids_1based       (Optional) Treat provided IDs as 1-based indices instead of 0-based.
 #
 # Output & Execution Options:
-#   --name <str>       (Optional) Experiment name to use as a prefix for the output JSONL file.
-#   --folder <str>     (Optional) Name of the experiment output folder. Default: experiment_<timestamp>
-#   --workers <num>    (Optional) Number of parallel workers/processes to run cases. Default: 10
+#   --name <str>       (Optional) Experiment name prefix for the output JSONL file.
+#   --folder <str>     (Optional) Output folder name. Default: experiment_<timestamp>
+#   --workers <num>    (Optional) Number of parallel workers. Default: 10
 #
 # Agent Configuration Options:
 #   --use_memory       (Optional) Give the doctor access to memory context from past diagnosed cases.
 #   --use_uncertainty_aware  (Optional) Enable uncertainty-aware tracking for the doctor agent.
-#   --agent_type <str> (Optional) Specify uncertainty agent type (e.g., uncertainty_aware_doctor). Used with --use_uncertainty_aware.
-#   --knowledge <mode> (Optional) External knowledge mode for doctor prompt: none|symptom|diagnosis|both. Default: none
+#   --agent_type <str> (Optional) Uncertainty agent type (e.g., uncertainty_aware_doctor).
+#   --knowledge <mode> (Optional) External knowledge mode: none|symptom|diagnosis|both. Default: none
 #
-# Data Target Overrides Options:
-#   --data_file <path>        (Optional) Path to a custom dataset (.jsonl) file to load cases from.
-#   --agent_dataset <dataset> (Optional) Override dataset handler (e.g. MIMICIV, NEJM, MedQA, NewMedQA). Automatically inferred otherwise.
+# Other Options:
+#   --agent_dataset <dataset> (Optional) Override dataset handler (e.g. MIMICIV, NEJM, MedQA, NewMedQA). Auto-inferred otherwise.
 #
-# Specific Examples:
-#   ./run_experiment_selected.sh --count 50 --data_file /path/to/agentclinic_mimiciv.jsonl
-#   ./run_experiment_selected.sh --count 100 --random --data_file /path/to/agentclinic_mimiciv.jsonl
-#   ./run_experiment_selected.sh new_medqa_similar_cases openai/gpt-5-mini --count 3
-#   ./run_experiment_selected.sh test gpt-4o --ids 2,8,15,20
-#   ./run_experiment_selected.sh test deepseek/deepseek-r1 --ids 1,13 --use_uncertainty_aware --agent_type uncertainty_documentation_agent
+# Examples:
+#   ./run_experiment_selected.sh --model openai/gpt-4o --data_file /path/to/data.jsonl --count 50
+#   ./run_experiment_selected.sh --model deepseek/deepseek-r1 --data_file /path/to/data.jsonl --ids 2,8,15
+#   ./run_experiment_selected.sh --model openai/gpt-4o --data_file /path/to/data.jsonl --count 10 --use_uncertainty_aware
 set -e
 
-# Optional positional args (skip if first arg looks like a flag)
-SPLIT="one_case_test"
-MODEL="openai/gpt-5-mini"
-if [[ $# -ge 1 && "$1" != --* ]]; then
-    SPLIT="$1"
-    shift
-fi
-if [[ $# -ge 1 && "$1" != --* ]]; then
-    MODEL="$1"
-    shift
-fi
+MODEL="openai/gpt-4o"
 
 USE_MEMORY=""
 USE_UNCERTAINTY_AWARE=""
@@ -160,11 +148,16 @@ while [[ $# -gt 0 ]]; do
             ;;
         *)
             echo "Unknown option: $1"
-            echo "Usage: $0 [SPLIT] [model_name] {--ids 2,8,15,20 | --count N} [--random] [--use_memory] [--use_uncertainty_aware] [--agent_type NAME] [--knowledge none|symptom|diagnosis|both] [--name experiment_name] [--workers N] [--data_file FILE] [--ids_1based]"
+            echo "Usage: $0 --model <model> --data_file <path> {--ids <list> | --count <num>} [OPTIONS]"
             exit 1
             ;;
     esac
 done
+
+if [[ -z "$DATA_FILE_OVERRIDE" ]]; then
+    echo "Error: --data_file is required"
+    exit 1
+fi
 
 if [[ ${#IDS_LIST[@]} -eq 0 ]] && [[ -z "$COUNT" ]]; then
     echo "Error: either --ids or --count is required"
@@ -183,23 +176,27 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 AGENTCLINIC_DIR="$(dirname "$SCRIPT_DIR")"
 RESULTS_DIR="/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/benchmarks/AgentClinic/experiment_highest_transfer_clusters/results"
 
-# Resolve data file and agent_dataset
-if [[ -n "$DATA_FILE_OVERRIDE" ]]; then
-    DATA_FILE="$DATA_FILE_OVERRIDE"
-else
-    DATA_FILE="$SCRIPT_DIR/${SPLIT}.jsonl"
-fi
+DATA_FILE="$DATA_FILE_OVERRIDE"
 
 # Auto-detect agent_dataset from data file if not specified
 if [[ -z "$AGENT_DATASET" ]]; then
     DATA_BASENAME=$(basename "$DATA_FILE")
-    case "$DATA_BASENAME" in
-        agentclinic_mimiciv*)   AGENT_DATASET="MIMICIV" ;;
-        agentclinic_nejm_ext*) AGENT_DATASET="NEJM_Ext" ;;
-        agentclinic_nejm*)     AGENT_DATASET="NEJM" ;;
-        new_medqa_similar_cases*) AGENT_DATASET="NewMedQA" ;;
-        agentclinic_medqa_ext*|*) AGENT_DATASET="MedQA_Ext" ;;
-    esac
+    DATA_PATH_LC=$(printf '%s' "$DATA_FILE" | tr '[:upper:]' '[:lower:]')
+    if [[ "$DATA_PATH_LC" == *"mimiciv"* ]]; then
+        AGENT_DATASET="MIMICIV"
+    elif [[ "$DATA_PATH_LC" == *"nejm_ext"* ]] || [[ "$DATA_PATH_LC" == *"nejm_extended"* ]]; then
+        AGENT_DATASET="NEJM_Ext"
+    elif [[ "$DATA_PATH_LC" == *"nejm"* ]]; then
+        AGENT_DATASET="NEJM"
+    elif [[ "$DATA_PATH_LC" == *"new_medqa_similar_cases"* ]]; then
+        AGENT_DATASET="NewMedQA"
+    elif [[ "$DATA_PATH_LC" == *"medqa_ext"* ]] || [[ "$DATA_PATH_LC" == *"medqa_extended"* ]]; then
+        AGENT_DATASET="MedQA_Ext"
+    elif [[ "$DATA_PATH_LC" == *"medqa"* ]]; then
+        AGENT_DATASET="MedQA"
+    else
+        AGENT_DATASET="MedQA_Ext"
+    fi
 fi
 
 # Create results directory
@@ -344,7 +341,8 @@ if [[ -n "$USE_UNCERTAINTY_AWARE" ]]; then
     COMMON_ARGS="$COMMON_ARGS --uncertainty_agent_type $AGENT_TYPE"
 fi
 
-# Map agent_dataset to the file the Python loader expects
+# Map agent_dataset to the default file the Python loader expects when no
+# explicit data_file override is passed.
 cd "$AGENTCLINIC_DIR"
 case "$AGENT_DATASET" in
     MIMICIV)    LOADER_FILE="agentclinic_mimiciv.jsonl" ;;
@@ -356,21 +354,9 @@ case "$AGENT_DATASET" in
     *)          LOADER_FILE="agentclinic_medqa_extended.jsonl" ;;
 esac
 
-# Only backup/copy if data file differs from the native loader path
-NEEDS_COPY=""
-DATA_FILE_ABS=$(cd "$(dirname "$DATA_FILE")" && pwd)/$(basename "$DATA_FILE")
-LOADER_FILE_ABS="$AGENTCLINIC_DIR/$LOADER_FILE"
-if [[ "$DATA_FILE_ABS" != "$LOADER_FILE_ABS" ]]; then
-    NEEDS_COPY="1"
-    BACKUP_FILE="${LOADER_FILE}.backup_${TIMESTAMP}"
-    if [ -f "$LOADER_FILE" ]; then
-        cp "$LOADER_FILE" "$BACKUP_FILE"
-        echo "Backed up $LOADER_FILE"
-    fi
-    cp "$DATA_FILE" "$LOADER_FILE"
-    echo "Installed dataset ($DATA_FILE -> $LOADER_FILE) with ${NUM_CASES} cases"
-else
-    echo "Using native dataset: $LOADER_FILE (${NUM_CASES} cases)"
+if [[ "$(basename "$DATA_FILE")" != "$(basename "$LOADER_FILE")" ]]; then
+    echo "Info: data_file basename '$DATA_BASENAME' differs from default loader file '$LOADER_FILE' for dataset '$AGENT_DATASET'"
+    echo "      Passing --data_file so Python loads the selected file directly."
 fi
 
 echo ""
@@ -383,6 +369,7 @@ run_case() {
 
     uv run $DEPS agentclinic_api_only.py \
         --agent_dataset "$AGENT_DATASET" \
+        --data_file "$DATA_FILE" \
         --num_scenarios 1 \
         --scenario_offset "$scenario_id" \
         $COMMON_ARGS \
@@ -411,16 +398,6 @@ done
 # Clean up temp files
 rm -f "$EXP_FOLDER"/tmp_case_*_"${TIMESTAMP}".jsonl
 
-# Restore original dataset if we copied
-if [[ -n "$NEEDS_COPY" ]]; then
-    if [ -f "$BACKUP_FILE" ]; then
-        mv "$BACKUP_FILE" "$LOADER_FILE"
-        echo "Restored $LOADER_FILE"
-    else
-        rm -f "$LOADER_FILE"
-    fi
-fi
-
 echo ""
 echo "========================================================"
 echo "Experiment Complete!"
@@ -444,8 +421,8 @@ if [ -f "$REEVAL_SCRIPT" ]; then
     uv run $DEPS python "$REEVAL_SCRIPT" \
         --input_jsonl "$OUTPUT_FILE" \
         --output_csv "$REEVAL_CSV" \
-        --model "gpt-5-mini" \
-        --moderator_model "gpt-5-mini"
+        --model "$MODEL" \
+        --moderator_model "$MODEL"
     echo "Re-eval CSV: $REEVAL_CSV"
 else
     echo "Re-eval:     skipped (script not found: $REEVAL_SCRIPT)"

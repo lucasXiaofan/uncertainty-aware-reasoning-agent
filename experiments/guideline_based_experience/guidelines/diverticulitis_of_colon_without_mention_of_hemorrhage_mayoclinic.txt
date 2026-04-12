@@ -1,0 +1,61 @@
+Diagnosis: Diverticulitis of colon (without mention of hemorrhage)
+Source: mayoclinic
+Guideline title: Diverticulitis
+Guideline id: 1800
+Relevant scenario_ids: 77, 78, 131
+Matched alias: diverticulitis
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+Diverticulitis
+Overview
+
+
+Diverticula are small, bulging pouches that can form in the lining of your digestive system. They are found most often in the lower part of the large intestine (colon). Diverticula are common, especially after age 40, and seldom cause problems.
+The presence of diverticula is known as diverticulosis (die-vur-tik-yoo-LOE-sis). When one or more of the pouches become inflamed, and in some cases infected, that condition is known as diverticulitis (die-vur-tik-yoo-LIE-tis). Diverticulitis can cause severe abdominal pain, fever, nausea and a marked change in your bowel habits.
+Mild diverticulitis can be treated with rest, changes in your diet and antibiotics. Severe or recurring diverticulitis may require surgery.
+Symptoms
+
+
+The signs and symptoms of diverticulitis include:
+Pain, which may be constant and persist for several days. The lower left side of the abdomen is the usual site of the pain. Sometimes, however, the right side of the abdomen is more painful, especially in people of Asian descent.
+Nausea and vomiting.
+Fever.
+Abdominal tenderness.
+Constipation or, less commonly, diarrhea.
+When to see a doctor
+Get medical attention anytime you have constant, unexplained abdominal pain, particularly if you also have a fever and constipation or diarrhea.
+Causes
+
+
+Diverticula usually develop when naturally weak places in your colon give way under pressure. This causes marble-sized pouches to protrude through the colon wall.
+Diverticulitis occurs when diverticula tear, resulting in inflammation, and in some cases, infection.
+Risk factors
+
+
+Several factors may increase your risk of developing diverticulitis:
+Aging.The incidence of diverticulitis increases with age.
+Obesity.Being seriously overweight increases your odds of developing diverticulitis.
+Smoking.People who smoke cigarettes are more likely than nonsmokers to experience diverticulitis.
+Lack of exercise.Vigorous exercise appears to lower your risk of diverticulitis.
+Diet high in animal fat and low in fiber.A low-fiber diet in combination with a high intake of animal fat seems to increase risk, although the role of low fiber alone isn't clear.
+Certain medications.Several drugs are associated with an increased risk of diverticulitis, including steroids, opioids and nonsteroidal anti-inflammatory drugs, such as ibuprofen (Advil, Motrin IB, others) and naproxen sodium (Aleve).
+Complications
+
+
+About 25% of people with acute diverticulitis develop complications, which may include:
+An abscess, which occurs when pus collects in the pouch.
+A blockage in your bowel caused by scarring.
+An abnormal passageway (fistula) between sections of bowel or the bowel and other organs.
+Peritonitis, which can occur if the infected or inflamed pouch ruptures, spilling intestinal contents into your abdominal cavity. Peritonitis is a medical emergency and requires immediate care.
+Prevention
+
+
+To help prevent diverticulitis:
+Exercise regularly.Exercise promotes normal bowel function and reduces pressure inside your colon. Try to exercise at least 30 minutes on most days.
+Eat more fiber.A high-fiber diet decreases the risk of diverticulitis. Fiber-rich foods, such as fresh fruits and vegetables and whole grains, soften waste material and help it pass more quickly through your colon. Eating seeds and nuts isn't associated with developing diverticulitis.
+Drink plenty of fluids.Fiber works by absorbing water and increasing the soft, bulky waste in your colon. But if you don't drink enough liquid to replace what's absorbed, fiber can be constipating.
+Avoid smoking.Smoking is associated with an increased risk of diverticulitis.
+By Mayo Clinic Staff
+.

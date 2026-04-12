@@ -1,0 +1,112 @@
+Diagnosis: Cerebral artery occlusion, unspecified with cerebral infarction
+Source: mayoclinic
+Guideline title: Stroke
+Guideline id: 89
+Relevant scenario_ids: 28
+Matched alias: stroke
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+Stroke
+Overview
+
+
+An ischemic stroke occurs when the blood supply to part of the brain is interrupted or reduced, preventing brain tissue from getting oxygen and nutrients. Brain cells begin to die in minutes.
+A stroke is a medical emergency, and prompt treatment is crucial. Early action can reduce brain damage and other complications.
+The good news is that many fewer Americans die of stroke now than in the past. Effective treatments can also help prevent disability from stroke.
+Symptoms
+
+
+If you or someone you're with may be having a stroke, pay particular attention to the time the symptoms began. Some treatment options are most effective when given soon after a stroke begins.
+Signs and symptoms of stroke include:
+Trouble speaking and understanding what others are saying.You may experience confusion, slur words or have difficulty understanding speech.
+Paralysis or numbness of the face, arm or leg.You may develop sudden numbness, weakness or paralysis in the face, arm or leg. This often affects just one side of the body. Try to raise both your arms over your head at the same time. If one arm begins to fall, you may be having a stroke. Also, one side of your mouth may droop when you try to smile.
+Problems seeing in one or both eyes.You may suddenly have blurred or blackened vision in one or both eyes, or you may see double.
+Headache.A sudden, severe headache, which may be accompanied by vomiting, dizziness or altered consciousness, may indicate that you're having a stroke.
+Trouble walking.You may stumble or lose your balance. You may also have sudden dizziness or a loss of coordination.
+When to see a doctor
+Seek immediate medical attentionif you notice any signs or symptoms of a stroke, even if they seem to come and go or they disappear completely. Think "FAST" and do the following:
+Face.Ask the person to smile. Does one side of the face droop?
+Arms.Ask the person to raise both arms. Does one arm drift downward? Or is one arm unable to rise?
+Speech.Ask the person to repeat a simple phrase. Is his or her speech slurred or strange?
+Time.If you observe any of these signs, call 911 or emergency medical help immediately.
+Call 911 or your local emergency number right away. Don't wait to see if symptoms stop. Every minute counts. The longer a stroke goes untreated, the greater the potential for brain damage and disability.
+If you're with someone you suspect is having a stroke, watch the person carefully while waiting for emergency assistance.
+Causes
+
+
+There are two main causes of stroke: a blocked artery (ischemic stroke) or leaking or bursting of a blood vessel (hemorrhagic stroke). Some people may have only a temporary disruption of blood flow to the brain, known as a transient ischemic attack (TIA), that doesn't cause lasting symptoms.
+Ischemic stroke
+This is the most common type of stroke. It happens when the brain's blood vessels become narrowed or blocked, causing severely reduced blood flow (ischemia). Blocked or narrowed blood vessels are caused by fatty deposits that build up in blood vessels or by blood clots or other debris that travel through the bloodstream, most often from the heart, and lodge in the blood vessels in the brain.
+Some initial research shows thatCOVID-19infection may increase the risk of ischemic stroke, but more study is needed.
+Hemorrhagic stroke
+Hemorrhagic stroke occurs when a blood vessel in the brain leaks or ruptures. Brain hemorrhages can result from many conditions that affect the blood vessels. Factors related to hemorrhagic stroke include:
+Uncontrolled high blood pressure
+Overtreatment with blood thinners (anticoagulants)
+Bulges at weak spots in your blood vessel walls (aneurysms)
+Trauma (such as a car accident)
+Protein deposits in blood vessel walls that lead to weakness in the vessel wall (cerebral amyloid angiopathy)
+Ischemic stroke leading to hemorrhage
+A less common cause of bleeding in the brain is the rupture of an irregular tangle of thin-walled blood vessels (arteriovenous malformation).
+Transient ischemic attack (TIA)
+A transient ischemic attack (TIA) — sometimes known as a ministroke — is a temporary period of symptoms similar to those in a stroke. ATIAdoesn't cause permanent damage. ATIAis caused by a temporary decrease in blood supply to part of the brain, which may last as little as five minutes.
+Like an ischemic stroke, aTIAoccurs when a clot or debris reduces or blocks blood flow to part of the nervous system.
+Seek emergency care even if you think you've had aTIAbecause your symptoms got better. It's not possible to tell if you're having a stroke orTIAbased only on the symptoms. If you've had aTIA, it means you may have a partially blocked or narrowed artery leading to the brain. Having aTIAincreases your risk of having a full-blown stroke later.
+Risk factors
+
+
+Many factors can increase the risk of stroke. Potentially treatable stroke risk factors include:
+Lifestyle risk factors
+Being overweight or obese
+Physical inactivity
+Heavy or binge drinking
+Use of illegal drugs such as cocaine and methamphetamine
+Medical risk factors
+High blood pressure
+Cigarette smoking or secondhand smoke exposure
+High cholesterol
+Diabetes
+Obstructive sleep apnea
+Cardiovascular disease, including heart failure, heart defects, heart infection or irregular heart rhythm, such as atrial fibrillation
+Personal or family history of stroke, heart attack or transient ischemic attack
+COVID-19infection
+Other factors associated with a higher risk of stroke include:
+Age —People age 55 or older have a higher risk of stroke than do younger people.
+Race or ethnicity —African Americans and Hispanics have a higher risk of stroke than do people of other races or ethnicities.
+Sex —Men have a higher risk of stroke than do women. Women are usually older when they have strokes, and they're more likely to die of strokes than are men.
+Hormones —Use of birth control pills or hormone therapies that include estrogen increases risk.
+Complications
+
+
+A stroke can sometimes cause temporary or permanent disabilities, depending on how long the brain lacks blood flow and which part is affected. Complications may include:
+Paralysis or loss of muscle movement.You may become paralyzed on one side of the body, or lose control of certain muscles, such as those on one side of the face or one arm.
+Difficulty talking or swallowing.A stroke might affect control of the muscles in the mouth and throat, making it difficult for you to talk clearly, swallow or eat. You also may have difficulty with language, including speaking or understanding speech, reading, or writing.
+Memory loss or thinking difficulties.Many people who have had strokes experience some memory loss. Others may have difficulty thinking, reasoning, making judgments and understanding concepts.
+Emotional problems.People who have had strokes may have more difficulty controlling their emotions, or they may develop depression.
+Pain.Pain, numbness or other unusual sensations may occur in the parts of the body affected by stroke. For example, if a stroke causes you to lose feeling in the left arm, you may develop an uncomfortable tingling sensation in that arm.
+Changes in behavior and self-care ability.People who have had strokes may become more withdrawn. They may need help with grooming and daily chores.
+Prevention
+
+
+Knowing your stroke risk factors, following your health care provider's recommendations and adopting a healthy lifestyle are the best steps you can take to prevent a stroke. If you've had a stroke or a transient ischemic attack (TIA), these measures might help prevent another stroke. The follow-up care you receive in the hospital and afterward also may play a role.
+Many stroke prevention strategies are the same as strategies to prevent heart disease. In general, healthy lifestyle recommendations include:
+Controlling high blood pressure (hypertension).This is one of the most important things you can do to reduce your stroke risk. If you've had a stroke, lowering your blood pressure can help prevent a subsequentTIAor stroke. Healthy lifestyle changes and medications are often used to treat high blood pressure.
+Lowering the amount of cholesterol and saturated fat in your diet.Eating less cholesterol and fat, especially saturated fat and trans fats, may reduce buildup in the arteries. If you can't control your cholesterol through dietary changes alone, your doctor may prescribe a cholesterol-lowering medication.
+Quitting tobacco use.Smoking raises the risk of stroke for smokers and nonsmokers exposed to secondhand smoke. Quitting tobacco use reduces the risk of stroke.
+Managing diabetes.Diet, exercise and losing weight can help you keep your blood sugar in a healthy range. If lifestyle factors don't seem to be enough to control your diabetes, your doctor may prescribe diabetes medication.
+Maintaining a healthy weight.Being overweight contributes to other stroke risk factors, such as high blood pressure, cardiovascular disease and diabetes.
+Eating a diet rich in fruits and vegetables.A diet containing five or more daily servings of fruits or vegetables may reduce the risk of stroke. The Mediterranean diet, which emphasizes olive oil, fruit, nuts, vegetables and whole grains, may be helpful.
+Exercising regularly.Aerobic exercise reduces the risk of stroke in many ways. Exercise can lower blood pressure, increase the levels of good cholesterol, and improve the overall health of the blood vessels and heart. It also helps you lose weight, control diabetes and reduce stress. Gradually work up to at least 30 minutes of moderate physical activity — such as walking, jogging, swimming or bicycling — on most, if not all, days of the week.
+Drinking alcohol in moderation, if at all.Heavy alcohol consumption increases the risk of high blood pressure, ischemic strokes and hemorrhagic strokes. Alcohol may also interact with other drugs you're taking. However, drinking small to moderate amounts of alcohol, such as one drink a day, may help prevent ischemic stroke and decrease the blood's clotting tendency. Talk to your doctor about what's appropriate for you.
+Treating obstructive sleep apnea (OSA).Your doctor may recommend a sleep study if you have symptoms ofOSA— a sleep disorder that causes you to stop breathing for short periods repeatedly during sleep. Treatment forOSAincludes a device that delivers positive airway pressure through a mask to keep the airway open while you sleep.
+Avoiding illegal drugs.Certain street drugs, such as cocaine and methamphetamine, are established risk factors for aTIAor a stroke.
+Preventive medications
+If you've had an ischemic stroke or aTIA, your doctor may recommend medications to help reduce your risk of having another stroke. These include:
+Anti-platelet drugs.Platelets are cells in the blood that form clots. Anti-platelet drugs make these cells less sticky and less likely to clot. The most commonly used anti-platelet medication is aspirin. Your doctor can help you determine the right dose of aspirin for you.
+After aTIAor minor stroke, your doctor may give you aspirin and an anti-platelet drug such as clopidogrel (Plavix) for a period of time to reduce the risk of another stroke. If you can't take aspirin, your doctor may prescribe clopidogrel alone.
+Anticoagulants.These drugs reduce blood clotting. Heparin is fast acting and may be used short-term in the hospital.
+Slower-acting warfarin (Jantoven) may be used over a longer term. Warfarin is a powerful blood-thinning drug, so you'll need to take it exactly as directed and watch for side effects. You'll also need to have regular blood tests to monitor warfarin's effects.
+Several newer blood-thinning medications (anticoagulants) are available for preventing strokes in people who have a high risk. These medications include dabigatran (Pradaxa), rivaroxaban (Xarelto), apixaban (Eliquis) and edoxaban (Savaysa). They're shorter acting than warfarin and usually don't require regular blood tests or monitoring by your doctor. These drugs are also associated with a lower risk of bleeding complications compared to warfarin.
+By Mayo Clinic Staff
+.

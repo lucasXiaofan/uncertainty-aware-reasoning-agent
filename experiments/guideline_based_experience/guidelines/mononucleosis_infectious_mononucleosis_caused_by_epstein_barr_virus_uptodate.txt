@@ -1,0 +1,456 @@
+Diagnosis: Mononucleosis (Infectious mononucleosis caused by Epstein-Barr virus)
+Source: uptodate
+Guideline title: Infectious mononucleosis
+Guideline id: 11449.txt
+Relevant scenario_ids: 2
+Matched alias: infectious mononucleosis
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/结果/11449.txt
+
+Guideline content
+
+Infectious mononucleosis
+
+   Authors:
+          Mark D Aronson, MD
+          Paul G Auwaerter, MD, MBA, FIDSA
+
+   Section Editors:
+          Martin S Hirsch, MD
+          Sheldon L Kaplan, MD
+
+   Deputy Editor:
+          Sheila Bond, MD
+
+   Contributor Disclosures
+   All topics are updated as new evidence becomes available and our peer review process is complete.
+   Literature review current through: Jul 2023.
+   This topic last updated: Jul 27, 2023.
+
+   INTRODUCTION — Infectious mononucleosis (IM) is characterized by a triad of fever, tonsillar pharyngitis, and lymphadenopathy [1]. It was initially described as "Drusenfieber" or glandular fever in 1889, but the term "infectious mononucleosis" was later used in 1920 to describe six college students with a febrile illness characterized by absolute lymphocytosis and atypical mononuclear cells in the blood [2,3]. The relationship between Epstein-Barr virus (EBV) and IM was established when a laboratory worker was infected with EBV and developed IM and a newly positive heterophile test [4].
+
+   Infectious mononucleosis in adults and adolescents will be reviewed here. A complete description of EBV and other clinical manifestations of EBV infection (including malignancy) are discussed separately. (See "Clinical manifestations and treatment of Epstein-Barr virus infection" and "Virology of Epstein-Barr virus".)
+
+   EPIDEMIOLOGY — Epstein-Barr virus (EBV) is a widely disseminated herpesvirus that is spread by intimate contact between susceptible persons and EBV shedders. The virus has not been recovered from environmental sources, suggesting that humans are the major reservoir.
+
+   Antibodies to EBV have been demonstrated in all population groups, with worldwide distribution; approximately 90 to 95 percent of adults are eventually EBV-seropositive. By age four, EBV seroprevalence is close to 100 percent in resource-limited countries and ranges from 25 to 50 percent in lower socioeconomic groups in the United States [5].
+
+   EBV acquired during childhood years is often subclinical; fewer than 10 percent of children develop clinical infection despite high-exposure rates. The incidence of symptomatic infection begins to rise in adolescent through adult years [6]. Large studies of infectious mononucleosis are now decades old, but traditionally, the peak incidence of infection has been described in the 15- to 24-year age range [7,8]. Some data derived in the United Kingdom suggest that infectious mononucleosis (IM) cases may be occurring later in life with increasing severity, requiring hospitalization [9]. IM is relatively uncommon in adults, accounting for less than two percent of pharyngitis in adults [10]. The vast majority of adults are not susceptible to this infection because of prior exposure.
+
+   The differences observed between infants and young adults with regard to symptomatic infection are not understood. Hypotheses include the size of the viral inoculum at the time of infection or the intensity of cellular immune responses driven by EBV-infected B cells. Why some children and adolescents develop IM, and not others, is not known. One study suggests that single-nucleotide polymorphisms within toll-like receptors may account for different courses of acute, primary EBV infection [11].
+
+   The incidence of clinical infection is approximately 30 times higher in White Americans than in Black Americans [12]. This may reflect earlier exposure to EBV among the latter group and the higher frequency of asymptomatic infection when acquired by young children. In addition, IM occurs more frequently in same-sex twins and first-degree siblings, compared with second- and third-degree relatives [13]. Thus, genetic factors may influence who develops clinical disease. In one case series, GATA2 deficiency was associated with severe primary EBV requiring hospitalization or hemophagocytic lymphohistiocytosis with lymphoma, suggesting that this genetic deficiency may influence disease presentation in some cases [14].
+
+   TRANSMISSION
+
+   Person-to-person — Following infectious mononucleosis (IM), virus may be shed in salivary secretions at high levels for a prolonged period [15,16]. Oral shedding persists for a median duration of approximately six months after the onset of illness [16], although it should be pointed out that once infected with Epstein-Barr virus (EBV), virus may be intermittently shed in the oropharynx for decades [15,17].
+
+   Although EBV primarily spreads via passage of saliva, it is not a particularly contagious disease. In a classic study conducted among college students, susceptible roommates of patients with either symptoms of IM or asymptomatic viral shedding were no more likely to seroconvert or develop clinical illness than other college students without evidence of preexisting EBV infection [18]. The virus can persistently shed in the oropharynx of patients with IM for up to 18 months following clinical recovery; this may explain in part why only a small number of patients with IM recall previous contact with an infected individual [18,19]. Intrafamilial spread among siblings has also been reported [20].
+
+   Breastfeeding — EBV has been isolated in breast milk from healthy nursing mothers [21]. However, in one study, there was no difference in EBV seropositivity between exclusively nursed or bottle-fed infants, suggesting that breastfeeding is not an important route of transmission [21,22].
+
+   Sexual transmission — EBV has also been isolated in both cervical epithelial cells and male seminal fluid, suggesting that transmission may also occur sexually [23-25]. In an epidemiologic study of more than 2000 university students in Scotland, questionnaires and serum samples were analyzed to examine risk factors for EBV seropositivity [26]. Sexual activity before college admission was significantly associated with an increased risk of EBV seropositivity. Furthermore, the risk of a seropositive status increased with the number of sexual partners.
+
+   Despite the recovery of EBV in genital secretions, studies have been unable to discriminate with certainty whether EBV was acquired through an oral or genital route. In one prospective study that followed first-year university students who were EBV antibody negative, the time to infection in individuals reporting deep kissing without coitus was similar to those who reported deep kissing plus coitus [16]. Both groups had a significantly higher risk of acute EBV infection than subjects reporting no kissing or coitus.
+
+   PATHOGENESIS — Contact of Epstein-Barr virus (EBV) with oropharyngeal epithelial cells allows replication of the virus, release of EBV into the oropharyngeal secretions, and infection of B cells in the lymphoid-rich areas of the oropharynx [27]. EBV-infected B cells are responsible for the dissemination of infection throughout the lymphoreticular system. The incubation period prior to the development of symptoms averages four to eight weeks.
+
+   A prospective study was performed in 20 subjects with serologically confirmed primary EBV infection to assess viral kinetics in various compartments, including whole blood, peripheral blood mononuclear cells, and oral wash fluid [28]. The median half-life of viral elimination from whole blood in 19 subjects was three days; quantity in this compartment correlated with the severity of symptoms. In contrast, virus persisted at an elevated level for 32 weeks in the oropharynx in asymptomatic subjects, consistent with the theory that EBV is transmitted via saliva.
+
+   Primary EBV infection of B lymphocytes induces circulating antibodies directed against viral and unrelated antigens found on sheep and horse red cells [29]. The latter antibodies, termed heterophile antibodies, are a heterogeneous group of mostly immunoglobulin (Ig)M antibodies that do not cross-react with EBV antigens [30,31]. Rarely, infected cells produce antineutrophil, anti-erythrocyte, and antiplatelet antibodies, which are responsible for some of the less common clinical manifestations associated with IM (see below). An EBV-specific serologic response can also be documented, although this is necessary for less than 10 percent of heterophile antibody-negative IM cases.
+
+   EBV-specific cytotoxic T-lymphocytes are considered essential in controlling acute and reactivation infections. T cell activation leads to a T helper 1-type profile with production of interleukin-2 and interferon-gamma cytokines [32]. The atypical lymphocytes that appear in the peripheral blood of patients with acute IM between one and three weeks after the onset of symptoms are primarily activated (HLA-DR+) CD8+ T cells and also include CD16+ natural killer (NK) cells (picture 1) [33-37].
+
+   Despite these immune responses, which control the initial lytic infection, EBV becomes a lifelong infection as it establishes latency with periodic reactivation with oral shedding of EBV. On the other hand, insufficient cellular immune responses may result in a poorly-controlled EBV infection and/or generate an EBV-induced malignancy (see "Clinical manifestations and treatment of Epstein-Barr virus infection", section on 'Malignancy').
+
+   Even with sufficient immune responses, some epidemiological studies have linked infectious mononucleosis (IM) to increased risks of other conditions, such as Hodgkin lymphoma and other cancers [38-40]. Other studies have linked the acquisition of infection to increased risks for autoimmune disorders, such as multiple sclerosis or systemic lupus erythematosus [41,42]. Such associations will require additional study beyond purely observational studies to prove causation and to decide whether or not they could result from direct viral or rather immunological consequences. Such concerns have heightened interest in exploring potential preventative strategies, such as an EBV vaccine [43-45].
+
+   CLINICAL MANIFESTATIONS
+
+   Classic IM — Typical features of infectious mononucleosis (IM) include fever, pharyngitis, adenopathy, fatigue, and atypical lymphocytosis (table 1) [46]. One review of over 500 patients found that lymphadenopathy was present in all patients, fever in 98 percent, and pharyngitis in 85 percent [47,48]. The syndrome is often heralded by malaise, headache, and low-grade fever before the development of these more specific signs [6,49].
+
+   Fatigue may be persistent and severe. In a prospective study of 150 patients, most initial symptoms (eg, fever, sore throat) resolved by one month, but fatigue resolved more slowly and persisted in 13 percent of patients at six months [48]. Fatigue appears to be more common with a more profound impact on studies and exercise abilities in young female university students compared with male students [50].
+
+   Lymph node involvement in IM is typically symmetric and more commonly involves the posterior cervical and posterior auricular nodes than the anterior chains. The posterior cervical nodes are deep to the sternocleidomastoid muscles and must be carefully palpated. The nodes may be large and moderately tender. Lymphadenopathy may also become more generalized, which distinguishes IM from other causes of pharyngitis [10]. Lymphadenopathy peaks in the first week and then gradually subsides over two to three weeks. A more detailed discussion of the evaluation of peripheral lymphadenopathy is presented elsewhere. (See "Evaluation of peripheral lymphadenopathy in adults".)
+
+   History of sore throat is often accompanied by pharyngeal inflammation and tonsillar exudates, which may appear white, gray-green, or even necrotic. Palatal petechiae with streaky hemorrhages and blotchy red macules are occasionally present; this finding may also be seen in patients with streptococcal pharyngitis. Bilateral eyelid swelling may be seen with S-shaped swelling up the upper lids [51]. (See "Evaluation of acute pharyngitis in adults".)
+
+   Rare complications of IM include peritonsillar abscess or airway occlusion secondary to edema of the soft palate and tonsils [52].
+
+   Clinical variants — There are several clinical variants of IM in which some but not all of the classic findings are present:
+
+   ●Many patients with acute EBV infection have relatively mild disease, and some present with pharyngitis and tonsillitis in the absence of a full-blown IM syndrome [53]. Among 66 EBV-seronegative university students who developed primary EBV infection, 77 percent had the usual IM syndrome, 12 percent had atypical symptoms, and only 11 percent were asymptomatic [16].
+
+   ●Many patients present with fever and lymphadenopathy without pharyngitis, the so-called "typhoidal form" of illness. These patients may be heterophile antibody-negative and should be termed "heterophile-negative IM." Other infectious causes of heterophile antibody-negative IM include most importantly, cytomegalovirus (CMV) [54] or acute human immunodeficiency virus (HIV) [55], with other infections, such as toxoplasmosis [56], human herpesvirus type 6 (HHV-6) [57], and HHV-7 [58], possible. (See 'Differential diagnosis' below and 'Diagnosis' below.)
+
+   ●Very young or older adults frequently do not develop the classic clinical syndrome (table 2) [59]. In a study of patients ages 40 to 78, pharyngitis and myalgia were the most frequent complaints, while cervical lymphadenopathy was less commonly noted on physical examination [60]. Fever is common among older individuals and can last for several weeks, often with elevated liver transaminases [59].
+
+   Other clinical manifestations
+
+   Splenomegaly and splenic rupture — Splenomegaly is seen in 50 to 60 percent of patients with IM and usually begins to recede by the third week of the illness [61].
+
+   Splenic rupture is a rare but potentially life-threatening complication of IM. It is estimated to occur in one to two cases per thousand [62]; approximately 70 percent occur in males, usually under 30 years [63]. The typical manifestations are abdominal pain and/or a falling hematocrit [64]. When splenic rupture occurs, it does so spontaneously in over one-half of patients. It typically occurs about 14 days after symptom onset; however, it can range from four days to as far as eight weeks. In some cases, it can be the presenting symptom [64].
+
+   The management of splenic rupture is similar to other forms of splenic injury. Nonoperative treatment with intensive supportive care and splenic preservation is preferred, but some require splenectomy [65]. Despite its life-threatening potential, fatality from IM-related splenic rupture is rare.
+
+   Infarctions of the spleen have also been described as a rare consequence of IM. Of the 19 reported cases, abdominal pain is usually described, although, in some instances, infarction can be an incidental finding [66].
+
+   Rash — In patients with IM, a generalized maculopapular, urticarial, or petechial rash is occasionally seen, while erythema nodosum is rare [59]. It was once thought that the maculopapular rash usually occurred following the administration of ampicillin or amoxicillin; however, it has also been described occasionally with a variety of other antibiotics, including azithromycin [67], levofloxacin [68], piperacillin/tazobactam [69], and cephalexin (picture 2) [70], or with no antibiotic exposure at all.
+
+   The mechanism responsible for this rash is not well understood, but it may represent a transient virus-mediated immune alteration, resulting in the development of a reversible, delayed-type hypersensitivity reaction to the antibiotic [71]. Thus, a rash arising in the setting of penicillin derivative use during IM may not predict a true drug allergy, and many patients subsequently tolerate amoxicillin or ampicillin without an adverse reaction.
+
+   Although the incidence of rash associated with beta-lactams initially was reported to be as high as 70 to 90 percent [56], more recent studies have suggested the rate of this rash may be much lower [71-74]. As an example, in a retrospective study of children <18 years of age in which serology was used to diagnose IM, the reported rate of amoxicillin-related rash was 32.9 percent compared with 23.1 percent among untreated patients [72]. One report suggested that there was no association [73]. In this prospective observational study of 184 patients with IM, in which 103 patients were exposed to at least one penicillin derivative, there were equivalent rates of rash in both those treated with a penicillin derivative and those who did not receive any drug [73].
+
+   Neurologic syndromes — Neurologic syndromes include Guillain-Barré syndrome, facial and other cranial nerve palsies [75-77], meningoencephalitis [78], aseptic meningitis, transverse myelitis, peripheral neuritis, optic neuritis, and encephalomyelitis [79]. The rare Alice in Wonderland syndrome in children may be triggered by EBV infection resulting in distortions of visual perception, body image, and experience of time [80]. These manifestations tend to occur two to four weeks or more after the initial symptom onset. Associations between a clinical presentation of IM and the subsequent development of multiple sclerosis have been described, but mechanisms of interaction, if true, are unknown [81-83].
+
+   Other — EBV can affect virtually any organ system and has been associated with such diverse disease manifestations as hepatitis or cholestasis [84,85], pneumonia, pleural effusions [86], myocarditis, pancreatitis and acalculous cholecystitis [87], mesenteric adenitis, myositis, acute renal failure [88], glomerulonephritis, gastric pseudolymphoma [89], and genital ulceration [90]. Two rare complications include EBV-triggered hemophagocytic lymphohistiocytosis [91] and chronic active EBV infection [92]. Jaundice and hepatomegaly are less common, although ascites [84,86] and fatal cases of hepatitis have been described [85].
+
+   EBV infection during pregnancy — There is little evidence of a teratogenic risk to the fetus in women who develop infection during pregnancy [93]. Transplacental transmission of EBV appears to be rare [94].
+
+   LABORATORY ABNORMALITIES
+
+   Hematologic abnormalities — The most common laboratory finding in association with infectious mononucleosis (IM) is lymphocytosis, defined as an absolute count >4500/microL or, on a peripheral smear, a differential count >50 percent. The smear may also identify significant atypical lymphocytosis, defined as more than 10 percent of total lymphocytes. The majority of reactive lymphocytes in patients with IM are CD8+ cytotoxic T cells. In one study, the severity of illness correlated with the magnitude of CD8+ lymphocytosis (as well as with blood Epstein-Barr viral [EBV] load) [16]. (See 'Hematologic findings' below and 'Detection of EBV virus' below.)
+
+   The total white blood cell count in patients with IM averages 12,000 to 18,000/microL, although it may be much higher. Some patients have mild relative and absolute neutropenia and thrombocytopenia. These are generally benign findings that are self-limited.
+
+   Uncommon hematologic manifestations include hemolytic anemia, thrombocytopenia, aplastic anemia, thrombotic thrombocytopenic purpura/hemolytic-uremic syndrome, and disseminated intravascular coagulation. Some of these complications result from EBV-induced production of antibodies directed against red blood cells, white blood cells, and platelets [59]. Hemolytic anemia is typically associated with an anti-I cold agglutinin [95]. (See "Cold agglutinin disease", section on 'Pathogenesis'.)
+
+   Primary EBV infection is also a well-described trigger for hemophagocytic lymphohistiocytosis, a rare disorder characterized by cytopenias, liver function abnormalities, coagulopathies, high serum ferritin levels, and other signs and symptoms of marked systemic inflammation. (See "Clinical manifestations and treatment of Epstein-Barr virus infection" and "Clinical features and diagnosis of hemophagocytic lymphohistiocytosis".)
+
+   Liver function tests — Elevated aminotransferases are seen in the vast majority of patients but are self-limited. Abnormal liver function tests in a patient with pharyngitis strongly suggest the diagnostic possibility of IM.
+
+   DIFFERENTIAL DIAGNOSIS — Patients with fever, pharyngitis, and lymphadenopathy may have infection due to group A streptococcus, Arcanobacterium haemolyticum, cytomegalovirus (CMV), acute HIV, or, rarely, Toxoplasma gondii [54-56,96]. Streptococcal infection is not usually accompanied by significant fatigue or splenomegaly on examination. Pharyngitis associated with CMV tends to be extremely mild, if present at all, but may cause liver function test elevations, as does acute Epstein-Barr virus (EBV).
+
+   Differentiating between infectious mononucleosis (IM) caused by EBV and a similar syndrome due to CMV or HIV infection is often not possible clinically. Diagnostic testing is particularly important if the patient is pregnant since CMV, HIV, and toxoplasma infections can have significant adverse effects on pregnancy outcomes. (See 'EBV-negative mononucleosis' below and "Cytomegalovirus infection in pregnancy" and "Overview of TORCH infections", section on 'Clinical features of TORCH infections'.)
+
+   A mononucleosis syndrome with atypical lymphocytosis can also be induced by several drugs, particularly anticonvulsants such as phenytoin or carbamazepine and certain antibiotics such as isoniazid and minocycline [97-99]. Patients with lymphadenopathy and splenomegaly may also have lymphoma.
+
+   DIAGNOSIS
+
+   General approach — Epstein-Barr virus (EBV)-induced infectious mononucleosis (IM) should be suspected when an adolescent or young adult complains of sore throat, fever, and malaise and also has lymphadenopathy and pharyngitis on physical examination [10,100]. The presence of palatal petechiae, splenomegaly, and posterior cervical adenopathy is highly suggestive of IM, while the absence of cervical lymphadenopathy and fatigue make the diagnosis less likely [101,102]. (See 'Clinical manifestations' above.)
+
+   The presence of lymphocytosis and increased circulating atypical lymphocytes supports the diagnosis of EBV infection. However, the diagnosis should be confirmed with a heterophile antibody test or through EBV-specific antibodies. Although there is no specific antiviral therapy to treat IM, confirmatory testing is helpful to inform patients with IM of certain risks, such as splenic rupture and airway obstruction, as well as why fatigue may take some time to remit. A detailed discussion of serologic testing is found below. (See 'Heterophile antibodies' below and 'EBV-specific antibodies' below.)
+
+   Patients with fever, lymphadenopathy, and pharyngitis should also have a diagnostic evaluation for streptococcal infection by culture or antigen testing. (See "Evaluation of acute pharyngitis in adults".)
+
+   Hematologic findings — The most common laboratory finding in association with IM is lymphocytosis, defined as an absolute count >4500/microL or, on peripheral smear, a differential count >50 percent. The smear may also identify significant atypical lymphocytosis, defined as more than 10 percent of total lymphocytes (picture 1). In a review of 156 heterophile-positive patients, a lymphocytosis ≥50 percent was seen in two-thirds, and an atypical lymphocytosis of ≥10 percent was present in 75 percent of patients [103]. Compared with a heterophile-negative control group with similar presentations, the specificity of these two findings was 85 and 92 percent, respectively.
+
+   Atypical lymphocytes may also be found in patients with toxoplasmosis, rubella, roseola, viral hepatitis, mumps, CMV, acute HIV infection, and some drug reactions [59]. On the other hand, older individuals may have less prominent absolute lymphocytosis and fewer atypical lymphocytes [104].
+
+   When an automated differential from a hematology analyzer flags a specimen as possibly containing atypical lymphocytes, the smear should be reviewed manually since blasts and other abnormalities cannot be reliably distinguished from atypical lymphocytes in these systems [103]. (See "Automated complete blood count (CBC)", section on 'WBC parameters'.)
+
+   Heterophile antibodies — Reactive heterophile antibodies in a patient with a compatible syndrome are diagnostic of EBV infection [1]. Further testing for specific antibodies to EBV is not necessary for patients with a reactive heterophile antibody. Although EBV-specific antibodies are increasingly used to make the diagnosis of IM, heterophile testing remains in use likely related to its technical ease, rapid turnaround and low cost.
+
+   Heterophile antibodies react to antigens from phylogenetically unrelated species. For example, they agglutinate sheep red blood cells (the classic Paul-Bunnell test), horse red blood cells (used in the "Monospot" test), and ox and goat erythrocytes. The Monospot is a latex agglutination assay using horse erythrocytes as the substrate [105,106]. Other rapid diagnostic tests use ELISA (enzyme-linked immunosorbent assay) techniques. The sensitivity and specificity of the Monospot test ranges from 70 to 90 percent with the lower range, particularly in younger children [107,108].
+
+   Although nonspecific, heterophile antibodies perform well in the appropriate clinical setting. However, they can be insensitive, especially in some scenarios. As examples:
+
+   ●Early infection – The false-negative rates are highest during the beginning of clinical symptoms (25 percent in the first week; 5 to 10 percent in the second week, 5 percent in the third week) [101]. In patients with a compatible syndrome and negative heterophile antibodies, the test can be repeated if the patient is early in his/her clinical illness. Alternatively (or in addition), EBV-specific antibodies can be ordered. (See 'EBV-specific antibodies' below and 'EBV-negative mononucleosis' below.)
+
+   ●Young children – Heterophile antibody tests are often negative in infants and children less than four years of age; thus, EBV-specific serologies are generally favored for diagnosing acute EBV infection in young children [108-112]. (See 'EBV-specific antibodies' below.)
+
+   In one series that described 32 children younger than four years of age who were diagnosed with IM by EBV serology (positive IgG-viral capsid antigen [VCA], and negative antibodies to EBV nuclear antigen [EBNA]), the heterophile antibody test was only positive in 27 percent of children ages 10 to 24 months and 76 percent of those aged 24 to 48 months [109]. Despite the relative reduction in associated antibody production, young infants (defined as 20 to 35 months of age in one study) can mount an EBV-specific cytotoxic T lymphocyte response during the acute, lytic-phase of EBV infection, and the latent proteins recognized are identical to those recognized by young adults [113].
+
+   Rare false-positive heterophile tests have been reported in patients with leukemia, lymphoma, pancreatic cancer, systemic lupus erythematosus, HIV infection, and rubella [114]. In addition, heterophile antibodies can persist at low levels for up to one year after IM.
+
+   EBV-specific antibodies — EBV-specific antibodies are the gold standard for diagnosis of IM and are favored at many institutions for the diagnosis of IM as they do not suffer the problem of heterophile-negative IM. IgM and IgG antibodies directed against viral capsid antigens, having high sensitivity and specificity for the diagnosis of IM (97 and 94 percent, respectively) [115].
+
+   As noted above, the measurement of EBV-specific antibodies is usually not necessary if patients with manifestations consistent with IM are heterophile-positive. (See 'Heterophile antibodies' above.)
+
+   However, testing for EBV-specific antibodies is warranted in patients with suspected IM who have a negative heterophile test [116]. Specific EBV testing should also be pursued in those with a more prolonged illness or in those who do not fit classic diagnostic criteria.
+
+   Viral capsid antigen — IgM and IgG antibodies directed against the Epstein-Barr viral capsid antigen (VCA) are usually present at the onset of clinical illness because of the long viral incubation period. IgM levels wane approximately three months later; thus, they are a reliable marker of acute infection in a clinically appropriate picture. IgG VCA antibodies persist for life and are a marker of EBV infection.
+
+   Viral capsid antigen testing results need to be interpreted within the appropriate clinical context. Although the presence of IgM VCA antibodies is highly suggestive of acute EBV infection, other herpesviruses (eg, CMV) can induce IgM antibodies to cell lines that express EBV antigens [117]. In addition, during illnesses associated with intense immune activation, serologic EBV reactivation with detectable EBV IgM VCA antibodies has been described in the absence of clinical IM [118].
+
+   A number of other antibodies are expressed in individuals exposed to EBV, a few of which may also be used for diagnostic purposes. (See "Virology of Epstein-Barr virus".)
+
+   Nuclear antigen — IgG antibodies to EBNA (a protein expressed only when the virus begins to establish latency) begin to appear 6 to 12 weeks after the onset of symptoms and persist throughout life; their presence early in the course of an illness effectively excludes acute EBV infection.
+
+   Thus, while the presence of IgM VCA antibodies suggests the likely presence of acute EBV infection, the diagnosis is almost certain in the presence of IgM VCA and the absence of IgG EBNA antibodies.
+
+   Early antigen — IgG antibodies to early antigen (EA) are present at the onset of clinical illness. There are two subsets of EA IgG: anti-D and anti-R. The presence of anti-D antibodies is consistent with recent infection since titers disappear after recovery, but their absence does not exclude acute illness because the antibodies are not expressed in a significant number of patients. Anti-R antibodies are only occasionally present in IM.
+
+   Serum IgA antibody — In a study of 15 individuals with primary EBV infection, serum IgA antibodies against early lytic antigens were detected using flow cytometry [119]. Furthermore, levels of IgA antibodies rapidly declined one month after onset of acute illness, while IgM antibodies continued to be produced.
+
+   The role that serum IgA antibodies will have in the diagnosis of IM is unclear, pending further study.
+
+   Detection of EBV virus — EBV deoxyribonucleic acid (DNA) quantification can be accomplished through polymerase chain reaction (PCR) assays on blood or plasma [120,121]. Viral genomes can be detected in the blood in 40 to 70 percent of patients at symptom onset (depending upon which assay is used), and this increases to 90 percent about two weeks after onset [122].
+
+   One study evaluated the clinical utility of detecting EBV viremia with real-time PCR in children with primary EBV infection compared with controls [123]. Twenty-one (75 percent) of the patients in the primary EBV infection group, one (4 percent) of the EBV-seronegative patients, and none of the EBV-seropositive patients had detectable EBV DNA. Those with detectable virus were more likely to have lymphadenopathy within the primary infection group, higher atypical lymphocytes counts, and higher aminotransferases than those without detectable virus. In a study of university students with acute EBV infection, the severity of illness correlated with blood EBV load [16]. However, this quantitative assessment of EBV viral load is not recommended for immunocompetent patients with suspected EBV infection since it offers no therapeutic guidance.
+
+   The use of PCR in the management of transplant recipients who develop lymphoproliferative disorders related to EBV infection is discussed elsewhere. (See "Epidemiology, clinical manifestations, and diagnosis of post-transplant lymphoproliferative disorders", section on 'Measurement of EBV viral load'.)
+
+   Summary — Patients with suspected IM based upon the history and physical examination should have a white blood cell count with differential and a heterophile test or EBV-specific serologic testing.
+
+   If the heterophile test is positive, no further testing is necessary if the clinical scenario is compatible with typical IM. If the heterophile test is negative and the only test performed, but there is still a strong clinical suspicion of EBV infection, the heterophile test can be repeated since testing can be negative early in clinical illness. An alternative to repeating the test is to obtain EBV-specific serologies.
+
+   If the patient does not have a classic EBV syndrome, IgM and IgG VCA and EBNA antibodies should be measured. The presence of IgG EBNA within four weeks of symptom onset excludes acute primary EBV infection as an explanation and therefore should prompt consideration of EBV-negative causes of mononucleosis.
+
+   EBV-NEGATIVE MONONUCLEOSIS — Approximately 10 percent of mononucleosis-type cases are not caused by Epstein-Barr virus (EBV) [124]. Other agents that produce a similar clinical syndrome include cytomegalovirus (CMV) [54], HIV [55], Toxoplasma [125], human herpesvirus type 6 (HHV-6) [57], hepatitis B [126], and possibly HHV-7 [58].
+
+   Primary HIV infection — Primary HIV infection causes a febrile illness resembling mononucleosis [55]. The most common findings are fever, sore throat, myalgias, and lymphadenopathy (table 3) [127] (see "Acute and early HIV infection: Pathogenesis and epidemiology"). The following features may help to distinguish primary HIV infection from infectious mononucleosis (IM):
+
+   ●Mucocutaneous ulceration is unusual in IM; its presence should heighten the suspicion for acute HIV infection.
+
+   ●Rash is less common in IM (unless antibiotics have been administered) but is seen frequently in the setting of primary HIV infection within 48 to 72 hours after the onset of fever.
+
+   The heterophile test is typically negative during acute HIV infection [128]; false positive heterophile tests have been rarely reported [129,130]. Atypical lymphocytes also may be present in acute HIV infection, although the overall incidence of atypical lymphocytosis is lower in HIV infection and the percentage of atypical cells is usually lower than that seen with EBV.
+
+   Patients who present with a heterophile-negative mononucleosis-like syndrome should have quantitative plasma HIV ribonucleic acid (RNA) and HIV antibody testing to rule out primary HIV infection since early diagnosis is essential for patient management and decreases the risk of transmission to others. (See "Acute and early HIV infection: Clinical manifestations and diagnosis", section on 'Diagnosis'.)
+
+   Cytomegalovirus — CMV causes a syndrome that is similar but often milder than EBV-associated IM (table 4) [131,132]. The illness is characterized primarily by prolonged fever, less prominent lymphadenopathy, and absent or mild pharyngitis. Hepatitis is nearly universal. The hematologic picture resembles that of EBV infection. The disease is self-limited, and the great majority of patients recover with no sequelae. The diagnosis can be supported by the identification of IgM antibodies to CMV. (See "Overview of diagnostic tests for cytomegalovirus infection".)
+
+   Toxoplasma gondii — Toxoplasma causes a syndrome characterized predominantly by fever and lymphadenopathy [125]. It rarely causes pharyngitis or abnormal liver function tests and is not associated with the characteristic hematologic abnormalities seen with CMV and EBV infections.
+
+   Human herpesvirus — Symptomatic primary infection with HHV-6 or HHV-7 is uncommon in adults. However, a mononucleosis-like syndrome of varying severity with prolonged lymphadenopathy has been described in association with HHV-6 seroconversion in adults. (See "Clinical manifestations, diagnosis, and treatment of human herpesvirus 6 infection in adults", section on 'Immunocompetent hosts'.)
+
+   CHRONIC ACTIVE EBV INFECTION — Chronic active Epstein-Barr virus infection is a rare, life-threatening lymphoproliferative disorder that may involve B lymphocytes, T lymphocytes, or natural killer cells. The syndrome is characterized by a persistent IM-like syndrome with fevers, pancytopenia, elevated liver function tests, and EBV viremia [133]. A more detailed discussion of chronic active EBV infections is presented elsewhere. (See "Clinical manifestations and treatment of Epstein-Barr virus infection", section on 'Chronic active EBV infection'.)
+
+   TREATMENT — Primary Epstein-Barr virus (EBV) infections rarely require more than supportive therapy.
+
+   Symptomatic treatment — The mainstay of treatment for individuals with infectious mononucleosis (IM) is supportive care. Acetaminophen or nonsteroidal anti-inflammatory drugs are recommended for the treatment of fever, throat discomfort, and malaise. Provision of adequate fluids and nutrition is also important. It is prudent to get adequate rest, although complete bed rest is unnecessary.
+
+   The use of corticosteroids in the treatment of EBV-induced IM has been controversial. In a multicenter, placebo-controlled study of 94 patients with acute IM, the combination of acyclovir and prednisolone reduced oropharyngeal shedding of the virus but did not affect the duration of symptoms or lead to an earlier return to school or work [134]. A subsequent meta-analysis of seven studies found insufficient evidence to recommend steroid treatment for symptom relief; furthermore, two studies reported severe complications in patients assigned to the corticosteroid arm compared to placebo [135]. We do not recommend corticosteroid therapy for routine cases of IM since it is generally a self-limited illness, and there are theoretical concerns about immunosuppression during clinical illness with a virus that has been causally linked to a variety of malignancies. However, corticosteroids may be considered in the management of patients with some EBV-associated complications.
+
+   Complications including airway obstruction — Corticosteroids, as well as emergency consultation with an otolaryngologist, are warranted in individuals with impending airway obstruction (manifested clinically by difficulty breathing or dyspnea in the recumbent position). Data on dosing and duration of corticosteroid therapy is scant. One case series described children with impending airway closure who were treated successfully with high-dose corticosteroids (eg, dexamethasone 0.25 mg/kg every six hours), but no information was given on the duration of treatment [136]. Once clinical improvement has been achieved, tapering the corticosteroid dose slowly (eg, over 7 to 14 days) is likely prudent.
+
+   Corticosteroid therapy may also be considered in those with severe, overwhelming, life-threatening infection (eg, fulminant liver failure) or other complications such as severe hemolytic or aplastic anemia. Data supporting the benefit of corticosteroids in these settings are less robust than what is found for the treatment of IM-related airway obstruction.
+
+   Despite lack of evidence, one retrospective study of 206 patients with IM treated at a single tertiary medical center found that 45 percent received corticosteroids mainly for constitutional symptoms; only 8 percent of patients were treated based on traditional criteria [137].
+
+   A more detailed discussion of complications associated with acute EBV infection is found in a separate topic review.
+
+   Antiviral treatment — Acyclovir is a nucleoside analog that inhibits permissive EBV infection by inhibiting EBV DNA polymerase but has no effect on latent infection or ability to cure the infection (see "Acyclovir: An overview"). Specific therapy of acute EBV infections with intravenous and oral formulations of acyclovir has been studied [134,138]. Short-term suppression of oral viral shedding can be demonstrated, but significant clinical benefit has not been shown.
+
+   A meta-analysis of five randomized controlled trials of acyclovir in the treatment of acute IM, including two trials of intravenous therapy in patients with severe disease, also failed to show a clinical benefit compared to placebo [139]. These results are not surprising since ongoing viral replication plays a less significant role in the symptomatic phase of EBV-induced IM than the host immune responses.
+
+   RETURN TO SPORTS — Since infectious mononucleosis (IM) mostly affects teenagers and young adults, many of whom participate in competitive sports and other forms of exercise, a common question is when to recommend resumption of athletic activities. More than 50 percent of patients with IM develop splenic enlargement within the first two weeks of symptoms; thus, the central issue is avoiding activities that may precipitate splenic rupture, while a secondary consideration relates to the resumption of training in an athlete complaining of fatigue.
+
+   Avoiding splenic rupture — All athletes should refrain from sport activities during early illness. As recuperation occurs, clinicians should keep in mind that spontaneous or traumatic splenic rupture in the setting of IM appears to be most likely within 2 to 21 days after the onset of clinical symptoms [140]. Descriptions of splenic rupture after the fourth week are rare [65,141].
+
+   Recommendations to resume sports are somewhat arbitrary, given the lack of prospective data. Several authors recommend potential resumption of all sport activities, except for strenuous contact sports, no earlier than 21 days after illness onset [142,143]. Others advocate a universal four-week time frame regardless of activity level [144].
+
+   A conservative synthesis of retrospective studies yields the following suggestions [145]:
+
+   ●For athletes planning to resume noncontact sports, training can gradually start three weeks from symptom onset. This recommendation assumes that participants avoid any activities capable of causing chest or abdominal trauma.
+
+   ●For strenuous contact sports (including football, gymnastics, rugby, hockey, lacrosse, wrestling, diving, and basketball) or activities associated with increased intraabdominal pressure (such as weightlifting) that may carry a higher risk of splenic injury, we recommend waiting for a minimum of four weeks after illness onset.
+
+   Ways in which to document that the spleen has returned to normal size vary from practitioner to practitioner. Splenic palpation or percussion is generally unreliable in athletes with firm abdominal musculature, although experienced examiners can trust a positive finding of enlargement [146]. The safest option may be obtaining an ultrasound examination to document resolution of splenomegaly [147,148]. However, imaging studies before a return to sports remains a debated issue due to a lack of clinical outcomes data and the cost of ultrasound [149].
+
+   Some patients with IM appear to have splenic enlargement that persists on serial ultrasound studies. This may be due to the occasional long-term splenomegaly seen after IM or to "normal" splenomegaly that may be observed in 3 to 7 percent of healthy young adults, especially taller individuals [150,151]. Since seven weeks is among the latest descriptions of IM-related splenic rupture, clinical judgment must dictate when to allow an athlete with splenomegaly that persists beyond seven to eight weeks to resume strenuous sports [141]. Routine ultrasonography is not needed in most patients; the decision to obtain imaging should be influenced by whether the patient is returning to contact sports [152].
+
+   Fatigue — A common sense approach to the resumption of training suggests that clinicians wait for the resolution of objective symptoms as well as an improvement in the athlete's sense of well-being. For the first few days, athletes should train at reduced levels compared to their premorbid state, increasing activities gradually as tolerated [153]. Competitive athletes may not attain pre-illness levels of fitness for three or more months. The physician should be conscientious when giving recommendations to athletes who may be unduly pressured by themselves or others to resume strenuous activity too soon.
+
+   PROGNOSIS — Most individuals with primary Epstein-Barr virus (EBV) infection recover uneventfully and develop durable immunity. Most acute symptoms generally resolve in one to two weeks, although fatigue and poor functional status can persist for months [154-156]. Approximately 10 percent of individuals have persistent fatigue six months after symptom onset [155-157]. This rate declines over subsequent years, and most individuals recover completely over time. Some studies suggest the initial severity of illness correlates with the development of persistent fatigue [155-157]. Other studies have found that female sex [50,158] and premorbid mood disorders [158] are associated with an increased likelihood of developing persistent fatigue.
+
+   The reason why some patients do not return to prior health is unclear. Still, some studies show abnormalities in mitochondrial function and message levels for a variety of regulatory molecules [159-161].
+
+   EBV has been associated with a variety of malignancies, particularly lymphoma. Many of these infections are subclinical, but Hodgkin lymphoma has been associated with a history of infectious mononucleosis (IM). (See "Hodgkin lymphoma: Epidemiology and risk factors", section on 'Epstein-Barr virus' and "Clinical manifestations and treatment of Epstein-Barr virus infection", section on 'Malignancy'.)
+
+   PREVENTION — At present, there is no commercially available vaccine to prevent Epstein-Barr virus (EBV) infection. Glycoprotein 350, a viral antigen expressed on the EBV capsid, enables entry of the virus into B cells and is targeted by the immune system during natural infection [162]. One phase two placebo-controlled trial evaluated a recombinant gp350 vaccine in 181 volunteers and found that although the number of infectious mononucleosis (IM) cases was decreased in the vaccine group, gp350 did not prevent asymptomatic infection [44].
+
+   Return to school or work — Since EBV may be shed intermittently for months to years in people who have acquired infection, and the source of infection is rarely known in the patient who develops infectious mononucleosis, there are no restrictions regarding recently ill IM patients for returning to school or the workplace. The decision to return to full activities should be guided by the level of fatigue and other constitutional symptoms.
+
+   INFORMATION FOR PATIENTS — UpToDate offers two types of patient education materials, "The Basics" and "Beyond the Basics." The Basics patient education pieces are written in plain language, at the 5^th to 6^th grade reading level, and they answer the four or five key questions a patient might have about a given condition. These articles are best for patients who want a general overview and who prefer short, easy-to-read materials. Beyond the Basics patient education pieces are longer, more sophisticated, and more detailed. These articles are written at the 10^th to 12^th grade reading level and are best for patients who want in-depth information and are comfortable with some medical jargon.
+
+   Here are the patient education articles that are relevant to this topic. We encourage you to print or e-mail these topics to your patients. (You can also locate patient education articles on a variety of subjects by searching on "patient info" and the keyword(s) of interest.)
+
+   ●Basics topic (see "Patient education: Mononucleosis (The Basics)")
+
+   ●Beyond the Basics topic (See "Patient education: Infectious mononucleosis (mono) in adults and adolescents (Beyond the Basics)".)
+
+   SUMMARY AND RECOMMENDATIONS
+
+   ●Epidemiology − Infectious mononucleosis (IM) is an acute illness due to Epstein-Barr virus (EBV) infection, which occurs mainly in adolescents and young adults. (See 'Epidemiology' above.)
+
+   ●Clinical manifestations − IM is classically characterized by fever, pharyngitis, fatigue, and lymphadenopathy. Other findings can include splenomegaly and palatal petechiae. Cervical lymphadenopathy tends to involve the posterior chain of lymph nodes. (See 'Clinical manifestations' above.)
+
+   ●Complications − Rare complications include splenic rupture and airway obstruction.
+
+   ●Rash − A generalized maculopapular, urticarial, or petechial rash is occasionally seen. Rash may be more common following the administration of ampicillin or amoxicillin. (See 'Rash' above.)
+
+   ●Laboratory abnormalities − Common laboratory findings include an absolute or relative lymphocytosis, an increased proportion of atypical lymphocytes, and elevated aminotransferases. (See 'Laboratory abnormalities' above.)
+
+   ●Diagnostic evaluation − Patients with suspected IM, based upon the history and physical examination, should have a white blood cell count with differential and a heterophile test (eg, the "Monospot" test) or EBV-specific antibody testing. In addition, patients should also have a diagnostic evaluation for streptococcal infection by culture or antigen testing. (See 'Diagnosis' above.)
+
+   ●Role of EBV-specific antibodies − In a patient with a compatible syndrome and a negative heterophile antibody, the Monospot test can be repeated since this test can be negative during the first week of clinical illness. Alternatively (or in addition), EBV-specific antibodies (IgM and IgG antibodies directed against viral capsid antigen [VCA], IgG antibodies to nuclear antigen and early antigen) can be obtained. EBV-specific antibodies can be particularly helpful if the patient has a repeatedly negative Monospot. (See 'Diagnosis' above and 'EBV-specific antibodies' above.)
+
+   ●EBV-negative mononucleosis − The presence of IgG antibodies to EBV nuclear antigen (EBNA), or the absence of IgG and IgM antibodies to VCA, excludes acute primary EBV infection and should prompt consideration of alternative etiologies of a mononucleosis-like illness, such as cytomegalovirus (CMV), primary HIV infection, and toxoplasmosis. The most important diagnosis to exclude is primary HIV infection; this can be accomplished with both quantitative HIV RNA and HIV antibody testing. The evaluation for CMV takes on great importance in the pregnant female. (See 'EBV-negative mononucleosis' above.)
+
+   ●Treatment − Primary EBV infections rarely require more than supportive therapy. (See 'Treatment' above.)
+
+   •We recommend NOT administering acyclovir for IM (Grade 1B).
+
+   •In individuals with impending airway obstruction, we suggest corticosteroids, as well as emergency consultation with an otolaryngologist (Grade 2B). (See 'Treatment' above.)
+
+   ●Resuming sports − For athletes planning to resume noncontact sports, training can be gradually restarted three weeks from symptom onset. For strenuous contact sports or activities associated with increased intraabdominal pressure, we suggest waiting for a minimum of four weeks after illness onset (Grade 2C). (See 'Return to sports' above.)
+
+   Use of UpToDate is subject to the Terms of Use.
+
+REFERENCES
+
+    1. Evans AS, Niederman JC, Cenabre LC, et al. A prospective evaluation of heterophile and Epstein-Barr virus-specific IgM antibody tests in clinical and subclinical infectious mononucleosis: Specificity and sensitivity of the tests and persistence of antibody. J Infect Dis 1975; 132:546.
+    2. Evans AS. The history of infectious mononucleosis. Am J Med Sci 1974; 267:189.
+    3. Sprunt TP, Evans FA. Mononucleosis leukocytosis in reaction to acute infections (infectious mononucleosis). John Hopkins Hosp Bull 1920; 31:409.
+    4. Henle G, Henle W, Diehl V. Relation of Burkitt's tumor-associated herpes-ytpe virus to infectious mononucleosis. Proc Natl Acad Sci U S A 1968; 59:94.
+    5. Gares V, Panico L, Castagne R, et al. The role of the early social environment on Epstein Barr virus infection: a prospective observational design using the Millennium Cohort Study. Epidemiol Infect 2017; 145:3405.
+    6. Evans A, Niederman J. Epstein-Barr virus. In: Viral Infections of Human Epidemiology and Control, Evans A (Ed), Plenum Publishing, New York 1989. p.265.
+    7. Heath CW Jr, Brodsky AL, Potolsky AI. Infectious mononucleosis in a general population. Am J Epidemiol 1972; 95:46.
+    8. Kuri A, Jacobs BM, Vickaryous N, et al. Epidemiology of Epstein-Barr virus infection and infectious mononucleosis in the United Kingdom. BMC Public Health 2020; 20:912.
+    9. Morris MC, Edmunds WJ. The changing epidemiology of infectious mononucleosis? J Infect 2002; 45:107.
+   10. Aronson MD, Komaroff AL, Pass TM, et al. Heterophil antibody in adults with sore throat: frequency and clinical presentation. Ann Intern Med 1982; 96:505.
+   11. Jabłońska A, Studzińska M, Szenborn L, et al. TLR4 896A/G and TLR9 1174G/A polymorphisms are associated with the risk of infectious mononucleosis. Sci Rep 2020; 10:13154.
+   12. Nye FJ. Social class and infectious mononucleosis. J Hyg (Lond) 1973; 71:145.
+   13. Rostgaard K, Wohlfahrt J, Hjalgrim H. A genetic basis for infectious mononucleosis: evidence from a family study of hospitalized cases in Denmark. Clin Infect Dis 2014; 58:1684.
+   14. Cohen JI, Dropulic L, Hsu AP, et al. Association of GATA2 Deficiency With Severe Primary Epstein-Barr Virus (EBV) Infection and EBV-associated Cancers. Clin Infect Dis 2016; 63:41.
+   15. Balfour HH Jr, Holman CJ, Hokanson KM, et al. A prospective clinical study of Epstein-Barr virus and host interactions during acute infectious mononucleosis. J Infect Dis 2005; 192:1505.
+   16. Balfour HH Jr, Odumade OA, Schmeling DO, et al. Behavioral, virologic, and immunologic factors associated with acquisition and severity of primary Epstein-Barr virus infection in university students. J Infect Dis 2013; 207:80.
+   17. Vetsika EK, Callan M. Infectious mononucleosis and Epstein-Barr virus. Expert Rev Mol Med 2004; 6:1.
+   18. Sawyer RN, Evans AS, Niederman JC, McCollum RW. Prospective studies of a group of Yale University freshmen. I. Occurrence of infectious mononucleosis. J Infect Dis 1971; 123:263.
+   19. Fafi-Kremer S, Morand P, Brion JP, et al. Long-term shedding of infectious epstein-barr virus after infectious mononucleosis. J Infect Dis 2005; 191:985.
+   20. Fleisher GR, Pasquariello PS, Warren WS, et al. Intrafamilial transmission of Epstein-Barr virus infections. J Pediatr 1981; 98:16.
+   21. Junker AK, Thomas EE, Radcliffe A, et al. Epstein-Barr virus shedding in breast milk. Am J Med Sci 1991; 302:220.
+   22. Kusuhara K, Takabayashi A, Ueda K, et al. Breast milk is not a significant source for early Epstein-Barr virus or human herpesvirus 6 infection in infants: a seroepidemiologic study in 2 endemic areas of human T-cell lymphotropic virus type I in Japan. Microbiol Immunol 1997; 41:309.
+   23. Näher H, Gissmann L, Freese UK, et al. Subclinical Epstein-Barr virus infection of both the male and female genital tract--indication for sexual transmission. J Invest Dermatol 1992; 98:791.
+   24. Sixbey JW, Lemon SM, Pagano JS. A second site for Epstein-Barr virus shedding: the uterine cervix. Lancet 1986; 2:1122.
+   25. Israele V, Shirley P, Sixbey JW. Excretion of the Epstein-Barr virus from the genital tract of men. J Infect Dis 1991; 163:1341.
+   26. Higgins CD, Swerdlow AJ, Macsween KF, et al. A study of risk factors for acquisition of Epstein-Barr virus and its subtypes. J Infect Dis 2007; 195:474.
+   27. Anagnostopoulos I, Hummel M, Kreschel C, Stein H. Morphology, immunophenotype, and distribution of latently and/or productively Epstein-Barr virus-infected cells in acute infectious mononucleosis: implications for the interindividual infection route of Epstein-Barr virus. Blood 1995; 85:744.
+   28. Balfour HH Jr, Holman CJ, Hokanson KM, et al. A prospective clinical study of Epstein-Barr virus and host interactions during acute infectious mononucleosis. J Infect Dis 2005; 192:1505.
+   29. Thorley-Lawson DA, Mann KP. Early events in Epstein-Barr virus infection provide a model for B cell activation. J Exp Med 1985; 162:45.
+   30. Paul JR, Bunnell WW. The presence of heterophile antibodies in infectious mononucleosis. Am J Med Sci 1932; 183.
+   31. Paul JR, Bunnell WW. Classics in infectious diseases. The presence of heterophile antibodies in infectious mononucleosis by John R. Paul and W. W. Bunnell. American Journal of the Medical Sciences, 1932. Rev Infect Dis 1982; 4:1062.
+   32. Corsi MM, Ruscica M, Passoni D, et al. High Th1-type cytokine serum levels in patients with infectious mononucleosis. Acta Virol 2004; 48:263.
+   33. Tomkinson BE, Wagner DK, Nelson DL, Sullivan JL. Activated lymphocytes during acute Epstein-Barr virus infection. J Immunol 1987; 139:3802.
+   34. Giuliano VJ, Jasin HE, Ziff M. The nature of the atypical lymphocyte in infectious mononucleosis. Clin Immunol Immunopathol 1974; 3:90.
+   35. Johnsen HE, Madsen M, Kristensen T, Kissmeyer-Nielsen F. Lymphocyte subpopulations in man. Expression of HLA-DR determinants on human T cells in infectious mononucleosis. Acta Pathol Microbiol Scand C 1978; 86C:307.
+   36. Niedobitek G, Herbst H, Young LS, et al. Patterns of Epstein-Barr virus infection in non-neoplastic lymphoid tissue. Blood 1992; 79:2520.
+   37. Williams H, McAulay K, Macsween KF, et al. The immune response to primary EBV infection: a role for natural killer cells. Br J Haematol 2005; 129:266.
+   38. Hjalgrim H, Askling J, Rostgaard K, et al. Characteristics of Hodgkin's lymphoma after infectious mononucleosis. N Engl J Med 2003; 349:1324.
+   39. Hjalgrim H, Smedby KE, Rostgaard K, et al. Infectious mononucleosis, childhood social environment, and risk of Hodgkin lymphoma. Cancer Res 2007; 67:2382.
+   40. Bakkalci D, Jia Y, Winter JR, et al. Risk factors for Epstein Barr virus-associated cancers: a systematic review, critical appraisal, and mapping of the epidemiological evidence. J Glob Health 2020; 10:010405.
+   41. Thacker EL, Mirzaei F, Ascherio A. Infectious mononucleosis and risk for multiple sclerosis: a meta-analysis. Ann Neurol 2006; 59:499.
+   42. Poole BD, Scofield RH, Harley JB, James JA. Epstein-Barr virus and molecular mimicry in systemic lupus erythematosus. Autoimmunity 2006; 39:63.
+   43. Auwaerter PG. Recent advances in the understanding of infectious mononucleosis: are prospects improved for treatment or control? Expert Rev Anti Infect Ther 2006; 4:1039.
+   44. Sokal EM, Hoppenbrouwers K, Vandermeulen C, et al. Recombinant gp350 vaccine for infectious mononucleosis: a phase 2, randomized, double-blind, placebo-controlled trial to evaluate the safety, immunogenicity, and efficacy of an Epstein-Barr virus vaccine in healthy young adults. J Infect Dis 2007; 196:1749.
+   45. Winter JR, Jackson C, Lewis JE, et al. Predictors of Epstein-Barr virus serostatus and implications for vaccine policy: A systematic review of the literature. J Glob Health 2020; 10:010404.
+   46. Luzuriaga K, Sullivan JL. Infectious mononucleosis. N Engl J Med 2010; 362:1993.
+   47. Hoagland RJ. Infectious mononucleosis. Prim Care 1975; 2:295.
+   48. Rea TD, Russo JE, Katon W, et al. Prospective study of the natural history of infectious mononucleosis caused by Epstein-Barr virus. J Am Board Fam Pract 2001; 14:234.
+   49. Peter J, Ray CG. Infectious mononucleosis. Pediatr Rev 1998; 19:276.
+   50. Macsween KF, Higgins CD, McAulay KA, et al. Infectious mononucleosis in university students in the United kingdom: evaluation of the clinical features and consequences of the disease. Clin Infect Dis 2010; 50:699.
+   51. Otsuki T, Ishizuka K, Hirose M, Ie K. Hoagland sign in infectious mononucleosis. BMJ Case Rep 2022; 15.
+   52. Monem SA, O'Connor PF, O'Leary TG. Peritonsillar abscess and infectious mononucleosis: an association or a different presentation of the same condition. Ir Med J 1999; 92:278.
+   53. Yoda K, Sata T, Kurata T, Aramaki H. Oropharyngotonsillitis associated with nonprimary Epstein-Barr virus infection. Arch Otolaryngol Head Neck Surg 2000; 126:185.
+   54. Klemola E, Von Essen R, Henle G, Henle W. Infectious-mononucleosis-like disease with negative heterophil agglutination test. Clinical features in relation to Epstein-Barr virus and cytomegalovirus antibodies. J Infect Dis 1970; 121:608.
+   55. Gaines H, von Sydow M, Pehrson PO, Lundbegh P. Clinical picture of primary HIV infection presenting as a glandular-fever-like illness. BMJ 1988; 297:1363.
+   56. Horwitz CA, Henle W, Henle G, et al. Heterophil-negative infectious mononucleosis and mononucleosis-like illnesses. Laboratory confirmation of 43 cases. Am J Med 1977; 63:947.
+   57. Steeper TA, Horwitz CA, Ablashi DV, et al. The spectrum of clinical and laboratory findings resulting from human herpesvirus-6 (HHV-6) in patients with mononucleosis-like illnesses not resulting from Epstein-Barr virus or cytomegalovirus. Am J Clin Pathol 1990; 93:776.
+   58. Kawa-Ha K, Tanaka K, Inoue M, et al. Isolation of human herpesvirus 7 from a child with symptoms mimicking chronic Epstein-Barr virus infection. Br J Haematol 1993; 84:545.
+   59. Auwaerter PG. Infectious mononucleosis in middle age. JAMA 1999; 281:454.
+   60. Horwitz CA, Henle W, Henle G, et al. Infectious mononucleosis in patients aged 40 to 72 years: report of 27 cases, including 3 without heterophil-antibody responses. Medicine (Baltimore) 1983; 62:256.
+   61. Infectious Mononucleosis, Carter RL, Penman HG (Eds), Blackwell Scientific Publication, Oxford and Edinburgh 1969. p.47-62.
+   62. Aldrete JS. Spontaneous rupture of the spleen in patients with infectious mononucleosis. Mayo Clin Proc 1992; 67:910.
+   63. Bartlett A, Williams R, Hilton M. Splenic rupture in infectious mononucleosis: A systematic review of published case reports. Injury 2016; 47:531.
+   64. Gayer G, Zandman-Goddard G, Kosych E, Apter S. Spontaneous rupture of the spleen detected on CT as the initial manifestation of infectious mononucleosis. Emerg Radiol 2003; 10:51.
+   65. Asgari MM, Begos DG. Spontaneous splenic rupture in infectious mononucleosis: a review. Yale J Biol Med 1997; 70:175.
+   66. Naviglio S, Abate MV, Chinello M, Ventura A. Splenic Infarction in Acute Infectious Mononucleosis. J Emerg Med 2016; 50:e11.
+   67. Schissel DJ, Singer D, David-Bajar K. Azithromycin eruption in infectious mononucleosis: a proposed mechanism of interaction. Cutis 2000; 65:163.
+   68. Paily R. Quinolone drug rash in a patient with infectious mononucleosis. J Dermatol 2000; 27:405.
+   69. LeClaire AC, Martin CA, Hoven AD. Rash associated with piperacillin/tazobactam administration in infectious mononucleosis. Ann Pharmacother 2004; 38:996.
+   70. McCloskey GL, Massa MC. Cephalexin rash in infectious mononucleosis. Cutis 1997; 59:251.
+   71. Thompson DF, Ramos CL. Antibiotic-Induced Rash in Patients With Infectious Mononucleosis. Ann Pharmacother 2017; 51:154.
+   72. Chovel-Sella A, Ben Tov A, Lahav E, et al. Incidence of rash after amoxicillin treatment in children with infectious mononucleosis. Pediatrics 2013; 131:e1424.
+   73. Hocqueloux L, Guinard J, Buret J, et al. Do penicillins really increase the frequency of a rash when given during Epstein-Barr Virus primary infection? Clin Infect Dis 2013; 57:1661.
+   74. Dibek Misirlioglu E, Guvenir H, Ozkaya Parlakay A, et al. Incidence of Antibiotic-Related Rash in Children with Epstein-Barr Virus Infection and Evaluation of the Frequency of Confirmed Antibiotic Hypersensitivity. Int Arch Allergy Immunol 2018; 176:33.
+   75. Long CM, Kerschner JE. Parotid mass: Epstein-Barr virus and facial paralysis. Int J Pediatr Otorhinolaryngol 2001; 59:143.
+   76. Joki-Erkkilä VP, Hietaharju A, Numminen J, et al. Multiple cranial nerve palsies as a complication of infectious mononucleosis due to inflammatory lesion in jugular foramen. Ann Otol Rhinol Laryngol 2000; 109:340.
+   77. Johns MM, Hogikyan ND. Simultaneous vocal fold and tongue paresis secondary to Epstein-Barr virus infection. Arch Otolaryngol Head Neck Surg 2000; 126:1491.
+   78. Schellinger PD, Sommer C, Leithäuser F, et al. Epstein-Barr virus meningoencephalitis with a lymphoma-like response in an immunocompetent host. Ann Neurol 1999; 45:659.
+   79. Tselis A, Duman R, Storch GA, Lisak RP. Epstein-Barr virus encephalomyelitis diagnosed by polymerase chain reaction: detection of the genome in the CSF. Neurology 1997; 48:1351.
+   80. Lahat E, Eshel G, Arlazoroff A. "Alice in wonderland" syndrome: a manifestation of infectious mononucleosis in children. Behav Neurol 1991; 4:163.
+   81. Marrie RA, Wolfson C, Sturkenboom MC, et al. Multiple sclerosis and antecedent infections: a case-control study. Neurology 2000; 54:2307.
+   82. Hernán MA, Zhang SM, Lipworth L, et al. Multiple sclerosis and age at infection with common viruses. Epidemiology 2001; 12:301.
+   83. Jacobs BM, Giovannoni G, Cuzick J, Dobson R. Systematic review and meta-analysis of the association between Epstein-Barr virus, multiple sclerosis and other risk factors. Mult Scler 2020; 26:1281.
+   84. Devereaux CE, Bemiller T, Brann O. Ascites and severe hepatitis complicating Epstein-Barr infection. Am J Gastroenterol 1999; 94:236.
+   85. Ghosh A, Ghoshal UC, Kochhar R, et al. Infectious mononucleosis hepatitis: report of two patients. Indian J Gastroenterol 1997; 16:113.
+   86. Chen J, Konstantinopoulos PA, Satyal S, et al. Just another simple case of infectious mononucleosis? Lancet 2003; 361:1182.
+   87. Kottanattu L, Lava SA, Helbling R, et al. Pancreatitis and cholecystitis in primary acute symptomatic Epstein-Barr virus infection - Systematic review of the literature. J Clin Virol 2016; 82:51.
+   88. Lei PS, Lowichik A, Allen W, Mauch TJ. Acute renal failure: unusual complication of Epstein-Barr virus-induced infectious mononucleosis. Clin Infect Dis 2000; 31:1519.
+   89. Kitayama Y, Honda S, Sugimura H. Epstein-Barr virus-related gastric pseudolymphoma in infectious mononucleosis. Gastrointest Endosc 2000; 52:290.
+   90. Hudson LB, Perlman SE. Necrotizing genital ulcerations in a premenarcheal female with mononucleosis. Obstet Gynecol 1998; 92:642.
+   91. Shi J, Chu C, Yu M, et al. Clinical warning of hemophagocytic syndrome caused by Epstein-Barr virus. Ital J Pediatr 2021; 47:3.
+   92. Kimura H, Cohen JI. Chronic Active Epstein-Barr Virus Disease. Front Immunol 2017; 8:1867.
+   93. Avgil M, Diav-Citrin O, Shechtman S, et al. Epstein-Barr virus infection in pregnancy--a prospective controlled study. Reprod Toxicol 2008; 25:468.
+   94. Avgil M, Ornoy A. Herpes simplex virus and Epstein-Barr virus infections in pregnancy: consequences of neonatal or intrauterine infection. Reprod Toxicol 2006; 21:436.
+   95. Horwitz CA, Moulds J, Henle W, et al. Cold agglutinins in infectious mononucleosis and heterophil-antibody-negative mononucleosis-like syndromes. Blood 1977; 50:195.
+   96. Karpathios T, Drakonaki S, Zervoudaki A, et al. Arcanobacterium haemolyticum in children with presumed streptococcal pharyngotonsillitis or scarlet fever. J Pediatr 1992; 121:735.
+   97. Maquiera E, Yañez S, Fernández L, et al. Mononucleosis-like illness as a manifestation of carbamazepine-induced anticonvulsant hypersensitivity syndrome. Allergol Immunopathol (Madr) 1996; 24:87.
+   98. Lupton JR, Figueroa P, Tamjidi P, et al. An infectious mononucleosis-like syndrome induced by minocycline: a third pattern of adverse drug reaction. Cutis 1999; 64:91.
+   99. Brown M, Schubert T. Phenytoin hypersensitivity hepatitis and mononucleosis syndrome. J Clin Gastroenterol 1986; 8:469.
+   100. Hurt C, Tammaro D. Diagnostic evaluation of mononucleosis-like illnesses. Am J Med 2007; 120:911.e1.
+   101. Ebell MH. Epstein-Barr virus infectious mononucleosis. Am Fam Physician 2004; 70:1279.
+   102. Ebell MH, Call M, Shinholser J, Gardner J. Does This Patient Have Infectious Mononucleosis?: The Rational Clinical Examination Systematic Review. JAMA 2016; 315:1502.
+   103. Brigden ML, Au S, Thompson S, et al. Infectious mononucleosis in an outpatient population: diagnostic utility of 2 automated hematology analyzers and the sensitivity and specificity of Hoagland's criteria in heterophile-positive patients. Arch Pathol Lab Med 1999; 123:875.
+   104. Axelrod P, Finestone AJ. Infectious mononucleosis in older adults. Am Fam Physician 1990; 42:1599.
+   105. Seitanidis B. A comparison of the Monospot with the Paul-Bunnell test in infectious mononucleosis and other diseases. J Clin Pathol 1969; 22:321.
+   106. Basson V, Sharp AA. Monospot: a differential slide test for infectious mononucleosis. J Clin Pathol 1969; 22:324.
+   107. Linderholm M, Boman J, Juto P, Linde A. Comparative evaluation of nine kits for rapid diagnosis of infectious mononucleosis and Epstein-Barr virus-specific serology. J Clin Microbiol 1994; 32:259.
+   108. Marshall-Andon T, Heinz P. How to use … the Monospot and other heterophile antibody tests. Arch Dis Child Educ Pract Ed 2017; 102:188.
+   109. Horwitz CA, Henle W, Henle G, et al. Clinical and laboratory evaluation of infants and children with Epstein-Barr virus-induced infectious mononucleosis: report of 32 patients (aged 10-48 months). Blood 1981; 57:933.
+   110. Topp SK, Rosenfeldt V, Vestergaard H, et al. Clinical characteristics and laboratory findings in Danish children hospitalized with primary Epstein-Barr virus infection. Infect Dis (Lond) 2015; 47:908.
+   111. Krabbe S, Hesse J, Uldall P. Primary Epstein-Barr virus infection in early childhood. Arch Dis Child 1981; 56:49.
+   112. American Academy of Pediatrics. Epstein-Barr Virus Infections. In: Red Book, 31, Kimberlin DW, Brady MT, Jackson MA, Long SS (Eds), 2018. p.334.
+   113. Tamaki H, Beaulieu BL, Somasundaran M, Sullivan JL. Major histocompatibility complex class I-restricted cytotoxic T lymphocyte responses to Epstein-Barr virus in children. J Infect Dis 1995; 172:739.
+   114. Schumacher HR, Austin RM, Stass SA. False-positive serology in infectious monoucleosis. Lancet 1979; 1:722.
+   115. Bruu AL, Hjetland R, Holter E, et al. Evaluation of 12 commercial tests for detection of Epstein-Barr virus-specific and heterophile antibodies. Clin Diagn Lab Immunol 2000; 7:451.
+   116. Tetrault G. Infections in heterophile-negative patients. Arch Pathol Lab Med 2001; 125:858.
+   117. De Paschale M, Clerici P. Serological diagnosis of Epstein-Barr virus infection: Problems and solutions. World J Virol 2012; 1:31.
+   118. Obel N, Høier-Madsen M, Kangro H. Serological and clinical findings in patients with serological evidence of reactivated Epstein-Barr virus infection. APMIS 1996; 104:424.
+   119. Bhaduri-McIntosh S, Landry ML, Nikiforow S, et al. Serum IgA antibodies to Epstein-Barr virus (EBV) early lytic antigens are present in primary EBV infection. J Infect Dis 2007; 195:483.
+   120. Weinberger B, Plentz A, Weinberger KM, et al. Quantitation of Epstein-Barr virus mRNA using reverse transcription and real-time PCR. J Med Virol 2004; 74:612.
+   121. Fafi-Kremer S, Brengel-Pesce K, Barguès G, et al. Assessment of automated DNA extraction coupled with real-time PCR for measuring Epstein-Barr virus load in whole blood, peripheral mononuclear cells and plasma. J Clin Virol 2004; 30:157.
+   122. Dunmire SK, Grimm JM, Schmeling DO, et al. The Incubation Period of Primary Epstein-Barr Virus Infection: Viral Dynamics and Immunologic Events. PLoS Pathog 2015; 11:e1005286.
+   123. Pitetti RD, Laus S, Wadowsky RM. Clinical evaluation of a quantitative real time polymerase chain reaction assay for diagnosis of primary Epstein-Barr virus infection in children. Pediatr Infect Dis J 2003; 22:736.
+   124. Evans AS. Infectious mononucleosis and related syndromes. Am J Med Sci 1978; 276:325.
+   125. Cameron D, MacBean LM. A clinical study of infectious mononucleosis and toxoplasmosis, Williams & Wilkins, Baltimore 1973. p.18.
+   126. Thami GP, Kanwar AJ, Goyal A. Heterophil negative infectious mononucleosis like syndrome due to hepatitis B virus. J Assoc Physicians India 2000; 48:921.
+   127. Niu MT, Stein DS, Schnittman SM. Primary human immunodeficiency virus type 1 infection: review of pathogenesis and early treatment intervention in humans and animal retrovirus infections. J Infect Dis 1993; 168:1490.
+   128. Rosenberg ES, Caliendo AM, Walker BD. Acute HIV infection among patients tested for mononucleosis. N Engl J Med 1999; 340:969.
+   129. Vidrih JA, Walensky RP, Sax PE, Freedberg KA. Positive Epstein-Barr virus heterophile antibody tests in patients with primary human immunodeficiency virus infection. Am J Med 2001; 111:192.
+   130. Walensky RP, Rosenberg ES, Ferraro MJ, et al. Investigation of primary human immunodeficiency virus infection in patients who test positive for heterophile antibody. Clin Infect Dis 2001; 33:570.
+   131. Klemola E, Kääriäinen L. Cytomegalovirus as a possible cause of a disease resembling infectious mononucleosis. Br Med J 1965; 2:1099.
+   132. Jordan MC, Rousseau W, Stewart JA, et al. Spontaneous cytomegalovirus mononucleosis. Clinical and laboratory observations in nine cases. Ann Intern Med 1973; 79:153.
+   133. Straus SE. The chronic mononucleosis syndrome. J Infect Dis 1988; 157:405.
+   134. Tynell E, Aurelius E, Brandell A, et al. Acyclovir and prednisolone treatment of acute infectious mononucleosis: a multicenter, double-blind, placebo-controlled study. J Infect Dis 1996; 174:324.
+   135. Rezk E, Nofal YH, Hamzeh A, et al. Steroids for symptom control in infectious mononucleosis. Cochrane Database Syst Rev 2015; :CD004402.
+   136. Wohl DL, Isaacson JE. Airway obstruction in children with infectious mononucleosis. Ear Nose Throat J 1995; 74:630.
+   137. Thompson SK, Doerr TD, Hengerer AS. Infectious mononucleosis and corticosteroids: management practices and outcomes. Arch Otolaryngol Head Neck Surg 2005; 131:900.
+   138. van der Horst C, Joncas J, Ahronheim G, et al. Lack of effect of peroral acyclovir for the treatment of acute infectious mononucleosis. J Infect Dis 1991; 164:788.
+   139. Torre D, Tambini R. Acyclovir for treatment of infectious mononucleosis: a meta-analysis. Scand J Infect Dis 1999; 31:543.
+   140. Kinderknecht JJ. Infectious mononucleosis and the spleen. Curr Sports Med Rep 2002; 1:116.
+   141. Johnson MA, Cooperberg PL, Boisvert J, et al. Spontaneous splenic rupture in infectious mononucleosis: sonographic diagnosis and follow-up. AJR Am J Roentgenol 1981; 136:111.
+   142. Maki DG, Reich RM. Infectious mononucleosis in the athlete. Diagnosis, complications, and management. Am J Sports Med 1982; 10:162.
+   143. Haines JD Jr. When to resume sports after infectious mononucleosis. How soon is safe? Postgrad Med 1987; 81:331.
+   144. Friman G, Wesslén L. Special feature for the Olympics: effects of exercise on the immune system: infections and exercise in high-performance athletes. Immunol Cell Biol 2000; 78:510.
+   145. Auwaerter PG. Infectious mononucleosis: return to play. Clin Sports Med 2004; 23:485.
+   146. Tamayo SG, Rickman LS, Mathews WC, et al. Examiner dependence on physical diagnostic tests for the detection of splenomegaly: a prospective study with multiple observers. J Gen Intern Med 1993; 8:69.
+   147. Ali J. Spontaneous rupture of the spleen in patients with infectious mononucleosis. Can J Surg 1993; 36:49.
+   148. Dommerby H, Stangerup SE, Stangerup M, Hancke S. Hepatosplenomegaly in infectious mononucleosis, assessed by ultrasonic scanning. J Laryngol Otol 1986; 100:573.
+   149. Burroughs KE. Athletes resuming activity after infectious mononucleosis. Arch Fam Med 2000; 9:1122.
+   150. McIntyre OR, Ebaugh FG Jr. Palpable spleens in college freshmen. Ann Intern Med 1967; 66:301.
+   151. Hosey RG, Mattacola CG, Kriss V, et al. Ultrasound assessment of spleen size in collegiate athletes. Br J Sports Med 2006; 40:251.
+   152. Waninger KN, Harcke HT. Determination of safe return to play for athletes recovering from infectious mononucleosis: a review of the literature. Clin J Sport Med 2005; 15:410.
+   153. Noffsinger J. Physical activity considerations in children and adolescents with viral infections. Pediatr Ann 1996; 25:585.
+   154. Buchwald DS, Rea TD, Katon WJ, et al. Acute infectious mononucleosis: characteristics of patients who report failure to recover. Am J Med 2000; 109:531.
+   155. Hickie I, Davenport T, Wakefield D, et al. Post-infective and chronic fatigue syndromes precipitated by viral and non-viral pathogens: prospective cohort study. BMJ 2006; 333:575.
+   156. Katz BZ, Reuter C, Lupovitch Y, et al. A Validated Scale for Assessing the Severity of Acute Infectious Mononucleosis. J Pediatr 2019; 209:130.
+   157. Katz BZ, Shiraishi Y, Mears CJ, et al. Chronic fatigue syndrome after infectious mononucleosis in adolescents. Pediatrics 2009; 124:189.
+   158. Petersen I, Thomas JM, Hamilton WT, White PD. Risk and predictors of fatigue after infectious mononucleosis in a large primary-care cohort. QJM 2006; 99:49.
+   159. Vernon SD, Whistler T, Cameron B, et al. Preliminary evidence of mitochondrial dysfunction associated with post-infective fatigue after acute infection with Epstein Barr virus. BMC Infect Dis 2006; 6:15.
+   160. Vernon SD, Nicholson A, Rajeevan M, et al. Correlation of psycho-neuroendocrine-immune (PNI) gene expression with symptoms of acute infectious mononucleosis. Brain Res 2006; 1068:1.
+   161. White PD. What causes prolonged fatigue after infectious mononucleosis: and does it tell us anything about chronic fatigue syndrome? J Infect Dis 2007; 196:4.
+   162. Jackman WT, Mann KA, Hoffmann HJ, Spaete RR. Expression of Epstein-Barr virus gp350 as a single chain glycoprotein for an EBV subunit vaccine. Vaccine 1999; 17:660.
+
+   Topic 8318 Version 39.0

@@ -37,10 +37,10 @@ DEPS="--with openai>=1.0.0 --with regex --with python-dotenv"
 COMMON_ARGS="--doctor_llm openai/gpt-5-mini --total_inferences 20"
 
 # Backup original dataset and replace with failed cases dataset
-if [ -f "agentclinic_medqa_extended.jsonl" ]; then
-    cp "agentclinic_medqa_extended.jsonl" "agentclinic_medqa_extended.jsonl.backup_${TIMESTAMP}"
-    echo "Backed up original dataset"
-fi
+# if [ -f "agentclinic_medqa_extended.jsonl" ]; then
+#     cp "agentclinic_medqa_extended.jsonl" "agentclinic_medqa_extended.jsonl.backup_${TIMESTAMP}"
+#     echo "Backed up original dataset"
+# fi
 
 cp "$FAILED_CASES_FILE" "agentclinic_medqa_extended.jsonl"
 echo "Installed failed cases dataset"

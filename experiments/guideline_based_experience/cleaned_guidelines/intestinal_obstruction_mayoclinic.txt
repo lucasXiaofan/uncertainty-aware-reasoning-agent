@@ -1,0 +1,75 @@
+Diagnosis: Intestinal obstruction
+Original diagnosis label: Unspecified intestinal obstruction
+Source: mayoclinic
+Guideline title: Intestinal obstruction
+Guideline id: 321
+Relevant scenario_ids: 12
+Matched alias: intestinal obstruction
+Original source path: /Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mayoclinical.json
+
+Guideline content
+
+https://assets.mayoclinic.org/content/dam/mayoclinic/logos/mayo-clinic-logo.svg
+Intestinal obstruction
+Overview
+
+
+Intestinal obstruction is a blockage that keeps food or liquid from passing through your small intestine or large intestine (colon). Causes of intestinal obstruction may include fibrous bands of tissue (adhesions) in the abdomen that form after surgery; hernias; colon cancer; certain medications; or strictures from an inflamed intestine caused by certain conditions, such as Crohn's disease or diverticulitis.
+Without treatment, the blocked parts of the intestine can die, leading to serious problems. However, with prompt medical care, intestinal obstruction often can be successfully treated.
+Symptoms
+
+
+Signs and symptoms of intestinal obstruction include:
+Crampy abdominal pain that comes and goes
+Loss of appetite
+Constipation
+Vomiting
+Inability to have a bowel movement or pass gas
+Swelling of the abdomen
+When to see a doctor
+
+
+Because of the serious complications that can develop from intestinal obstruction, seek immediate medical care if you have severe abdominal pain or other symptoms of intestinal obstruction.
+Causes
+
+
+The most common causes of intestinal obstruction in adults are:
+Intestinal adhesions — bands of fibrous tissue in the abdominal cavity that can form after abdominal or pelvic surgery
+Hernias — portions of intestine that protrude into another part of your body
+Colon cancer
+In children, the most common cause of intestinal obstruction is telescoping of the intestine (intussusception).
+Other possible causes of intestinal obstruction include:
+Inflammatory bowel diseases, such as Crohn's disease
+Diverticulitis — a condition in which small, bulging pouches (diverticula) in the digestive tract become inflamed or infected
+Twisting of the colon (volvulus)
+Impacted feces
+Pseudo-obstruction
+Intestinal pseudo-obstruction (paralytic ileus) can cause signs and symptoms of intestinal obstruction, but it doesn't involve a physical blockage. In paralytic ileus, muscle or nerve problems disrupt the normal coordinated muscle contractions of the intestines, slowing or stopping the movement of food and fluid through the digestive system.
+Paralytic ileus can affect any part of the intestine. Causes can include:
+Abdominal or pelvic surgery
+Infection
+Certain medications that affect muscles and nerves, including antidepressants and opioids
+Muscle and nerve disorders, such as Parkinson's disease
+Risk factors
+
+
+Diseases and conditions that can increase your risk of intestinal obstruction include:
+Abdominal or pelvic surgery, which often causes adhesions — a common intestinal obstruction
+Crohn's disease, which can cause the intestine's walls to thicken, narrowing the passageway
+Cancer in your abdomen
+Complications
+
+
+Untreated, intestinal obstruction can cause serious, life-threatening complications, including:
+Tissue death.Intestinal obstruction can cut off the blood supply to part of your intestine. Lack of blood causes the intestinal wall to die. Tissue death can result in a tear (perforation) in the intestinal wall, which can lead to infection.
+Infection.Peritonitis is the medical term for infection in the abdominal cavity. It's a life-threatening condition that requires immediate medical and often surgical attention.
+By Mayo Clinic Staff
+Terms & Conditions
+Notice of Nondiscrimination
+Privacy Policy
+Advertising & Sponsorship Policy
+Notice of Privacy Practices
+Accessibility Statement
+Manage Cookies
+Site Map
+© 1998-2023 Mayo Foundation for Medical Education and Research (MFMER). All rights reserved.

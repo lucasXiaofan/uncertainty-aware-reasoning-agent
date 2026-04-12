@@ -1,0 +1,114 @@
+Symptom Knowledge by Disease
+
+Disease: Hirschsprung's disease
+Content:
+## Symptoms
+Symptoms of Hirschsprung disease depend on how bad the condition is. Usually symptoms start shortly after birth, but sometimes don't show up until later in life.
+Typically, the most obvious symptom is a newborn's failure to have a bowel movement within 48 hours after birth.
+Other symptoms in newborns may include:
+- Constipation or gas, which might make a newborn fussy.
+- Diarrhea.
+- Failure to thrive.
+- Stomach pain.
+- Swollen belly.
+- Vomiting, including a green or brown substance.
+In older children, symptoms can include:
+- Long-lasting constipation.
+- Gas.
+- Failure to gain weight.
+- Fatigue.
+- Stomach pain.
+- Swollen belly.
+
+================================================================================
+
+Disease: Lung cancer
+Content:
+## Symptoms
+Lung cancer typically doesn't cause symptoms early on. Symptoms of lung cancer usually happen when the disease is advanced.
+Signs and symptoms of lung cancer that happen in and around the lungs may include:
+- A new cough that doesn't go away.
+- Chest pain.
+- Coughing up blood, even a small amount.
+- Hoarseness.
+- Shortness of breath.
+- Wheezing.
+Signs and symptoms that happen when lung cancer spreads to other parts of the body may include:
+- Bone pain.
+- Headache.
+- Losing weight without trying.
+- Loss of appetite.
+- Swelling in the face or neck.
+
+================================================================================
+
+Disease: MEN1
+Content:
+## Symptoms
+Symptoms of multiple endocrine neoplasia, type 1 (MEN 1) can include the following:
+- Tiredness.
+- Bone pain or broken bones.
+- Kidney stones.
+- Ulcers in the stomach or intestines.
+- Stomach pain.
+- Muscle weakness.
+- Depression.
+- Acid reflux.
+- Frequent diarrhea.
+Symptoms are caused by the release of too many hormones in the body.
+
+================================================================================
+
+Disease: Parkinson disease
+Content:
+## Symptoms
+Parkinson's disease symptoms can be different for everyone. Early symptoms may be mild, and you may not even notice them. Symptoms often begin on one side of the body, then affect both sides. Symptoms are usually worse on one side than the other. Some Parkinson's disease symptoms are similar to those of other disorders.
+Parkinson's symptoms may include:
+- Tremor. This rhythmic shaking usually begins in the hands or fingers. Sometimes tremor begins in the foot or jaw. You may rub your thumb and forefinger back and forth. This is known as a pill-rolling tremor. Your hand may tremble when it's at rest or when you're under stress. You may notice that you shake less when you're doing some sort of task or moving around.
+- Slowed movement, also called bradykinesia. Parkinson's disease may slow your movement, making simple tasks more difficult. It may be hard to get out of a chair, shower or get dressed. You may have less expression in your face. It may be hard to blink.
+- Rigid muscles. You may have stiff muscles in any part of your body. Your muscles may feel tense and painful, and your arm movements may be short and jerky.
+- Poor posture and balance. Your posture may become stooped. You may fall or have balance problems.
+- Loss of automatic movements. You may be less able to make certain movements that you typically do without thinking, including blinking, smiling or swinging your arms when you walk.
+- Speech changes. You may speak softly or quickly, slur, or hesitate before talking. Your speech may be flat or monotone, without typical speech patterns.
+- Writing changes. You may have trouble writing, and your writing may appear cramped and small.
+- Nonmotor symptoms. These may include depression, anxiety, constipation and sleep problems. They also may include acting out dreams, needing to urinate often, trouble smelling, problems with thinking and memory, and feeling very tired.
+
+================================================================================
+
+Disease: Psoriatic arthritis
+Content:
+## Symptoms
+Psoriatic arthritis and psoriasis are long-term conditions that can get worse over time. But symptoms also can come and go. You may have flare-ups where symptoms get worse. And you may have periods of relief when symptoms improve or go away for a while.
+Psoriatic arthritis can affect joints on one or both sides of your body. Psoriatic arthritis shares some symptoms with rheumatoid arthritis. In both conditions, joints may feel painful, swollen and warm to the touch.
+Psoriatic arthritis also may cause:
+- Swollen fingers and toes. Fingers and toes may become swollen and puffy, sometimes looking like sausages.
+- Foot pain. You may feel pain where tendons or ligaments attach to bones. This condition is especially common at the back of the heel, called Achilles tendinitis, or in the sole of the foot, called plantar fasciitis.
+- Lower back pain. Some people develop a condition called spondylitis, which causes pain and stiffness in the spine and pelvis.
+- Changes in nails. Fingernails or toenails may develop tiny dents, called pits. The nails may become brittle or crumbly, and they may start to lift away from the skin underneath. These changes can look like a fungal nail infection, so it's important to have your care team check to be sure of the cause.
+- Eye inflammation. A condition called uveitis can cause red, painful eyes and blurry vision. If not diagnosed and treated, it can lead to vision loss.
+- Fatigue. Many people with psoriatic arthritis get very tired.
+
+================================================================================
+
+Disease: Somatization disorder (Somatic symptom disorder)
+Content:
+## Symptoms
+Symptoms of somatic symptom disorder may include:
+- Specific symptoms, such as pain or shortness of breath.
+- General symptoms, such as feeling very tired or weak.
+- Symptoms not related to any medical cause.
+- Symptoms related to a medical condition but that are more severe than usually expected.
+- One symptom, many symptoms or symptoms that change over time.
+- Mild, moderate or severe symptoms.
+Pain is the most common symptom. But whatever your symptoms, you have constant stressful thoughts, feelings and behaviors related to those symptoms. This can make it hard to live your daily life and sometimes can be disabling.
+For somatic symptom disorder, the way you think about and react to symptoms and how they affect your daily life are more important than which physical symptoms you have.
+People with somatic symptom disorder often:
+- Constantly worry about possible illness or how much the symptoms affect them.
+- View usual physical sensations as a sign of severe illness.
+- Fear that symptoms are serious even when illness has been ruled out.
+- Think that physical sensations are threatening or harmful.
+- Believe that they need more medical evaluation and treatment, but healthcare visits and treatments don't lessen their concerns.
+- Fear that physical activity may cause damage to their bodies.
+- Constantly check their bodies for issues.
+- Limit or stay away from activities due to the stress of symptoms.
+- Talk about having more-severe disability than expected from a medical condition.
