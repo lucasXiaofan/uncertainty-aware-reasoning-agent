@@ -1,0 +1,2680 @@
+{
+  "source_predictions_jsonl": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/guideline_based_experience/mimic_cases/gpt5_nano_on_mimic_with_mimic_prompt/agentclinic_mimiciv_openai_gpt-5-nano_selected_20260329_133804.jsonl",
+  "source_reference_stats_json": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats/mimiciv_single_diagnosis_nonoverlap_patients_stats.json",
+  "generated_outputs_dir": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats",
+  "notes": [
+    "Case-side distributions are computed from `correct_diagnosis` within each bucket (`correct == true` and `correct == false`).",
+    "Reference-side distributions are joined by exact diagnosis string match against the full single-diagnosis MIMIC-IV stats file.",
+    "Reference JSON values include both the original full-cohort percentage and the subset-normalized percentage among only the matched diagnoses.",
+    "Pie charts use top 15 diagnoses plus an aggregated `Other` slice for readability; the JSON preserves all diagnoses."
+  ],
+  "prediction_summary": {
+    "total_cases": 200,
+    "correct_cases": 83,
+    "wrong_cases": 117
+  },
+  "reference_summary": {
+    "total_rows": 5513,
+    "total_subject_ids": 5513,
+    "total_unique_diagnoses": 867
+  },
+  "overall_predictions": {
+    "bucket_name": "overall_predictions",
+    "total_cases": 200,
+    "unique_diagnoses": 115,
+    "matched_reference_diagnoses": 93,
+    "missing_reference_diagnoses": [
+      "Acute Pharyngitis",
+      "Acute venous embolism and thrombosis of unspecified deep vessels of lower extremity",
+      "Bacterial Pharyngitis",
+      "Bacterial Vaginosis",
+      "Bipolar II Disorder",
+      "Cerebral artery occlusion, unspecified with cerebral infarction",
+      "Chronic paroxysmal hemicrania",
+      "Compression of the brain",
+      "Diabetes Mellitus with possible Diabetic Neuropathy",
+      "Epigastric abdominal pain likely due to Gallstones/Cholelithiasis",
+      "Interstitial Emphysema",
+      "Left tubal pregnancy without intrauterine pregnancy",
+      "Mononucleosis (Infectious mononucleosis caused by Epstein-Barr virus)",
+      "Occipital neuralgia",
+      "Otitis media, unspecified, left ear",
+      "Pathologic fracture of vertebrae",
+      "Peptic Ulcer Disease",
+      "The findings do not strongly indicate a specific acute pathology and may be consistent with a non-specific viral illness or early presentation of a more specific illness. The normal range of most test results suggests that there is no immediate acute disease. Given the generalized symptoms and lack of specific findings, a conservative approach with symptomatic treatment and watchful waiting is recommended with instructions to return or seek further care if symptoms worsen or if more specific symptoms develop.",
+      "Toxic diffuse goiter without mention of thyrotoxic crisis or storm",
+      "Type 2 Diabetes Mellitus with signs of hypertension and microalbuminuria",
+      "Unspecified psychosis possibly compounded by substance use (noting the positive opiate screen). However, thorough examination and history are required to exclude other organic causes.",
+      "Unspecified sinusitis (chronic)"
+    ],
+    "case_distribution": [
+      {
+        "diagnosis": "Chest pain, unspecified",
+        "case_count": 25,
+        "case_percentage": 12.5
+      },
+      {
+        "diagnosis": "Alcohol abuse, unspecified",
+        "case_count": 10,
+        "case_percentage": 5.0
+      },
+      {
+        "diagnosis": "Acute appendicitis without mention of peritonitis",
+        "case_count": 8,
+        "case_percentage": 4.0
+      },
+      {
+        "diagnosis": "Alcohol abuse with intoxication, unspecified",
+        "case_count": 6,
+        "case_percentage": 3.0
+      },
+      {
+        "diagnosis": "Major depressive disorder, single episode, unspecified",
+        "case_count": 6,
+        "case_percentage": 3.0
+      },
+      {
+        "diagnosis": "Depressive disorder, not elsewhere classified",
+        "case_count": 5,
+        "case_percentage": 2.5
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of leg, except foot",
+        "case_count": 4,
+        "case_percentage": 2.0
+      },
+      {
+        "diagnosis": "Displacement of lumbar intervertebral disc without myelopathy",
+        "case_count": 4,
+        "case_percentage": 2.0
+      },
+      {
+        "diagnosis": "Other chest pain",
+        "case_count": 4,
+        "case_percentage": 2.0
+      },
+      {
+        "diagnosis": "Acute Pharyngitis",
+        "case_count": 3,
+        "case_percentage": 1.5
+      },
+      {
+        "diagnosis": "Acute pharyngitis",
+        "case_count": 3,
+        "case_percentage": 1.5
+      },
+      {
+        "diagnosis": "Diverticulitis of colon (without mention of hemorrhage)",
+        "case_count": 3,
+        "case_percentage": 1.5
+      },
+      {
+        "diagnosis": "Peritonsillar abscess",
+        "case_count": 3,
+        "case_percentage": 1.5
+      },
+      {
+        "diagnosis": "Rhabdomyolysis",
+        "case_count": 3,
+        "case_percentage": 1.5
+      },
+      {
+        "diagnosis": "Anxiety state, unspecified",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Calculus of kidney",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Calculus of ureter",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of face",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of upper arm and forearm",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Dizziness and giddiness",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Leiomyoma of uterus, unspecified",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Malignant neoplasm of thyroid gland",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Peripheral vertigo, unspecified",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Streptococcal pharyngitis",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Torsion of testis, unspecified",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Unspecified acute appendicitis",
+        "case_count": 2,
+        "case_percentage": 1.0
+      },
+      {
+        "diagnosis": "Abdominal pain, epigastric",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Abdominal pain, right lower quadrant",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Achalasia and cardiospasm",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Acute appendicitis with generalized peritonitis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Acute infective polyneuritis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Acute pericarditis, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Acute pharyngitis, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Acute tonsillitis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Acute venous embolism and thrombosis of unspecified deep vessels of lower extremity",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Anaphylactic reaction due to unspecified food",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Anomalies of other endocrine glands",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Atherosclerosis of native arteries of the extremities with rest pain",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Atrial fibrillation",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Backache, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Bacterial Pharyngitis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Bacterial Vaginosis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Benign neoplasm of ovary",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Bipolar II Disorder",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Calculus of bile duct without mention of cholecystitis, without mention of obstruction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Calculus of gallbladder and bile duct with other cholecystitis, without mention of obstruction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with acute and chronic cholecystitis without obstruction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with acute cholecystitis, without mention of obstruction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with other cholecystitis, without mention of obstruction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of finger, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of foot, except toes",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Cerebral aneurysm, nonruptured",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Cerebral artery occlusion, unspecified with cerebral infarction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Cervical spondylosis with myelopathy",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Cervical spondylosis without myelopathy",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Chronic paroxysmal hemicrania",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Compression of the brain",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Contact dermatitis and other eczema, unspecified cause",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Diabetes Mellitus with possible Diabetic Neuropathy",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Displacement of cervical intervertebral disc without myelopathy",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Dissection of vertebral artery",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Epigastric abdominal pain likely due to Gallstones/Cholelithiasis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Epistaxis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Hydronephrosis with renal and ureteral calculous obstruction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Infective otitis externa, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Interstitial Emphysema",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Intervertebral disc disorders with radiculopathy, lumbosacral region",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Ischiorectal abscess",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Left tubal pregnancy without intrauterine pregnancy",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Lumbago",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Lyme Disease",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Major depressive disorder, recurrent severe without psychotic features",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Malignant neoplasm of kidney, except pelvis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Malignant neoplasm of left kidney, except renal pelvis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Malignant neoplasm of prostate",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Migraine with aura, not intractable, without status migrainosus",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Mononucleosis (Infectious mononucleosis caused by Epstein-Barr virus)",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Occipital neuralgia",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Occlusion and stenosis of carotid artery without mention of cerebral infarction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Onychia and paronychia of finger",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Opioid abuse, continuous",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Other and unspecified noninfectious gastroenteritis and colitis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Other causes of myelitis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Other convulsions",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Other pulmonary embolism and infarction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Other respiratory abnormalities",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Otitis media, unspecified, left ear",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Pain in limb",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Pathologic fracture of vertebrae",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Peptic Ulcer Disease",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Pilonidal cyst with abscess",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Pneumonia, organism unspecified",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Pyelonephritis, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Reaction to spinal or lumbar puncture",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Renal colic",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Right tubal pregnancy without intrauterine pregnancy",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Schizoaffective disorder, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Streptococcal sore throat",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Suicidal ideation",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Syncope and collapse",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "The findings do not strongly indicate a specific acute pathology and may be consistent with a non-specific viral illness or early presentation of a more specific illness. The normal range of most test results suggests that there is no immediate acute disease. Given the generalized symptoms and lack of specific findings, a conservative approach with symptomatic treatment and watchful waiting is recommended with instructions to return or seek further care if symptoms worsen or if more specific symptoms develop.",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Threatened premature labor, antepartum condition or complication",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Toxic diffuse goiter without mention of thyrotoxic crisis or storm",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Type 2 Diabetes Mellitus with signs of hypertension and microalbuminuria",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Ulcerative (chronic) enterocolitis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Umbilical hernia with obstruction, without gangrene",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Unspecified appendicitis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Unspecified intestinal obstruction",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Unspecified psychosis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Unspecified psychosis possibly compounded by substance use (noting the positive opiate screen). However, thorough examination and history are required to exclude other organic causes.",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Unspecified schizophrenia, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Unspecified sinusitis (chronic)",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Unspecified transient cerebral ischemia",
+        "case_count": 1,
+        "case_percentage": 0.5
+      },
+      {
+        "diagnosis": "Unspecified viral meningitis",
+        "case_count": 1,
+        "case_percentage": 0.5
+      }
+    ],
+    "reference_distribution_for_same_diagnoses": [
+      {
+        "diagnosis": "Chest pain, unspecified",
+        "reference_count": 602,
+        "reference_percentage_full_cohort": 10.9196,
+        "reference_percentage_from_count": 10.9196,
+        "reference_percentage_within_matched_subset": 17.1902
+      },
+      {
+        "diagnosis": "Alcohol abuse, unspecified",
+        "reference_count": 838,
+        "reference_percentage_full_cohort": 15.2004,
+        "reference_percentage_from_count": 15.2004,
+        "reference_percentage_within_matched_subset": 23.9292
+      },
+      {
+        "diagnosis": "Acute appendicitis without mention of peritonitis",
+        "reference_count": 354,
+        "reference_percentage_full_cohort": 6.4212,
+        "reference_percentage_from_count": 6.4212,
+        "reference_percentage_within_matched_subset": 10.1085
+      },
+      {
+        "diagnosis": "Alcohol abuse with intoxication, unspecified",
+        "reference_count": 181,
+        "reference_percentage_full_cohort": 3.2831,
+        "reference_percentage_from_count": 3.2831,
+        "reference_percentage_within_matched_subset": 5.1685
+      },
+      {
+        "diagnosis": "Major depressive disorder, single episode, unspecified",
+        "reference_count": 42,
+        "reference_percentage_full_cohort": 0.7618,
+        "reference_percentage_from_count": 0.7618,
+        "reference_percentage_within_matched_subset": 1.1993
+      },
+      {
+        "diagnosis": "Depressive disorder, not elsewhere classified",
+        "reference_count": 61,
+        "reference_percentage_full_cohort": 1.1065,
+        "reference_percentage_from_count": 1.1065,
+        "reference_percentage_within_matched_subset": 1.7419
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of leg, except foot",
+        "reference_count": 76,
+        "reference_percentage_full_cohort": 1.3786,
+        "reference_percentage_from_count": 1.3786,
+        "reference_percentage_within_matched_subset": 2.1702
+      },
+      {
+        "diagnosis": "Displacement of lumbar intervertebral disc without myelopathy",
+        "reference_count": 55,
+        "reference_percentage_full_cohort": 0.9976,
+        "reference_percentage_from_count": 0.9976,
+        "reference_percentage_within_matched_subset": 1.5705
+      },
+      {
+        "diagnosis": "Other chest pain",
+        "reference_count": 129,
+        "reference_percentage_full_cohort": 2.3399,
+        "reference_percentage_from_count": 2.3399,
+        "reference_percentage_within_matched_subset": 3.6836
+      },
+      {
+        "diagnosis": "Acute pharyngitis",
+        "reference_count": 33,
+        "reference_percentage_full_cohort": 0.5986,
+        "reference_percentage_from_count": 0.5986,
+        "reference_percentage_within_matched_subset": 0.9423
+      },
+      {
+        "diagnosis": "Diverticulitis of colon (without mention of hemorrhage)",
+        "reference_count": 25,
+        "reference_percentage_full_cohort": 0.4535,
+        "reference_percentage_from_count": 0.4535,
+        "reference_percentage_within_matched_subset": 0.7139
+      },
+      {
+        "diagnosis": "Peritonsillar abscess",
+        "reference_count": 99,
+        "reference_percentage_full_cohort": 1.7958,
+        "reference_percentage_from_count": 1.7958,
+        "reference_percentage_within_matched_subset": 2.827
+      },
+      {
+        "diagnosis": "Rhabdomyolysis",
+        "reference_count": 7,
+        "reference_percentage_full_cohort": 0.127,
+        "reference_percentage_from_count": 0.127,
+        "reference_percentage_within_matched_subset": 0.1999
+      },
+      {
+        "diagnosis": "Anxiety state, unspecified",
+        "reference_count": 15,
+        "reference_percentage_full_cohort": 0.2721,
+        "reference_percentage_from_count": 0.2721,
+        "reference_percentage_within_matched_subset": 0.4283
+      },
+      {
+        "diagnosis": "Calculus of kidney",
+        "reference_count": 24,
+        "reference_percentage_full_cohort": 0.4353,
+        "reference_percentage_from_count": 0.4353,
+        "reference_percentage_within_matched_subset": 0.6853
+      },
+      {
+        "diagnosis": "Calculus of ureter",
+        "reference_count": 20,
+        "reference_percentage_full_cohort": 0.3628,
+        "reference_percentage_from_count": 0.3628,
+        "reference_percentage_within_matched_subset": 0.5711
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of face",
+        "reference_count": 24,
+        "reference_percentage_full_cohort": 0.4353,
+        "reference_percentage_from_count": 0.4353,
+        "reference_percentage_within_matched_subset": 0.6853
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of upper arm and forearm",
+        "reference_count": 38,
+        "reference_percentage_full_cohort": 0.6893,
+        "reference_percentage_from_count": 0.6893,
+        "reference_percentage_within_matched_subset": 1.0851
+      },
+      {
+        "diagnosis": "Dizziness and giddiness",
+        "reference_count": 17,
+        "reference_percentage_full_cohort": 0.3084,
+        "reference_percentage_from_count": 0.3084,
+        "reference_percentage_within_matched_subset": 0.4854
+      },
+      {
+        "diagnosis": "Leiomyoma of uterus, unspecified",
+        "reference_count": 8,
+        "reference_percentage_full_cohort": 0.1451,
+        "reference_percentage_from_count": 0.1451,
+        "reference_percentage_within_matched_subset": 0.2284
+      },
+      {
+        "diagnosis": "Malignant neoplasm of thyroid gland",
+        "reference_count": 32,
+        "reference_percentage_full_cohort": 0.5804,
+        "reference_percentage_from_count": 0.5804,
+        "reference_percentage_within_matched_subset": 0.9138
+      },
+      {
+        "diagnosis": "Peripheral vertigo, unspecified",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Streptococcal pharyngitis",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Torsion of testis, unspecified",
+        "reference_count": 11,
+        "reference_percentage_full_cohort": 0.1995,
+        "reference_percentage_from_count": 0.1995,
+        "reference_percentage_within_matched_subset": 0.3141
+      },
+      {
+        "diagnosis": "Unspecified acute appendicitis",
+        "reference_count": 96,
+        "reference_percentage_full_cohort": 1.7413,
+        "reference_percentage_from_count": 1.7413,
+        "reference_percentage_within_matched_subset": 2.7413
+      },
+      {
+        "diagnosis": "Abdominal pain, epigastric",
+        "reference_count": 16,
+        "reference_percentage_full_cohort": 0.2902,
+        "reference_percentage_from_count": 0.2902,
+        "reference_percentage_within_matched_subset": 0.4569
+      },
+      {
+        "diagnosis": "Abdominal pain, right lower quadrant",
+        "reference_count": 17,
+        "reference_percentage_full_cohort": 0.3084,
+        "reference_percentage_from_count": 0.3084,
+        "reference_percentage_within_matched_subset": 0.4854
+      },
+      {
+        "diagnosis": "Achalasia and cardiospasm",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Acute appendicitis with generalized peritonitis",
+        "reference_count": 32,
+        "reference_percentage_full_cohort": 0.5804,
+        "reference_percentage_from_count": 0.5804,
+        "reference_percentage_within_matched_subset": 0.9138
+      },
+      {
+        "diagnosis": "Acute infective polyneuritis",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Acute pericarditis, unspecified",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.1142
+      },
+      {
+        "diagnosis": "Acute pharyngitis, unspecified",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.1142
+      },
+      {
+        "diagnosis": "Acute tonsillitis",
+        "reference_count": 16,
+        "reference_percentage_full_cohort": 0.2902,
+        "reference_percentage_from_count": 0.2902,
+        "reference_percentage_within_matched_subset": 0.4569
+      },
+      {
+        "diagnosis": "Anaphylactic reaction due to unspecified food",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0571
+      },
+      {
+        "diagnosis": "Anomalies of other endocrine glands",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.1142
+      },
+      {
+        "diagnosis": "Atherosclerosis of native arteries of the extremities with rest pain",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0286
+      },
+      {
+        "diagnosis": "Atrial fibrillation",
+        "reference_count": 11,
+        "reference_percentage_full_cohort": 0.1995,
+        "reference_percentage_from_count": 0.1995,
+        "reference_percentage_within_matched_subset": 0.3141
+      },
+      {
+        "diagnosis": "Backache, unspecified",
+        "reference_count": 5,
+        "reference_percentage_full_cohort": 0.0907,
+        "reference_percentage_from_count": 0.0907,
+        "reference_percentage_within_matched_subset": 0.1428
+      },
+      {
+        "diagnosis": "Benign neoplasm of ovary",
+        "reference_count": 6,
+        "reference_percentage_full_cohort": 0.1088,
+        "reference_percentage_from_count": 0.1088,
+        "reference_percentage_within_matched_subset": 0.1713
+      },
+      {
+        "diagnosis": "Calculus of bile duct without mention of cholecystitis, without mention of obstruction",
+        "reference_count": 8,
+        "reference_percentage_full_cohort": 0.1451,
+        "reference_percentage_from_count": 0.1451,
+        "reference_percentage_within_matched_subset": 0.2284
+      },
+      {
+        "diagnosis": "Calculus of gallbladder and bile duct with other cholecystitis, without mention of obstruction",
+        "reference_count": 5,
+        "reference_percentage_full_cohort": 0.0907,
+        "reference_percentage_from_count": 0.0907,
+        "reference_percentage_within_matched_subset": 0.1428
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with acute and chronic cholecystitis without obstruction",
+        "reference_count": 12,
+        "reference_percentage_full_cohort": 0.2177,
+        "reference_percentage_from_count": 0.2177,
+        "reference_percentage_within_matched_subset": 0.3427
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with acute cholecystitis, without mention of obstruction",
+        "reference_count": 22,
+        "reference_percentage_full_cohort": 0.3991,
+        "reference_percentage_from_count": 0.3991,
+        "reference_percentage_within_matched_subset": 0.6282
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with other cholecystitis, without mention of obstruction",
+        "reference_count": 18,
+        "reference_percentage_full_cohort": 0.3265,
+        "reference_percentage_from_count": 0.3265,
+        "reference_percentage_within_matched_subset": 0.514
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of finger, unspecified",
+        "reference_count": 14,
+        "reference_percentage_full_cohort": 0.2539,
+        "reference_percentage_from_count": 0.2539,
+        "reference_percentage_within_matched_subset": 0.3998
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of foot, except toes",
+        "reference_count": 19,
+        "reference_percentage_full_cohort": 0.3446,
+        "reference_percentage_from_count": 0.3446,
+        "reference_percentage_within_matched_subset": 0.5425
+      },
+      {
+        "diagnosis": "Cerebral aneurysm, nonruptured",
+        "reference_count": 18,
+        "reference_percentage_full_cohort": 0.3265,
+        "reference_percentage_from_count": 0.3265,
+        "reference_percentage_within_matched_subset": 0.514
+      },
+      {
+        "diagnosis": "Cervical spondylosis with myelopathy",
+        "reference_count": 7,
+        "reference_percentage_full_cohort": 0.127,
+        "reference_percentage_from_count": 0.127,
+        "reference_percentage_within_matched_subset": 0.1999
+      },
+      {
+        "diagnosis": "Cervical spondylosis without myelopathy",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0571
+      },
+      {
+        "diagnosis": "Contact dermatitis and other eczema, unspecified cause",
+        "reference_count": 7,
+        "reference_percentage_full_cohort": 0.127,
+        "reference_percentage_from_count": 0.127,
+        "reference_percentage_within_matched_subset": 0.1999
+      },
+      {
+        "diagnosis": "Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",
+        "reference_count": 9,
+        "reference_percentage_full_cohort": 0.1633,
+        "reference_percentage_from_count": 0.1633,
+        "reference_percentage_within_matched_subset": 0.257
+      },
+      {
+        "diagnosis": "Displacement of cervical intervertebral disc without myelopathy",
+        "reference_count": 14,
+        "reference_percentage_full_cohort": 0.2539,
+        "reference_percentage_from_count": 0.2539,
+        "reference_percentage_within_matched_subset": 0.3998
+      },
+      {
+        "diagnosis": "Dissection of vertebral artery",
+        "reference_count": 7,
+        "reference_percentage_full_cohort": 0.127,
+        "reference_percentage_from_count": 0.127,
+        "reference_percentage_within_matched_subset": 0.1999
+      },
+      {
+        "diagnosis": "Epistaxis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0286
+      },
+      {
+        "diagnosis": "Hydronephrosis with renal and ureteral calculous obstruction",
+        "reference_count": 16,
+        "reference_percentage_full_cohort": 0.2902,
+        "reference_percentage_from_count": 0.2902,
+        "reference_percentage_within_matched_subset": 0.4569
+      },
+      {
+        "diagnosis": "Infective otitis externa, unspecified",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Intervertebral disc disorders with radiculopathy, lumbosacral region",
+        "reference_count": 11,
+        "reference_percentage_full_cohort": 0.1995,
+        "reference_percentage_from_count": 0.1995,
+        "reference_percentage_within_matched_subset": 0.3141
+      },
+      {
+        "diagnosis": "Ischiorectal abscess",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Lumbago",
+        "reference_count": 12,
+        "reference_percentage_full_cohort": 0.2177,
+        "reference_percentage_from_count": 0.2177,
+        "reference_percentage_within_matched_subset": 0.3427
+      },
+      {
+        "diagnosis": "Lyme Disease",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Major depressive disorder, recurrent severe without psychotic features",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0571
+      },
+      {
+        "diagnosis": "Malignant neoplasm of kidney, except pelvis",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0571
+      },
+      {
+        "diagnosis": "Malignant neoplasm of left kidney, except renal pelvis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0286
+      },
+      {
+        "diagnosis": "Malignant neoplasm of prostate",
+        "reference_count": 31,
+        "reference_percentage_full_cohort": 0.5623,
+        "reference_percentage_from_count": 0.5623,
+        "reference_percentage_within_matched_subset": 0.8852
+      },
+      {
+        "diagnosis": "Migraine with aura, not intractable, without status migrainosus",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0571
+      },
+      {
+        "diagnosis": "Occlusion and stenosis of carotid artery without mention of cerebral infarction",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0571
+      },
+      {
+        "diagnosis": "Onychia and paronychia of finger",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.1142
+      },
+      {
+        "diagnosis": "Opioid abuse, continuous",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Other and unspecified noninfectious gastroenteritis and colitis",
+        "reference_count": 23,
+        "reference_percentage_full_cohort": 0.4172,
+        "reference_percentage_from_count": 0.4172,
+        "reference_percentage_within_matched_subset": 0.6568
+      },
+      {
+        "diagnosis": "Other causes of myelitis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0286
+      },
+      {
+        "diagnosis": "Other convulsions",
+        "reference_count": 19,
+        "reference_percentage_full_cohort": 0.3446,
+        "reference_percentage_from_count": 0.3446,
+        "reference_percentage_within_matched_subset": 0.5425
+      },
+      {
+        "diagnosis": "Other pulmonary embolism and infarction",
+        "reference_count": 11,
+        "reference_percentage_full_cohort": 0.1995,
+        "reference_percentage_from_count": 0.1995,
+        "reference_percentage_within_matched_subset": 0.3141
+      },
+      {
+        "diagnosis": "Other respiratory abnormalities",
+        "reference_count": 8,
+        "reference_percentage_full_cohort": 0.1451,
+        "reference_percentage_from_count": 0.1451,
+        "reference_percentage_within_matched_subset": 0.2284
+      },
+      {
+        "diagnosis": "Pain in limb",
+        "reference_count": 5,
+        "reference_percentage_full_cohort": 0.0907,
+        "reference_percentage_from_count": 0.0907,
+        "reference_percentage_within_matched_subset": 0.1428
+      },
+      {
+        "diagnosis": "Pilonidal cyst with abscess",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Pneumonia, organism unspecified",
+        "reference_count": 18,
+        "reference_percentage_full_cohort": 0.3265,
+        "reference_percentage_from_count": 0.3265,
+        "reference_percentage_within_matched_subset": 0.514
+      },
+      {
+        "diagnosis": "Pyelonephritis, unspecified",
+        "reference_count": 30,
+        "reference_percentage_full_cohort": 0.5442,
+        "reference_percentage_from_count": 0.5442,
+        "reference_percentage_within_matched_subset": 0.8567
+      },
+      {
+        "diagnosis": "Reaction to spinal or lumbar puncture",
+        "reference_count": 10,
+        "reference_percentage_full_cohort": 0.1814,
+        "reference_percentage_from_count": 0.1814,
+        "reference_percentage_within_matched_subset": 0.2856
+      },
+      {
+        "diagnosis": "Renal colic",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0286
+      },
+      {
+        "diagnosis": "Right tubal pregnancy without intrauterine pregnancy",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0286
+      },
+      {
+        "diagnosis": "Schizoaffective disorder, unspecified",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Streptococcal sore throat",
+        "reference_count": 8,
+        "reference_percentage_full_cohort": 0.1451,
+        "reference_percentage_from_count": 0.1451,
+        "reference_percentage_within_matched_subset": 0.2284
+      },
+      {
+        "diagnosis": "Suicidal ideation",
+        "reference_count": 28,
+        "reference_percentage_full_cohort": 0.5079,
+        "reference_percentage_from_count": 0.5079,
+        "reference_percentage_within_matched_subset": 0.7995
+      },
+      {
+        "diagnosis": "Syncope and collapse",
+        "reference_count": 48,
+        "reference_percentage_full_cohort": 0.8707,
+        "reference_percentage_from_count": 0.8707,
+        "reference_percentage_within_matched_subset": 1.3706
+      },
+      {
+        "diagnosis": "Threatened premature labor, antepartum condition or complication",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.1142
+      },
+      {
+        "diagnosis": "Ulcerative (chronic) enterocolitis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0286
+      },
+      {
+        "diagnosis": "Umbilical hernia with obstruction, without gangrene",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Unspecified appendicitis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0286
+      },
+      {
+        "diagnosis": "Unspecified intestinal obstruction",
+        "reference_count": 16,
+        "reference_percentage_full_cohort": 0.2902,
+        "reference_percentage_from_count": 0.2902,
+        "reference_percentage_within_matched_subset": 0.4569
+      },
+      {
+        "diagnosis": "Unspecified psychosis",
+        "reference_count": 55,
+        "reference_percentage_full_cohort": 0.9976,
+        "reference_percentage_from_count": 0.9976,
+        "reference_percentage_within_matched_subset": 1.5705
+      },
+      {
+        "diagnosis": "Unspecified schizophrenia, unspecified",
+        "reference_count": 12,
+        "reference_percentage_full_cohort": 0.2177,
+        "reference_percentage_from_count": 0.2177,
+        "reference_percentage_within_matched_subset": 0.3427
+      },
+      {
+        "diagnosis": "Unspecified transient cerebral ischemia",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.0857
+      },
+      {
+        "diagnosis": "Unspecified viral meningitis",
+        "reference_count": 15,
+        "reference_percentage_full_cohort": 0.2721,
+        "reference_percentage_from_count": 0.2721,
+        "reference_percentage_within_matched_subset": 0.4283
+      }
+    ],
+    "reference_matched_total_subjects": 3502
+  },
+  "correct_wrong_overlap_json": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats/gpt5_nano_correct_wrong_overlap_analysis.json",
+  "correct_predictions": {
+    "bucket_name": "correct_predictions",
+    "total_cases": 83,
+    "unique_diagnoses": 61,
+    "matched_reference_diagnoses": 49,
+    "missing_reference_diagnoses": [
+      "Acute Pharyngitis",
+      "Acute venous embolism and thrombosis of unspecified deep vessels of lower extremity",
+      "Bacterial Pharyngitis",
+      "Bipolar II Disorder",
+      "Cerebral artery occlusion, unspecified with cerebral infarction",
+      "Diabetes Mellitus with possible Diabetic Neuropathy",
+      "Epigastric abdominal pain likely due to Gallstones/Cholelithiasis",
+      "Mononucleosis (Infectious mononucleosis caused by Epstein-Barr virus)",
+      "Otitis media, unspecified, left ear",
+      "Peptic Ulcer Disease",
+      "Toxic diffuse goiter without mention of thyrotoxic crisis or storm",
+      "Type 2 Diabetes Mellitus with signs of hypertension and microalbuminuria"
+    ],
+    "case_distribution": [
+      {
+        "diagnosis": "Acute appendicitis without mention of peritonitis",
+        "case_count": 4,
+        "case_percentage": 4.8193
+      },
+      {
+        "diagnosis": "Depressive disorder, not elsewhere classified",
+        "case_count": 4,
+        "case_percentage": 4.8193
+      },
+      {
+        "diagnosis": "Major depressive disorder, single episode, unspecified",
+        "case_count": 4,
+        "case_percentage": 4.8193
+      },
+      {
+        "diagnosis": "Acute pharyngitis",
+        "case_count": 3,
+        "case_percentage": 3.6145
+      },
+      {
+        "diagnosis": "Peritonsillar abscess",
+        "case_count": 3,
+        "case_percentage": 3.6145
+      },
+      {
+        "diagnosis": "Rhabdomyolysis",
+        "case_count": 3,
+        "case_percentage": 3.6145
+      },
+      {
+        "diagnosis": "Acute Pharyngitis",
+        "case_count": 2,
+        "case_percentage": 2.4096
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of face",
+        "case_count": 2,
+        "case_percentage": 2.4096
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of leg, except foot",
+        "case_count": 2,
+        "case_percentage": 2.4096
+      },
+      {
+        "diagnosis": "Diverticulitis of colon (without mention of hemorrhage)",
+        "case_count": 2,
+        "case_percentage": 2.4096
+      },
+      {
+        "diagnosis": "Leiomyoma of uterus, unspecified",
+        "case_count": 2,
+        "case_percentage": 2.4096
+      },
+      {
+        "diagnosis": "Torsion of testis, unspecified",
+        "case_count": 2,
+        "case_percentage": 2.4096
+      },
+      {
+        "diagnosis": "Unspecified acute appendicitis",
+        "case_count": 2,
+        "case_percentage": 2.4096
+      },
+      {
+        "diagnosis": "Abdominal pain, epigastric",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Abdominal pain, right lower quadrant",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Achalasia and cardiospasm",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Acute infective polyneuritis",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Acute pericarditis, unspecified",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Acute pharyngitis, unspecified",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Acute venous embolism and thrombosis of unspecified deep vessels of lower extremity",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Atherosclerosis of native arteries of the extremities with rest pain",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Bacterial Pharyngitis",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Bipolar II Disorder",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Calculus of gallbladder and bile duct with other cholecystitis, without mention of obstruction",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with acute and chronic cholecystitis without obstruction",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with acute cholecystitis, without mention of obstruction",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Calculus of kidney",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Cerebral aneurysm, nonruptured",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Cerebral artery occlusion, unspecified with cerebral infarction",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Cervical spondylosis with myelopathy",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Contact dermatitis and other eczema, unspecified cause",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Diabetes Mellitus with possible Diabetic Neuropathy",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Dizziness and giddiness",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Epigastric abdominal pain likely due to Gallstones/Cholelithiasis",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Epistaxis",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Infective otitis externa, unspecified",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Intervertebral disc disorders with radiculopathy, lumbosacral region",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Ischiorectal abscess",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Lumbago",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Lyme Disease",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Major depressive disorder, recurrent severe without psychotic features",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Malignant neoplasm of prostate",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Migraine with aura, not intractable, without status migrainosus",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Mononucleosis (Infectious mononucleosis caused by Epstein-Barr virus)",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Onychia and paronychia of finger",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Otitis media, unspecified, left ear",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Peptic Ulcer Disease",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Peripheral vertigo, unspecified",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Pilonidal cyst with abscess",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Pneumonia, organism unspecified",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Reaction to spinal or lumbar puncture",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Right tubal pregnancy without intrauterine pregnancy",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Schizoaffective disorder, unspecified",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Streptococcal pharyngitis",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Syncope and collapse",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Toxic diffuse goiter without mention of thyrotoxic crisis or storm",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Type 2 Diabetes Mellitus with signs of hypertension and microalbuminuria",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Ulcerative (chronic) enterocolitis",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Umbilical hernia with obstruction, without gangrene",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Unspecified appendicitis",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      },
+      {
+        "diagnosis": "Unspecified viral meningitis",
+        "case_count": 1,
+        "case_percentage": 1.2048
+      }
+    ],
+    "reference_distribution_for_same_diagnoses": [
+      {
+        "diagnosis": "Acute appendicitis without mention of peritonitis",
+        "reference_count": 354,
+        "reference_percentage_full_cohort": 6.4212,
+        "reference_percentage_from_count": 6.4212,
+        "reference_percentage_within_matched_subset": 30.0765
+      },
+      {
+        "diagnosis": "Depressive disorder, not elsewhere classified",
+        "reference_count": 61,
+        "reference_percentage_full_cohort": 1.1065,
+        "reference_percentage_from_count": 1.1065,
+        "reference_percentage_within_matched_subset": 5.1827
+      },
+      {
+        "diagnosis": "Major depressive disorder, single episode, unspecified",
+        "reference_count": 42,
+        "reference_percentage_full_cohort": 0.7618,
+        "reference_percentage_from_count": 0.7618,
+        "reference_percentage_within_matched_subset": 3.5684
+      },
+      {
+        "diagnosis": "Acute pharyngitis",
+        "reference_count": 33,
+        "reference_percentage_full_cohort": 0.5986,
+        "reference_percentage_from_count": 0.5986,
+        "reference_percentage_within_matched_subset": 2.8037
+      },
+      {
+        "diagnosis": "Peritonsillar abscess",
+        "reference_count": 99,
+        "reference_percentage_full_cohort": 1.7958,
+        "reference_percentage_from_count": 1.7958,
+        "reference_percentage_within_matched_subset": 8.4112
+      },
+      {
+        "diagnosis": "Rhabdomyolysis",
+        "reference_count": 7,
+        "reference_percentage_full_cohort": 0.127,
+        "reference_percentage_from_count": 0.127,
+        "reference_percentage_within_matched_subset": 0.5947
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of face",
+        "reference_count": 24,
+        "reference_percentage_full_cohort": 0.4353,
+        "reference_percentage_from_count": 0.4353,
+        "reference_percentage_within_matched_subset": 2.0391
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of leg, except foot",
+        "reference_count": 76,
+        "reference_percentage_full_cohort": 1.3786,
+        "reference_percentage_from_count": 1.3786,
+        "reference_percentage_within_matched_subset": 6.4571
+      },
+      {
+        "diagnosis": "Diverticulitis of colon (without mention of hemorrhage)",
+        "reference_count": 25,
+        "reference_percentage_full_cohort": 0.4535,
+        "reference_percentage_from_count": 0.4535,
+        "reference_percentage_within_matched_subset": 2.124
+      },
+      {
+        "diagnosis": "Leiomyoma of uterus, unspecified",
+        "reference_count": 8,
+        "reference_percentage_full_cohort": 0.1451,
+        "reference_percentage_from_count": 0.1451,
+        "reference_percentage_within_matched_subset": 0.6797
+      },
+      {
+        "diagnosis": "Torsion of testis, unspecified",
+        "reference_count": 11,
+        "reference_percentage_full_cohort": 0.1995,
+        "reference_percentage_from_count": 0.1995,
+        "reference_percentage_within_matched_subset": 0.9346
+      },
+      {
+        "diagnosis": "Unspecified acute appendicitis",
+        "reference_count": 96,
+        "reference_percentage_full_cohort": 1.7413,
+        "reference_percentage_from_count": 1.7413,
+        "reference_percentage_within_matched_subset": 8.1563
+      },
+      {
+        "diagnosis": "Abdominal pain, epigastric",
+        "reference_count": 16,
+        "reference_percentage_full_cohort": 0.2902,
+        "reference_percentage_from_count": 0.2902,
+        "reference_percentage_within_matched_subset": 1.3594
+      },
+      {
+        "diagnosis": "Abdominal pain, right lower quadrant",
+        "reference_count": 17,
+        "reference_percentage_full_cohort": 0.3084,
+        "reference_percentage_from_count": 0.3084,
+        "reference_percentage_within_matched_subset": 1.4444
+      },
+      {
+        "diagnosis": "Achalasia and cardiospasm",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Acute infective polyneuritis",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Acute pericarditis, unspecified",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.3398
+      },
+      {
+        "diagnosis": "Acute pharyngitis, unspecified",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.3398
+      },
+      {
+        "diagnosis": "Atherosclerosis of native arteries of the extremities with rest pain",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.085
+      },
+      {
+        "diagnosis": "Calculus of gallbladder and bile duct with other cholecystitis, without mention of obstruction",
+        "reference_count": 5,
+        "reference_percentage_full_cohort": 0.0907,
+        "reference_percentage_from_count": 0.0907,
+        "reference_percentage_within_matched_subset": 0.4248
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with acute and chronic cholecystitis without obstruction",
+        "reference_count": 12,
+        "reference_percentage_full_cohort": 0.2177,
+        "reference_percentage_from_count": 0.2177,
+        "reference_percentage_within_matched_subset": 1.0195
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with acute cholecystitis, without mention of obstruction",
+        "reference_count": 22,
+        "reference_percentage_full_cohort": 0.3991,
+        "reference_percentage_from_count": 0.3991,
+        "reference_percentage_within_matched_subset": 1.8692
+      },
+      {
+        "diagnosis": "Calculus of kidney",
+        "reference_count": 24,
+        "reference_percentage_full_cohort": 0.4353,
+        "reference_percentage_from_count": 0.4353,
+        "reference_percentage_within_matched_subset": 2.0391
+      },
+      {
+        "diagnosis": "Cerebral aneurysm, nonruptured",
+        "reference_count": 18,
+        "reference_percentage_full_cohort": 0.3265,
+        "reference_percentage_from_count": 0.3265,
+        "reference_percentage_within_matched_subset": 1.5293
+      },
+      {
+        "diagnosis": "Cervical spondylosis with myelopathy",
+        "reference_count": 7,
+        "reference_percentage_full_cohort": 0.127,
+        "reference_percentage_from_count": 0.127,
+        "reference_percentage_within_matched_subset": 0.5947
+      },
+      {
+        "diagnosis": "Contact dermatitis and other eczema, unspecified cause",
+        "reference_count": 7,
+        "reference_percentage_full_cohort": 0.127,
+        "reference_percentage_from_count": 0.127,
+        "reference_percentage_within_matched_subset": 0.5947
+      },
+      {
+        "diagnosis": "Dizziness and giddiness",
+        "reference_count": 17,
+        "reference_percentage_full_cohort": 0.3084,
+        "reference_percentage_from_count": 0.3084,
+        "reference_percentage_within_matched_subset": 1.4444
+      },
+      {
+        "diagnosis": "Epistaxis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.085
+      },
+      {
+        "diagnosis": "Infective otitis externa, unspecified",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Intervertebral disc disorders with radiculopathy, lumbosacral region",
+        "reference_count": 11,
+        "reference_percentage_full_cohort": 0.1995,
+        "reference_percentage_from_count": 0.1995,
+        "reference_percentage_within_matched_subset": 0.9346
+      },
+      {
+        "diagnosis": "Ischiorectal abscess",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Lumbago",
+        "reference_count": 12,
+        "reference_percentage_full_cohort": 0.2177,
+        "reference_percentage_from_count": 0.2177,
+        "reference_percentage_within_matched_subset": 1.0195
+      },
+      {
+        "diagnosis": "Lyme Disease",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Major depressive disorder, recurrent severe without psychotic features",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.1699
+      },
+      {
+        "diagnosis": "Malignant neoplasm of prostate",
+        "reference_count": 31,
+        "reference_percentage_full_cohort": 0.5623,
+        "reference_percentage_from_count": 0.5623,
+        "reference_percentage_within_matched_subset": 2.6338
+      },
+      {
+        "diagnosis": "Migraine with aura, not intractable, without status migrainosus",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.1699
+      },
+      {
+        "diagnosis": "Onychia and paronychia of finger",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.3398
+      },
+      {
+        "diagnosis": "Peripheral vertigo, unspecified",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Pilonidal cyst with abscess",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Pneumonia, organism unspecified",
+        "reference_count": 18,
+        "reference_percentage_full_cohort": 0.3265,
+        "reference_percentage_from_count": 0.3265,
+        "reference_percentage_within_matched_subset": 1.5293
+      },
+      {
+        "diagnosis": "Reaction to spinal or lumbar puncture",
+        "reference_count": 10,
+        "reference_percentage_full_cohort": 0.1814,
+        "reference_percentage_from_count": 0.1814,
+        "reference_percentage_within_matched_subset": 0.8496
+      },
+      {
+        "diagnosis": "Right tubal pregnancy without intrauterine pregnancy",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.085
+      },
+      {
+        "diagnosis": "Schizoaffective disorder, unspecified",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Streptococcal pharyngitis",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Syncope and collapse",
+        "reference_count": 48,
+        "reference_percentage_full_cohort": 0.8707,
+        "reference_percentage_from_count": 0.8707,
+        "reference_percentage_within_matched_subset": 4.0782
+      },
+      {
+        "diagnosis": "Ulcerative (chronic) enterocolitis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.085
+      },
+      {
+        "diagnosis": "Umbilical hernia with obstruction, without gangrene",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.2549
+      },
+      {
+        "diagnosis": "Unspecified appendicitis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.085
+      },
+      {
+        "diagnosis": "Unspecified viral meningitis",
+        "reference_count": 15,
+        "reference_percentage_full_cohort": 0.2721,
+        "reference_percentage_from_count": 0.2721,
+        "reference_percentage_within_matched_subset": 1.2744
+      }
+    ],
+    "reference_matched_total_subjects": 1177
+  },
+  "wrong_predictions": {
+    "bucket_name": "wrong_predictions",
+    "total_cases": 117,
+    "unique_diagnoses": 64,
+    "matched_reference_diagnoses": 53,
+    "missing_reference_diagnoses": [
+      "Acute Pharyngitis",
+      "Bacterial Vaginosis",
+      "Chronic paroxysmal hemicrania",
+      "Compression of the brain",
+      "Interstitial Emphysema",
+      "Left tubal pregnancy without intrauterine pregnancy",
+      "Occipital neuralgia",
+      "Pathologic fracture of vertebrae",
+      "The findings do not strongly indicate a specific acute pathology and may be consistent with a non-specific viral illness or early presentation of a more specific illness. The normal range of most test results suggests that there is no immediate acute disease. Given the generalized symptoms and lack of specific findings, a conservative approach with symptomatic treatment and watchful waiting is recommended with instructions to return or seek further care if symptoms worsen or if more specific symptoms develop.",
+      "Unspecified psychosis possibly compounded by substance use (noting the positive opiate screen). However, thorough examination and history are required to exclude other organic causes.",
+      "Unspecified sinusitis (chronic)"
+    ],
+    "case_distribution": [
+      {
+        "diagnosis": "Chest pain, unspecified",
+        "case_count": 25,
+        "case_percentage": 21.3675
+      },
+      {
+        "diagnosis": "Alcohol abuse, unspecified",
+        "case_count": 10,
+        "case_percentage": 8.547
+      },
+      {
+        "diagnosis": "Alcohol abuse with intoxication, unspecified",
+        "case_count": 6,
+        "case_percentage": 5.1282
+      },
+      {
+        "diagnosis": "Acute appendicitis without mention of peritonitis",
+        "case_count": 4,
+        "case_percentage": 3.4188
+      },
+      {
+        "diagnosis": "Displacement of lumbar intervertebral disc without myelopathy",
+        "case_count": 4,
+        "case_percentage": 3.4188
+      },
+      {
+        "diagnosis": "Other chest pain",
+        "case_count": 4,
+        "case_percentage": 3.4188
+      },
+      {
+        "diagnosis": "Anxiety state, unspecified",
+        "case_count": 2,
+        "case_percentage": 1.7094
+      },
+      {
+        "diagnosis": "Calculus of ureter",
+        "case_count": 2,
+        "case_percentage": 1.7094
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of leg, except foot",
+        "case_count": 2,
+        "case_percentage": 1.7094
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of upper arm and forearm",
+        "case_count": 2,
+        "case_percentage": 1.7094
+      },
+      {
+        "diagnosis": "Major depressive disorder, single episode, unspecified",
+        "case_count": 2,
+        "case_percentage": 1.7094
+      },
+      {
+        "diagnosis": "Malignant neoplasm of thyroid gland",
+        "case_count": 2,
+        "case_percentage": 1.7094
+      },
+      {
+        "diagnosis": "Acute Pharyngitis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Acute appendicitis with generalized peritonitis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Acute tonsillitis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Anaphylactic reaction due to unspecified food",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Anomalies of other endocrine glands",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Atrial fibrillation",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Backache, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Bacterial Vaginosis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Benign neoplasm of ovary",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Calculus of bile duct without mention of cholecystitis, without mention of obstruction",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with other cholecystitis, without mention of obstruction",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Calculus of kidney",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of finger, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of foot, except toes",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Cervical spondylosis without myelopathy",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Chronic paroxysmal hemicrania",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Compression of the brain",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Depressive disorder, not elsewhere classified",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Displacement of cervical intervertebral disc without myelopathy",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Dissection of vertebral artery",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Diverticulitis of colon (without mention of hemorrhage)",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Dizziness and giddiness",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Hydronephrosis with renal and ureteral calculous obstruction",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Interstitial Emphysema",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Left tubal pregnancy without intrauterine pregnancy",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Malignant neoplasm of kidney, except pelvis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Malignant neoplasm of left kidney, except renal pelvis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Occipital neuralgia",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Occlusion and stenosis of carotid artery without mention of cerebral infarction",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Opioid abuse, continuous",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Other and unspecified noninfectious gastroenteritis and colitis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Other causes of myelitis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Other convulsions",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Other pulmonary embolism and infarction",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Other respiratory abnormalities",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Pain in limb",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Pathologic fracture of vertebrae",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Peripheral vertigo, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Pyelonephritis, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Renal colic",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Streptococcal pharyngitis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Streptococcal sore throat",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Suicidal ideation",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "The findings do not strongly indicate a specific acute pathology and may be consistent with a non-specific viral illness or early presentation of a more specific illness. The normal range of most test results suggests that there is no immediate acute disease. Given the generalized symptoms and lack of specific findings, a conservative approach with symptomatic treatment and watchful waiting is recommended with instructions to return or seek further care if symptoms worsen or if more specific symptoms develop.",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Threatened premature labor, antepartum condition or complication",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Unspecified intestinal obstruction",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Unspecified psychosis",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Unspecified psychosis possibly compounded by substance use (noting the positive opiate screen). However, thorough examination and history are required to exclude other organic causes.",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Unspecified schizophrenia, unspecified",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Unspecified sinusitis (chronic)",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      },
+      {
+        "diagnosis": "Unspecified transient cerebral ischemia",
+        "case_count": 1,
+        "case_percentage": 0.8547
+      }
+    ],
+    "reference_distribution_for_same_diagnoses": [
+      {
+        "diagnosis": "Chest pain, unspecified",
+        "reference_count": 602,
+        "reference_percentage_full_cohort": 10.9196,
+        "reference_percentage_from_count": 10.9196,
+        "reference_percentage_within_matched_subset": 20.5461
+      },
+      {
+        "diagnosis": "Alcohol abuse, unspecified",
+        "reference_count": 838,
+        "reference_percentage_full_cohort": 15.2004,
+        "reference_percentage_from_count": 15.2004,
+        "reference_percentage_within_matched_subset": 28.6007
+      },
+      {
+        "diagnosis": "Alcohol abuse with intoxication, unspecified",
+        "reference_count": 181,
+        "reference_percentage_full_cohort": 3.2831,
+        "reference_percentage_from_count": 3.2831,
+        "reference_percentage_within_matched_subset": 6.1775
+      },
+      {
+        "diagnosis": "Acute appendicitis without mention of peritonitis",
+        "reference_count": 354,
+        "reference_percentage_full_cohort": 6.4212,
+        "reference_percentage_from_count": 6.4212,
+        "reference_percentage_within_matched_subset": 12.0819
+      },
+      {
+        "diagnosis": "Displacement of lumbar intervertebral disc without myelopathy",
+        "reference_count": 55,
+        "reference_percentage_full_cohort": 0.9976,
+        "reference_percentage_from_count": 0.9976,
+        "reference_percentage_within_matched_subset": 1.8771
+      },
+      {
+        "diagnosis": "Other chest pain",
+        "reference_count": 129,
+        "reference_percentage_full_cohort": 2.3399,
+        "reference_percentage_from_count": 2.3399,
+        "reference_percentage_within_matched_subset": 4.4027
+      },
+      {
+        "diagnosis": "Anxiety state, unspecified",
+        "reference_count": 15,
+        "reference_percentage_full_cohort": 0.2721,
+        "reference_percentage_from_count": 0.2721,
+        "reference_percentage_within_matched_subset": 0.5119
+      },
+      {
+        "diagnosis": "Calculus of ureter",
+        "reference_count": 20,
+        "reference_percentage_full_cohort": 0.3628,
+        "reference_percentage_from_count": 0.3628,
+        "reference_percentage_within_matched_subset": 0.6826
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of leg, except foot",
+        "reference_count": 76,
+        "reference_percentage_full_cohort": 1.3786,
+        "reference_percentage_from_count": 1.3786,
+        "reference_percentage_within_matched_subset": 2.5939
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of upper arm and forearm",
+        "reference_count": 38,
+        "reference_percentage_full_cohort": 0.6893,
+        "reference_percentage_from_count": 0.6893,
+        "reference_percentage_within_matched_subset": 1.2969
+      },
+      {
+        "diagnosis": "Major depressive disorder, single episode, unspecified",
+        "reference_count": 42,
+        "reference_percentage_full_cohort": 0.7618,
+        "reference_percentage_from_count": 0.7618,
+        "reference_percentage_within_matched_subset": 1.4334
+      },
+      {
+        "diagnosis": "Malignant neoplasm of thyroid gland",
+        "reference_count": 32,
+        "reference_percentage_full_cohort": 0.5804,
+        "reference_percentage_from_count": 0.5804,
+        "reference_percentage_within_matched_subset": 1.0922
+      },
+      {
+        "diagnosis": "Acute appendicitis with generalized peritonitis",
+        "reference_count": 32,
+        "reference_percentage_full_cohort": 0.5804,
+        "reference_percentage_from_count": 0.5804,
+        "reference_percentage_within_matched_subset": 1.0922
+      },
+      {
+        "diagnosis": "Acute tonsillitis",
+        "reference_count": 16,
+        "reference_percentage_full_cohort": 0.2902,
+        "reference_percentage_from_count": 0.2902,
+        "reference_percentage_within_matched_subset": 0.5461
+      },
+      {
+        "diagnosis": "Anaphylactic reaction due to unspecified food",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0683
+      },
+      {
+        "diagnosis": "Anomalies of other endocrine glands",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.1365
+      },
+      {
+        "diagnosis": "Atrial fibrillation",
+        "reference_count": 11,
+        "reference_percentage_full_cohort": 0.1995,
+        "reference_percentage_from_count": 0.1995,
+        "reference_percentage_within_matched_subset": 0.3754
+      },
+      {
+        "diagnosis": "Backache, unspecified",
+        "reference_count": 5,
+        "reference_percentage_full_cohort": 0.0907,
+        "reference_percentage_from_count": 0.0907,
+        "reference_percentage_within_matched_subset": 0.1706
+      },
+      {
+        "diagnosis": "Benign neoplasm of ovary",
+        "reference_count": 6,
+        "reference_percentage_full_cohort": 0.1088,
+        "reference_percentage_from_count": 0.1088,
+        "reference_percentage_within_matched_subset": 0.2048
+      },
+      {
+        "diagnosis": "Calculus of bile duct without mention of cholecystitis, without mention of obstruction",
+        "reference_count": 8,
+        "reference_percentage_full_cohort": 0.1451,
+        "reference_percentage_from_count": 0.1451,
+        "reference_percentage_within_matched_subset": 0.273
+      },
+      {
+        "diagnosis": "Calculus of gallbladder with other cholecystitis, without mention of obstruction",
+        "reference_count": 18,
+        "reference_percentage_full_cohort": 0.3265,
+        "reference_percentage_from_count": 0.3265,
+        "reference_percentage_within_matched_subset": 0.6143
+      },
+      {
+        "diagnosis": "Calculus of kidney",
+        "reference_count": 24,
+        "reference_percentage_full_cohort": 0.4353,
+        "reference_percentage_from_count": 0.4353,
+        "reference_percentage_within_matched_subset": 0.8191
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of finger, unspecified",
+        "reference_count": 14,
+        "reference_percentage_full_cohort": 0.2539,
+        "reference_percentage_from_count": 0.2539,
+        "reference_percentage_within_matched_subset": 0.4778
+      },
+      {
+        "diagnosis": "Cellulitis and abscess of foot, except toes",
+        "reference_count": 19,
+        "reference_percentage_full_cohort": 0.3446,
+        "reference_percentage_from_count": 0.3446,
+        "reference_percentage_within_matched_subset": 0.6485
+      },
+      {
+        "diagnosis": "Cervical spondylosis without myelopathy",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0683
+      },
+      {
+        "diagnosis": "Depressive disorder, not elsewhere classified",
+        "reference_count": 61,
+        "reference_percentage_full_cohort": 1.1065,
+        "reference_percentage_from_count": 1.1065,
+        "reference_percentage_within_matched_subset": 2.0819
+      },
+      {
+        "diagnosis": "Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",
+        "reference_count": 9,
+        "reference_percentage_full_cohort": 0.1633,
+        "reference_percentage_from_count": 0.1633,
+        "reference_percentage_within_matched_subset": 0.3072
+      },
+      {
+        "diagnosis": "Displacement of cervical intervertebral disc without myelopathy",
+        "reference_count": 14,
+        "reference_percentage_full_cohort": 0.2539,
+        "reference_percentage_from_count": 0.2539,
+        "reference_percentage_within_matched_subset": 0.4778
+      },
+      {
+        "diagnosis": "Dissection of vertebral artery",
+        "reference_count": 7,
+        "reference_percentage_full_cohort": 0.127,
+        "reference_percentage_from_count": 0.127,
+        "reference_percentage_within_matched_subset": 0.2389
+      },
+      {
+        "diagnosis": "Diverticulitis of colon (without mention of hemorrhage)",
+        "reference_count": 25,
+        "reference_percentage_full_cohort": 0.4535,
+        "reference_percentage_from_count": 0.4535,
+        "reference_percentage_within_matched_subset": 0.8532
+      },
+      {
+        "diagnosis": "Dizziness and giddiness",
+        "reference_count": 17,
+        "reference_percentage_full_cohort": 0.3084,
+        "reference_percentage_from_count": 0.3084,
+        "reference_percentage_within_matched_subset": 0.5802
+      },
+      {
+        "diagnosis": "Hydronephrosis with renal and ureteral calculous obstruction",
+        "reference_count": 16,
+        "reference_percentage_full_cohort": 0.2902,
+        "reference_percentage_from_count": 0.2902,
+        "reference_percentage_within_matched_subset": 0.5461
+      },
+      {
+        "diagnosis": "Malignant neoplasm of kidney, except pelvis",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0683
+      },
+      {
+        "diagnosis": "Malignant neoplasm of left kidney, except renal pelvis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0341
+      },
+      {
+        "diagnosis": "Occlusion and stenosis of carotid artery without mention of cerebral infarction",
+        "reference_count": 2,
+        "reference_percentage_full_cohort": 0.0363,
+        "reference_percentage_from_count": 0.0363,
+        "reference_percentage_within_matched_subset": 0.0683
+      },
+      {
+        "diagnosis": "Opioid abuse, continuous",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.1024
+      },
+      {
+        "diagnosis": "Other and unspecified noninfectious gastroenteritis and colitis",
+        "reference_count": 23,
+        "reference_percentage_full_cohort": 0.4172,
+        "reference_percentage_from_count": 0.4172,
+        "reference_percentage_within_matched_subset": 0.785
+      },
+      {
+        "diagnosis": "Other causes of myelitis",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0341
+      },
+      {
+        "diagnosis": "Other convulsions",
+        "reference_count": 19,
+        "reference_percentage_full_cohort": 0.3446,
+        "reference_percentage_from_count": 0.3446,
+        "reference_percentage_within_matched_subset": 0.6485
+      },
+      {
+        "diagnosis": "Other pulmonary embolism and infarction",
+        "reference_count": 11,
+        "reference_percentage_full_cohort": 0.1995,
+        "reference_percentage_from_count": 0.1995,
+        "reference_percentage_within_matched_subset": 0.3754
+      },
+      {
+        "diagnosis": "Other respiratory abnormalities",
+        "reference_count": 8,
+        "reference_percentage_full_cohort": 0.1451,
+        "reference_percentage_from_count": 0.1451,
+        "reference_percentage_within_matched_subset": 0.273
+      },
+      {
+        "diagnosis": "Pain in limb",
+        "reference_count": 5,
+        "reference_percentage_full_cohort": 0.0907,
+        "reference_percentage_from_count": 0.0907,
+        "reference_percentage_within_matched_subset": 0.1706
+      },
+      {
+        "diagnosis": "Peripheral vertigo, unspecified",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.1024
+      },
+      {
+        "diagnosis": "Pyelonephritis, unspecified",
+        "reference_count": 30,
+        "reference_percentage_full_cohort": 0.5442,
+        "reference_percentage_from_count": 0.5442,
+        "reference_percentage_within_matched_subset": 1.0239
+      },
+      {
+        "diagnosis": "Renal colic",
+        "reference_count": 1,
+        "reference_percentage_full_cohort": 0.0181,
+        "reference_percentage_from_count": 0.0181,
+        "reference_percentage_within_matched_subset": 0.0341
+      },
+      {
+        "diagnosis": "Streptococcal pharyngitis",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.1024
+      },
+      {
+        "diagnosis": "Streptococcal sore throat",
+        "reference_count": 8,
+        "reference_percentage_full_cohort": 0.1451,
+        "reference_percentage_from_count": 0.1451,
+        "reference_percentage_within_matched_subset": 0.273
+      },
+      {
+        "diagnosis": "Suicidal ideation",
+        "reference_count": 28,
+        "reference_percentage_full_cohort": 0.5079,
+        "reference_percentage_from_count": 0.5079,
+        "reference_percentage_within_matched_subset": 0.9556
+      },
+      {
+        "diagnosis": "Threatened premature labor, antepartum condition or complication",
+        "reference_count": 4,
+        "reference_percentage_full_cohort": 0.0726,
+        "reference_percentage_from_count": 0.0726,
+        "reference_percentage_within_matched_subset": 0.1365
+      },
+      {
+        "diagnosis": "Unspecified intestinal obstruction",
+        "reference_count": 16,
+        "reference_percentage_full_cohort": 0.2902,
+        "reference_percentage_from_count": 0.2902,
+        "reference_percentage_within_matched_subset": 0.5461
+      },
+      {
+        "diagnosis": "Unspecified psychosis",
+        "reference_count": 55,
+        "reference_percentage_full_cohort": 0.9976,
+        "reference_percentage_from_count": 0.9976,
+        "reference_percentage_within_matched_subset": 1.8771
+      },
+      {
+        "diagnosis": "Unspecified schizophrenia, unspecified",
+        "reference_count": 12,
+        "reference_percentage_full_cohort": 0.2177,
+        "reference_percentage_from_count": 0.2177,
+        "reference_percentage_within_matched_subset": 0.4096
+      },
+      {
+        "diagnosis": "Unspecified transient cerebral ischemia",
+        "reference_count": 3,
+        "reference_percentage_full_cohort": 0.0544,
+        "reference_percentage_from_count": 0.0544,
+        "reference_percentage_within_matched_subset": 0.1024
+      }
+    ],
+    "reference_matched_total_subjects": 2930
+  },
+  "generated_chart_files": {
+    "correct_wrong_overlap": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats/gpt5_nano_correct_wrong_overlap_bar.svg",
+    "overall_case_distribution": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats/gpt5_nano_overall_case_diagnosis_distribution_pie.svg",
+    "overall_reference_distribution": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats/gpt5_nano_overall_reference_diagnosis_distribution_pie.svg",
+    "correct_case_distribution": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats/gpt5_nano_correct_case_diagnosis_distribution_pie.svg",
+    "correct_reference_distribution": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats/gpt5_nano_correct_reference_diagnosis_distribution_pie.svg",
+    "wrong_case_distribution": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats/gpt5_nano_wrong_case_diagnosis_distribution_pie.svg",
+    "wrong_reference_distribution": "/Users/xiaofanlu/Documents/github_repos/uncertainty-aware-reasoning-agent/experiments/similar_patient/diagnosis_stats/gpt5_nano_wrong_reference_diagnosis_distribution_pie.svg"
+  }
+}

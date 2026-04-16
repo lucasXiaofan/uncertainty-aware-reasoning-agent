@@ -979,7 +979,7 @@ if __name__ == "__main__":
     parser.add_argument('--agent_dataset', type=str, default='MedQA') # MedQA, MIMICIV or NEJM
     parser.add_argument('--doctor_image_request', type=bool, default=False) # whether images must be requested or are provided
     parser.add_argument('--num_scenarios', type=int, default=None, required=False, help='Number of scenarios to simulate')
-    parser.add_argument('--total_inferences', type=int, default=20, required=False, help='Number of inferences between patient and doctor')
+    parser.add_argument('--total_inferences', type=int, default=30, required=False, help='Number of inferences between patient and doctor')
     
     parser.add_argument('--output_file', type=str, default=None, required=False, help='File to append results to')
     parser.add_argument('--scenario_offset', type=int, default=0, required=False, help='Scenario ID to start from')

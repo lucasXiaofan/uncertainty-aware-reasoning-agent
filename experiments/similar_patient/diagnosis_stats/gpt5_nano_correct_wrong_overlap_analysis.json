@@ -1,0 +1,146 @@
+{
+  "summary": {
+    "diagnoses_in_both_correct_and_wrong": 10,
+    "correct_unique_diagnoses": 61,
+    "wrong_unique_diagnoses": 64
+  },
+  "overlap_diagnoses": [
+    {
+      "diagnosis": "Acute appendicitis without mention of peritonitis",
+      "correct_count": 4,
+      "wrong_count": 4,
+      "total_count": 8,
+      "correct_scenario_ids": [
+        21,
+        26,
+        55,
+        156
+      ],
+      "wrong_scenario_ids": [
+        54,
+        88,
+        174,
+        198
+      ]
+    },
+    {
+      "diagnosis": "Major depressive disorder, single episode, unspecified",
+      "correct_count": 4,
+      "wrong_count": 2,
+      "total_count": 6,
+      "correct_scenario_ids": [
+        75,
+        90,
+        109,
+        186
+      ],
+      "wrong_scenario_ids": [
+        133,
+        197
+      ]
+    },
+    {
+      "diagnosis": "Depressive disorder, not elsewhere classified",
+      "correct_count": 4,
+      "wrong_count": 1,
+      "total_count": 5,
+      "correct_scenario_ids": [
+        34,
+        110,
+        113,
+        137
+      ],
+      "wrong_scenario_ids": [
+        49
+      ]
+    },
+    {
+      "diagnosis": "Cellulitis and abscess of leg, except foot",
+      "correct_count": 2,
+      "wrong_count": 2,
+      "total_count": 4,
+      "correct_scenario_ids": [
+        48,
+        169
+      ],
+      "wrong_scenario_ids": [
+        134,
+        175
+      ]
+    },
+    {
+      "diagnosis": "Acute Pharyngitis",
+      "correct_count": 2,
+      "wrong_count": 1,
+      "total_count": 3,
+      "correct_scenario_ids": [
+        86,
+        127
+      ],
+      "wrong_scenario_ids": [
+        108
+      ]
+    },
+    {
+      "diagnosis": "Diverticulitis of colon (without mention of hemorrhage)",
+      "correct_count": 2,
+      "wrong_count": 1,
+      "total_count": 3,
+      "correct_scenario_ids": [
+        77,
+        78
+      ],
+      "wrong_scenario_ids": [
+        131
+      ]
+    },
+    {
+      "diagnosis": "Calculus of kidney",
+      "correct_count": 1,
+      "wrong_count": 1,
+      "total_count": 2,
+      "correct_scenario_ids": [
+        125
+      ],
+      "wrong_scenario_ids": [
+        183
+      ]
+    },
+    {
+      "diagnosis": "Dizziness and giddiness",
+      "correct_count": 1,
+      "wrong_count": 1,
+      "total_count": 2,
+      "correct_scenario_ids": [
+        171
+      ],
+      "wrong_scenario_ids": [
+        89
+      ]
+    },
+    {
+      "diagnosis": "Peripheral vertigo, unspecified",
+      "correct_count": 1,
+      "wrong_count": 1,
+      "total_count": 2,
+      "correct_scenario_ids": [
+        61
+      ],
+      "wrong_scenario_ids": [
+        112
+      ]
+    },
+    {
+      "diagnosis": "Streptococcal pharyngitis",
+      "correct_count": 1,
+      "wrong_count": 1,
+      "total_count": 2,
+      "correct_scenario_ids": [
+        9
+      ],
+      "wrong_scenario_ids": [
+        58
+      ]
+    }
+  ]
+}

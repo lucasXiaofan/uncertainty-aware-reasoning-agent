@@ -345,7 +345,7 @@ echo "========================================================"
 
 # Dependencies for uv run
 DEPS="--with openai>=1.0.0 --with regex --with python-dotenv --with pyyaml --with requests"
-COMMON_ARGS="--doctor_llm $MODEL --patient_llm $MODEL --measurement_llm $MODEL --moderator_llm $MODEL --total_inferences 20"
+COMMON_ARGS="--doctor_llm $MODEL --patient_llm $MODEL --measurement_llm $MODEL --moderator_llm $MODEL --total_inferences 30"
 
 # Map agent_dataset to the default file the Python loader expects when no
 # explicit data_file override is passed.

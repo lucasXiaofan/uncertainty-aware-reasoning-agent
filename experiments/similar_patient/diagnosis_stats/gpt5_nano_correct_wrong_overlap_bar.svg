@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="570" viewBox="0 0 1800 570">
+  <rect width="100%" height="100%" fill="#ffffff" />
+  <text x="60" y="55" font-size="30" font-weight="bold" font-family="Arial, sans-serif">Diagnoses Appearing in Both Correct and Wrong Predictions</text>
+  <text x="60" y="88" font-size="18" fill="#444444" font-family="Arial, sans-serif">Blue bars show correct counts; red bars show wrong counts. Top 20 overlap diagnoses are shown.</text>
+  <line x1="1000" y1="90" x2="1000" y2="510" stroke="#666666" stroke-width="1.5" />
+  <rect x="60" y="104" width="18" height="18" fill="#4E79A7" />
+  <text x="88" y="119" font-size="18" font-family="Arial, sans-serif">Correct</text>
+  <rect x="190" y="104" width="18" height="18" fill="#E15759" />
+  <text x="218" y="119" font-size="18" font-family="Arial, sans-serif">Wrong</text>
+  <text x="608" y="124" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Acute appendicitis without mention of peritonitis</text>
+  <rect x="825.00" y="110" width="175.00" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="110" width="175.00" height="16" fill="#E15759" />
+  <text x="817.00" y="124" text-anchor="end" font-size="14" font-family="Arial, sans-serif">4</text>
+  <text x="1183.00" y="124" font-size="14" font-family="Arial, sans-serif">4</text>
+  <text x="608" y="158" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Major depressive disorder, single episode, unspecified</text>
+  <rect x="825.00" y="144" width="175.00" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="144" width="87.50" height="16" fill="#E15759" />
+  <text x="817.00" y="158" text-anchor="end" font-size="14" font-family="Arial, sans-serif">4</text>
+  <text x="1095.50" y="158" font-size="14" font-family="Arial, sans-serif">2</text>
+  <text x="608" y="192" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Depressive disorder, not elsewhere classified</text>
+  <rect x="825.00" y="178" width="175.00" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="178" width="43.75" height="16" fill="#E15759" />
+  <text x="817.00" y="192" text-anchor="end" font-size="14" font-family="Arial, sans-serif">4</text>
+  <text x="1051.75" y="192" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="608" y="226" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Cellulitis and abscess of leg, except foot</text>
+  <rect x="912.50" y="212" width="87.50" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="212" width="87.50" height="16" fill="#E15759" />
+  <text x="904.50" y="226" text-anchor="end" font-size="14" font-family="Arial, sans-serif">2</text>
+  <text x="1095.50" y="226" font-size="14" font-family="Arial, sans-serif">2</text>
+  <text x="608" y="260" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Acute Pharyngitis</text>
+  <rect x="912.50" y="246" width="87.50" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="246" width="43.75" height="16" fill="#E15759" />
+  <text x="904.50" y="260" text-anchor="end" font-size="14" font-family="Arial, sans-serif">2</text>
+  <text x="1051.75" y="260" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="608" y="294" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Diverticulitis of colon (without mention of hemorrhage)</text>
+  <rect x="912.50" y="280" width="87.50" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="280" width="43.75" height="16" fill="#E15759" />
+  <text x="904.50" y="294" text-anchor="end" font-size="14" font-family="Arial, sans-serif">2</text>
+  <text x="1051.75" y="294" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="608" y="328" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Calculus of kidney</text>
+  <rect x="956.25" y="314" width="43.75" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="314" width="43.75" height="16" fill="#E15759" />
+  <text x="948.25" y="328" text-anchor="end" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="1051.75" y="328" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="608" y="362" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Dizziness and giddiness</text>
+  <rect x="956.25" y="348" width="43.75" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="348" width="43.75" height="16" fill="#E15759" />
+  <text x="948.25" y="362" text-anchor="end" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="1051.75" y="362" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="608" y="396" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Peripheral vertigo, unspecified</text>
+  <rect x="956.25" y="382" width="43.75" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="382" width="43.75" height="16" fill="#E15759" />
+  <text x="948.25" y="396" text-anchor="end" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="1051.75" y="396" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="608" y="430" text-anchor="end" font-size="15" font-family="Arial, sans-serif">Streptococcal pharyngitis</text>
+  <rect x="956.25" y="416" width="43.75" height="16" fill="#4E79A7" />
+  <rect x="1000.00" y="416" width="43.75" height="16" fill="#E15759" />
+  <text x="948.25" y="430" text-anchor="end" font-size="14" font-family="Arial, sans-serif">1</text>
+  <text x="1051.75" y="430" font-size="14" font-family="Arial, sans-serif">1</text>
+  <line x1="956.25" y1="85" x2="956.25" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <line x1="1043.75" y1="85" x2="1043.75" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <text x="956.25" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">1</text>
+  <text x="1043.75" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">1</text>
+  <line x1="912.50" y1="85" x2="912.50" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <line x1="1087.50" y1="85" x2="1087.50" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <text x="912.50" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">2</text>
+  <text x="1087.50" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">2</text>
+  <line x1="868.75" y1="85" x2="868.75" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <line x1="1131.25" y1="85" x2="1131.25" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <text x="868.75" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">3</text>
+  <text x="1131.25" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">3</text>
+  <line x1="825.00" y1="85" x2="825.00" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <line x1="1175.00" y1="85" x2="1175.00" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <text x="825.00" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">4</text>
+  <text x="1175.00" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">4</text>
+  <line x1="781.25" y1="85" x2="781.25" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <line x1="1218.75" y1="85" x2="1218.75" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <text x="781.25" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">5</text>
+  <text x="1218.75" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">5</text>
+  <line x1="737.50" y1="85" x2="737.50" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <line x1="1262.50" y1="85" x2="1262.50" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <text x="737.50" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">6</text>
+  <text x="1262.50" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">6</text>
+  <line x1="693.75" y1="85" x2="693.75" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <line x1="1306.25" y1="85" x2="1306.25" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <text x="693.75" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">7</text>
+  <text x="1306.25" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">7</text>
+  <line x1="650.00" y1="85" x2="650.00" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <line x1="1350.00" y1="85" x2="1350.00" y2="510" stroke="#eeeeee" stroke-width="1" />
+  <text x="650.00" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">8</text>
+  <text x="1350.00" y="540" text-anchor="middle" font-size="12" fill="#666666" font-family="Arial, sans-serif">8</text>
+</svg>
