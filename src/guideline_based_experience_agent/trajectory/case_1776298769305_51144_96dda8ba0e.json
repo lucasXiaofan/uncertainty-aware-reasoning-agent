@@ -1,0 +1,70 @@
+{
+  "case_id": "case_1776298769305_51144_96dda8ba0e",
+  "model": "gpt-5-nano",
+  "max_infs": 20,
+  "objective_for_doctor": "Assess and diagnose the patient presenting with headache, especially focusing on its location, quality, and any associated factors.",
+  "turns": [
+    {
+      "turn_index": 0,
+      "latest_context_message": "",
+      "doctor_message": "REQUEST TEST: Vital_Signs",
+      "information_seeking_input": {
+        "objective": "Assess and diagnose the patient presenting with headache, especially focusing on its location, quality, and any associated factors.",
+        "incremental_chat_history": "",
+        "current_round": 0,
+        "max_infs": 20
+      },
+      "information_seeking_output": {
+        "message": "REQUEST TEST: Vital_Signs",
+        "reasoning": "Baseline vitals needed to assess red flags in headache. Top differentials: migraine, tension-type headache, subarachnoid hemorrhage.",
+        "osce_note": "OSCE: New patient with headache. No data yet. Plan: obtain Vital Signs; then perform focused history focusing on location, quality, onset, duration, progression, associated symptoms, triggers, and red flags to differentiate migraine, tension-type headache, and SAH."
+      },
+      "diagnosis_triggered": false,
+      "diagnosis_input": null,
+      "diagnosis_output": null
+    },
+    {
+      "turn_index": 1,
+      "latest_context_message": "RESULTS: Temperature 36.8\u00b0C (98.2\u00b0F); Blood Pressure 130/85 mmHg; Heart Rate 72 bpm; Respiratory Rate 14 breaths/min",
+      "doctor_message": "ASK PATIENT: Please describe your headache in detail \u2014 is it located on one side or both, what is the quality (pulsating, pressing, stabbing), how long has it been there, how severe is the pain on a 0\u201310 scale, how often does it occur, and what triggers or relieves it? Also note any associated symptoms (nausea/vomiting, sensitivity to light or sound, aura) and any red flags (sudden severe onset, fever, neck stiffness, confusion, weakness).",
+      "information_seeking_input": {
+        "objective": "Assess and diagnose the patient presenting with headache, especially focusing on its location, quality, and any associated factors.",
+        "incremental_chat_history": "Doctor: REQUEST TEST: Vital_Signs\nPatient/Test: RESULTS: Temperature 36.8\u00b0C (98.2\u00b0F); Blood Pressure 130/85 mmHg; Heart Rate 72 bpm; Respiratory Rate 14 breaths/min",
+        "current_round": 1,
+        "max_infs": 20
+      },
+      "information_seeking_output": {
+        "message": "ASK PATIENT: Please describe your headache in detail \u2014 is it located on one side or both, what is the quality (pulsating, pressing, stabbing), how long has it been there, how severe is the pain on a 0\u201310 scale, how often does it occur, and what triggers or relieves it? Also note any associated symptoms (nausea/vomiting, sensitivity to light or sound, aura) and any red flags (sudden severe onset, fever, neck stiffness, confusion, weakness).",
+        "reasoning": "Next step is to obtain a detailed headache history to differentiate common primary headaches from secondary causes. Top differentials: Migraine, Tension-type headache, Cluster headache.",
+        "osce_note": "Headache presentation with afebrile vitals (Temp 36.8\u00b0C, BP 130/85 mmHg, HR 72, RR 14). No examination findings available. Awaiting detailed history focusing on location, quality, onset/duration, intensity, associated symptoms, and red flags to differentiate migraine, tension-type headache, and cluster headache."
+      },
+      "diagnosis_triggered": false,
+      "diagnosis_input": null,
+      "diagnosis_output": null
+    },
+    {
+      "turn_index": 2,
+      "latest_context_message": "The pain is at the back of my head and upper neck, sometimes on one side, and it\u2019s a sharp, shooting sensation that can radiate behind the eyes. These attacks have been ongoing for several months, lasting from a few minutes up to about an hour, with severity around 6\u20137/10. They\u2019re triggered or worsened by certain neck movements or positions and tend to ease with rest; I have not had nausea, vomiting, light or sound sensitivity, fever, neck stiffness, or weakness.",
+      "doctor_message": "DIAGNOSIS READY: Cervicogenic headache",
+      "information_seeking_input": {
+        "objective": "Assess and diagnose the patient presenting with headache, especially focusing on its location, quality, and any associated factors.",
+        "incremental_chat_history": "Doctor: REQUEST TEST: Vital_Signs\n\nPatient/Test: RESULTS: Temperature 36.8\u00b0C (98.2\u00b0F); Blood Pressure 130/85 mmHg; Heart Rate 72 bpm; Respiratory Rate 14 breaths/min\nDoctor: ASK PATIENT: Please describe your headache in detail \u2014 is it located on one side or both, what is the quality (pulsating, pressing, stabbing), how long has it been there, how severe is the pain on a 0\u201310 scale, how often does it occur, and what triggers or relieves it? Also note any associated symptoms (nausea/vomiting, sensitivity to light or sound, aura) and any red flags (sudden severe onset, fever, neck stiffness, confusion, weakness).\nPatient/Test: The pain is at the back of my head and upper neck, sometimes on one side, and it\u2019s a sharp, shooting sensation that can radiate behind the eyes. These attacks have been ongoing for several months, lasting from a few minutes up to about an hour, with severity around 6\u20137/10. They\u2019re triggered or worsened by certain neck movements or positions and tend to ease with rest; I have not had nausea, vomiting, light or sound sensitivity, fever, neck stiffness, or weakness.",
+        "current_round": 2,
+        "max_infs": 20
+      },
+      "information_seeking_output": {
+        "message": "DIAGNOSIS READY: Cervicogenic headache",
+        "reasoning": "Clinical features point to cervicogenic headache: posterior occipital/upper neck pain with neck movement triggering attacks, brief duration, months-long history, relief with rest, and absence of migrainous symptoms or red flags. Top differentials to consider: 1) Cervicogenic headache 2) Occipital neuralgia 3) Tension-type headache.",
+        "osce_note": "HPI: Headache localized to the back of the head/upper neck, sometimes unilateral, described as sharp, shooting, lasting minutes to ~1 hour, ongoing for several months. Attacks triggered by neck movements/positions and relieved with rest. No associated nausea, vomiting, photophobia/phonophobia, or aura. No fever, neck stiffness, weakness reported. Vitals: Temp 36.8\u00b0C, BP 130/85, HR 72, RR 14. Assessment: Provisional cervicogenic headache; differential includes occipital neuralgia and tension-type headache. Plan: perform focused cervical spine exam; consider imaging if red flags or persistent/worsening symptoms."
+      },
+      "diagnosis_triggered": true,
+      "diagnosis_input": {
+        "osce_note": "HPI: Headache localized to the back of the head/upper neck, sometimes unilateral, described as sharp, shooting, lasting minutes to ~1 hour, ongoing for several months. Attacks triggered by neck movements/positions and relieved with rest. No associated nausea, vomiting, photophobia/phonophobia, or aura. No fever, neck stiffness, weakness reported. Vitals: Temp 36.8\u00b0C, BP 130/85, HR 72, RR 14. Assessment: Provisional cervicogenic headache; differential includes occipital neuralgia and tension-type headache. Plan: perform focused cervical spine exam; consider imaging if red flags or persistent/worsening symptoms.",
+        "latest_context_message": "The pain is at the back of my head and upper neck, sometimes on one side, and it\u2019s a sharp, shooting sensation that can radiate behind the eyes. These attacks have been ongoing for several months, lasting from a few minutes up to about an hour, with severity around 6\u20137/10. They\u2019re triggered or worsened by certain neck movements or positions and tend to ease with rest; I have not had nausea, vomiting, light or sound sensitivity, fever, neck stiffness, or weakness."
+      },
+      "diagnosis_output": {
+        "message": "DIAGNOSIS READY: Cervicogenic headache"
+      }
+    }
+  ]
+}

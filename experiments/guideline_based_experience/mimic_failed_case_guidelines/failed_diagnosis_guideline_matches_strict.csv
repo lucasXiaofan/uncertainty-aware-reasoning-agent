@@ -1,0 +1,65 @@
+failed_diagnosis,scenario_ids,guideline_relative_path,guideline_diagnosis,guideline_title,title_overlap_ratio
+Acute Pharyngitis,108,experiments/guideline_based_experience/guidelines/acute_pharyngitis_uptodate.txt,Acute Pharyngitis,Evaluation of acute pharyngitis in adults,1.00
+Acute appendicitis with generalized peritonitis,170,experiments/guideline_based_experience/guidelines/acute_appendicitis_with_generalized_peritonitis_mayoclinic.txt,Acute appendicitis with generalized peritonitis,Appendicitis,1.00
+Acute appendicitis without mention of peritonitis,"54,88,174,198",experiments/guideline_based_experience/guidelines/acute_appendicitis_without_mention_of_peritonitis_mayoclinic.txt,Acute appendicitis without mention of peritonitis,Appendicitis,1.00
+Acute tonsillitis,135,experiments/guideline_based_experience/guidelines/acute_tonsillitis_mayoclinic.txt,Acute tonsillitis,Tonsillitis,1.00
+"Alcohol abuse with intoxication, unspecified","59,91,117,142,155,157",,,,
+"Alcohol abuse, unspecified","40,93,102,111,116,122,132,148,153,194",,,,
+Anaphylactic reaction due to unspecified food,11,,,,
+Anomalies of other endocrine glands,144,,,,
+"Anxiety state, unspecified","94,103",,,,
+Atrial fibrillation,98,experiments/guideline_based_experience/guidelines/atrial_fibrillation_mayoclinic.txt,Atrial fibrillation,Atrial fibrillation,1.00
+"Backache, unspecified",82,,,,
+Bacterial Vaginosis,187,experiments/guideline_based_experience/guidelines/bacterial_vaginosis_mayoclinic.txt,Bacterial Vaginosis,Bacterial vaginosis,1.00
+Benign neoplasm of ovary,39,,,,
+"Calculus of bile duct without mention of cholecystitis, without mention of obstruction",7,,,,
+"Calculus of gallbladder with other cholecystitis, without mention of obstruction",124,experiments/guideline_based_experience/guidelines/calculus_of_gallbladder_with_other_cholecystitis_without_mention_of_obstruction_mayoclinic.txt,"Calculus of gallbladder with other cholecystitis, without mention of obstruction",Cholecystitis,1.00
+Calculus of kidney,183,,,,
+Calculus of ureter,"56,190",,,,
+"Cellulitis and abscess of finger, unspecified",162,experiments/guideline_based_experience/guidelines/cellulitis_and_abscess_of_finger_unspecified_mayoclinic.txt,"Cellulitis and abscess of finger, unspecified",Cellulitis,1.00
+"Cellulitis and abscess of foot, except toes",45,experiments/guideline_based_experience/guidelines/cellulitis_and_abscess_of_foot_except_toes_mayoclinic.txt,"Cellulitis and abscess of foot, except toes",Cellulitis,1.00
+"Cellulitis and abscess of leg, except foot","134,175",experiments/guideline_based_experience/guidelines/cellulitis_and_abscess_of_leg_except_foot_mayoclinic.txt,"Cellulitis and abscess of leg, except foot",Cellulitis,1.00
+Cellulitis and abscess of upper arm and forearm,"138,145",experiments/guideline_based_experience/guidelines/cellulitis_and_abscess_of_upper_arm_and_forearm_mayoclinic.txt,Cellulitis and abscess of upper arm and forearm,Cellulitis,1.00
+Cervical spondylosis without myelopathy,195,experiments/guideline_based_experience/guidelines/cervical_spondylosis_without_myelopathy_mayoclinic.txt,Cervical spondylosis without myelopathy,Cervical spondylosis,1.00
+"Chest pain, unspecified","18,22,29,33,35,41,42,50,53,71,76,84,96,105,106,143,151,158,159,160,165,167,177,178,179",experiments/guideline_based_experience/guidelines/chest_pain_unspecified_mayoclinic.txt,"Chest pain, unspecified",Chest pain,1.00
+Chronic paroxysmal hemicrania,101,,,,
+Compression of the brain,126,,,,
+"Depressive disorder, not elsewhere classified",49,,,,
+"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",192,,,,
+Displacement of cervical intervertebral disc without myelopathy,20,,,,
+Displacement of lumbar intervertebral disc without myelopathy,"3,10,19,24",,,,
+Dissection of vertebral artery,92,,,,
+Diverticulitis of colon (without mention of hemorrhage),131,experiments/guideline_based_experience/guidelines/diverticulitis_of_colon_without_mention_of_hemorrhage_mayoclinic.txt,Diverticulitis of colon (without mention of hemorrhage),Diverticulitis,1.00
+Dizziness and giddiness,89,,,,
+Hydronephrosis with renal and ureteral calculous obstruction,129,,,,
+Interstitial Emphysema,80,,,,
+Left tubal pregnancy without intrauterine pregnancy,52,,,,
+"Major depressive disorder, single episode, unspecified","133,197",,,,
+"Malignant neoplasm of kidney, except pelvis",1,,,,
+"Malignant neoplasm of left kidney, except renal pelvis",72,,,,
+Malignant neoplasm of thyroid gland,"46,73",,,,
+Occipital neuralgia,16,experiments/guideline_based_experience/guidelines/occipital_neuralgia_uptodate.txt,Occipital neuralgia,Occipital neuralgia,1.00
+Occlusion and stenosis of carotid artery without mention of cerebral infarction,149,,,,
+"Opioid abuse, continuous",44,,,,
+Other and unspecified noninfectious gastroenteritis and colitis,176,,,,
+Other causes of myelitis,47,,,,
+Other chest pain,"6,100,120,180",experiments/guideline_based_experience/guidelines/other_chest_pain_mayoclinic.txt,Other chest pain,Chest pain,1.00
+Other convulsions,70,,,,
+Other pulmonary embolism and infarction,154,experiments/guideline_based_experience/guidelines/other_pulmonary_embolism_and_infarction_mayoclinic.txt,Other pulmonary embolism and infarction,Pulmonary embolism,1.00
+Other respiratory abnormalities,181,,,,
+Pain in limb,25,,,,
+Pathologic fracture of vertebrae,139,,,,
+"Peripheral vertigo, unspecified",112,,,,
+"Pyelonephritis, unspecified",69,,,,
+Renal colic,51,,,,
+Streptococcal pharyngitis,58,,,,
+Streptococcal sore throat,184,experiments/guideline_based_experience/guidelines/streptococcal_sore_throat_mayoclinic.txt,Streptococcal sore throat,Sore throat,1.00
+Suicidal ideation,87,,,,
+"The findings do not strongly indicate a specific acute pathology and may be consistent with a non-specific viral illness or early presentation of a more specific illness. The normal range of most test results suggests that there is no immediate acute disease. Given the generalized symptoms and lack of specific findings, a conservative approach with symptomatic treatment and watchful waiting is recommended with instructions to return or seek further care if symptoms worsen or if more specific symptoms develop.",27,,,,
+"Threatened premature labor, antepartum condition or complication",189,,,,
+Unspecified intestinal obstruction,12,experiments/guideline_based_experience/guidelines/unspecified_intestinal_obstruction_mayoclinic.txt,Unspecified intestinal obstruction,Intestinal obstruction,1.00
+Unspecified psychosis,164,experiments/guideline_based_experience/guidelines/unspecified_psychosis_uptodate.txt,Unspecified psychosis,Psychosis in adults: Initial management,1.00
+"Unspecified psychosis possibly compounded by substance use (noting the positive opiate screen). However, thorough examination and history are required to exclude other organic causes.",67,,,,
+"Unspecified schizophrenia, unspecified",196,experiments/guideline_based_experience/guidelines/unspecified_schizophrenia_unspecified_mayoclinic.txt,"Unspecified schizophrenia, unspecified",Schizophrenia,1.00
+Unspecified sinusitis (chronic),97,,,,
+Unspecified transient cerebral ischemia,123,,,,

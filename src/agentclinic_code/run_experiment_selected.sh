@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -z "${BASH_VERSION:-}" ]; then
+    exec /bin/bash "$0" "$@"
+fi
+
 # Run selected AgentClinic cases from a dataset file
 # Usage:
 #   ./run_experiment_selected.sh --model <model> --data_file <path> {--ids <list> | --count <num>} [OPTIONS]
@@ -21,17 +25,15 @@
 #   --folder <str>     (Optional) Output folder name. Default: experiment_<timestamp>
 #   --workers <num>    (Optional) Number of parallel workers. Default: 10
 #
-# Agent Configuration Options:
-#   --knowledge <mode> (Optional) External knowledge mode: none|symptom|diagnosis|both. Default: none
-#
 # Other Options:
 #   --agent_dataset <dataset> (Optional) Override dataset handler (e.g. MIMICIV, NEJM, MedQA, NewMedQA). Auto-inferred otherwise.
+#   --custom_doctor_agent_path <path> (Optional) Path to a custom doctor agent Python file.
 #
 # Examples:
 #   ./run_experiment_selected.sh --data_file data/agentclinic_mimiciv.jsonl --count 50
 #   ./run_experiment_selected.sh --model gpt-5-nano --data_file agentclinic_mimiciv.jsonl --ids 2,8,15
-#   ./run_experiment_selected.sh --data_file data/agentclinic_mimiciv.jsonl --count 10 --knowledge symptom
 set -e
+set -o pipefail
 
 MODEL="gpt-5-nano"
 
@@ -44,7 +46,7 @@ COUNT=""
 START_INDEX=0
 RANDOM_SELECT=""
 AGENT_DATASET=""
-KNOWLEDGE_MODE="none"
+CUSTOM_DOCTOR_AGENT_PATH=""
 
 IDS_LIST=()
 
@@ -120,12 +122,8 @@ while [[ $# -gt 0 ]]; do
             AGENT_DATASET="$2"
             shift 2
             ;;
-        --knowledge)
-            KNOWLEDGE_MODE="$2"
-            if [[ ! "$KNOWLEDGE_MODE" =~ ^(none|symptom|diagnosis|both)$ ]]; then
-                echo "Error: --knowledge must be one of: none, symptom, diagnosis, both"
-                exit 1
-            fi
+        --custom_doctor_agent_path)
+            CUSTOM_DOCTOR_AGENT_PATH="$2"
             shift 2
             ;;
         *)
@@ -178,8 +176,34 @@ resolve_data_file() {
     exit 1
 }
 
+resolve_custom_agent_file() {
+    local raw="$1"
+    if [[ -z "$raw" ]]; then
+        return 0
+    fi
+
+    if [[ -f "$raw" ]]; then
+        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$raw"
+        return 0
+    fi
+
+    if [[ -f "$CODE_DIR/$raw" ]]; then
+        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$CODE_DIR/$raw"
+        return 0
+    fi
+
+    echo "Error: Custom doctor agent file not found: $raw"
+    echo "Checked:"
+    echo "  $raw"
+    echo "  $CODE_DIR/$raw"
+    exit 1
+}
+
 DATA_FILE="$(resolve_data_file "$DATA_FILE_OVERRIDE")"
 DATA_BASENAME="$(basename "$DATA_FILE")"
+if [[ -n "$CUSTOM_DOCTOR_AGENT_PATH" ]]; then
+    CUSTOM_DOCTOR_AGENT_PATH="$(resolve_custom_agent_file "$CUSTOM_DOCTOR_AGENT_PATH")"
+fi
 
 # Auto-detect agent_dataset from data file if not specified
 if [[ -z "$AGENT_DATASET" ]]; then
@@ -298,7 +322,9 @@ echo "========================================================"
 echo "Split/Data:         $DATA_FILE"
 echo "Agent Dataset:      $AGENT_DATASET"
 echo "Model:              $MODEL"
-echo "Knowledge:          $KNOWLEDGE_MODE"
+if [[ -n "$CUSTOM_DOCTOR_AGENT_PATH" ]]; then
+    echo "Custom Agent:       $CUSTOM_DOCTOR_AGENT_PATH"
+fi
 if [[ -n "$EXPERIMENT_NAME" ]]; then
     echo "Experiment:         $EXPERIMENT_NAME"
 fi
@@ -320,7 +346,6 @@ echo "========================================================"
 # Dependencies for uv run
 DEPS="--with openai>=1.0.0 --with regex --with python-dotenv --with pyyaml --with requests"
 COMMON_ARGS="--doctor_llm $MODEL --patient_llm $MODEL --measurement_llm $MODEL --moderator_llm $MODEL --total_inferences 20"
-COMMON_ARGS="$COMMON_ARGS --knowledge $KNOWLEDGE_MODE"
 
 # Map agent_dataset to the default file the Python loader expects when no
 # explicit data_file override is passed.
@@ -343,25 +368,107 @@ echo ""
 echo "Running selected cases..."
 echo "--------------------------------------------------------"
 
+STATUS_DIR="$EXP_FOLDER/tmp_status_${TIMESTAMP}"
+mkdir -p "$STATUS_DIR"
+
+render_progress() {
+    local completed failed processed remaining filled empty bar
+    completed=$(find "$STATUS_DIR" -type f -name '*.done' | wc -l | tr -d ' ')
+    failed=$(find "$STATUS_DIR" -type f -name '*.failed' | wc -l | tr -d ' ')
+    processed=$((completed + failed))
+
+    if [[ "${#NORMALIZED_IDS[@]}" -eq 0 ]]; then
+        return 0
+    fi
+
+    filled=$((processed * 20 / ${#NORMALIZED_IDS[@]}))
+    remaining=$((20 - filled))
+    bar=""
+
+    while [[ "$filled" -gt 0 ]]; do
+        bar="${bar}#"
+        filled=$((filled - 1))
+    done
+    empty=$remaining
+    while [[ "$empty" -gt 0 ]]; do
+        bar="${bar}-"
+        empty=$((empty - 1))
+    done
+
+    printf '  Progress [%s] %d/%d' "$bar" "$processed" "${#NORMALIZED_IDS[@]}"
+    if [[ "$failed" -gt 0 ]]; then
+        printf ' (%d failed)' "$failed"
+    fi
+    printf '\n'
+}
+
+mark_case_status() {
+    local scenario_id="$1"
+    local suffix="$2"
+    mkdir -p "$STATUS_DIR"
+    : > "$STATUS_DIR/${scenario_id}.${suffix}"
+}
+
+render_progress
+
 run_case() {
     local scenario_id=$1
     local tmp_file="$EXP_FOLDER/tmp_case_${scenario_id}_${TIMESTAMP}.jsonl"
+    local log_file="$EXP_FOLDER/tmp_case_${scenario_id}_${TIMESTAMP}.log"
+    local prefix_file="$EXP_FOLDER/tmp_case_${scenario_id}_${TIMESTAMP}.prefixed.log"
+    local custom_agent_args=()
 
-    uv run $DEPS python "$CODE_DIR/agentclinic_api_only.py" \
+    if [[ -n "$CUSTOM_DOCTOR_AGENT_PATH" ]]; then
+        custom_agent_args=(--custom_doctor_agent_path "$CUSTOM_DOCTOR_AGENT_PATH")
+    fi
+
+    echo "  Starting case $scenario_id"
+    if uv run $DEPS python -u "$CODE_DIR/agentclinic_api_only.py" \
         --agent_dataset "$AGENT_DATASET" \
         --data_file "$DATA_FILE" \
         --num_scenarios 1 \
         --scenario_offset "$scenario_id" \
         $COMMON_ARGS \
-        --output_file "$tmp_file" 2>/dev/null
+        "${custom_agent_args[@]}" \
+        --output_file "$tmp_file" 2>&1 \
+        | tee "$log_file" \
+        | awk -v case_id="$scenario_id" '
+            /STARTING SCENARIO/ || /Doctor \[[0-9]+%\]:/ || /Correct answer:/ || /The diagnosis was/ || /Maximum inferences reached/ || /Error querying model/ {
+                printf("[case %s] %s\n", case_id, $0);
+                fflush(stdout);
+            }
+        ' \
+        | tee "$prefix_file"; then
+        mark_case_status "$scenario_id" "done"
+        echo "  Completed case $scenario_id"
+    else
+        mark_case_status "$scenario_id" "failed"
+        echo "  Failed case $scenario_id"
+        echo "  Log: $log_file"
+    fi
 
-    echo "  Completed case $scenario_id"
+    render_progress
 }
 
 export -f run_case
-export CODE_DIR RESULTS_DIR EXP_FOLDER TIMESTAMP DEPS COMMON_ARGS AGENT_DATASET DATA_FILE
+export -f render_progress
+export -f mark_case_status
+export CODE_DIR RESULTS_DIR EXP_FOLDER TIMESTAMP DEPS COMMON_ARGS AGENT_DATASET DATA_FILE CUSTOM_DOCTOR_AGENT_PATH STATUS_DIR
 
-printf "%s\n" "${NORMALIZED_IDS[@]}" | xargs -P "$WORKERS" -I {} bash -c 'run_case "$@"' _ {}
+ACTIVE_PIDS=()
+for scenario_id in "${NORMALIZED_IDS[@]}"; do
+    run_case "$scenario_id" &
+    ACTIVE_PIDS+=("$!")
+
+    if [[ "${#ACTIVE_PIDS[@]}" -ge "$WORKERS" ]]; then
+        wait "${ACTIVE_PIDS[0]}"
+        ACTIVE_PIDS=("${ACTIVE_PIDS[@]:1}")
+    fi
+done
+
+for pid in "${ACTIVE_PIDS[@]}"; do
+    wait "$pid"
+done
 
 echo "--------------------------------------------------------"
 echo "Merging results..."
@@ -374,9 +481,6 @@ for i in "${NORMALIZED_IDS[@]}"; do
         cat "$tmp_file" >> "$OUTPUT_FILE"
     fi
 done
-
-# Clean up temp files
-rm -f "$EXP_FOLDER"/tmp_case_*_"${TIMESTAMP}".jsonl
 
 echo ""
 echo "========================================================"
@@ -408,5 +512,11 @@ if [ -f "$REEVAL_SCRIPT" ]; then
 else
     echo "Re-eval:     skipped (script not found: $REEVAL_SCRIPT)"
 fi
+
+# Clean up temp case files after reports are generated.
+rm -f "$EXP_FOLDER"/tmp_case_*_"${TIMESTAMP}".jsonl
+rm -f "$EXP_FOLDER"/tmp_case_*_"${TIMESTAMP}".log
+rm -f "$EXP_FOLDER"/tmp_case_*_"${TIMESTAMP}".prefixed.log
+rm -rf "$STATUS_DIR"
 
 echo "========================================================"

@@ -1,4 +1,5 @@
 import argparse
+import importlib.util
 from openai import OpenAI
 import re
 import random
@@ -12,7 +13,6 @@ from pathlib import Path
 
 CODE_DIR = Path(__file__).resolve().parent
 DATA_DIR = CODE_DIR / "data"
-MED_RESOURCE_DIR = CODE_DIR / "med_resource"
 AGENT_RUNTIME_DIR = CODE_DIR / "agent_runtime"
 
 if str(CODE_DIR) not in sys.path:
@@ -42,31 +42,20 @@ def _resolve_data_path(path_str: str | None, default_name: str | None = None) ->
     return (DATA_DIR / default_name).resolve()
 
 
-def _load_knowledge_text(knowledge_mode: str) -> str:
-    mode = (knowledge_mode or "none").strip().lower()
-    if mode not in {"none", "symptom", "diagnosis", "both"}:
-        print(f"Warning: unknown knowledge mode '{knowledge_mode}', defaulting to none")
-        return ""
+def _resolve_custom_agent_path(path_str: str | None) -> Path | None:
+    if not path_str:
+        return None
 
-    if mode == "none":
-        return ""
+    candidate = Path(path_str).expanduser()
+    if candidate.is_absolute():
+        return candidate.resolve()
+    if candidate.exists():
+        return candidate.resolve()
 
-    symptom_path = MED_RESOURCE_DIR / "symptom_knowledge.txt"
-    diagnosis_path = MED_RESOURCE_DIR / "diagnosis_knowledge.txt"
-
-    parts = []
-    if mode in {"symptom", "both"}:
-        if symptom_path.exists():
-            parts.append("### EXTERNAL SYMPTOM KNOWLEDGE\n" + symptom_path.read_text(encoding="utf-8").strip())
-        else:
-            print(f"Warning: symptom knowledge file not found: {symptom_path}")
-    if mode in {"diagnosis", "both"}:
-        if diagnosis_path.exists():
-            parts.append("### EXTERNAL DIAGNOSIS KNOWLEDGE\n" + diagnosis_path.read_text(encoding="utf-8").strip())
-        else:
-            print(f"Warning: diagnosis knowledge file not found: {diagnosis_path}")
-
-    return "\n\n".join([p for p in parts if p]).strip()
+    code_candidate = CODE_DIR / candidate
+    if code_candidate.exists():
+        return code_candidate.resolve()
+    return candidate.resolve()
 
 
 def _normalize_response_text(content):
@@ -282,7 +271,36 @@ def compare_results(diagnosis, correct_diagnosis, moderator_llm):
     return answer.lower()
 
 
-def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False, use_uncertainty_aware=False, uncertainty_agent_type="uncertainty_aware_doctor", knowledge_mode="none", data_file=None):
+def _load_doctor_agent_class(custom_agent_path: str | None):
+    if not custom_agent_path:
+        return DoctorAgent
+
+    agent_path = _resolve_custom_agent_path(custom_agent_path)
+    if agent_path is None or not agent_path.exists():
+        raise FileNotFoundError(f"Custom doctor agent file not found: {custom_agent_path}")
+
+    spec = importlib.util.spec_from_file_location(f"custom_doctor_agent_{agent_path.stem}", agent_path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Could not load custom doctor agent module from {agent_path}")
+
+    module = importlib.util.module_from_spec(spec)
+    module.query_model = query_model
+    module.DoctorAgentBase = DoctorAgent
+    module.CODE_DIR = CODE_DIR
+    module.DATA_DIR = DATA_DIR
+    spec.loader.exec_module(module)
+
+    agent_cls = getattr(module, "CustomDoctorAgent", None) or getattr(module, "DoctorAgent", None)
+    if agent_cls is None:
+        raise AttributeError(
+            f"Custom doctor agent file {agent_path} must define a CustomDoctorAgent or DoctorAgent class"
+        )
+    if not hasattr(agent_cls, "inference_doctor"):
+        raise TypeError(f"Custom doctor agent class in {agent_path} must define inference_doctor(...)")
+    return agent_cls
+
+
+def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False, custom_doctor_agent_path=None, data_file=None):
     global client
     if api_key:
         client = OpenAI(api_key=api_key)
@@ -318,6 +336,7 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
     
     start_id = scenario_offset
     end_id = min(scenario_offset + num_scenarios, scenario_loader.num_scenarios)
+    doctor_agent_cls = _load_doctor_agent_class(custom_doctor_agent_path)
     
     for _scenario_id in range(start_id, end_id):
         total_presents += 1
@@ -332,27 +351,13 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
             scenario=scenario, 
             bias_present=patient_bias,
             backend_str=patient_llm)
-        
- 
-        if use_uncertainty_aware:
-            from uncertainty_aware_doctor import UncertaintyAwareDoctorAgent
 
-            doctor_agent = UncertaintyAwareDoctorAgent(
-                scenario=scenario,
-                bias_present=doctor_bias,
-                backend_str=doctor_llm,
-                max_infs=total_inferences,
-                img_request=img_request,
-                agent_type=uncertainty_agent_type,
-            )
-        else:
-            doctor_agent = DoctorAgent(
-                scenario=scenario,
-                bias_present=doctor_bias,
-                backend_str=doctor_llm,
-                max_infs=total_inferences,
-                img_request=img_request,
-                knowledge_mode=knowledge_mode)
+        doctor_agent = doctor_agent_cls(
+            scenario=scenario,
+            bias_present=doctor_bias,
+            backend_str=doctor_llm,
+            max_infs=total_inferences,
+            img_request=img_request)
 
         print(f"\n\n================================================================")
         print(f"STARTING SCENARIO {_scenario_id}")
@@ -766,7 +771,7 @@ class PatientAgent:
 
 
 class DoctorAgent:
-    def __init__(self, scenario, backend_str="gpt-5-nano", max_infs=20, bias_present=None, img_request=False, knowledge_mode="none") -> None:
+    def __init__(self, scenario, backend_str="gpt-5-nano", max_infs=20, bias_present=None, img_request=False) -> None:
         self.infs = 0
         self.MAX_INFS = max_infs
         self.agent_hist = ""
@@ -781,8 +786,6 @@ class DoctorAgent:
         self.prompt_tokens = 0
         self.completion_tokens = 0
         self.last_uncertainty_reasoning = ""
-        self.knowledge_mode = (knowledge_mode or "none").strip().lower()
-        self.knowledge_text = _load_knowledge_text(self.knowledge_mode)
         self._experience_printed = False
 
     def generate_bias(self) -> str:
@@ -851,9 +854,6 @@ If a requested physical exam, laboratory test, or imaging study is unavailable, 
 ### RULES - **Diagnosis:** When you have gathered sufficient evidence to be confident, output "DIAGNOSIS READY: [diagnosis here]". - **Mutually Exclusive:** if you need ask further questions or request tests you are not ready for Diagnosis
 
 """
-
-        if self.knowledge_text:
-            experience += f"\n\n### EXTERNAL MEDICAL KNOWLEDGE ({self.knowledge_mode.upper()}):\n{self.knowledge_text}\n"
 
         if not self._experience_printed:
             print("\n================ DOCTOR EXPERIENCE PROMPT START ================")
@@ -985,9 +985,7 @@ if __name__ == "__main__":
     parser.add_argument('--scenario_offset', type=int, default=0, required=False, help='Scenario ID to start from')
     parser.add_argument('--data_file', type=str, default=None, required=False, help='Override scenario JSONL path for compatible datasets')
     parser.add_argument('--use_memory', action='store_true', default=False, help='Enable memory retrieval from past experiences (default: disabled)')
-    parser.add_argument('--use_uncertainty_aware', action='store_true', default=False, help='Use uncertainty-aware doctor agent with explicit reasoning tracking (default: disabled)')
-    parser.add_argument('--uncertainty_agent_type', type=str, default='uncertainty_aware_doctor', help='Uncertainty-aware agent type (default: uncertainty_aware_doctor)')
-    parser.add_argument('--knowledge', type=str, default='none', choices=['none', 'symptom', 'diagnosis', 'both'], help='External knowledge mode for DoctorAgent (default: none)')
+    parser.add_argument('--custom_doctor_agent_path', type=str, default=None, required=False, help='Path to a Python file that defines a CustomDoctorAgent or DoctorAgent class with the same interface as the built-in DoctorAgent')
     args = parser.parse_args()
 
-    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory, args.use_uncertainty_aware, args.uncertainty_agent_type, args.knowledge, args.data_file)
+    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory, args.custom_doctor_agent_path, args.data_file)
