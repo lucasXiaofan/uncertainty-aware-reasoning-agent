@@ -1,0 +1,6 @@
+MIMIC-IV Partial Information Stats Report
+=========================================
+Total records processed: 5513
+Records with *SOME* patient history (non-empty history_json): 328
+Records with *SOME* physical exam vitals (Blood Pressure, Temp, etc. in tests_json): 2158
+Records containing BOTH some history and some physical exams: 213

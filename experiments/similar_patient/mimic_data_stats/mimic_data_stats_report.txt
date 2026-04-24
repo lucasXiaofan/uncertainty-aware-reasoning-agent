@@ -1,0 +1,7 @@
+MIMIC-IV Data Stats Report
+==========================
+Total records processed: 5513
+Records lacking Patient Information (Symptoms, Social History, Review of Systems): 5297
+Records lacking Physical Examination Findings (Heart Rate, Respiratory Rate, Palpation, etc.): 5513
+Records lacking both: 5297
+Records with full information: 0

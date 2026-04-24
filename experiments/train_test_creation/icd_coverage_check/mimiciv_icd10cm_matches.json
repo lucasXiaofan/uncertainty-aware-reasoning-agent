@@ -1,0 +1,922 @@
+{
+  "Abdominal pain, epigastric": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R1013",
+    "diagnosis": "Abdominal pain, epigastric",
+    "icd10cm_description": "Epigastric pain",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.633
+  },
+  "Abdominal pain, right lower quadrant": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R1031",
+    "diagnosis": "Abdominal pain, right lower quadrant",
+    "icd10cm_description": "Right lower quadrant pain",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.773
+  },
+  "Achalasia and cardiospasm": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K220",
+    "diagnosis": "Achalasia and cardiospasm",
+    "icd10cm_description": "Achalasia of cardia",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.381
+  },
+  "Acute Pharyngitis": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J029",
+    "diagnosis": "Acute Pharyngitis",
+    "icd10cm_description": "Acute pharyngitis, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Acute appendicitis with generalized peritonitis": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K35211",
+    "diagnosis": "Acute appendicitis with generalized peritonitis",
+    "icd10cm_description": "Acute appendicitis with generalized peritonitis, with perforation and abscess",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.84
+  },
+  "Acute appendicitis without mention of peritonitis": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K3580",
+    "diagnosis": "Acute appendicitis without mention of peritonitis",
+    "icd10cm_description": "Unspecified acute appendicitis",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Acute infective polyneuritis": {
+    "chapter": "Diseases of the nervous system",
+    "code": "G610",
+    "diagnosis": "Acute infective polyneuritis",
+    "icd10cm_description": "Guillain-Barre syndrome",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Acute pericarditis, unspecified": {
+    "chapter": "Diseases of the circulatory system",
+    "code": "I309",
+    "diagnosis": "Acute pericarditis, unspecified",
+    "icd10cm_description": "Acute pericarditis, unspecified",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Acute pharyngitis": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J029",
+    "diagnosis": "Acute pharyngitis",
+    "icd10cm_description": "Acute pharyngitis, unspecified",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.848
+  },
+  "Acute pharyngitis, unspecified": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J029",
+    "diagnosis": "Acute pharyngitis, unspecified",
+    "icd10cm_description": "Acute pharyngitis, unspecified",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Acute tonsillitis": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J0390",
+    "diagnosis": "Acute tonsillitis",
+    "icd10cm_description": "Acute tonsillitis, unspecified",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.848
+  },
+  "Acute venous embolism and thrombosis of unspecified deep vessels of lower extremity": {
+    "chapter": "Diseases of the circulatory system",
+    "code": "I82409",
+    "diagnosis": "Acute venous embolism and thrombosis of unspecified deep vessels of lower extremity",
+    "icd10cm_description": "Acute embolism and thrombosis of unspecified deep veins of unspecified lower extremity",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.805
+  },
+  "Alcohol abuse with intoxication, unspecified": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F10129",
+    "diagnosis": "Alcohol abuse with intoxication, unspecified",
+    "icd10cm_description": "Alcohol abuse with intoxication, unspecified",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Alcohol abuse, unspecified": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F1010",
+    "diagnosis": "Alcohol abuse, unspecified",
+    "icd10cm_description": "Alcohol abuse, uncomplicated",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Anaphylactic reaction due to unspecified food": {
+    "chapter": "Injury, poisoning and certain other consequences of external causes",
+    "code": "T7800XA",
+    "diagnosis": "Anaphylactic reaction due to unspecified food",
+    "icd10cm_description": "Anaphylactic reaction due to unspecified food, initial encounter",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Anomalies of other endocrine glands": {
+    "chapter": "Congenital malformations, deformations and chromosomal abnormalities",
+    "code": "Q891",
+    "diagnosis": "Anomalies of other endocrine glands",
+    "icd10cm_description": "Congenital malformations of adrenal gland",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Anxiety state, unspecified": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F419",
+    "diagnosis": "Anxiety state, unspecified",
+    "icd10cm_description": "Anxiety disorder, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Atherosclerosis of native arteries of the extremities with rest pain": {
+    "chapter": "Diseases of the circulatory system",
+    "code": "I70222",
+    "diagnosis": "Atherosclerosis of native arteries of the extremities with rest pain",
+    "icd10cm_description": "Atherosclerosis of native arteries of extremities with rest pain, left leg",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.844
+  },
+  "Atrial fibrillation": {
+    "chapter": "Diseases of the circulatory system",
+    "code": "I4821",
+    "diagnosis": "Atrial fibrillation",
+    "icd10cm_description": "Permanent atrial fibrillation",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.858
+  },
+  "Backache, unspecified": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M549",
+    "diagnosis": "Backache, unspecified",
+    "icd10cm_description": "Dorsalgia, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Bacterial Pharyngitis": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J020",
+    "diagnosis": "Bacterial Pharyngitis",
+    "icd10cm_description": "Streptococcal pharyngitis",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Bacterial Vaginosis": {
+    "chapter": "Diseases of the genitourinary system",
+    "code": "N760",
+    "diagnosis": "Bacterial Vaginosis",
+    "icd10cm_description": "Acute vaginitis",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Benign neoplasm of ovary": {
+    "chapter": "Neoplasms",
+    "code": "D271",
+    "diagnosis": "Benign neoplasm of ovary",
+    "icd10cm_description": "Benign neoplasm of left ovary",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.921
+  },
+  "Bipolar II Disorder": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F3181",
+    "diagnosis": "Bipolar II Disorder",
+    "icd10cm_description": "Bipolar II disorder",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Calculus of bile duct without mention of cholecystitis, without mention of obstruction": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K8050",
+    "diagnosis": "Calculus of bile duct without mention of cholecystitis, without mention of obstruction",
+    "icd10cm_description": "Calculus of bile duct without cholangitis or cholecystitis without obstruction",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Calculus of gallbladder and bile duct with other cholecystitis, without mention of obstruction": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K8070",
+    "diagnosis": "Calculus of gallbladder and bile duct with other cholecystitis, without mention of obstruction",
+    "icd10cm_description": "Calculus of gallbladder and bile duct without cholecystitis without obstruction",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Calculus of gallbladder with acute and chronic cholecystitis without obstruction": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K8012",
+    "diagnosis": "Calculus of gallbladder with acute and chronic cholecystitis without obstruction",
+    "icd10cm_description": "Calculus of gallbladder with acute and chronic cholecystitis without obstruction",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Calculus of gallbladder with acute cholecystitis, without mention of obstruction": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K8000",
+    "diagnosis": "Calculus of gallbladder with acute cholecystitis, without mention of obstruction",
+    "icd10cm_description": "Calculus of gallbladder with acute cholecystitis without obstruction",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Calculus of gallbladder with other cholecystitis, without mention of obstruction": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K8010",
+    "diagnosis": "Calculus of gallbladder with other cholecystitis, without mention of obstruction",
+    "icd10cm_description": "Calculus of gallbladder with chronic cholecystitis without obstruction",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Calculus of kidney": {
+    "chapter": "Diseases of the genitourinary system",
+    "code": "N200",
+    "diagnosis": "Calculus of kidney",
+    "icd10cm_description": "Calculus of kidney",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Calculus of ureter": {
+    "chapter": "Diseases of the genitourinary system",
+    "code": "N201",
+    "diagnosis": "Calculus of ureter",
+    "icd10cm_description": "Calculus of ureter",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Cellulitis and abscess of face": {
+    "chapter": "Diseases of the skin and subcutaneous tissue",
+    "code": "L03211",
+    "diagnosis": "Cellulitis and abscess of face",
+    "icd10cm_description": "Cellulitis of face",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Cellulitis and abscess of finger, unspecified": {
+    "chapter": "Diseases of the skin and subcutaneous tissue",
+    "code": "L03019",
+    "diagnosis": "Cellulitis and abscess of finger, unspecified",
+    "icd10cm_description": "Cellulitis of unspecified finger",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Cellulitis and abscess of foot, except toes": {
+    "chapter": "Diseases of the skin and subcutaneous tissue",
+    "code": "L03119",
+    "diagnosis": "Cellulitis and abscess of foot, except toes",
+    "icd10cm_description": "Cellulitis of unspecified part of limb",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Cellulitis and abscess of leg, except foot": {
+    "chapter": "Diseases of the skin and subcutaneous tissue",
+    "code": "L03119",
+    "diagnosis": "Cellulitis and abscess of leg, except foot",
+    "icd10cm_description": "Cellulitis of unspecified part of limb",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Cellulitis and abscess of upper arm and forearm": {
+    "chapter": "Diseases of the skin and subcutaneous tissue",
+    "code": "L03119",
+    "diagnosis": "Cellulitis and abscess of upper arm and forearm",
+    "icd10cm_description": "Cellulitis of unspecified part of limb",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Cerebral aneurysm, nonruptured": {
+    "chapter": "Diseases of the circulatory system",
+    "code": "I671",
+    "diagnosis": "Cerebral aneurysm, nonruptured",
+    "icd10cm_description": "Cerebral aneurysm, nonruptured",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Cerebral artery occlusion, unspecified with cerebral infarction": {
+    "chapter": "Diseases of the circulatory system",
+    "code": "I6320",
+    "diagnosis": "Cerebral artery occlusion, unspecified with cerebral infarction",
+    "icd10cm_description": "Cerebral infarction due to unspecified occlusion or stenosis of unspecified precerebral arteries",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Cervical spondylosis with myelopathy": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M4712",
+    "diagnosis": "Cervical spondylosis with myelopathy",
+    "icd10cm_description": "Other spondylosis with myelopathy, cervical region",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.841
+  },
+  "Cervical spondylosis without myelopathy": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M47812",
+    "diagnosis": "Cervical spondylosis without myelopathy",
+    "icd10cm_description": "Spondylosis without myelopathy or radiculopathy, cervical region",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.789
+  },
+  "Chest pain, unspecified": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R079",
+    "diagnosis": "Chest pain, unspecified",
+    "icd10cm_description": "Chest pain, unspecified",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Chronic paroxysmal hemicrania": {
+    "chapter": "Diseases of the nervous system",
+    "code": "G44041",
+    "diagnosis": "Chronic paroxysmal hemicrania",
+    "icd10cm_description": "Chronic paroxysmal hemicrania, intractable",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.891
+  },
+  "Compression of the brain": {
+    "chapter": "Diseases of the nervous system",
+    "code": "G935",
+    "diagnosis": "Compression of the brain",
+    "icd10cm_description": "Compression of brain",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.782
+  },
+  "Contact dermatitis and other eczema, unspecified cause": {
+    "chapter": "Diseases of the skin and subcutaneous tissue",
+    "code": "L259",
+    "diagnosis": "Contact dermatitis and other eczema, unspecified cause",
+    "icd10cm_description": "Unspecified contact dermatitis, unspecified cause",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.6
+  },
+  "Depressive disorder, not elsewhere classified": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F329",
+    "diagnosis": "Depressive disorder, not elsewhere classified",
+    "icd10cm_description": "Major depressive disorder, single episode, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Diabetes Mellitus with possible Diabetic Neuropathy": {
+    "chapter": "Endocrine, nutritional and metabolic diseases",
+    "code": "E1140",
+    "diagnosis": "Diabetes Mellitus with possible Diabetic Neuropathy",
+    "icd10cm_description": "Type 2 diabetes mellitus with diabetic neuropathy, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled": {
+    "chapter": "Endocrine, nutritional and metabolic diseases",
+    "code": "E119",
+    "diagnosis": "Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",
+    "icd10cm_description": "Type 2 diabetes mellitus without complications",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Displacement of cervical intervertebral disc without myelopathy": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M5020",
+    "diagnosis": "Displacement of cervical intervertebral disc without myelopathy",
+    "icd10cm_description": "Other cervical disc displacement, unspecified cervical region",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Displacement of lumbar intervertebral disc without myelopathy": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M5126",
+    "diagnosis": "Displacement of lumbar intervertebral disc without myelopathy",
+    "icd10cm_description": "Other intervertebral disc displacement, lumbar region",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Dissection of vertebral artery": {
+    "chapter": "Diseases of the circulatory system",
+    "code": "I7774",
+    "diagnosis": "Dissection of vertebral artery",
+    "icd10cm_description": "Dissection of vertebral artery",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Diverticulitis of colon (without mention of hemorrhage)": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K5732",
+    "diagnosis": "Diverticulitis of colon (without mention of hemorrhage)",
+    "icd10cm_description": "Diverticulitis of large intestine without perforation or abscess without bleeding",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Dizziness and giddiness": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R42",
+    "diagnosis": "Dizziness and giddiness",
+    "icd10cm_description": "Dizziness and giddiness",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Epigastric abdominal pain likely due to Gallstones/Cholelithiasis": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K8020",
+    "diagnosis": "Epigastric abdominal pain likely due to Gallstones/Cholelithiasis",
+    "icd10cm_description": "Calculus of gallbladder without cholecystitis without obstruction",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Epistaxis": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R040",
+    "diagnosis": "Epistaxis",
+    "icd10cm_description": "Epistaxis",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Hydronephrosis with renal and ureteral calculous obstruction": {
+    "chapter": "Diseases of the genitourinary system",
+    "code": "N132",
+    "diagnosis": "Hydronephrosis with renal and ureteral calculous obstruction",
+    "icd10cm_description": "Hydronephrosis with renal and ureteral calculous obstruction",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Infective otitis externa, unspecified": {
+    "chapter": "Diseases of the ear and mastoid process",
+    "code": "H60399",
+    "diagnosis": "Infective otitis externa, unspecified",
+    "icd10cm_description": "Other infective otitis externa, unspecified ear",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.876
+  },
+  "Interstitial Emphysema": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J982",
+    "diagnosis": "Interstitial Emphysema",
+    "icd10cm_description": "Interstitial emphysema",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Intervertebral disc disorders with radiculopathy, lumbosacral region": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M5117",
+    "diagnosis": "Intervertebral disc disorders with radiculopathy, lumbosacral region",
+    "icd10cm_description": "Intervertebral disc disorders with radiculopathy, lumbosacral region",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Ischiorectal abscess": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K6139",
+    "diagnosis": "Ischiorectal abscess",
+    "icd10cm_description": "Other ischiorectal abscess",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.874
+  },
+  "Left tubal pregnancy without intrauterine pregnancy": {
+    "chapter": "Pregnancy, childbirth and the puerperium",
+    "code": "O00102",
+    "diagnosis": "Left tubal pregnancy without intrauterine pregnancy",
+    "icd10cm_description": "Left tubal pregnancy without intrauterine pregnancy",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Leiomyoma of uterus, unspecified": {
+    "chapter": "Neoplasms",
+    "code": "D259",
+    "diagnosis": "Leiomyoma of uterus, unspecified",
+    "icd10cm_description": "Leiomyoma of uterus, unspecified",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Lumbago": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M5450",
+    "diagnosis": "Lumbago",
+    "icd10cm_description": "Low back pain, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Lyme Disease": {
+    "chapter": "Certain infectious and parasitic diseases",
+    "code": "A6920",
+    "diagnosis": "Lyme Disease",
+    "icd10cm_description": "Lyme disease, unspecified",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.833
+  },
+  "Major depressive disorder, recurrent severe without psychotic features": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F332",
+    "diagnosis": "Major depressive disorder, recurrent severe without psychotic features",
+    "icd10cm_description": "Major depressive disorder, recurrent severe without psychotic features",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Major depressive disorder, single episode, unspecified": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F329",
+    "diagnosis": "Major depressive disorder, single episode, unspecified",
+    "icd10cm_description": "Major depressive disorder, single episode, unspecified",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Malignant neoplasm of kidney, except pelvis": {
+    "chapter": "Neoplasms",
+    "code": "C649",
+    "diagnosis": "Malignant neoplasm of kidney, except pelvis",
+    "icd10cm_description": "Malignant neoplasm of unspecified kidney, except renal pelvis",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Malignant neoplasm of left kidney, except renal pelvis": {
+    "chapter": "Neoplasms",
+    "code": "C642",
+    "diagnosis": "Malignant neoplasm of left kidney, except renal pelvis",
+    "icd10cm_description": "Malignant neoplasm of left kidney, except renal pelvis",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Malignant neoplasm of prostate": {
+    "chapter": "Neoplasms",
+    "code": "C61",
+    "diagnosis": "Malignant neoplasm of prostate",
+    "icd10cm_description": "Malignant neoplasm of prostate",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Malignant neoplasm of thyroid gland": {
+    "chapter": "Neoplasms",
+    "code": "C73",
+    "diagnosis": "Malignant neoplasm of thyroid gland",
+    "icd10cm_description": "Malignant neoplasm of thyroid gland",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Migraine with aura, not intractable, without status migrainosus": {
+    "chapter": "Diseases of the nervous system",
+    "code": "G43109",
+    "diagnosis": "Migraine with aura, not intractable, without status migrainosus",
+    "icd10cm_description": "Migraine with aura, not intractable, without status migrainosus",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Mononucleosis (Infectious mononucleosis caused by Epstein-Barr virus)": {
+    "chapter": "Certain infectious and parasitic diseases",
+    "code": "B2700",
+    "diagnosis": "Mononucleosis (Infectious mononucleosis caused by Epstein-Barr virus)",
+    "icd10cm_description": "Gammaherpesviral mononucleosis without complication",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Occipital neuralgia": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M5481",
+    "diagnosis": "Occipital neuralgia",
+    "icd10cm_description": "Occipital neuralgia",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Occlusion and stenosis of carotid artery without mention of cerebral infarction": {
+    "chapter": "Diseases of the circulatory system",
+    "code": "I6529",
+    "diagnosis": "Occlusion and stenosis of carotid artery without mention of cerebral infarction",
+    "icd10cm_description": "Occlusion and stenosis of unspecified carotid artery",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Onychia and paronychia of finger": {
+    "chapter": "Diseases of the skin and subcutaneous tissue",
+    "code": "L03019",
+    "diagnosis": "Onychia and paronychia of finger",
+    "icd10cm_description": "Cellulitis of unspecified finger",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Opioid abuse, continuous": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F1120",
+    "diagnosis": "Opioid abuse, continuous",
+    "icd10cm_description": "Opioid dependence, uncomplicated",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Other and unspecified noninfectious gastroenteritis and colitis": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K529",
+    "diagnosis": "Other and unspecified noninfectious gastroenteritis and colitis",
+    "icd10cm_description": "Noninfective gastroenteritis and colitis, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Other causes of myelitis": {
+    "chapter": "Diseases of the nervous system",
+    "code": "G0491",
+    "diagnosis": "Other causes of myelitis",
+    "icd10cm_description": "Myelitis, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Other chest pain": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R0789",
+    "diagnosis": "Other chest pain",
+    "icd10cm_description": "Other chest pain",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Other convulsions": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R569",
+    "diagnosis": "Other convulsions",
+    "icd10cm_description": "Unspecified convulsions",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.48
+  },
+  "Other pulmonary embolism and infarction": {
+    "chapter": "Diseases of the circulatory system",
+    "code": "I2699",
+    "diagnosis": "Other pulmonary embolism and infarction",
+    "icd10cm_description": "Other pulmonary embolism without acute cor pulmonale",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Other respiratory abnormalities": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R0689",
+    "diagnosis": "Other respiratory abnormalities",
+    "icd10cm_description": "Other abnormalities of breathing",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Otitis media, unspecified, left ear": {
+    "chapter": "Diseases of the ear and mastoid process",
+    "code": "H6692",
+    "diagnosis": "Otitis media, unspecified, left ear",
+    "icd10cm_description": "Otitis media, unspecified, left ear",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Pain in limb": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M79609",
+    "diagnosis": "Pain in limb",
+    "icd10cm_description": "Pain in unspecified limb",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.858
+  },
+  "Pathologic fracture of vertebrae": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M8448XA",
+    "diagnosis": "Pathologic fracture of vertebrae",
+    "icd10cm_description": "Pathological fracture, other site, initial encounter for fracture",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Peptic Ulcer Disease": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K279",
+    "diagnosis": "Peptic Ulcer Disease",
+    "icd10cm_description": "Peptic ulcer, site unspecified, unspecified as acute or chronic, without hemorrhage or perforation",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Peripheral vertigo, unspecified": {
+    "chapter": "Diseases of the ear and mastoid process",
+    "code": "H81399",
+    "diagnosis": "Peripheral vertigo, unspecified",
+    "icd10cm_description": "Other peripheral vertigo, unspecified ear",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.851
+  },
+  "Peritonsillar abscess": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J36",
+    "diagnosis": "Peritonsillar abscess",
+    "icd10cm_description": "Peritonsillar abscess",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Pilonidal cyst with abscess": {
+    "chapter": "Diseases of the skin and subcutaneous tissue",
+    "code": "L0501",
+    "diagnosis": "Pilonidal cyst with abscess",
+    "icd10cm_description": "Pilonidal cyst with abscess",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Pneumonia, organism unspecified": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J189",
+    "diagnosis": "Pneumonia, organism unspecified",
+    "icd10cm_description": "Pneumonia, unspecified organism",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.94
+  },
+  "Pyelonephritis, unspecified": {
+    "chapter": "Diseases of the genitourinary system",
+    "code": "N12",
+    "diagnosis": "Pyelonephritis, unspecified",
+    "icd10cm_description": "Tubulo-interstitial nephritis, not specified as acute or chronic",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Reaction to spinal or lumbar puncture": {
+    "chapter": "Diseases of the nervous system",
+    "code": "G971",
+    "diagnosis": "Reaction to spinal or lumbar puncture",
+    "icd10cm_description": "Other reaction to spinal and lumbar puncture",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.777
+  },
+  "Renal colic": {
+    "chapter": "Diseases of the genitourinary system",
+    "code": "N23",
+    "diagnosis": "Renal colic",
+    "icd10cm_description": "Unspecified renal colic",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Rhabdomyolysis": {
+    "chapter": "Diseases of the musculoskeletal system and connective tissue",
+    "code": "M6282",
+    "diagnosis": "Rhabdomyolysis",
+    "icd10cm_description": "Rhabdomyolysis",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Right tubal pregnancy without intrauterine pregnancy": {
+    "chapter": "Pregnancy, childbirth and the puerperium",
+    "code": "O00101",
+    "diagnosis": "Right tubal pregnancy without intrauterine pregnancy",
+    "icd10cm_description": "Right tubal pregnancy without intrauterine pregnancy",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Schizoaffective disorder, unspecified": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F259",
+    "diagnosis": "Schizoaffective disorder, unspecified",
+    "icd10cm_description": "Schizoaffective disorder, unspecified",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Streptococcal pharyngitis": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J020",
+    "diagnosis": "Streptococcal pharyngitis",
+    "icd10cm_description": "Streptococcal pharyngitis",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Streptococcal sore throat": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J020",
+    "diagnosis": "Streptococcal sore throat",
+    "icd10cm_description": "Streptococcal pharyngitis",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Suicidal ideation": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R45851",
+    "diagnosis": "Suicidal ideation",
+    "icd10cm_description": "Suicidal ideations",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.544
+  },
+  "Syncope and collapse": {
+    "chapter": "Symptoms, signs and abnormal clinical and laboratory findings",
+    "code": "R55",
+    "diagnosis": "Syncope and collapse",
+    "icd10cm_description": "Syncope and collapse",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "The findings do not strongly indicate a specific acute pathology and may be consistent with a non-specific viral illness or early presentation of a more specific illness. The normal range of most test results suggests that there is no immediate acute disease. Given the generalized symptoms and lack of specific findings, a conservative approach with symptomatic treatment and watchful waiting is recommended with instructions to return or seek further care if symptoms worsen or if more specific symptoms develop.": {
+    "chapter": "Certain infectious and parasitic diseases",
+    "code": "B349",
+    "diagnosis": "The findings do not strongly indicate a specific acute pathology and may be consistent with a non-specific viral illness or early presentation of a more specific illness. The normal range of most test results suggests that there is no immediate acute disease. Given the generalized symptoms and lack of specific findings, a conservative approach with symptomatic treatment and watchful waiting is recommended with instructions to return or seek further care if symptoms worsen or if more specific symptoms develop.",
+    "icd10cm_description": "Viral infection, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Threatened premature labor, antepartum condition or complication": {
+    "chapter": "Pregnancy, childbirth and the puerperium",
+    "code": "O479",
+    "diagnosis": "Threatened premature labor, antepartum condition or complication",
+    "icd10cm_description": "False labor, unspecified",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Torsion of testis, unspecified": {
+    "chapter": "Diseases of the genitourinary system",
+    "code": "N4400",
+    "diagnosis": "Torsion of testis, unspecified",
+    "icd10cm_description": "Torsion of testis, unspecified",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Toxic diffuse goiter without mention of thyrotoxic crisis or storm": {
+    "chapter": "Endocrine, nutritional and metabolic diseases",
+    "code": "E0500",
+    "diagnosis": "Toxic diffuse goiter without mention of thyrotoxic crisis or storm",
+    "icd10cm_description": "Thyrotoxicosis with diffuse goiter without thyrotoxic crisis or storm",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Type 2 Diabetes Mellitus with signs of hypertension and microalbuminuria": {
+    "chapter": "Endocrine, nutritional and metabolic diseases",
+    "code": "E1129",
+    "diagnosis": "Type 2 Diabetes Mellitus with signs of hypertension and microalbuminuria",
+    "icd10cm_description": "Type 2 diabetes mellitus with other diabetic kidney complication",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Ulcerative (chronic) enterocolitis": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K5190",
+    "diagnosis": "Ulcerative (chronic) enterocolitis",
+    "icd10cm_description": "Ulcerative colitis, unspecified, without complications",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Umbilical hernia with obstruction, without gangrene": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K420",
+    "diagnosis": "Umbilical hernia with obstruction, without gangrene",
+    "icd10cm_description": "Umbilical hernia with obstruction, without gangrene",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Unspecified acute appendicitis": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K3580",
+    "diagnosis": "Unspecified acute appendicitis",
+    "icd10cm_description": "Unspecified acute appendicitis",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Unspecified appendicitis": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K37",
+    "diagnosis": "Unspecified appendicitis",
+    "icd10cm_description": "Unspecified appendicitis",
+    "match_method": "exact_normalized_description",
+    "match_score": 1.0
+  },
+  "Unspecified intestinal obstruction": {
+    "chapter": "Diseases of the digestive system",
+    "code": "K56609",
+    "diagnosis": "Unspecified intestinal obstruction",
+    "icd10cm_description": "Unspecified intestinal obstruction, unspecified as to partial versus complete obstruction",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Unspecified psychosis": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F29",
+    "diagnosis": "Unspecified psychosis",
+    "icd10cm_description": "Unspecified psychosis not due to a substance or known physiological condition",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.64
+  },
+  "Unspecified psychosis possibly compounded by substance use (noting the positive opiate screen). However, thorough examination and history are required to exclude other organic causes.": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F29",
+    "diagnosis": "Unspecified psychosis possibly compounded by substance use (noting the positive opiate screen). However, thorough examination and history are required to exclude other organic causes.",
+    "icd10cm_description": "Unspecified psychosis not due to a substance or known physiological condition",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Unspecified schizophrenia, unspecified": {
+    "chapter": "Mental, behavioral and neurodevelopmental disorders",
+    "code": "F209",
+    "diagnosis": "Unspecified schizophrenia, unspecified",
+    "icd10cm_description": "Schizophrenia, unspecified",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.961
+  },
+  "Unspecified sinusitis (chronic)": {
+    "chapter": "Diseases of the respiratory system",
+    "code": "J328",
+    "diagnosis": "Unspecified sinusitis (chronic)",
+    "icd10cm_description": "Other chronic sinusitis",
+    "match_method": "manual_legacy_or_narrative_mapping",
+    "match_score": null
+  },
+  "Unspecified transient cerebral ischemia": {
+    "chapter": "Diseases of the nervous system",
+    "code": "G459",
+    "diagnosis": "Unspecified transient cerebral ischemia",
+    "icd10cm_description": "Transient cerebral ischemic attack, unspecified",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.652
+  },
+  "Unspecified viral meningitis": {
+    "chapter": "Certain infectious and parasitic diseases",
+    "code": "A879",
+    "diagnosis": "Unspecified viral meningitis",
+    "icd10cm_description": "Viral meningitis, unspecified",
+    "match_method": "fuzzy_description_match",
+    "match_score": 0.914
+  }
+}
