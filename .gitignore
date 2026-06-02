@@ -220,6 +220,10 @@ results/
 data/*.json
 data/*.csv
 
+# SEA dual-memory state (generated experience; build with build_experience.py)
+sea_state.json
+**/sea_state*.json
+
 # VS Code
 logs/
 outputs/
