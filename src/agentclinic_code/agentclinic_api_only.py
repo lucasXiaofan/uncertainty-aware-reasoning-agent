@@ -444,6 +444,16 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                         "correct_diagnosis": str(scenario.diagnosis_information()),
                         "model_diagnosis": doctor_dialogue,
                         "model_uncertainty_reasoning": current_uncertainty_reasoning,
+                        "differential_diagnosis_list": getattr(
+                            doctor_agent,
+                            "differential_diagnosis_list",
+                            getattr(doctor_agent, "differential_diagnosis_list", ""),
+                        ),
+                        "osce_note": getattr(
+                            doctor_agent,
+                            "osce_note",
+                            getattr(doctor_agent, "osce_note", ""),
+                        ),
                         "correct": correctness,
                         "dialogue_history": dialogue_log,
                         "token_usage": token_usage,
@@ -510,6 +520,16 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                     "correct_diagnosis": str(scenario.diagnosis_information()),
                     "model_diagnosis": "No diagnosis reached",
                     "model_uncertainty_reasoning": getattr(doctor_agent, "last_uncertainty_reasoning", ""),
+                    "differential_diagnosis_list": getattr(
+                        doctor_agent,
+                        "differential_diagnosis_list",
+                        getattr(doctor_agent, "last_uncertainty_reasoning", ""),
+                    ),
+                    "osce_note": getattr(
+                        doctor_agent,
+                        "osce_note",
+                        getattr(doctor_agent, "latest_osce_note", ""),
+                    ),
                     "correct": False,
                     "dialogue_history": dialogue_log,
                     "token_usage": token_usage,
@@ -786,6 +806,8 @@ class DoctorAgent:
         self.prompt_tokens = 0
         self.completion_tokens = 0
         self.last_uncertainty_reasoning = ""
+        self.differential_diagnosis_list = ""
+        self.osce_note = ""
         self._experience_printed = False
 
     def generate_bias(self) -> str:
@@ -904,6 +926,7 @@ If a requested physical exam, laboratory test, or imaging study is unavailable, 
                 answer = str(result)
 
         self.last_uncertainty_reasoning = uncertainty_reasoning
+        self.differential_diagnosis_list = uncertainty_reasoning
         self.agent_hist += question + "\n\n" + answer + "\n\n"
         self.infs += 1
         return answer
@@ -920,6 +943,8 @@ If a requested physical exam, laboratory test, or imaging study is unavailable, 
         self.agent_hist = ""
         self.presentation = self.scenario.examiner_information()
         self.last_uncertainty_reasoning = ""
+        self.differential_diagnosis_list = ""
+        self.osce_note = ""
         self._experience_printed = False
 
 

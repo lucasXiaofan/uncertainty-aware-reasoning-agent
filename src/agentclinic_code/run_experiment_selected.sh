@@ -9,7 +9,7 @@ fi
 #   ./run_experiment_selected.sh --model <model> --data_file <path> {--ids <list> | --count <num>} [OPTIONS]
 #
 # Required:
-#   --model <str>      Model for all agents. Default: gpt-5-nano.
+#   --model <str>      Model for all agents. Default: gpt-5.4-nano.
 #   --data_file <path> Path to the dataset (.jsonl) file.
 #   --ids <list>       Select specific case IDs (comma-separated, e.g. 0,2,8,15).
 #     OR
@@ -35,20 +35,57 @@ fi
 set -e
 set -o pipefail
 
-MODEL="gpt-5-nano"
+MODEL="gpt-5.4-nano"
+DEFAULT_MODEL="$MODEL"
 
 EXPERIMENT_NAME=""
 FOLDER_NAME=""
 WORKERS=10
+DEFAULT_WORKERS="$WORKERS"
 DATA_FILE_OVERRIDE=""
 IDS_1BASED=""
 COUNT=""
 START_INDEX=0
+DEFAULT_START_INDEX="$START_INDEX"
 RANDOM_SELECT=""
 AGENT_DATASET=""
 CUSTOM_DOCTOR_AGENT_PATH=""
+DEFAULT_TOTAL_INFERENCES=30
 
 IDS_LIST=()
+
+print_usage() {
+    cat <<EOF
+Usage:
+  $0 --data_file <path> {--ids <list> | --count <num>} [OPTIONS]
+
+Required:
+  --data_file <path> Path to the dataset (.jsonl) file.
+  --ids <list>       Select specific case IDs, comma-separated.
+    OR
+  --count <num>      Evaluate N cases from --start, or random N with --random.
+
+Current defaults:
+  --model                         $DEFAULT_MODEL
+  --workers                       $DEFAULT_WORKERS
+  --start                         $DEFAULT_START_INDEX
+  --folder                        experiment_<timestamp>
+  --agent_dataset                 auto-inferred from data_file
+  --custom_doctor_agent_path      none
+  total inferences per case        $DEFAULT_TOTAL_INFERENCES
+
+Common options:
+  --model <str>
+  --workers <num>
+  --start <idx>
+  --random
+  --ids_1based
+  --name <str>
+  --folder <str>
+  --agent_dataset <dataset>
+  --custom_doctor_agent_path <path>
+EOF
+}
 
 add_ids() {
     local raw="$1"
@@ -70,6 +107,10 @@ add_ids() {
 # Parse optional flags
 while [[ $# -gt 0 ]]; do
     case $1 in
+        --help|-h)
+            print_usage
+            exit 0
+            ;;
         --name)
             EXPERIMENT_NAME="$2"
             shift 2
@@ -128,7 +169,7 @@ while [[ $# -gt 0 ]]; do
             ;;
         *)
             echo "Unknown option: $1"
-            echo "Usage: $0 --model <model> --data_file <path> {--ids <list> | --count <num>} [OPTIONS]"
+            print_usage
             exit 1
             ;;
     esac
@@ -186,16 +227,26 @@ resolve_custom_agent_file() {
         python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$raw"
         return 0
     fi
+    if [[ -d "$raw" && -f "$raw/two_agent_interface.py" ]]; then
+        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$raw/two_agent_interface.py"
+        return 0
+    fi
 
     if [[ -f "$CODE_DIR/$raw" ]]; then
         python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$CODE_DIR/$raw"
+        return 0
+    fi
+    if [[ -d "$CODE_DIR/$raw" && -f "$CODE_DIR/$raw/two_agent_interface.py" ]]; then
+        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$CODE_DIR/$raw/two_agent_interface.py"
         return 0
     fi
 
     echo "Error: Custom doctor agent file not found: $raw"
     echo "Checked:"
     echo "  $raw"
+    echo "  $raw/two_agent_interface.py"
     echo "  $CODE_DIR/$raw"
+    echo "  $CODE_DIR/$raw/two_agent_interface.py"
     exit 1
 }
 
@@ -322,6 +373,10 @@ echo "========================================================"
 echo "Split/Data:         $DATA_FILE"
 echo "Agent Dataset:      $AGENT_DATASET"
 echo "Model:              $MODEL"
+echo "Default model:      $DEFAULT_MODEL"
+echo "Default workers:    $DEFAULT_WORKERS"
+echo "Default start:      $DEFAULT_START_INDEX"
+echo "Default infs/case:  $DEFAULT_TOTAL_INFERENCES"
 if [[ -n "$CUSTOM_DOCTOR_AGENT_PATH" ]]; then
     echo "Custom Agent:       $CUSTOM_DOCTOR_AGENT_PATH"
 fi
@@ -345,7 +400,7 @@ echo "========================================================"
 
 # Dependencies for uv run
 DEPS="--with openai>=1.0.0 --with regex --with python-dotenv --with pyyaml --with requests"
-COMMON_ARGS="--doctor_llm $MODEL --patient_llm $MODEL --measurement_llm $MODEL --moderator_llm $MODEL --total_inferences 30"
+COMMON_ARGS="--doctor_llm $MODEL --patient_llm $MODEL --measurement_llm $MODEL --moderator_llm $MODEL --total_inferences $DEFAULT_TOTAL_INFERENCES"
 
 # Map agent_dataset to the default file the Python loader expects when no
 # explicit data_file override is passed.

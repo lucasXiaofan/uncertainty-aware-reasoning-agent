@@ -205,6 +205,8 @@ class CustomDoctorAgent:
         self.total_tokens = 0
         self.prompt_tokens = 0
         self.completion_tokens = 0
+        self.differential_diagnosis_list = ""
+        self.osce_note = ""
         self.reset()
 
     def inference_doctor(self, question, image_requested: bool = False, memory_context: str = "") -> str:
@@ -223,6 +225,8 @@ class CustomDoctorAgent:
         info = result["information_seeking"]
         self.last_uncertainty_reasoning = info["reasoning"]
         self.latest_osce_note = info["osce_note"]
+        self.differential_diagnosis_list = info["reasoning"]
+        self.osce_note = info["osce_note"]
 
         if result["diagnosis_triggered"] and result["final_diagnosis"]:
             doctor_message = result["final_diagnosis"]["message"]
@@ -253,6 +257,8 @@ class CustomDoctorAgent:
         self.agent_hist = ""
         self.last_uncertainty_reasoning = ""
         self.latest_osce_note = ""
+        self.differential_diagnosis_list = ""
+        self.osce_note = ""
         self.presentation = self.scenario.examiner_information()
         self.interface = TwoAgentClinicalInterface(
             max_infs=self.MAX_INFS,
