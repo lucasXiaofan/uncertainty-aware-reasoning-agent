@@ -22,3 +22,32 @@ MIMIC data:
 
 Optional:
 - Slash-prefixed model ids such as `openai/...` still work if `OPENROUTER_API_KEY` is set.
+
+## Two-phase visualized runs
+
+Run the two-phase doctor and generate a viewer-ready trajectory:
+
+```bash
+uv run python src/agentclinic_code/two_phased_agent/run_visualized.py \
+  --agent_dataset MIMICIV \
+  --num_scenarios 1 \
+  --scenario_offset 0 \
+  --serve
+```
+
+Each run writes:
+
+- legacy trajectory: `src/agentclinic_code/two_phased_agent/trajectory/agentclinic_*.json`
+- visualization payload: `logs/agentclinic/<run_id>/run.v1.json`
+
+The wrapper prints a URL like:
+
+```text
+http://127.0.0.1:8765/src/agentclinic_code/two_phased_agent/visualization/index.html?run=/logs/agentclinic/<run_id>/run.v1.json
+```
+
+Without `--serve`, start a server yourself from the repository root:
+
+```bash
+python3 -m http.server 8765
+```

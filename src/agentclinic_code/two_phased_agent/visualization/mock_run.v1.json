@@ -1,0 +1,910 @@
+{
+  "protocol": "agent-observability",
+  "protocol_version": "1.0.0",
+  "run": {
+    "run_id": "run_agentclinic_mock_001",
+    "task_type": "agentclinic_patient_run",
+    "dataset": "MedQA",
+    "scenario_id": "mock-42",
+    "objective": "Identify the most likely diagnosis for a patient with acute abdominal pain.",
+    "status": "completed",
+    "started_at": "2026-06-13T18:00:00.000Z",
+    "ended_at": "2026-06-13T18:01:35.000Z",
+    "duration_ms": 95000,
+    "final_output": {
+      "type": "final_diagnosis",
+      "text": "DIAGNOSIS READY: Acute appendicitis"
+    },
+    "evaluation": {
+      "correct_diagnosis": "Acute appendicitis",
+      "correct": true
+    },
+    "source": {
+      "entrypoint": "src/agentclinic_code/agentclinic_api_only.py",
+      "doctor_interface": "src/agentclinic_code/two_phased_agent/two_agent_interface.py"
+    }
+  },
+  "orchestration": {
+    "strategy": "fixed_sequence",
+    "description": "Nine information-seeking invocations followed by one differential-diagnosis invocation.",
+    "planned_steps": [
+      {
+        "agent_id": "agent_information_seeking",
+        "repeat": 9,
+        "termination": "respond"
+      },
+      {
+        "agent_id": "agent_differential_diagnosis",
+        "repeat": 1,
+        "termination": "final_diagnosis"
+      }
+    ],
+    "actual_invocation_order": [
+      "inv_0001",
+      "inv_0002",
+      "inv_0003",
+      "inv_0004",
+      "inv_0005",
+      "inv_0006",
+      "inv_0007",
+      "inv_0008",
+      "inv_0009",
+      "inv_0010"
+    ]
+  },
+  "highlights": [
+    {
+      "highlight_id": "highlight_final_osce_note",
+      "type": "osce_note",
+      "title": "Final OSCE Note",
+      "producer_agent_id": "agent_information_seeking",
+      "source_invocation_id": "inv_0009",
+      "is_final": true,
+      "updated_at": "2026-06-13T18:01:22.000Z",
+      "data": {
+        "patient_demographics": ["24-year-old woman"],
+        "patient_medical_history": ["No prior abdominal surgery"],
+        "patient_social_history": ["No recent travel"],
+        "patient_symptoms": [
+          "Periumbilical pain migrated to the right lower quadrant",
+          "Anorexia and nausea",
+          "Pain worsens with movement"
+        ],
+        "physical_exmination_findings": [
+          "Right lower quadrant tenderness with guarding"
+        ],
+        "test_results": [
+          "Leukocytosis with neutrophilia"
+        ],
+        "differential_diagnosis_list": "Acute appendicitis; Ovarian torsion; Gastroenteritis"
+      }
+    },
+    {
+      "highlight_id": "highlight_differential",
+      "type": "differential_diagnosis_list",
+      "title": "Final Differential",
+      "producer_agent_id": "agent_information_seeking",
+      "source_invocation_id": "inv_0009",
+      "is_final": true,
+      "updated_at": "2026-06-13T18:01:22.000Z",
+      "data": {
+        "diagnoses": [
+          "Acute appendicitis",
+          "Ovarian torsion",
+          "Gastroenteritis"
+        ]
+      }
+    },
+    {
+      "highlight_id": "highlight_evidence",
+      "type": "diagnostic_evidence",
+      "title": "Diagnostic Evidence",
+      "producer_agent_id": "agent_differential_diagnosis",
+      "source_invocation_id": "inv_0010",
+      "is_final": true,
+      "updated_at": "2026-06-13T18:01:34.000Z",
+      "data": {
+        "items": [
+          {
+            "title": "Migratory right lower quadrant pain",
+            "description": "Pain migrated from the periumbilical region to the right lower quadrant.",
+            "is_supported": true,
+            "reason": "Classic symptom progression supports appendicitis.",
+            "source": "osce_note.patient_symptoms + medical self-knowledge"
+          },
+          {
+            "title": "Neutrophilic leukocytosis",
+            "description": "CBC shows leukocytosis with neutrophilia.",
+            "is_supported": true,
+            "reason": "Supports an acute inflammatory process.",
+            "source": "osce_note.test_results"
+          },
+          {
+            "title": "Diarrheal illness",
+            "description": "No diarrhea was reported.",
+            "is_supported": false,
+            "reason": "This weakens gastroenteritis.",
+            "source": "latest hospital response"
+          }
+        ]
+      }
+    },
+    {
+      "highlight_id": "highlight_final_diagnosis",
+      "type": "final_diagnosis",
+      "title": "Final Diagnosis",
+      "producer_agent_id": "agent_differential_diagnosis",
+      "source_invocation_id": "inv_0010",
+      "is_final": true,
+      "updated_at": "2026-06-13T18:01:35.000Z",
+      "data": {
+        "diagnosis": "Acute appendicitis",
+        "display_text": "DIAGNOSIS READY: Acute appendicitis"
+      }
+    }
+  ],
+  "agents": [
+    {
+      "agent_id": "agent_information_seeking",
+      "agent_type": "information_seeking",
+      "display_name": "Information Seeking Agent",
+      "model": "gpt-5-nano",
+      "instruction": {
+        "source_path": "src/agent/prompts/agentclinic_information_gathering.md",
+        "sha256": "mock-information-prompt-hash",
+        "resolved_text": "Collect clinically useful information, update the OSCE note after every hospital response, maintain a top-three differential, and terminate each invocation with one AgentClinic respond action.",
+        "summary": "Gather the clinical picture and maintain the OSCE note."
+      },
+      "tools": [
+        {"name": "bash", "schema_sha256": "mock-bash-hash"},
+        {"name": "update_osce_note", "schema_sha256": "mock-osce-hash"},
+        {"name": "update_plan", "schema_sha256": "mock-plan-hash"}
+      ],
+      "status": "completed",
+      "initial_input": {
+        "summary": "Doctor-visible objective and first hospital context."
+      },
+      "final_output": {
+        "type": "request_test",
+        "text": "REQUEST TEST: Complete blood count"
+      },
+      "summary": {
+        "invocation_count": 9,
+        "round_count": 10,
+        "sequence_range": "1-9"
+      },
+      "usage": {
+        "input_tokens": 8700,
+        "cached_input_tokens": 1200,
+        "output_tokens": 1050,
+        "total_tokens": 9750,
+        "expense_usd": 0.0042
+      },
+      "invocations": [
+        {
+          "invocation_id": "inv_0001",
+          "global_sequence": 1,
+          "agent_sequence": 1,
+          "phase": "information_seeking",
+          "status": "completed",
+          "started_at": "2026-06-13T18:00:00.000Z",
+          "ended_at": "2026-06-13T18:00:08.000Z",
+          "duration_ms": 8000,
+          "input": {
+            "source": "orchestrator",
+            "summary": "Begin from the doctor-visible objective.",
+            "text": "Doctor-visible case objective: identify the cause of acute abdominal pain.",
+            "content_parts": [
+              {"type": "text", "text": "Doctor-visible case objective: identify the cause of acute abdominal pain."}
+            ],
+            "artifact_ids": []
+          },
+          "state_before": {"memory_snapshot_id": "memory_inv_0001_before"},
+          "execution_summary": [
+            {"sequence": 1, "kind": "memory_update", "label": "Initialized OSCE note"},
+            {"sequence": 2, "kind": "terminal_action", "label": "Asked onset and location"}
+          ],
+          "tool_names": ["update_plan", "update_osce_note", "bash"],
+          "final_output": {
+            "type": "ask_patient",
+            "text": "When did the pain begin, and where did you first feel it?",
+            "raw_payload": {
+              "tool_name": "respond",
+              "content": {
+                "action": "ask_patient",
+                "message": "When did the pain begin, and where did you first feel it?"
+              }
+            }
+          },
+          "state_after": {"memory_snapshot_id": "memory_inv_0001_after"},
+          "usage": {
+            "input_tokens": 620,
+            "cached_input_tokens": 0,
+            "output_tokens": 130,
+            "total_tokens": 750,
+            "expense_usd": 0.00029
+          },
+          "rounds": [
+            {
+              "round_id": "inv_0001_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "started_at": "2026-06-13T18:00:00.500Z",
+              "ended_at": "2026-06-13T18:00:04.000Z",
+              "duration_ms": 3500,
+              "input": {
+                "message_count": 2,
+                "artifact_ids": [],
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "STATIC MEMORY: information-seeking instruction, empty OSCE note, empty plan."
+                  },
+                  {
+                    "role": "user",
+                    "content": "Doctor-visible case objective: identify the cause of acute abdominal pain."
+                  }
+                ]
+              },
+              "assistant": {
+                "content": "",
+                "tool_call_ids": ["call_plan_01", "call_osce_01"]
+              },
+              "tool_calls": [
+                {
+                  "tool_call_id": "call_plan_01",
+                  "sequence": 1,
+                  "name": "update_plan",
+                  "arguments": {
+                    "items": [
+                      {
+                        "id": "history",
+                        "content": "Clarify onset, migration, associated symptoms, and risk factors.",
+                        "status": "incomplete"
+                      }
+                    ]
+                  },
+                  "status": "completed",
+                  "result": {"message": "plan updated successfully"},
+                  "result_artifact_id": null,
+                  "duration_ms": 2
+                },
+                {
+                  "tool_call_id": "call_osce_01",
+                  "sequence": 2,
+                  "name": "update_osce_note",
+                  "arguments": {
+                    "items": [
+                      {
+                        "section": "differential_diagnosis_list",
+                        "content": "Acute appendicitis; Gastroenteritis; Ovarian torsion"
+                      }
+                    ]
+                  },
+                  "status": "completed",
+                  "result": {"message": "osce_note updated successfully"},
+                  "result_artifact_id": null,
+                  "duration_ms": 2
+                }
+              ],
+              "memory_changes": [
+                {"memory": "plan", "operation": "upsert", "item_ids": ["history"]},
+                {"memory": "osce_note", "operation": "replace", "sections": ["differential_diagnosis_list"]}
+              ],
+              "retries": [],
+              "usage": {
+                "input_tokens": 310,
+                "cached_input_tokens": 0,
+                "output_tokens": 85,
+                "total_tokens": 395,
+                "expense_usd": 0.00014
+              }
+            },
+            {
+              "round_id": "inv_0001_round_02",
+              "sequence": 2,
+              "status": "completed",
+              "started_at": "2026-06-13T18:00:04.100Z",
+              "ended_at": "2026-06-13T18:00:07.500Z",
+              "duration_ms": 3400,
+              "input": {
+                "message_count": 5,
+                "artifact_ids": [],
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "STATIC MEMORY now includes the initial plan and differential."
+                  },
+                  {
+                    "role": "user",
+                    "content": "Doctor-visible case objective: identify the cause of acute abdominal pain."
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "",
+                    "tool_calls": ["call_plan_01", "call_osce_01"]
+                  },
+                  {
+                    "role": "tool",
+                    "tool_call_id": "call_plan_01",
+                    "content": "{\"message\":\"plan updated successfully\"}"
+                  },
+                  {
+                    "role": "tool",
+                    "tool_call_id": "call_osce_01",
+                    "content": "{\"message\":\"osce_note updated successfully\"}"
+                  }
+                ]
+              },
+              "assistant": {
+                "content": "",
+                "tool_call_ids": ["call_respond_01"]
+              },
+              "tool_calls": [
+                {
+                  "tool_call_id": "call_respond_01",
+                  "sequence": 1,
+                  "name": "bash",
+                  "arguments": {
+                    "command": "uv run python src/agent/agentclinic_tools.py '{\"tool_name\":\"respond\",\"content\":{\"action\":\"ask_patient\",\"message\":\"When did the pain begin, and where did you first feel it?\"}}'"
+                  },
+                  "status": "completed",
+                  "result": {
+                    "tool_name": "respond",
+                    "content": {
+                      "action": "ask_patient",
+                      "message": "When did the pain begin, and where did you first feel it?"
+                    }
+                  },
+                  "result_artifact_id": null,
+                  "duration_ms": 180
+                }
+              ],
+              "memory_changes": [],
+              "retries": [],
+              "usage": {
+                "input_tokens": 310,
+                "cached_input_tokens": 0,
+                "output_tokens": 45,
+                "total_tokens": 355,
+                "expense_usd": 0.00015
+              }
+            }
+          ]
+        },
+        {
+          "invocation_id": "inv_0002",
+          "global_sequence": 2,
+          "agent_sequence": 2,
+          "phase": "information_seeking",
+          "status": "completed",
+          "duration_ms": 7200,
+          "input": {
+            "source": "patient",
+            "summary": "Pain began yesterday near the navel and moved right.",
+            "text": "It started yesterday around my belly button and is now on the lower right.",
+            "content_parts": [{"type": "text", "text": "It started yesterday around my belly button and is now on the lower right."}],
+            "artifact_ids": []
+          },
+          "execution_summary": [
+            {"sequence": 1, "kind": "memory_update", "label": "Recorded pain migration"},
+            {"sequence": 2, "kind": "terminal_action", "label": "Asked associated symptoms"}
+          ],
+          "tool_names": ["update_osce_note", "bash"],
+          "final_output": {"type": "ask_patient", "text": "Have you had nausea, vomiting, fever, or loss of appetite?"},
+          "usage": {"input_tokens": 780, "cached_input_tokens": 90, "output_tokens": 105, "total_tokens": 885, "expense_usd": 0.00036},
+          "rounds": [
+            {
+              "round_id": "inv_0002_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "duration_ms": 6800,
+              "input": {
+                "message_count": 8,
+                "artifact_ids": [],
+                "messages": [
+                  {"role": "system", "content": "STATIC MEMORY with plan and OSCE note."},
+                  {"role": "user", "content": "Hospital response: pain started yesterday near the navel and migrated to the lower right."}
+                ]
+              },
+              "assistant": {"content": "", "tool_call_ids": ["call_osce_02", "call_respond_02"]},
+              "tool_calls": [
+                {
+                  "tool_call_id": "call_osce_02",
+                  "sequence": 1,
+                  "name": "update_osce_note",
+                  "arguments": {"items": [{"section": "patient_symptoms", "content": "One day of periumbilical pain migrating to the right lower quadrant"}]},
+                  "status": "completed",
+                  "result": {"message": "osce_note updated successfully"},
+                  "result_artifact_id": null,
+                  "duration_ms": 3
+                },
+                {
+                  "tool_call_id": "call_respond_02",
+                  "sequence": 2,
+                  "name": "bash",
+                  "arguments": {"command": "AgentClinic respond: ask associated symptoms"},
+                  "status": "completed",
+                  "result": {"tool_name": "respond", "content": {"action": "ask_patient", "message": "Have you had nausea, vomiting, fever, or loss of appetite?"}},
+                  "result_artifact_id": null,
+                  "duration_ms": 160
+                }
+              ],
+              "memory_changes": [{"memory": "osce_note", "operation": "append", "sections": ["patient_symptoms"]}],
+              "retries": [],
+              "usage": {"input_tokens": 780, "cached_input_tokens": 90, "output_tokens": 105, "total_tokens": 885, "expense_usd": 0.00036}
+            }
+          ]
+        },
+        {
+          "invocation_id": "inv_0003",
+          "global_sequence": 3,
+          "agent_sequence": 3,
+          "phase": "information_seeking",
+          "status": "completed",
+          "duration_ms": 7000,
+          "input": {
+            "source": "patient",
+            "summary": "Nausea, anorexia, no diarrhea.",
+            "text": "I feel nauseated and have not wanted to eat. No diarrhea.",
+            "content_parts": [{"type": "text", "text": "I feel nauseated and have not wanted to eat. No diarrhea."}],
+            "artifact_ids": []
+          },
+          "execution_summary": [
+            {"sequence": 1, "kind": "memory_update", "label": "Recorded associated symptoms"},
+            {"sequence": 2, "kind": "terminal_action", "label": "Requested abdominal examination"}
+          ],
+          "tool_names": ["update_osce_note", "bash"],
+          "final_output": {"type": "request_physical_examination", "text": "REQUEST TEST: Abdominal examination"},
+          "usage": {"input_tokens": 850, "cached_input_tokens": 120, "output_tokens": 95, "total_tokens": 945, "expense_usd": 0.00038},
+          "rounds": [
+            {
+              "round_id": "inv_0003_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "duration_ms": 6600,
+              "input": {
+                "message_count": 11,
+                "artifact_ids": ["artifact_image_01"],
+                "messages": [
+                  {"role": "system", "content": "STATIC MEMORY with accumulated OSCE note."},
+                  {
+                    "role": "user",
+                    "content": [
+                      {"type": "text", "text": "Hospital response: nausea and anorexia without diarrhea."},
+                      {"type": "image_ref", "artifact_id": "artifact_image_01"}
+                    ]
+                  }
+                ]
+              },
+              "assistant": {"content": "", "tool_call_ids": ["call_osce_03", "call_exam_03"]},
+              "tool_calls": [
+                {
+                  "tool_call_id": "call_osce_03",
+                  "sequence": 1,
+                  "name": "update_osce_note",
+                  "arguments": {"items": [{"section": "patient_symptoms", "content": "Nausea and anorexia; no diarrhea"}]},
+                  "status": "completed",
+                  "result": {"message": "osce_note updated successfully"},
+                  "result_artifact_id": null,
+                  "duration_ms": 3
+                },
+                {
+                  "tool_call_id": "call_exam_03",
+                  "sequence": 2,
+                  "name": "bash",
+                  "arguments": {"command": "AgentClinic respond: request abdominal examination"},
+                  "status": "completed",
+                  "result": {"tool_name": "respond", "content": {"action": "request_physical_examination", "message": "Abdominal examination"}},
+                  "result_artifact_id": null,
+                  "duration_ms": 155
+                }
+              ],
+              "memory_changes": [{"memory": "osce_note", "operation": "append", "sections": ["patient_symptoms"]}],
+              "retries": [],
+              "usage": {"input_tokens": 850, "cached_input_tokens": 120, "output_tokens": 95, "total_tokens": 945, "expense_usd": 0.00038}
+            }
+          ]
+        },
+        {
+          "invocation_id": "inv_0004",
+          "global_sequence": 4,
+          "agent_sequence": 4,
+          "phase": "information_seeking",
+          "status": "completed",
+          "duration_ms": 6800,
+          "input": {"source": "measurement", "summary": "RLQ tenderness and guarding.", "text": "Right lower quadrant tenderness with guarding.", "content_parts": [{"type": "text", "text": "Right lower quadrant tenderness with guarding."}], "artifact_ids": []},
+          "execution_summary": [{"sequence": 1, "kind": "memory_update", "label": "Recorded examination"}, {"sequence": 2, "kind": "terminal_action", "label": "Asked pregnancy and gynecologic history"}],
+          "tool_names": ["update_osce_note", "bash"],
+          "final_output": {"type": "ask_patient", "text": "When was your last menstrual period, and is pregnancy possible?"},
+          "usage": {"input_tokens": 900, "cached_input_tokens": 130, "output_tokens": 90, "total_tokens": 990, "expense_usd": 0.0004},
+          "rounds": [
+            {
+              "round_id": "inv_0004_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "duration_ms": 6400,
+              "input": {"message_count": 14, "artifact_ids": [], "messages": [{"role": "user", "content": "Hospital response: right lower quadrant tenderness with guarding."}]},
+              "assistant": {"content": "", "tool_call_ids": ["call_osce_04", "call_respond_04"]},
+              "tool_calls": [
+                {"tool_call_id": "call_osce_04", "sequence": 1, "name": "update_osce_note", "arguments": {"items": [{"section": "physical_exmination_findings", "content": "Right lower quadrant tenderness with guarding"}]}, "status": "completed", "result": {"message": "osce_note updated successfully"}, "result_artifact_id": null, "duration_ms": 3},
+                {"tool_call_id": "call_respond_04", "sequence": 2, "name": "bash", "arguments": {"command": "AgentClinic respond: ask gynecologic history"}, "status": "completed", "result": {"tool_name": "respond", "content": {"action": "ask_patient", "message": "When was your last menstrual period, and is pregnancy possible?"}}, "result_artifact_id": null, "duration_ms": 150}
+              ],
+              "memory_changes": [{"memory": "osce_note", "operation": "append", "sections": ["physical_exmination_findings"]}],
+              "retries": [],
+              "usage": {"input_tokens": 900, "cached_input_tokens": 130, "output_tokens": 90, "total_tokens": 990, "expense_usd": 0.0004}
+            }
+          ]
+        },
+        {
+          "invocation_id": "inv_0005",
+          "global_sequence": 5,
+          "agent_sequence": 5,
+          "phase": "information_seeking",
+          "status": "completed",
+          "duration_ms": 6500,
+          "input": {"source": "patient", "summary": "Normal menstrual period; pregnancy unlikely.", "text": "My period was two weeks ago and pregnancy is not possible.", "content_parts": [{"type": "text", "text": "My period was two weeks ago and pregnancy is not possible."}], "artifact_ids": []},
+          "execution_summary": [{"sequence": 1, "kind": "memory_update", "label": "Recorded gynecologic history"}, {"sequence": 2, "kind": "terminal_action", "label": "Requested CBC"}],
+          "tool_names": ["update_osce_note", "bash"],
+          "final_output": {"type": "request_test", "text": "REQUEST TEST: Complete blood count"},
+          "usage": {"input_tokens": 940, "cached_input_tokens": 140, "output_tokens": 88, "total_tokens": 1028, "expense_usd": 0.00041},
+          "rounds": [
+            {
+              "round_id": "inv_0005_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "duration_ms": 6100,
+              "input": {"message_count": 17, "artifact_ids": [], "messages": [{"role": "user", "content": "Hospital response: period two weeks ago; pregnancy not possible."}]},
+              "assistant": {"content": "", "tool_call_ids": ["call_osce_05", "call_test_05"]},
+              "tool_calls": [
+                {"tool_call_id": "call_osce_05", "sequence": 1, "name": "update_osce_note", "arguments": {"items": [{"section": "patient_medical_history", "content": "LMP two weeks ago; pregnancy denied"}]}, "status": "completed", "result": {"message": "osce_note updated successfully"}, "result_artifact_id": null, "duration_ms": 3},
+                {"tool_call_id": "call_test_05", "sequence": 2, "name": "bash", "arguments": {"command": "AgentClinic respond: request CBC"}, "status": "completed", "result": {"tool_name": "respond", "content": {"action": "request_test", "message": "Complete blood count"}}, "result_artifact_id": null, "duration_ms": 145}
+              ],
+              "memory_changes": [{"memory": "osce_note", "operation": "append", "sections": ["patient_medical_history"]}],
+              "retries": [],
+              "usage": {"input_tokens": 940, "cached_input_tokens": 140, "output_tokens": 88, "total_tokens": 1028, "expense_usd": 0.00041}
+            }
+          ]
+        },
+        {
+          "invocation_id": "inv_0006",
+          "global_sequence": 6,
+          "agent_sequence": 6,
+          "phase": "information_seeking",
+          "status": "completed",
+          "duration_ms": 6200,
+          "input": {"source": "measurement", "summary": "Leukocytosis with neutrophilia.", "text": "WBC 15.2 K/uL with neutrophilia.", "content_parts": [{"type": "text", "text": "WBC 15.2 K/uL with neutrophilia."}], "artifact_ids": []},
+          "execution_summary": [{"sequence": 1, "kind": "memory_update", "label": "Recorded CBC"}, {"sequence": 2, "kind": "terminal_action", "label": "Asked surgical and medical history"}],
+          "tool_names": ["update_osce_note", "bash"],
+          "final_output": {"type": "ask_patient", "text": "Have you had abdominal surgery or any major medical conditions?"},
+          "usage": {"input_tokens": 990, "cached_input_tokens": 150, "output_tokens": 90, "total_tokens": 1080, "expense_usd": 0.00043},
+          "rounds": [
+            {
+              "round_id": "inv_0006_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "duration_ms": 5800,
+              "input": {"message_count": 20, "artifact_ids": [], "messages": [{"role": "user", "content": "Hospital response: WBC 15.2 K/uL with neutrophilia."}]},
+              "assistant": {"content": "", "tool_call_ids": ["call_osce_06", "call_respond_06"]},
+              "tool_calls": [
+                {"tool_call_id": "call_osce_06", "sequence": 1, "name": "update_osce_note", "arguments": {"items": [{"section": "test_results", "content": "WBC 15.2 K/uL with neutrophilia"}]}, "status": "completed", "result": {"message": "osce_note updated successfully"}, "result_artifact_id": null, "duration_ms": 3},
+                {"tool_call_id": "call_respond_06", "sequence": 2, "name": "bash", "arguments": {"command": "AgentClinic respond: ask medical history"}, "status": "completed", "result": {"tool_name": "respond", "content": {"action": "ask_patient", "message": "Have you had abdominal surgery or any major medical conditions?"}}, "result_artifact_id": null, "duration_ms": 145}
+              ],
+              "memory_changes": [{"memory": "osce_note", "operation": "append", "sections": ["test_results"]}],
+              "retries": [],
+              "usage": {"input_tokens": 990, "cached_input_tokens": 150, "output_tokens": 90, "total_tokens": 1080, "expense_usd": 0.00043}
+            }
+          ]
+        },
+        {
+          "invocation_id": "inv_0007",
+          "global_sequence": 7,
+          "agent_sequence": 7,
+          "phase": "information_seeking",
+          "status": "completed",
+          "duration_ms": 6000,
+          "input": {"source": "patient", "summary": "No prior surgery or major illness.", "text": "No previous surgery and no major medical problems.", "content_parts": [{"type": "text", "text": "No previous surgery and no major medical problems."}], "artifact_ids": []},
+          "execution_summary": [{"sequence": 1, "kind": "memory_update", "label": "Recorded medical history"}, {"sequence": 2, "kind": "terminal_action", "label": "Asked social and exposure history"}],
+          "tool_names": ["update_osce_note", "bash"],
+          "final_output": {"type": "ask_patient", "text": "Any recent travel, sick contacts, or unusual foods?"},
+          "usage": {"input_tokens": 1040, "cached_input_tokens": 160, "output_tokens": 88, "total_tokens": 1128, "expense_usd": 0.00045},
+          "rounds": [
+            {
+              "round_id": "inv_0007_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "duration_ms": 5600,
+              "input": {"message_count": 23, "artifact_ids": [], "messages": [{"role": "user", "content": "Hospital response: no surgery or major medical problems."}]},
+              "assistant": {"content": "", "tool_call_ids": ["call_osce_07", "call_respond_07"]},
+              "tool_calls": [
+                {"tool_call_id": "call_osce_07", "sequence": 1, "name": "update_osce_note", "arguments": {"items": [{"section": "patient_medical_history", "content": "No prior abdominal surgery or major medical conditions"}]}, "status": "completed", "result": {"message": "osce_note updated successfully"}, "result_artifact_id": null, "duration_ms": 3},
+                {"tool_call_id": "call_respond_07", "sequence": 2, "name": "bash", "arguments": {"command": "AgentClinic respond: ask exposure history"}, "status": "completed", "result": {"tool_name": "respond", "content": {"action": "ask_patient", "message": "Any recent travel, sick contacts, or unusual foods?"}}, "result_artifact_id": null, "duration_ms": 140}
+              ],
+              "memory_changes": [{"memory": "osce_note", "operation": "append", "sections": ["patient_medical_history"]}],
+              "retries": [],
+              "usage": {"input_tokens": 1040, "cached_input_tokens": 160, "output_tokens": 88, "total_tokens": 1128, "expense_usd": 0.00045}
+            }
+          ]
+        },
+        {
+          "invocation_id": "inv_0008",
+          "global_sequence": 8,
+          "agent_sequence": 8,
+          "phase": "information_seeking",
+          "status": "completed",
+          "duration_ms": 5800,
+          "input": {"source": "patient", "summary": "No travel or sick contacts.", "text": "No travel, sick contacts, or unusual meals.", "content_parts": [{"type": "text", "text": "No travel, sick contacts, or unusual meals."}], "artifact_ids": []},
+          "execution_summary": [{"sequence": 1, "kind": "memory_update", "label": "Recorded social history"}, {"sequence": 2, "kind": "terminal_action", "label": "Asked movement-related pain"}],
+          "tool_names": ["update_osce_note", "bash"],
+          "final_output": {"type": "ask_patient", "text": "Is the pain worse when you move, walk, or cough?"},
+          "usage": {"input_tokens": 1090, "cached_input_tokens": 170, "output_tokens": 87, "total_tokens": 1177, "expense_usd": 0.00047},
+          "rounds": [
+            {
+              "round_id": "inv_0008_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "duration_ms": 5400,
+              "input": {"message_count": 26, "artifact_ids": [], "messages": [{"role": "user", "content": "Hospital response: no travel, contacts, or unusual meals."}]},
+              "assistant": {"content": "", "tool_call_ids": ["call_osce_08", "call_respond_08"]},
+              "tool_calls": [
+                {"tool_call_id": "call_osce_08", "sequence": 1, "name": "update_osce_note", "arguments": {"items": [{"section": "patient_social_history", "content": "No recent travel, sick contacts, or unusual food exposure"}]}, "status": "completed", "result": {"message": "osce_note updated successfully"}, "result_artifact_id": null, "duration_ms": 3},
+                {"tool_call_id": "call_respond_08", "sequence": 2, "name": "bash", "arguments": {"command": "AgentClinic respond: ask movement-related pain"}, "status": "completed", "result": {"tool_name": "respond", "content": {"action": "ask_patient", "message": "Is the pain worse when you move, walk, or cough?"}}, "result_artifact_id": null, "duration_ms": 140}
+              ],
+              "memory_changes": [{"memory": "osce_note", "operation": "append", "sections": ["patient_social_history"]}],
+              "retries": [],
+              "usage": {"input_tokens": 1090, "cached_input_tokens": 170, "output_tokens": 87, "total_tokens": 1177, "expense_usd": 0.00047}
+            }
+          ]
+        },
+        {
+          "invocation_id": "inv_0009",
+          "global_sequence": 9,
+          "agent_sequence": 9,
+          "phase": "information_seeking",
+          "status": "completed",
+          "duration_ms": 5700,
+          "input": {"source": "patient", "summary": "Pain worsens with movement.", "text": "Yes, walking and coughing make it much worse.", "content_parts": [{"type": "text", "text": "Yes, walking and coughing make it much worse."}], "artifact_ids": []},
+          "execution_summary": [{"sequence": 1, "kind": "memory_update", "label": "Finalized symptoms and differential"}, {"sequence": 2, "kind": "terminal_action", "label": "Requested final discriminating test"}],
+          "tool_names": ["update_osce_note", "bash"],
+          "final_output": {"type": "request_test", "text": "REQUEST TEST: Complete blood count"},
+          "usage": {"input_tokens": 1150, "cached_input_tokens": 190, "output_tokens": 97, "total_tokens": 1247, "expense_usd": 0.00051},
+          "rounds": [
+            {
+              "round_id": "inv_0009_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "duration_ms": 5300,
+              "input": {"message_count": 29, "artifact_ids": [], "messages": [{"role": "user", "content": "Hospital response: movement and coughing worsen the pain."}]},
+              "assistant": {"content": "", "tool_call_ids": ["call_osce_09", "call_test_09"]},
+              "tool_calls": [
+                {"tool_call_id": "call_osce_09", "sequence": 1, "name": "update_osce_note", "arguments": {"items": [{"section": "patient_symptoms", "content": "Pain worsens with walking and coughing"}, {"section": "differential_diagnosis_list", "content": "Acute appendicitis; Ovarian torsion; Gastroenteritis"}]}, "status": "completed", "result": {"message": "osce_note updated successfully"}, "result_artifact_id": null, "duration_ms": 4},
+                {"tool_call_id": "call_test_09", "sequence": 2, "name": "bash", "arguments": {"command": "AgentClinic respond: request CBC"}, "status": "completed", "result": {"tool_name": "respond", "content": {"action": "request_test", "message": "Complete blood count"}}, "result_artifact_id": null, "duration_ms": 140}
+              ],
+              "memory_changes": [{"memory": "osce_note", "operation": "append_and_replace", "sections": ["patient_symptoms", "differential_diagnosis_list"]}],
+              "retries": [],
+              "usage": {"input_tokens": 1150, "cached_input_tokens": 190, "output_tokens": 97, "total_tokens": 1247, "expense_usd": 0.00051}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "agent_id": "agent_differential_diagnosis",
+      "agent_type": "differential_diagnosis",
+      "display_name": "Differential Diagnosis Agent",
+      "model": "gpt-5-nano",
+      "instruction": {
+        "source_path": "src/agent/prompts/agentclinic_differential_diagnosis.md",
+        "sha256": "mock-diagnosis-prompt-hash",
+        "resolved_text": "Read the supplied OSCE note and latest response, cite supporting and contradicting evidence with update_evidence, then return exactly one diagnosis through final_diagnosis.",
+        "summary": "Compare candidates using case evidence and medical self-knowledge."
+      },
+      "tools": [
+        {"name": "bash", "schema_sha256": "mock-bash-hash"},
+        {"name": "update_evidence", "schema_sha256": "mock-evidence-hash"}
+      ],
+      "status": "completed",
+      "initial_input": {
+        "summary": "Final OSCE note, differential list, and latest CBC result."
+      },
+      "final_output": {
+        "type": "final_diagnosis",
+        "text": "DIAGNOSIS READY: Acute appendicitis"
+      },
+      "summary": {
+        "invocation_count": 1,
+        "round_count": 2,
+        "sequence_range": "10"
+      },
+      "usage": {
+        "input_tokens": 1800,
+        "cached_input_tokens": 0,
+        "output_tokens": 260,
+        "total_tokens": 2060,
+        "expense_usd": 0.00069
+      },
+      "invocations": [
+        {
+          "invocation_id": "inv_0010",
+          "global_sequence": 10,
+          "agent_sequence": 1,
+          "phase": "differential_diagnosis",
+          "status": "completed",
+          "started_at": "2026-06-13T18:01:22.500Z",
+          "ended_at": "2026-06-13T18:01:35.000Z",
+          "duration_ms": 12500,
+          "input": {
+            "source": "orchestrator",
+            "summary": "Final OSCE note plus neutrophilic leukocytosis.",
+            "text": "self.osce_note: migratory RLQ pain, nausea, anorexia, guarding, neutrophilic leukocytosis. Differential: appendicitis; ovarian torsion; gastroenteritis. Latest response: WBC 15.2 K/uL with neutrophilia.",
+            "content_parts": [
+              {"type": "text", "text": "Final structured OSCE note and differential diagnosis list."},
+              {"type": "text", "text": "Latest hospital response: WBC 15.2 K/uL with neutrophilia."}
+            ],
+            "artifact_ids": []
+          },
+          "state_before": {"memory_snapshot_id": "memory_inv_0010_before"},
+          "execution_summary": [
+            {"sequence": 1, "kind": "memory_update", "label": "Recorded supporting and contradicting evidence"},
+            {"sequence": 2, "kind": "terminal_action", "label": "Selected acute appendicitis"}
+          ],
+          "tool_names": ["update_evidence", "bash"],
+          "final_output": {
+            "type": "final_diagnosis",
+            "text": "DIAGNOSIS READY: Acute appendicitis",
+            "raw_payload": {
+              "tool_name": "final_diagnosis",
+              "content": "Acute appendicitis"
+            }
+          },
+          "state_after": {"memory_snapshot_id": "memory_inv_0010_after"},
+          "usage": {
+            "input_tokens": 1800,
+            "cached_input_tokens": 0,
+            "output_tokens": 260,
+            "total_tokens": 2060,
+            "expense_usd": 0.00069
+          },
+          "rounds": [
+            {
+              "round_id": "inv_0010_round_01",
+              "sequence": 1,
+              "status": "completed",
+              "duration_ms": 6100,
+              "input": {
+                "message_count": 2,
+                "artifact_ids": [],
+                "messages": [
+                  {"role": "system", "content": "Differential diagnosis instruction and empty evidence memory."},
+                  {"role": "user", "content": "Final OSCE note, differential list, and latest CBC result."}
+                ]
+              },
+              "assistant": {
+                "content": "",
+                "tool_call_ids": ["call_evidence_10"]
+              },
+              "tool_calls": [
+                {
+                  "tool_call_id": "call_evidence_10",
+                  "sequence": 1,
+                  "name": "update_evidence",
+                  "arguments": {
+                    "items": [
+                      {
+                        "title": "Migratory RLQ pain",
+                        "description": "Periumbilical pain migrated to the RLQ.",
+                        "is_supported": true,
+                        "reason": "Classic appendicitis progression.",
+                        "source": "osce_note.patient_symptoms + medical self-knowledge"
+                      },
+                      {
+                        "title": "Gastroenteritis pattern",
+                        "description": "No diarrhea or exposure history.",
+                        "is_supported": false,
+                        "reason": "Weakens gastroenteritis.",
+                        "source": "osce_note.patient_symptoms and patient_social_history"
+                      }
+                    ]
+                  },
+                  "status": "completed",
+                  "result": {"message": "evidence updated successfully"},
+                  "result_artifact_id": null,
+                  "duration_ms": 4
+                }
+              ],
+              "memory_changes": [
+                {"memory": "evidence", "operation": "upsert", "item_ids": ["Migratory RLQ pain", "Gastroenteritis pattern"]}
+              ],
+              "retries": [],
+              "usage": {
+                "input_tokens": 880,
+                "cached_input_tokens": 0,
+                "output_tokens": 180,
+                "total_tokens": 1060,
+                "expense_usd": 0.00039
+              }
+            },
+            {
+              "round_id": "inv_0010_round_02",
+              "sequence": 2,
+              "status": "completed",
+              "duration_ms": 5900,
+              "input": {
+                "message_count": 4,
+                "artifact_ids": [],
+                "messages": [
+                  {"role": "system", "content": "Differential diagnosis instruction with populated evidence memory."},
+                  {"role": "user", "content": "Final OSCE note, differential list, and latest CBC result."},
+                  {"role": "assistant", "content": "", "tool_calls": ["call_evidence_10"]},
+                  {"role": "tool", "tool_call_id": "call_evidence_10", "content": "{\"message\":\"evidence updated successfully\"}"}
+                ]
+              },
+              "assistant": {
+                "content": "",
+                "tool_call_ids": ["call_diagnosis_10"]
+              },
+              "tool_calls": [
+                {
+                  "tool_call_id": "call_diagnosis_10",
+                  "sequence": 1,
+                  "name": "bash",
+                  "arguments": {
+                    "command": "uv run python src/agent/agentclinic_tools.py '{\"tool_name\":\"final_diagnosis\",\"content\":\"Acute appendicitis\"}'"
+                  },
+                  "status": "completed",
+                  "result": {
+                    "tool_name": "final_diagnosis",
+                    "content": "Acute appendicitis"
+                  },
+                  "result_artifact_id": null,
+                  "duration_ms": 170
+                }
+              ],
+              "memory_changes": [],
+              "retries": [],
+              "usage": {
+                "input_tokens": 920,
+                "cached_input_tokens": 0,
+                "output_tokens": 80,
+                "total_tokens": 1000,
+                "expense_usd": 0.0003
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "artifact_image_01",
+      "kind": "image",
+      "media_type": "image/jpeg",
+      "original_source": "data_url",
+      "stored_path": "artifacts/images/artifact_image_01.jpg",
+      "directory": "artifacts/images",
+      "decoded": true,
+      "decode_status": "success",
+      "sha256": "mock-image-hash",
+      "byte_size": 184203,
+      "created_by": {
+        "invocation_id": "inv_0003",
+        "round_id": "inv_0003_round_01"
+      }
+    }
+  ],
+  "metrics": {
+    "agent_count": 2,
+    "invocation_count": 10,
+    "round_count": 12,
+    "tool_call_count": 21,
+    "usage": {
+      "input_tokens": 10500,
+      "cached_input_tokens": 1200,
+      "output_tokens": 1310,
+      "total_tokens": 11810,
+      "expense_usd": 0.00489
+    }
+  },
+  "errors": []
+}

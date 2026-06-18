@@ -300,6 +300,26 @@ def _load_doctor_agent_class(custom_agent_path: str | None):
     return agent_cls
 
 
+def _finalize_doctor_visualization(
+    doctor_agent,
+    *,
+    dataset,
+    scenario_id,
+    correct_diagnosis,
+    correct,
+) -> None:
+    finalize = getattr(doctor_agent, "finalize_visualization", None)
+    if not callable(finalize):
+        return
+    path = finalize(
+        dataset=dataset,
+        scenario_id=scenario_id,
+        correct_diagnosis=correct_diagnosis,
+        correct=correct,
+    )
+    print(f"Viewer-ready trajectory: {path}")
+
+
 def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False, custom_doctor_agent_path=None, data_file=None):
     global client
     if api_key:
@@ -408,6 +428,13 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
             # Doctor has arrived at a diagnosis, check correctness
             if "DIAGNOSIS READY" in doctor_dialogue:
                 correctness = compare_results(doctor_dialogue, scenario.diagnosis_information(), moderator_llm) == "yes"
+                _finalize_doctor_visualization(
+                    doctor_agent,
+                    dataset=dataset,
+                    scenario_id=_scenario_id,
+                    correct_diagnosis=scenario.diagnosis_information(),
+                    correct=correctness,
+                )
                 if correctness: total_correct += 1
                 print("\nCorrect answer:", scenario.diagnosis_information())
                 print("Scene {}, The diagnosis was ".format(_scenario_id), "CORRECT" if correctness else "INCORRECT", int((total_correct/total_presents)*100))
@@ -488,6 +515,13 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
         
         else:
              # Loop finished without diagnosis
+            _finalize_doctor_visualization(
+                doctor_agent,
+                dataset=dataset,
+                scenario_id=_scenario_id,
+                correct_diagnosis=scenario.diagnosis_information(),
+                correct=False,
+            )
             if output_file:
                 # Collect token usage from all agents
                 token_usage = {

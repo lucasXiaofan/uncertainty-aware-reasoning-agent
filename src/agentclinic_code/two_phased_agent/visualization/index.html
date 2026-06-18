@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-Agent Clinical Trace</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #14211d;
+      --muted: #64736d;
+      --line: #d9e2de;
+      --panel: #ffffff;
+      --soft: #f4f7f5;
+      --accent: #166a50;
+      --accent-soft: #e5f3ed;
+      --diagnosis: #7b3f16;
+      --diagnosis-soft: #fff0e5;
+      --shadow: 0 12px 34px rgba(30, 54, 45, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #e8f1ed 0, transparent 34rem),
+        #eef2f0;
+      font: 14px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 34px auto 80px;
+    }
+
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1 { margin-bottom: 8px; font-size: clamp(26px, 4vw, 42px); letter-spacing: -0.035em; }
+    h2 { margin-bottom: 14px; font-size: 18px; }
+    h3 { margin: 0; font-size: 16px; }
+    h4 { margin: 0; font-size: 14px; }
+
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .muted { color: var(--muted); }
+    .stack { display: grid; gap: 14px; }
+    .section { margin-top: 28px; }
+
+    .task-card,
+    .highlight,
+    details.agent,
+    details.invocation,
+    details.round {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .task-card { padding: 24px; }
+
+    .task-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(240px, .8fr);
+      gap: 22px;
+    }
+
+    .metrics,
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .metric,
+    .chip,
+    .status {
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: var(--soft);
+      color: #40504a;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .status.completed {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .flow-node {
+      padding: 8px 11px;
+      border: 1px solid #c9d9d2;
+      border-radius: 10px;
+      background: #f9fbfa;
+      font-weight: 750;
+    }
+
+    .arrow { color: #8a9993; }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .highlight {
+      padding: 18px;
+      box-shadow: none;
+      border-left: 5px solid var(--accent);
+    }
+
+    .highlight[data-type="final_diagnosis"] {
+      border-left-color: var(--diagnosis);
+      background: var(--diagnosis-soft);
+    }
+
+    .highlight pre {
+      max-height: 240px;
+      margin-bottom: 0;
+    }
+
+    details { overflow: clip; }
+
+    summary {
+      display: block;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    .summary-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    .summary-row::after {
+      content: "+";
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+    details[open] > summary .summary-row::after { content: "−"; }
+
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 6px;
+    }
+
+    .summary-line {
+      overflow: hidden;
+      color: var(--muted);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .detail-body {
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    details.agent { border-left: 5px solid var(--accent); }
+    details.agent.diagnosis { border-left-color: var(--diagnosis); }
+
+    details.invocation {
+      margin-top: 12px;
+      border-radius: 13px;
+      box-shadow: none;
+      background: #fbfcfb;
+    }
+
+    details.round {
+      margin-top: 10px;
+      border-radius: 11px;
+      box-shadow: none;
+      background: #fff;
+    }
+
+    details.round .summary-row { padding: 14px 16px; }
+    details.round .detail-body { padding: 0 16px 16px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .data-box {
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--soft);
+    }
+
+    .data-box h4 { margin-bottom: 7px; }
+
+    pre {
+      overflow: auto;
+      margin: 8px 0 0;
+      padding: 12px;
+      border-radius: 9px;
+      background: #17221e;
+      color: #e8f3ee;
+      font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .tool {
+      margin-top: 10px;
+      padding: 12px;
+      border: 1px solid #d4dfda;
+      border-radius: 10px;
+      background: #fbfdfc;
+    }
+
+    .tool-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .artifact {
+      margin-top: 10px;
+      padding: 12px;
+      border: 1px dashed #b7c8c0;
+      border-radius: 10px;
+      background: #f8fbf9;
+    }
+
+    .empty {
+      padding: 24px;
+      border: 1px dashed #bfcac5;
+      border-radius: 14px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (max-width: 760px) {
+      .task-grid,
+      .highlight-grid,
+      .two-col { grid-template-columns: 1fr; }
+      .summary-line { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="app" class="stack">
+      <div class="empty">Loading mock protocol data...</div>
+    </div>
+  </main>
+
+  <script>
+    const dataUrl = new URLSearchParams(window.location.search).get("run") || "./mock_run.v1.json";
+
+    const escapeHtml = (value) => String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+    const json = (value) => escapeHtml(JSON.stringify(value, null, 2));
+    const usage = (value = {}) =>
+      `${value.total_tokens ?? "?"} tokens · $${Number(value.expense_usd ?? 0).toFixed(5)}`;
+
+    function renderHighlight(highlight) {
+      const data = highlight.data || {};
+      let body = `<pre>${json(data)}</pre>`;
+
+      if (highlight.type === "final_diagnosis") {
+        body = `<p><strong>${escapeHtml(data.display_text || data.diagnosis)}</strong></p>`;
+      } else if (highlight.type === "differential_diagnosis_list") {
+        body = `<div class="chips">${(data.diagnoses || []).map(
+          item => `<span class="chip">${escapeHtml(item)}</span>`
+        ).join("")}</div>`;
+      } else if (highlight.type === "diagnostic_evidence") {
+        body = (data.items || []).map(item => `
+          <div class="tool">
+            <div class="tool-head">
+              <strong>${escapeHtml(item.title)}</strong>
+              <span class="status ${item.is_supported ? "completed" : ""}">
+                ${item.is_supported ? "supports" : "contradicts"}
+              </span>
+            </div>
+            <div class="muted">${escapeHtml(item.reason)}</div>
+            <small>${escapeHtml(item.source)}</small>
+          </div>
+        `).join("");
+      }
+
+      return `
+        <article class="highlight" data-type="${escapeHtml(highlight.type)}">
+          <div class="eyebrow">${escapeHtml(highlight.type.replaceAll("_", " "))}</div>
+          <h3>${escapeHtml(highlight.title)}</h3>
+          <p class="muted">Produced by ${escapeHtml(highlight.producer_agent_id)} · ${escapeHtml(highlight.source_invocation_id)}</p>
+          ${body}
+        </article>
+      `;
+    }
+
+    function renderTool(tool) {
+      return `
+        <div class="tool">
+          <div class="tool-head">
+            <strong>${escapeHtml(tool.name)}</strong>
+            <span class="status ${escapeHtml(tool.status)}">${escapeHtml(tool.status)}</span>
+          </div>
+          <details>
+            <summary><span class="muted">Tool input</span></summary>
+            <pre>${json(tool.arguments)}</pre>
+          </details>
+          <details>
+            <summary><span class="muted">Tool result</span></summary>
+            <pre>${json(tool.result ?? {artifact_id: tool.result_artifact_id})}</pre>
+          </details>
+        </div>
+      `;
+    }
+
+    function renderArtifact(artifact) {
+      return `
+        <div class="artifact">
+          <strong>Image artifact</strong>
+          <div class="muted">Directory: ${escapeHtml(artifact.directory)}</div>
+          <div>Path: <code>${escapeHtml(artifact.stored_path)}</code></div>
+          <div>Decoded: <strong>${artifact.decoded ? "yes" : "no"}</strong> (${escapeHtml(artifact.decode_status)})</div>
+        </div>
+      `;
+    }
+
+    function renderRound(round, artifactMap) {
+      const artifacts = (round.input?.artifact_ids || [])
+        .map(id => artifactMap.get(id))
+        .filter(Boolean);
+
+      return `
+        <details class="round">
+          <summary>
+            <div class="summary-row">
+              <div class="summary-copy">
+                <div class="eyebrow">Level 3 · LLM round</div>
+                <h4>Round ${round.sequence}</h4>
+                <div class="summary-line">
+                  ${(round.tool_calls || []).map(tool => escapeHtml(tool.name)).join(" → ") || "No tools"}
+                  · ${usage(round.usage)}
+                </div>
+              </div>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <div class="two-col">
+              <div class="data-box">
+                <h4>Exact model input</h4>
+                <div class="muted">${round.input?.message_count ?? 0} normalized messages</div>
+                <details>
+                  <summary><span class="muted">Expand all messages</span></summary>
+                  <pre>${json(round.input?.messages || [])}</pre>
+                </details>
+                ${artifacts.map(renderArtifact).join("")}
+              </div>
+              <div class="data-box">
+                <h4>Assistant response</h4>
+                <pre>${json(round.assistant || {})}</pre>
+                <h4 style="margin-top:12px">Memory changes</h4>
+                <pre>${json(round.memory_changes || [])}</pre>
+              </div>
+            </div>
+            <h4 style="margin-top:14px">Tool calls and results</h4>
+            ${(round.tool_calls || []).map(renderTool).join("") || '<div class="empty">No tool calls</div>'}
+          </div>
+        </details>
+      `;
+    }
+
+    function renderInvocation(invocation, artifactMap) {
+      return `
+        <details class="invocation">
+          <summary>
+            <div class="summary-row">
+              <div class="summary-copy">
+                <h3>Turn ${invocation.global_sequence} · ${escapeHtml(invocation.input?.source || "unknown")}</h3>
+                <div class="summary-line">
+                  Input: ${escapeHtml(invocation.input?.summary)}
+                </div>
+                <div class="summary-line">
+                  Output: ${escapeHtml(invocation.final_output?.text)}
+                </div>
+                <div class="chips">
+                  <span class="chip">${(invocation.rounds || []).length} round(s)</span>
+                  ${(invocation.tool_names || []).map(name => `<span class="chip">${escapeHtml(name)}</span>`).join("")}
+                </div>
+              </div>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <div class="two-col">
+              <div class="data-box">
+                <h4>Invocation input</h4>
+                <p>${escapeHtml(invocation.input?.text)}</p>
+                <details>
+                  <summary><span class="muted">Raw normalized input</span></summary>
+                  <pre>${json(invocation.input)}</pre>
+                </details>
+              </div>
+              <div class="data-box">
+                <h4>Final output</h4>
+                <p><strong>${escapeHtml(invocation.final_output?.text)}</strong></p>
+                <div class="muted">${usage(invocation.usage)} · ${invocation.duration_ms ?? "?"} ms</div>
+                <details>
+                  <summary><span class="muted">Raw final payload</span></summary>
+                  <pre>${json(invocation.final_output)}</pre>
+                </details>
+              </div>
+            </div>
+            <h4 style="margin-top:14px">Sequential execution</h4>
+            <div class="flow">
+              ${(invocation.execution_summary || []).map(item =>
+                `<span class="flow-node">${escapeHtml(item.sequence)}. ${escapeHtml(item.label)}</span>`
+              ).join('<span class="arrow">→</span>')}
+            </div>
+            <h4 style="margin-top:16px">LLM rounds</h4>
+            ${(invocation.rounds || []).map(round => renderRound(round, artifactMap)).join("")}
+          </div>
+        </details>
+      `;
+    }
+
+    function renderAgent(agent, artifactMap) {
+      const diagnosisClass = agent.agent_type === "differential_diagnosis" ? " diagnosis" : "";
+      return `
+        <details class="agent${diagnosisClass}">
+          <summary>
+            <div class="summary-row">
+              <div class="summary-copy">
+                <div class="eyebrow">Level 1 · ${escapeHtml(agent.agent_type.replaceAll("_", " "))}</div>
+                <h2>${escapeHtml(agent.display_name)}</h2>
+                <div class="summary-line">${escapeHtml(agent.instruction.summary)}</div>
+                <div class="summary-line">
+                  Final output: <strong>${escapeHtml(agent.final_output?.text)}</strong>
+                </div>
+                <div class="chips">
+                  <span class="status completed">${escapeHtml(agent.status)}</span>
+                  <span class="chip">${agent.invocations.length} invocation(s)</span>
+                  <span class="chip">${escapeHtml(agent.model)}</span>
+                  <span class="chip">${usage(agent.usage)}</span>
+                </div>
+              </div>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <div class="two-col">
+              <div class="data-box">
+                <h4>Resolved instruction</h4>
+                <p>${escapeHtml(agent.instruction.resolved_text)}</p>
+                <small>${escapeHtml(agent.instruction.source_path)} · ${escapeHtml(agent.instruction.sha256)}</small>
+              </div>
+              <div class="data-box">
+                <h4>Available tools</h4>
+                <div class="chips">${agent.tools.map(tool => `<span class="chip">${escapeHtml(tool.name)}</span>`).join("")}</div>
+                <h4 style="margin-top:12px">Agent input → output</h4>
+                <div class="muted">${escapeHtml(agent.initial_input?.summary)}</div>
+                <div style="margin:6px 0">↓</div>
+                <strong>${escapeHtml(agent.final_output?.text)}</strong>
+              </div>
+            </div>
+            <h3 style="margin-top:18px">Level 2 · Agent invocation turns</h3>
+            ${agent.invocations.map(invocation => renderInvocation(invocation, artifactMap)).join("")}
+          </div>
+        </details>
+      `;
+    }
+
+    function render(data) {
+      const run = data.run;
+      const artifactMap = new Map((data.artifacts || []).map(item => [item.artifact_id, item]));
+      document.getElementById("app").innerHTML = `
+        <header>
+          <div class="eyebrow">Protocol ${escapeHtml(data.protocol_version)} · ${escapeHtml(run.task_type)}</div>
+          <h1>Multi-Agent Clinical Trace</h1>
+          <p class="muted">Cascading task → agent → invocation → round visualization.</p>
+        </header>
+
+        <section class="task-card">
+          <div class="task-grid">
+            <div>
+              <div class="eyebrow">Task root</div>
+              <h2>${escapeHtml(run.dataset)} / ${escapeHtml(run.scenario_id)}</h2>
+              <p>${escapeHtml(run.objective)}</p>
+              <p><strong>${escapeHtml(run.final_output.text)}</strong></p>
+              <div class="metrics">
+                <span class="status completed">${escapeHtml(run.status)}</span>
+                <span class="metric">${data.metrics.agent_count} agents</span>
+                <span class="metric">${data.metrics.invocation_count} turns</span>
+                <span class="metric">${data.metrics.round_count} rounds</span>
+                <span class="metric">${usage(data.metrics.usage)}</span>
+              </div>
+            </div>
+            <div class="data-box">
+              <h4>Orchestration</h4>
+              <p>${escapeHtml(data.orchestration.description)}</p>
+              <div class="flow">
+                <span class="flow-node">Information seeking × 9</span>
+                <span class="arrow">→</span>
+                <span class="flow-node">Diagnosis × 1</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="eyebrow">Task results</div>
+          <h2>Highlights outside the trajectory</h2>
+          <div class="highlight-grid">${data.highlights.map(renderHighlight).join("")}</div>
+        </section>
+
+        <section class="section stack">
+          <div>
+            <div class="eyebrow">Cascading execution</div>
+            <h2>Agents, turns, and rounds</h2>
+          </div>
+          ${data.agents.map(agent => renderAgent(agent, artifactMap)).join("")}
+        </section>
+      `;
+    }
+
+    fetch(dataUrl)
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then(render)
+      .catch(error => {
+        document.getElementById("app").innerHTML = `
+          <div class="empty">
+            Could not load ${escapeHtml(dataUrl)}: ${escapeHtml(error.message)}.
+            Serve the repository over HTTP rather than opening the file directly.
+          </div>
+        `;
+      });
+  </script>
+</body>
+</html>
