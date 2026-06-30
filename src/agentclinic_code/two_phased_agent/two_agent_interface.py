@@ -25,6 +25,7 @@ if str(Path(__file__).resolve().parent) not in sys.path:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from src.agent.agent import Agent
+from src.agent.logging import AgentRunLogger
 from src.agent.tool_calling import BASH_TOOL
 from src.agent.working_memory import (
     EVIDENCE_TOOL_SCHEMA,
@@ -46,22 +47,26 @@ class _PhaseAgent:
         model: str,
         tools: list[dict[str, Any]],
         log_path: Path,
+        logger: AgentRunLogger | None = None,
     ) -> None:
         self.working_memory = working_memory
         self.model = model
         self.tools = tools
         self.log_path = log_path
+        self.shared_logger = logger
         self.runner: Agent | None = None
 
     def run(self) -> dict[str, Any]:
-        self.runner = Agent(
-            self.working_memory,
-            model=self.model,
-            tools=self.tools,
-            max_steps=6,
-            temperature=1,
-            log_path=self.log_path,
-        )
+        kwargs: dict[str, Any] = {
+            "model": self.model,
+            "tools": self.tools,
+            "max_steps": 30,
+            "temperature": 1,
+            "log_path": self.log_path,
+        }
+        if self.shared_logger is not None:
+            kwargs["logger"] = self.shared_logger
+        self.runner = Agent(self.working_memory, **kwargs)
         return self.runner.run()
 
     @property
@@ -79,6 +84,7 @@ class CustomDoctorAgent:
         max_infs: int = 20,
         bias_present=None,
         img_request: bool = False,
+        logger: AgentRunLogger | None = None,
     ) -> None:
         self.scenario = scenario
         self.backend = backend_str
@@ -93,6 +99,7 @@ class CustomDoctorAgent:
         self.last_uncertainty_reasoning = ""
         self.differential_diagnosis_list = ""
         self.osce_note = ""
+        self.logger = logger
         self.reset()
 
     def inference_doctor(
@@ -180,12 +187,14 @@ class CustomDoctorAgent:
             model=self.backend,
             tools=[BASH_TOOL, OSCE_NOTE_TOOL_SCHEMA, PLAN_TOOL_SCHEMA],
             log_path=self.trajectory_path,
+            logger=self.logger,
         )
         self.differential_diagnosis_agent = _PhaseAgent(
             self.diagnosis_working_memory,
             model=self.backend,
             tools=[BASH_TOOL, EVIDENCE_TOOL_SCHEMA],
             log_path=self.trajectory_path,
+            logger=self.logger,
         )
         # Backward-compatible alias for callers that inspected the old memory.
         self.working_memory = self.information_working_memory
@@ -331,17 +340,21 @@ class CustomDoctorAgent:
         return self.run_v1_path
 
     def _unique_trajectory(self, events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        unique_events = []
         for event in events:
-            if "messages" not in event:
+            event_copy = json.loads(json.dumps(event, ensure_ascii=False, default=str))
+            if "messages" not in event_copy:
+                unique_events.append(event_copy)
                 continue
             messages = []
-            for message in event["messages"]:
+            for message in event_copy["messages"]:
                 key = json.dumps(message, sort_keys=True, ensure_ascii=False)
                 if key not in self._saved_messages:
                     self._saved_messages.add(key)
                     messages.append(message)
-            event["messages"] = messages
-        return events
+            event_copy["messages"] = messages
+            unique_events.append(event_copy)
+        return unique_events
 
     def _add_usage(self, agent: _PhaseAgent) -> None:
         usage = agent.logger.meta.get("token_usage", {})

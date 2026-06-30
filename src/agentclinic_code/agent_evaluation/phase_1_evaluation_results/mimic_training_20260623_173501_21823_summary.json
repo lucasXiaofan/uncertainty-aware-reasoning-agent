@@ -1,0 +1,46 @@
+{
+  "experiment_id": "mimic_training_20260623_173501_21823",
+  "cases": 5,
+  "ground_truth_in_candidate_list": {
+    "included": 3,
+    "total": 5,
+    "score": 0.6
+  },
+  "fact_coverage": {
+    "covered": 78,
+    "total": 156,
+    "coverage": 0.5,
+    "by_section": {
+      "demographics": {
+        "covered": 4,
+        "total": 15,
+        "coverage": 0.2667
+      },
+      "medical_history": {
+        "covered": 7,
+        "total": 9,
+        "coverage": 0.7778
+      },
+      "social_history": {
+        "covered": 8,
+        "total": 14,
+        "coverage": 0.5714
+      },
+      "symptoms": {
+        "covered": 29,
+        "total": 44,
+        "coverage": 0.6591
+      },
+      "physical_examination_findings": {
+        "covered": 30,
+        "total": 44,
+        "coverage": 0.6818
+      },
+      "test_results": {
+        "covered": 0,
+        "total": 30,
+        "coverage": 0.0
+      }
+    }
+  }
+}

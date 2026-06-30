@@ -1,0 +1,321 @@
+[
+  {
+    "patient_id": "mimic_0007",
+    "experiment_id": "mimic_training_20260623_173501_21823",
+    "scenario_id": null,
+    "log_path": null,
+    "ground_truth_diagnosis": {
+      "included": true,
+      "reason": "The ground-truth diagnosis 'Other chest pain' is clinically equivalent to the candidate differential 'Musculoskeletal chest pain' (and/or non-cardiac chest pain)."
+    },
+    "section_coverage": {
+      "demographics": {
+        "covered": 0,
+        "total": 3,
+        "coverage": 0.0,
+        "items": [
+          {
+            "fact": "49-year-old",
+            "included": false,
+            "reason": "Age is not stated in the OSCE note."
+          },
+          {
+            "fact": "Female",
+            "included": false,
+            "reason": "Sex is not explicitly documented in the OSCE note."
+          },
+          {
+            "fact": "Race Black/Cape Verdean",
+            "included": false,
+            "reason": "Race is not mentioned in the OSCE note."
+          }
+        ]
+      },
+      "medical_history": {
+        "covered": 6,
+        "total": 6,
+        "coverage": 1.0,
+        "items": [
+          {
+            "fact": "Hypertension",
+            "included": true,
+            "reason": "Hypertension is documented."
+          },
+          {
+            "fact": "Hypertension well-controlled on medication",
+            "included": true,
+            "reason": "Specifically states 'well controlled on medication.'"
+          },
+          {
+            "fact": "No history of diabetes",
+            "included": true,
+            "reason": "States 'no diabetes.'"
+          },
+          {
+            "fact": "No history of heart disease",
+            "included": true,
+            "reason": "States 'no prior heart disease.'"
+          },
+          {
+            "fact": "No history of high cholesterol",
+            "included": true,
+            "reason": "States 'no high cholesterol' in history."
+          },
+          {
+            "fact": "Non-smoker",
+            "included": true,
+            "reason": "States 'non-smoker' and denies smoking."
+          }
+        ]
+      },
+      "social_history": {
+        "covered": 2,
+        "total": 5,
+        "coverage": 0.4,
+        "items": [
+          {
+            "fact": "Works in a bank",
+            "included": false,
+            "reason": "Occupation is not documented."
+          },
+          {
+            "fact": "Married with two children",
+            "included": false,
+            "reason": "Marital status/children are not documented."
+          },
+          {
+            "fact": "Occasional alcohol use",
+            "included": true,
+            "reason": "States 'alcohol occasionally.'"
+          },
+          {
+            "fact": "Denies smoking",
+            "included": true,
+            "reason": "Denies smoking / non-smoker documented."
+          },
+          {
+            "fact": "Denies recreational drug use",
+            "included": false,
+            "reason": "No recreational drug use is not mentioned."
+          }
+        ]
+      },
+      "symptoms": {
+        "covered": 9,
+        "total": 18,
+        "coverage": 0.5,
+        "items": [
+          {
+            "fact": "Dull chest discomfort",
+            "included": true,
+            "reason": "Described as 'dull' chest discomfort."
+          },
+          {
+            "fact": "Chest discomfort started early this morning",
+            "included": true,
+            "reason": "States 'started this morning' and 'early this morning.'"
+          },
+          {
+            "fact": "No radiation of pain",
+            "included": true,
+            "reason": "States 'no radiation.'"
+          },
+          {
+            "fact": "No association with meals",
+            "included": true,
+            "reason": "States 'not related to meals.'"
+          },
+          {
+            "fact": "No shortness of breath",
+            "included": true,
+            "reason": "Denies SOB."
+          },
+          {
+            "fact": "No sweating",
+            "included": true,
+            "reason": "Denies diaphoresis/sweating."
+          },
+          {
+            "fact": "No nausea",
+            "included": true,
+            "reason": "Denies N/V including nausea."
+          },
+          {
+            "fact": "No worsening with physical activity",
+            "included": true,
+            "reason": "States 'not triggered by exertion' / non-exertional."
+          },
+          {
+            "fact": "No worsening with breathing",
+            "included": false,
+            "reason": "No worsening with breathing is not specifically addressed."
+          },
+          {
+            "fact": "Denies fever",
+            "included": false,
+            "reason": "Fever is not mentioned."
+          },
+          {
+            "fact": "Denies cough",
+            "included": false,
+            "reason": "Cough is not mentioned."
+          },
+          {
+            "fact": "Denies palpitations",
+            "included": false,
+            "reason": "Palpitations are not mentioned."
+          },
+          {
+            "fact": "Denies dizziness",
+            "included": true,
+            "reason": "Denies lightheadedness/dizziness."
+          },
+          {
+            "fact": "Denies recent travel",
+            "included": false,
+            "reason": "Recent travel is not mentioned."
+          },
+          {
+            "fact": "Denies sick contacts",
+            "included": false,
+            "reason": "Sick contacts are not mentioned."
+          },
+          {
+            "fact": "No recent illnesses reported",
+            "included": false,
+            "reason": "No recent illnesses are not mentioned."
+          },
+          {
+            "fact": "No recent injuries reported",
+            "included": false,
+            "reason": "No recent injuries are not mentioned."
+          },
+          {
+            "fact": "No unusual physical activities reported",
+            "included": false,
+            "reason": "No unusual physical activities are not mentioned."
+          }
+        ]
+      },
+      "physical_examination_findings": {
+        "covered": 15,
+        "total": 16,
+        "coverage": 0.9375,
+        "items": [
+          {
+            "fact": "Blood pressure 100/70 mmHg",
+            "included": true,
+            "reason": "BP documented as 100/70 mmHg."
+          },
+          {
+            "fact": "BMI 32.4 kg/m2",
+            "included": true,
+            "reason": "BMI documented as 32.4 kg/m2."
+          },
+          {
+            "fact": "Height 59 inches",
+            "included": true,
+            "reason": "Height documented as 59 inches."
+          },
+          {
+            "fact": "Weight 160.3 lbs",
+            "included": true,
+            "reason": "Weight documented as 160.3 lb."
+          },
+          {
+            "fact": "No jugular venous distension",
+            "included": true,
+            "reason": "No JVD documented."
+          },
+          {
+            "fact": "No chest wall tenderness",
+            "included": true,
+            "reason": "No chest wall tenderness documented."
+          },
+          {
+            "fact": "Normal heart sounds",
+            "included": true,
+            "reason": "Normal heart sounds documented."
+          },
+          {
+            "fact": "No murmurs",
+            "included": true,
+            "reason": "No murmurs documented."
+          },
+          {
+            "fact": "No rubs",
+            "included": true,
+            "reason": "No rubs documented."
+          },
+          {
+            "fact": "No gallops",
+            "included": true,
+            "reason": "No gallops documented."
+          },
+          {
+            "fact": "Chest symmetric with no use of accessory muscles",
+            "included": false,
+            "reason": "Symmetric chest is documented, but accessory muscle use is not mentioned."
+          },
+          {
+            "fact": "No tenderness over the costochondral junctions",
+            "included": true,
+            "reason": "No tenderness over costochondral junctions documented."
+          },
+          {
+            "fact": "Clear breath sounds bilaterally",
+            "included": true,
+            "reason": "Lungs clear documented."
+          },
+          {
+            "fact": "No wheezes",
+            "included": true,
+            "reason": "No wheezes documented."
+          },
+          {
+            "fact": "No crackles",
+            "included": true,
+            "reason": "No crackles documented."
+          },
+          {
+            "fact": "No rhonchi",
+            "included": true,
+            "reason": "No rhonchi documented."
+          }
+        ]
+      },
+      "test_results": {
+        "covered": 0,
+        "total": 4,
+        "coverage": 0.0,
+        "items": [
+          {
+            "fact": "Blood work: total cholesterol 241; HDL 92; LDL (calculated) 137; total/HDL ratio 2.6",
+            "included": false,
+            "reason": "These lipid values are not provided in the OSCE note."
+          },
+          {
+            "fact": "Thyroid-stimulating hormone 0.73",
+            "included": false,
+            "reason": "TSH value is not provided in the OSCE note."
+          },
+          {
+            "fact": "Complete blood count: hematocrit 42.7; hemoglobin 14.8; white blood cells 3.8",
+            "included": false,
+            "reason": "CBC values are not provided in the OSCE note."
+          },
+          {
+            "fact": "Urine culture: mixed bacterial flora consistent with contamination",
+            "included": false,
+            "reason": "Urine culture result is not mentioned in the OSCE note."
+          }
+        ]
+      }
+    },
+    "overall_fact_coverage": {
+      "covered": 32,
+      "total": 52,
+      "coverage": 0.6154
+    }
+  }
+]

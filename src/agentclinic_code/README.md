@@ -12,13 +12,27 @@ Example:
 
 ```bash
 export OPENAI_API_KEY=your_key_here
-cd src/agentclinic_code
-./run_experiment_selected.sh --data_file agentclinic_mimiciv_false_cases_with_guidelines.jsonl --count 5
+bash src/agentclinic_code/run_experiment_selected.sh \
+  --patient_csv src/agentclinic_code/data/mimic_testing.jsonl \
+  --folder mimic_test_run \
+  --num_cases 5 \
+  --workers 2 \
+  --custom_doctor_agent_path src/agentclinic_code/two_phased_agent/two_agent_interface.py
 ```
 
-MIMIC data:
-- JSONL files placed in `src/agentclinic_code/data` can be passed either as a basename such as `agentclinic_mimiciv.jsonl` or as a relative path such as `data/agentclinic_mimiciv.jsonl`.
-- Filenames containing `mimiciv` are auto-detected as `MIMICIV`.
+Input data:
+- `agentclinic_api_only.py` now uses one loader for OSCE-format JSONL files.
+- Each line must contain `OSCE_Examination` with `Objective_for_Doctor`, `Patient_Actor`, `Physical_Examination_Findings`, `Test_Results`, and `Correct_Diagnosis`.
+- Files can be passed as absolute paths, paths relative to the repository root, or basenames under `src/agentclinic_code/data`.
+- `--patient_csv` is the runner input flag name, but the expected file format is JSONL.
+
+Runner options:
+- `--patient_csv`: OSCE JSONL input file.
+- `--folder`: output folder under `src/agentclinic_code/results`.
+- `--num_cases`: number of cases to run from the start of the file.
+- `--workers`: number of parallel case workers.
+- `--custom_doctor_agent_path`: optional doctor agent file or directory containing `two_agent_interface.py`.
+- `--model`: model used for doctor, patient, measurement, and moderator.
 
 Optional:
 - Slash-prefixed model ids such as `openai/...` still work if `OPENROUTER_API_KEY` is set.
@@ -29,7 +43,7 @@ Run the two-phase doctor and generate a viewer-ready trajectory:
 
 ```bash
 uv run python src/agentclinic_code/two_phased_agent/run_visualized.py \
-  --agent_dataset MIMICIV \
+  --patient_csv src/agentclinic_code/data/mimic_testing.jsonl \
   --num_scenarios 1 \
   --scenario_offset 0 \
   --serve

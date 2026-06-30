@@ -25,6 +25,8 @@ class Agent:
         retries: int = 2,
         temperature: float = 0.2,
         log_path: str | Path | None = None,
+        logger: AgentRunLogger | None = None,
+        agent_name: str = "agent",
     ) -> None:
         self.working_memory = working_memory
         self.model = model
@@ -32,16 +34,26 @@ class Agent:
         self.max_steps = max_steps
         self.retries = retries
         self.temperature = temperature
-        self.logger = AgentRunLogger(model=model, path=log_path)
+        self.logger = logger or AgentRunLogger(
+            model=model,
+            path=log_path,
+            agent_name=agent_name,
+        )
 
     def run(self) -> dict[str, Any]:
         """Run until a terminating tool result is produced or `max_steps` is reached."""
+        run_id: int | None = None
         try:
-            self.logger.event("run_start", messages=self.working_memory.get_messages())
+            run_id = self.logger.start_agent_run(self.working_memory.get_messages())
             for step in range(self.max_steps):
                 messages = self.working_memory.get_messages()
                 reply = self._chat_with_retries(messages, step)
-                self.logger.llm_turn(step, reply)
+                self.logger.llm_turn(
+                    step,
+                    reply,
+                    input_messages=messages,
+                    run_id=run_id,
+                )
                 self.working_memory.update(_assistant_message(reply))
 
                 tool_calls = reply.get("tool_calls") or []
@@ -56,6 +68,7 @@ class Agent:
                     )
                     continue
 
+                terminal_payload = None
                 for tool_call in tool_calls:
                     tool_result = handle_tool_call(
                         tool_call["function"]["name"],
@@ -63,6 +76,8 @@ class Agent:
                         working_memory=self.working_memory,
                     )
                     termination = termination_result(tool_result)
+                    if termination is not None and terminal_payload is None:
+                        terminal_payload = termination
                     tool_message = {
                         "role": "tool",
                         "tool_call_id": tool_call["id"],
@@ -73,20 +88,17 @@ class Agent:
                         ),
                     }
                     self.working_memory.update(tool_message)
-                    self.logger.event(
-                        "tool_call",
-                        round=step,
-                        tool_call=tool_call,
-                        tool_result=tool_message,
-                    )
-                    if termination is not None:
-                        return {
-                            "role": "assistant",
-                            "content": json.dumps(termination, ensure_ascii=False),
-                        }
+                    self.logger.tool_call(step, tool_call, tool_message, run_id=run_id)
+                if terminal_payload is not None:
+                    result = {
+                        "role": "assistant",
+                        "content": json.dumps(terminal_payload, ensure_ascii=False),
+                    }
+                    self.logger.finish_agent_run(result=result, run_id=run_id)
+                    return result
             raise RuntimeError(f"agent reached max_steps={self.max_steps}")
         except Exception as exc:
-            self.logger.event("run_error", error=str(exc))
+            self.logger.finish_agent_run(error=str(exc), run_id=run_id)
             raise
         finally:
             self.logger.save()
@@ -121,9 +133,10 @@ def initialize_agent(
     *,
     model: str = "gpt-5.4-nano",
     log_path: str | Path | None = None,
+    logger: AgentRunLogger | None = None,
 ) -> Agent:
     """Create an `Agent` around any object with get_messages/update APIs."""
-    return Agent(working_memory, model=model, log_path=log_path)
+    return Agent(working_memory, model=model, log_path=log_path, logger=logger)
 
 
 def _assistant_message(reply: dict[str, Any]) -> dict[str, Any]:

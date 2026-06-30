@@ -4,167 +4,103 @@ if [ -z "${BASH_VERSION:-}" ]; then
     exec /bin/bash "$0" "$@"
 fi
 
-# Run selected AgentClinic cases from a dataset file
-# Usage:
-#   ./run_experiment_selected.sh --model <model> --data_file <path> {--ids <list> | --count <num>} [OPTIONS]
-#
-# Required:
-#   --model <str>      Model for all agents. Default: gpt-5.4-nano.
-#   --data_file <path> Path to the dataset (.jsonl) file.
-#   --ids <list>       Select specific case IDs (comma-separated, e.g. 0,2,8,15).
-#     OR
-#   --count <num>      Evaluate a specified number of cases (first N, or random N with --random).
-#
-# Selection Options:
-#   --start <idx>      (Optional) Start evaluating from index <idx> (0-indexed). Default: 0
-#   --random           (Optional) Select <count> random cases rather than sequential ones.
-#   --ids_1based       (Optional) Treat provided IDs as 1-based indices instead of 0-based.
-#
-# Output & Execution Options:
-#   --name <str>       (Optional) Experiment name prefix for the output JSONL file.
-#   --folder <str>     (Optional) Output folder name. Default: experiment_<timestamp>
-#   --workers <num>    (Optional) Number of parallel workers. Default: 10
-#
-# Other Options:
-#   --agent_dataset <dataset> (Optional) Override dataset handler (e.g. MIMICIV, NEJM, MedQA, NewMedQA). Auto-inferred otherwise.
-#   --custom_doctor_agent_path <path> (Optional) Path to a custom doctor agent Python file.
-#
-# Examples:
-#   ./run_experiment_selected.sh --data_file data/agentclinic_mimiciv.jsonl --count 50
-#   ./run_experiment_selected.sh --model gpt-5-nano --data_file agentclinic_mimiciv.jsonl --ids 2,8,15
 set -e
 set -o pipefail
 
-MODEL="gpt-5.4-nano"
-DEFAULT_MODEL="$MODEL"
-
-EXPERIMENT_NAME=""
+MODEL="gpt-5-nano"
+PATIENT_CSV=""
 FOLDER_NAME=""
-WORKERS=10
-DEFAULT_WORKERS="$WORKERS"
-DATA_FILE_OVERRIDE=""
-IDS_1BASED=""
-COUNT=""
-START_INDEX=0
-DEFAULT_START_INDEX="$START_INDEX"
-RANDOM_SELECT=""
-AGENT_DATASET=""
+EXPERIMENT_ID=""
+WORKERS=1
 CUSTOM_DOCTOR_AGENT_PATH=""
-DEFAULT_TOTAL_INFERENCES=30
-
-IDS_LIST=()
+NUM_CASES=""
+TOTAL_INFERENCES=30
 
 print_usage() {
     cat <<EOF
 Usage:
-  $0 --data_file <path> {--ids <list> | --count <num>} [OPTIONS]
+  $0 --patient_csv <osce.jsonl> --num_cases <n> [OPTIONS]
 
 Required:
-  --data_file <path> Path to the dataset (.jsonl) file.
-  --ids <list>       Select specific case IDs, comma-separated.
-    OR
-  --count <num>      Evaluate N cases from --start, or random N with --random.
+  --patient_csv <path>              OSCE-format JSONL input file.
+  --num_cases <n>                   Number of cases to run from the start of the file.
 
-Current defaults:
-  --model                         $DEFAULT_MODEL
-  --workers                       $DEFAULT_WORKERS
-  --start                         $DEFAULT_START_INDEX
-  --folder                        experiment_<timestamp>
-  --agent_dataset                 auto-inferred from data_file
-  --custom_doctor_agent_path      none
-  total inferences per case        $DEFAULT_TOTAL_INFERENCES
+Options:
+  --data_file <path>                Alias for --patient_csv.
+  --count <n>                       Alias for --num_cases.
+  --folder <name>                   Output folder name under src/agentclinic_code/results.
+                                    Default: generated from data file name and timestamp.
+  --workers <n>                     Parallel worker count. Default: $WORKERS
+  --experiment_id <id>              Shared experiment ID for all case logs.
+  --custom_doctor_agent_path <path> Custom doctor agent .py file or directory containing two_agent_interface.py.
+                                    Default: src/agentclinic_code/two_phased_agent/two_agent_interface.py
+  --model <name>                    Model for doctor, patient, measurement, and moderator. Default: $MODEL
+  --total_inferences <n>            Max doctor/patient turns per case. Default: $TOTAL_INFERENCES
+  --help, -h                        Show this help.
 
-Common options:
-  --model <str>
-  --workers <num>
-  --start <idx>
-  --random
-  --ids_1based
-  --name <str>
-  --folder <str>
-  --agent_dataset <dataset>
-  --custom_doctor_agent_path <path>
+Example:
+  $0 \\
+    --patient_csv src/agentclinic_code/data/mimic_testing.jsonl \\
+    --folder mimic_test_run \\
+    --num_cases 20 \\
+    --workers 4 \\
+    --custom_doctor_agent_path src/agentclinic_code/two_phased_agent/two_agent_interface.py
 EOF
 }
 
-add_ids() {
-    local raw="$1"
-    local cleaned
-    cleaned=$(echo "$raw" | tr -d ' ')
-    IFS=',' read -r -a parts <<< "$cleaned"
-    for id in "${parts[@]}"; do
-        if [[ -z "$id" ]]; then
-            continue
-        fi
-        if [[ ! "$id" =~ ^[0-9]+$ ]]; then
-            echo "Error: invalid id '$id' (must be non-negative integer)"
-            exit 1
-        fi
-        IDS_LIST+=("$id")
-    done
+require_value() {
+    local flag="$1"
+    local value="${2:-}"
+    if [[ -z "$value" || "$value" == --* ]]; then
+        echo "Error: $flag requires a value"
+        exit 1
+    fi
 }
 
-# Parse optional flags
 while [[ $# -gt 0 ]]; do
-    case $1 in
+    case "$1" in
         --help|-h)
             print_usage
             exit 0
             ;;
-        --name)
-            EXPERIMENT_NAME="$2"
+        --patient_csv|--data_file)
+            require_value "$1" "${2:-}"
+            PATIENT_CSV="$2"
             shift 2
             ;;
         --folder)
+            require_value "$1" "${2:-}"
             FOLDER_NAME="$2"
             shift 2
             ;;
+        --experiment_id)
+            require_value "$1" "${2:-}"
+            EXPERIMENT_ID="$2"
+            shift 2
+            ;;
         --workers)
+            require_value "$1" "${2:-}"
             WORKERS="$2"
             shift 2
             ;;
+        --custom_doctor_agent_path)
+            require_value "$1" "${2:-}"
+            CUSTOM_DOCTOR_AGENT_PATH="$2"
+            shift 2
+            ;;
+        --num_cases|--count)
+            require_value "$1" "${2:-}"
+            NUM_CASES="$2"
+            shift 2
+            ;;
         --model)
+            require_value "$1" "${2:-}"
             MODEL="$2"
             shift 2
             ;;
-        --data_file)
-            DATA_FILE_OVERRIDE="$2"
-            shift 2
-            ;;
-        --ids)
-            add_ids "$2"
-            shift 2
-            ;;
-        --ids_1based)
-            IDS_1BASED="1"
-            shift
-            ;;
-        --count)
-            COUNT="$2"
-            if [[ ! "$COUNT" =~ ^[0-9]+$ ]] || [[ "$COUNT" -eq 0 ]]; then
-                echo "Error: --count must be a positive integer"
-                exit 1
-            fi
-            shift 2
-            ;;
-        --start)
-            START_INDEX="$2"
-            if [[ ! "$START_INDEX" =~ ^[0-9]+$ ]]; then
-                echo "Error: --start must be a non-negative integer"
-                exit 1
-            fi
-            shift 2
-            ;;
-        --random)
-            RANDOM_SELECT="1"
-            shift
-            ;;
-        --agent_dataset)
-            AGENT_DATASET="$2"
-            shift 2
-            ;;
-        --custom_doctor_agent_path)
-            CUSTOM_DOCTOR_AGENT_PATH="$2"
+        --total_inferences)
+            require_value "$1" "${2:-}"
+            TOTAL_INFERENCES="$2"
             shift 2
             ;;
         *)
@@ -175,403 +111,187 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-if [[ -z "$DATA_FILE_OVERRIDE" ]]; then
-    echo "Error: --data_file is required"
+if [[ -z "$PATIENT_CSV" || -z "$NUM_CASES" ]]; then
+    echo "Error: --patient_csv/--data_file and --num_cases/--count are required"
+    print_usage
     exit 1
 fi
 
-if [[ ${#IDS_LIST[@]} -eq 0 ]] && [[ -z "$COUNT" ]]; then
-    echo "Error: either --ids or --count is required"
-    echo "  --ids 2,8,15,20   select specific case IDs (comma-separated, can repeat)"
-    echo "  --count 50         select first N cases (or random N with --random)"
-    exit 1
-fi
+for numeric_value in "$WORKERS" "$NUM_CASES" "$TOTAL_INFERENCES"; do
+    if [[ ! "$numeric_value" =~ ^[0-9]+$ ]] || [[ "$numeric_value" -eq 0 ]]; then
+        echo "Error: numeric options must be positive integers"
+        exit 1
+    fi
+done
 
-if [[ ${#IDS_LIST[@]} -gt 0 ]] && [[ -n "$COUNT" ]]; then
-    echo "Error: --ids and --count are mutually exclusive"
-    exit 1
-fi
-
-# Directories
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CODE_DIR="$SCRIPT_DIR"
 DATA_DIR="$CODE_DIR/data"
 RESULTS_DIR="$CODE_DIR/results"
+TWO_PHASE_AGENT_PATH="$CODE_DIR/two_phased_agent/two_agent_interface.py"
+VISUALIZATION_LOG_DIR="$CODE_DIR/two_phased_agent/log"
 
-resolve_data_file() {
+resolve_file() {
     local raw="$1"
-    if [[ -f "$raw" ]]; then
-        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$raw"
-        return 0
-    fi
+    local label="$2"
+    local candidate
 
-    if [[ -f "$DATA_DIR/$raw" ]]; then
-        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$DATA_DIR/$raw"
-        return 0
-    fi
+    for candidate in "$raw" "$DATA_DIR/$raw" "$CODE_DIR/$raw"; do
+        if [[ -f "$candidate" ]]; then
+            python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$candidate"
+            return 0
+        fi
+    done
 
-    echo "Error: Data file not found: $raw"
-    echo "Checked:"
-    echo "  $raw"
-    echo "  $DATA_DIR/$raw"
+    echo "Error: $label not found: $raw"
     exit 1
 }
 
-resolve_custom_agent_file() {
+resolve_agent_file() {
     local raw="$1"
+    local candidate
+
     if [[ -z "$raw" ]]; then
         return 0
     fi
 
-    if [[ -f "$raw" ]]; then
-        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$raw"
-        return 0
-    fi
-    if [[ -d "$raw" && -f "$raw/two_agent_interface.py" ]]; then
-        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$raw/two_agent_interface.py"
-        return 0
-    fi
-
-    if [[ -f "$CODE_DIR/$raw" ]]; then
-        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$CODE_DIR/$raw"
-        return 0
-    fi
-    if [[ -d "$CODE_DIR/$raw" && -f "$CODE_DIR/$raw/two_agent_interface.py" ]]; then
-        python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$CODE_DIR/$raw/two_agent_interface.py"
-        return 0
-    fi
-
-    echo "Error: Custom doctor agent file not found: $raw"
-    echo "Checked:"
-    echo "  $raw"
-    echo "  $raw/two_agent_interface.py"
-    echo "  $CODE_DIR/$raw"
-    echo "  $CODE_DIR/$raw/two_agent_interface.py"
-    exit 1
-}
-
-DATA_FILE="$(resolve_data_file "$DATA_FILE_OVERRIDE")"
-DATA_BASENAME="$(basename "$DATA_FILE")"
-if [[ -n "$CUSTOM_DOCTOR_AGENT_PATH" ]]; then
-    CUSTOM_DOCTOR_AGENT_PATH="$(resolve_custom_agent_file "$CUSTOM_DOCTOR_AGENT_PATH")"
-fi
-
-# Auto-detect agent_dataset from data file if not specified
-if [[ -z "$AGENT_DATASET" ]]; then
-    DATA_PATH_LC=$(printf '%s' "$DATA_FILE" | tr '[:upper:]' '[:lower:]')
-    if [[ "$DATA_PATH_LC" == *"mimic"* ]]; then
-        AGENT_DATASET="MIMICIV"
-    elif [[ "$DATA_PATH_LC" == *"nejm_ext"* ]] || [[ "$DATA_PATH_LC" == *"nejm_extended"* ]]; then
-        AGENT_DATASET="NEJM_Ext"
-    elif [[ "$DATA_PATH_LC" == *"nejm"* ]]; then
-        AGENT_DATASET="NEJM"
-    elif [[ "$DATA_PATH_LC" == *"new_medqa_similar_cases"* ]]; then
-        AGENT_DATASET="NewMedQA"
-    elif [[ "$DATA_PATH_LC" == *"medqa_ext"* ]] || [[ "$DATA_PATH_LC" == *"medqa_extended"* ]]; then
-        AGENT_DATASET="MedQA_Ext"
-    elif [[ "$DATA_PATH_LC" == *"medqa"* ]]; then
-        AGENT_DATASET="MedQA"
-    else
-        AGENT_DATASET="MedQA_Ext"
-    fi
-fi
-
-# Create results directory
-mkdir -p "$RESULTS_DIR"
-
-# Count cases
-NUM_CASES=$(wc -l < "$DATA_FILE" | tr -d ' ')
-
-# Generate IDs from --count if provided
-if [[ -n "$COUNT" ]]; then
-    if [[ "$START_INDEX" -ge "$NUM_CASES" ]]; then
-        echo "Error: --start $START_INDEX is out of range (0..$((NUM_CASES - 1)))"
-        exit 1
-    fi
-    END_INDEX=$((START_INDEX + COUNT))
-    if [[ "$END_INDEX" -gt "$NUM_CASES" ]]; then
-        echo "Warning: --start $START_INDEX + --count $COUNT exceeds available cases ($NUM_CASES), clamping to $((NUM_CASES - START_INDEX))"
-        END_INDEX="$NUM_CASES"
-    fi
-    if [[ -n "$RANDOM_SELECT" ]]; then
-        # Generate random sample of COUNT ids from START_INDEX..NUM_CASES-1
-        while IFS= read -r id; do
-            IDS_LIST+=("$id")
-        done < <(python3 -c "import random; ids=list(range($START_INDEX,$NUM_CASES)); random.shuffle(ids); print('\n'.join(str(i) for i in ids[:$((END_INDEX - START_INDEX))]))")
-    else
-        # Sequential: cases from START_INDEX to END_INDEX-1
-        for ((i=START_INDEX; i<END_INDEX; i++)); do
-            IDS_LIST+=("$i")
-        done
-    fi
-fi
-
-# Normalize ids (bash 3.2 compatible)
-NORMALIZED_IDS=()
-contains_id() {
-    local needle="$1"
-    shift
-    for existing in "$@"; do
-        if [[ "$existing" == "$needle" ]]; then
+    for candidate in "$raw" "$CODE_DIR/$raw"; do
+        if [[ -f "$candidate" ]]; then
+            python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$candidate"
+            return 0
+        fi
+        if [[ -d "$candidate" && -f "$candidate/two_agent_interface.py" ]]; then
+            python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "$candidate/two_agent_interface.py"
             return 0
         fi
     done
-    return 1
+
+    echo "Error: custom doctor agent not found: $raw"
+    exit 1
 }
 
-for id in "${IDS_LIST[@]}"; do
-    if [[ -n "$IDS_1BASED" ]]; then
-        if [[ "$id" -eq 0 ]]; then
-            echo "Error: --ids_1based requires ids >= 1"
-            exit 1
-        fi
-        id=$((id - 1))
-    fi
-    if contains_id "$id" "${NORMALIZED_IDS[@]}"; then
-        continue
-    fi
-    NORMALIZED_IDS+=("$id")
-done
-
-# Validate ids
-for id in "${NORMALIZED_IDS[@]}"; do
-    if [[ "$id" -lt 0 || "$id" -ge "$NUM_CASES" ]]; then
-        echo "Error: scenario id $id is out of range (0..$((NUM_CASES - 1)))"
-        exit 1
-    fi
-done
-
-# Timestamp and output files
-TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-MODEL_SAFE=$(echo "$MODEL" | tr '/' '_')
-
-# Experiment output folder
-if [[ -n "$FOLDER_NAME" ]]; then
-    FOLDER_SAFE=$(echo "$FOLDER_NAME" | tr ' /' '_')
-    EXP_FOLDER="$RESULTS_DIR/$FOLDER_SAFE"
-else
-    EXP_FOLDER="$RESULTS_DIR/experiment_${TIMESTAMP}"
+PATIENT_CSV="$(resolve_file "$PATIENT_CSV" "patient_csv")"
+if [[ -z "$FOLDER_NAME" ]]; then
+    DATA_STEM="$(python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).stem)' "$PATIENT_CSV")"
+    FOLDER_NAME="${DATA_STEM}_$(date +%Y%m%d_%H%M%S)_$$"
 fi
-mkdir -p "$EXP_FOLDER"
+if [[ -z "$CUSTOM_DOCTOR_AGENT_PATH" ]]; then
+    CUSTOM_DOCTOR_AGENT_PATH="$TWO_PHASE_AGENT_PATH"
+fi
+CUSTOM_DOCTOR_AGENT_PATH="$(resolve_agent_file "$CUSTOM_DOCTOR_AGENT_PATH")"
 
-MEMORY_SUFFIX=""
-
-# Build filename
-BASE_NAME=$(basename "$DATA_FILE")
-BASE_NAME=${BASE_NAME%.jsonl}
-
-if [[ -n "$EXPERIMENT_NAME" ]]; then
-    EXPERIMENT_SAFE=$(echo "$EXPERIMENT_NAME" | tr ' /' '_')
-    OUTPUT_FILE="$EXP_FOLDER/${EXPERIMENT_SAFE}_${MODEL_SAFE}_${TIMESTAMP}.jsonl"
-else
-    OUTPUT_FILE="$EXP_FOLDER/${BASE_NAME}_${MODEL_SAFE}_selected_${TIMESTAMP}.jsonl"
+TOTAL_CASES=$(wc -l < "$PATIENT_CSV" | tr -d ' ')
+if [[ "$NUM_CASES" -gt "$TOTAL_CASES" ]]; then
+    echo "Error: --num_cases $NUM_CASES exceeds available cases $TOTAL_CASES"
+    exit 1
 fi
 
+FOLDER_SAFE=$(echo "$FOLDER_NAME" | tr ' /' '__')
+if [[ -z "$EXPERIMENT_ID" ]]; then
+    EXPERIMENT_ID="$FOLDER_SAFE"
+fi
+EXP_FOLDER="$RESULTS_DIR/$FOLDER_SAFE"
+CASE_DIR="$EXP_FOLDER/cases"
+STDOUT_LOG_DIR="$EXP_FOLDER/logs"
+OUTPUT_FILE="$EXP_FOLDER/results.csv"
+mkdir -p "$CASE_DIR" "$STDOUT_LOG_DIR" "$VISUALIZATION_LOG_DIR"
+
+DEPS=(--with 'openai>=1.0.0' --with regex --with python-dotenv --with pyyaml --with requests)
+
 echo "========================================================"
-echo "High-Transfer Clusters Experiment (Selected Cases)"
+echo "AgentClinic OSCE Run"
 echo "========================================================"
-echo "Split/Data:         $DATA_FILE"
-echo "Agent Dataset:      $AGENT_DATASET"
-echo "Model:              $MODEL"
-echo "Default model:      $DEFAULT_MODEL"
-echo "Default workers:    $DEFAULT_WORKERS"
-echo "Default start:      $DEFAULT_START_INDEX"
-echo "Default infs/case:  $DEFAULT_TOTAL_INFERENCES"
+echo "Input:        $PATIENT_CSV"
+echo "Output dir:   $EXP_FOLDER"
+echo "Cases:        $NUM_CASES / $TOTAL_CASES"
+echo "Workers:      $WORKERS"
+echo "Model:        $MODEL"
+echo "Inferences:   $TOTAL_INFERENCES"
+echo "Experiment:   $EXPERIMENT_ID"
 if [[ -n "$CUSTOM_DOCTOR_AGENT_PATH" ]]; then
-    echo "Custom Agent:       $CUSTOM_DOCTOR_AGENT_PATH"
+    echo "Doctor agent: $CUSTOM_DOCTOR_AGENT_PATH"
 fi
-if [[ -n "$EXPERIMENT_NAME" ]]; then
-    echo "Experiment:         $EXPERIMENT_NAME"
-fi
-echo "Output folder:      $EXP_FOLDER"
-echo "Num cases in file:  $NUM_CASES"
-echo "Selected count:     ${#NORMALIZED_IDS[@]}"
-if [[ -n "$RANDOM_SELECT" ]]; then
-    echo "Selection mode:     random"
-fi
-echo "Workers:            $WORKERS"
-if [[ ${#NORMALIZED_IDS[@]} -le 20 ]]; then
-    echo "Selected IDs:       ${NORMALIZED_IDS[*]}"
-else
-    echo "Selected IDs:       ${NORMALIZED_IDS[*]:0:10} ... ${NORMALIZED_IDS[*]:$((${#NORMALIZED_IDS[@]}-5))}"
-fi
-echo "Output:             $OUTPUT_FILE"
 echo "========================================================"
-
-# Dependencies for uv run
-DEPS="--with openai>=1.0.0 --with regex --with python-dotenv --with pyyaml --with requests"
-COMMON_ARGS="--doctor_llm $MODEL --patient_llm $MODEL --measurement_llm $MODEL --moderator_llm $MODEL --total_inferences $DEFAULT_TOTAL_INFERENCES"
-
-# Map agent_dataset to the default file the Python loader expects when no
-# explicit data_file override is passed.
-case "$AGENT_DATASET" in
-    MIMICIV)    LOADER_FILE="agentclinic_mimiciv.jsonl" ;;
-    MedQA)      LOADER_FILE="agentclinic_medqa.jsonl" ;;
-    MedQA_Ext)  LOADER_FILE="agentclinic_medqa_extended.jsonl" ;;
-    NEJM)       LOADER_FILE="agentclinic_nejm.jsonl" ;;
-    NEJM_Ext)   LOADER_FILE="agentclinic_nejm_extended.jsonl" ;;
-    NewMedQA)   LOADER_FILE="new_medqa_similar_cases.jsonl" ;;
-    *)          LOADER_FILE="agentclinic_medqa_extended.jsonl" ;;
-esac
-
-if [[ "$(basename "$DATA_FILE")" != "$(basename "$LOADER_FILE")" ]]; then
-    echo "Info: data_file basename '$DATA_BASENAME' differs from default loader file '$LOADER_FILE' for dataset '$AGENT_DATASET'"
-    echo "      Passing --data_file so Python loads the selected file directly."
-fi
-
-echo ""
-echo "Running selected cases..."
-echo "--------------------------------------------------------"
-
-STATUS_DIR="$EXP_FOLDER/tmp_status_${TIMESTAMP}"
-mkdir -p "$STATUS_DIR"
-
-render_progress() {
-    local completed failed processed remaining filled empty bar
-    completed=$(find "$STATUS_DIR" -type f -name '*.done' | wc -l | tr -d ' ')
-    failed=$(find "$STATUS_DIR" -type f -name '*.failed' | wc -l | tr -d ' ')
-    processed=$((completed + failed))
-
-    if [[ "${#NORMALIZED_IDS[@]}" -eq 0 ]]; then
-        return 0
-    fi
-
-    filled=$((processed * 20 / ${#NORMALIZED_IDS[@]}))
-    remaining=$((20 - filled))
-    bar=""
-
-    while [[ "$filled" -gt 0 ]]; do
-        bar="${bar}#"
-        filled=$((filled - 1))
-    done
-    empty=$remaining
-    while [[ "$empty" -gt 0 ]]; do
-        bar="${bar}-"
-        empty=$((empty - 1))
-    done
-
-    printf '  Progress [%s] %d/%d' "$bar" "$processed" "${#NORMALIZED_IDS[@]}"
-    if [[ "$failed" -gt 0 ]]; then
-        printf ' (%d failed)' "$failed"
-    fi
-    printf '\n'
-}
-
-mark_case_status() {
-    local scenario_id="$1"
-    local suffix="$2"
-    mkdir -p "$STATUS_DIR"
-    : > "$STATUS_DIR/${scenario_id}.${suffix}"
-}
-
-render_progress
 
 run_case() {
-    local scenario_id=$1
-    local tmp_file="$EXP_FOLDER/tmp_case_${scenario_id}_${TIMESTAMP}.jsonl"
-    local log_file="$EXP_FOLDER/tmp_case_${scenario_id}_${TIMESTAMP}.log"
-    local prefix_file="$EXP_FOLDER/tmp_case_${scenario_id}_${TIMESTAMP}.prefixed.log"
-    local custom_agent_args=()
+    local case_id="$1"
+    local tmp_file="$CASE_DIR/case_${case_id}.csv"
+    local log_file="$STDOUT_LOG_DIR/case_${case_id}.log"
+    local run_log_file="$VISUALIZATION_LOG_DIR/${FOLDER_SAFE}_case_${case_id}.json"
+    local agent_args=()
 
     if [[ -n "$CUSTOM_DOCTOR_AGENT_PATH" ]]; then
-        custom_agent_args=(--custom_doctor_agent_path "$CUSTOM_DOCTOR_AGENT_PATH")
+        agent_args=(--custom_doctor_agent_path "$CUSTOM_DOCTOR_AGENT_PATH")
     fi
 
-    echo "  Starting case $scenario_id"
-    if uv run $DEPS python -u "$CODE_DIR/agentclinic_api_only.py" \
-        --agent_dataset "$AGENT_DATASET" \
-        --data_file "$DATA_FILE" \
+    rm -f "$tmp_file" "$log_file" "$run_log_file"
+
+    echo "[case $case_id] start"
+    if uv run "${DEPS[@]}" python -u "$CODE_DIR/agentclinic_api_only.py" \
+        --patient_csv "$PATIENT_CSV" \
         --num_scenarios 1 \
-        --scenario_offset "$scenario_id" \
-        $COMMON_ARGS \
-        "${custom_agent_args[@]}" \
-        --output_file "$tmp_file" 2>&1 \
-        | tee "$log_file" \
-        | awk -v case_id="$scenario_id" '
-            /STARTING SCENARIO/ || /Doctor \[[0-9]+%\]:/ || /Correct answer:/ || /The diagnosis was/ || /Maximum inferences reached/ || /Error querying model/ {
-                printf("[case %s] %s\n", case_id, $0);
-                fflush(stdout);
-            }
-        ' \
-        | tee "$prefix_file"; then
-        mark_case_status "$scenario_id" "done"
-        echo "  Completed case $scenario_id"
+        --scenario_offset "$case_id" \
+        --doctor_llm "$MODEL" \
+        --patient_llm "$MODEL" \
+        --measurement_llm "$MODEL" \
+        --moderator_llm "$MODEL" \
+        --total_inferences "$TOTAL_INFERENCES" \
+        --experiment_id "$EXPERIMENT_ID" \
+        "${agent_args[@]}" \
+        --output_file "$tmp_file" \
+        --run_log_path "$run_log_file" > "$log_file" 2>&1; then
+        echo "[case $case_id] done"
     else
-        mark_case_status "$scenario_id" "failed"
-        echo "  Failed case $scenario_id"
-        echo "  Log: $log_file"
+        echo "[case $case_id] failed; see $log_file"
+        return 1
     fi
-
-    render_progress
 }
 
-export -f run_case
-export -f render_progress
-export -f mark_case_status
-export CODE_DIR RESULTS_DIR EXP_FOLDER TIMESTAMP DEPS COMMON_ARGS AGENT_DATASET DATA_FILE CUSTOM_DOCTOR_AGENT_PATH STATUS_DIR
-
 ACTIVE_PIDS=()
-for scenario_id in "${NORMALIZED_IDS[@]}"; do
-    run_case "$scenario_id" &
+FAILED=0
+
+for ((case_id=0; case_id<NUM_CASES; case_id++)); do
+    run_case "$case_id" &
     ACTIVE_PIDS+=("$!")
 
     if [[ "${#ACTIVE_PIDS[@]}" -ge "$WORKERS" ]]; then
-        wait "${ACTIVE_PIDS[0]}"
+        if ! wait "${ACTIVE_PIDS[0]}"; then
+            FAILED=1
+        fi
         ACTIVE_PIDS=("${ACTIVE_PIDS[@]:1}")
     fi
 done
 
 for pid in "${ACTIVE_PIDS[@]}"; do
-    wait "$pid"
-done
-
-echo "--------------------------------------------------------"
-echo "Merging results..."
-
-# Merge results
-> "$OUTPUT_FILE"
-for i in "${NORMALIZED_IDS[@]}"; do
-    tmp_file="$EXP_FOLDER/tmp_case_${i}_${TIMESTAMP}.jsonl"
-    if [ -f "$tmp_file" ]; then
-        cat "$tmp_file" >> "$OUTPUT_FILE"
+    if ! wait "$pid"; then
+        FAILED=1
     fi
 done
 
-echo ""
-echo "========================================================"
-echo "Experiment Complete!"
-echo "========================================================"
-echo "Results:     $OUTPUT_FILE"
+> "$OUTPUT_FILE"
+for ((case_id=0; case_id<NUM_CASES; case_id++)); do
+    tmp_file="$CASE_DIR/case_${case_id}.csv"
+    if [[ -f "$tmp_file" ]]; then
+        if [[ "$case_id" -eq 0 ]]; then
+            cat "$tmp_file" >> "$OUTPUT_FILE"
+        else
+            tail -n +2 "$tmp_file" >> "$OUTPUT_FILE"
+        fi
+    fi
+done
 
-# Generate detailed report if script exists (generates its own report_v2_*.txt file)
-if [ -f "$CODE_DIR/generate_report_v2.py" ]; then
-    python3 "$CODE_DIR/generate_report_v2.py" "$OUTPUT_FILE" >/dev/null 2>&1
+PROCESSED=$(($(wc -l < "$OUTPUT_FILE" | tr -d ' ') - 1))
+if [[ "$PROCESSED" -lt 0 ]]; then
+    PROCESSED=0
 fi
 
-# Show quick summary
-TOTAL=$(wc -l < "$OUTPUT_FILE" | tr -d ' ')
-echo "Cases:       $TOTAL cases processed"
-
-# Re-evaluate failed cases with full problem_info using the selected model
-REEVAL_SCRIPT="$SCRIPT_DIR/reevaluate_false_cases_full_info.py"
-REEVAL_CSV="$EXP_FOLDER/false_cases_full_info_eval_${TIMESTAMP}.csv"
-if [ -f "$REEVAL_SCRIPT" ]; then
-    echo "Re-eval:     running false-case full-info check..."
-    uv run $DEPS python "$REEVAL_SCRIPT" \
-        --input_jsonl "$OUTPUT_FILE" \
-        --output_csv "$REEVAL_CSV" \
-        --provider openai \
-        --model "$MODEL" \
-        --moderator_model "$MODEL"
-    echo "Re-eval CSV: $REEVAL_CSV"
-else
-    echo "Re-eval:     skipped (script not found: $REEVAL_SCRIPT)"
-fi
-
-# Clean up temp case files after reports are generated.
-rm -f "$EXP_FOLDER"/tmp_case_*_"${TIMESTAMP}".jsonl
-rm -f "$EXP_FOLDER"/tmp_case_*_"${TIMESTAMP}".log
-rm -f "$EXP_FOLDER"/tmp_case_*_"${TIMESTAMP}".prefixed.log
-rm -rf "$STATUS_DIR"
-
 echo "========================================================"
+echo "Complete"
+echo "Results:      $OUTPUT_FILE"
+echo "Case logs:    $STDOUT_LOG_DIR"
+echo "Viewer logs:  $VISUALIZATION_LOG_DIR/${FOLDER_SAFE}_case_<id>.json"
+echo "Experiment:   $EXPERIMENT_ID"
+echo "Processed:    $PROCESSED"
+echo "========================================================"
+
+exit "$FAILED"

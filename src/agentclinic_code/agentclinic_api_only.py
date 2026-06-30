@@ -6,19 +6,25 @@ import random
 import time
 import json
 import os
+import inspect
 from dotenv import load_dotenv
 load_dotenv()
 import sys
 from pathlib import Path
 
 CODE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CODE_DIR.parents[1]
 DATA_DIR = CODE_DIR / "data"
 AGENT_RUNTIME_DIR = CODE_DIR / "agent_runtime"
 
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 if str(CODE_DIR) not in sys.path:
     sys.path.insert(0, str(CODE_DIR))
 if str(AGENT_RUNTIME_DIR) not in sys.path:
     sys.path.insert(0, str(AGENT_RUNTIME_DIR))
+
+from src.agent.logging import AgentRunLogger
 
 
 # Global client variable
@@ -101,6 +107,22 @@ def _try_parse_json_object(text):
         except Exception:
             pass
     return None
+
+
+def _usage_to_dict(usage) -> dict:
+    if not usage:
+        return {}
+    if hasattr(usage, "model_dump"):
+        return usage.model_dump()
+    if isinstance(usage, dict):
+        return usage
+    return {
+        "prompt_tokens": getattr(usage, "prompt_tokens", 0),
+        "completion_tokens": getattr(usage, "completion_tokens", 0),
+        "total_tokens": getattr(usage, "total_tokens", 0),
+        "input_tokens": getattr(usage, "input_tokens", getattr(usage, "prompt_tokens", 0)),
+        "output_tokens": getattr(usage, "output_tokens", getattr(usage, "completion_tokens", 0)),
+    }
 
 
 def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_requested=False, scene=None, max_prompt_len=2**14, clip_prompt=False, return_usage=False, response_format_schema=None):
@@ -320,7 +342,190 @@ def _finalize_doctor_visualization(
     print(f"Viewer-ready trajectory: {path}")
 
 
-def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, measurement_llm, moderator_llm, num_scenarios, dataset, img_request, total_inferences, output_file=None, scenario_offset=0, use_memory=False, custom_doctor_agent_path=None, data_file=None):
+def _scenario_environment(dataset_name, scenario) -> dict:
+    environment = {"dataset": dataset_name}
+    for key, getter in [
+        ("scenario", lambda: getattr(scenario, "scenario_dict", {})),
+        ("patient", scenario.patient_information),
+        ("exam", scenario.exam_information),
+        ("diagnosis", scenario.diagnosis_information),
+    ]:
+        try:
+            environment[key] = getter()
+        except Exception as exc:
+            environment[key] = {"error": str(exc)}
+    if hasattr(scenario, "question"):
+        environment["question"] = getattr(scenario, "question")
+    if hasattr(scenario, "image_url"):
+        environment["image_url"] = getattr(scenario, "image_url")
+    return environment
+
+
+def _build_scenario_logger(
+    *,
+    model: str,
+    agent_name: str,
+    dataset_name: str,
+    scenario_id: int,
+    scenario,
+    patient_csv: str,
+    experiment_id: str | None = None,
+    result_csv_path: str | None = None,
+    run_log_path: str | Path | None = None,
+) -> AgentRunLogger:
+    patient_id = getattr(scenario, "patient_id", None) or f"{dataset_name}:{scenario_id}"
+    logger = AgentRunLogger(
+        model=model,
+        path=run_log_path,
+        agent_name=agent_name,
+        patient_id=patient_id,
+        problem=scenario.examiner_information(),
+        environment=_scenario_environment(dataset_name, scenario),
+        metadata={
+            "dataset": dataset_name,
+            "scenario_id": scenario_id,
+            "patient_id": patient_id,
+            "experiment_id": experiment_id,
+            "patient_csv": patient_csv,
+        },
+        result_csv_path=result_csv_path,
+    )
+    logger.meta.update(
+        {
+            "patient_id": patient_id,
+            "experiment_id": experiment_id,
+        }
+    )
+    return logger
+
+
+def _scenario_run_log_path(path: str | Path | None, scenario_id: int, total_scenarios: int) -> Path | None:
+    if not path:
+        return None
+    base = Path(path).expanduser()
+    if total_scenarios <= 1:
+        return base
+    return base.with_name(f"{base.stem}_scenario_{scenario_id}{base.suffix or '.json'}")
+
+
+def _instantiate_doctor_agent(agent_cls, *, logger: AgentRunLogger, **kwargs):
+    signature = inspect.signature(agent_cls)
+    supports_logger = (
+        "logger" in signature.parameters
+        or any(
+            parameter.kind == inspect.Parameter.VAR_KEYWORD
+            for parameter in signature.parameters.values()
+        )
+    )
+    if supports_logger:
+        return agent_cls(logger=logger, **kwargs)
+
+    doctor_agent = agent_cls(**kwargs)
+    doctor_agent.logger = logger
+    return doctor_agent
+
+
+def _token_counts(agent) -> dict:
+    return {
+        "total_tokens": getattr(agent, "total_tokens", 0),
+        "prompt_tokens": getattr(agent, "prompt_tokens", 0),
+        "completion_tokens": getattr(agent, "completion_tokens", 0),
+    }
+
+
+def _token_usage(doctor_agent, patient_agent, meas_agent) -> dict:
+    doctor = _token_counts(doctor_agent)
+    patient = _token_counts(patient_agent)
+    measurement = _token_counts(meas_agent)
+    return {
+        "doctor": doctor,
+        "patient": patient,
+        "measurement": measurement,
+        "total": {
+            key: doctor[key] + patient[key] + measurement[key]
+            for key in doctor
+        },
+    }
+
+
+def _agent_field(agent, *names: str, default=""):
+    for name in names:
+        value = getattr(agent, name, None)
+        if value:
+            return value
+    return default
+
+
+def _build_result_record(
+    *,
+    dataset_name,
+    scenario_id,
+    scenario,
+    doctor_agent,
+    patient_agent,
+    meas_agent,
+    model_diagnosis,
+    correct,
+    dialogue_log,
+    experiment_id=None,
+) -> dict:
+    patient_id = getattr(scenario, "patient_id", None) or f"{dataset_name}:{scenario_id}"
+    return {
+        "dataset": dataset_name,
+        "scenario_id": scenario_id,
+        "patient_id": patient_id,
+        "experiment_id": experiment_id,
+        "problem_info": scenario.scenario_dict,
+        "correct_diagnosis": str(scenario.diagnosis_information()),
+        "model_diagnosis": model_diagnosis,
+        "model_uncertainty_reasoning": _agent_field(
+            doctor_agent,
+            "last_uncertainty_reasoning",
+        ),
+        "differential_diagnosis_list": _agent_field(
+            doctor_agent,
+            "differential_diagnosis_list",
+            "last_uncertainty_reasoning",
+        ),
+        "osce_note": _agent_field(doctor_agent, "osce_note", "latest_osce_note"),
+        "correct": correct,
+        "dialogue_history": dialogue_log,
+        "token_usage": _token_usage(doctor_agent, patient_agent, meas_agent),
+        "session_id": getattr(doctor_agent, "session_id", None),
+    }
+
+
+def _record_final_state(logger: AgentRunLogger, doctor_agent, result_record: dict) -> None:
+    logger.highlight(
+        "final_agent_state",
+        title="Final OSCE note and differential diagnosis",
+        data={
+            "osce_note": result_record["osce_note"],
+            "differential_diagnosis": result_record["differential_diagnosis_list"],
+        },
+    )
+    logger.update_task_result(result_record)
+
+
+def main(
+    api_key,
+    inf_type,
+    doctor_bias,
+    patient_bias,
+    doctor_llm,
+    patient_llm,
+    measurement_llm,
+    moderator_llm,
+    num_scenarios,
+    patient_csv,
+    total_inferences,
+    output_file=None,
+    scenario_offset=0,
+    custom_doctor_agent_path=None,
+    dataset_name=None,
+    run_log_path=None,
+    experiment_id=None,
+):
     global client
     if api_key:
         client = OpenAI(api_key=api_key)
@@ -337,18 +542,9 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
     if not client:
         print("Warning: No API key provided for OpenAI client.")
 
-    # Load scenario data. MedQA and MedQA_Ext share the same OSCE schema, so a
-    # custom data_file can be used for either, including mixed subsets.
-    if dataset in {"MedQA", "MedQA_Ext", "NewMedQA"}:
-        scenario_loader = ScenarioLoaderOSCE(data_file=data_file, dataset=dataset)
-    elif dataset == "NEJM":
-        scenario_loader = ScenarioLoaderNEJM()
-    elif dataset == "NEJM_Ext":
-        scenario_loader = ScenarioLoaderNEJMExtended()
-    elif dataset == "MIMICIV":
-        scenario_loader = ScenarioLoaderMIMICIV(data_file=data_file)
-    else:
-        raise Exception("Dataset {} does not exist".format(str(dataset)))
+    scenario_loader = ScenarioLoaderOSCE(patient_csv)
+    patient_csv_path = str(scenario_loader.path)
+    dataset_name = dataset_name or scenario_loader.path.stem
     total_correct = 0
     total_presents = 0
 
@@ -361,8 +557,32 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
     for _scenario_id in range(start_id, end_id):
         total_presents += 1
         pi_dialogue = str()
-        # Initialize scenarios (MedQA/NEJM)
+        # Initialize OSCE-format scenario.
         scenario =  scenario_loader.get_scenario(id=_scenario_id)
+        scenario_logger = _build_scenario_logger(
+            model=doctor_llm,
+            agent_name=doctor_agent_cls.__name__,
+            dataset_name=dataset_name,
+            scenario_id=_scenario_id,
+            scenario=scenario,
+            patient_csv=patient_csv_path,
+            experiment_id=experiment_id,
+            result_csv_path=output_file,
+            run_log_path=_scenario_run_log_path(
+                run_log_path,
+                _scenario_id,
+                end_id - start_id,
+            ),
+        )
+        scenario_logger.event(
+            "scenario_start",
+            dataset=dataset_name,
+            scenario_id=_scenario_id,
+            patient_id=getattr(scenario, "patient_id", None) or f"{dataset_name}:{_scenario_id}",
+            experiment_id=experiment_id,
+            total_inferences=total_inferences,
+            patient_csv=patient_csv_path,
+        )
         # Initialize agents
         meas_agent = MeasurementAgent(
             scenario=scenario,
@@ -372,42 +592,37 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
             bias_present=patient_bias,
             backend_str=patient_llm)
 
-        doctor_agent = doctor_agent_cls(
+        doctor_agent = _instantiate_doctor_agent(
+            doctor_agent_cls,
+            logger=scenario_logger,
             scenario=scenario,
             bias_present=doctor_bias,
             backend_str=doctor_llm,
             max_infs=total_inferences,
-            img_request=img_request)
+            img_request=False)
 
         print(f"\n\n================================================================")
         print(f"STARTING SCENARIO {_scenario_id}")
         print(f"================================================================")
         print(f"EXAMINER INFO (Goal): {scenario.examiner_information()}")
         print(f"PATIENT INFO (Hidden): {scenario.patient_information()}")
-        if dataset in ["NEJM", "NEJM_Ext"] and hasattr(scenario, 'question'):
-             print(f"SCENARIO QUESTION: {scenario.question}")
         print(f"================================================================")
 
         dialogue_log = []
 
-        # Memory retrieval: track conversation history
-        conversation_history = []
-        session_id = f"scenario_{_scenario_id}_{int(time.time())}"
-
         doctor_dialogue = ""
+        last_environment_source = "task"
+        last_environment_response = scenario.examiner_information()
         for _inf_id in range(total_inferences):
-            # Check for medical image request
-            if dataset == "NEJM":
-                if img_request:
-                    imgs = "REQUEST IMAGES" in doctor_dialogue
-                else: imgs = True
-            else: imgs = False
+            imgs = False
             # Check if final inference
             if _inf_id == total_inferences - 1:
                 pi_dialogue += "This is the final question. Please provide a diagnosis.\n"
 
             # Get memory context from past experiences (optional)
             memory_context = ""
+            turn_environment_source = last_environment_source
+            turn_environment_response = pi_dialogue or last_environment_response
 
 
             # Obtain doctor dialogue (human or llm agent)
@@ -416,21 +631,32 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
             else:
                 doctor_dialogue = doctor_agent.inference_doctor(pi_dialogue, image_requested=imgs, memory_context=memory_context)
 
-            # Track doctor response
-            conversation_history.append({"role": "doctor", "content": doctor_dialogue})
-
             print("Doctor [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), doctor_dialogue)
             dialogue_log.append(f"Doctor: {doctor_dialogue}")
             current_uncertainty_reasoning = getattr(doctor_agent, "last_uncertainty_reasoning", "")
             if current_uncertainty_reasoning:
                 dialogue_log.append(f"Doctor_Uncertainty: {current_uncertainty_reasoning}")
+            scenario_logger.doctor_turn(
+                inference=_inf_id,
+                task=scenario.examiner_information(),
+                environment_source=turn_environment_source,
+                environment_response=turn_environment_response,
+                doctor_response=doctor_dialogue,
+                hospital_response=turn_environment_response,
+                doctor_message=doctor_dialogue,
+                uncertainty_reasoning=current_uncertainty_reasoning,
+                metadata={
+                    "image_requested": imgs,
+                    "memory_context": memory_context,
+                },
+            )
 
             # Doctor has arrived at a diagnosis, check correctness
             if "DIAGNOSIS READY" in doctor_dialogue:
                 correctness = compare_results(doctor_dialogue, scenario.diagnosis_information(), moderator_llm) == "yes"
                 _finalize_doctor_visualization(
                     doctor_agent,
-                    dataset=dataset,
+                    dataset=dataset_name,
                     scenario_id=_scenario_id,
                     correct_diagnosis=scenario.diagnosis_information(),
                     correct=correctness,
@@ -438,56 +664,22 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                 if correctness: total_correct += 1
                 print("\nCorrect answer:", scenario.diagnosis_information())
                 print("Scene {}, The diagnosis was ".format(_scenario_id), "CORRECT" if correctness else "INCORRECT", int((total_correct/total_presents)*100))
-                
-                if output_file:
-                    # Collect token usage from all agents
-                    token_usage = {
-                        "doctor": {
-                            "total_tokens": doctor_agent.total_tokens,
-                            "prompt_tokens": doctor_agent.prompt_tokens,
-                            "completion_tokens": doctor_agent.completion_tokens
-                        },
-                        "patient": {
-                            "total_tokens": patient_agent.total_tokens,
-                            "prompt_tokens": patient_agent.prompt_tokens,
-                            "completion_tokens": patient_agent.completion_tokens
-                        },
-                        "measurement": {
-                            "total_tokens": meas_agent.total_tokens,
-                            "prompt_tokens": meas_agent.prompt_tokens,
-                            "completion_tokens": meas_agent.completion_tokens
-                        },
-                        "total": {
-                            "total_tokens": doctor_agent.total_tokens + patient_agent.total_tokens + meas_agent.total_tokens,
-                            "prompt_tokens": doctor_agent.prompt_tokens + patient_agent.prompt_tokens + meas_agent.prompt_tokens,
-                            "completion_tokens": doctor_agent.completion_tokens + patient_agent.completion_tokens + meas_agent.completion_tokens
-                        }
-                    }
-
-                    result_record = {
-                        "dataset": dataset,
-                        "scenario_id": _scenario_id,
-                        "problem_info": scenario.scenario_dict,
-                        "correct_diagnosis": str(scenario.diagnosis_information()),
-                        "model_diagnosis": doctor_dialogue,
-                        "model_uncertainty_reasoning": current_uncertainty_reasoning,
-                        "differential_diagnosis_list": getattr(
-                            doctor_agent,
-                            "differential_diagnosis_list",
-                            getattr(doctor_agent, "differential_diagnosis_list", ""),
-                        ),
-                        "osce_note": getattr(
-                            doctor_agent,
-                            "osce_note",
-                            getattr(doctor_agent, "osce_note", ""),
-                        ),
-                        "correct": correctness,
-                        "dialogue_history": dialogue_log,
-                        "token_usage": token_usage,
-                        "session_id": getattr(doctor_agent, 'session_id', None),
-                    }
-                    with open(output_file, "a") as f:
-                        f.write(json.dumps(result_record) + "\n")
+                _record_final_state(
+                    scenario_logger,
+                    doctor_agent,
+                    _build_result_record(
+                        dataset_name=dataset_name,
+                        scenario_id=_scenario_id,
+                        scenario=scenario,
+                        doctor_agent=doctor_agent,
+                        patient_agent=patient_agent,
+                        meas_agent=meas_agent,
+                        model_diagnosis=doctor_dialogue,
+                        correct=correctness,
+                        dialogue_log=dialogue_log,
+                        experiment_id=experiment_id,
+                    ),
+                )
                 break
             
             # Obtain medical exam from measurement reader
@@ -495,9 +687,16 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                 pi_dialogue = meas_agent.inference_measurement(doctor_dialogue,)
                 print("Measurement [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), pi_dialogue)
                 dialogue_log.append(f"Measurement: {pi_dialogue}")
+                scenario_logger.event(
+                    "environment_response",
+                    source="measurement",
+                    inference=_inf_id,
+                    request=doctor_dialogue,
+                    response=pi_dialogue,
+                )
                 patient_agent.add_hist(pi_dialogue)
-                # Track measurement response for memory retrieval
-                conversation_history.append({"role": "measurement", "content": pi_dialogue})
+                last_environment_source = "examination"
+                last_environment_response = pi_dialogue
             # Obtain response from patient
             else:
                 if inf_type == "human_patient":
@@ -506,9 +705,16 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
                     pi_dialogue = patient_agent.inference_patient(doctor_dialogue)
                 print("Patient [{}%]:".format(int(((_inf_id+1)/total_inferences)*100)), pi_dialogue)
                 dialogue_log.append(f"Patient: {pi_dialogue}")
+                scenario_logger.event(
+                    "environment_response",
+                    source="patient",
+                    inference=_inf_id,
+                    doctor_message=doctor_dialogue,
+                    response=pi_dialogue,
+                )
                 meas_agent.add_hist(pi_dialogue)
-                # Track patient response for memory retrieval
-                conversation_history.append({"role": "patient", "content": pi_dialogue})
+                last_environment_source = "patient"
+                last_environment_response = pi_dialogue
             
             # Prevent API timeouts
             time.sleep(1.0)
@@ -517,236 +723,101 @@ def main(api_key, inf_type, doctor_bias, patient_bias, doctor_llm, patient_llm, 
              # Loop finished without diagnosis
             _finalize_doctor_visualization(
                 doctor_agent,
-                dataset=dataset,
+                dataset=dataset_name,
                 scenario_id=_scenario_id,
                 correct_diagnosis=scenario.diagnosis_information(),
                 correct=False,
             )
-            if output_file:
-                # Collect token usage from all agents
-                token_usage = {
-                    "doctor": {
-                        "total_tokens": doctor_agent.total_tokens,
-                        "prompt_tokens": doctor_agent.prompt_tokens,
-                        "completion_tokens": doctor_agent.completion_tokens
-                    },
-                    "patient": {
-                        "total_tokens": patient_agent.total_tokens,
-                        "prompt_tokens": patient_agent.prompt_tokens,
-                        "completion_tokens": patient_agent.completion_tokens
-                    },
-                    "measurement": {
-                        "total_tokens": meas_agent.total_tokens,
-                        "prompt_tokens": meas_agent.prompt_tokens,
-                        "completion_tokens": meas_agent.completion_tokens
-                    },
-                    "total": {
-                        "total_tokens": doctor_agent.total_tokens + patient_agent.total_tokens + meas_agent.total_tokens,
-                        "prompt_tokens": doctor_agent.prompt_tokens + patient_agent.prompt_tokens + meas_agent.prompt_tokens,
-                        "completion_tokens": doctor_agent.completion_tokens + patient_agent.completion_tokens + meas_agent.completion_tokens
-                    }
-                }
-
-                result_record = {
-                    "dataset": dataset,
-                    "scenario_id": _scenario_id,
-                    "problem_info": scenario.scenario_dict,
-                    "correct_diagnosis": str(scenario.diagnosis_information()),
-                    "model_diagnosis": "No diagnosis reached",
-                    "model_uncertainty_reasoning": getattr(doctor_agent, "last_uncertainty_reasoning", ""),
-                    "differential_diagnosis_list": getattr(
-                        doctor_agent,
-                        "differential_diagnosis_list",
-                        getattr(doctor_agent, "last_uncertainty_reasoning", ""),
-                    ),
-                    "osce_note": getattr(
-                        doctor_agent,
-                        "osce_note",
-                        getattr(doctor_agent, "latest_osce_note", ""),
-                    ),
-                    "correct": False,
-                    "dialogue_history": dialogue_log,
-                    "token_usage": token_usage,
-                    "session_id": getattr(doctor_agent, 'session_id', None),
-                }
-                with open(output_file, "a") as f:
-                    f.write(json.dumps(result_record) + "\n")
+            _record_final_state(
+                scenario_logger,
+                doctor_agent,
+                _build_result_record(
+                    dataset_name=dataset_name,
+                    scenario_id=_scenario_id,
+                    scenario=scenario,
+                    doctor_agent=doctor_agent,
+                    patient_agent=patient_agent,
+                    meas_agent=meas_agent,
+                    model_diagnosis="No diagnosis reached",
+                    correct=False,
+                    dialogue_log=dialogue_log,
+                    experiment_id=experiment_id,
+                ),
+            )
 
 
 
 class ScenarioOSCE:
+    REQUIRED_FIELDS = {
+        "Test_Results",
+        "Correct_Diagnosis",
+        "Patient_Actor",
+        "Objective_for_Doctor",
+        "Physical_Examination_Findings",
+    }
+
     def __init__(self, scenario_dict) -> None:
         self.scenario_dict = scenario_dict
-        self.tests = scenario_dict["OSCE_Examination"]["Test_Results"]
-        self.diagnosis = scenario_dict["OSCE_Examination"]["Correct_Diagnosis"]
-        self.patient_info  = scenario_dict["OSCE_Examination"]["Patient_Actor"]
-        self.examiner_info  = scenario_dict["OSCE_Examination"]["Objective_for_Doctor"]
-        self.physical_exams = scenario_dict["OSCE_Examination"]["Physical_Examination_Findings"]
-    
+        self.patient_id = scenario_dict.get("patient_id") if isinstance(scenario_dict, dict) else None
+        osce = self._osce_block(scenario_dict)
+        self.tests = osce["Test_Results"]
+        self.diagnosis = osce["Correct_Diagnosis"]
+        self.patient_info = osce["Patient_Actor"]
+        self.examiner_info = osce["Objective_for_Doctor"]
+        self.physical_exams = osce["Physical_Examination_Findings"]
+
+    @classmethod
+    def _osce_block(cls, scenario_dict) -> dict:
+        osce = scenario_dict.get("OSCE_Examination") if isinstance(scenario_dict, dict) else None
+        if not isinstance(osce, dict):
+            raise ValueError("scenario is missing OSCE_Examination")
+        missing = sorted(cls.REQUIRED_FIELDS - set(osce))
+        if missing:
+            raise ValueError(f"OSCE_Examination is missing required fields: {missing}")
+        return osce
+
     def patient_information(self) -> dict:
         return self.patient_info
 
     def examiner_information(self) -> dict:
         return self.examiner_info
-    
+
     def exam_information(self) -> dict:
-        exams = self.physical_exams
+        exams = dict(self.physical_exams) if isinstance(self.physical_exams, dict) else {"physical_examination": self.physical_exams}
         exams["tests"] = self.tests
         return exams
-    
-    def diagnosis_information(self) -> dict:
-        return self.diagnosis
+
+    def diagnosis_information(self) -> str:
+        return str(self.diagnosis)
 
 
 class ScenarioLoaderOSCE:
-    DEFAULT_DATA_FILES = {
-        "MedQA": "agentclinic_medqa.jsonl",
-        "MedQA_Ext": "agentclinic_medqa_extended.jsonl",
-        "NewMedQA": "new_medqa_similar_cases.jsonl",
-    }
-
-    def __init__(self, data_file=None, dataset="MedQA") -> None:
-        scenario_path = self._resolve_data_file(data_file, dataset)
-        with open(scenario_path, "r", encoding="utf-8") as f:
-            self.scenario_strs = [json.loads(line) for line in f]
-        self.scenarios = [ScenarioOSCE(_str) for _str in self.scenario_strs]
+    def __init__(self, patient_csv) -> None:
+        self.path = _resolve_data_path(patient_csv)
+        with open(self.path, "r", encoding="utf-8") as f:
+            self.scenario_strs = [
+                json.loads(line)
+                for line in f
+                if line.strip()
+            ]
+        self.scenarios = [
+            self._build_scenario(scenario_dict, index)
+            for index, scenario_dict in enumerate(self.scenario_strs)
+        ]
         self.num_scenarios = len(self.scenarios)
 
-    @classmethod
-    def _resolve_data_file(cls, data_file, dataset):
-        if data_file:
-            return str(_resolve_data_path(data_file))
-        if dataset not in cls.DEFAULT_DATA_FILES:
-            raise ValueError(f"No default data file configured for dataset '{dataset}'")
-        return str(_resolve_data_path(None, cls.DEFAULT_DATA_FILES[dataset]))
-    
+    def _build_scenario(self, scenario_dict, index):
+        try:
+            return ScenarioOSCE(scenario_dict)
+        except Exception as exc:
+            raise ValueError(f"Invalid OSCE scenario at line {index + 1} in {self.path}: {exc}") from exc
+
     def sample_scenario(self):
-        return self.scenarios[random.randint(0, len(self.scenarios)-1)]
-    
+        return self.scenarios[random.randint(0, len(self.scenarios) - 1)]
+
     def get_scenario(self, id):
-        if id is None: return self.sample_scenario()
-        return self.scenarios[id]
-        
-
-class ScenarioMIMICIVQA:
-    def __init__(self, scenario_dict) -> None:
-        self.scenario_dict = scenario_dict
-        self.tests = scenario_dict["OSCE_Examination"]["Test_Results"]
-        self.diagnosis = scenario_dict["OSCE_Examination"]["Correct_Diagnosis"]
-        self.patient_info  = scenario_dict["OSCE_Examination"]["Patient_Actor"]
-        self.examiner_info  = scenario_dict["OSCE_Examination"]["Objective_for_Doctor"]
-        self.physical_exams = scenario_dict["OSCE_Examination"]["Physical_Examination_Findings"]
-    
-    def patient_information(self) -> dict:
-        return self.patient_info
-
-    def examiner_information(self) -> dict:
-        return self.examiner_info
-    
-    def exam_information(self) -> dict:
-        exams = self.physical_exams
-        exams["tests"] = self.tests
-        return exams
-    
-    def diagnosis_information(self) -> dict:
-        return self.diagnosis
-
-
-class ScenarioLoaderMIMICIV:
-    DEFAULT_DATA_FILE = "agentclinic_mimiciv.jsonl"
-
-    def __init__(self, data_file=None) -> None:
-        scenario_path = _resolve_data_path(data_file, self.DEFAULT_DATA_FILE)
-        with open(scenario_path, "r", encoding="utf-8") as f:
-            self.scenario_strs = [json.loads(line) for line in f]
-        self.scenarios = [ScenarioMIMICIVQA(_str) for _str in self.scenario_strs]
-        self.num_scenarios = len(self.scenarios)
-    
-    def sample_scenario(self):
-        return self.scenarios[random.randint(0, len(self.scenarios)-1)]
-    
-    def get_scenario(self, id):
-        if id is None: return self.sample_scenario()
-        return self.scenarios[id]
-
-
-class ScenarioNEJMExtended:
-    def __init__(self, scenario_dict) -> None:
-        self.scenario_dict = scenario_dict 
-        self.question = scenario_dict["question"] 
-        self.image_url = scenario_dict["image_url"] 
-        self.diagnosis = [_sd["text"] 
-            for _sd in scenario_dict["answers"] if _sd["correct"]][0]
-        self.patient_info = scenario_dict["patient_info"]
-        self.physical_exams = scenario_dict["physical_exams"]
-
-    def patient_information(self) -> str:
-        patient_info = self.patient_info
-        return patient_info
-
-    def examiner_information(self) -> str:
-        return "What is the most likely diagnosis?"
-    
-    def exam_information(self) -> str:
-        exams = self.physical_exams
-        return exams
-    
-    def diagnosis_information(self) -> str:
-        return self.diagnosis
-
-
-class ScenarioLoaderNEJMExtended:
-    def __init__(self) -> None:
-        with open(_resolve_data_path(None, "agentclinic_nejm_extended.jsonl"), "r", encoding="utf-8") as f:
-            self.scenario_strs = [json.loads(line) for line in f]
-        self.scenarios = [ScenarioNEJMExtended(_str) for _str in self.scenario_strs]
-        self.num_scenarios = len(self.scenarios)
-    
-    def sample_scenario(self):
-        return self.scenarios[random.randint(0, len(self.scenarios)-1)]
-    
-    def get_scenario(self, id):
-        if id is None: return self.sample_scenario()
-        return self.scenarios[id]
-
-
-class ScenarioNEJM:
-    def __init__(self, scenario_dict) -> None:
-        self.scenario_dict = scenario_dict 
-        self.question = scenario_dict["question"] 
-        self.image_url = scenario_dict["image_url"] 
-        self.diagnosis = [_sd["text"] 
-            for _sd in scenario_dict["answers"] if _sd["correct"]][0]
-        self.patient_info = scenario_dict["patient_info"]
-        self.physical_exams = scenario_dict["physical_exams"]
-
-    def patient_information(self) -> str:
-        patient_info = self.patient_info
-        return patient_info
-
-    def examiner_information(self) -> str:
-        return "What is the most likely diagnosis?"
-    
-    def exam_information(self) -> str:
-        exams = self.physical_exams
-        return exams
-    
-    def diagnosis_information(self) -> str:
-        return self.diagnosis
-
-
-class ScenarioLoaderNEJM:
-    def __init__(self) -> None:
-        with open(_resolve_data_path(None, "agentclinic_nejm.jsonl"), "r", encoding="utf-8") as f:
-            self.scenario_strs = [json.loads(line) for line in f]
-        self.scenarios = [ScenarioNEJM(_str) for _str in self.scenario_strs]
-        self.num_scenarios = len(self.scenarios)
-    
-    def sample_scenario(self):
-        return self.scenarios[random.randint(0, len(self.scenarios)-1)]
-    
-    def get_scenario(self, id):
-        if id is None: return self.sample_scenario()
+        if id is None:
+            return self.sample_scenario()
         return self.scenarios[id]
 
 
@@ -825,7 +896,7 @@ class PatientAgent:
 
 
 class DoctorAgent:
-    def __init__(self, scenario, backend_str="gpt-5-nano", max_infs=20, bias_present=None, img_request=False) -> None:
+    def __init__(self, scenario, backend_str="gpt-5-nano", max_infs=20, bias_present=None, img_request=False, logger: AgentRunLogger | None = None) -> None:
         self.infs = 0
         self.MAX_INFS = max_infs
         self.agent_hist = ""
@@ -833,6 +904,7 @@ class DoctorAgent:
         self.backend = backend_str
         self.bias_present = (None if bias_present == "None" else bias_present)
         self.scenario = scenario
+        self.logger = logger
         self.reset()
         self.img_request = img_request
         self.biases = ["recency", "frequency", "false_consensus", "confirmation", "status_quo", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"]
@@ -929,17 +1001,40 @@ If a requested physical exam, laboratory test, or imaging study is unavailable, 
             "additionalProperties": False,
         }
 
-        result = query_model(
-            self.backend,
-            experience + "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: ",
-            self.system_prompt() + experience + "\n\nFor every response, provide structured output with two fields: "
+        prompt = experience + "\nHere is a history of your dialogue: " + self.agent_hist + "\n Here was the patient response: " + question + "Now please continue your dialogue\nDoctor: "
+        system_prompt = (
+            self.system_prompt()
+            + experience
+            + "\n\nFor every response, provide structured output with two fields: "
             + "answer (your normal doctor dialogue, including REQUEST TEST / DIAGNOSIS READY when appropriate) and "
-            + "uncertainty_reasoning (top 3 most likely diagnoses, briefly mentionwhat information/test would best differentiate them).",
-            image_requested=image_requested,
-            scene=self.scenario,
-            return_usage=True,
-            response_format_schema=doctor_structured_schema,
+            + "uncertainty_reasoning (top 3 most likely diagnoses, briefly mentionwhat information/test would best differentiate them)."
         )
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": prompt},
+        ]
+        run_id = None
+        if self.logger is not None:
+            run_id = self.logger.start_agent_run(
+                messages,
+                run_name="doctor_api",
+                metadata={"inference": self.infs, "image_requested": image_requested},
+            )
+
+        try:
+            result = query_model(
+                self.backend,
+                prompt,
+                system_prompt,
+                image_requested=image_requested,
+                scene=self.scenario,
+                return_usage=True,
+                response_format_schema=doctor_structured_schema,
+            )
+        except Exception as exc:
+            if self.logger is not None:
+                self.logger.finish_agent_run(error=str(exc), run_id=run_id)
+            raise
 
         if isinstance(result, tuple):
             parsed_response, usage = result
@@ -959,6 +1054,25 @@ If a requested physical exam, laboratory test, or imaging study is unavailable, 
             else:
                 answer = str(result)
 
+        if self.logger is not None:
+            self.logger.llm_turn(
+                self.infs,
+                {
+                    "role": "assistant",
+                    "content": answer,
+                    "uncertainty_reasoning": uncertainty_reasoning,
+                    "usage": _usage_to_dict(usage if isinstance(result, tuple) else None),
+                },
+                input_messages=messages,
+                run_id=run_id,
+            )
+            self.logger.finish_agent_run(
+                result={
+                    "answer": answer,
+                    "uncertainty_reasoning": uncertainty_reasoning,
+                },
+                run_id=run_id,
+            )
         self.last_uncertainty_reasoning = uncertainty_reasoning
         self.differential_diagnosis_list = uncertainty_reasoning
         self.agent_hist += question + "\n\n" + answer + "\n\n"
@@ -1026,7 +1140,7 @@ class MeasurementAgent:
 
 if __name__ == "__main__":
     model_name = "gpt-5-nano"
-    parser = argparse.ArgumentParser(description='Medical Diagnosis Simulation CLI')
+    parser = argparse.ArgumentParser(description='AgentClinic OSCE JSONL simulation CLI')
     parser.add_argument('--openai_api_key', type=str, required=False, help='OpenAI API Key')
     parser.add_argument('--inf_type', type=str, choices=['llm', 'human_doctor', 'human_patient'], default='llm')
     parser.add_argument('--doctor_bias', type=str, help='Doctor bias type', default='None', choices=["recency", "frequency", "false_consensus", "confirmation", "status_quo", "gender", "race", "sexual_orientation", "cultural", "education", "religion", "socioeconomic"])
@@ -1035,16 +1149,34 @@ if __name__ == "__main__":
     parser.add_argument('--patient_llm', type=str, default=model_name)
     parser.add_argument('--measurement_llm', type=str, default=model_name)
     parser.add_argument('--moderator_llm', type=str, default=model_name)
-    parser.add_argument('--agent_dataset', type=str, default='MedQA') # MedQA, MIMICIV or NEJM
-    parser.add_argument('--doctor_image_request', type=bool, default=False) # whether images must be requested or are provided
+    parser.add_argument('--patient_csv', type=str, required=True, help='OSCE-format JSONL input file')
+    parser.add_argument('--dataset_name', type=str, default=None, required=False, help='Optional label for logs/results; defaults to patient_csv stem')
     parser.add_argument('--num_scenarios', type=int, default=None, required=False, help='Number of scenarios to simulate')
     parser.add_argument('--total_inferences', type=int, default=30, required=False, help='Number of inferences between patient and doctor')
     
-    parser.add_argument('--output_file', type=str, default=None, required=False, help='File to append results to')
+    parser.add_argument('--output_file', type=str, default=None, required=False, help='CSV file to append result rows to')
+    parser.add_argument('--run_log_path', type=str, default=None, required=False, help='Path for sectioned AgentRunLogger JSON output')
     parser.add_argument('--scenario_offset', type=int, default=0, required=False, help='Scenario ID to start from')
-    parser.add_argument('--data_file', type=str, default=None, required=False, help='Override scenario JSONL path for compatible datasets')
-    parser.add_argument('--use_memory', action='store_true', default=False, help='Enable memory retrieval from past experiences (default: disabled)')
     parser.add_argument('--custom_doctor_agent_path', type=str, default=None, required=False, help='Path to a Python file that defines a CustomDoctorAgent or DoctorAgent class with the same interface as the built-in DoctorAgent')
+    parser.add_argument('--experiment_id', type=str, default=None, required=False, help='Shared experiment ID stored in every case log')
     args = parser.parse_args()
 
-    main(args.openai_api_key, args.inf_type, args.doctor_bias, args.patient_bias, args.doctor_llm, args.patient_llm, args.measurement_llm, args.moderator_llm, args.num_scenarios, args.agent_dataset, args.doctor_image_request, args.total_inferences, args.output_file, args.scenario_offset, args.use_memory, args.custom_doctor_agent_path, args.data_file)
+    main(
+        args.openai_api_key,
+        args.inf_type,
+        args.doctor_bias,
+        args.patient_bias,
+        args.doctor_llm,
+        args.patient_llm,
+        args.measurement_llm,
+        args.moderator_llm,
+        args.num_scenarios,
+        args.patient_csv,
+        args.total_inferences,
+        args.output_file,
+        args.scenario_offset,
+        args.custom_doctor_agent_path,
+        args.dataset_name,
+        args.run_log_path,
+        args.experiment_id,
+    )

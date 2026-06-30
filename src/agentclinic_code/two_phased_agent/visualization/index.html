@@ -3,20 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Multi-Agent Clinical Trace</title>
+  <title>AgentClinic Run Viewer</title>
   <style>
     :root {
       color-scheme: light;
-      --ink: #14211d;
-      --muted: #64736d;
-      --line: #d9e2de;
+      --ink: #18201f;
+      --muted: #63706d;
+      --line: #d8dfdc;
       --panel: #ffffff;
-      --soft: #f4f7f5;
-      --accent: #166a50;
-      --accent-soft: #e5f3ed;
-      --diagnosis: #7b3f16;
-      --diagnosis-soft: #fff0e5;
-      --shadow: 0 12px 34px rgba(30, 54, 45, 0.08);
+      --soft: #f5f7f6;
+      --page: #eef1f0;
+      --accent: #0f766e;
+      --accent-soft: #e3f4f1;
+      --warn: #9a5b13;
+      --warn-soft: #fff3dd;
+      --bad: #a33b3b;
+      --good: #1b7a45;
+      --shadow: 0 14px 38px rgba(24, 32, 31, 0.08);
     }
 
     * { box-sizing: border-box; }
@@ -24,266 +27,571 @@
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        radial-gradient(circle at top left, #e8f1ed 0, transparent 34rem),
-        #eef2f0;
+      background: var(--page);
       font: 14px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    main {
-      width: min(1180px, calc(100% - 32px));
-      margin: 34px auto 80px;
-    }
-
+    button, input { font: inherit; }
     h1, h2, h3, h4, p { margin-top: 0; }
-    h1 { margin-bottom: 8px; font-size: clamp(26px, 4vw, 42px); letter-spacing: -0.035em; }
-    h2 { margin-bottom: 14px; font-size: 18px; }
-    h3 { margin: 0; font-size: 16px; }
-    h4 { margin: 0; font-size: 14px; }
+    h1 { margin-bottom: 4px; font-size: 22px; letter-spacing: 0; }
+    h2 { margin-bottom: 10px; font-size: 18px; }
+    h3 { margin: 0 0 6px; font-size: 15px; }
+    h4 { margin: 0 0 6px; font-size: 13px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 
-    .eyebrow {
-      margin-bottom: 8px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .muted { color: var(--muted); }
-    .stack { display: grid; gap: 14px; }
-    .section { margin-top: 28px; }
-
-    .task-card,
-    .highlight,
-    details.agent,
-    details.invocation,
-    details.round {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--panel);
-      box-shadow: var(--shadow);
-    }
-
-    .task-card { padding: 24px; }
-
-    .task-grid {
+    .app {
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(240px, .8fr);
-      gap: 22px;
+      grid-template-columns: 320px minmax(0, 1fr);
     }
 
-    .metrics,
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
+    .sidebar {
+      min-width: 0;
+      border-right: 1px solid var(--line);
+      background: #fbfcfb;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+    }
+
+    .sidebar-head {
+      padding: 22px 20px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .controls {
+      display: grid;
+      gap: 8px;
+      padding: 14px 14px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 8px;
     }
 
-    .metric,
-    .chip,
-    .status {
-      border-radius: 999px;
-      padding: 5px 9px;
-      background: var(--soft);
-      color: #40504a;
-      font-size: 12px;
+    .source-input {
+      min-width: 0;
+      height: 36px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+    }
+
+    .btn {
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+      cursor: pointer;
       font-weight: 700;
     }
 
-    .status.completed {
-      color: var(--accent);
+    .btn:hover,
+    .tab[aria-selected="true"] {
+      border-color: #99c9c2;
       background: var(--accent-soft);
+      color: var(--accent);
     }
 
-    .flow {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
+    .run-list {
+      min-height: 0;
+      overflow: auto;
+      padding: 10px;
     }
 
-    .flow-node {
-      padding: 8px 11px;
-      border: 1px solid #c9d9d2;
+    .run-item {
+      width: 100%;
+      display: grid;
+      gap: 5px;
+      margin-bottom: 8px;
+      padding: 11px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .run-item:hover,
+    .run-item.active {
+      border-color: var(--line);
+      background: var(--panel);
+      box-shadow: 0 8px 20px rgba(24, 32, 31, 0.06);
+    }
+
+    .run-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 800;
+    }
+
+    .run-subtitle,
+    .muted {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .content {
+      min-width: 0;
+      padding: 24px;
+      overflow: auto;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    .tabs {
+      display: inline-flex;
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid var(--line);
       border-radius: 10px;
-      background: #f9fbfa;
-      font-weight: 750;
+      background: #f9faf9;
     }
 
-    .arrow { color: #8a9993; }
+    .tab {
+      min-width: 116px;
+      min-height: 34px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      cursor: pointer;
+      font-weight: 800;
+    }
 
-    .highlight-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
 
-    .highlight {
-      padding: 18px;
-      box-shadow: none;
-      border-left: 5px solid var(--accent);
+    .full-width { grid-column: 1 / -1; }
+
+    .panel,
+    details.section {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
     }
 
-    .highlight[data-type="final_diagnosis"] {
-      border-left-color: var(--diagnosis);
-      background: var(--diagnosis-soft);
-    }
+    .panel { padding: 16px; }
 
-    .highlight pre {
-      max-height: 240px;
-      margin-bottom: 0;
-    }
-
-    details { overflow: clip; }
-
-    summary {
+    .section summary {
       display: block;
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 16px;
+    }
+
+    .section summary::-webkit-details-marker { display: none; }
+    .section[open] summary { border-bottom: 1px solid var(--line); }
+    .section-body { padding: 14px 16px 16px; }
+
+    .section summary:hover,
+    .output-details summary:hover {
+      background: #f8faf9;
+    }
+
+    .card-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .card-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 850;
+    }
+
+    .data-tree {
+      display: grid;
+      gap: 8px;
+    }
+
+    .md-block {
+      display: grid;
+      gap: 10px;
+    }
+
+    .md-block dl {
+      display: grid;
+      grid-template-columns: minmax(130px, .28fr) minmax(0, 1fr);
+      gap: 8px 12px;
+      margin: 0;
+    }
+
+    .md-block dt {
+      color: #3f4b49;
+      font-weight: 800;
+    }
+
+    .md-block dd {
+      min-width: 0;
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .md-block ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    .json-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .json-block {
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfb;
+    }
+
+    .turn-json {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .turn-json-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      background: #fafbfa;
+    }
+
+    .turn-json-body {
+      display: grid;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .tool-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .tool-input {
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .tool-input-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .output-details {
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfb;
+      overflow: hidden;
+    }
+
+    .output-details summary {
+      display: block;
+      padding: 10px 12px;
       cursor: pointer;
       list-style: none;
     }
 
-    summary::-webkit-details-marker { display: none; }
+    .output-details summary::-webkit-details-marker { display: none; }
+    .output-details[open] summary { border-bottom: 1px solid var(--line); }
+    .output-details-body { padding: 0 12px 12px; }
 
-    .summary-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 16px;
-      align-items: center;
-      padding: 18px 20px;
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 8px;
     }
 
-    .summary-row::after {
-      content: "+";
-      width: 28px;
-      height: 28px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--soft);
-      color: var(--accent);
-      font-size: 19px;
-      font-weight: 500;
-    }
-
-    details[open] > summary .summary-row::after { content: "−"; }
-
-    .summary-copy {
-      min-width: 0;
-      display: grid;
-      gap: 6px;
-    }
-
-    .summary-line {
+    .chip {
+      max-width: 100%;
       overflow: hidden;
-      color: var(--muted);
       text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: #3f4b49;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .chip.good { color: var(--good); background: #e8f4ed; }
+    .chip.bad { color: var(--bad); background: #fbeaea; }
+    .chip.warn { color: var(--warn); background: var(--warn-soft); }
+
+    .eval-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .eval-stat {
+      min-width: 0;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfb;
+    }
+
+    .eval-stat strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .eval-facts {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .eval-fact {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .collapse-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
       white-space: nowrap;
     }
 
-    .detail-body {
-      padding: 0 20px 20px;
-      border-top: 1px solid var(--line);
+    .collapse-chip::before {
+      content: "+";
+      width: 16px;
+      height: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent);
+      font-weight: 900;
     }
 
-    details.agent { border-left: 5px solid var(--accent); }
-    details.agent.diagnosis { border-left-color: var(--diagnosis); }
+    details[open] > summary .collapse-chip::before { content: "-"; }
+    details[open] > summary .when-closed,
+    details:not([open]) > summary .when-open { display: none; }
 
-    details.invocation {
-      margin-top: 12px;
-      border-radius: 13px;
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .turn {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .turn-head {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fafbfa;
+    }
+
+    .turn-index {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-weight: 800;
+    }
+
+    .turn-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .box {
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .box.doctor { background: #f8fbfb; border-color: #cbdeda; }
+    .box.final { background: var(--warn-soft); border-color: #eed3a7; }
+
+    .note-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .note-section {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .note-list,
+    .ddx-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .note-list li,
+    .ddx-list li {
+      margin: 6px 0;
+    }
+
+    .ddx-list {
+      padding-left: 22px;
+      font-weight: 750;
+    }
+
+    .agent-run {
+      border-left: 4px solid var(--accent);
+    }
+
+    .agent-step {
+      margin-top: 10px;
       box-shadow: none;
       background: #fbfcfb;
     }
 
-    details.round {
-      margin-top: 10px;
-      border-radius: 11px;
-      box-shadow: none;
-      background: #fff;
-    }
-
-    details.round .summary-row { padding: 14px 16px; }
-    details.round .detail-body { padding: 0 16px 16px; }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .data-box {
-      min-width: 0;
-      padding: 13px;
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      background: var(--soft);
-    }
-
-    .data-box h4 { margin-bottom: 7px; }
-
     pre {
       overflow: auto;
+      max-height: 520px;
       margin: 8px 0 0;
       padding: 12px;
-      border-radius: 9px;
-      background: #17221e;
-      color: #e8f3ee;
+      border-radius: 8px;
+      background: #19211f;
+      color: #edf5f2;
       font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       white-space: pre-wrap;
       word-break: break-word;
     }
 
-    .tool {
-      margin-top: 10px;
-      padding: 12px;
-      border: 1px solid #d4dfda;
-      border-radius: 10px;
-      background: #fbfdfc;
-    }
-
-    .tool-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .artifact {
-      margin-top: 10px;
-      padding: 12px;
-      border: 1px dashed #b7c8c0;
-      border-radius: 10px;
-      background: #f8fbf9;
-    }
-
     .empty {
       padding: 24px;
-      border: 1px dashed #bfcac5;
-      border-radius: 14px;
-      text-align: center;
+      border: 1px dashed #b9c4c0;
+      border-radius: 8px;
+      background: #fafbfa;
       color: var(--muted);
+      text-align: center;
     }
 
-    @media (max-width: 760px) {
-      .task-grid,
-      .highlight-grid,
-      .two-col { grid-template-columns: 1fr; }
-      .summary-line { white-space: normal; }
+    .stack { display: grid; gap: 14px; }
+    .hidden { display: none !important; }
+
+    @media (max-width: 900px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { min-height: 44vh; border-right: 0; border-bottom: 1px solid var(--line); }
+      .topbar,
+      .grid,
+      .eval-stats,
+      .json-grid,
+      .turn-body { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <div id="app" class="stack">
-      <div class="empty">Loading mock protocol data...</div>
-    </div>
-  </main>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <h1>AgentClinic Runs</h1>
+        <div class="muted">Load sectioned logger JSON, projected run.v1 JSON, or legacy trajectory JSON.</div>
+      </div>
+      <div class="controls">
+        <div class="input-row">
+          <input id="sourceInput" class="source-input" value="../log/" aria-label="Run JSON, manifest, or log directory">
+          <button id="loadButton" class="btn">Load</button>
+        </div>
+        <div class="muted">Default: <code>../log/</code>. Query params: <code>?run=</code>, <code>?runs=</code>, <code>?manifest=</code>, <code>?logDir=</code>.</div>
+      </div>
+      <div id="runList" class="run-list">
+        <div class="empty">Loading runs...</div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div id="caseHeader" class="topbar">
+        <div>
+          <h1>No run selected</h1>
+          <div class="muted">Select a patient run from the sidebar.</div>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Run views">
+        <button id="developerTab" class="tab" role="tab" aria-selected="true">Developer View</button>
+        <button id="doctorTab" class="tab" role="tab" aria-selected="false">Doctor View</button>
+      </div>
+
+      <section id="developerView" class="stack" style="margin-top:16px"></section>
+      <section id="doctorView" class="stack hidden" style="margin-top:16px"></section>
+    </main>
+  </div>
 
   <script>
-    const dataUrl = new URLSearchParams(window.location.search).get("run") || "./mock_run.v1.json";
+    const DEFAULT_LOG_DIR = "../log/";
+    const MOCK_RUN = "./mock_run.v1.json";
+    const state = { runs: [], selectedIndex: 0, tab: "developer" };
+
+    const params = new URLSearchParams(window.location.search);
+    const sourceInput = document.getElementById("sourceInput");
+    const runList = document.getElementById("runList");
+    const caseHeader = document.getElementById("caseHeader");
+    const developerView = document.getElementById("developerView");
+    const doctorView = document.getElementById("doctorView");
+    const developerTab = document.getElementById("developerTab");
+    const doctorTab = document.getElementById("doctorTab");
 
     const escapeHtml = (value) => String(value ?? "")
       .replaceAll("&", "&amp;")
@@ -292,284 +600,911 @@
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#039;");
 
-    const json = (value) => escapeHtml(JSON.stringify(value, null, 2));
-    const usage = (value = {}) =>
-      `${value.total_tokens ?? "?"} tokens · $${Number(value.expense_usd ?? 0).toFixed(5)}`;
+    const pretty = (value) => escapeHtml(JSON.stringify(value ?? {}, null, 2));
+    const text = (value) => escapeHtml(typeof value === "string" ? value : JSON.stringify(value ?? "", null, 2));
+    const short = (value, limit = 140) => {
+      const raw = typeof value === "string" ? value : JSON.stringify(value ?? "");
+      const compact = raw.replace(/\s+/g, " ").trim();
+      return compact.length > limit ? compact.slice(0, limit - 1).trimEnd() + "..." : compact;
+    };
+    const asArray = (value) => Array.isArray(value) ? value : [];
+    const asObject = (value) => value && typeof value === "object" && !Array.isArray(value) ? value : {};
+    const formatTime = (value) => {
+      if (!value) return "unknown time";
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString();
+    };
+    const pathName = (url) => decodeURIComponent(String(url).split("?")[0].split("#")[0].split("/").filter(Boolean).pop() || "run.json");
 
-    function renderHighlight(highlight) {
-      const data = highlight.data || {};
-      let body = `<pre>${json(data)}</pre>`;
+    function usageLabel(usage = {}) {
+      const total = usage.total_tokens ?? usage.token_usage?.total_tokens;
+      const cost = usage.expense_usd;
+      return `${total ?? "?"} tokens${cost == null ? "" : " / $" + Number(cost).toFixed(5)}`;
+    }
 
-      if (highlight.type === "final_diagnosis") {
-        body = `<p><strong>${escapeHtml(data.display_text || data.diagnosis)}</strong></p>`;
-      } else if (highlight.type === "differential_diagnosis_list") {
-        body = `<div class="chips">${(data.diagnoses || []).map(
-          item => `<span class="chip">${escapeHtml(item)}</span>`
-        ).join("")}</div>`;
-      } else if (highlight.type === "diagnostic_evidence") {
-        body = (data.items || []).map(item => `
-          <div class="tool">
-            <div class="tool-head">
-              <strong>${escapeHtml(item.title)}</strong>
-              <span class="status ${item.is_supported ? "completed" : ""}">
-                ${item.is_supported ? "supports" : "contradicts"}
-              </span>
-            </div>
-            <div class="muted">${escapeHtml(item.reason)}</div>
-            <small>${escapeHtml(item.source)}</small>
-          </div>
-        `).join("");
+    function moneyLabel(value = {}) {
+      const cost = value.expense_usd ?? value.cost_usd ?? value.total_cost_usd ?? value.token_usage?.expense_usd;
+      if (cost === undefined || cost === null || cost === "") return "$0.00000";
+      const number = Number(cost);
+      return Number.isFinite(number) ? `$${number.toFixed(5)}` : String(cost);
+    }
+
+    function parseMaybeJson(value) {
+      if (typeof value !== "string") return value;
+      const trimmed = value.trim();
+      if (!trimmed || !["{", "["].includes(trimmed[0])) return value;
+      try {
+        return JSON.parse(trimmed);
+      } catch {
+        return value;
       }
+    }
 
+    function humanText(value) {
+      const parsed = parseMaybeJson(value);
+      if (parsed === null || parsed === undefined || parsed === "") return "Not recorded";
+      if (typeof parsed === "string") return parsed;
+      if (typeof parsed === "number" || typeof parsed === "boolean") return String(parsed);
+      if (Array.isArray(parsed)) return parsed.map(humanText).join("; ");
+      return Object.entries(parsed)
+        .map(([key, item]) => `${key.replaceAll("_", " ")}: ${humanText(item)}`)
+        .join("; ");
+    }
+
+    function sectionTitle(value) {
+      return String(value || "")
+        .replaceAll("_", " ")
+        .replace(/\b\w/g, char => char.toUpperCase())
+        .replace("Exmination", "Examination");
+    }
+
+    function splitDifferential(value) {
+      const parsed = parseMaybeJson(value);
+      if (Array.isArray(parsed)) return parsed.map(humanText).filter(Boolean);
+      if (parsed && typeof parsed === "object") {
+        if (Array.isArray(parsed.diagnoses)) return parsed.diagnoses.map(humanText).filter(Boolean);
+        return Object.values(parsed).flatMap(splitDifferential).filter(Boolean);
+      }
+      return String(parsed || "")
+        .split(/[;\n]/)
+        .map(item => item.trim())
+        .filter(Boolean);
+    }
+
+    function setTab(tab) {
+      state.tab = tab;
+      developerTab.setAttribute("aria-selected", tab === "developer" ? "true" : "false");
+      doctorTab.setAttribute("aria-selected", tab === "doctor" ? "true" : "false");
+      developerView.classList.toggle("hidden", tab !== "developer");
+      doctorView.classList.toggle("hidden", tab !== "doctor");
+    }
+
+    developerTab.addEventListener("click", () => setTab("developer"));
+    doctorTab.addEventListener("click", () => setTab("doctor"));
+    document.getElementById("loadButton").addEventListener("click", () => loadSource(sourceInput.value.trim() || DEFAULT_LOG_DIR));
+    sourceInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") loadSource(sourceInput.value.trim() || DEFAULT_LOG_DIR);
+    });
+
+    async function fetchJson(url) {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+      return response.json();
+    }
+
+    async function fetchText(url) {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+      return response.text();
+    }
+
+    async function discoverFromDirectory(dirUrl) {
+      const html = await fetchText(dirUrl);
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      const base = new URL(dirUrl, window.location.href);
+      const urls = [];
+      for (const anchor of doc.querySelectorAll("a[href]")) {
+        const href = anchor.getAttribute("href") || "";
+        if (href === "../" || href.startsWith("?")) continue;
+        const resolved = new URL(href, base).toString();
+        if (/\.json(?:$|[?#])/.test(resolved)) {
+          urls.push(resolved);
+        } else if (href.endsWith("/")) {
+          urls.push(new URL("run.v1.json", resolved).toString());
+        }
+      }
+      return [...new Set(urls)];
+    }
+
+    async function urlsFromManifest(manifestUrl) {
+      const manifest = await fetchJson(manifestUrl);
+      const items = Array.isArray(manifest) ? manifest : asArray(manifest.runs);
+      const base = new URL(manifestUrl, window.location.href);
+      return items.map((item) => {
+        if (typeof item === "string") return new URL(item, base).toString();
+        return new URL(item.url || item.path || item.run || "", base).toString();
+      }).filter(Boolean);
+    }
+
+    async function resolveSource(source, useQueryParams = false) {
+      if (useQueryParams && params.get("manifest")) return urlsFromManifest(params.get("manifest"));
+      if (useQueryParams && params.get("runs")) return params.get("runs").split(",").map(item => item.trim()).filter(Boolean);
+      if (useQueryParams && params.get("run")) return [params.get("run")];
+      if (source.endsWith(".json")) return [source];
+      try {
+        const discovered = await discoverFromDirectory(source);
+        if (discovered.length) return discovered;
+      } catch (error) {
+        console.warn(error);
+      }
+      return [MOCK_RUN];
+    }
+
+    async function loadSource(source, useQueryParams = false) {
+      runList.innerHTML = `<div class="empty">Loading runs...</div>`;
+      developerView.innerHTML = "";
+      doctorView.innerHTML = "";
+      sourceInput.value = source;
+      const urls = await resolveSource(source, useQueryParams);
+      const loaded = [];
+      for (const url of urls) {
+        try {
+          loaded.push(normalizeRun(await fetchJson(url), url));
+        } catch (error) {
+          console.warn(error);
+        }
+      }
+      state.runs = loaded.sort((a, b) => String(b.startedAt || "").localeCompare(String(a.startedAt || "")));
+      state.selectedIndex = 0;
+      renderSidebar();
+      if (state.runs.length) {
+        selectRun(0);
+      } else {
+        runList.innerHTML = `<div class="empty">No JSON runs found. Serve this page over HTTP and point it at a JSON file, manifest, or directory.</div>`;
+        caseHeader.innerHTML = `<div><h1>No runs found</h1><div class="muted">${escapeHtml(source)}</div></div>`;
+      }
+    }
+
+    function normalizeRun(raw, url) {
+      if (raw?.task_visualization || raw?.schema_version === "agent_run_logger.v2") {
+        return normalizeSectionedRun(raw, url);
+      }
+      if (raw?.protocol === "agent-observability" && raw?.run) {
+        return normalizeProjectedRun(raw, url);
+      }
+      if (Array.isArray(raw?.turns)) {
+        return normalizeLegacyTrajectory(raw, url);
+      }
+      return normalizeUnknownRun(raw, url);
+    }
+
+    function normalizeSectionedRun(raw, url) {
+      const task = asObject(raw.task_visualization);
+      const metadata = asObject(task.metadata);
+      const result = asObject(task.result);
+      const meta = asObject(raw.meta);
+      const evaluation = raw.evaluation || task.evaluation || result.evaluation || null;
+      const dataset = metadata.dataset || result.dataset || "AgentClinic";
+      const scenario = metadata.scenario_id ?? result.scenario_id ?? metadata.patient_id ?? pathName(url);
+      const turns = asArray(raw.doctor_visualization?.turns).map((turn, index) => ({
+        index,
+        inference: turn.inference ?? index,
+        task: turn.task ?? task.problem,
+        source: turn.environment_source || sourceFromTurn(turn),
+        environment: turn.environment_response ?? turn.hospital_response ?? "",
+        doctor: turn.doctor_response ?? turn.doctor_message ?? "",
+        uncertainty: turn.uncertainty_reasoning,
+        metadata: turn.metadata,
+        ts: turn.ts,
+      }));
+      const finalHighlight = asArray(raw.highlight_visualization?.highlights)
+        .find(item => item.kind === "final_agent_state" || item.type === "final_agent_state")
+        || asArray(raw.highlight_visualization?.highlights).at(-1);
+      const finalData = asObject(finalHighlight?.data);
+      return {
+        url,
+        raw,
+        title: `${dataset}:${scenario}`,
+        subtitle: `${formatTime(meta.started_at)} - ${result.correct === true ? "correct" : result.correct === false ? "incorrect" : "not scored"}`,
+        startedAt: meta.started_at || metadata.date_time,
+        sections: {
+          metadata: { ...meta, ...metadata, source_url: url },
+          task_visualization: raw.task_visualization,
+          highlight_visualization: raw.highlight_visualization,
+          agent_visualization: raw.agent_visualization,
+        },
+        evaluation,
+        doctor: {
+          result,
+          turns,
+          final: {
+            osce_note: finalData.osce_note ?? result.osce_note,
+            differential_diagnosis: finalData.differential_diagnosis ?? result.differential_diagnosis_list,
+            final_response: result.model_diagnosis,
+            correct_diagnosis: result.correct_diagnosis,
+            correct: result.correct,
+          },
+        },
+      };
+    }
+
+    function normalizeProjectedRun(raw, url) {
+      const run = raw.run || {};
+      const evaluation = raw.evaluation || run.evaluation || null;
+      const turns = [];
+      for (const agent of asArray(raw.agents)) {
+        for (const invocation of asArray(agent.invocations)) {
+          turns.push({
+            index: turns.length,
+            inference: invocation.global_sequence ?? turns.length,
+            task: run.objective,
+            source: invocation.input?.source || agent.agent_type,
+            environment: invocation.input?.text || "",
+            doctor: invocation.final_output?.text || "",
+            uncertainty: "",
+            metadata: { agent: agent.display_name, phase: invocation.phase },
+            ts: invocation.started_at,
+          });
+        }
+      }
+      const osce = asArray(raw.highlights).find(item => item.type === "osce_note")?.data;
+      const ddx = asArray(raw.highlights).find(item => item.type === "differential_diagnosis_list")?.data;
+      return {
+        url,
+        raw,
+        title: `${run.dataset || "AgentClinic"}:${run.scenario_id || pathName(url)}`,
+        subtitle: `${formatTime(run.started_at)} - ${run.status || "unknown"}`,
+        startedAt: run.started_at,
+        sections: {
+          metadata: { ...run, metrics: raw.metrics, source_url: url },
+          task_visualization: { problem: run.objective, result: run.final_output, metadata: run },
+          highlight_visualization: { highlights: raw.highlights },
+          agent_visualization: { runs: raw.agents },
+        },
+        evaluation,
+        doctor: {
+          result: run,
+          turns,
+          final: {
+            osce_note: osce,
+            differential_diagnosis: ddx?.diagnoses || ddx,
+            final_response: run.final_output?.text,
+            correct_diagnosis: run.evaluation?.correct_diagnosis,
+            correct: run.evaluation?.correct,
+          },
+        },
+      };
+    }
+
+    function normalizeLegacyTrajectory(raw, url) {
+      const turns = asArray(raw.turns).map((turn, index) => ({
+        index,
+        inference: turn.inference ?? index,
+        task: raw.objective,
+        source: sourceFromTurn(turn),
+        environment: turn.environment_response ?? turn.hospital_response ?? "",
+        doctor: turn.doctor_response ?? turn.doctor_message ?? "",
+        uncertainty: turn.uncertainty_reasoning,
+        metadata: turn.meta,
+        ts: turn.meta?.started_at,
+      }));
+      const last = turns.at(-1) || {};
+      return {
+        url,
+        raw,
+        title: `AgentClinic:${pathName(url).replace(/\.json$/, "")}`,
+        subtitle: `${formatTime(raw.started_at || turns[0]?.ts)} - legacy trajectory`,
+        startedAt: raw.started_at || turns[0]?.ts,
+        sections: {
+          metadata: { model: raw.model, objective: raw.objective, source_url: url },
+          task_visualization: { problem: raw.objective, result: { model_diagnosis: last.doctor } },
+          highlight_visualization: { highlights: [] },
+          agent_visualization: { turns: raw.turns },
+        },
+        evaluation: raw.evaluation || null,
+        doctor: {
+          result: { model_diagnosis: last.doctor },
+          turns,
+          final: { final_response: last.doctor },
+        },
+      };
+    }
+
+    function normalizeUnknownRun(raw, url) {
+      return {
+        url,
+        raw,
+        title: pathName(url),
+        subtitle: "raw JSON",
+        startedAt: null,
+        sections: {
+          metadata: { source_url: url },
+          task_visualization: {},
+          highlight_visualization: {},
+          agent_visualization: raw,
+        },
+        evaluation: raw.evaluation || null,
+        doctor: { result: {}, turns: [], final: {} },
+      };
+    }
+
+    function sourceFromTurn(turn) {
+      const source = turn.environment_source || turn.source;
+      if (source) return source;
+      const request = String(turn.doctor_message || turn.doctor_response || "");
+      return request.includes("REQUEST TEST") ? "examination" : "patient";
+    }
+
+    function collapseControl() {
       return `
-        <article class="highlight" data-type="${escapeHtml(highlight.type)}">
-          <div class="eyebrow">${escapeHtml(highlight.type.replaceAll("_", " "))}</div>
-          <h3>${escapeHtml(highlight.title)}</h3>
-          <p class="muted">Produced by ${escapeHtml(highlight.producer_agent_id)} · ${escapeHtml(highlight.source_invocation_id)}</p>
-          ${body}
+        <span class="collapse-chip">
+          <span class="when-closed">Expand</span>
+          <span class="when-open">Collapse</span>
+        </span>
+      `;
+    }
+
+    function renderSidebar() {
+      if (!state.runs.length) return;
+      runList.innerHTML = state.runs.map((run, index) => `
+        <button class="run-item ${index === state.selectedIndex ? "active" : ""}" data-index="${index}">
+          <span class="run-title">${escapeHtml(run.title)}</span>
+          <span class="run-subtitle">${escapeHtml(run.subtitle)}</span>
+          <span class="run-subtitle">${escapeHtml(pathName(run.url))}</span>
+        </button>
+      `).join("");
+      runList.querySelectorAll(".run-item").forEach(button => {
+        button.addEventListener("click", () => selectRun(Number(button.dataset.index)));
+      });
+    }
+
+    function selectRun(index) {
+      state.selectedIndex = index;
+      renderSidebar();
+      const run = state.runs[index];
+      caseHeader.innerHTML = `
+        <div>
+          <h1>${escapeHtml(run.title)}</h1>
+          <div class="muted">${escapeHtml(run.url)}</div>
+          <div class="chips">
+            <span class="chip">${escapeHtml(formatTime(run.startedAt))}</span>
+            <span class="chip">${escapeHtml(`${run.doctor.turns.length} doctor turn(s)`)}</span>
+            ${run.doctor.final.correct === true ? '<span class="chip good">correct</span>' : ""}
+            ${run.doctor.final.correct === false ? '<span class="chip bad">incorrect</span>' : ""}
+            ${run.evaluation ? '<span class="chip good">phase-1 evaluated</span>' : ""}
+          </div>
+        </div>
+      `;
+      developerView.innerHTML = renderDeveloper(run);
+      doctorView.innerHTML = renderDoctor(run);
+    }
+
+    function renderDeveloper(run) {
+      return `
+        <section class="grid">
+          ${renderMetadataCard(run.sections.metadata)}
+          ${renderHighlightCard(run.sections.highlight_visualization)}
+        </section>
+        ${run.evaluation ? renderEvaluationPanel(run.evaluation) : ""}
+        <section class="stack">
+          ${renderTaskVisualization(run.sections.task_visualization)}
+          ${renderAgentVisualization(run.sections.agent_visualization)}
+        </section>
+      `;
+    }
+
+    function renderMetadataCard(metadata) {
+      const important = [
+        ["model", metadata?.model],
+        ["dataset", metadata?.dataset],
+        ["scenario_id", metadata?.scenario_id],
+        ["patient_id", metadata?.patient_id],
+        ["started_at", formatTime(metadata?.started_at || metadata?.date_time)],
+        ["rounds", metadata?.rounds],
+        ["money_spent", moneyLabel(metadata)],
+        ["usage", usageLabel(metadata?.token_usage || metadata)],
+      ].filter(([, value]) => value !== undefined && value !== null && value !== "");
+      return `
+        <div class="panel">
+          <h3>Metadata</h3>
+          <div class="muted">${escapeHtml(summaryFor(metadata))}</div>
+          <div class="md-block" style="margin-top:12px">
+            ${renderStructuredList(important.length ? Object.fromEntries(important) : metadata)}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderHighlightCard(highlightVisualization) {
+      const highlights = asArray(highlightVisualization?.highlights);
+      return `
+        <div class="panel">
+          <h3>Highlights</h3>
+          <div class="muted">${highlights.length} highlight(s)</div>
+          <div class="md-block" style="margin-top:12px">
+            ${highlights.length ? highlights.map(renderHighlightItem).join("") : '<div class="empty">No highlights recorded.</div>'}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderHighlightItem(item, index) {
+      return `
+        <div>
+          <h4>${escapeHtml(item.title || item.kind || item.type || `Highlight ${index + 1}`)}</h4>
+          <div class="muted">${escapeHtml(item.kind || item.type || "")}${item.ts ? " · " + escapeHtml(formatTime(item.ts)) : ""}</div>
+          <div style="margin-top:8px">
+            ${renderStructuredList(item.data)}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderTaskVisualization(taskVisualization) {
+      const task = taskVisualization || {};
+      return `
+        <details class="section" open>
+          <summary>
+            <div class="card-head">
+              <div>
+                <h3>Task Visualization</h3>
+                <div class="muted">Problem, environment, result, and task metadata</div>
+              </div>
+              ${collapseControl()}
+            </div>
+          </summary>
+          <div class="section-body">
+            <div class="json-grid">
+              ${renderJsonBlock("Problem JSON", task.problem)}
+              ${renderJsonBlock("Environment JSON", task.environment)}
+              ${renderJsonBlock("Result JSON", task.result)}
+              ${renderJsonBlock("Metadata JSON", task.metadata)}
+            </div>
+          </div>
+        </details>
+      `;
+    }
+
+    function renderAgentVisualization(agentVisualization) {
+      const runs = asArray(agentVisualization?.runs);
+      return `
+        <div class="panel">
+          <div class="card-head">
+            <div>
+              <h3>Agent Visualization</h3>
+              <div class="muted">${runs.length} agent run(s), each with LLM turns, visible tool input, and hidden tool output</div>
+            </div>
+            <span class="chip">${escapeHtml(usageLabel(agentVisualization?.token_usage || {}))}</span>
+          </div>
+          <div class="stack" style="margin-top:12px">
+            ${agentVisualization?.agent_system_prompt ? renderJsonBlock("Agent System Prompt", agentVisualization.agent_system_prompt) : ""}
+            ${runs.length ? runs.map(renderAgentRun).join("") : renderJsonBlock("Raw Agent Visualization JSON", agentVisualization)}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAgentRun(run, index) {
+      const turns = asArray(run.turns);
+      const result = parseMaybeJson(run.result?.content) || run.result || {};
+      const statusClass = run.error ? "bad" : "good";
+      const type = agentType(run, result);
+      const finalOutput = agentFinalOutput(result);
+      return `
+        <details class="section agent-run" ${index === 0 ? "open" : ""}>
+          <summary>
+            <div class="card-head">
+              <div>
+                <div class="card-title">Agent Run ${index + 1}: ${escapeHtml(type)}</div>
+                <div class="muted">${escapeHtml(formatTime(run.started_at))} · ${turns.length} internal turn(s)</div>
+                <div class="muted">Final output: ${escapeHtml(short(finalOutput, 220))}</div>
+                <div class="chips">
+                  <span class="chip">agent type: ${escapeHtml(type)}</span>
+                  <span class="chip">${escapeHtml(run.run_name || "agent")}</span>
+                </div>
+              </div>
+              <div class="chips" style="justify-content:flex-end;margin-top:0">
+                <span class="chip ${statusClass}">${run.error ? "error" : "completed"}</span>
+                ${collapseControl()}
+              </div>
+            </div>
+          </summary>
+          <div class="section-body stack">
+            ${run.error ? `<div class="box"><h4>Error</h4><p>${escapeHtml(run.error)}</p></div>` : ""}
+            <div class="json-grid">
+              ${renderJsonBlock("Run Input JSON", run.input, renderMessageSummary(run.input))}
+              ${renderJsonBlock("Run Result JSON", result, renderResultSummary(result))}
+              ${renderJsonBlock("Run Metadata JSON", run.metadata)}
+            </div>
+            <div class="stack">
+              <h4>Internal Agent Turns</h4>
+              ${turns.length ? turns.map((turn, turnIndex) => renderAgentTurn(turn, turnIndex)).join("") : '<div class="empty">No internal turns recorded.</div>'}
+            </div>
+          </div>
+        </details>
+      `;
+    }
+
+    function renderAgentTurn(turn, index) {
+      const output = turn.output || {};
+      const toolCalls = asArray(turn.tool_calls);
+      const outputSummary = output.content || toolCalls.map(toolLabel).join(", ") || "assistant output";
+      return `
+        <article class="turn-json">
+          <div class="turn-json-head">
+            <div>
+              <div class="card-title">Internal Turn ${turn.round ?? index}</div>
+              <div class="muted">${escapeHtml(short(outputSummary, 180))}</div>
+            </div>
+            <span class="chip">${escapeHtml(usageLabel(output.usage || {}))}</span>
+          </div>
+          <div class="turn-json-body">
+            <div class="json-grid">
+              ${renderJsonBlock("Input JSON", turn.input, renderMessageSummary(turn.input))}
+              ${renderJsonBlock("Output JSON", output, renderAssistantOutput(output))}
+            </div>
+            <div class="json-block">
+              <h4>Tool Calls</h4>
+              ${toolCalls.length ? `<div class="tool-list">${toolCalls.map(renderToolCall).join("")}</div>` : '<div class="empty">No tool calls recorded for this turn.</div>'}
+            </div>
+          </div>
         </article>
       `;
     }
 
-    function renderTool(tool) {
+    function renderToolCall(item, index) {
+      const call = item.tool_call || item;
+      const name = call.function?.name || call.name || "tool";
+      const args = parseMaybeJson(call.function?.arguments ?? call.arguments ?? {});
+      const resultMessage = item.tool_result || {};
+      const result = parseMaybeJson(resultMessage.content ?? item.result ?? resultMessage);
       return `
-        <div class="tool">
-          <div class="tool-head">
-            <strong>${escapeHtml(tool.name)}</strong>
-            <span class="status ${escapeHtml(tool.status)}">${escapeHtml(tool.status)}</span>
-          </div>
-          <details>
-            <summary><span class="muted">Tool input</span></summary>
-            <pre>${json(tool.arguments)}</pre>
-          </details>
-          <details>
-            <summary><span class="muted">Tool result</span></summary>
-            <pre>${json(tool.result ?? {artifact_id: tool.result_artifact_id})}</pre>
-          </details>
-        </div>
-      `;
-    }
-
-    function renderArtifact(artifact) {
-      return `
-        <div class="artifact">
-          <strong>Image artifact</strong>
-          <div class="muted">Directory: ${escapeHtml(artifact.directory)}</div>
-          <div>Path: <code>${escapeHtml(artifact.stored_path)}</code></div>
-          <div>Decoded: <strong>${artifact.decoded ? "yes" : "no"}</strong> (${escapeHtml(artifact.decode_status)})</div>
-        </div>
-      `;
-    }
-
-    function renderRound(round, artifactMap) {
-      const artifacts = (round.input?.artifact_ids || [])
-        .map(id => artifactMap.get(id))
-        .filter(Boolean);
-
-      return `
-        <details class="round">
-          <summary>
-            <div class="summary-row">
-              <div class="summary-copy">
-                <div class="eyebrow">Level 3 · LLM round</div>
-                <h4>Round ${round.sequence}</h4>
-                <div class="summary-line">
-                  ${(round.tool_calls || []).map(tool => escapeHtml(tool.name)).join(" → ") || "No tools"}
-                  · ${usage(round.usage)}
-                </div>
-              </div>
-            </div>
-          </summary>
-          <div class="detail-body">
-            <div class="two-col">
-              <div class="data-box">
-                <h4>Exact model input</h4>
-                <div class="muted">${round.input?.message_count ?? 0} normalized messages</div>
-                <details>
-                  <summary><span class="muted">Expand all messages</span></summary>
-                  <pre>${json(round.input?.messages || [])}</pre>
-                </details>
-                ${artifacts.map(renderArtifact).join("")}
-              </div>
-              <div class="data-box">
-                <h4>Assistant response</h4>
-                <pre>${json(round.assistant || {})}</pre>
-                <h4 style="margin-top:12px">Memory changes</h4>
-                <pre>${json(round.memory_changes || [])}</pre>
-              </div>
-            </div>
-            <h4 style="margin-top:14px">Tool calls and results</h4>
-            ${(round.tool_calls || []).map(renderTool).join("") || '<div class="empty">No tool calls</div>'}
-          </div>
-        </details>
-      `;
-    }
-
-    function renderInvocation(invocation, artifactMap) {
-      return `
-        <details class="invocation">
-          <summary>
-            <div class="summary-row">
-              <div class="summary-copy">
-                <h3>Turn ${invocation.global_sequence} · ${escapeHtml(invocation.input?.source || "unknown")}</h3>
-                <div class="summary-line">
-                  Input: ${escapeHtml(invocation.input?.summary)}
-                </div>
-                <div class="summary-line">
-                  Output: ${escapeHtml(invocation.final_output?.text)}
-                </div>
-                <div class="chips">
-                  <span class="chip">${(invocation.rounds || []).length} round(s)</span>
-                  ${(invocation.tool_names || []).map(name => `<span class="chip">${escapeHtml(name)}</span>`).join("")}
-                </div>
-              </div>
-            </div>
-          </summary>
-          <div class="detail-body">
-            <div class="two-col">
-              <div class="data-box">
-                <h4>Invocation input</h4>
-                <p>${escapeHtml(invocation.input?.text)}</p>
-                <details>
-                  <summary><span class="muted">Raw normalized input</span></summary>
-                  <pre>${json(invocation.input)}</pre>
-                </details>
-              </div>
-              <div class="data-box">
-                <h4>Final output</h4>
-                <p><strong>${escapeHtml(invocation.final_output?.text)}</strong></p>
-                <div class="muted">${usage(invocation.usage)} · ${invocation.duration_ms ?? "?"} ms</div>
-                <details>
-                  <summary><span class="muted">Raw final payload</span></summary>
-                  <pre>${json(invocation.final_output)}</pre>
-                </details>
-              </div>
-            </div>
-            <h4 style="margin-top:14px">Sequential execution</h4>
-            <div class="flow">
-              ${(invocation.execution_summary || []).map(item =>
-                `<span class="flow-node">${escapeHtml(item.sequence)}. ${escapeHtml(item.label)}</span>`
-              ).join('<span class="arrow">→</span>')}
-            </div>
-            <h4 style="margin-top:16px">LLM rounds</h4>
-            ${(invocation.rounds || []).map(round => renderRound(round, artifactMap)).join("")}
-          </div>
-        </details>
-      `;
-    }
-
-    function renderAgent(agent, artifactMap) {
-      const diagnosisClass = agent.agent_type === "differential_diagnosis" ? " diagnosis" : "";
-      return `
-        <details class="agent${diagnosisClass}">
-          <summary>
-            <div class="summary-row">
-              <div class="summary-copy">
-                <div class="eyebrow">Level 1 · ${escapeHtml(agent.agent_type.replaceAll("_", " "))}</div>
-                <h2>${escapeHtml(agent.display_name)}</h2>
-                <div class="summary-line">${escapeHtml(agent.instruction.summary)}</div>
-                <div class="summary-line">
-                  Final output: <strong>${escapeHtml(agent.final_output?.text)}</strong>
-                </div>
-                <div class="chips">
-                  <span class="status completed">${escapeHtml(agent.status)}</span>
-                  <span class="chip">${agent.invocations.length} invocation(s)</span>
-                  <span class="chip">${escapeHtml(agent.model)}</span>
-                  <span class="chip">${usage(agent.usage)}</span>
-                </div>
-              </div>
-            </div>
-          </summary>
-          <div class="detail-body">
-            <div class="two-col">
-              <div class="data-box">
-                <h4>Resolved instruction</h4>
-                <p>${escapeHtml(agent.instruction.resolved_text)}</p>
-                <small>${escapeHtml(agent.instruction.source_path)} · ${escapeHtml(agent.instruction.sha256)}</small>
-              </div>
-              <div class="data-box">
-                <h4>Available tools</h4>
-                <div class="chips">${agent.tools.map(tool => `<span class="chip">${escapeHtml(tool.name)}</span>`).join("")}</div>
-                <h4 style="margin-top:12px">Agent input → output</h4>
-                <div class="muted">${escapeHtml(agent.initial_input?.summary)}</div>
-                <div style="margin:6px 0">↓</div>
-                <strong>${escapeHtml(agent.final_output?.text)}</strong>
-              </div>
-            </div>
-            <h3 style="margin-top:18px">Level 2 · Agent invocation turns</h3>
-            ${agent.invocations.map(invocation => renderInvocation(invocation, artifactMap)).join("")}
-          </div>
-        </details>
-      `;
-    }
-
-    function render(data) {
-      const run = data.run;
-      const artifactMap = new Map((data.artifacts || []).map(item => [item.artifact_id, item]));
-      document.getElementById("app").innerHTML = `
-        <header>
-          <div class="eyebrow">Protocol ${escapeHtml(data.protocol_version)} · ${escapeHtml(run.task_type)}</div>
-          <h1>Multi-Agent Clinical Trace</h1>
-          <p class="muted">Cascading task → agent → invocation → round visualization.</p>
-        </header>
-
-        <section class="task-card">
-          <div class="task-grid">
+        <div class="tool-input">
+          <div class="tool-input-head">
             <div>
-              <div class="eyebrow">Task root</div>
-              <h2>${escapeHtml(run.dataset)} / ${escapeHtml(run.scenario_id)}</h2>
-              <p>${escapeHtml(run.objective)}</p>
-              <p><strong>${escapeHtml(run.final_output.text)}</strong></p>
-              <div class="metrics">
-                <span class="status completed">${escapeHtml(run.status)}</span>
-                <span class="metric">${data.metrics.agent_count} agents</span>
-                <span class="metric">${data.metrics.invocation_count} turns</span>
-                <span class="metric">${data.metrics.round_count} rounds</span>
-                <span class="metric">${usage(data.metrics.usage)}</span>
+              <h4>${escapeHtml(index + 1)}. ${escapeHtml(toolLabel(item))}</h4>
+              <div class="muted">${escapeHtml(name)}</div>
+            </div>
+            <span class="chip">tool input visible</span>
+          </div>
+          <pre>${pretty({ tool_call: call, arguments: args })}</pre>
+          <details class="output-details">
+            <summary>
+              <div class="card-head">
+                <div>
+                  <div class="card-title">Tool Output JSON</div>
+                  <div class="muted">Hidden by default</div>
+                </div>
+                ${collapseControl()}
+              </div>
+            </summary>
+            <div class="output-details-body">
+              <pre>${pretty(result)}</pre>
+            </div>
+          </details>
+        </div>
+      `;
+    }
+
+    function agentType(run, result) {
+      const direct = run.agent_type || run.metadata?.agent_type || run.metadata?.phase;
+      if (direct) return sectionTitle(direct);
+      const output = result?.output || result;
+      const toolName = output?.tool_name;
+      const action = output?.content?.action;
+      if (toolName === "final_diagnosis") return "Final Diagnosis";
+      if (action) return sectionTitle(action);
+      return sectionTitle(run.run_name || "agent");
+    }
+
+    function agentFinalOutput(result) {
+      const output = result?.output || result;
+      if (typeof output?.content === "string") return output.content;
+      if (output?.content?.message) return output.content.message;
+      if (output?.content?.action) return output.content.action;
+      return humanText(output?.content ?? output);
+    }
+
+    function toolLabel(item) {
+      const call = item.tool_call || item;
+      const name = call.function?.name || call.name || "tool";
+      const args = parseMaybeJson(call.function?.arguments ?? call.arguments ?? {});
+      const result = parseMaybeJson(item.tool_result?.content ?? item.result ?? {});
+      if (name === "update_osce_note") return "Update OSCE note";
+      if (name === "update_plan") return "Update plan";
+      if (name === "update_evidence") return "Update diagnostic evidence";
+      if (name === "bash") {
+        const output = result?.output || result;
+        const toolName = output?.tool_name;
+        if (toolName === "respond") return "Respond to AgentClinic";
+        if (toolName === "final_diagnosis") return "Final diagnosis";
+        const command = typeof args?.command === "string" ? args.command : "";
+        if (command.includes("agentclinic_tools.py")) return "AgentClinic action";
+        return "Run bash command";
+      }
+      return name;
+    }
+
+    function renderMessageSummary(messages) {
+      const list = asArray(messages);
+      if (!list.length) return '<div class="muted">No messages recorded.</div>';
+      const roles = list.reduce((counts, message) => {
+        counts[message.role || "unknown"] = (counts[message.role || "unknown"] || 0) + 1;
+        return counts;
+      }, {});
+      return `
+        <div class="chips">
+          <span class="chip">${list.length} message(s)</span>
+          ${Object.entries(roles).map(([role, count]) => `<span class="chip">${escapeHtml(role)}: ${count}</span>`).join("")}
+        </div>
+      `;
+    }
+
+    function renderResultSummary(result) {
+      const content = result?.content ?? result?.output ?? result;
+      return `<p>${escapeHtml(short(content, 260))}</p>`;
+    }
+
+    function renderAssistantOutput(output) {
+      const toolCalls = asArray(output.tool_calls);
+      return `
+        ${output.content ? `<p>${escapeHtml(output.content)}</p>` : ""}
+        <div class="chips">
+          <span class="chip">${toolCalls.length} requested tool call(s)</span>
+          ${toolCalls.map(call => `<span class="chip">${escapeHtml(call.function?.name || call.name || "tool")}</span>`).join("")}
+        </div>
+      `;
+    }
+
+    function renderJsonBlock(label, value, lead = "") {
+      return `
+        <div class="json-block">
+          <h4>${escapeHtml(label)}</h4>
+          ${lead || ""}
+          <pre>${pretty(value)}</pre>
+        </div>
+      `;
+    }
+
+    function renderStructuredList(value) {
+      const parsed = parseMaybeJson(value);
+      if (parsed === null || parsed === undefined || parsed === "") {
+        return '<div class="muted">Not recorded</div>';
+      }
+      if (typeof parsed !== "object") {
+        return `<p>${escapeHtml(String(parsed))}</p>`;
+      }
+      if (Array.isArray(parsed)) {
+        if (!parsed.length) return '<div class="muted">Empty</div>';
+        return `<ul>${parsed.map(item => `<li>${renderStructuredInline(item)}</li>`).join("")}</ul>`;
+      }
+      const entries = Object.entries(parsed).filter(([, item]) => item !== undefined && item !== null && item !== "");
+      if (!entries.length) return '<div class="muted">Empty</div>';
+      return `
+        <dl>
+          ${entries.map(([key, item]) => `
+            <dt>${escapeHtml(sectionTitle(key))}</dt>
+            <dd>${renderStructuredInline(item)}</dd>
+          `).join("")}
+        </dl>
+      `;
+    }
+
+    function renderStructuredInline(value) {
+      const parsed = parseMaybeJson(value);
+      if (parsed === null || parsed === undefined || parsed === "") return '<span class="muted">Not recorded</span>';
+      if (typeof parsed === "string" || typeof parsed === "number" || typeof parsed === "boolean") {
+        return escapeHtml(String(parsed));
+      }
+      if (Array.isArray(parsed)) {
+        if (!parsed.length) return '<span class="muted">Empty</span>';
+        return `<ul>${parsed.map(item => `<li>${renderStructuredInline(item)}</li>`).join("")}</ul>`;
+      }
+      const entries = Object.entries(parsed).filter(([, item]) => item !== undefined && item !== null && item !== "");
+      if (!entries.length) return '<span class="muted">Empty</span>';
+      return `<ul>${entries.map(([key, item]) => `<li><strong>${escapeHtml(sectionTitle(key))}:</strong> ${renderStructuredInline(item)}</li>`).join("")}</ul>`;
+    }
+
+    function summaryFor(value) {
+      if (Array.isArray(value)) return `${value.length} item(s)`;
+      if (value && typeof value === "object") return `${Object.keys(value).length} key(s)`;
+      return short(value);
+    }
+
+    function percent(value) {
+      const number = Number(value);
+      return Number.isFinite(number) ? `${Math.round(number * 100)}%` : "0%";
+    }
+
+    function renderEvaluationPanel(evaluation) {
+      const block = asObject(evaluation);
+      const caseEval = asObject(block.case || block);
+      const summary = asObject(block.experiment_summary);
+      const overall = asObject(caseEval.overall_fact_coverage);
+      const diagnosis = asObject(caseEval.ground_truth_diagnosis);
+      const sections = asObject(caseEval.section_coverage);
+      const summaryCoverage = asObject(summary.fact_coverage);
+      return `
+        <details class="section" open>
+          <summary>
+            <div class="card-head">
+              <div>
+                <h3>Phase-1 Evaluation</h3>
+                <div class="muted">${escapeHtml(block.updated_at ? "Updated " + formatTime(block.updated_at) : "Evaluation result stored in this log")}</div>
+              </div>
+              ${collapseControl()}
+            </div>
+          </summary>
+          <div class="section-body stack">
+            <div class="eval-stats">
+              <div class="eval-stat">
+                <strong>${escapeHtml(percent(overall.coverage))}</strong>
+                <div class="muted">case fact coverage</div>
+                <div>${escapeHtml(overall.covered ?? 0)} / ${escapeHtml(overall.total ?? 0)}</div>
+              </div>
+              <div class="eval-stat">
+                <strong>${diagnosis.included ? "Yes" : "No"}</strong>
+                <div class="muted">ground truth in candidate list</div>
+                <div>${escapeHtml(diagnosis.reason || "No reason recorded.")}</div>
+              </div>
+              <div class="eval-stat">
+                <strong>${summaryCoverage.coverage === undefined ? "n/a" : escapeHtml(percent(summaryCoverage.coverage))}</strong>
+                <div class="muted">experiment fact coverage</div>
+                <div>${escapeHtml(summaryCoverage.covered ?? "-")} / ${escapeHtml(summaryCoverage.total ?? "-")}</div>
               </div>
             </div>
-            <div class="data-box">
-              <h4>Orchestration</h4>
-              <p>${escapeHtml(data.orchestration.description)}</p>
-              <div class="flow">
-                <span class="flow-node">Information seeking × 9</span>
-                <span class="arrow">→</span>
-                <span class="flow-node">Diagnosis × 1</span>
+            <div class="chips">
+              ${caseEval.patient_id ? `<span class="chip">patient: ${escapeHtml(caseEval.patient_id)}</span>` : ""}
+              ${caseEval.experiment_id ? `<span class="chip">experiment: ${escapeHtml(caseEval.experiment_id)}</span>` : ""}
+              ${block.model ? `<span class="chip">model: ${escapeHtml(block.model)}</span>` : ""}
+              ${summary.ground_truth_in_candidate_list ? `<span class="chip">experiment diagnosis score: ${escapeHtml(percent(summary.ground_truth_in_candidate_list.score))}</span>` : ""}
+            </div>
+            <div class="grid">
+              ${Object.entries(sections).map(([name, section]) => renderEvaluationSection(name, section)).join("") || '<div class="empty full-width">No fact-level evaluation recorded.</div>'}
+            </div>
+          </div>
+        </details>
+      `;
+    }
+
+    function renderEvaluationSection(name, section) {
+      const items = asArray(section.items);
+      return `
+        <div class="panel">
+          <div class="card-head">
+            <div>
+              <h3>${escapeHtml(sectionTitle(name))}</h3>
+              <div class="muted">${escapeHtml(section.covered ?? 0)} / ${escapeHtml(section.total ?? 0)} captured</div>
+            </div>
+            <span class="chip ${Number(section.coverage) >= 0.8 ? "good" : Number(section.coverage) > 0 ? "warn" : "bad"}">${escapeHtml(percent(section.coverage))}</span>
+          </div>
+          <div class="eval-facts">
+            ${items.length ? items.map(renderEvaluationFact).join("") : '<div class="empty">No facts in this section.</div>'}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderEvaluationFact(item) {
+      return `
+        <div class="eval-fact">
+          <div class="chips" style="margin-top:0">
+            <span class="chip ${item.included ? "good" : "bad"}">${item.included ? "captured" : "missing"}</span>
+          </div>
+          <p style="margin:8px 0 6px"><strong>${escapeHtml(item.fact || "Unnamed fact")}</strong></p>
+          <div class="muted">${escapeHtml(item.reason || "No reason recorded.")}</div>
+        </div>
+      `;
+    }
+
+    function renderDoctor(run) {
+      const final = run.doctor.final || {};
+      return `
+        ${run.evaluation ? renderEvaluationPanel(run.evaluation) : ""}
+        <section class="grid">
+          <div class="panel">
+            <h2>Final Agent State</h2>
+            <div class="box final">
+              <h3>OSCE Note</h3>
+              ${renderOsceNote(final.osce_note)}
+            </div>
+          </div>
+          <div class="panel">
+            <h2>Differential And Diagnosis</h2>
+            <div class="box final">
+              <h3>Differential Diagnosis</h3>
+              ${renderDifferentialList(final.differential_diagnosis)}
+              <h3 style="margin-top:12px">Final Response</h3>
+              <p><strong>${escapeHtml(final.final_response || "No final response recorded")}</strong></p>
+              <div class="chips">
+                ${final.correct_diagnosis ? `<span class="chip">correct diagnosis: ${escapeHtml(final.correct_diagnosis)}</span>` : ""}
+                ${final.correct === true ? '<span class="chip good">correct</span>' : ""}
+                ${final.correct === false ? '<span class="chip bad">incorrect</span>' : ""}
               </div>
             </div>
           </div>
         </section>
-
-        <section class="section">
-          <div class="eyebrow">Task results</div>
-          <h2>Highlights outside the trajectory</h2>
-          <div class="highlight-grid">${data.highlights.map(renderHighlight).join("")}</div>
-        </section>
-
-        <section class="section stack">
+        <section class="stack">
           <div>
-            <div class="eyebrow">Cascading execution</div>
-            <h2>Agents, turns, and rounds</h2>
+            <h2>Doctor Turns</h2>
+            <div class="muted">Each turn shows the task, the latest patient/examination environment input, and the doctor agent response.</div>
           </div>
-          ${data.agents.map(agent => renderAgent(agent, artifactMap)).join("")}
+          <div class="timeline">
+            ${run.doctor.turns.length ? run.doctor.turns.map(renderDoctorTurn).join("") : '<div class="empty">No doctor turns recorded in this JSON.</div>'}
+          </div>
         </section>
       `;
     }
 
-    fetch(dataUrl)
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.json();
-      })
-      .then(render)
-      .catch(error => {
-        document.getElementById("app").innerHTML = `
-          <div class="empty">
-            Could not load ${escapeHtml(dataUrl)}: ${escapeHtml(error.message)}.
-            Serve the repository over HTTP rather than opening the file directly.
-          </div>
-        `;
+    function renderOsceNote(osceNote) {
+      const note = parseMaybeJson(osceNote);
+      if (!note || typeof note !== "object" || Array.isArray(note)) {
+        return `<p>${escapeHtml(humanText(note))}</p>`;
+      }
+      const sections = Object.entries(note).filter(([, value]) => {
+        if (Array.isArray(value)) return value.length > 0;
+        return value !== undefined && value !== null && value !== "";
       });
+      if (!sections.length) return '<div class="empty">No OSCE note recorded.</div>';
+      return `
+        <div class="note-grid">
+          ${sections.map(([section, value]) => `
+            <div class="note-section">
+              <h4>${escapeHtml(sectionTitle(section))}</h4>
+              ${renderCleanList(value)}
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderCleanList(value) {
+      const parsed = parseMaybeJson(value);
+      const items = Array.isArray(parsed)
+        ? parsed.map(humanText).filter(Boolean)
+        : splitDifferential(parsed);
+      if (!items.length) return `<p>${escapeHtml(humanText(parsed))}</p>`;
+      return `<ul class="note-list">${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+    }
+
+    function renderDifferentialList(value) {
+      const items = splitDifferential(value);
+      if (!items.length) return '<div class="empty">No differential diagnosis recorded.</div>';
+      return `<ol class="ddx-list">${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ol>`;
+    }
+
+    function renderDoctorTurn(turn) {
+      return `
+        <article class="turn">
+          <div class="turn-head">
+            <div class="turn-index">${escapeHtml(turn.inference)}</div>
+            <div>
+              <h3>Turn ${escapeHtml(turn.inference)} - ${escapeHtml(turn.source || "environment")}</h3>
+              <div class="muted">${escapeHtml(formatTime(turn.ts))}</div>
+            </div>
+            <span class="chip">${escapeHtml(turn.metadata?.phase || turn.metadata?.agent || "doctor")}</span>
+          </div>
+          <div class="turn-body">
+            <div class="box">
+              <h4>Task</h4>
+              <p>${escapeHtml(humanText(turn.task))}</p>
+              <h4 style="margin-top:12px">Environment Input</h4>
+              <p>${escapeHtml(humanText(turn.environment))}</p>
+            </div>
+            <div class="box doctor">
+              <h4>Doctor Agent Response</h4>
+              <p><strong>${escapeHtml(humanText(turn.doctor))}</strong></p>
+              ${turn.uncertainty ? `<h4 style="margin-top:12px">Differential Reasoning</h4>${renderDifferentialList(turn.uncertainty)}` : ""}
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    const initialSource = params.get("logDir") || params.get("run") || params.get("manifest") || DEFAULT_LOG_DIR;
+    sourceInput.value = params.get("runs") ? params.get("runs") : initialSource;
+    setTab("developer");
+    loadSource(initialSource, true);
   </script>
 </body>
 </html>

@@ -123,6 +123,33 @@ def call_openai_json(
     return parsed
 
 
+def call_openai_structured_json(
+    messages: Sequence[dict[str, Any]],
+    *,
+    model: str,
+    json_schema: dict[str, Any],
+    schema_name: str = "structured_response",
+    strict: bool = True,
+    temperature: float = 0.2,
+    api_key: str | None = None,
+) -> dict[str, Any]:
+    """Return a parsed JSON object using OpenAI structured outputs."""
+    return call_openai_json(
+        messages,
+        model=model,
+        temperature=temperature,
+        api_key=api_key,
+        response_format={
+            "type": "json_schema",
+            "json_schema": {
+                "name": schema_name,
+                "strict": strict,
+                "schema": json_schema,
+            },
+        },
+    )
+
+
 def chat_openai(
     messages: Sequence[dict[str, Any]],
     *,
